@@ -85,6 +85,12 @@
     <Compile Include="HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MedicalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicalForm.Designer.cs">
+      <DependentUpon>MedicalForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Schedule.cs" />
     <Compile Include="Model\ItemInfo.cs" />
     <Compile Include="NewAppointment.cs">
@@ -95,8 +101,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartForm.Designer.cs">
+      <DependentUpon>StartForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicalForm.resx">
+      <DependentUpon>MedicalForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewAppointment.resx">
       <DependentUpon>NewAppointment.cs</DependentUpon>
@@ -111,6 +126,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="StartForm.resx">
+      <DependentUpon>StartForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -166,6 +184,18 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hospital-256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hospital-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hospital-481.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reminder-Window-48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
