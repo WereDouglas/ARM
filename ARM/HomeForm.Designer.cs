@@ -101,7 +101,7 @@
             this.appointmentTabPage.Controls.Add(this.tableLayoutPanel2);
             this.appointmentTabPage.HorizontalScrollbarBarColor = true;
             this.appointmentTabPage.HorizontalScrollbarHighlightOnWheel = false;
-            this.appointmentTabPage.HorizontalScrollbarSize = 4;
+            this.appointmentTabPage.HorizontalScrollbarSize = 3;
             this.appointmentTabPage.Location = new System.Drawing.Point(4, 38);
             this.appointmentTabPage.Name = "appointmentTabPage";
             this.appointmentTabPage.Size = new System.Drawing.Size(1165, 750);
@@ -213,7 +213,7 @@
             this.alertsTabPage.Controls.Add(this.metroPanel1);
             this.alertsTabPage.HorizontalScrollbarBarColor = true;
             this.alertsTabPage.HorizontalScrollbarHighlightOnWheel = false;
-            this.alertsTabPage.HorizontalScrollbarSize = 4;
+            this.alertsTabPage.HorizontalScrollbarSize = 3;
             this.alertsTabPage.Location = new System.Drawing.Point(4, 38);
             this.alertsTabPage.Name = "alertsTabPage";
             this.alertsTabPage.Size = new System.Drawing.Size(1165, 750);
@@ -227,7 +227,7 @@
             // 
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 4;
+            this.metroPanel1.HorizontalScrollbarSize = 3;
             this.metroPanel1.Location = new System.Drawing.Point(3, 3);
             this.metroPanel1.Name = "metroPanel1";
             this.metroPanel1.Size = new System.Drawing.Size(1144, 739);
@@ -240,7 +240,7 @@
             // 
             this.shiftTabPage.HorizontalScrollbarBarColor = true;
             this.shiftTabPage.HorizontalScrollbarHighlightOnWheel = false;
-            this.shiftTabPage.HorizontalScrollbarSize = 4;
+            this.shiftTabPage.HorizontalScrollbarSize = 3;
             this.shiftTabPage.Location = new System.Drawing.Point(4, 38);
             this.shiftTabPage.Name = "shiftTabPage";
             this.shiftTabPage.Size = new System.Drawing.Size(1165, 750);
@@ -254,7 +254,7 @@
             // 
             this.clientTabPage.HorizontalScrollbarBarColor = true;
             this.clientTabPage.HorizontalScrollbarHighlightOnWheel = false;
-            this.clientTabPage.HorizontalScrollbarSize = 4;
+            this.clientTabPage.HorizontalScrollbarSize = 3;
             this.clientTabPage.Location = new System.Drawing.Point(4, 38);
             this.clientTabPage.Name = "clientTabPage";
             this.clientTabPage.Size = new System.Drawing.Size(1165, 750);
@@ -268,7 +268,7 @@
             // 
             this.employeeTabPage.HorizontalScrollbarBarColor = true;
             this.employeeTabPage.HorizontalScrollbarHighlightOnWheel = false;
-            this.employeeTabPage.HorizontalScrollbarSize = 4;
+            this.employeeTabPage.HorizontalScrollbarSize = 3;
             this.employeeTabPage.Location = new System.Drawing.Point(4, 38);
             this.employeeTabPage.Name = "employeeTabPage";
             this.employeeTabPage.Size = new System.Drawing.Size(1165, 750);
@@ -311,7 +311,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::ARM.Properties.Resources.main_logo;
             this.pictureBox1.Location = new System.Drawing.Point(4, 4);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
@@ -328,7 +327,6 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button4.Image = global::ARM.Properties.Resources.Stop_Clock_32__1_;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.Location = new System.Drawing.Point(5, 226);
             this.button4.Name = "button4";
@@ -346,7 +344,6 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Image = global::ARM.Properties.Resources.Wheelchair_32__4_;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(4, 127);
             this.button1.Name = "button1";
@@ -364,7 +361,6 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.Image = global::ARM.Properties.Resources.User_Login_32__1_;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(5, 160);
             this.button2.Name = "button2";
@@ -374,6 +370,7 @@
             this.button2.Text = "Employee";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -382,7 +379,6 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.Image = global::ARM.Properties.Resources.Calendar_Date_04_32__2_;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(4, 193);
             this.button3.Name = "button3";
