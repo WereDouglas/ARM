@@ -281,6 +281,7 @@
             this.Name = "NewAppointment";
             this.Padding = new System.Windows.Forms.Padding(20, 74, 20, 25);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Style = MetroFramework.MetroColorStyle.White;
             this.Text = "NewAppointment";
             this.TransparencyKey = System.Drawing.Color.SkyBlue;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

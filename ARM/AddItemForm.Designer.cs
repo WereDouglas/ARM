@@ -351,6 +351,7 @@
             this.Controls.Add(this.metroComboBox2);
             this.Controls.Add(this.metroLabel4);
             this.Name = "AddItemForm";
+            this.Style = MetroFramework.MetroColorStyle.White;
             this.Text = "Add Equipment";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
