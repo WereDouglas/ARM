@@ -20,10 +20,13 @@ namespace ARM.Model
         private string state;
         private string zip;
         private string created;
+        private string ssn;
+        private string dob;
         private string category;
         private bool sync;
         public Customer() { }
-        public Customer(string id, string name, string contact, string address, string image, string no, string city, string state, string zip, string created, string category, bool sync)
+
+        public Customer(string id, string name, string contact, string address, string image, string no, string city, string state, string zip, string created, string ssn, string dob, string category, bool sync)
         {
             this.Id = id;
             this.Name = name;
@@ -35,9 +38,13 @@ namespace ARM.Model
             this.State = state;
             this.Zip = zip;
             this.Created = created;
+            this.Ssn = ssn;
+            this.Dob = dob;
             this.Category = category;
             this.Sync = sync;
         }
+
+        static List<Customer> p = new List<Customer>();
 
         public string Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
@@ -49,10 +56,11 @@ namespace ARM.Model
         public string State { get => state; set => state = value; }
         public string Zip { get => zip; set => zip = value; }
         public string Created { get => created; set => created = value; }
+        public string Ssn { get => ssn; set => ssn = value; }
+        public string Dob { get => dob; set => dob = value; }
         public string Category { get => category; set => category = value; }
         public bool Sync { get => sync; set => sync = value; }
 
-        static List<Customer> p = new List<Customer>();
         public static List<Customer> List()
         {
             string Q = "SELECT * FROM customer ";
@@ -60,7 +68,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Customer ps = new Customer(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["image"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["category"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                Customer ps = new Customer(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["image"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Convert.ToBoolean(Reader["sync"]));
                 p.Add(ps);
             }
             DBConnect.CloseConn();

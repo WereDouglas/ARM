@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ARM.DB;
+using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,8 +11,8 @@ namespace ARM.Model
   public class Schedule
     {
         private string id;
-        private string clientID;
-        private string empID;
+        private string customerID;
+        private string userID;
         private string starts;
         private string ends;
         private string location;
@@ -21,181 +23,16 @@ namespace ARM.Model
         private string category;//appointment or shift 
         private string status;
         private string created;
+        private bool sync;
 
-        public string Id
-        {
-            get
-            {
-                return id;
-            }
-
-            set
-            {
-                id = value;
-            }
-        }
-
-        public string ClientID
-        {
-            get
-            {
-                return clientID;
-            }
-
-            set
-            {
-                clientID = value;
-            }
-        }
-
-        public string EmpID
-        {
-            get
-            {
-                return empID;
-            }
-
-            set
-            {
-                empID = value;
-            }
-        }
-
-        public string Starts
-        {
-            get
-            {
-                return starts;
-            }
-
-            set
-            {
-                starts = value;
-            }
-        }
-
-        public string Ends
-        {
-            get
-            {
-                return ends;
-            }
-
-            set
-            {
-                ends = value;
-            }
-        }
-
-        public string Location
-        {
-            get
-            {
-                return location;
-            }
-
-            set
-            {
-                location = value;
-            }
-        }
-
-        public string Address
-        {
-            get
-            {
-                return address;
-            }
-
-            set
-            {
-                address = value;
-            }
-        }
-
-        public string Details
-        {
-            get
-            {
-                return details;
-            }
-
-            set
-            {
-                details = value;
-            }
-        }
-
-        public string Indicator
-        {
-            get
-            {
-                return indicator;
-            }
-
-            set
-            {
-                indicator = value;
-            }
-        }
-
-        public string Period
-        {
-            get
-            {
-                return period;
-            }
-
-            set
-            {
-                period = value;
-            }
-        }
-
-        public string Category
-        {
-            get
-            {
-                return category;
-            }
-
-            set
-            {
-                category = value;
-            }
-        }
-
-        public string Status
-        {
-            get
-            {
-                return status;
-            }
-
-            set
-            {
-                status = value;
-            }
-        }
-
-        public string Created
-        {
-            get
-            {
-                return created;
-            }
-
-            set
-            {
-                created = value;
-            }
-        }
+      
         public Schedule() { }
-        public Schedule(string id, string clientID, string empID, string starts, string ends, string location, string address, string details, string indicator, string period, string category, string status, string created)
+
+        public Schedule(string id, string customerID, string userID, string starts, string ends, string location, string address, string details, string indicator, string period, string category, string status, string created, bool sync)
         {
             this.Id = id;
-            this.ClientID = clientID;
-            this.EmpID = empID;
+            this.CustomerID = customerID;
+            this.UserID = userID;
             this.Starts = starts;
             this.Ends = ends;
             this.Location = location;
@@ -206,23 +43,36 @@ namespace ARM.Model
             this.Category = category;
             this.Status = status;
             this.Created = created;
+            this.Sync = sync;
         }
+
+        public string Id { get => id; set => id = value; }
+        public string CustomerID { get => customerID; set => customerID = value; }
+        public string UserID { get => userID; set => userID = value; }
+        public string Starts { get => starts; set => starts = value; }
+        public string Ends { get => ends; set => ends = value; }
+        public string Location { get => location; set => location = value; }
+        public string Address { get => address; set => address = value; }
+        public string Details { get => details; set => details = value; }
+        public string Indicator { get => indicator; set => indicator = value; }
+        public string Period { get => period; set => period = value; }
+        public string Category { get => category; set => category = value; }
+        public string Status { get => status; set => status = value; }
+        public string Created { get => created; set => created = value; }
+        public bool Sync { get => sync; set => sync = value; }
+        static List<Schedule> p = new List<Schedule>();
         public static List<Schedule> List()
         {
-            List<Schedule> events = new List<Schedule>();
-            //string SQL = "SELECT * FROM events";
-
-
-            //SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
-            //while (Reader.Read())
-            //{
-            //    Events p = new Events(Reader["id"].ToString(), Reader["details"].ToString(), Reader["starts"].ToString(), Reader["ends"].ToString(), Reader["users"].ToString(), Reader["file"].ToString(), Reader["created"].ToString(), Reader["fileid"].ToString(), Reader["status"].ToString(), Reader["userid"].ToString(), Reader["dated"].ToString(), Reader["notif"].ToString(), Reader["priority"].ToString(), Reader["sync"].ToString(), Reader["cal"].ToString(), Reader["contact"].ToString(), Reader["email"].ToString(), Reader["department"].ToString(), Reader["orgid"].ToString(), Reader["cost"].ToString(), Reader["no"].ToString());
-            //    events.Add(p);
-            //}
-            //Reader.Close();
-
-
-            return events;
+            string Q = "SELECT * FROM Schedule ";
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                Schedule ps = new Schedule(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["starts"].ToString(), Reader["ends"].ToString(), Reader["location"].ToString(), Reader["address"].ToString(), Reader["details"].ToString(), Reader["indicator"].ToString(), Reader["period"].ToString(), Reader["category"].ToString(), Reader["status"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                p.Add(ps);
+            }
+            DBConnect.CloseConn();
+            return p;
 
         }
     }

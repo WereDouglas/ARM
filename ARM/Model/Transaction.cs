@@ -14,15 +14,15 @@ namespace ARM.Model
         private string date;
         private string no;
         private string itemID;
-        private string total;       
-        private string qty;
-        private string cost;       
+        private double total;       
+        private double qty;
+        private double cost;       
         private string created;        
         private bool sync;
 
         public Transaction() { }
 
-        public Transaction(string id, string date, string no, string itemID, string total, string qty, string cost, string created, bool sync)
+        public Transaction(string id, string date, string no, string itemID, double total, double qty, double cost, string created, bool sync)
         {
             this.Id = id;
             this.Date = date;
@@ -41,9 +41,9 @@ namespace ARM.Model
         public string Date { get => date; set => date = value; }
         public string No { get => no; set => no = value; }
         public string ItemID { get => itemID; set => itemID = value; }
-        public string Total { get => total; set => total = value; }
-        public string Qty { get => qty; set => qty = value; }
-        public string Cost { get => cost; set => cost = value; }
+        public double Total { get => total; set => total = value; }
+        public double Qty { get => qty; set => qty = value; }
+        public double Cost { get => cost; set => cost = value; }
         public string Created { get => created; set => created = value; }
         public bool Sync { get => sync; set => sync = value; }
 
@@ -54,7 +54,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Transaction ps = new Transaction(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Reader["total"].ToString(), Reader["qty"].ToString(), Reader["cost"].ToString(),Reader["created"].ToString(),Convert.ToBoolean(Reader["sync"]));
+                Transaction ps = new Transaction(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(),Convert.ToDouble( Reader["total"]), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]),Reader["created"].ToString(),Convert.ToBoolean(Reader["sync"]));
                 p.Add(ps);
             }
             DBConnect.CloseConn();

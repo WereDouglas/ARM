@@ -131,8 +131,17 @@
     <Compile Include="DmeForm.Designer.cs">
       <DependentUpon>DmeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\ItemFollowReview.cs" />
+    <Compile Include="Model\PatientFollowStatus.cs" />
+    <Compile Include="Model\Follow.cs" />
+    <Compile Include="Model\PatientStatus.cs" />
+    <Compile Include="Model\ItemReview.cs" />
+    <Compile Include="Model\Responsible.cs" />
+    <Compile Include="Model\Rate.cs" />
     <Compile Include="Model\Transaction.cs" />
     <Compile Include="Model\Invoice.cs" />
+    <Compile Include="Model\Insurance.cs" />
     <Compile Include="Model\Vendor.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\User.cs" />

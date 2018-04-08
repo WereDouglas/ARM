@@ -87,7 +87,7 @@ namespace ARM
             {
                 try
                 {
-                    CalendarItem cal = new CalendarItem(calendar1, Convert.ToDateTime(e.Starts), Convert.ToDateTime(e.Ends), e.EmpID + " " + e.EmpID + " " + e.Starts + "" + e.Details);
+                    CalendarItem cal = new CalendarItem(calendar1, Convert.ToDateTime(e.Starts), Convert.ToDateTime(e.Ends), e.UserID + " " + e.UserID + " " + e.Starts + "" + e.Details);
 
                     if (e.Indicator == " ")
                     {
