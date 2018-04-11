@@ -30,75 +30,61 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.checkBox17 = new System.Windows.Forms.CheckBox();
-            this.checkBox21 = new System.Windows.Forms.CheckBox();
-            this.checkBox20 = new System.Windows.Forms.CheckBox();
-            this.checkBox26 = new System.Windows.Forms.CheckBox();
-            this.checkBox25 = new System.Windows.Forms.CheckBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.checkBox18 = new System.Windows.Forms.CheckBox();
-            this.checkBox19 = new System.Windows.Forms.CheckBox();
-            this.checkBox23 = new System.Windows.Forms.CheckBox();
-            this.checkBox24 = new System.Windows.Forms.CheckBox();
-            this.checkBox22 = new System.Windows.Forms.CheckBox();
-            this.checkBox28 = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.checkBox27 = new System.Windows.Forms.CheckBox();
-            this.checkBox29 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.checkBox12 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox30 = new System.Windows.Forms.CheckBox();
+            this.checkedListBox3 = new System.Windows.Forms.CheckedListBox();
             this.label54 = new System.Windows.Forms.Label();
-            this.checkBox14 = new System.Windows.Forms.CheckBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
-            this.checkBox16 = new System.Windows.Forms.CheckBox();
-            this.checkBox13 = new System.Windows.Forms.CheckBox();
-            this.checkBox15 = new System.Windows.Forms.CheckBox();
-            this.checkBox31 = new System.Windows.Forms.CheckBox();
-            this.checkBox32 = new System.Windows.Forms.CheckBox();
-            this.checkBox33 = new System.Windows.Forms.CheckBox();
-            this.checkBox34 = new System.Windows.Forms.CheckBox();
-            this.checkBox35 = new System.Windows.Forms.CheckBox();
-            this.checkBox36 = new System.Windows.Forms.CheckBox();
+            this.checkedListBox4 = new System.Windows.Forms.CheckedListBox();
             this.label52 = new System.Windows.Forms.Label();
             this.checkBox37 = new System.Windows.Forms.CheckBox();
             this.checkBox38 = new System.Windows.Forms.CheckBox();
             this.label53 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.checkedListBox5 = new System.Windows.Forms.CheckedListBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.checkBox28 = new System.Windows.Forms.CheckBox();
+            this.checkBox27 = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -110,109 +96,91 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoScroll = true;
             this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Location = new System.Drawing.Point(23, 67);
+            this.panel1.Location = new System.Drawing.Point(87, 62);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(948, 1029);
+            this.panel1.Size = new System.Drawing.Size(958, 1030);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 8;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 107F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 186F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 107F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 109F));
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 36);
-            this.tableLayoutPanel1.Controls.Add(this.label56, 0, 32);
-            this.tableLayoutPanel1.Controls.Add(this.label55, 0, 33);
+            this.tableLayoutPanel1.ColumnCount = 6;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.0339F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.9661F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 161F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 185F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 9F));
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox6, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label9, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label37, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.textBox7, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label17, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label24, 2, 23);
             this.tableLayoutPanel1.Controls.Add(this.label15, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox3, 4, 4);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox11, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.label22, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox17, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox21, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox20, 0, 9);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox26, 0, 10);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox25, 0, 11);
-            this.tableLayoutPanel1.Controls.Add(this.label27, 0, 12);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox18, 2, 6);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox19, 2, 7);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox23, 2, 8);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox24, 2, 9);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox22, 2, 10);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox28, 6, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 4, 5);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox27, 7, 5);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox29, 4, 6);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox1, 4, 7);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox4, 4, 8);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 4, 9);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 12);
-            this.tableLayoutPanel1.Controls.Add(this.label30, 0, 13);
-            this.tableLayoutPanel1.Controls.Add(this.label26, 4, 13);
-            this.tableLayoutPanel1.Controls.Add(this.label31, 2, 14);
-            this.tableLayoutPanel1.Controls.Add(this.label44, 0, 15);
-            this.tableLayoutPanel1.Controls.Add(this.label29, 3, 15);
-            this.tableLayoutPanel1.Controls.Add(this.label45, 2, 17);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox5, 0, 18);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox10, 0, 19);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox2, 2, 18);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox6, 0, 20);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox9, 0, 21);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox12, 2, 19);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox8, 2, 20);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox7, 0, 22);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox30, 0, 25);
-            this.tableLayoutPanel1.Controls.Add(this.label54, 3, 22);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox14, 0, 26);
-            this.tableLayoutPanel1.Controls.Add(this.label32, 0, 24);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox16, 0, 27);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox13, 0, 28);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox15, 2, 25);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox31, 2, 26);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox32, 2, 27);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox33, 2, 28);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox34, 4, 25);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox35, 4, 26);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox36, 4, 27);
-            this.tableLayoutPanel1.Controls.Add(this.label52, 2, 29);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox37, 0, 30);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox38, 3, 30);
-            this.tableLayoutPanel1.Controls.Add(this.label53, 0, 31);
-            this.tableLayoutPanel1.Controls.Add(this.label59, 3, 33);
-            this.tableLayoutPanel1.Controls.Add(this.label48, 5, 33);
-            this.tableLayoutPanel1.Controls.Add(this.label46, 0, 34);
-            this.tableLayoutPanel1.Controls.Add(this.label58, 0, 35);
+            this.tableLayoutPanel1.Controls.Add(this.textBox7, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.textBox4, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.checkedListBox1, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.label17, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.metroDateTime1, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.checkBox3, 3, 4);
+            this.tableLayoutPanel1.Controls.Add(this.checkedListBox2, 3, 6);
+            this.tableLayoutPanel1.Controls.Add(this.label30, 0, 10);
+            this.tableLayoutPanel1.Controls.Add(this.label44, 0, 12);
+            this.tableLayoutPanel1.Controls.Add(this.textBox3, 1, 12);
+            this.tableLayoutPanel1.Controls.Add(this.label29, 3, 12);
+            this.tableLayoutPanel1.Controls.Add(this.textBox9, 4, 12);
+            this.tableLayoutPanel1.Controls.Add(this.label45, 2, 13);
+            this.tableLayoutPanel1.Controls.Add(this.checkedListBox3, 0, 14);
+            this.tableLayoutPanel1.Controls.Add(this.label54, 0, 18);
+            this.tableLayoutPanel1.Controls.Add(this.textBox5, 1, 18);
+            this.tableLayoutPanel1.Controls.Add(this.label32, 0, 20);
+            this.tableLayoutPanel1.Controls.Add(this.checkedListBox4, 0, 21);
+            this.tableLayoutPanel1.Controls.Add(this.label52, 0, 25);
+            this.tableLayoutPanel1.Controls.Add(this.checkBox37, 2, 25);
+            this.tableLayoutPanel1.Controls.Add(this.checkBox38, 4, 25);
+            this.tableLayoutPanel1.Controls.Add(this.label53, 0, 26);
+            this.tableLayoutPanel1.Controls.Add(this.label55, 0, 29);
+            this.tableLayoutPanel1.Controls.Add(this.label46, 0, 30);
+            this.tableLayoutPanel1.Controls.Add(this.label58, 0, 31);
+            this.tableLayoutPanel1.Controls.Add(this.textBox10, 1, 29);
+            this.tableLayoutPanel1.Controls.Add(this.textBox11, 1, 30);
+            this.tableLayoutPanel1.Controls.Add(this.textBox13, 1, 31);
+            this.tableLayoutPanel1.Controls.Add(this.label59, 2, 29);
+            this.tableLayoutPanel1.Controls.Add(this.label48, 2, 30);
+            this.tableLayoutPanel1.Controls.Add(this.textBox12, 3, 29);
+            this.tableLayoutPanel1.Controls.Add(this.textBox14, 3, 30);
+            this.tableLayoutPanel1.Controls.Add(this.textBox15, 3, 32);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 32);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 27);
+            this.tableLayoutPanel1.Controls.Add(this.checkedListBox5, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.checkBox28, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.checkBox27, 4, 3);
+            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 10);
+            this.tableLayoutPanel1.Controls.Add(this.label27, 3, 10);
+            this.tableLayoutPanel1.Controls.Add(this.textBox2, 4, 10);
+            this.tableLayoutPanel1.Controls.Add(this.label31, 0, 11);
+            this.tableLayoutPanel1.Controls.Add(this.label24, 0, 19);
+            this.tableLayoutPanel1.Controls.Add(this.label56, 0, 28);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(30, 10);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 37;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.19149F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.80851F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.RowCount = 35;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.23529F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61.76471F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
@@ -231,46 +199,10 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(908, 1016);
             this.tableLayoutPanel1.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label2, 5);
-            this.label2.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 977);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(413, 16);
-            this.label2.TabIndex = 358;
-            this.label2.Text = "If the authorized rep does not live with patient,list their address/phone number " +
-    "";
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label56, 4);
-            this.label56.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.Location = new System.Drawing.Point(3, 883);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(275, 16);
-            this.label56.TabIndex = 328;
-            this.label56.Text = "(if patient unable to sign;authorized person complete";
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label55.Location = new System.Drawing.Point(3, 908);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(42, 16);
-            this.label55.TabIndex = 327;
-            this.label55.Text = "Name :";
             // 
             // label3
             // 
@@ -286,18 +218,17 @@
             // 
             this.textBox6.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tableLayoutPanel1.SetColumnSpan(this.textBox6, 2);
-            this.textBox6.Location = new System.Drawing.Point(106, 3);
+            this.textBox6.Location = new System.Drawing.Point(195, 3);
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(251, 22);
+            this.textBox6.Size = new System.Drawing.Size(210, 22);
             this.textBox6.TabIndex = 257;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 28);
+            this.label7.Location = new System.Drawing.Point(3, 30);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(51, 16);
             this.label7.TabIndex = 271;
@@ -307,7 +238,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(3, 50);
+            this.label9.Location = new System.Drawing.Point(3, 49);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(41, 16);
             this.label9.TabIndex = 273;
@@ -318,658 +249,325 @@
             this.label37.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label37, 2);
             this.label37.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(3, 70);
+            this.label37.Location = new System.Drawing.Point(3, 79);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(111, 16);
             this.label37.TabIndex = 293;
             this.label37.Text = "Alternative contact:";
             // 
-            // textBox7
-            // 
-            this.textBox7.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Location = new System.Drawing.Point(256, 73);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(101, 11);
-            this.textBox7.TabIndex = 258;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(363, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(71, 16);
-            this.label17.TabIndex = 254;
-            this.label17.Text = "Date of Visit";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label24, 3);
-            this.label24.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(256, 615);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(213, 22);
-            this.label24.TabIndex = 280;
-            this.label24.Text = "ADDITIONAL INSTRUCTIONS";
-            // 
             // label15
             // 
-            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.tableLayoutPanel1.SetColumnSpan(this.label15, 3);
+            this.label15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label15.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(3, 91);
+            this.label15.Location = new System.Drawing.Point(3, 109);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(327, 22);
+            this.label15.Size = new System.Drawing.Size(563, 22);
             this.label15.TabIndex = 252;
             this.label15.Text = "HOME ENVIRONMENT/SAFETY ASSESSMENT";
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox3, 3);
-            this.checkBox3.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox3.Location = new System.Drawing.Point(549, 94);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(200, 21);
-            this.checkBox3.TabIndex = 308;
-            this.checkBox3.Text = "NA NOT DELIVERED TO HOME";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox11
-            // 
-            this.checkBox11.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox11, 2);
-            this.checkBox11.Location = new System.Drawing.Point(3, 146);
-            this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(59, 19);
-            this.checkBox11.TabIndex = 333;
-            this.checkBox11.Text = "Safety";
-            this.checkBox11.UseVisualStyleBackColor = true;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label22, 3);
             this.label22.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(3, 118);
+            this.label22.Location = new System.Drawing.Point(3, 146);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(271, 16);
             this.label22.TabIndex = 278;
             this.label22.Text = "Discuss all appropriate factors and select if in order ";
             // 
-            // checkBox17
+            // textBox7
             // 
-            this.checkBox17.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox17, 2);
-            this.checkBox17.Location = new System.Drawing.Point(3, 171);
-            this.checkBox17.Name = "checkBox17";
-            this.checkBox17.Size = new System.Drawing.Size(138, 19);
-            this.checkBox17.TabIndex = 334;
-            this.checkBox17.Text = "Uncluttered pathways";
-            this.checkBox17.UseVisualStyleBackColor = true;
+            this.textBox7.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox7.Location = new System.Drawing.Point(195, 33);
+            this.textBox7.Multiline = true;
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(210, 13);
+            this.textBox7.TabIndex = 258;
             // 
-            // checkBox21
+            // textBox4
             // 
-            this.checkBox21.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox21, 2);
-            this.checkBox21.Location = new System.Drawing.Point(3, 196);
-            this.checkBox21.Name = "checkBox21";
-            this.checkBox21.Size = new System.Drawing.Size(130, 20);
-            this.checkBox21.TabIndex = 338;
-            this.checkBox21.Text = "Safe operating equip";
-            this.checkBox21.UseVisualStyleBackColor = true;
+            this.textBox4.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox4.Location = new System.Drawing.Point(195, 52);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(210, 24);
+            this.textBox4.TabIndex = 396;
             // 
-            // checkBox20
+            // checkedListBox1
             // 
-            this.checkBox20.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox20, 2);
-            this.checkBox20.Location = new System.Drawing.Point(3, 224);
-            this.checkBox20.Name = "checkBox20";
-            this.checkBox20.Size = new System.Drawing.Size(114, 20);
-            this.checkBox20.TabIndex = 337;
-            this.checkBox20.Text = "Safe environment";
-            this.checkBox20.UseVisualStyleBackColor = true;
+            this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableLayoutPanel1.SetColumnSpan(this.checkedListBox1, 3);
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "Safety",
+            "Uncluttered pathways",
+            "Safe operating equipment",
+            "Safe environment",
+            "Bathroom assessed",
+            "Area Rugs",
+            "Fire safety assessed",
+            "Cords Adapters",
+            "Pt/CG understands safety Issues",
+            "Safe electrical outlet",
+            "Getting in and out of device"});
+            this.checkedListBox1.Location = new System.Drawing.Point(3, 176);
+            this.checkedListBox1.MultiColumn = true;
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.tableLayoutPanel1.SetRowSpan(this.checkedListBox1, 4);
+            this.checkedListBox1.Size = new System.Drawing.Size(450, 90);
+            this.checkedListBox1.TabIndex = 400;
             // 
-            // checkBox26
+            // label17
             // 
-            this.checkBox26.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox26, 2);
-            this.checkBox26.Location = new System.Drawing.Point(3, 256);
-            this.checkBox26.Name = "checkBox26";
-            this.checkBox26.Size = new System.Drawing.Size(122, 20);
-            this.checkBox26.TabIndex = 344;
-            this.checkBox26.Text = "Bathroom assessed";
-            this.checkBox26.UseVisualStyleBackColor = true;
+            this.label17.AutoSize = true;
+            this.label17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label17.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(411, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(71, 16);
+            this.label17.TabIndex = 254;
+            this.label17.Text = "Date of Visit";
             // 
-            // checkBox25
+            // metroDateTime1
             // 
-            this.checkBox25.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox25, 2);
-            this.checkBox25.Location = new System.Drawing.Point(3, 289);
-            this.checkBox25.Name = "checkBox25";
-            this.checkBox25.Size = new System.Drawing.Size(76, 20);
-            this.checkBox25.TabIndex = 343;
-            this.checkBox25.Text = "Area Rugs";
-            this.checkBox25.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.metroDateTime1, 2);
+            this.metroDateTime1.Location = new System.Drawing.Point(572, 3);
+            this.metroDateTime1.MinimumSize = new System.Drawing.Size(4, 29);
+            this.metroDateTime1.Name = "metroDateTime1";
+            this.metroDateTime1.Size = new System.Drawing.Size(321, 29);
+            this.metroDateTime1.TabIndex = 394;
             // 
-            // label27
+            // checkBox3
             // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(3, 316);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(42, 16);
-            this.label27.TabIndex = 283;
-            this.label27.Text = "Other:";
+            this.checkBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.checkBox3, 3);
+            this.checkBox3.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox3.Location = new System.Drawing.Point(572, 112);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(321, 21);
+            this.checkBox3.TabIndex = 308;
+            this.checkBox3.Text = "NA NOT DELIVERED TO HOME";
+            this.checkBox3.UseVisualStyleBackColor = false;
             // 
-            // checkBox18
+            // checkedListBox2
             // 
-            this.checkBox18.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox18, 2);
-            this.checkBox18.Location = new System.Drawing.Point(256, 146);
-            this.checkBox18.Name = "checkBox18";
-            this.checkBox18.Size = new System.Drawing.Size(129, 19);
-            this.checkBox18.TabIndex = 335;
-            this.checkBox18.Text = "Fire safety assessed";
-            this.checkBox18.UseVisualStyleBackColor = true;
-            // 
-            // checkBox19
-            // 
-            this.checkBox19.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox19, 2);
-            this.checkBox19.Location = new System.Drawing.Point(256, 171);
-            this.checkBox19.Name = "checkBox19";
-            this.checkBox19.Size = new System.Drawing.Size(103, 19);
-            this.checkBox19.TabIndex = 336;
-            this.checkBox19.Text = "Cords Adapters";
-            this.checkBox19.UseVisualStyleBackColor = true;
-            // 
-            // checkBox23
-            // 
-            this.checkBox23.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox23, 2);
-            this.checkBox23.Location = new System.Drawing.Point(256, 196);
-            this.checkBox23.Name = "checkBox23";
-            this.checkBox23.Size = new System.Drawing.Size(191, 20);
-            this.checkBox23.TabIndex = 341;
-            this.checkBox23.Text = "Pt/CG understands safety issues";
-            this.checkBox23.UseVisualStyleBackColor = true;
-            // 
-            // checkBox24
-            // 
-            this.checkBox24.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox24, 2);
-            this.checkBox24.Location = new System.Drawing.Point(256, 224);
-            this.checkBox24.Name = "checkBox24";
-            this.checkBox24.Size = new System.Drawing.Size(131, 20);
-            this.checkBox24.TabIndex = 342;
-            this.checkBox24.Text = "Safe electrical outlet";
-            this.checkBox24.UseVisualStyleBackColor = true;
-            // 
-            // checkBox22
-            // 
-            this.checkBox22.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox22, 2);
-            this.checkBox22.Location = new System.Drawing.Point(256, 256);
-            this.checkBox22.Name = "checkBox22";
-            this.checkBox22.Size = new System.Drawing.Size(170, 20);
-            this.checkBox22.TabIndex = 339;
-            this.checkBox22.Text = "Getting in and out of device ";
-            this.checkBox22.UseVisualStyleBackColor = true;
-            // 
-            // checkBox28
-            // 
-            this.checkBox28.AutoSize = true;
-            this.checkBox28.Location = new System.Drawing.Point(732, 121);
-            this.checkBox28.Name = "checkBox28";
-            this.checkBox28.Size = new System.Drawing.Size(44, 19);
-            this.checkBox28.TabIndex = 346;
-            this.checkBox28.Text = "Yes";
-            this.checkBox28.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label1, 2);
-            this.label1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(549, 118);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 18);
-            this.label1.TabIndex = 340;
-            this.label1.Text = "APPROPRIATE FOR HOME";
-            // 
-            // checkBox27
-            // 
-            this.checkBox27.AutoSize = true;
-            this.checkBox27.Location = new System.Drawing.Point(801, 121);
-            this.checkBox27.Name = "checkBox27";
-            this.checkBox27.Size = new System.Drawing.Size(40, 19);
-            this.checkBox27.TabIndex = 345;
-            this.checkBox27.Text = "No";
-            this.checkBox27.UseVisualStyleBackColor = true;
-            // 
-            // checkBox29
-            // 
-            this.checkBox29.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox29, 3);
-            this.checkBox29.Location = new System.Drawing.Point(549, 146);
-            this.checkBox29.Name = "checkBox29";
-            this.checkBox29.Size = new System.Drawing.Size(186, 19);
-            this.checkBox29.TabIndex = 347;
-            this.checkBox29.Text = "Alert understand INSTRUCTIONS";
-            this.checkBox29.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox1, 3);
-            this.checkBox1.Location = new System.Drawing.Point(549, 171);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(192, 19);
-            this.checkBox1.TabIndex = 306;
-            this.checkBox1.Text = "Return demonstration by patient";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox4, 4);
-            this.checkBox4.Location = new System.Drawing.Point(549, 196);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(298, 20);
-            this.checkBox4.TabIndex = 309;
-            this.checkBox4.Text = "Confused/caregiver instructed Personal/physical limit";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tableLayoutPanel1.SetColumnSpan(this.textBox1, 4);
-            this.textBox1.Location = new System.Drawing.Point(549, 224);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(355, 25);
-            this.textBox1.TabIndex = 266;
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tableLayoutPanel1.SetColumnSpan(this.textBox2, 4);
-            this.textBox2.Location = new System.Drawing.Point(106, 319);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(544, 25);
-            this.textBox2.TabIndex = 349;
+            this.checkedListBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableLayoutPanel1.SetColumnSpan(this.checkedListBox2, 2);
+            this.checkedListBox2.FormattingEnabled = true;
+            this.checkedListBox2.Items.AddRange(new object[] {
+            "Alert understand INSTRUCTIONS",
+            "Returns demonstration by patient",
+            "Confused/caregiver instructed Personal/physical limit"});
+            this.checkedListBox2.Location = new System.Drawing.Point(572, 176);
+            this.checkedListBox2.MultiColumn = true;
+            this.checkedListBox2.Name = "checkedListBox2";
+            this.tableLayoutPanel1.SetRowSpan(this.checkedListBox2, 4);
+            this.checkedListBox2.Size = new System.Drawing.Size(321, 60);
+            this.checkedListBox2.TabIndex = 401;
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label30, 3);
             this.label30.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(3, 347);
+            this.label30.Location = new System.Drawing.Point(3, 279);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(153, 16);
             this.label30.TabIndex = 286;
             this.label30.Text = "OTHER HOME CARE SERVICES:";
             // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(549, 347);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(41, 16);
-            this.label26.TabIndex = 282;
-            this.label26.Text = "Phone:";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(256, 363);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(96, 22);
-            this.label31.TabIndex = 287;
-            this.label31.Text = "EQUIPMENT";
-            // 
             // label44
             // 
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(3, 390);
+            this.label44.Location = new System.Drawing.Point(3, 336);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(57, 16);
             this.label44.TabIndex = 300;
             this.label44.Text = "Device/s:";
             // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Location = new System.Drawing.Point(195, 339);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(210, 25);
+            this.textBox3.TabIndex = 404;
+            // 
             // label29
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(363, 390);
+            this.label29.Location = new System.Drawing.Point(572, 336);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(44, 16);
             this.label29.TabIndex = 285;
             this.label29.Text = "Serial #";
+            // 
+            // textBox9
+            // 
+            this.textBox9.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox9.Location = new System.Drawing.Point(716, 339);
+            this.textBox9.Multiline = true;
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(179, 25);
+            this.textBox9.TabIndex = 399;
             // 
             // label45
             // 
             this.label45.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label45, 4);
             this.label45.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.Location = new System.Drawing.Point(256, 434);
+            this.label45.Location = new System.Drawing.Point(411, 367);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(130, 22);
             this.label45.TabIndex = 301;
             this.label45.Text = "Type of product";
             // 
-            // checkBox5
+            // checkedListBox3
             // 
-            this.checkBox5.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox5, 2);
-            this.checkBox5.Location = new System.Drawing.Point(3, 469);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(131, 20);
-            this.checkBox5.TabIndex = 310;
-            this.checkBox5.Text = "Ambulatory products";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // checkBox10
-            // 
-            this.checkBox10.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox10, 2);
-            this.checkBox10.Location = new System.Drawing.Point(3, 500);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(144, 20);
-            this.checkBox10.TabIndex = 315;
-            this.checkBox10.Text = "Bath && Safety products";
-            this.checkBox10.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox2, 2);
-            this.checkBox2.Location = new System.Drawing.Point(256, 469);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(124, 20);
-            this.checkBox2.TabIndex = 307;
-            this.checkBox2.Text = "Manual Wheel Chair";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox6, 2);
-            this.checkBox6.Location = new System.Drawing.Point(3, 533);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(173, 20);
-            this.checkBox6.TabIndex = 311;
-            this.checkBox6.Text = "Beds/Patients Room Products";
-            this.checkBox6.UseVisualStyleBackColor = true;
-            // 
-            // checkBox9
-            // 
-            this.checkBox9.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox9, 2);
-            this.checkBox9.Location = new System.Drawing.Point(3, 563);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(112, 20);
-            this.checkBox9.TabIndex = 314;
-            this.checkBox9.Text = "Seating products";
-            this.checkBox9.UseVisualStyleBackColor = true;
-            // 
-            // checkBox12
-            // 
-            this.checkBox12.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox12, 2);
-            this.checkBox12.Location = new System.Drawing.Point(256, 500);
-            this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(118, 20);
-            this.checkBox12.TabIndex = 320;
-            this.checkBox12.Text = "Power wheel Chair";
-            this.checkBox12.UseVisualStyleBackColor = true;
-            // 
-            // checkBox8
-            // 
-            this.checkBox8.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox8, 3);
-            this.checkBox8.Location = new System.Drawing.Point(256, 533);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(155, 20);
-            this.checkBox8.TabIndex = 313;
-            this.checkBox8.Text = "Patient Handling Products";
-            this.checkBox8.UseVisualStyleBackColor = true;
-            // 
-            // checkBox7
-            // 
-            this.checkBox7.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox7, 2);
-            this.checkBox7.Location = new System.Drawing.Point(3, 592);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(66, 20);
-            this.checkBox7.TabIndex = 312;
-            this.checkBox7.Text = "Scooter";
-            this.checkBox7.UseVisualStyleBackColor = true;
-            // 
-            // checkBox30
-            // 
-            this.checkBox30.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox30, 2);
-            this.checkBox30.Location = new System.Drawing.Point(3, 674);
-            this.checkBox30.Name = "checkBox30";
-            this.checkBox30.Size = new System.Drawing.Size(157, 20);
-            this.checkBox30.TabIndex = 348;
-            this.checkBox30.Text = "Rights and responsibilities";
-            this.checkBox30.UseVisualStyleBackColor = true;
+            this.checkedListBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableLayoutPanel1.SetColumnSpan(this.checkedListBox3, 5);
+            this.checkedListBox3.FormattingEnabled = true;
+            this.checkedListBox3.Items.AddRange(new object[] {
+            "Ambulatory products",
+            "Bath & Safety products",
+            "Beds/Patients Room Products",
+            "Seating products",
+            "Scooter",
+            "Manual Wheel Chair",
+            "Power wheel Chair",
+            "Patient Handling Products"});
+            this.checkedListBox3.Location = new System.Drawing.Point(3, 397);
+            this.checkedListBox3.MultiColumn = true;
+            this.checkedListBox3.Name = "checkedListBox3";
+            this.tableLayoutPanel1.SetRowSpan(this.checkedListBox3, 4);
+            this.checkedListBox3.Size = new System.Drawing.Size(708, 75);
+            this.checkedListBox3.TabIndex = 402;
             // 
             // label54
             // 
             this.label54.AutoSize = true;
             this.label54.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.Location = new System.Drawing.Point(363, 589);
+            this.label54.Location = new System.Drawing.Point(3, 517);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(38, 16);
             this.label54.TabIndex = 326;
             this.label54.Text = "Other";
             // 
-            // checkBox14
+            // textBox5
             // 
-            this.checkBox14.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox14, 2);
-            this.checkBox14.Location = new System.Drawing.Point(3, 702);
-            this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(181, 20);
-            this.checkBox14.TabIndex = 322;
-            this.checkBox14.Text = "Service availability of company";
-            this.checkBox14.UseVisualStyleBackColor = true;
+            this.textBox5.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox5.Location = new System.Drawing.Point(195, 520);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(210, 25);
+            this.textBox5.TabIndex = 405;
             // 
             // label32
             // 
             this.label32.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label32, 4);
             this.label32.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(3, 645);
+            this.label32.Location = new System.Drawing.Point(3, 581);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(354, 16);
             this.label32.TabIndex = 288;
             this.label32.Text = "The following has been given and discussed to the patient/caregiver:";
             // 
-            // checkBox16
+            // checkedListBox4
             // 
-            this.checkBox16.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox16, 2);
-            this.checkBox16.Location = new System.Drawing.Point(3, 731);
-            this.checkBox16.Name = "checkBox16";
-            this.checkBox16.Size = new System.Drawing.Size(99, 20);
-            this.checkBox16.TabIndex = 324;
-            this.checkBox16.Text = "Privacy notice";
-            this.checkBox16.UseVisualStyleBackColor = true;
-            // 
-            // checkBox13
-            // 
-            this.checkBox13.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox13, 2);
-            this.checkBox13.Location = new System.Drawing.Point(3, 763);
-            this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(168, 20);
-            this.checkBox13.TabIndex = 321;
-            this.checkBox13.Text = "Medicare supplier standards";
-            this.checkBox13.UseVisualStyleBackColor = true;
-            // 
-            // checkBox15
-            // 
-            this.checkBox15.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox15, 2);
-            this.checkBox15.Location = new System.Drawing.Point(256, 674);
-            this.checkBox15.Name = "checkBox15";
-            this.checkBox15.Size = new System.Drawing.Size(225, 20);
-            this.checkBox15.TabIndex = 323;
-            this.checkBox15.Text = "Cleaning and maintenance of equipment";
-            this.checkBox15.UseVisualStyleBackColor = true;
-            // 
-            // checkBox31
-            // 
-            this.checkBox31.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox31, 2);
-            this.checkBox31.Location = new System.Drawing.Point(256, 702);
-            this.checkBox31.Name = "checkBox31";
-            this.checkBox31.Size = new System.Drawing.Size(180, 20);
-            this.checkBox31.TabIndex = 350;
-            this.checkBox31.Text = "capped rental/purchase letter";
-            this.checkBox31.UseVisualStyleBackColor = true;
-            // 
-            // checkBox32
-            // 
-            this.checkBox32.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox32, 2);
-            this.checkBox32.Location = new System.Drawing.Point(256, 731);
-            this.checkBox32.Name = "checkBox32";
-            this.checkBox32.Size = new System.Drawing.Size(265, 20);
-            this.checkBox32.TabIndex = 351;
-            this.checkBox32.Text = "Complaint process(how it is reviewed/resolved)";
-            this.checkBox32.UseVisualStyleBackColor = true;
-            // 
-            // checkBox33
-            // 
-            this.checkBox33.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox33, 2);
-            this.checkBox33.Location = new System.Drawing.Point(256, 763);
-            this.checkBox33.Name = "checkBox33";
-            this.checkBox33.Size = new System.Drawing.Size(136, 20);
-            this.checkBox33.TabIndex = 352;
-            this.checkBox33.Text = "Warranty information";
-            this.checkBox33.UseVisualStyleBackColor = true;
-            // 
-            // checkBox34
-            // 
-            this.checkBox34.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox34, 2);
-            this.checkBox34.Location = new System.Drawing.Point(549, 674);
-            this.checkBox34.Name = "checkBox34";
-            this.checkBox34.Size = new System.Drawing.Size(101, 20);
-            this.checkBox34.TabIndex = 353;
-            this.checkBox34.Text = "AOB signature ";
-            this.checkBox34.UseVisualStyleBackColor = true;
-            // 
-            // checkBox35
-            // 
-            this.checkBox35.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox35, 2);
-            this.checkBox35.Location = new System.Drawing.Point(549, 702);
-            this.checkBox35.Name = "checkBox35";
-            this.checkBox35.Size = new System.Drawing.Size(144, 20);
-            this.checkBox35.TabIndex = 354;
-            this.checkBox35.Text = "Equipment Instructions";
-            this.checkBox35.UseVisualStyleBackColor = true;
-            // 
-            // checkBox36
-            // 
-            this.checkBox36.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBox36, 2);
-            this.checkBox36.Location = new System.Drawing.Point(549, 731);
-            this.checkBox36.Name = "checkBox36";
-            this.checkBox36.Size = new System.Drawing.Size(137, 20);
-            this.checkBox36.TabIndex = 355;
-            this.checkBox36.Text = "Return demonstration";
-            this.checkBox36.UseVisualStyleBackColor = true;
+            this.checkedListBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableLayoutPanel1.SetColumnSpan(this.checkedListBox4, 6);
+            this.checkedListBox4.FormattingEnabled = true;
+            this.checkedListBox4.Items.AddRange(new object[] {
+            "Rights and responsibilities",
+            "Service availability of company",
+            "Privacy notice",
+            "Medicare supplier standards",
+            "Cleaning and maintenance of equipment",
+            "capped rental/purchase letter",
+            "complaint process(how it is reviewed/resolved)",
+            "warranty information",
+            "AOB signature",
+            "Equipment instructions",
+            "Return demonstration"});
+            this.checkedListBox4.Location = new System.Drawing.Point(3, 614);
+            this.checkedListBox4.MultiColumn = true;
+            this.checkedListBox4.Name = "checkedListBox4";
+            this.tableLayoutPanel1.SetRowSpan(this.checkedListBox4, 4);
+            this.checkedListBox4.Size = new System.Drawing.Size(708, 105);
+            this.checkedListBox4.TabIndex = 403;
             // 
             // label52
             // 
-            this.label52.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label52, 3);
+            this.label52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.label52, 2);
             this.label52.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.Location = new System.Drawing.Point(256, 793);
+            this.label52.Location = new System.Drawing.Point(3, 722);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(193, 22);
+            this.label52.Size = new System.Drawing.Size(402, 22);
             this.label52.TabIndex = 318;
             this.label52.Text = "FOLLOW UP /DISCHARGE";
             // 
             // checkBox37
             // 
-            this.checkBox37.AutoSize = true;
+            this.checkBox37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.tableLayoutPanel1.SetColumnSpan(this.checkBox37, 2);
-            this.checkBox37.Location = new System.Drawing.Point(3, 830);
+            this.checkBox37.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox37.Location = new System.Drawing.Point(411, 725);
             this.checkBox37.Name = "checkBox37";
-            this.checkBox37.Size = new System.Drawing.Size(199, 20);
+            this.checkBox37.Size = new System.Drawing.Size(299, 20);
             this.checkBox37.TabIndex = 356;
             this.checkBox37.Text = "FOLLOW -UP VISIT RECOMMENDED";
-            this.checkBox37.UseVisualStyleBackColor = true;
+            this.checkBox37.UseVisualStyleBackColor = false;
             // 
             // checkBox38
             // 
-            this.checkBox38.AutoSize = true;
+            this.checkBox38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.tableLayoutPanel1.SetColumnSpan(this.checkBox38, 2);
-            this.checkBox38.Location = new System.Drawing.Point(363, 830);
+            this.checkBox38.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox38.Location = new System.Drawing.Point(716, 725);
             this.checkBox38.Name = "checkBox38";
-            this.checkBox38.Size = new System.Drawing.Size(206, 20);
+            this.checkBox38.Size = new System.Drawing.Size(185, 20);
             this.checkBox38.TabIndex = 357;
             this.checkBox38.Text = "FOLLOW UP BY PHONE && AS NEEDED";
-            this.checkBox38.UseVisualStyleBackColor = true;
+            this.checkBox38.UseVisualStyleBackColor = false;
             // 
             // label53
             // 
             this.label53.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label53, 6);
             this.label53.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(3, 855);
+            this.label53.Location = new System.Drawing.Point(3, 750);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(427, 16);
             this.label53.TabIndex = 325;
             this.label53.Text = "I have read,received and /or been instructed in detail on the items checked above" +
     ".";
             // 
-            // label59
+            // label55
             // 
-            this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.Location = new System.Drawing.Point(363, 908);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(63, 16);
-            this.label59.TabIndex = 331;
-            this.label59.Text = "Signature :";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label48, 2);
-            this.label48.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.Location = new System.Drawing.Point(656, 908);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(121, 16);
-            this.label48.TabIndex = 304;
-            this.label48.Text = "Why patient can\'t sign";
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label55.Location = new System.Drawing.Point(3, 844);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(42, 16);
+            this.label55.TabIndex = 327;
+            this.label55.Text = "Name :";
             // 
             // label46
             // 
-            this.label46.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label46, 2);
             this.label46.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.Location = new System.Drawing.Point(3, 932);
+            this.label46.Location = new System.Drawing.Point(3, 878);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(122, 16);
             this.label46.TabIndex = 302;
@@ -978,26 +576,287 @@
             // label58
             // 
             this.label58.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label58, 3);
             this.label58.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label58.Location = new System.Drawing.Point(3, 954);
+            this.label58.Location = new System.Drawing.Point(3, 906);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(163, 16);
             this.label58.TabIndex = 330;
             this.label58.Text = "Employee Name and Signature :";
             // 
+            // textBox10
+            // 
+            this.textBox10.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox10.Location = new System.Drawing.Point(195, 847);
+            this.textBox10.Multiline = true;
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(180, 28);
+            this.textBox10.TabIndex = 407;
+            // 
+            // textBox11
+            // 
+            this.textBox11.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox11.Location = new System.Drawing.Point(195, 881);
+            this.textBox11.Multiline = true;
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(180, 22);
+            this.textBox11.TabIndex = 408;
+            // 
+            // textBox13
+            // 
+            this.textBox13.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox13.Location = new System.Drawing.Point(195, 909);
+            this.textBox13.Multiline = true;
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(180, 17);
+            this.textBox13.TabIndex = 410;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.Location = new System.Drawing.Point(411, 844);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(63, 16);
+            this.label59.TabIndex = 331;
+            this.label59.Text = "Signature :";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.Location = new System.Drawing.Point(411, 878);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(121, 16);
+            this.label48.TabIndex = 304;
+            this.label48.Text = "Why patient can\'t sign";
+            // 
+            // textBox12
+            // 
+            this.textBox12.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox12.Location = new System.Drawing.Point(572, 847);
+            this.textBox12.Multiline = true;
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(138, 28);
+            this.textBox12.TabIndex = 409;
+            // 
+            // textBox14
+            // 
+            this.textBox14.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox14.Location = new System.Drawing.Point(572, 881);
+            this.textBox14.Multiline = true;
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(138, 22);
+            this.textBox14.TabIndex = 411;
+            // 
+            // textBox15
+            // 
+            this.textBox15.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox15.Location = new System.Drawing.Point(572, 937);
+            this.textBox15.Multiline = true;
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(138, 19);
+            this.textBox15.TabIndex = 412;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.label2, 3);
+            this.label2.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 934);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(413, 16);
+            this.label2.TabIndex = 358;
+            this.label2.Text = "If the authorized rep does not live with patient,list their address/phone number " +
+    "";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.label4, 2);
+            this.label4.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 779);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(159, 22);
+            this.label4.TabIndex = 413;
+            this.label4.Text = "PATIENT SIGNATURE";
+            // 
+            // checkedListBox5
+            // 
+            this.checkedListBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableLayoutPanel1.SetColumnSpan(this.checkedListBox5, 2);
+            this.checkedListBox5.FormattingEnabled = true;
+            this.checkedListBox5.Items.AddRange(new object[] {
+            "Initial Delivery",
+            "Follow-up"});
+            this.checkedListBox5.Location = new System.Drawing.Point(572, 33);
+            this.checkedListBox5.Name = "checkedListBox5";
+            this.tableLayoutPanel1.SetRowSpan(this.checkedListBox5, 2);
+            this.checkedListBox5.Size = new System.Drawing.Size(321, 30);
+            this.checkedListBox5.TabIndex = 414;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label5.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(411, 30);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(31, 16);
+            this.label5.TabIndex = 415;
+            this.label5.Text = "Type";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(411, 79);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(124, 30);
+            this.label1.TabIndex = 340;
+            this.label1.Text = "APPROPRIATE FOR HOME";
+            // 
+            // checkBox28
+            // 
+            this.checkBox28.AutoSize = true;
+            this.checkBox28.Location = new System.Drawing.Point(572, 82);
+            this.checkBox28.Name = "checkBox28";
+            this.checkBox28.Size = new System.Drawing.Size(44, 20);
+            this.checkBox28.TabIndex = 346;
+            this.checkBox28.Text = "Yes";
+            this.checkBox28.UseVisualStyleBackColor = true;
+            // 
+            // checkBox27
+            // 
+            this.checkBox27.AutoSize = true;
+            this.checkBox27.Location = new System.Drawing.Point(716, 82);
+            this.checkBox27.Name = "checkBox27";
+            this.checkBox27.Size = new System.Drawing.Size(40, 20);
+            this.checkBox27.TabIndex = 345;
+            this.checkBox27.Text = "No";
+            this.checkBox27.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableLayoutPanel1.SetColumnSpan(this.textBox1, 2);
+            this.textBox1.Location = new System.Drawing.Point(195, 282);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(225, 25);
+            this.textBox1.TabIndex = 266;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(572, 279);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(41, 16);
+            this.label27.TabIndex = 283;
+            this.label27.Text = "Phone:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Location = new System.Drawing.Point(716, 282);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(177, 25);
+            this.textBox2.TabIndex = 349;
+            // 
+            // label31
+            // 
+            this.label31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.label31, 5);
+            this.label31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label31.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(3, 312);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(892, 22);
+            this.label31.TabIndex = 287;
+            this.label31.Text = "EQUIPMENT";
+            // 
+            // label24
+            // 
+            this.label24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.label24, 5);
+            this.label24.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(3, 548);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(892, 22);
+            this.label24.TabIndex = 280;
+            this.label24.Text = "ADDITIONAL INSTRUCTIONS";
+            // 
+            // label56
+            // 
+            this.label56.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.label56, 5);
+            this.label56.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(3, 811);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(892, 16);
+            this.label56.TabIndex = 328;
+            this.label56.Text = "(if patient unable to sign;authorized person complete";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button3.Image = global::ARM.Properties.Resources.Submit_01_32;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(978, 1037);
+            this.button3.Name = "button3";
+            this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button3.Size = new System.Drawing.Size(108, 35);
+            this.button3.TabIndex = 41;
+            this.button3.Text = "Submit";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(3, 1034);
+            this.button2.Name = "button2";
+            this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button2.Size = new System.Drawing.Size(108, 38);
+            this.button2.TabIndex = 42;
+            this.button2.Text = "Cancel";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // DmeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 1100);
+            this.ClientSize = new System.Drawing.Size(1090, 1100);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "DmeForm";
             this.Padding = new System.Windows.Forms.Padding(20, 74, 20, 25);
+            this.Style = MetroFramework.MetroColorStyle.Lime;
             this.Text = "DME Instruction Delivery";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -1018,7 +877,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label37;
@@ -1030,53 +888,40 @@
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox9;
-        private System.Windows.Forms.CheckBox checkBox10;
         private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.CheckBox checkBox13;
-        private System.Windows.Forms.CheckBox checkBox12;
-        private System.Windows.Forms.CheckBox checkBox16;
-        private System.Windows.Forms.CheckBox checkBox15;
-        private System.Windows.Forms.CheckBox checkBox14;
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label59;
-        private System.Windows.Forms.CheckBox checkBox11;
-        private System.Windows.Forms.CheckBox checkBox17;
-        private System.Windows.Forms.CheckBox checkBox18;
-        private System.Windows.Forms.CheckBox checkBox20;
-        private System.Windows.Forms.CheckBox checkBox19;
-        private System.Windows.Forms.CheckBox checkBox22;
-        private System.Windows.Forms.CheckBox checkBox21;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox23;
-        private System.Windows.Forms.CheckBox checkBox25;
-        private System.Windows.Forms.CheckBox checkBox24;
-        private System.Windows.Forms.CheckBox checkBox26;
-        private System.Windows.Forms.CheckBox checkBox29;
         private System.Windows.Forms.CheckBox checkBox28;
         private System.Windows.Forms.CheckBox checkBox27;
-        private System.Windows.Forms.CheckBox checkBox30;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.CheckBox checkBox31;
-        private System.Windows.Forms.CheckBox checkBox32;
-        private System.Windows.Forms.CheckBox checkBox33;
-        private System.Windows.Forms.CheckBox checkBox34;
-        private System.Windows.Forms.CheckBox checkBox35;
-        private System.Windows.Forms.CheckBox checkBox36;
         private System.Windows.Forms.CheckBox checkBox37;
         private System.Windows.Forms.CheckBox checkBox38;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox9;
+        private MetroFramework.Controls.MetroDateTime metroDateTime1;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox checkedListBox2;
+        private System.Windows.Forms.CheckedListBox checkedListBox3;
+        private System.Windows.Forms.CheckedListBox checkedListBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckedListBox checkedListBox5;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
     }
 }

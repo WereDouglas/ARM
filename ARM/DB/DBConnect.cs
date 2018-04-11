@@ -150,7 +150,7 @@ namespace ARM.DB
             //    return "";
             //}
 
-           
+
         }
 
         public static string CreateDBSQL(Object objGen)
@@ -175,14 +175,14 @@ namespace ARM.DB
             {
                 //object propValue = properties[i].GetValue(objGen, null);
                 string[] typeValue = properties[i].ToString().Split(' ');
-                SQL += "" + typeValue[1].ToString() + " varchar(255),";
+                SQL += "" + typeValue[1].ToString() + " varchar(1000),";
 
             }
 
             // get last attribute here           
             string[] lastType = properties[properties.Length - 1].ToString().Split(' ');
 
-            SQL += "" + lastType[1].ToString() + " varchar(255)";
+            SQL += "" + lastType[1].ToString() + " varchar(1000)";
 
 
             // Ends string builder
@@ -197,8 +197,8 @@ namespace ARM.DB
             //    return "";
             //}
         }
-        
-       
+
+
         public static string datalocation()
         {
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -503,6 +503,26 @@ namespace ARM.DB
                 Console.WriteLine("Errr on query!");
                 return null;
             }
+        }
+        public static double Max(string SQL)
+        {
+            //string SQL = "SELECT MAX(CAST(no AS DOUBLE PRECISION)) FROM rent";
+            var answer = DBConnect.scalar(SQL);
+            return Convert.ToDouble(answer);
+        }
+        public static string value(string table, string value, string column, string variable)
+        {
+            string SQL = "SELECT " + value + " FROM " + table + " WHERE " + column + " = " + variable;
+            var answer = DBConnect.scalar(SQL);
+            return answer;
+        }
+        public static string scalar(string query)
+        {
+            OpenConn();
+            cmd = new NpgsqlCommand(query, DBConnect.conn);
+            object results = cmd.ExecuteScalar();
+            CloseConn();
+            return results.ToString();
         }
 
     }

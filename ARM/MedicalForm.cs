@@ -49,22 +49,23 @@ namespace ARM
 
         }
 
-        private void button9_Click(object sender, EventArgs e)
-        {
-            AddItemForm it = new AddItemForm();
-            it.Show();
-        }
 
         private void itemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddItemForm it = new AddItemForm();
-            it.Show();
+            using (AddItem form = new AddItem(null))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    // LoadingCalendarLite();
+                }
+            }
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
-            using (AddItemForm form = new AddItemForm())
+            using (AddItem form = new AddItem(null))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
@@ -76,7 +77,7 @@ namespace ARM
 
         private void addToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            AddItemForm it = new AddItemForm();
+            AddItem it = new AddItem(null);
             it.Show();
         }
 
@@ -161,7 +162,7 @@ namespace ARM
 
         private void patientToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (AddCustomerForm form = new AddCustomerForm())
+            using (AddCustomerForm form = new AddCustomerForm(null))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
@@ -173,7 +174,7 @@ namespace ARM
 
         private void addToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            using (AddCustomerForm form = new AddCustomerForm())
+            using (AddCustomerForm form = new AddCustomerForm(null))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
@@ -242,6 +243,91 @@ namespace ARM
             frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
             frm.Show();
+        }
+
+        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+           
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            CustomerForm frm = new CustomerForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void exceptionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExceptionForm frm = new ExceptionForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            ProductForm frm = new ProductForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void vendorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (AddVendor form = new AddVendor(null))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    // LoadingCalendarLite();
+                }
+            }
+        }
+
+        private void toolStripButton4_Click_1(object sender, EventArgs e)
+        {
+            VendorForm frm = new VendorForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            UserForm frm = new UserForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (AddUser form = new AddUser(null))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    // LoadingCalendarLite();
+                }
+            }
         }
     }
 }

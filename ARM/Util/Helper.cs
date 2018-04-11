@@ -1,7 +1,9 @@
-﻿using System;
+﻿using ARM.DB;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -19,47 +21,12 @@ namespace ARM.Util
     class Helper
     {
 
-        public static string ImageFolder;
-        public static string uploadUrl;
-        public static string DocumentFolder;
-        public static string RemoteUploadFolder;
-        public static string serverName;
-        public static string serverIP;
-        public static string port;
-        public static string imageUploadUrl;
-        public static bool Lite;
-        public static string connectionType;
-        public static string ServerName;
-        public static string Type;
-        public static string ServerIP;
-        public static string username;
-        public static string orgID;
-        public static string userID;
-        public static string orgName;
-        public static string email;
-        public static string contact;
-        public static string image;
-        public static string userImage;
-        public static string address;
-        public static string designation;
-        public static string code;
-        public static string actions;
-        public static string views;
-        public static string syncer;
-        public static string lastSync;
 
-        public static string UserID;
-        public static string Code;
-        public static string Image;
-        public static string Username;
-
-        public static string dbusername;
-        public static string db;
-        public static string dbpwd;
-        public static bool serverOnline;
+        public static Dictionary<string, bool> ItemReview = new Dictionary<string, bool>();
+        public static Dictionary<string, string> PatientStatus = new Dictionary<string, string>();
+        public static Dictionary<string, string> ItemSetting = new Dictionary<string, string>();
 
         public static string BranchID = "";
-
         public static string genUrl = "http://caseprofessional.pro/index.php/";
         // public static string genUrl = "http://localhost/caseprofessionals/index.php/";
         public static string fileUrl = "http://caseprofessional.pro/file/";
@@ -93,29 +60,89 @@ namespace ARM.Util
             }
 
         }
-        public static bool Sms(string contact, string message, string name)
+     
+        public static void Exceptions(string message)
+        {
+            string id = Guid.NewGuid().ToString();
+            string Query = "INSERT INTO exceptions(id,message,created,process,sync) VALUES ('" + id + "','" + message + "','" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt") + "','"+message+"','false');";
+            DBConnect.save(Query);
+        }
+        public static void Log(string userName, string actions)
+        {
+            string id = Guid.NewGuid().ToString();
+            string Query = "INSERT INTO logs(id,name,actions,created) VALUES ('" + id + "','" + userName + "','" + actions + "','" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt") + "');";
+           DBConnect.save(Query);
+        }
+       
+        public static string CleanString(string str)
+        {
+            return str.Replace("'", "''");
+        }
+        public static string MD5Hash(string text)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+
+            //compute hash from the bytes of text
+            md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(text));
+
+            //get hash result after compute it
+            byte[] result = md5.Hash;
+
+            StringBuilder strBuilder = new StringBuilder();
+            for (int i = 0; i < result.Length; i++)
+            {
+                //change it into 2 hexadecimal digits
+                //for each byte
+                strBuilder.Append(result[i].ToString("x2"));
+            }
+
+            return strBuilder.ToString();
+        }
+        static string base64String = null;
+        public static System.Drawing.Image Base64ToImage(string bases)
+        {
+            byte[] imageBytes = Convert.FromBase64String(bases);
+            MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
+            ms.Write(imageBytes, 0, imageBytes.Length);
+            System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
+            return image;
+        }
+        public static Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            MemoryStream ms = new MemoryStream(byteArrayIn);
+            Image returnImage = Image.FromStream(ms);
+            return returnImage;
+        }
+        public static MemoryStream ImageToStream(Image image, System.Drawing.Imaging.ImageFormat format)
+        {
+            MemoryStream ms = new MemoryStream();
+            image.Save(ms, format);
+            return ms;
+        }
+        public static string ImageToBase64(MemoryStream images)
         {
 
-            string URL = "http://caseprofessional.pro/index.php/" + "message/sms";
-            NameValueCollection formData = new NameValueCollection();
-            formData["name"] = name;
-            formData["contact"] = contact;
-            formData["message"] = message;
-            string results = Helper.send(URL, formData);
-
-            string[] words = results.Split(' ');
-            //   Messages _dep = new Messages(words[6], message, words[2], words[7] + " " + words[8] + " " + words[9], words[4], DateTime.Now.ToString("dd-MM-yyyy H:m:s"));
-
-            if (results.Contains("Success"))
+            using (System.Drawing.Image image = System.Drawing.Image.FromStream(images))
             {
-                // MessageBox.Show("User Notified");
-                return true;
+                using (MemoryStream m = new MemoryStream())
+                {
+                    image.Save(m, image.RawFormat);
+                    byte[] imageBytes = m.ToArray();
+                    base64String = Convert.ToBase64String(imageBytes);
+                    return base64String;
+                }
             }
-            else
+        }
+        public static bool validateDouble(string t)
+        {
+
+            double n;
+            if (!double.TryParse(t, out n))
             {
-                //MessageBox.Show("User not notified password cannot be changed !");
                 return false;
             }
+            else { return true; }
+
         }
         public static void GrantAccess(string fullPath)
         {
@@ -184,25 +211,7 @@ namespace ARM.Util
             }
 
         }
-        static string base64String = null;
-        public static System.Drawing.Image Base64ToImage(string bases)
-        {
-            byte[] imageBytes = Convert.FromBase64String(bases);
-            MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
-            ms.Write(imageBytes, 0, imageBytes.Length);
-            System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
-            return image;
-        }
-        public static Image byteArrayToImage(byte[] byteArrayIn)
-        {
-            MemoryStream ms = new MemoryStream(byteArrayIn);
-            Image returnImage = System.Drawing.Image.FromStream(ms);
-            return returnImage;
-        }
-        public static string CleanString(string str)
-        {
-            return str.Replace("'", "''");
-        }
+    
         public static string NumberToWords(int number)
         {
             if (number == 0)
@@ -251,29 +260,6 @@ namespace ARM.Util
 
             return words;
         }
-
-
-
-        public static string MD5Hash(string text)
-        {
-            MD5 md5 = new MD5CryptoServiceProvider();
-
-            //compute hash from the bytes of text
-            md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(text));
-
-            //get hash result after compute it
-            byte[] result = md5.Hash;
-
-            StringBuilder strBuilder = new StringBuilder();
-            for (int i = 0; i < result.Length; i++)
-            {
-                //change it into 2 hexadecimal digits
-                //for each byte
-                strBuilder.Append(result[i].ToString("x2"));
-            }
-
-            return strBuilder.ToString();
-        }
         public static string FileUploader(string RemotePath, string LocalPath)
         {
             string status = "";
@@ -321,7 +307,21 @@ namespace ARM.Util
             return status;
 
         }
+        public static Image CropToCircle(Image srcImage, Color backGround)
+        {
+            Image dstImage = new Bitmap(srcImage.Width, srcImage.Height, srcImage.PixelFormat);
+            Graphics g = Graphics.FromImage(dstImage);
+            using (Brush br = new SolidBrush(backGround))
+            {
+                g.FillRectangle(br, 0, 0, dstImage.Width, dstImage.Height);
+            }
+            GraphicsPath path = new GraphicsPath();
+            path.AddEllipse(0, 0, dstImage.Width, dstImage.Height);
+            g.SetClip(path);
+            g.DrawImage(srcImage, 0, 0);
 
+            return dstImage;
+        }
 
 
         [DllImport("wininet.dll")]

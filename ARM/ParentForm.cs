@@ -33,62 +33,7 @@ namespace ARM
             f.Show();
         }
 
-        private void button13_Click(object sender, EventArgs e)
-        {
-            DmeForm d = new DmeForm();
-            d.Show();
-        }
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            AddItemForm it = new AddItemForm();
-            it.Show();
-        }
-
-        private void itemToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AddItemForm it = new AddItemForm();
-            it.Show();
-        }
-
-        private void addToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-            using (AddItemForm form = new AddItemForm())
-            {
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                    // LoadingCalendarLite();
-                }
-            }
-        }
-
-        private void addToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            AddItemForm it = new AddItemForm();
-            it.Show();
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void button6_Click(object sender, EventArgs e)
         {
@@ -161,7 +106,7 @@ namespace ARM
 
         private void patientToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (AddCustomerForm form = new AddCustomerForm())
+            using (AddCustomerForm form = new AddCustomerForm(null))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
@@ -173,7 +118,7 @@ namespace ARM
 
         private void addToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            using (AddCustomerForm form = new AddCustomerForm())
+            using (AddCustomerForm form = new AddCustomerForm(null))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)

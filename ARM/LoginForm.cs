@@ -13,10 +13,10 @@ using System.Windows.Forms;
 
 namespace ARM
 {
-    public partial class StartForm : MetroFramework.Forms.MetroForm
+    public partial class LoginForm : MetroFramework.Forms.MetroForm
     {
         public int r = 9;
-        public StartForm()
+        public LoginForm()
         {
 
             InitializeComponent();
@@ -55,7 +55,8 @@ namespace ARM
         private void createSqlliteDB()
         {
             DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Customer()));
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new User()));
+            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Exceptions()));
+            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Users()));
             DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Invoice()));
             DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Item()));
             DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Schedule()));

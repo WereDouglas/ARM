@@ -194,7 +194,7 @@
             // metroButton1
             // 
             this.metroButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.metroButton1.Location = new System.Drawing.Point(114, 469);
+            this.metroButton1.Location = new System.Drawing.Point(114, 424);
             this.metroButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(77, 59);
@@ -205,7 +205,7 @@
             // 
             // metroButton2
             // 
-            this.metroButton2.Location = new System.Drawing.Point(216, 469);
+            this.metroButton2.Location = new System.Drawing.Point(216, 424);
             this.metroButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(68, 59);

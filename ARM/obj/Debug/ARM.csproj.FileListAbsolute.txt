@@ -13,11 +13,9 @@ c:\users\douglas\documents\visual studio 2015\Projects\ARM\ARM\bin\Debug\Windows
 c:\users\douglas\documents\visual studio 2015\Projects\ARM\ARM\obj\Debug\ARM.NewAppointment.resources
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.AddCustomerForm.resources
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.AddSupplierForm.resources
-C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.AddItemForm.resources
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.HomeForm.resources
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.MedicalForm.resources
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.NewAppointment.resources
-C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.StartForm.resources
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.csproj.GenerateResource.cache
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\bin\Debug\ARM.exe.config
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\bin\Debug\ARM.exe
@@ -122,3 +120,13 @@ C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\bin\Debug\
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.AddFollowUpItemReviewForm.resources
+C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.ExceptionForm.resources
+C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.CustomerForm.resources
+C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.AddVendor.resources
+C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.AddUser.resources
+C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.ProductForm.resources
+C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.VendorForm.resources
+C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.UserForm.resources
+C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.AddItem.resources
+C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.LoginForm.resources

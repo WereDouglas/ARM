@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ARM.Util;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,32 +13,14 @@ namespace ARM
 {
     public partial class FollowForm : MetroFramework.Forms.MetroForm
     {
-        public Dictionary<string,bool> status = new Dictionary<string, bool>();
-        public  Dictionary<string,Dictionary<string,bool>>PatientStatus = new Dictionary<string, Dictionary<string, bool>>();
-        
+        public Dictionary<string, bool> status = new Dictionary<string, bool>();
+      
+        public Dictionary<string, bool> ItemReview = new Dictionary<string, bool>();
         public FollowForm()
         {
             InitializeComponent();
-            status.Add("Improved",false);
-            status.Add("Same", false);
-            status.Add("Worse", true);
-
-            PatientStatus.Add("Difficulty Breathing",status);
-            PatientStatus.Add("ADL", status);
-            PatientStatus.Add("Important Information", status);
-            
-            foreach (var r in PatientStatus)
-            {
-                CheckBox  chb = new CheckBox();
-                bool t = false;
-                foreach (var m in r.Value) {
-                    chb.Checked = m.Value;
-                    chb.Text = m.Key;
-                    t = m.Value;
-                   // reviewListBox.Items.Add(r.Key, t);
-                }
-               
-            }
+            Helper.ItemReview.Clear();
+            Helper.PatientStatus.Clear();
         }
 
         private void metroLabel1_Click(object sender, EventArgs e)
@@ -47,14 +30,74 @@ namespace ARM
 
         private void button4_Click(object sender, EventArgs e)
         {
-            using (AddPurchase form = new AddPurchase())
+
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            using (AddFollowUpItemReviewForm form = new AddFollowUpItemReviewForm("ItemReview"))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    // LoadingCalendarLite();
+                    reviewList.Items.Clear();                    
+                    foreach (var r in Helper.ItemReview)
+                    {
+                        reviewList.Items.Add(r.Key, r.Value);
+
+                    }
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (AddFollowUpItemReviewForm form = new AddFollowUpItemReviewForm("PatientStatus"))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    statusList.Items.Clear();
+                    foreach (var r in Helper.PatientStatus)
+                    {
+                        statusList.Items.Add(r.Key +" "+r.Value, true);
+
+                    }
+                }
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            using (AddFollowUpItemReviewForm form = new AddFollowUpItemReviewForm("ItemSetting"))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    settingListBx.Items.Clear();
+                    foreach (var r in Helper.ItemSetting)
+                    {
+                        settingListBx.Items.Add(r.Key + " " + r.Value);
+
+                    }
+                }
+            }
+
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

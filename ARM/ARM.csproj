@@ -106,6 +106,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddVendor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddVendor.Designer.cs">
+      <DependentUpon>AddVendor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddCustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +129,36 @@
     </Compile>
     <Compile Include="AddPurchase.Designer.cs">
       <DependentUpon>AddPurchase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddFollowUpItemReviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddFollowUpItemReviewForm.Designer.cs">
+      <DependentUpon>AddFollowUpItemReviewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductForm.Designer.cs">
+      <DependentUpon>ProductForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VendorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VendorForm.Designer.cs">
+      <DependentUpon>VendorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExceptionForm .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExceptionForm .Designer.cs">
+      <DependentUpon>ExceptionForm .cs</DependentUpon>
     </Compile>
     <Compile Include="DB\DBConnect.cs" />
     <Compile Include="FollowForm.cs">
@@ -137,6 +179,7 @@
     <Compile Include="Model\Follow.cs" />
     <Compile Include="Model\PatientStatus.cs" />
     <Compile Include="Model\ItemReview.cs" />
+    <Compile Include="Model\Exceptions.cs" />
     <Compile Include="Model\Responsible.cs" />
     <Compile Include="Model\Rate.cs" />
     <Compile Include="Model\Transaction.cs" />
@@ -144,7 +187,7 @@
     <Compile Include="Model\Insurance.cs" />
     <Compile Include="Model\Vendor.cs" />
     <Compile Include="Model\Item.cs" />
-    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\Users.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="ParentForm.cs">
       <SubType>Form</SubType>
@@ -164,6 +207,12 @@
     <Compile Include="DeliveryPickupForm.Designer.cs">
       <DependentUpon>DeliveryPickupForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerForm.Designer.cs">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PhysiciansForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,11 +231,11 @@
     <Compile Include="AddSupplierForm.Designer.cs">
       <DependentUpon>AddSupplierForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddItemForm.cs">
+    <Compile Include="AddItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddItemForm.Designer.cs">
-      <DependentUpon>AddItemForm.cs</DependentUpon>
+    <Compile Include="AddItem.Designer.cs">
+      <DependentUpon>AddItem.cs</DependentUpon>
     </Compile>
     <Compile Include="HomeForm.cs">
       <SubType>Form</SubType>
@@ -215,18 +264,39 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="StartForm.cs">
+    <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StartForm.Designer.cs">
-      <DependentUpon>StartForm.cs</DependentUpon>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\Helper.cs" />
+    <EmbeddedResource Include="AddVendor.resx">
+      <DependentUpon>AddVendor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddCustomerForm.resx">
       <DependentUpon>AddCustomerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddPurchase.resx">
       <DependentUpon>AddPurchase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddFollowUpItemReviewForm.resx">
+      <DependentUpon>AddFollowUpItemReviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductForm.resx">
+      <DependentUpon>ProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VendorForm.resx">
+      <DependentUpon>VendorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm.resx">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExceptionForm .resx">
+      <DependentUpon>ExceptionForm .cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FollowForm.resx">
       <DependentUpon>FollowForm.cs</DependentUpon>
@@ -243,6 +313,9 @@
     <EmbeddedResource Include="DeliveryPickupForm.resx">
       <DependentUpon>DeliveryPickupForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomerForm.resx">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PhysiciansForm.resx">
       <DependentUpon>PhysiciansForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -252,8 +325,8 @@
     <EmbeddedResource Include="AddSupplierForm.resx">
       <DependentUpon>AddSupplierForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddItemForm.resx">
-      <DependentUpon>AddItemForm.cs</DependentUpon>
+    <EmbeddedResource Include="AddItem.resx">
+      <DependentUpon>AddItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
@@ -269,8 +342,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="StartForm.resx">
-      <DependentUpon>StartForm.cs</DependentUpon>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -426,6 +499,84 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Synchronise\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\temp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Microsoft-Excel-01-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Garbage-Open-24 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\temp.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Document-Edit-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Document-Edit-241.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Document-Delete-01-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Garbage-Closed-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Garbage-Closed-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Document-Edit-24 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Filter-Edit-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User-Profile-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Map-Location-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\City-24 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Globe-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Map-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Orientation-Portrait-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shape-Cube-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hospital-Lab-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barcode-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QR-Code-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dollar-Tag-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Receipt-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Box-02-128 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Box-02-24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

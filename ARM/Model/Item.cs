@@ -13,8 +13,7 @@ namespace ARM.Model
         private string id;
         private string name;
         private string category;
-        private string type;
-        private string image;
+        private string type;        
         private string description;
         private string cost;
         private string batchNo;
@@ -25,15 +24,15 @@ namespace ARM.Model
         private string manufacturer;
         private string created;
         private bool sync;
+        private string image;
         public Item() { }
 
-        public Item(string id, string name, string category, string type, string image, string description, string cost, string batchNo, string serialNo, string barcode, string unitOfMeasure, string measureDescription, string manufacturer, string created, bool sync)
+        public Item(string id, string name, string category, string type, string description, string cost, string batchNo, string serialNo, string barcode, string unitOfMeasure, string measureDescription, string manufacturer, string created, bool sync, string image)
         {
             this.Id = id;
             this.Name = name;
             this.Category = category;
-            this.Type = type;
-            this.Image = image;
+            this.Type = type;          
             this.Description = description;
             this.Cost = cost;
             this.BatchNo = batchNo;
@@ -44,6 +43,7 @@ namespace ARM.Model
             this.Manufacturer = manufacturer;
             this.Created = created;
             this.Sync = sync;
+            this.Image = image;
         }
 
         static List<Item> p = new List<Item>();
@@ -51,8 +51,7 @@ namespace ARM.Model
         public string Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public string Category { get => category; set => category = value; }
-        public string Type { get => type; set => type = value; }
-        public string Image { get => image; set => image = value; }
+        public string Type { get => type; set => type = value; }       
         public string Description { get => description; set => description = value; }
         public string Cost { get => cost; set => cost = value; }
         public string BatchNo { get => batchNo; set => batchNo = value; }
@@ -63,6 +62,7 @@ namespace ARM.Model
         public string Manufacturer { get => manufacturer; set => manufacturer = value; }
         public string Created { get => created; set => created = value; }
         public bool Sync { get => sync; set => sync = value; }
+        public string Image { get => image; set => image = value; }
 
         public static List<Item> List()
         {
@@ -71,11 +71,25 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Item ps = new Item(Reader["id"].ToString(), Reader["name"].ToString(), Reader["category"].ToString(), Reader["type"].ToString(), Reader["image"].ToString(), Reader["description"].ToString(), Reader["cost"].ToString(), Reader["batchNo"].ToString(), Reader["serialNo"].ToString(), Reader["barcode"].ToString(), Reader["unitOfMeasure"].ToString(), Reader["measureDescription"].ToString(), Reader["manufacturer"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                Item ps = new Item(Reader["id"].ToString(), Reader["name"].ToString(), Reader["category"].ToString(), Reader["type"].ToString(), Reader["description"].ToString(), Reader["cost"].ToString(), Reader["batchNo"].ToString(), Reader["serialNo"].ToString(), Reader["barcode"].ToString(), Reader["unitOfMeasure"].ToString(), Reader["measureDescription"].ToString(), Reader["manufacturer"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["image"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
             return p;
+
+        }
+        static Item c = new Item();
+        public static Item Select(string ID)
+        {
+            string Q = "SELECT * FROM item WHERE id = '" + ID + "'";
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                c = new Item(Reader["id"].ToString(), Reader["name"].ToString(), Reader["category"].ToString(), Reader["type"].ToString(), Reader["description"].ToString(), Reader["cost"].ToString(), Reader["batchNo"].ToString(), Reader["serialNo"].ToString(), Reader["barcode"].ToString(), Reader["unitOfMeasure"].ToString(), Reader["measureDescription"].ToString(), Reader["manufacturer"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["image"].ToString());
+            }
+            DBConnect.CloseConn();
+            return c;
 
         }
     }

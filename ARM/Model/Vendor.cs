@@ -12,9 +12,9 @@ namespace ARM.Model
     {
         private string id;
         private string name;
+        private string email;
         private string contact;
         private string address;
-        private string image;
         private string no;
         private string city;
         private string state;
@@ -22,14 +22,14 @@ namespace ARM.Model
         private string created;
         private string category;
         private bool sync;
+        private string image;
         public Vendor() { }
-        public Vendor(string id, string name, string contact, string address, string image, string no, string city, string state, string zip, string created, string category, bool sync)
+        public Vendor(string id, string name,string email, string contact, string address, string no, string city, string state, string zip, string created, string category, bool sync, string image)
         {
             this.Id = id;
             this.Name = name;
             this.Contact = contact;
             this.Address = address;
-            this.Image = image;
             this.No = no;
             this.City = city;
             this.State = state;
@@ -37,13 +37,13 @@ namespace ARM.Model
             this.Created = created;
             this.Category = category;
             this.Sync = sync;
+            this.Image = image;
         }
 
         public string Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public string Contact { get => contact; set => contact = value; }
         public string Address { get => address; set => address = value; }
-        public string Image { get => image; set => image = value; }
         public string No { get => no; set => no = value; }
         public string City { get => city; set => city = value; }
         public string State { get => state; set => state = value; }
@@ -51,6 +51,7 @@ namespace ARM.Model
         public string Created { get => created; set => created = value; }
         public string Category { get => category; set => category = value; }
         public bool Sync { get => sync; set => sync = value; }
+        public string Image { get => image; set => image = value; }
 
         static List<Vendor> p = new List<Vendor>();
         public static List<Vendor> List()
@@ -60,11 +61,26 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Vendor ps = new Vendor(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["image"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["category"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                Vendor ps = new Vendor(Reader["id"].ToString(), Reader["name"].ToString(), Reader["email"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["category"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["image"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
             return p;
+
+        }
+        static Vendor c = new Vendor();
+        public static Vendor Select(string vID)
+        {
+            string Q = "SELECT * FROM vendor WHERE id = '" + vID + "'";
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                c = new Vendor(Reader["id"].ToString(), Reader["name"].ToString(), Reader["email"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["category"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["image"].ToString());
+
+            }
+            DBConnect.CloseConn();
+            return c;
 
         }
     }

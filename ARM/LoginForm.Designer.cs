@@ -1,6 +1,6 @@
 ﻿namespace ARM
 {
-    partial class StartForm
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.
