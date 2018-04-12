@@ -77,7 +77,7 @@
             this.categoryCbx.Name = "categoryCbx";
             this.categoryCbx.PromptText = "Category";
             this.categoryCbx.Size = new System.Drawing.Size(265, 29);
-            this.categoryCbx.TabIndex = 128;
+            this.categoryCbx.TabIndex = 1;
             this.categoryCbx.UseSelectable = true;
             // 
             // typeCbx
@@ -95,7 +95,7 @@
             this.typeCbx.Name = "typeCbx";
             this.typeCbx.PromptText = "Type of Product";
             this.typeCbx.Size = new System.Drawing.Size(265, 29);
-            this.typeCbx.TabIndex = 138;
+            this.typeCbx.TabIndex = 2;
             this.typeCbx.UseSelectable = true;
             // 
             // unitTxt
@@ -103,17 +103,15 @@
             this.unitTxt.FormattingEnabled = true;
             this.unitTxt.ItemHeight = 23;
             this.unitTxt.Items.AddRange(new object[] {
-            "Ambulatory",
-            "Bath Power",
-            "Wheel",
-            "Bed",
-            "Other"});
+            "Cm",
+            "M",
+            "C"});
             this.unitTxt.Location = new System.Drawing.Point(75, 412);
             this.unitTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.unitTxt.Name = "unitTxt";
             this.unitTxt.PromptText = "Unit Of Measure";
             this.unitTxt.Size = new System.Drawing.Size(265, 29);
-            this.unitTxt.TabIndex = 141;
+            this.unitTxt.TabIndex = 8;
             this.unitTxt.UseSelectable = true;
             // 
             // manuTxt
@@ -121,17 +119,15 @@
             this.manuTxt.FormattingEnabled = true;
             this.manuTxt.ItemHeight = 23;
             this.manuTxt.Items.AddRange(new object[] {
-            "Ambulatory",
-            "Bath Power",
-            "Wheel",
-            "Bed",
+            "Google",
+            "Action",
             "Other"});
             this.manuTxt.Location = new System.Drawing.Point(75, 517);
             this.manuTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.manuTxt.Name = "manuTxt";
             this.manuTxt.PromptText = "Manufacturer";
             this.manuTxt.Size = new System.Drawing.Size(265, 29);
-            this.manuTxt.TabIndex = 142;
+            this.manuTxt.TabIndex = 10;
             this.manuTxt.UseSelectable = true;
             // 
             // barTxt
@@ -162,7 +158,7 @@
             this.barTxt.SelectionStart = 0;
             this.barTxt.ShortcutsEnabled = true;
             this.barTxt.Size = new System.Drawing.Size(265, 35);
-            this.barTxt.TabIndex = 140;
+            this.barTxt.TabIndex = 7;
             this.barTxt.UseSelectable = true;
             this.barTxt.WaterMark = "Barcode";
             this.barTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -196,7 +192,7 @@
             this.serialTxt.SelectionStart = 0;
             this.serialTxt.ShortcutsEnabled = true;
             this.serialTxt.Size = new System.Drawing.Size(265, 35);
-            this.serialTxt.TabIndex = 139;
+            this.serialTxt.TabIndex = 6;
             this.serialTxt.UseSelectable = true;
             this.serialTxt.WaterMark = "Serial No.";
             this.serialTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -242,7 +238,7 @@
             this.unitDescTxt.SelectionStart = 0;
             this.unitDescTxt.ShortcutsEnabled = true;
             this.unitDescTxt.Size = new System.Drawing.Size(265, 58);
-            this.unitDescTxt.TabIndex = 136;
+            this.unitDescTxt.TabIndex = 9;
             this.unitDescTxt.UseSelectable = true;
             this.unitDescTxt.WaterMark = "Unit Of Measure Description";
             this.unitDescTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -276,7 +272,7 @@
             this.batchTxt.SelectionStart = 0;
             this.batchTxt.ShortcutsEnabled = true;
             this.batchTxt.Size = new System.Drawing.Size(265, 35);
-            this.batchTxt.TabIndex = 135;
+            this.batchTxt.TabIndex = 5;
             this.batchTxt.UseSelectable = true;
             this.batchTxt.WaterMark = "Batch No.";
             this.batchTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -310,7 +306,7 @@
             this.costTxt.SelectionStart = 0;
             this.costTxt.ShortcutsEnabled = true;
             this.costTxt.Size = new System.Drawing.Size(265, 35);
-            this.costTxt.TabIndex = 134;
+            this.costTxt.TabIndex = 4;
             this.costTxt.UseSelectable = true;
             this.costTxt.WaterMark = "Cost/Price";
             this.costTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -345,7 +341,7 @@
             this.descriptionxt.SelectionStart = 0;
             this.descriptionxt.ShortcutsEnabled = true;
             this.descriptionxt.Size = new System.Drawing.Size(265, 63);
-            this.descriptionxt.TabIndex = 133;
+            this.descriptionxt.TabIndex = 3;
             this.descriptionxt.UseSelectable = true;
             this.descriptionxt.WaterMark = "Description";
             this.descriptionxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -379,7 +375,7 @@
             this.nameTxt.SelectionStart = 0;
             this.nameTxt.ShortcutsEnabled = true;
             this.nameTxt.Size = new System.Drawing.Size(265, 35);
-            this.nameTxt.TabIndex = 131;
+            this.nameTxt.TabIndex = 0;
             this.nameTxt.UseSelectable = true;
             this.nameTxt.WaterMark = "Name";
             this.nameTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -394,11 +390,11 @@
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button3.Image = global::ARM.Properties.Resources.Submit_01_32;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(229, 788);
+            this.button3.Location = new System.Drawing.Point(232, 766);
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button3.Size = new System.Drawing.Size(108, 49);
-            this.button3.TabIndex = 37;
+            this.button3.TabIndex = 12;
             this.button3.Text = "Submit";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = false;
@@ -413,11 +409,11 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(73, 788);
+            this.button2.Location = new System.Drawing.Point(75, 766);
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(108, 49);
-            this.button2.TabIndex = 36;
+            this.button2.TabIndex = 13;
             this.button2.Text = "Cancel";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
@@ -436,7 +432,7 @@
             this.button1.Name = "button1";
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button1.Size = new System.Drawing.Size(108, 51);
-            this.button1.TabIndex = 34;
+            this.button1.TabIndex = 11;
             this.button1.Text = "Browse";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;

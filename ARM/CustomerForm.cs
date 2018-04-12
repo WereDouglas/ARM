@@ -22,8 +22,7 @@ namespace ARM
             InitializeComponent();
 
             LoadData();
-            var datePicker = new ToolStripControlHost(new DateTimePicker());
-            toolStrip1.Items.Add(datePicker);
+            
         }
         List<Customer> customers = new List<Customer>();
 
@@ -58,7 +57,7 @@ namespace ARM
                 g.DrawString("Loading...", this.Font, new SolidBrush(Color.Black), 0f, 0f);
             }
             Image view = new Bitmap(Properties.Resources.Document_Edit_24__1_);
-            Image delete = new Bitmap(Properties.Resources.Garbage_Closed_24);
+            Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
 
             foreach (Customer c in Customer.List())
             {

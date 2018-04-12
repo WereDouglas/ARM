@@ -18,7 +18,7 @@ using System.Windows.Forms;
 
 namespace ARM.Util
 {
-    class Helper
+  public static  class Helper
     {
 
 
@@ -27,6 +27,7 @@ namespace ARM.Util
         public static Dictionary<string, string> ItemSetting = new Dictionary<string, string>();
 
         public static string BranchID = "";
+        public static string UserID = "";
         public static string genUrl = "http://caseprofessional.pro/index.php/";
         // public static string genUrl = "http://localhost/caseprofessionals/index.php/";
         public static string fileUrl = "http://caseprofessional.pro/file/";
@@ -60,7 +61,11 @@ namespace ARM.Util
             }
 
         }
-     
+        public static bool Contains(this string source, string toCheck, StringComparison comp)
+        {
+            return source?.IndexOf(toCheck, comp) >= 0;
+        }
+
         public static void Exceptions(string message)
         {
             string id = Guid.NewGuid().ToString();

@@ -36,6 +36,7 @@ namespace ARM.Model
 
         public static List<Exceptions> List(string start,string end)
         {
+            p.Clear();
             string Q = "SELECT * FROM exceptions WHERE  (created::date >= '" + start + "'::date AND  created::date <= '" + end + "'::date) ;";
            // string Q = "SELECT * FROM Exceptions ";
             DBConnect.OpenConn();

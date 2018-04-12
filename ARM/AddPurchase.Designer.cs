@@ -31,14 +31,14 @@
             this.htmlToolTip1 = new MetroFramework.Drawing.Html.HtmlToolTip();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.ManufacturerTxt = new System.Windows.Forms.TextBox();
+            this.measureTxt = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.detailTxt = new System.Windows.Forms.TextBox();
-            this.unitTxt = new System.Windows.Forms.TextBox();
+            this.productTxt = new System.Windows.Forms.TextBox();
             this.qtyTxt = new System.Windows.Forms.TextBox();
+            this.costTxt = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.measureDesTxt = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -49,10 +49,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.totalTxt = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.descriptionTxt = new System.Windows.Forms.TextBox();
+            this.amountTxt = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.productPbx = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productPbx)).BeginInit();
             this.SuspendLayout();
             // 
             // htmlToolTip1
@@ -63,179 +67,188 @@
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
-            this.tableLayoutPanel1.ColumnCount = 10;
+            this.tableLayoutPanel1.ColumnCount = 12;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 88F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.49606F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.50394F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 169F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 142F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 208F));
-            this.tableLayoutPanel1.Controls.Add(this.textBox7, 7, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox5, 8, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox4, 4, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.detailTxt, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.unitTxt, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.qtyTxt, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 5, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label14, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 9, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 8, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 7, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 6, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 5, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.totalTxt, 6, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox6, 9, 1);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 79F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 112F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 66F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 178F));
+            this.tableLayoutPanel1.Controls.Add(this.textBox7, 9, 1);
+            this.tableLayoutPanel1.Controls.Add(this.ManufacturerTxt, 10, 1);
+            this.tableLayoutPanel1.Controls.Add(this.measureTxt, 6, 1);
+            this.tableLayoutPanel1.Controls.Add(this.textBox3, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.productTxt, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.qtyTxt, 4, 1);
+            this.tableLayoutPanel1.Controls.Add(this.costTxt, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label8, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.measureDesTxt, 7, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label14, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 11, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 10, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 9, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 8, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 7, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 6, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label9, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.totalTxt, 8, 1);
+            this.tableLayoutPanel1.Controls.Add(this.descriptionTxt, 11, 1);
+            this.tableLayoutPanel1.Controls.Add(this.productPbx, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.amountTxt, 5, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label10, 5, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(23, 63);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.36364F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.63636F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1063, 112);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1063, 74);
             this.tableLayoutPanel1.TabIndex = 256;
             // 
             // textBox7
             // 
             this.textBox7.BackColor = System.Drawing.SystemColors.HighlightText;
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(666, 36);
+            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox7.Location = new System.Drawing.Point(735, 26);
             this.textBox7.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(37, 23);
+            this.textBox7.Size = new System.Drawing.Size(37, 14);
             this.textBox7.TabIndex = 263;
             this.textBox7.Text = "0";
             // 
-            // textBox5
+            // ManufacturerTxt
             // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Location = new System.Drawing.Point(711, 36);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(136, 69);
-            this.textBox5.TabIndex = 261;
+            this.ManufacturerTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.ManufacturerTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ManufacturerTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManufacturerTxt.Location = new System.Drawing.Point(783, 26);
+            this.ManufacturerTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.ManufacturerTxt.Multiline = true;
+            this.ManufacturerTxt.Name = "ManufacturerTxt";
+            this.ManufacturerTxt.Size = new System.Drawing.Size(94, 41);
+            this.ManufacturerTxt.TabIndex = 261;
             // 
-            // textBox4
+            // measureTxt
             // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(338, 36);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(82, 23);
-            this.textBox4.TabIndex = 261;
-            this.textBox4.Text = "0";
+            this.measureTxt.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.measureTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.measureTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.measureTxt.Location = new System.Drawing.Point(530, 26);
+            this.measureTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.measureTxt.Name = "measureTxt";
+            this.measureTxt.Size = new System.Drawing.Size(62, 14);
+            this.measureTxt.TabIndex = 261;
             // 
             // textBox3
             // 
             this.textBox3.BackColor = System.Drawing.SystemColors.HighlightText;
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(5, 36);
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(95, 26);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(50, 23);
+            this.textBox3.Size = new System.Drawing.Size(27, 14);
             this.textBox3.TabIndex = 260;
             this.textBox3.Text = "0";
             // 
-            // detailTxt
+            // productTxt
             // 
-            this.detailTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.detailTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.detailTxt.Location = new System.Drawing.Point(68, 36);
-            this.detailTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.detailTxt.Multiline = true;
-            this.detailTxt.Name = "detailTxt";
-            this.detailTxt.Size = new System.Drawing.Size(126, 69);
-            this.detailTxt.TabIndex = 204;
-            // 
-            // unitTxt
-            // 
-            this.unitTxt.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.unitTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.unitTxt.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unitTxt.Location = new System.Drawing.Point(252, 36);
-            this.unitTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.unitTxt.Name = "unitTxt";
-            this.unitTxt.Size = new System.Drawing.Size(50, 23);
-            this.unitTxt.TabIndex = 229;
-            this.unitTxt.Text = "0";
+            this.productTxt.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.productTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.productTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productTxt.Location = new System.Drawing.Point(154, 26);
+            this.productTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.productTxt.Name = "productTxt";
+            this.productTxt.Size = new System.Drawing.Size(117, 14);
+            this.productTxt.TabIndex = 204;
+            this.productTxt.Leave += new System.EventHandler(this.productTxt_Leave);
             // 
             // qtyTxt
             // 
-            this.qtyTxt.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.qtyTxt.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.qtyTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.qtyTxt.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.qtyTxt.Location = new System.Drawing.Point(202, 36);
+            this.qtyTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.qtyTxt.Location = new System.Drawing.Point(360, 26);
             this.qtyTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.qtyTxt.Name = "qtyTxt";
-            this.qtyTxt.Size = new System.Drawing.Size(42, 23);
-            this.qtyTxt.TabIndex = 228;
+            this.qtyTxt.Size = new System.Drawing.Size(48, 14);
+            this.qtyTxt.TabIndex = 229;
             this.qtyTxt.Text = "0";
+            this.qtyTxt.TextChanged += new System.EventHandler(this.qtyTxt_TextChanged);
+            // 
+            // costTxt
+            // 
+            this.costTxt.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.costTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.costTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.costTxt.Location = new System.Drawing.Point(279, 26);
+            this.costTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.costTxt.Name = "costTxt";
+            this.costTxt.Size = new System.Drawing.Size(49, 14);
+            this.costTxt.TabIndex = 228;
+            this.costTxt.Text = "0";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(202, 2);
+            this.label8.Location = new System.Drawing.Point(279, 2);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 26);
+            this.label8.Size = new System.Drawing.Size(49, 13);
             this.label8.TabIndex = 209;
             this.label8.Text = "Unit cost";
             // 
-            // textBox1
+            // measureDesTxt
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(433, 36);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(148, 69);
-            this.textBox1.TabIndex = 230;
+            this.measureDesTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.measureDesTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.measureDesTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.measureDesTxt.Location = new System.Drawing.Point(612, 26);
+            this.measureDesTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.measureDesTxt.Multiline = true;
+            this.measureDesTxt.Name = "measureDesTxt";
+            this.measureDesTxt.Size = new System.Drawing.Size(47, 41);
+            this.measureDesTxt.TabIndex = 230;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(68, 2);
+            this.label14.Location = new System.Drawing.Point(154, 2);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(58, 13);
+            this.label14.Size = new System.Drawing.Size(75, 13);
             this.label14.TabIndex = 205;
-            this.label14.Text = "Item Name";
+            this.label14.Text = "Product Name";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 2);
+            this.label3.Location = new System.Drawing.Point(95, 2);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
+            this.label3.Size = new System.Drawing.Size(24, 13);
             this.label3.TabIndex = 233;
-            this.label3.Text = "Item No.";
+            this.label3.Text = "No.";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(855, 2);
+            this.label7.Location = new System.Drawing.Point(885, 2);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 13);
+            this.label7.Size = new System.Drawing.Size(60, 13);
             this.label7.TabIndex = 258;
-            this.label7.Text = "Item Description";
+            this.label7.Text = "Description";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(711, 2);
+            this.label6.Location = new System.Drawing.Point(783, 2);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 13);
             this.label6.TabIndex = 257;
@@ -245,9 +258,9 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(666, 2);
+            this.label4.Location = new System.Drawing.Point(735, 2);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(27, 26);
+            this.label4.Size = new System.Drawing.Size(27, 17);
             this.label4.TabIndex = 234;
             this.label4.Text = "Qty B/O";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -255,9 +268,9 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(604, 2);
+            this.label5.Location = new System.Drawing.Point(667, 2);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 26);
+            this.label5.Size = new System.Drawing.Size(49, 17);
             this.label5.TabIndex = 208;
             this.label5.Text = "Qty Shipped ";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -265,9 +278,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(433, 2);
+            this.label2.Location = new System.Drawing.Point(612, 2);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 13);
+            this.label2.Size = new System.Drawing.Size(46, 17);
             this.label2.TabIndex = 232;
             this.label2.Text = "Unit of Measure Description";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -275,9 +288,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(338, 2);
+            this.label1.Location = new System.Drawing.Point(530, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 13);
+            this.label1.Size = new System.Drawing.Size(48, 17);
             this.label1.TabIndex = 231;
             this.label1.Text = "Unit of Measure";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -285,9 +298,9 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(252, 2);
+            this.label9.Location = new System.Drawing.Point(360, 2);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(64, 13);
+            this.label9.Size = new System.Drawing.Size(45, 17);
             this.label9.TabIndex = 259;
             this.label9.Text = "Qty Ordered";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -296,24 +309,54 @@
             // 
             this.totalTxt.BackColor = System.Drawing.SystemColors.HighlightText;
             this.totalTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.totalTxt.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalTxt.Location = new System.Drawing.Point(604, 36);
+            this.totalTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalTxt.Location = new System.Drawing.Point(667, 26);
             this.totalTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.totalTxt.Name = "totalTxt";
-            this.totalTxt.Size = new System.Drawing.Size(54, 23);
+            this.totalTxt.Size = new System.Drawing.Size(54, 14);
             this.totalTxt.TabIndex = 196;
             this.totalTxt.Text = "0";
             // 
-            // textBox6
+            // descriptionTxt
             // 
-            this.textBox6.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Location = new System.Drawing.Point(855, 36);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(193, 69);
-            this.textBox6.TabIndex = 262;
+            this.descriptionTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.descriptionTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.descriptionTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descriptionTxt.Location = new System.Drawing.Point(885, 26);
+            this.descriptionTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.descriptionTxt.Multiline = true;
+            this.descriptionTxt.Name = "descriptionTxt";
+            this.descriptionTxt.Size = new System.Drawing.Size(164, 41);
+            this.descriptionTxt.TabIndex = 262;
+            // 
+            // amountTxt
+            // 
+            this.amountTxt.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.amountTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.amountTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.amountTxt.Location = new System.Drawing.Point(416, 26);
+            this.amountTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.amountTxt.Name = "amountTxt";
+            this.amountTxt.Size = new System.Drawing.Size(106, 14);
+            this.amountTxt.TabIndex = 265;
+            this.amountTxt.Text = "0";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(416, 2);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(70, 13);
+            this.label10.TabIndex = 266;
+            this.label10.Text = "Total Amount";
+            // 
+            // productPbx
+            // 
+            this.productPbx.Location = new System.Drawing.Point(5, 24);
+            this.productPbx.Name = "productPbx";
+            this.productPbx.Size = new System.Drawing.Size(82, 45);
+            this.productPbx.TabIndex = 264;
+            this.productPbx.TabStop = false;
             // 
             // button3
             // 
@@ -324,14 +367,15 @@
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button3.Image = global::ARM.Properties.Resources.Submit_01_32;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(992, 202);
+            this.button3.Location = new System.Drawing.Point(999, 138);
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button3.Size = new System.Drawing.Size(79, 49);
+            this.button3.Size = new System.Drawing.Size(87, 49);
             this.button3.TabIndex = 37;
             this.button3.Text = "Add";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -342,7 +386,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(23, 195);
+            this.button2.Location = new System.Drawing.Point(28, 143);
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(107, 49);
@@ -356,14 +400,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1094, 267);
+            this.ClientSize = new System.Drawing.Size(1094, 201);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Name = "AddPurchase";
+            this.Style = MetroFramework.MetroColorStyle.White;
             this.Text = "Purchase item";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productPbx)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -373,11 +419,11 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TextBox costTxt;
+        private System.Windows.Forms.TextBox productTxt;
         private System.Windows.Forms.TextBox qtyTxt;
-        private System.Windows.Forms.TextBox detailTxt;
-        private System.Windows.Forms.TextBox unitTxt;
         private System.Windows.Forms.TextBox totalTxt;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox measureDesTxt;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label3;
@@ -388,10 +434,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox ManufacturerTxt;
+        private System.Windows.Forms.TextBox measureTxt;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox descriptionTxt;
+        private System.Windows.Forms.PictureBox productPbx;
+        private System.Windows.Forms.TextBox amountTxt;
+        private System.Windows.Forms.Label label10;
     }
 }

@@ -28,6 +28,7 @@ namespace ARM.Model
         {
             this.Id = id;
             this.Name = name;
+            this.Email = email;
             this.Contact = contact;
             this.Address = address;
             this.No = no;
@@ -42,6 +43,7 @@ namespace ARM.Model
 
         public string Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
+        public string Email { get => email; set => email = value; }
         public string Contact { get => contact; set => contact = value; }
         public string Address { get => address; set => address = value; }
         public string No { get => no; set => no = value; }
@@ -56,6 +58,7 @@ namespace ARM.Model
         static List<Vendor> p = new List<Vendor>();
         public static List<Vendor> List()
         {
+            p.Clear();
             string Q = "SELECT * FROM Vendor ";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);

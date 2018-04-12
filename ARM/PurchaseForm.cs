@@ -29,14 +29,7 @@ namespace ARM
 
         private void button4_Click(object sender, EventArgs e)
         {
-            using (AddPurchase form = new AddPurchase())
-            {
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                    // LoadingCalendarLite();
-                }
-            }
+            
         }
     }
 }

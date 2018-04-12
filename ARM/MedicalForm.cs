@@ -329,5 +329,45 @@ namespace ARM
                 }
             }
         }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            AddTransaction frm = new AddTransaction(null);
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void salesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InvoiceForm frm = new InvoiceForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void purchasesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PaymentForm frm = new PaymentForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void rentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           TransactionForm frm = new TransactionForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
     }
 }

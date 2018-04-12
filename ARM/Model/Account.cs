@@ -39,6 +39,7 @@ namespace ARM.Model
 
         public static List<Account> List()
         {
+            p.Clear();
             string Q = "SELECT * FROM Account ";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);

@@ -49,6 +49,7 @@ namespace ARM.Model
 
         public static List<Transaction> List()
         {
+            p.Clear();
             string Q = "SELECT * FROM Transaction ";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);

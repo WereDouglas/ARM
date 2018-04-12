@@ -57,8 +57,8 @@ namespace ARM
             {
                 g.DrawString("Loading...", this.Font, new SolidBrush(Color.Black), 0f, 0f);
             }
-            Image view = new Bitmap(Properties.Resources.Document_Edit_24__1_);
-            Image delete = new Bitmap(Properties.Resources.Garbage_Closed_24);
+            Image view = new Bitmap(Properties.Resources.Note_Memo_16);
+            Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
 
             foreach (Item c in Item.List())
             {

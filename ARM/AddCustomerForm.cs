@@ -26,12 +26,10 @@ namespace ARM
             }
             catch
             {
-
                 noTxt.Text = " 1 ";
             }
             if (!string.IsNullOrEmpty(customerID))
             {
-
                 Profile(customerID);
             }
         }

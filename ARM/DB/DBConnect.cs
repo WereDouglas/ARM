@@ -175,14 +175,30 @@ namespace ARM.DB
             {
                 //object propValue = properties[i].GetValue(objGen, null);
                 string[] typeValue = properties[i].ToString().Split(' ');
-                SQL += "" + typeValue[1].ToString() + " varchar(1000),";
+                if (typeValue[1].ToString().IndexOf("image", StringComparison.OrdinalIgnoreCase) <= 0)
+                {
+                    SQL += "" + typeValue[1].ToString() + " varchar(1000),";
+                }
+                else
+                {
+                    SQL += "" + typeValue[1].ToString() + " text,";
+                }
+
 
             }
 
             // get last attribute here           
             string[] lastType = properties[properties.Length - 1].ToString().Split(' ');
+            if (lastType[1].ToString().IndexOf("image", StringComparison.OrdinalIgnoreCase) <= 0)
+            {
+                SQL += "" + lastType[1].ToString() + " text";
+            }
+            else
+            {
+                SQL += "" + lastType[1].ToString() + " varchar(1000)";
+            }
 
-            SQL += "" + lastType[1].ToString() + " varchar(1000)";
+            // SQL += "" + lastType[1].ToString() + " varchar(1000)";
 
 
             // Ends string builder

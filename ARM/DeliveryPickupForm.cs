@@ -24,7 +24,7 @@ namespace ARM
 
         private void button4_Click(object sender, EventArgs e)
         {
-            using (AddPurchase form = new AddPurchase())
+            using (AddPurchase form = new AddPurchase(null,null))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)

@@ -23,6 +23,7 @@ namespace ARM.Model
         private double tax;
         private double paid;
         private double balance;
+        private double amount;
         private int itemCount;
         private string userID;
         private string created;        
@@ -30,25 +31,26 @@ namespace ARM.Model
 
         public Invoice() { }
 
-        public Invoice(string id, string date, string no, string type, string category, string vendorID, string customerID, string method, double total, string terms, double tax, double paid, double balance, int itemCount, string userID, string created, bool sync)
+        public Invoice(string id, string date, string no, string type, string category, string vendorID, string customerID, string method, double total, string terms, double tax, double paid, double balance, double amount, int itemCount, string userID, string created, bool sync)
         {
-            this.id = id;
-            this.date = date;
-            this.no = no;
-            this.type = type;
-            this.category = category;
-            this.vendorID = vendorID;
-            this.customerID = customerID;
-            this.method = method;
-            this.total = total;
-            this.terms = terms;
-            this.tax = tax;
-            this.paid = paid;
-            this.balance = balance;
-            this.itemCount = itemCount;
-            this.userID = userID;
-            this.created = created;
-            this.sync = sync;
+            this.Id = id;
+            this.Date = date;
+            this.No = no;
+            this.Type = type;
+            this.Category = category;
+            this.VendorID = vendorID;
+            this.CustomerID = customerID;
+            this.Method = method;
+            this.Total = total;
+            this.Terms = terms;
+            this.Tax = tax;
+            this.Paid = paid;
+            this.Balance = balance;
+            this.Amount = amount;
+            this.ItemCount = itemCount;
+            this.UserID = userID;
+            this.Created = created;
+            this.Sync = sync;
         }
 
         static List<Invoice> p = new List<Invoice>();
@@ -66,6 +68,7 @@ namespace ARM.Model
         public double Tax { get => tax; set => tax = value; }
         public double Paid { get => paid; set => paid = value; }
         public double Balance { get => balance; set => balance = value; }
+        public double Amount { get => amount; set => amount = value; }
         public int ItemCount { get => itemCount; set => itemCount = value; }
         public string UserID { get => userID; set => userID = value; }
         public string Created { get => created; set => created = value; }
@@ -73,12 +76,13 @@ namespace ARM.Model
 
         public static List<Invoice> List()
         {
+            p.Clear();
             string Q = "SELECT * FROM Invoice ";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Invoice ps = new Invoice(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["vendorID"].ToString(), Reader["customerID"].ToString(), Reader["method"].ToString(), Convert.ToDouble(Reader["total"]), Reader["terms"].ToString(), Convert.ToDouble(Reader["tax"]), Convert.ToDouble(Reader["paid"]), Convert.ToDouble(Reader["balance"]),Convert.ToInt32( Reader["itemCount"]), Reader["userID"].ToString(), Reader["created"].ToString(),Convert.ToBoolean(Reader["sync"]));
+                Invoice ps = new Invoice(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["vendorID"].ToString(), Reader["customerID"].ToString(), Reader["method"].ToString(), Convert.ToDouble(Reader["total"]), Reader["terms"].ToString(), Convert.ToDouble(Reader["tax"]), Convert.ToDouble(Reader["paid"]), Convert.ToDouble(Reader["balance"]), Convert.ToDouble(Reader["amount"]), Convert.ToInt32( Reader["itemCount"]), Reader["userID"].ToString(), Reader["created"].ToString(),Convert.ToBoolean(Reader["sync"]));
                 p.Add(ps);
             }
             DBConnect.CloseConn();

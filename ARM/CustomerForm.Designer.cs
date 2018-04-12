@@ -104,6 +104,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(5, 5);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(10);
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip1.Size = new System.Drawing.Size(1190, 57);
             this.toolStrip1.TabIndex = 46;
             this.toolStrip1.Text = "toolStrip1";
@@ -164,7 +165,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1200, 554);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dtGrid);

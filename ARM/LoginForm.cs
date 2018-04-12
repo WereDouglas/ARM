@@ -61,6 +61,9 @@ namespace ARM
             DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Item()));
             DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Schedule()));
             DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Vendor()));
+            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Invoice()));
+            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Transaction()));
+            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Payment()));
         }
     }
 }

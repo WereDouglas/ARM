@@ -443,6 +443,16 @@ namespace ARM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Layers_01_16 {
+            get {
+                object obj = ResourceManager.GetObject("Layers-01-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Lock_24 {
             get {
                 object obj = ResourceManager.GetObject("Lock-24", resourceCulture);
@@ -503,6 +513,26 @@ namespace ARM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Note_04_24 {
+            get {
+                object obj = ResourceManager.GetObject("Note-04-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Note_Memo_16 {
+            get {
+                object obj = ResourceManager.GetObject("Note-Memo-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Orientation_Portrait_24 {
             get {
                 object obj = ResourceManager.GetObject("Orientation-Portrait-24", resourceCulture);
@@ -556,6 +586,16 @@ namespace ARM.Properties {
         internal static System.Drawing.Bitmap Search_Folder_New_32 {
             get {
                 object obj = ResourceManager.GetObject("Search-Folder-New-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Server_Delete_16 {
+            get {
+                object obj = ResourceManager.GetObject("Server-Delete-16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

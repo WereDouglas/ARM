@@ -66,6 +66,7 @@ namespace ARM.Model
 
         public static List<Item> List()
         {
+            p.Clear();
             string Q = "SELECT * FROM Item ";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
@@ -92,6 +93,8 @@ namespace ARM.Model
             return c;
 
         }
+
+        
     }
 
 }

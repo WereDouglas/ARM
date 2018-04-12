@@ -54,6 +54,7 @@ namespace ARM.Model
 
         public static List<Insurance> List()
         {
+            p.Clear();
             string Q = "SELECT * FROM Insurance ";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);

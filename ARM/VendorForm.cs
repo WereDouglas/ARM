@@ -62,7 +62,7 @@ namespace ARM
             {
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, c.Image as string, b, c.Name,c.Contact, c.Address, c.City, c.State, c.Zip,c.Category, c.Sync, c.Created, view, delete });
+                    t.Rows.Add(new object[] { false, c.Id, c.Image as string, b, c.Name,c.Email,c.Contact, c.Address, c.City, c.State, c.Zip,c.Category, c.Sync, c.Created, view, delete });
 
                 }
                 catch (Exception m)
@@ -84,8 +84,8 @@ namespace ARM
                         Image img = Helper.Base64ToImage(row["uri"].ToString().Replace('"', ' ').Trim());
                         System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
                         Bitmap bps = new Bitmap(bmp, 50, 50);
-                        Image dstImage = Helper.CropToCircle(bps, Color.White);
-                        row["Img"] = dstImage;
+                       // Image dstImage = Helper.CropToCircle(bps, Color.White);
+                        row["Img"] =bps;
 
                     }
                     catch
