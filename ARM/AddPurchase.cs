@@ -40,33 +40,19 @@ namespace ARM
                 if (!ProductDictionary.ContainsKey(v.Name))
                 {
                     ProductDictionary.Add(v.Name, v.Id);
+                    productTxt.Items.Add(v.Name);
                 }
             }
-            productTxt.AutoCompleteMode = AutoCompleteMode.Suggest;
-            productTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            productTxt.AutoCompleteCustomSource = AutoItem;
+            //productTxt.AutoCompleteMode = AutoCompleteMode.Suggest;
+            //productTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            //productTxt.AutoCompleteCustomSource = AutoItem;
 
         }
         string ItemID;
         Item i;
         private void productTxt_Leave(object sender, EventArgs e)
         {
-            try
-            {
-                ItemID = ProductDictionary[productTxt.Text];
-                i = new Item();//.Select(ItemID);
-                i = Item.Select(ItemID);
-                Image img = Helper.Base64ToImage(i.Image);
-                System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
-                productPbx.Image = bmp;
-                productPbx.SizeMode = PictureBoxSizeMode.StretchImage;
-                costTxt.Text = i.Cost;
-                measureTxt.Text = i.UnitOfMeasure;
-                measureDesTxt.Text = i.MeasureDescription;
-                ManufacturerTxt.Text = i.Manufacturer;
-                descriptionTxt.Text = i.Description;
-            }
-            catch { }
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -91,6 +77,26 @@ namespace ARM
             try
             {
                 amountTxt.Text = (Convert.ToDouble(costTxt.Text) * Convert.ToDouble(qtyTxt.Text)).ToString();
+            }
+            catch { }
+        }
+
+        private void productTxt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ItemID = ProductDictionary[productTxt.Text];
+                i = new Item();//.Select(ItemID);
+                i = Item.Select(ItemID);
+                Image img = Helper.Base64ToImage(i.Image);
+                System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
+                productPbx.Image = bmp;
+                productPbx.SizeMode = PictureBoxSizeMode.StretchImage;
+                costTxt.Text = i.Cost;
+                measureTxt.Text = i.UnitOfMeasure;
+                measureDesTxt.Text = i.MeasureDescription;
+                ManufacturerTxt.Text = i.Manufacturer;
+                descriptionTxt.Text = i.Description;
             }
             catch { }
         }

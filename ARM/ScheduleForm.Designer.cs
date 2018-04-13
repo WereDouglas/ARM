@@ -65,7 +65,7 @@
             this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripLabel1.ForeColor = System.Drawing.SystemColors.GrayText;
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(82, 34);
+            this.toolStripLabel1.Size = new System.Drawing.Size(97, 34);
             this.toolStripLabel1.Text = "Schedules";
             // 
             // searchTxt
@@ -110,6 +110,7 @@
             this.dtGrid.RowHeadersWidth = 20;
             this.dtGrid.Size = new System.Drawing.Size(1190, 487);
             this.dtGrid.TabIndex = 48;
+            this.dtGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellClick);
             // 
             // toolStripButton1
             // 

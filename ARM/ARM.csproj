@@ -121,6 +121,31 @@
     <Compile Include="AccountDialog.Designer.cs">
       <DependentUpon>AccountDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="CareDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CareDialog.Designer.cs">
+      <DependentUpon>CareDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsuranceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsuranceForm.Designer.cs">
+      <DependentUpon>InsuranceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CareForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CareForm.Designer.cs">
+      <DependentUpon>CareForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsuranceDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsuranceDialog.Designer.cs">
+      <DependentUpon>InsuranceDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Order.cs" />
     <Compile Include="ScheduleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -357,6 +382,18 @@
     <Compile Include="Util\Helper.cs" />
     <EmbeddedResource Include="AccountDialog.resx">
       <DependentUpon>AccountDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CareDialog.resx">
+      <DependentUpon>CareDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsuranceForm.resx">
+      <DependentUpon>InsuranceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CareForm.resx">
+      <DependentUpon>CareForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsuranceDialog.resx">
+      <DependentUpon>InsuranceDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScheduleForm.resx">
       <DependentUpon>ScheduleForm.cs</DependentUpon>

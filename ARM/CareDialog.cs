@@ -15,34 +15,18 @@ using System.Windows.Forms;
 
 namespace ARM
 {
-    public partial class ScheduleDialog : MetroFramework.Forms.MetroForm
+    public partial class CareDialog : MetroFramework.Forms.MetroForm
     {
 
         Dictionary<string, string> UserDictionary = new Dictionary<string, string>();
         Dictionary<string, string> CustomerDictionary = new Dictionary<string, string>();
         string CustomerID;
         string UserID;
-        public ScheduleDialog(string start, string end, string date)
+        public CareDialog(string id)
         {
             InitializeComponent();
 
-            startHrTxt.Format = DateTimePickerFormat.Custom;
-            startHrTxt.CustomFormat = "HH:mm:ss"; // Only use hours and minutes
-            startHrTxt.ShowUpDown = true;
-
-            endHrTxt.Format = DateTimePickerFormat.Custom;
-            endHrTxt.CustomFormat = "HH:mm:ss"; // Only use hours and minutes
-            endHrTxt.ShowUpDown = true;
-
-
-            if (!String.IsNullOrEmpty(start))
-            {
-
-                startHrTxt.Text = Convert.ToDateTime(start).ToShortTimeString();
-                endHrTxt.Text = Convert.ToDateTime(end).ToShortTimeString();
-                openedDate.Text = date;
-
-            }
+          
             AutoCompleteCustomer();
             AutoCompleteUser();
         }
@@ -88,30 +72,9 @@ namespace ARM
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(categoryCbx.Text)) {
-                categoryCbx.BackColor = Color.Red;
-                MessageBox.Show(" Please select the category ");
-                return;
-            }
-            if (string.IsNullOrEmpty(statusCbx.Text))
-            {
-                statusCbx.BackColor = Color.Red;
-                MessageBox.Show(" Please select the status ");
-                return;
-            }
-
-            if (startHrTxt.Text == "" || endHrTxt.Text == "")
-            {
-                MessageBox.Show("Please input the start time and end time for the Schedule ");
-                return;
-            }
             string ID = Guid.NewGuid().ToString();
-            var start = Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd") + "T" + this.startHrTxt.Text;
-            var end = Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd") + "T" + this.endHrTxt.Text;
-           
-
-            Schedule _event = new Schedule(ID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, start, end, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), categoryCbx.Text, periodTxt.Text, categoryCbx.Text, statusCbx.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false);
-            if (DBConnect.Insert(_event) != "")
+            Responsible r = new Responsible(ID,UserID,CustomerID,DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false);
+            if (DBConnect.Insert(r) != "")
             {
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;
@@ -139,7 +102,7 @@ namespace ARM
                 CustomerID = CustomerDictionary[customerCbx.Text];
                 c = new Customer();//.Select(ItemID);
                 c = Customer.Select(CustomerID);
-                locationTxt.Text = c.Address + " " + c.City + " " + c.State;
+               
                 Image img = Helper.Base64ToImage(c.Image);
                 System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
                 cusPbx.Image = bmp;
@@ -169,34 +132,13 @@ namespace ARM
                 userPbx.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch { }
-            r = new Rate();
-            r = Rate.Select(UserID);
-            costTxt.Text = r.Amount.ToString();
-            totalTxt.Text = (r.Amount * Convert.ToDouble(periodTxt.Text)).ToString();
-            try
-            {
-                
-            }
-            catch
-            {
-                costTxt.Text = "0";
-                totalTxt.Text = "0";
-
-            }
+           
         }
 
-        private void ScheduleDialog_Load(object sender, EventArgs e)
+        private void CareDialog_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void categoryCbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            System.Diagnostics.Debug.WriteLine(Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy") + " " + startHrTxt.Text);
-           var start = Convert.ToDateTime(Convert.ToDateTime(startHrTxt.Text).ToString("HH:mm:ss"));
-           var end = Convert.ToDateTime(Convert.ToDateTime(endHrTxt.Text).ToString("HH:mm:ss"));
-            var hours = (end - start).TotalHours;
-            periodTxt.Text = hours.ToString();
-        }
     }
 }

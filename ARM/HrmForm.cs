@@ -273,7 +273,7 @@ namespace ARM
 
         private void vendorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (AddVendor form = new AddVendor(null))
+            using (CareDialog form = new CareDialog(null))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
@@ -447,7 +447,13 @@ namespace ARM
 
         private void reviewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            using (InsuranceDialog form = new InsuranceDialog(null))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                }
+            }
         }
 
         private void toolStripButton5_Click_1(object sender, EventArgs e)
@@ -473,6 +479,26 @@ namespace ARM
         private void toolStripButton3_Click_1(object sender, EventArgs e)
         {
             ScheduleForm frm = new ScheduleForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripButton2_Click_1(object sender, EventArgs e)
+        {
+            CareForm frm = new CareForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripButton6_Click_1(object sender, EventArgs e)
+        {
+           InsuranceForm frm = new InsuranceForm();
             frm.TopLevel = false;
             panel1.Controls.Add(frm);
             frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

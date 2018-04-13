@@ -34,6 +34,10 @@
             this.customerCbx = new MetroFramework.Controls.MetroComboBox();
             this.userCbx = new MetroFramework.Controls.MetroComboBox();
             this.statusCbx = new MetroFramework.Controls.MetroComboBox();
+            this.startHrTxt = new System.Windows.Forms.DateTimePicker();
+            this.endHrTxt = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.totalTxt = new MetroFramework.Controls.MetroTextBox();
             this.locationTxt = new MetroFramework.Controls.MetroTextBox();
             this.periodTxt = new MetroFramework.Controls.MetroTextBox();
@@ -43,10 +47,6 @@
             this.detailsTxt = new MetroFramework.Controls.MetroTextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.startHrTxt = new System.Windows.Forms.DateTimePicker();
-            this.endHrTxt = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.userPbx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).BeginInit();
             this.SuspendLayout();
@@ -110,8 +110,9 @@
             this.statusCbx.FormattingEnabled = true;
             this.statusCbx.ItemHeight = 23;
             this.statusCbx.Items.AddRange(new object[] {
-            "Shift",
-            "Appointment"});
+            "Paid",
+            "Pending",
+            "Cancelled"});
             this.statusCbx.Location = new System.Drawing.Point(75, 415);
             this.statusCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.statusCbx.Name = "statusCbx";
@@ -119,6 +120,50 @@
             this.statusCbx.Size = new System.Drawing.Size(265, 29);
             this.statusCbx.TabIndex = 180;
             this.statusCbx.UseSelectable = true;
+            // 
+            // startHrTxt
+            // 
+            this.startHrTxt.CalendarFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startHrTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startHrTxt.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.startHrTxt.Location = new System.Drawing.Point(75, 135);
+            this.startHrTxt.Name = "startHrTxt";
+            this.startHrTxt.ShowUpDown = true;
+            this.startHrTxt.Size = new System.Drawing.Size(265, 27);
+            this.startHrTxt.TabIndex = 184;
+            // 
+            // endHrTxt
+            // 
+            this.endHrTxt.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.endHrTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endHrTxt.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.endHrTxt.Location = new System.Drawing.Point(75, 168);
+            this.endHrTxt.Name = "endHrTxt";
+            this.endHrTxt.ShowUpDown = true;
+            this.endHrTxt.Size = new System.Drawing.Size(265, 27);
+            this.endHrTxt.TabIndex = 185;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.ForestGreen;
+            this.label1.Location = new System.Drawing.Point(10, 145);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 19);
+            this.label1.TabIndex = 186;
+            this.label1.Text = "Start:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Crimson;
+            this.label2.Location = new System.Drawing.Point(12, 171);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(39, 19);
+            this.label2.TabIndex = 187;
+            this.label2.Text = "End:";
             // 
             // totalTxt
             // 
@@ -349,50 +394,6 @@
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // startHrTxt
-            // 
-            this.startHrTxt.CalendarFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startHrTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startHrTxt.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.startHrTxt.Location = new System.Drawing.Point(75, 135);
-            this.startHrTxt.Name = "startHrTxt";
-            this.startHrTxt.ShowUpDown = true;
-            this.startHrTxt.Size = new System.Drawing.Size(265, 27);
-            this.startHrTxt.TabIndex = 184;
-            // 
-            // endHrTxt
-            // 
-            this.endHrTxt.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.endHrTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.endHrTxt.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.endHrTxt.Location = new System.Drawing.Point(75, 168);
-            this.endHrTxt.Name = "endHrTxt";
-            this.endHrTxt.ShowUpDown = true;
-            this.endHrTxt.Size = new System.Drawing.Size(265, 27);
-            this.endHrTxt.TabIndex = 185;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label1.Location = new System.Drawing.Point(10, 145);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 19);
-            this.label1.TabIndex = 186;
-            this.label1.Text = "Start:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Crimson;
-            this.label2.Location = new System.Drawing.Point(12, 171);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 19);
-            this.label2.TabIndex = 187;
-            this.label2.Text = "End:";
             // 
             // ScheduleDialog
             // 

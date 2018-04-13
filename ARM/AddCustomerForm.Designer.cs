@@ -125,7 +125,8 @@
             this.categoryCbx.ItemHeight = 23;
             this.categoryCbx.Items.AddRange(new object[] {
             "Client",
-            "Patient"});
+            "Patient",
+            "Facility"});
             this.categoryCbx.Location = new System.Drawing.Point(105, 302);
             this.categoryCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.categoryCbx.Name = "categoryCbx";

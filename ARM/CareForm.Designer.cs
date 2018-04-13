@@ -1,6 +1,6 @@
 ﻿namespace ARM
 {
-    partial class AccountForm
+    partial class CareForm
     {
         /// <summary>
         /// Required designer variable.
@@ -65,8 +65,8 @@
             this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripLabel1.ForeColor = System.Drawing.SystemColors.GrayText;
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(91, 34);
-            this.toolStripLabel1.Text = "Accounts";
+            this.toolStripLabel1.Size = new System.Drawing.Size(116, 34);
+            this.toolStripLabel1.Text = "Patient Care";
             // 
             // toolStripButton1
             // 
@@ -147,7 +147,7 @@
             this.dtGrid.TabIndex = 48;
             this.dtGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellClick);
             // 
-            // AccountForm
+            // CareForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -158,10 +158,10 @@
             this.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "AccountForm";
+            this.Name = "CareForm";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "AccountForm";
+            this.Text = "CareForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

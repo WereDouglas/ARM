@@ -67,6 +67,21 @@ namespace ARM.Model
             return p;
 
         }
+        static List<Insurance> c = new List<Insurance>();
+        public static List<Insurance> Select(string id)
+        {
+            string Q = "SELECT * FROM insurance WHERE customerID = '" + id + "'";
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+             Insurance k  = new Insurance(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["image"].ToString(), Reader["no"].ToString(), Reader["address"].ToString(), Reader["contact"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                c.Add(k);
+            }
+            DBConnect.CloseConn();
+            return c;
+
+        }
     }
 
 }
