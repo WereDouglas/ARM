@@ -81,7 +81,7 @@ namespace ARM.Model
 
         public static Users Select(string userID)
         {
-
+            
             string Q = "SELECT * FROM users WHERE id = '" + userID + "'";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);

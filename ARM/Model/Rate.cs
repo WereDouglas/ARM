@@ -42,6 +42,7 @@ namespace ARM.Model
 
         public static List<Rate> List()
         {
+            p.Clear();
             string Q = "SELECT * FROM Rate ";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
@@ -52,6 +53,21 @@ namespace ARM.Model
             }
             DBConnect.CloseConn();
             return p;
+
+        }
+       static Rate c;
+        public static Rate Select(string ID)
+        {
+            string Q = "SELECT * FROM rate WHERE userID = '" + ID + "'";
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                c = new Rate(Reader["id"].ToString(), Reader["userID"].ToString(),Convert.ToDouble( Reader["amount"]), Convert.ToDouble(Reader["period"]), Reader["units"].ToString(),Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+
+            }
+            DBConnect.CloseConn();
+            return c;
 
         }
     }

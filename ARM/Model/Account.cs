@@ -12,13 +12,13 @@ namespace ARM.Model
     {
         private string id;
         private string userID;
-        private double bank;
-        private double accountNo;           
+        private string bank;
+        private string accountNo;           
         private string created;      
         private bool sync;
         public Account() { }
 
-        public Account(string id, string userID, double bank, double accountNo, string created, bool sync)
+        public Account(string id, string userID, string bank, string accountNo, string created, bool sync)
         {
             this.Id = id;
             this.UserID = userID;
@@ -32,8 +32,8 @@ namespace ARM.Model
 
         public string Id { get => id; set => id = value; }
         public string UserID { get => userID; set => userID = value; }
-        public double Bank { get => bank; set => bank = value; }
-        public double AccountNo { get => accountNo; set => accountNo = value; }
+        public string Bank { get => bank; set => bank = value; }
+        public string AccountNo { get => accountNo; set => accountNo = value; }
         public string Created { get => created; set => created = value; }
         public bool Sync { get => sync; set => sync = value; }
 
@@ -45,7 +45,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Account ps = new Account(Reader["id"].ToString(), Reader["userID"].ToString(), Convert.ToDouble(Reader["bank"]),Convert.ToDouble( Reader["accountNo"]),Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                Account ps = new Account(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["bank"].ToString(), Reader["accountNo"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
                 p.Add(ps);
             }
             DBConnect.CloseConn();

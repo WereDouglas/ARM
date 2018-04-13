@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dtGrid = new System.Windows.Forms.DataGridView();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.dateTxt = new MetroFramework.Controls.MetroDateTime();
             this.typeCbx = new MetroFramework.Controls.MetroComboBox();
@@ -42,7 +42,6 @@
             this.methodCbx = new MetroFramework.Controls.MetroComboBox();
             this.termsTxt = new MetroFramework.Controls.MetroTextBox();
             this.taxTxt = new MetroFramework.Controls.MetroTextBox();
-            this.paidCbx = new MetroFramework.Controls.MetroComboBox();
             this.balanceTxt = new MetroFramework.Controls.MetroTextBox();
             this.ItemCountTxt = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
@@ -50,6 +49,7 @@
             this.vendorTxt = new MetroFramework.Controls.MetroTextBox();
             this.customerTxt = new MetroFramework.Controls.MetroTextBox();
             this.totalTxt = new MetroFramework.Controls.MetroTextBox();
+            this.dtGrid = new System.Windows.Forms.DataGridView();
             this.noTxt = new MetroFramework.Controls.MetroTextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -79,7 +79,7 @@
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(10);
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(1242, 57);
+            this.toolStrip1.Size = new System.Drawing.Size(1242, 52);
             this.toolStrip1.TabIndex = 46;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -93,14 +93,14 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.91968F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 57);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 46);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0.8071749F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 99.19283F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1245, 491);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1245, 502);
             this.tableLayoutPanel1.TabIndex = 47;
             // 
             // panel1
@@ -109,6 +109,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
+            this.panel1.Controls.Add(this.noTxt);
+            this.panel1.Controls.Add(this.dtGrid);
             this.panel1.Controls.Add(this.reportViewer1);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
@@ -122,37 +124,17 @@
             this.panel1.Controls.Add(this.metroLabel1);
             this.panel1.Controls.Add(this.ItemCountTxt);
             this.panel1.Controls.Add(this.balanceTxt);
-            this.panel1.Controls.Add(this.paidCbx);
             this.panel1.Controls.Add(this.taxTxt);
             this.panel1.Controls.Add(this.termsTxt);
             this.panel1.Controls.Add(this.methodCbx);
-            this.panel1.Controls.Add(this.dtGrid);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.vendorPbx);
             this.panel1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(3, 6);
             this.panel1.Name = "panel1";
             this.tableLayoutPanel1.SetRowSpan(this.panel1, 2);
-            this.panel1.Size = new System.Drawing.Size(1239, 482);
+            this.panel1.Size = new System.Drawing.Size(1239, 493);
             this.panel1.TabIndex = 41;
-            // 
-            // dtGrid
-            // 
-            this.dtGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtGrid.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
-            this.dtGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dtGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dtGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGrid.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dtGrid.Location = new System.Drawing.Point(7, 169);
-            this.dtGrid.Name = "dtGrid";
-            this.dtGrid.RowHeadersVisible = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtGrid.RowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtGrid.Size = new System.Drawing.Size(454, 116);
-            this.dtGrid.TabIndex = 5;
-            this.dtGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellClick);
             // 
             // reportViewer1
             // 
@@ -166,8 +148,9 @@
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "ARM.InvoiceReport.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(467, 3);
             this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Padding = new System.Windows.Forms.Padding(5);
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(769, 466);
+            this.reportViewer1.Size = new System.Drawing.Size(769, 477);
             this.reportViewer1.TabIndex = 0;
             // 
             // dateTxt
@@ -302,23 +285,6 @@
             this.taxTxt.WaterMark = "Tax";
             this.taxTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.taxTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // paidCbx
-            // 
-            this.paidCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.paidCbx.FormattingEnabled = true;
-            this.paidCbx.ItemHeight = 23;
-            this.paidCbx.Items.AddRange(new object[] {
-            "Yes",
-            "No"});
-            this.paidCbx.Location = new System.Drawing.Point(269, 384);
-            this.paidCbx.Name = "paidCbx";
-            this.paidCbx.PromptText = "Paid?";
-            this.paidCbx.Size = new System.Drawing.Size(179, 29);
-            this.paidCbx.Style = MetroFramework.MetroColorStyle.Green;
-            this.paidCbx.TabIndex = 13;
-            this.paidCbx.UseSelectable = true;
-            this.paidCbx.UseStyleColors = true;
             // 
             // balanceTxt
             // 
@@ -550,6 +516,39 @@
             this.totalTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.totalTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // dtGrid
+            // 
+            this.dtGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dtGrid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dtGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dtGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dtGrid.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.dtGrid.Location = new System.Drawing.Point(17, 156);
+            this.dtGrid.Name = "dtGrid";
+            this.dtGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtGrid.RowHeadersWidth = 20;
+            this.dtGrid.Size = new System.Drawing.Size(440, 129);
+            this.dtGrid.TabIndex = 251;
+            // 
             // noTxt
             // 
             // 
@@ -567,7 +566,7 @@
             this.noTxt.DisplayIcon = true;
             this.noTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
             this.noTxt.Lines = new string[0];
-            this.noTxt.Location = new System.Drawing.Point(1078, 19);
+            this.noTxt.Location = new System.Drawing.Point(335, 129);
             this.noTxt.MaxLength = 32767;
             this.noTxt.Name = "noTxt";
             this.noTxt.PasswordChar = '\0';
@@ -656,8 +655,9 @@
             this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripLabel1.ForeColor = System.Drawing.SystemColors.GrayText;
             this.toolStripLabel1.Image = global::ARM.Properties.Resources.Inventory_24;
+            this.toolStripLabel1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(90, 34);
+            this.toolStripLabel1.Size = new System.Drawing.Size(98, 29);
             this.toolStripLabel1.Text = "Invoice";
             // 
             // toolStripButton1
@@ -668,7 +668,7 @@
             this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 34);
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 29);
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -683,7 +683,6 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1245, 560);
-            this.Controls.Add(this.noTxt);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -712,7 +711,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dtGrid;
         private System.Windows.Forms.PictureBox vendorPbx;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource InvoiceBindingSource;
@@ -723,7 +721,6 @@
         private MetroFramework.Controls.MetroComboBox methodCbx;
         private MetroFramework.Controls.MetroTextBox termsTxt;
         private MetroFramework.Controls.MetroTextBox taxTxt;
-        private MetroFramework.Controls.MetroComboBox paidCbx;
         private MetroFramework.Controls.MetroTextBox balanceTxt;
         private MetroFramework.Controls.MetroTextBox ItemCountTxt;
         private MetroFramework.Controls.MetroLabel metroLabel1;
@@ -733,5 +730,6 @@
         private MetroFramework.Controls.MetroTextBox totalTxt;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dtGrid;
     }
 }

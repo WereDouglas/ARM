@@ -45,11 +45,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.metroTabControl1.SuspendLayout();
             this.appointmentTabPage.SuspendLayout();
@@ -90,7 +90,7 @@
             this.metroTabControl1.Controls.Add(this.employeeTabPage);
             this.metroTabControl1.Location = new System.Drawing.Point(158, 10);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(1173, 792);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
@@ -101,7 +101,7 @@
             this.appointmentTabPage.Controls.Add(this.tableLayoutPanel2);
             this.appointmentTabPage.HorizontalScrollbarBarColor = true;
             this.appointmentTabPage.HorizontalScrollbarHighlightOnWheel = false;
-            this.appointmentTabPage.HorizontalScrollbarSize = 3;
+            this.appointmentTabPage.HorizontalScrollbarSize = 2;
             this.appointmentTabPage.Location = new System.Drawing.Point(4, 38);
             this.appointmentTabPage.Name = "appointmentTabPage";
             this.appointmentTabPage.Size = new System.Drawing.Size(1165, 750);
@@ -213,7 +213,7 @@
             this.alertsTabPage.Controls.Add(this.metroPanel1);
             this.alertsTabPage.HorizontalScrollbarBarColor = true;
             this.alertsTabPage.HorizontalScrollbarHighlightOnWheel = false;
-            this.alertsTabPage.HorizontalScrollbarSize = 3;
+            this.alertsTabPage.HorizontalScrollbarSize = 2;
             this.alertsTabPage.Location = new System.Drawing.Point(4, 38);
             this.alertsTabPage.Name = "alertsTabPage";
             this.alertsTabPage.Size = new System.Drawing.Size(1165, 750);
@@ -227,7 +227,7 @@
             // 
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 3;
+            this.metroPanel1.HorizontalScrollbarSize = 2;
             this.metroPanel1.Location = new System.Drawing.Point(3, 3);
             this.metroPanel1.Name = "metroPanel1";
             this.metroPanel1.Size = new System.Drawing.Size(1144, 739);
@@ -240,7 +240,7 @@
             // 
             this.shiftTabPage.HorizontalScrollbarBarColor = true;
             this.shiftTabPage.HorizontalScrollbarHighlightOnWheel = false;
-            this.shiftTabPage.HorizontalScrollbarSize = 3;
+            this.shiftTabPage.HorizontalScrollbarSize = 2;
             this.shiftTabPage.Location = new System.Drawing.Point(4, 38);
             this.shiftTabPage.Name = "shiftTabPage";
             this.shiftTabPage.Size = new System.Drawing.Size(1165, 750);
@@ -254,7 +254,7 @@
             // 
             this.clientTabPage.HorizontalScrollbarBarColor = true;
             this.clientTabPage.HorizontalScrollbarHighlightOnWheel = false;
-            this.clientTabPage.HorizontalScrollbarSize = 3;
+            this.clientTabPage.HorizontalScrollbarSize = 2;
             this.clientTabPage.Location = new System.Drawing.Point(4, 38);
             this.clientTabPage.Name = "clientTabPage";
             this.clientTabPage.Size = new System.Drawing.Size(1165, 750);
@@ -268,7 +268,7 @@
             // 
             this.employeeTabPage.HorizontalScrollbarBarColor = true;
             this.employeeTabPage.HorizontalScrollbarHighlightOnWheel = false;
-            this.employeeTabPage.HorizontalScrollbarSize = 3;
+            this.employeeTabPage.HorizontalScrollbarSize = 2;
             this.employeeTabPage.Location = new System.Drawing.Point(4, 38);
             this.employeeTabPage.Name = "employeeTabPage";
             this.employeeTabPage.Size = new System.Drawing.Size(1165, 750);
@@ -309,17 +309,6 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "ADD";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(10);
-            this.pictureBox1.Size = new System.Drawing.Size(140, 79);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -336,6 +325,7 @@
             this.button4.Text = "Shift";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button1
             // 
@@ -353,6 +343,7 @@
             this.button1.Text = "Client";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -389,6 +380,17 @@
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(10);
+            this.pictureBox1.Size = new System.Drawing.Size(140, 79);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // HomeForm
             // 

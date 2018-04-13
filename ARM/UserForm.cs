@@ -22,8 +22,7 @@ namespace ARM
             InitializeComponent();
 
             LoadData();
-            var datePicker = new ToolStripControlHost(new DateTimePicker());
-            toolStrip1.Items.Add(datePicker);
+           
         }
         List<Users> users = new List<Users>();
 
@@ -35,8 +34,7 @@ namespace ARM
             t.Columns.Add(new DataColumn("Select", typeof(bool)));
             t.Columns.Add("usersID");
             t.Columns.Add("uri");
-            t.Columns.Add(new DataColumn("Img", typeof(Bitmap)));//1
-          
+            t.Columns.Add(new DataColumn("Img", typeof(Bitmap)));          
             t.Columns.Add("Name");
             t.Columns.Add("Email");
             t.Columns.Add("Contact");
@@ -49,7 +47,7 @@ namespace ARM
             t.Columns.Add("Sync");
             t.Columns.Add("Created");
             t.Columns.Add(new DataColumn("View", typeof(Image)));
-            t.Columns.Add(new DataColumn("Delete", typeof(Image)));//1
+            t.Columns.Add(new DataColumn("Delete", typeof(Image)));
 
 
             Bitmap b = new Bitmap(50, 50);
@@ -64,7 +62,7 @@ namespace ARM
             {
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, c.Image as string, b, c.Name,c.Contact, c.Address, c.City, c.State, c.Zip,c.Category,c.Gender, c.Sync, c.Created, view, delete });
+                    t.Rows.Add(new object[] { false, c.Id, c.Image as string, b, c.Name,c.Email,c.Contact, c.Address, c.City, c.State, c.Zip,c.Category,c.Gender, c.Sync, c.Created, view, delete });
 
                 }
                 catch (Exception m)
@@ -103,7 +101,7 @@ namespace ARM
             dtGrid.RowTemplate.Height = 60;
             dtGrid.Columns["uri"].Visible = false;
             dtGrid.Columns["usersID"].Visible = false;
-            dtGrid.Columns["select"].Width = 30;
+           // dtGrid.Columns["select"].Width = 30;
 
         }
 

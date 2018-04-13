@@ -43,7 +43,7 @@ namespace ARM
             }
             if (payrollChk.Checked)
             {
-                HomeForm f = new HomeForm();
+                HrmForm f = new HrmForm();
                 f.Show();
             }
         }
@@ -59,11 +59,16 @@ namespace ARM
             DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Users()));
             DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Invoice()));
             DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Item()));
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Schedule()));
+           
             DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Vendor()));
             DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Invoice()));
             DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Transaction()));
             DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Payment()));
+
+            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Schedule()));
+            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Rate()));
+            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Account()));
+            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Responsible()));
         }
     }
 }

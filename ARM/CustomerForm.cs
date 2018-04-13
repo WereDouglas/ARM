@@ -102,7 +102,7 @@ namespace ARM
             dtGrid.RowTemplate.Height = 60;
             dtGrid.Columns["uri"].Visible = false;
             dtGrid.Columns["customerID"].Visible = false;
-            dtGrid.Columns["select"].Width = 30;
+           // dtGrid.Columns["select"].Width = 30;
 
         }
 

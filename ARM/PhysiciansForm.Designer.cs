@@ -39,9 +39,9 @@
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(38, 54);
+            this.listView1.Location = new System.Drawing.Point(12, 54);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(708, 83);
+            this.listView1.Size = new System.Drawing.Size(776, 83);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -81,7 +81,7 @@
             this.metroGrid1.EnableHeadersVisualStyles = false;
             this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGrid1.Location = new System.Drawing.Point(41, 153);
+            this.metroGrid1.Location = new System.Drawing.Point(12, 153);
             this.metroGrid1.Name = "metroGrid1";
             this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -94,7 +94,7 @@
             this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGrid1.Size = new System.Drawing.Size(705, 150);
+            this.metroGrid1.Size = new System.Drawing.Size(776, 389);
             this.metroGrid1.TabIndex = 45;
             // 
             // PhysiciansForm

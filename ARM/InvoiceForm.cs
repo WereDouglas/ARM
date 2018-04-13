@@ -51,9 +51,7 @@ namespace ARM
             t.Columns.Add("Sync");
             t.Columns.Add("Created");
             t.Columns.Add(new DataColumn("View", typeof(Image)));
-            t.Columns.Add(new DataColumn("Delete", typeof(Image)));//1
-
-
+            t.Columns.Add(new DataColumn("Delete", typeof(Image)));
 
             Image view = new Bitmap(Properties.Resources.Document_Edit_24__1_);
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
@@ -66,7 +64,7 @@ namespace ARM
                 try { cus = Customer.Select(c.CustomerID).Name; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, c.No, c.Date, c.Type, c.Category, ven, cus, c.Method, c.Total.ToString("N0"), c.Terms, c.Tax.ToString("N0"), c.Paid.ToString("N0"), c.Balance.ToString("N0"), c.UserID,c.ItemCount,c.Amount.ToString("N0"), c.Sync, c.Created, view, delete });
+                    t.Rows.Add(new object[] { false, c.Id, c.No, c.Date, c.Type, c.Category, ven, cus, c.Method, c.Total.ToString("N0"), c.Terms, c.Tax.ToString("N0"), c.Paid.ToString("N0"), c.Balance.ToString("N0"), c.UserID, c.ItemCount, c.Amount.ToString("N0"), c.Sync, c.Created, view, delete });
 
                 }
                 catch (Exception m)
@@ -82,7 +80,7 @@ namespace ARM
             dtGrid.Columns["Paid"].DefaultCellStyle.BackColor = Color.LightGreen;
             dtGrid.Columns["Balance"].DefaultCellStyle.BackColor = Color.Red;
             dtGrid.Columns["ID"].Visible = false;
-            dtGrid.Columns["select"].Width = 30;
+
 
         }
 
@@ -131,13 +129,11 @@ namespace ARM
                 if (selectedIDs.Contains(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
                 {
                     selectedIDs.Remove(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString());
-                    Console.WriteLine("REMOVED this id " + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString());
 
                 }
                 else
                 {
-                    selectedIDs.Add(dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString());
-                    Console.WriteLine("ADDED ITEM " + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString());
+                    selectedIDs.Add(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString());
                 }
             }
             if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
@@ -159,13 +155,12 @@ namespace ARM
 
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Invoice? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
-                        string Query = "DELETE from customer WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString() + "'";
+                        string Query = "DELETE from customer WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
                         DBConnect.save(Query);
                         MessageBox.Show("Information deleted");
                         LoadData();
 
                     }
-                    Console.WriteLine("DELETE on row {0} clicked", e.RowIndex + dtGrid.Rows[e.RowIndex].Cells[0].Value.ToString() + dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString());
 
                 }
 
@@ -175,7 +170,7 @@ namespace ARM
 
         private void dtGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
     }
 }

@@ -22,8 +22,7 @@ namespace ARM
             InitializeComponent();
 
             LoadData();
-            var datePicker = new ToolStripControlHost(new DateTimePicker());
-            toolStrip1.Items.Add(datePicker);
+           
         }
         List<Vendor> vendors = new List<Vendor>();
 
@@ -101,7 +100,7 @@ namespace ARM
             dtGrid.RowTemplate.Height = 60;
             dtGrid.Columns["uri"].Visible = false;
             dtGrid.Columns["ID"].Visible = false;
-            dtGrid.Columns["select"].Width = 30;
+           // dtGrid.Columns["select"].Width = 30;
 
         }
 

@@ -57,7 +57,7 @@ namespace ARM
         private void AutoCompleteCustomer()
         {
             AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
-            VendorDictionary.Clear();
+            CustomerDictionary.Clear();
             foreach (Customer c in Customer.List())
             {
                 AutoItem.Add((c.Name));
@@ -280,8 +280,9 @@ namespace ARM
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            if (paidCbx.Text == "Yes" && string.IsNullOrEmpty(amountTxt.Text))
+            if (string.IsNullOrEmpty(amountTxt.Text))
             {
+                amountTxt.BackColor = Color.Red;
                 MessageBox.Show("How much is being paid ? ");
                 return;
             }
@@ -303,6 +304,9 @@ namespace ARM
                 MessageBox.Show("How much is being paid ? ");
                 return;
             }
+            taxTxt.Text = string.IsNullOrEmpty(taxTxt.Text) ? "0" : taxTxt.Text;
+            amountTxt.Text = string.IsNullOrEmpty(amountTxt.Text) ? "0" : amountTxt.Text;
+            methodCbx.Text = string.IsNullOrEmpty(amountTxt.Text) ? "none" : "none";
 
             string Iid = Guid.NewGuid().ToString();
             Invoice i = new Invoice(Iid, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, typeCbx.Text, categoryCbx.Text, VendorID, CustomerID, methodCbx.Text, Total, termsTxt.Text, Convert.ToDouble(taxTxt.Text), Convert.ToDouble(amountTxt.Text), Convert.ToDouble(balanceTxt.Text), Convert.ToDouble(amountTxt.Text), Convert.ToInt32(ItemCountTxt.Text), Helper.UserID, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
@@ -315,14 +319,13 @@ namespace ARM
                     {
                     }
                 }
-                if (paidCbx.Text == "Yes")
+
+                string Pid = Guid.NewGuid().ToString();
+                Payment p = new Payment(Pid, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, typeCbx.Text, methodCbx.Text, Convert.ToDouble(amountTxt.Text), Convert.ToDouble(balanceTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
+                if (DBConnect.Insert(p) != "")
                 {
-                    string Pid = Guid.NewGuid().ToString();
-                    Payment p = new Payment(Pid, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, typeCbx.Text, methodCbx.Text, Convert.ToDouble(amountTxt.Text), Convert.ToDouble(balanceTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
-                    if (DBConnect.Insert(p) != "")
-                    {
-                    }
                 }
+
                 MessageBox.Show("Information Saved");
                 this.Close();
             }

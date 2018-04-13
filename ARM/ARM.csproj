@@ -94,6 +94,9 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.Calendar">
+      <HintPath>..\..\workingCalendar\System.Windows.Forms.Calendar\bin\Debug\System.Windows.Forms.Calendar.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -106,11 +109,48 @@
     <Reference Include="WebCam_Capture">
       <HintPath>..\..\..\..\Visual Studio 2015\Projects\EstateManager\EstateManager\bin\Debug\WebCam_Capture.dll</HintPath>
     </Reference>
-    <Reference Include="WindowsFormsCalendar">
-      <HintPath>..\..\TGAccounting\TGAccounting\bin\Debug\WindowsFormsCalendar.dll</HintPath>
+    <Reference Include="WindowsFormsCalendar, Version=1.1.4610.23063, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\WindowsFormsCalendar.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountDialog.Designer.cs">
+      <DependentUpon>AccountDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScheduleForm.Designer.cs">
+      <DependentUpon>ScheduleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RateForm.Designer.cs">
+      <DependentUpon>RateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountForm.Designer.cs">
+      <DependentUpon>AccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RateDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RateDialog.Designer.cs">
+      <DependentUpon>RateDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScheduleDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScheduleDialog.Designer.cs">
+      <DependentUpon>ScheduleDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddVendor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,11 +181,23 @@
     <Compile Include="AddFollowUpItemReviewForm.Designer.cs">
       <DependentUpon>AddFollowUpItemReviewForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="HrmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HrmForm.Designer.cs">
+      <DependentUpon>HrmForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PaymentForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PaymentForm.Designer.cs">
       <DependentUpon>PaymentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalendarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalendarForm.Designer.cs">
+      <DependentUpon>CalendarForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TransactionForm.cs">
       <SubType>Form</SubType>
@@ -303,6 +355,24 @@
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\Helper.cs" />
+    <EmbeddedResource Include="AccountDialog.resx">
+      <DependentUpon>AccountDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScheduleForm.resx">
+      <DependentUpon>ScheduleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RateForm.resx">
+      <DependentUpon>RateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccountForm.resx">
+      <DependentUpon>AccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RateDialog.resx">
+      <DependentUpon>RateDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScheduleDialog.resx">
+      <DependentUpon>ScheduleDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddVendor.resx">
       <DependentUpon>AddVendor.cs</DependentUpon>
     </EmbeddedResource>
@@ -318,8 +388,14 @@
     <EmbeddedResource Include="AddFollowUpItemReviewForm.resx">
       <DependentUpon>AddFollowUpItemReviewForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HrmForm.resx">
+      <DependentUpon>HrmForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PaymentForm.resx">
       <DependentUpon>PaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalendarForm.resx">
+      <DependentUpon>CalendarForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransactionForm.resx">
       <DependentUpon>TransactionForm.cs</DependentUpon>
@@ -625,6 +701,16 @@
     <None Include="Resources\Box-02-24.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Safety-Box-02-24.png" />
+    <None Include="Resources\User-Shield-24.png" />
+    <None Include="Resources\User-Group-24.png" />
+    <None Include="Resources\Cheque-24.png" />
+    <None Include="Resources\Clock-01-24.png" />
+    <None Include="Resources\Library-Books-24 %281%29.png" />
+    <None Include="Resources\Calendar-24.png" />
+    <None Include="Resources\Box -32 %281%29.png" />
+    <None Include="Resources\Box -48.png" />
+    <None Include="Resources\Box -32.png" />
     <None Include="Resources\Note-Memo-16.png" />
     <None Include="Resources\Server-Delete-16.png" />
     <None Include="Resources\Layers-01-16.png" />

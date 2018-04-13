@@ -24,64 +24,14 @@ namespace ARM
         public ExceptionForm()
         {
             InitializeComponent();
-            Fromdate();
-            Todate();
+            
             From = DateTime.Now.ToString("dd-MM-yyyy");
             To = DateTime.Now.ToString("dd-MM-yyyy");
            
             LoadData(From, To);
            
         }
-        private void Fromdate()
-        {
-
-            // Create a new ToolStripControlHost, passing in a control.
-            dateFrom = new ToolStripControlHost(new DateTimePicker());
-
-            // Set the font on the ToolStripControlHost, this will affect the hosted control.
-            dateFrom.Font = new Font("Arial", 7.0F, FontStyle.Italic);
-
-            // Set the Width property, this will also affect the hosted control.
-            dateFrom.Width = 100;
-            dateFrom.DisplayStyle = ToolStripItemDisplayStyle.Text;
-
-            // Setting the Text property requires a string that converts to a 
-            // DateTime type since that is what the hosted control requires.
-            dateFrom.Text = "12/23/2005";
-
-            // Cast the Control property back to the original type to set a 
-            // type-specific property.
-            ((DateTimePicker)dateFrom.Control).Format = DateTimePickerFormat.Short;
-
-            // Add the control host to the ToolStrip.
-            toolStrip1.Items.Add(dateFrom);
-
-        }
-        private void Todate()
-        {
-
-            // Create a new ToolStripControlHost, passing in a control.
-            dateTo = new ToolStripControlHost(new DateTimePicker());
-
-            // Set the font on the ToolStripControlHost, this will affect the hosted control.
-            dateTo.Font = new Font("Arial", 7.0F, FontStyle.Italic);
-
-            // Set the Width property, this will also affect the hosted control.
-            dateTo.Width = 100;
-            dateTo.DisplayStyle = ToolStripItemDisplayStyle.Text;
-
-            // Setting the Text property requires a string that converts to a 
-            // DateTime type since that is what the hosted control requires.
-            dateTo.Text = "12/23/2005";
-
-            // Cast the Control property back to the original type to set a 
-            // type-specific property.
-            ((DateTimePicker)dateTo.Control).Format = DateTimePickerFormat.Short;
-
-            // Add the control host to the ToolStrip.
-            toolStrip1.Items.Add(dateTo);
-
-        }
+       
         List<Exceptions> ex = new List<Exceptions>();
         
         DataTable t = new DataTable();
@@ -160,6 +110,11 @@ namespace ARM
             string Query = "DELETE from exceptions WHERE (created::date >= '" + start + "'::date AND  created::date <= '" + end + "'::date)  ";
             DBConnect.save(Query);
             //Helper.Log(Helper.userID, Helper.username, "Exception DELETION");
+        }
+
+        private void dtGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

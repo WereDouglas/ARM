@@ -79,7 +79,7 @@
             this.fileUrlTxtBx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.fileUrlTxtBx.Name = "fileUrlTxtBx";
             this.fileUrlTxtBx.Size = new System.Drawing.Size(268, 14);
-            this.fileUrlTxtBx.TabIndex = 102;
+            this.fileUrlTxtBx.TabIndex = 15;
             this.fileUrlTxtBx.Visible = false;
             // 
             // metroLabel9
@@ -97,15 +97,15 @@
             this.genderCbx.FormattingEnabled = true;
             this.genderCbx.ItemHeight = 23;
             this.genderCbx.Items.AddRange(new object[] {
-            "Administrator",
-            "Physician",
+            "Male",
+            "Female",
             "Other"});
             this.genderCbx.Location = new System.Drawing.Point(53, 694);
             this.genderCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.genderCbx.Name = "genderCbx";
             this.genderCbx.PromptText = "Gender";
             this.genderCbx.Size = new System.Drawing.Size(265, 29);
-            this.genderCbx.TabIndex = 118;
+            this.genderCbx.TabIndex = 12;
             this.genderCbx.UseSelectable = true;
             // 
             // dobTxt
@@ -114,7 +114,7 @@
             this.dobTxt.MinimumSize = new System.Drawing.Size(0, 29);
             this.dobTxt.Name = "dobTxt";
             this.dobTxt.Size = new System.Drawing.Size(265, 29);
-            this.dobTxt.TabIndex = 127;
+            this.dobTxt.TabIndex = 11;
             // 
             // zipTxt
             // 
@@ -144,7 +144,7 @@
             this.zipTxt.SelectionStart = 0;
             this.zipTxt.ShortcutsEnabled = true;
             this.zipTxt.Size = new System.Drawing.Size(265, 35);
-            this.zipTxt.TabIndex = 126;
+            this.zipTxt.TabIndex = 10;
             this.zipTxt.UseSelectable = true;
             this.zipTxt.WaterMark = "Zip code";
             this.zipTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -178,7 +178,7 @@
             this.stateTxt.SelectionStart = 0;
             this.stateTxt.ShortcutsEnabled = true;
             this.stateTxt.Size = new System.Drawing.Size(265, 35);
-            this.stateTxt.TabIndex = 125;
+            this.stateTxt.TabIndex = 9;
             this.stateTxt.UseSelectable = true;
             this.stateTxt.WaterMark = "State";
             this.stateTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -212,7 +212,7 @@
             this.cityTxt.SelectionStart = 0;
             this.cityTxt.ShortcutsEnabled = true;
             this.cityTxt.Size = new System.Drawing.Size(265, 35);
-            this.cityTxt.TabIndex = 124;
+            this.cityTxt.TabIndex = 8;
             this.cityTxt.UseSelectable = true;
             this.cityTxt.WaterMark = "City";
             this.cityTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -247,7 +247,7 @@
             this.addressTxt.SelectionStart = 0;
             this.addressTxt.ShortcutsEnabled = true;
             this.addressTxt.Size = new System.Drawing.Size(265, 63);
-            this.addressTxt.TabIndex = 123;
+            this.addressTxt.TabIndex = 5;
             this.addressTxt.UseSelectable = true;
             this.addressTxt.WaterMark = "Address";
             this.addressTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -281,7 +281,7 @@
             this.contactTxt.SelectionStart = 0;
             this.contactTxt.ShortcutsEnabled = true;
             this.contactTxt.Size = new System.Drawing.Size(265, 35);
-            this.contactTxt.TabIndex = 122;
+            this.contactTxt.TabIndex = 3;
             this.contactTxt.UseSelectable = true;
             this.contactTxt.WaterMark = "Contact/Phone";
             this.contactTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -315,7 +315,7 @@
             this.nameTxt.SelectionStart = 0;
             this.nameTxt.ShortcutsEnabled = true;
             this.nameTxt.Size = new System.Drawing.Size(265, 35);
-            this.nameTxt.TabIndex = 121;
+            this.nameTxt.TabIndex = 1;
             this.nameTxt.UseSelectable = true;
             this.nameTxt.WaterMark = "Full name";
             this.nameTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -349,7 +349,7 @@
             this.emailTxt.SelectionStart = 0;
             this.emailTxt.ShortcutsEnabled = true;
             this.emailTxt.Size = new System.Drawing.Size(265, 35);
-            this.emailTxt.TabIndex = 120;
+            this.emailTxt.TabIndex = 2;
             this.emailTxt.UseSelectable = true;
             this.emailTxt.WaterMark = "Email";
             this.emailTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -383,7 +383,7 @@
             this.confirmTxt.SelectionStart = 0;
             this.confirmTxt.ShortcutsEnabled = true;
             this.confirmTxt.Size = new System.Drawing.Size(265, 30);
-            this.confirmTxt.TabIndex = 117;
+            this.confirmTxt.TabIndex = 7;
             this.confirmTxt.UseSelectable = true;
             this.confirmTxt.UseSystemPasswordChar = true;
             this.confirmTxt.WaterMark = "Confirm Password";
@@ -419,7 +419,7 @@
             this.passwordTxt.SelectionStart = 0;
             this.passwordTxt.ShortcutsEnabled = true;
             this.passwordTxt.Size = new System.Drawing.Size(265, 35);
-            this.passwordTxt.TabIndex = 116;
+            this.passwordTxt.TabIndex = 6;
             this.passwordTxt.UseSelectable = true;
             this.passwordTxt.WaterMark = "Password";
             this.passwordTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -457,7 +457,7 @@
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(107, 49);
-            this.button2.TabIndex = 12;
+            this.button2.TabIndex = 14;
             this.button2.Text = "Cancel";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
@@ -476,7 +476,7 @@
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button3.Size = new System.Drawing.Size(103, 49);
-            this.button3.TabIndex = 11;
+            this.button3.TabIndex = 13;
             this.button3.Text = "Submit";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = false;

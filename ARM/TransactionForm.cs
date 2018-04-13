@@ -66,7 +66,7 @@ namespace ARM
             dtGrid.Columns["Cost"].DefaultCellStyle.BackColor = Color.LightGreen;
             dtGrid.Columns["Total"].DefaultCellStyle.BackColor = Color.Azure;
             dtGrid.Columns["ID"].Visible = false;
-            dtGrid.Columns["select"].Width = 30;
+           // dtGrid.Columns["select"].Width = 30;
 
         }
 

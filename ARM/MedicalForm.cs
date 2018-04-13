@@ -198,26 +198,22 @@ namespace ARM
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            DeliveryPickupForm f = new DeliveryPickupForm();
-            f.Show();
+         
         }
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
         {
-            FollowForm f = new FollowForm();
-            f.Show();
+            
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            OrderIntakeForm o = new OrderIntakeForm();
-            o.Show();
+            
         }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            DmeForm d = new DmeForm();
-            d.Show();
+           
         }
 
         private void unitsOfMeasureToolStripMenuItem_Click(object sender, EventArgs e)
@@ -253,12 +249,7 @@ namespace ARM
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            CustomerForm frm = new CustomerForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+           
         }
 
         private void exceptionsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -273,12 +264,7 @@ namespace ARM
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            ProductForm frm = new ProductForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+            
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
@@ -300,22 +286,12 @@ namespace ARM
 
         private void toolStripButton4_Click_1(object sender, EventArgs e)
         {
-            VendorForm frm = new VendorForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+          
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
-            UserForm frm = new UserForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+            
         }
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -332,7 +308,27 @@ namespace ARM
 
         private void toolStripButton6_Click(object sender, EventArgs e)
         {
-            AddTransaction frm = new AddTransaction(null);
+           
+        }
+
+        private void salesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void purchasesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void rentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void toolStripButton8_Click(object sender, EventArgs e)
+        {
+            ProductForm frm = new ProductForm();
             frm.TopLevel = false;
             panel1.Controls.Add(frm);
             frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -340,7 +336,47 @@ namespace ARM
             frm.Show();
         }
 
-        private void salesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            TransactionForm frm = new TransactionForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripButton9_Click(object sender, EventArgs e)
+        {
+            CustomerForm frm = new CustomerForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripButton10_Click(object sender, EventArgs e)
+        {
+            VendorForm frm = new VendorForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripButton11_Click(object sender, EventArgs e)
+        {
+            UserForm frm = new UserForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
         {
             InvoiceForm frm = new InvoiceForm();
             frm.TopLevel = false;
@@ -350,7 +386,7 @@ namespace ARM
             frm.Show();
         }
 
-        private void purchasesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void toolStripMenuItem10_Click(object sender, EventArgs e)
         {
             PaymentForm frm = new PaymentForm();
             frm.TopLevel = false;
@@ -360,9 +396,38 @@ namespace ARM
             frm.Show();
         }
 
-        private void rentToolStripMenuItem_Click(object sender, EventArgs e)
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
         {
-           TransactionForm frm = new TransactionForm();
+            DeliveryPickupForm f = new DeliveryPickupForm();
+            f.Show();
+        }
+
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            OrderIntakeForm o = new OrderIntakeForm();
+            o.Show();
+        }
+
+        private void toolStripMenuItem13_Click(object sender, EventArgs e)
+        {
+            DmeForm d = new DmeForm();
+            d.Show();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem14_Click(object sender, EventArgs e)
+        {
+            FollowForm f = new FollowForm();
+            f.Show();
+        }
+
+        private void toolStripButton7_Click(object sender, EventArgs e)
+        {
+            AddTransaction frm = new AddTransaction(null);
             frm.TopLevel = false;
             panel1.Controls.Add(frm);
             frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
