@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ARM.Model
 {
-    public class Order
+    public class Orders
     {
         private string id;
         private string customerID;
@@ -33,15 +33,15 @@ namespace ARM.Model
         private string dischargeDate;
         private string notification;
         private string notificationDate;
-        private string authorization;
+        private string authoriz;
         private string authorizationDate;       
         private string created;
         private bool sync;
         private string action;
         private string other;
-        public Order() { }
+        public Orders() { }
 
-        public Order(string id, string customerID, string userID, string itemID, string orderDateTime, string orderBy, string dispenseDateTime, string dispenseBy, string customerType, string diagnosis, string surgery, string clinicalDate, string equipmentLimits, string equipmentHeights, string equipmentWeights, string equipmentInstructions, string equipmentPeriod, string setupLocation, string setupDate, string dischargeLocation, string dischargeDate, string notification, string notificationDate, string authorization, string authorizationDate, string created, bool sync, string action, string other)
+        public Orders(string id, string customerID, string userID, string itemID, string orderDateTime, string orderBy, string dispenseDateTime, string dispenseBy, string customerType, string diagnosis, string surgery, string clinicalDate, string equipmentLimits, string equipmentHeights, string equipmentWeights, string equipmentInstructions, string equipmentPeriod, string setupLocation, string setupDate, string dischargeLocation, string dischargeDate, string notification, string notificationDate, string authorization, string authorizationDate, string created, bool sync, string action, string other)
         {
             this.Id = id;
             this.CustomerID = customerID;
@@ -66,7 +66,7 @@ namespace ARM.Model
             this.DischargeDate = dischargeDate;
             this.Notification = notification;
             this.NotificationDate = notificationDate;
-            this.Authorization = authorization;
+            this.Authoriz = authorization;
             this.AuthorizationDate = authorizationDate;
             this.Created = created;
             this.Sync = sync;
@@ -74,25 +74,25 @@ namespace ARM.Model
             this.Other = other;
         }
 
-        static List<Order> p = new List<Order>();
+        static List<Orders> p = new List<Orders>();
 
        
 
-        public static List<Order> List()
+        public static List<Orders> List()
         {
-            string Q = "SELECT * FROM Order ";
+            string Q = "SELECT * FROM Orders ";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Order ps = new Order(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["itemID"].ToString(), Reader["orderDateTime"].ToString(), Reader["orderBy"].ToString(), Reader["dispenseDateTime"].ToString(), Reader["dispenseBy"].ToString(), Reader["customerType"].ToString(), Reader["diagnosis"].ToString(), Reader["surgery"].ToString(), Reader["clinicalDate"].ToString(), Reader["equipmentLimits"].ToString(), Reader["equipmentHeights"].ToString(), Reader["equipmentWeights"].ToString(), Reader["equipmentInstructions"].ToString(), Reader["equipmentPeriod"].ToString(), Reader["setupLocation"].ToString(), Reader["setupDate"].ToString(), Reader["dischargeLocation"].ToString(), Reader["dischargeDate"].ToString(), Reader["notification"].ToString(), Reader["notificationDate"].ToString(), Reader["authorization"].ToString(), Reader["authorizationDate"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["action"].ToString(), Reader["other"].ToString());
+                Orders ps = new Orders(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["itemID"].ToString(), Reader["orderDateTime"].ToString(), Reader["orderBy"].ToString(), Reader["dispenseDateTime"].ToString(), Reader["dispenseBy"].ToString(), Reader["customerType"].ToString(), Reader["diagnosis"].ToString(), Reader["surgery"].ToString(), Reader["clinicalDate"].ToString(), Reader["equipmentLimits"].ToString(), Reader["equipmentHeights"].ToString(), Reader["equipmentWeights"].ToString(), Reader["equipmentInstructions"].ToString(), Reader["equipmentPeriod"].ToString(), Reader["setupLocation"].ToString(), Reader["setupDate"].ToString(), Reader["dischargeLocation"].ToString(), Reader["dischargeDate"].ToString(), Reader["notification"].ToString(), Reader["notificationDate"].ToString(), Reader["authoriz"].ToString(), Reader["authorizationDate"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["action"].ToString(), Reader["other"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
             return p;
 
         }
-        private static Order c = new Order();
+        private static Orders c = new Orders();
 
         public string Id { get => id; set => id = value; }
         public string CustomerID { get => customerID; set => customerID = value; }
@@ -117,21 +117,21 @@ namespace ARM.Model
         public string DischargeDate { get => dischargeDate; set => dischargeDate = value; }
         public string Notification { get => notification; set => notification = value; }
         public string NotificationDate { get => notificationDate; set => notificationDate = value; }
-        public string Authorization { get => authorization; set => authorization = value; }
+        public string Authoriz { get => authoriz; set => authoriz = value; }
         public string AuthorizationDate { get => authorizationDate; set => authorizationDate = value; }
         public string Created { get => created; set => created = value; }
         public bool Sync { get => sync; set => sync = value; }
         public string Action { get => action; set => action = value; }
         public string Other { get => other; set => other = value; }
 
-        public static Order Select(string id)
+        public static Orders Select(string id)
         {
-            string Q = "SELECT * FROM order WHERE id = '" + id + "'";
+            string Q = "SELECT * FROM orders WHERE id = '" + id + "'";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                c = new Order(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["itemID"].ToString(), Reader["orderDateTime"].ToString(), Reader["orderBy"].ToString(), Reader["dispenseDateTime"].ToString(), Reader["dispenseBy"].ToString(), Reader["customerType"].ToString(), Reader["diagnosis"].ToString(), Reader["surgery"].ToString(), Reader["clinicalDate"].ToString(), Reader["equipmentLimits"].ToString(), Reader["equipmentHeights"].ToString(), Reader["equipmentWeights"].ToString(), Reader["equipmentInstructions"].ToString(), Reader["equipmentPeriod"].ToString(), Reader["setupLocation"].ToString(), Reader["setupDate"].ToString(), Reader["dischargeLocation"].ToString(), Reader["dischargeDate"].ToString(), Reader["notification"].ToString(), Reader["notificationDate"].ToString(), Reader["authorization"].ToString(), Reader["authorizationDate"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["action"].ToString(), Reader["other"].ToString());
+                c = new Orders(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["itemID"].ToString(), Reader["orderDateTime"].ToString(), Reader["orderBy"].ToString(), Reader["dispenseDateTime"].ToString(), Reader["dispenseBy"].ToString(), Reader["customerType"].ToString(), Reader["diagnosis"].ToString(), Reader["surgery"].ToString(), Reader["clinicalDate"].ToString(), Reader["equipmentLimits"].ToString(), Reader["equipmentHeights"].ToString(), Reader["equipmentWeights"].ToString(), Reader["equipmentInstructions"].ToString(), Reader["equipmentPeriod"].ToString(), Reader["setupLocation"].ToString(), Reader["setupDate"].ToString(), Reader["dischargeLocation"].ToString(), Reader["dischargeDate"].ToString(), Reader["notification"].ToString(), Reader["notificationDate"].ToString(), Reader["authoriz"].ToString(), Reader["authorizationDate"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["action"].ToString(), Reader["other"].ToString());
             }
             DBConnect.CloseConn();
             return c;

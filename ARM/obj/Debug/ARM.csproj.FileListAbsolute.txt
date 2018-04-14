@@ -141,3 +141,6 @@ C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.CareForm.resources
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.InsuranceForm.resources
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.InsuranceDialog.resources
+C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\bin\Debug\Newtonsoft.Json.dll
+C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\bin\Debug\Newtonsoft.Json.xml
+C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.OrderForm.resources

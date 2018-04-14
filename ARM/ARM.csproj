@@ -88,6 +88,9 @@
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Npgsql">
       <HintPath>..\..\..\..\Visual Studio 2015\Projects\EstateManager\EstateManager\bin\Debug\Npgsql.dll</HintPath>
     </Reference>
@@ -145,7 +148,13 @@
     <Compile Include="InsuranceDialog.Designer.cs">
       <DependentUpon>InsuranceDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Order.cs" />
+    <Compile Include="OrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderForm.Designer.cs">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Orders.cs" />
     <Compile Include="ScheduleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -394,6 +403,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InsuranceDialog.resx">
       <DependentUpon>InsuranceDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderForm.resx">
+      <DependentUpon>OrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScheduleForm.resx">
       <DependentUpon>ScheduleForm.cs</DependentUpon>
@@ -752,6 +764,18 @@
     <None Include="Resources\Server-Delete-16.png" />
     <None Include="Resources\Layers-01-16.png" />
     <None Include="Resources\Note-04-24.png" />
+    <Content Include="docs\MySqlCommand.xml" />
+    <Content Include="docs\MySqlCommandBuilder.xml" />
+    <Content Include="docs\MySqlConnection.xml" />
+    <Content Include="docs\MySqlConnectionStringBuilder.xml" />
+    <Content Include="docs\MySqlDataAdapter.xml" />
+    <Content Include="docs\MySqlDataReader.xml" />
+    <Content Include="docs\MySqlException.xml" />
+    <Content Include="docs\MySqlHelper.xml" />
+    <Content Include="docs\MySqlParameter.xml" />
+    <Content Include="docs\MySqlParameterCollection.xml" />
+    <Content Include="docs\MySqlTransaction.xml" />
+    <None Include="Resources\Print-24.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

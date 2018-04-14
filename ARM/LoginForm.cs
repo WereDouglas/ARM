@@ -71,7 +71,7 @@ namespace ARM
             DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Responsible()));
             DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Insurance()));
 
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Order()));
+            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Orders()));
         }
     }
 }

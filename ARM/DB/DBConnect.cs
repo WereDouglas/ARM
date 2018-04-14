@@ -43,7 +43,6 @@ namespace ARM.DB
             }
         }
 
-
         public static NpgsqlDataReader Reading(string query)
         {
             Readers = null;
@@ -53,7 +52,6 @@ namespace ARM.DB
             return Readers;
 
         }
-
 
         public static string save(string query)
         {

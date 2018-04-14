@@ -403,7 +403,7 @@ namespace ARM
 
         private void toolStripMenuItem12_Click(object sender, EventArgs e)
         {
-            OrderIntakeForm o = new OrderIntakeForm();
+            OrderIntakeForm o = new OrderIntakeForm(null);
             o.Show();
         }
 

@@ -1,17 +1,19 @@
 ﻿using ARM.DB;
 using ARM.Model;
 using ARM.Util;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
+
 
 namespace ARM
 {
@@ -20,16 +22,73 @@ namespace ARM
         Dictionary<string, string> UserDictionary = new Dictionary<string, string>();
         Dictionary<string, string> CustomerDictionary = new Dictionary<string, string>();
         Dictionary<string, string> ProductDictionary = new Dictionary<string, string>();
+
+        Dictionary<string, bool> SetupDictionary = new Dictionary<string, bool>();
+        Dictionary<string, bool> DischargeDictionary = new Dictionary<string, bool>();
+        Dictionary<string, bool> ActionDictionary = new Dictionary<string, bool>();
+
         string CustomerID;
         string UserID;
-        public OrderIntakeForm()
+        string OrderID;
+        public OrderIntakeForm(string id)
         {
             InitializeComponent();
             AutoCompleteUser();
             AutoCompleteCustomer();
             AutoCompleteProduct();
+            if (!string.IsNullOrEmpty(id))
+            {
+                OrderID = id;
+                LoadEdit(id);
+            }
+            printdoc1.PrintPage += new PrintPageEventHandler(printdoc1_PrintPage);
         }
+        private Orders o;
+        private void LoadEdit(string id)
+        {
+            OrderID = id;
+            o = new Orders();//.Select(UsersID);
+            o = Orders.Select(id);
 
+            CustomerID = o.CustomerID;
+            customerCbx.Text = CustomerDictionary.First(e => e.Value == o.CustomerID).Key;
+            customerCbx_SelectedIndexChanged(null, null);
+
+            UserID = o.UserID;
+            userCbx.Text = UserDictionary.First(e => e.Value == o.UserID).Key;
+            userCbx_SelectedIndexChanged(null, null);
+
+            ItemID = o.ItemID;
+            productCbx.Text = ProductDictionary.First(e => e.Value == o.ItemID).Key;
+            productCbx_SelectedIndexChanged(null, null);
+
+            recievedCbx.Text = o.OrderBy;
+            dispensedCbx.Text = o.DispenseBy;
+            dispenseDateTxt.Text = Convert.ToDateTime(o.DispenseDateTime).ToString();
+            diagnosisTxt.Text = o.Diagnosis;
+            surgeryTxt.Text = o.Surgery;
+            limitTxt.Text = o.EquipmentLimits;
+            heightTxt.Text = o.EquipmentHeights;
+            weightTxt.Text = o.EquipmentWeights;
+            periodTxt.Text = o.EquipmentPeriod;
+            instructionTxt.Text = o.EquipmentInstructions;
+            otherTxt.Text = o.Other;
+            // dateAuthTxt.Text = Convert.ToDateTime(o.AuthorizationDate).ToString();
+            // dateNotifiedTxt.Text = Convert.ToDateTime(o.NotificationDate).ToString();
+            Dictionary<string, bool> setUpValues = JsonConvert.DeserializeObject<Dictionary<string, bool>>(o.SetupLocation);
+            setupListBx.Items.Clear();
+            foreach (var t in setUpValues)
+            {
+                setupListBx.Items.Add(t.Key,t.Value);
+            }
+            Dictionary<string, bool> actionValues = JsonConvert.DeserializeObject<Dictionary<string, bool>>(o.Action);
+            actionListBx.Items.Clear();
+            foreach (var t in actionValues)
+            {
+                actionListBx.Items.Add(t.Key, t.Value);
+            }
+
+        }
         private void metroLabel1_Click(object sender, EventArgs e)
         {
 
@@ -40,13 +99,12 @@ namespace ARM
 
         }
 
+
         private void button2_Click(object sender, EventArgs e)
         {
             Close();
         }
-        Dictionary<string, bool> SetupDictionary = new Dictionary<string, bool>();
-        Dictionary<string, bool> DischargeDictionary = new Dictionary<string, bool>();
-        Dictionary<string, bool> ActionDictionary = new Dictionary<string, bool>();
+
         private void button3_Click(object sender, EventArgs e)
         {
             string strSetup = "";
@@ -55,7 +113,7 @@ namespace ARM
             foreach (var s in setupListBx.CheckedItems)
             {
                 SetupDictionary.Add(s.ToString(), true);
-                strSetup += s.ToString()+":true,";
+                strSetup += s.ToString() + ":true,";
             }
 
             foreach (var pair in SetupDictionary)
@@ -72,14 +130,17 @@ namespace ARM
                 ActionDictionary.Add(s.ToString(), true);
                 strAction += s.ToString() + ":true,";
             }
+            var DischargeJson = JsonConvert.SerializeObject(DischargeDictionary);
+            var ActionJson = JsonConvert.SerializeObject(DischargeDictionary);
+            var SetupJson = JsonConvert.SerializeObject(DischargeDictionary);
             string id = Guid.NewGuid().ToString();
-            Order i = new Order(id, CustomerID, UserID, ItemID ,orderDate.Text,recievedCbx.Text,dispenseDateTxt.Text,dispensedCbx.Text,subscriberTypeTxt.Text,diagnosisTxt.Text,surgeryTxt.Text, Convert.ToDateTime(clinicalDateTxt.Text).ToString("dd-MM-yyyy"), limitTxt.Text,heightTxt.Text,weightTxt.Text,instructionTxt.Text,periodTxt.Text, strSetup,setupDate.Text,strDischarge, Convert.ToDateTime(dispenseDateTxt.Text).ToString("dd-MM-yyyy"),strAction,Convert.ToDateTime(dateNotifiedTxt.Text).ToString("dd-MM-yyyy"),"", Convert.ToDateTime(dateAuthTxt.Text).ToString("dd-MM-yyyy"), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false,strAction,otherTxt.Text);
-            //if (DBConnect.Insert(i) != "")
-            //{
+            Orders i = new Orders(id, CustomerID, UserID, ItemID, orderDate.Text, recievedCbx.Text, dispenseDateTxt.Text, dispensedCbx.Text, subscriberTypeTxt.Text, diagnosisTxt.Text, surgeryTxt.Text, Convert.ToDateTime(clinicalDateTxt.Text).ToString("dd-MM-yyyy"), limitTxt.Text, heightTxt.Text, weightTxt.Text, instructionTxt.Text, periodTxt.Text, SetupJson, setupDate.Text, DischargeJson, Convert.ToDateTime(dispenseDateTxt.Text).ToString("dd-MM-yyyy"), ActionJson, Convert.ToDateTime(dateNotifiedTxt.Text).ToString("dd-MM-yyyy"), "", Convert.ToDateTime(dateAuthTxt.Text).ToString("dd-MM-yyyy"), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, ActionJson, otherTxt.Text);
+            if (DBConnect.Insert(i) != "")
+            {
 
-            //    MessageBox.Show("Information Saved");
-            //    this.Close();
-            //}
+                MessageBox.Show("Information Saved");
+                this.Close();
+            }
 
         }
         private void AutoCompleteUser()
@@ -115,7 +176,7 @@ namespace ARM
                     productCbx.Items.Add(v.Name);
                 }
             }
-           
+
         }
         private void AutoCompleteCustomer()
         {
@@ -206,6 +267,41 @@ namespace ARM
             }
             catch { }
         }
-        
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Print(panel1);
+        }
+        public void Print(System.Windows.Forms.Panel pnl)
+        {
+            panel1 = pnl;
+            GetPrintArea(pnl);
+            previewdlg.Document = printdoc1;
+            try
+            {
+                previewdlg.ShowDialog();
+            }
+            catch { }
+        }
+        //Rest of the code
+        Bitmap MemoryImage;
+        public void GetPrintArea(Panel pnl)
+        {
+            MemoryImage = new Bitmap(pnl.Width, pnl.Height);
+            pnl.DrawToBitmap(MemoryImage, new Rectangle(0, 0, pnl.Width, pnl.Height));
+        }
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            if (MemoryImage != null)
+            {
+                e.Graphics.DrawImage(MemoryImage, 0, 0);
+                base.OnPaint(e);
+            }
+        }
+        void printdoc1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Rectangle pagearea = e.PageBounds;
+            e.Graphics.DrawImage(MemoryImage, (pagearea.Width / 2) - (this.panel1.Width / 2), this.panel1.Location.Y);
+        }
     }
 }

@@ -112,6 +112,19 @@ namespace ARM.Util
             System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
             return image;
         }
+        public static System.Drawing.Image Base64ToImageCropped(string bases)
+        {
+            byte[] imageBytes = Convert.FromBase64String(bases);
+            MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
+            ms.Write(imageBytes, 0, imageBytes.Length);
+            System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
+
+            System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(image);
+            Bitmap bps = new Bitmap(bmp, 50, 50);
+            Image dstImage = Helper.CropToCircle(bps, Color.White);
+            return dstImage;
+           
+        }
         public static Image byteArrayToImage(byte[] byteArrayIn)
         {
             MemoryStream ms = new MemoryStream(byteArrayIn);
