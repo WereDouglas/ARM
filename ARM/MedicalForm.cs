@@ -410,7 +410,7 @@ namespace ARM
 
         private void toolStripMenuItem13_Click(object sender, EventArgs e)
         {
-            DmeForm d = new DmeForm();
+            AddInstructionDelivery d = new AddInstructionDelivery(null);
             d.Show();
         }
 
@@ -438,6 +438,16 @@ namespace ARM
         private void toolStripMenuItem2_Click_1(object sender, EventArgs e)
         {
             OrderForm frm = new OrderForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem3_Click_1(object sender, EventArgs e)
+        {
+            InstructionForm frm = new InstructionForm();
             frm.TopLevel = false;
             panel1.Controls.Add(frm);
             frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

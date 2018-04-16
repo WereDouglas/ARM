@@ -144,3 +144,5 @@ C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\bin\Debug\Newtonsoft.Json.dll
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\bin\Debug\Newtonsoft.Json.xml
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.OrderForm.resources
+C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.AddInstructionDelivery.resources
+C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.InstructionForm.resources

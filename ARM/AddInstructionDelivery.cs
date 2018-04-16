@@ -17,20 +17,21 @@ using System.Windows.Forms;
 
 namespace ARM
 {
-    public partial class OrderIntakeForm : MetroFramework.Forms.MetroForm
+    public partial class AddInstructionDelivery : MetroFramework.Forms.MetroForm
     {
         Dictionary<string, string> UserDictionary = new Dictionary<string, string>();
         Dictionary<string, string> CustomerDictionary = new Dictionary<string, string>();
         Dictionary<string, string> ProductDictionary = new Dictionary<string, string>();
 
-        Dictionary<string, bool> SetupDictionary = new Dictionary<string, bool>();
-        Dictionary<string, bool> DischargeDictionary = new Dictionary<string, bool>();
-        Dictionary<string, bool> ActionDictionary = new Dictionary<string, bool>();
+        Dictionary<string, bool> SafetyDictionary = new Dictionary<string, bool>();
+        Dictionary<string, bool> AppropriateDictionary = new Dictionary<string, bool>();
+        Dictionary<string, bool> EquipmentDictionary = new Dictionary<string, bool>();
+        Dictionary<string, bool> AdditionalDictionary = new Dictionary<string, bool>();
 
         string CustomerID;
         string UserID;
-        string OrderID;
-        public OrderIntakeForm(string id)
+        string InstructionID;
+        public AddInstructionDelivery(string id)
         {
             InitializeComponent();
             AutoCompleteUser();
@@ -38,17 +39,17 @@ namespace ARM
             AutoCompleteProduct();
             if (!string.IsNullOrEmpty(id))
             {
-                OrderID = id;
+                InstructionID = id;
                 LoadEdit(id);
             }
             printdoc1.PrintPage += new PrintPageEventHandler(printdoc1_PrintPage);
         }
-        private Orders o;
+        private Instruction o;
         private void LoadEdit(string id)
         {
-            OrderID = id;
-            o = new Orders();//.Select(UsersID);
-            o = Orders.Select(id);
+            InstructionID = id;
+            o = new Instruction();//.Select(UsersID);
+            o = Instruction.Select(id);
 
             CustomerID = o.CustomerID;
             customerCbx.Text = CustomerDictionary.First(e => e.Value == o.CustomerID).Key;
@@ -61,40 +62,47 @@ namespace ARM
             ItemID = o.ItemID;
             productCbx.Text = ProductDictionary.First(e => e.Value == o.ItemID).Key;
             productCbx_SelectedIndexChanged(null, null);
+            appropriateCbx.Text = o.Appropriate;
 
-            recievedCbx.Text = o.OrderBy;
-            dispensedCbx.Text = o.DispenseBy;
-            dispenseDateTxt.Text = Convert.ToDateTime(o.DispenseDateTime).ToString();
-            diagnosisTxt.Text = o.Diagnosis;
-            surgeryTxt.Text = o.Surgery;
-            limitTxt.Text = o.EquipmentLimits;
-            heightTxt.Text = o.EquipmentHeights;
-            weightTxt.Text = o.EquipmentWeights;
-            periodTxt.Text = o.EquipmentPeriod;
-            instructionTxt.Text = o.EquipmentInstructions;
-            otherTxt.Text = o.Other;
-            // dateAuthTxt.Text = Convert.ToDateTime(o.AuthorizationDate).ToString();
-            // dateNotifiedTxt.Text = Convert.ToDateTime(o.NotificationDate).ToString();
-            Dictionary<string, bool> setUpValues = JsonConvert.DeserializeObject<Dictionary<string, bool>>(o.SetupLocation);
-            setupListBx.Items.Clear();
-            foreach (var t in setUpValues)
+            Dictionary<string, bool> safetyValues = JsonConvert.DeserializeObject<Dictionary<string, bool>>(o.Safety);
+            safetyListBx.Items.Clear();
+            foreach (var t in safetyValues)
             {
-                setupListBx.Items.Add(t.Key,t.Value);
+                safetyListBx.Items.Add(t.Key, t.Value);
             }
 
-            Dictionary<string, bool> actionValues = JsonConvert.DeserializeObject<Dictionary<string, bool>>(o.Action);
-            actionListBx.Items.Clear();
-            foreach (var t in actionValues)
+            Dictionary<string, bool> appropSelValues = JsonConvert.DeserializeObject<Dictionary<string, bool>>(o.AppropriateSelection);
+            appropListBx.Items.Clear();
+            foreach (var t in appropSelValues)
             {
-                actionListBx.Items.Add(t.Key, t.Value);
+                appropListBx.Items.Add(t.Key, t.Value);
+            }
+            safetyOtherTxt.Text = o.SafetyOther;
+            phoneTxt.Text = o.Phone;
+
+            Dictionary<string, bool> equipValues = JsonConvert.DeserializeObject<Dictionary<string, bool>>(o.EquipmentType);
+            equipmentTypeListBox.Items.Clear();
+            foreach (var t in equipValues)
+            {
+                equipmentTypeListBox.Items.Add(t.Key, t.Value);
+            }
+            Dictionary<string, bool> additionalValues = JsonConvert.DeserializeObject<Dictionary<string, bool>>(o.Additional);
+            additionalListBx.Items.Clear();
+            foreach (var t in additionalValues)
+            {
+                additionalListBx.Items.Add(t.Key, t.Value);
             }
 
-            Dictionary<string, bool> dischargeValues = JsonConvert.DeserializeObject<Dictionary<string, bool>>(o.DischargeLocation);
-            dischargeListBx.Items.Clear();
-            foreach (var t in dischargeValues)
-            {
-                dischargeListBx.Items.Add(t.Key, t.Value);
-            }
+            signatureTxt.Text = o.Signature;
+            followUpCbx.Text = o.FollowUp;
+
+            kinnameTxt.Text = o.KinName;
+            kinContactTxt.Text = o.KinContact;
+            kinAddressTxt.Text = o.KinAddress;
+            reasonTxt.Text = o.Reason;
+            userSignatureTxt.Text = o.UserSignature;
+            UserID = o.UserID;
+
 
         }
         private void metroLabel1_Click(object sender, EventArgs e)
@@ -114,24 +122,30 @@ namespace ARM
         }
 
         private void button3_Click(object sender, EventArgs e)
-        {           
-            foreach (var s in setupListBx.CheckedItems)
+        {
+            foreach (var s in safetyListBx.CheckedItems)
             {
-                SetupDictionary.Add(s.ToString(), true);               
-            }           
-            foreach (var s in dischargeListBx.CheckedItems)
-            {
-                DischargeDictionary.Add(s.ToString(), true);              
+                SafetyDictionary.Add(s.ToString(), true);
             }
-            foreach (var s in actionListBx.CheckedItems)
+            foreach (var s in appropListBx.CheckedItems)
             {
-                ActionDictionary.Add(s.ToString(), true);               
+                AppropriateDictionary.Add(s.ToString(), true);
             }
-            var DischargeJson = JsonConvert.SerializeObject(DischargeDictionary);
-            var ActionJson = JsonConvert.SerializeObject(ActionDictionary);
-            var SetupJson = JsonConvert.SerializeObject(SetupDictionary);
+            foreach (var s in equipmentTypeListBox.CheckedItems)
+            {
+                EquipmentDictionary.Add(s.ToString(), true);
+            }
+            foreach (var s in additionalListBx.CheckedItems)
+            {
+                AdditionalDictionary.Add(s.ToString(), true);
+            }
+
+            var SafetyJson = JsonConvert.SerializeObject(SafetyDictionary);
+            var AppropriateJson = JsonConvert.SerializeObject(AppropriateDictionary);
+            var EquipmentJson = JsonConvert.SerializeObject(EquipmentDictionary);
+            var AdditionalJson = JsonConvert.SerializeObject(AdditionalDictionary);
             string id = Guid.NewGuid().ToString();
-            Orders i = new Orders(id, CustomerID, UserID, ItemID, orderDate.Text, recievedCbx.Text, dispenseDateTxt.Text, dispensedCbx.Text, subscriberTypeTxt.Text, diagnosisTxt.Text, surgeryTxt.Text, Convert.ToDateTime(clinicalDateTxt.Text).ToString("dd-MM-yyyy"), limitTxt.Text, heightTxt.Text, weightTxt.Text, instructionTxt.Text, periodTxt.Text, SetupJson, setupDate.Text, DischargeJson, Convert.ToDateTime(dispenseDateTxt.Text).ToString("dd-MM-yyyy"), ActionJson, Convert.ToDateTime(dateNotifiedTxt.Text).ToString("dd-MM-yyyy"), "", Convert.ToDateTime(dateAuthTxt.Text).ToString("dd-MM-yyyy"), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, ActionJson, otherTxt.Text);
+            Instruction i = new Instruction(id, CustomerID, UserID, ItemID, clinicalDateTxt.Text, typeListBx.SelectedItem.ToString(), altContactTxt.Text, SafetyJson, appropriateCbx.Text, AppropriateJson, safetyOtherTxt.Text, phoneTxt.Text, EquipmentJson, equipOtherTxt.Text, AdditionalJson, additionNotesTxt.Text, followUpCbx.Text, signatureTxt.Text, kinnameTxt.Text, kinContactTxt.Text, kinAddressTxt.Text, reasonTxt.Text, userSignatureTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
             if (DBConnect.Insert(i) != "")
             {
 
@@ -142,7 +156,6 @@ namespace ARM
         }
         private void AutoCompleteUser()
         {
-
             AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
             UserDictionary.Clear();
             foreach (Users v in Users.List())
@@ -153,8 +166,6 @@ namespace ARM
                 {
                     UserDictionary.Add(v.Name, v.Id);
                     userCbx.Items.Add(v.Name);
-                    recievedCbx.Items.Add(v.Name);
-                    dispensedCbx.Items.Add(v.Name);
                 }
             }
 
@@ -210,16 +221,7 @@ namespace ARM
                 cusPbx.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch { }
-            try
-            {
 
-                foreach (Insurance c in Insurance.Select(CustomerID))
-                {
-                    insuranceInfoTxt.Text = "" + c.Type + "\r\n" + "Name: " + c.Name + "\t ID# : " + c.No + " \r\n Address: " + c.Address + "\t Zip: " + c.Zip + " \r\n  Phone: " + c.Contact;
-                }
-
-            }
-            catch { }
         }
         Users u;
 
@@ -230,15 +232,6 @@ namespace ARM
                 UserID = UserDictionary[userCbx.Text];
                 u = new Users();//.Select(ItemID);
                 u = Users.Select(UserID);
-                System.Drawing.Image img = Helper.Base64ToImage(u.Image);
-                System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
-                userPbx.Image = bmp;
-                GraphicsPath gp = new GraphicsPath();
-                gp.AddEllipse(userPbx.DisplayRectangle);
-                userPbx.Region = new Region(gp);
-                userPbx.SizeMode = PictureBoxSizeMode.StretchImage;
-                physicianTxt.Text = "Name: " + u.Name + "\t Phone: " + u.Contact + " \r\n Address: " + u.Address + "\t City/state: " + u.City + " " + u.State + "\t Zip: " + u.Zip + " \r\n";
-
             }
             catch { }
 
@@ -256,11 +249,10 @@ namespace ARM
                 System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
                 productPbx.Image = bmp;
                 productPbx.SizeMode = PictureBoxSizeMode.StretchImage;
-                //costTxt.Text = i.Cost;
-                // measureTxt.Text = i.UnitOfMeasure;
-                // measureDesTxt.Text = i.MeasureDescription;
-                //ManufacturerTxt.Text = i.Manufacturer;
-                //descriptionTxt.Text = i.Description;
+                serialTxt.Text = i.Barcode;
+                equipOtherTxt.Text = i.Category;
+                typeTxt.Text = i.Type;
+                
             }
             catch { }
         }

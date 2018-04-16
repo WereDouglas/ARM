@@ -80,6 +80,7 @@ namespace ARM.Model
 
         public static List<Orders> List()
         {
+            p.Clear();
             string Q = "SELECT * FROM Orders ";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);

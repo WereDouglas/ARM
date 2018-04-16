@@ -121,7 +121,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.49105F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 172F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 241F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label37, 2, 1);
@@ -252,7 +252,7 @@
             // 
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(384, 36);
+            this.label37.Location = new System.Drawing.Point(380, 36);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(33, 16);
             this.label37.TabIndex = 293;
@@ -272,7 +272,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(384, 71);
+            this.label29.Location = new System.Drawing.Point(380, 71);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(76, 16);
             this.label29.TabIndex = 285;
@@ -283,7 +283,7 @@
             this.label15.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label15, 3);
             this.label15.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(188, 728);
+            this.label15.Location = new System.Drawing.Point(186, 728);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(151, 18);
             this.label15.TabIndex = 252;
@@ -294,7 +294,7 @@
             this.visitChk.AutoSize = true;
             this.visitChk.Location = new System.Drawing.Point(3, 757);
             this.visitChk.Name = "visitChk";
-            this.visitChk.Size = new System.Drawing.Size(179, 20);
+            this.visitChk.Size = new System.Drawing.Size(177, 20);
             this.visitChk.TabIndex = 356;
             this.visitChk.Text = "FOLLOW -UP VISIT RECOMMENDED";
             this.visitChk.UseVisualStyleBackColor = true;
@@ -303,7 +303,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(384, 784);
+            this.label16.Location = new System.Drawing.Point(380, 784);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(92, 16);
             this.label16.TabIndex = 378;
@@ -353,8 +353,8 @@
             // 
             // metroDateTime2
             // 
-            this.metroDateTime2.Location = new System.Drawing.Point(556, 39);
-            this.metroDateTime2.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTime2.Location = new System.Drawing.Point(552, 39);
+            this.metroDateTime2.MinimumSize = new System.Drawing.Size(4, 29);
             this.metroDateTime2.Name = "metroDateTime2";
             this.metroDateTime2.Size = new System.Drawing.Size(235, 29);
             this.metroDateTime2.TabIndex = 398;
@@ -363,7 +363,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(384, 0);
+            this.label17.Location = new System.Drawing.Point(380, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(36, 16);
             this.label17.TabIndex = 254;
@@ -373,7 +373,7 @@
             // 
             this.textBox6.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Location = new System.Drawing.Point(188, 3);
+            this.textBox6.Location = new System.Drawing.Point(186, 3);
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(183, 29);
@@ -381,8 +381,8 @@
             // 
             // metroDateTime1
             // 
-            this.metroDateTime1.Location = new System.Drawing.Point(556, 3);
-            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTime1.Location = new System.Drawing.Point(552, 3);
+            this.metroDateTime1.MinimumSize = new System.Drawing.Size(4, 29);
             this.metroDateTime1.Name = "metroDateTime1";
             this.metroDateTime1.Size = new System.Drawing.Size(235, 29);
             this.metroDateTime1.TabIndex = 392;
@@ -391,7 +391,7 @@
             // 
             this.textBox14.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox14.Location = new System.Drawing.Point(188, 74);
+            this.textBox14.Location = new System.Drawing.Point(186, 74);
             this.textBox14.Multiline = true;
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(183, 18);
@@ -407,7 +407,7 @@
             this.reviewList.Location = new System.Drawing.Point(3, 276);
             this.reviewList.Name = "reviewList";
             this.tableLayoutPanel1.SetRowSpan(this.reviewList, 3);
-            this.reviewList.Size = new System.Drawing.Size(375, 108);
+            this.reviewList.Size = new System.Drawing.Size(371, 108);
             this.reviewList.TabIndex = 387;
             // 
             // label1
@@ -417,7 +417,7 @@
             this.label1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 254);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(374, 19);
+            this.label1.Size = new System.Drawing.Size(317, 19);
             this.label1.TabIndex = 340;
             this.label1.Text = "ALL ITEMS REVIEWED AND UNCHANGED BOX ONLY IF CHANGED && NOTE CHANGE ";
             // 
@@ -425,7 +425,7 @@
             // 
             this.textBox11.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox11.Location = new System.Drawing.Point(188, 165);
+            this.textBox11.Location = new System.Drawing.Point(186, 165);
             this.textBox11.Multiline = true;
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(183, 86);
@@ -455,7 +455,7 @@
             // 
             this.textBox13.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox13.Location = new System.Drawing.Point(188, 98);
+            this.textBox13.Location = new System.Drawing.Point(186, 98);
             this.textBox13.Multiline = true;
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(183, 27);
@@ -465,7 +465,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(384, 95);
+            this.label9.Location = new System.Drawing.Point(380, 95);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(60, 16);
             this.label9.TabIndex = 273;
@@ -475,7 +475,7 @@
             // 
             this.textBox5.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Location = new System.Drawing.Point(556, 98);
+            this.textBox5.Location = new System.Drawing.Point(552, 98);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(235, 25);
@@ -496,7 +496,7 @@
             this.textBox8.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableLayoutPanel1.SetColumnSpan(this.textBox8, 2);
-            this.textBox8.Location = new System.Drawing.Point(188, 132);
+            this.textBox8.Location = new System.Drawing.Point(186, 132);
             this.textBox8.Multiline = true;
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(183, 27);
@@ -506,7 +506,7 @@
             // 
             this.textBox12.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox12.Location = new System.Drawing.Point(188, 39);
+            this.textBox12.Location = new System.Drawing.Point(186, 39);
             this.textBox12.Multiline = true;
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(183, 24);
@@ -515,7 +515,7 @@
             // checkBox28
             // 
             this.checkBox28.AutoSize = true;
-            this.checkBox28.Location = new System.Drawing.Point(556, 132);
+            this.checkBox28.Location = new System.Drawing.Point(552, 132);
             this.checkBox28.Name = "checkBox28";
             this.checkBox28.Size = new System.Drawing.Size(53, 20);
             this.checkBox28.TabIndex = 346;
@@ -525,7 +525,7 @@
             // checkBox27
             // 
             this.checkBox27.AutoSize = true;
-            this.checkBox27.Location = new System.Drawing.Point(556, 165);
+            this.checkBox27.Location = new System.Drawing.Point(552, 165);
             this.checkBox27.Name = "checkBox27";
             this.checkBox27.Size = new System.Drawing.Size(61, 20);
             this.checkBox27.TabIndex = 345;
@@ -547,10 +547,10 @@
             this.textBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableLayoutPanel1.SetColumnSpan(this.textBox1, 3);
-            this.textBox1.Location = new System.Drawing.Point(188, 397);
+            this.textBox1.Location = new System.Drawing.Point(186, 397);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(603, 20);
+            this.textBox1.Size = new System.Drawing.Size(601, 20);
             this.textBox1.TabIndex = 266;
             // 
             // label56
@@ -568,10 +568,10 @@
             this.textBox3.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableLayoutPanel1.SetColumnSpan(this.textBox3, 3);
-            this.textBox3.Location = new System.Drawing.Point(188, 423);
+            this.textBox3.Location = new System.Drawing.Point(186, 423);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(603, 27);
+            this.textBox3.Size = new System.Drawing.Size(601, 27);
             this.textBox3.TabIndex = 389;
             // 
             // label24
@@ -599,17 +599,17 @@
             // 
             this.textBox9.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox9.Location = new System.Drawing.Point(188, 484);
+            this.textBox9.Location = new System.Drawing.Point(186, 484);
             this.textBox9.Multiline = true;
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(190, 29);
+            this.textBox9.Size = new System.Drawing.Size(188, 29);
             this.textBox9.TabIndex = 395;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(384, 481);
+            this.label5.Location = new System.Drawing.Point(380, 481);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(110, 16);
             this.label5.TabIndex = 360;
@@ -619,7 +619,7 @@
             // 
             this.textBox10.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox10.Location = new System.Drawing.Point(556, 484);
+            this.textBox10.Location = new System.Drawing.Point(552, 484);
             this.textBox10.Multiline = true;
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(235, 29);
@@ -635,7 +635,7 @@
             this.settingListBx.Location = new System.Drawing.Point(3, 520);
             this.settingListBx.Name = "settingListBx";
             this.tableLayoutPanel1.SetRowSpan(this.settingListBx, 4);
-            this.settingListBx.Size = new System.Drawing.Size(788, 96);
+            this.settingListBx.Size = new System.Drawing.Size(784, 96);
             this.settingListBx.TabIndex = 390;
             // 
             // label11
@@ -653,10 +653,10 @@
             this.textBox4.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableLayoutPanel1.SetColumnSpan(this.textBox4, 3);
-            this.textBox4.Location = new System.Drawing.Point(188, 623);
+            this.textBox4.Location = new System.Drawing.Point(186, 623);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(603, 18);
+            this.textBox4.Size = new System.Drawing.Size(601, 18);
             this.textBox4.TabIndex = 391;
             // 
             // label53
@@ -664,7 +664,7 @@
             this.label53.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label53, 4);
             this.label53.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(188, 644);
+            this.label53.Location = new System.Drawing.Point(186, 644);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(122, 18);
             this.label53.TabIndex = 325;
@@ -684,17 +684,17 @@
             // 
             this.textBox16.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox16.Location = new System.Drawing.Point(188, 672);
+            this.textBox16.Location = new System.Drawing.Point(186, 672);
             this.textBox16.Multiline = true;
             this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(190, 24);
+            this.textBox16.Size = new System.Drawing.Size(188, 24);
             this.textBox16.TabIndex = 405;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(384, 669);
+            this.label13.Location = new System.Drawing.Point(380, 669);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(35, 16);
             this.label13.TabIndex = 376;
@@ -704,7 +704,7 @@
             // 
             this.textBox7.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Location = new System.Drawing.Point(556, 672);
+            this.textBox7.Location = new System.Drawing.Point(552, 672);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(235, 24);
@@ -725,26 +725,26 @@
             // 
             this.textBox17.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox17.Location = new System.Drawing.Point(188, 702);
+            this.textBox17.Location = new System.Drawing.Point(186, 702);
             this.textBox17.Multiline = true;
             this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(190, 23);
+            this.textBox17.Size = new System.Drawing.Size(188, 23);
             this.textBox17.TabIndex = 406;
             // 
             // metroDateTime3
             // 
-            this.metroDateTime3.Location = new System.Drawing.Point(188, 787);
+            this.metroDateTime3.Location = new System.Drawing.Point(186, 787);
             this.metroDateTime3.MinimumSize = new System.Drawing.Size(4, 29);
             this.metroDateTime3.Name = "metroDateTime3";
-            this.metroDateTime3.Size = new System.Drawing.Size(190, 29);
+            this.metroDateTime3.Size = new System.Drawing.Size(188, 29);
             this.metroDateTime3.TabIndex = 407;
             // 
             // phoneChk
             // 
             this.phoneChk.AutoSize = true;
-            this.phoneChk.Location = new System.Drawing.Point(188, 757);
+            this.phoneChk.Location = new System.Drawing.Point(186, 757);
             this.phoneChk.Name = "phoneChk";
-            this.phoneChk.Size = new System.Drawing.Size(190, 20);
+            this.phoneChk.Size = new System.Drawing.Size(188, 20);
             this.phoneChk.TabIndex = 357;
             this.phoneChk.Text = "FOLLOW UP BY PHONE && AS NEEDED";
             this.phoneChk.UseVisualStyleBackColor = true;
@@ -773,17 +773,17 @@
             // 
             this.textBox2.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Location = new System.Drawing.Point(188, 870);
+            this.textBox2.Location = new System.Drawing.Point(186, 870);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(190, 26);
+            this.textBox2.Size = new System.Drawing.Size(188, 26);
             this.textBox2.TabIndex = 349;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(384, 867);
+            this.label19.Location = new System.Drawing.Point(380, 867);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(143, 16);
             this.label19.TabIndex = 380;
@@ -793,7 +793,7 @@
             // 
             this.textBox19.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox19.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox19.Location = new System.Drawing.Point(556, 870);
+            this.textBox19.Location = new System.Drawing.Point(552, 870);
             this.textBox19.Multiline = true;
             this.textBox19.Name = "textBox19";
             this.textBox19.Size = new System.Drawing.Size(235, 26);
@@ -803,7 +803,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(384, 899);
+            this.label22.Location = new System.Drawing.Point(380, 899);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(68, 16);
             this.label22.TabIndex = 383;
@@ -813,7 +813,7 @@
             // 
             this.textBox18.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox18.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox18.Location = new System.Drawing.Point(556, 902);
+            this.textBox18.Location = new System.Drawing.Point(552, 902);
             this.textBox18.Multiline = true;
             this.textBox18.Name = "textBox18";
             this.textBox18.Size = new System.Drawing.Size(235, 26);
@@ -823,7 +823,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(384, 932);
+            this.label23.Location = new System.Drawing.Point(380, 932);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(109, 16);
             this.label23.TabIndex = 384;
@@ -833,7 +833,7 @@
             // 
             this.textBox20.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox20.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox20.Location = new System.Drawing.Point(556, 935);
+            this.textBox20.Location = new System.Drawing.Point(552, 935);
             this.textBox20.Multiline = true;
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(235, 26);
@@ -843,27 +843,27 @@
             // 
             this.textBox21.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox21.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox21.Location = new System.Drawing.Point(188, 902);
+            this.textBox21.Location = new System.Drawing.Point(186, 902);
             this.textBox21.Multiline = true;
             this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(190, 26);
+            this.textBox21.Size = new System.Drawing.Size(188, 26);
             this.textBox21.TabIndex = 411;
             // 
             // textBox22
             // 
             this.textBox22.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox22.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox22.Location = new System.Drawing.Point(188, 935);
+            this.textBox22.Location = new System.Drawing.Point(186, 935);
             this.textBox22.Multiline = true;
             this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(190, 26);
+            this.textBox22.Size = new System.Drawing.Size(188, 26);
             this.textBox22.TabIndex = 412;
             // 
             // textBox15
             // 
             this.textBox15.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox15.Location = new System.Drawing.Point(556, 74);
+            this.textBox15.Location = new System.Drawing.Point(552, 74);
             this.textBox15.Multiline = true;
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(235, 18);
@@ -875,7 +875,7 @@
             this.statusList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableLayoutPanel1.SetColumnSpan(this.statusList, 2);
             this.statusList.FormattingEnabled = true;
-            this.statusList.Location = new System.Drawing.Point(384, 276);
+            this.statusList.Location = new System.Drawing.Point(380, 276);
             this.statusList.Name = "statusList";
             this.tableLayoutPanel1.SetRowSpan(this.statusList, 3);
             this.statusList.Size = new System.Drawing.Size(407, 105);
@@ -885,7 +885,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(556, 254);
+            this.label31.Location = new System.Drawing.Point(552, 254);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(101, 18);
             this.label31.TabIndex = 287;

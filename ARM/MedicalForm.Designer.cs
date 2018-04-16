@@ -30,8 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MedicalForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.usernameLbl = new System.Windows.Forms.Label();
+            this.userPbx = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripDropDownButton12 = new System.Windows.Forms.ToolStripDropDownButton();
             this.exceptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,24 +62,21 @@
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton7 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.userPbx = new System.Windows.Forms.PictureBox();
-            this.usernameLbl = new System.Windows.Forms.Label();
-            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPbx)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -100,19 +100,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1439, 659);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::ARM.Properties.Resources.main_logo;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 9);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(10);
-            this.pictureBox1.Size = new System.Drawing.Size(176, 62);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
             // 
             // toolStrip1
             // 
@@ -147,6 +134,55 @@
             this.toolStrip1.Stretch = true;
             this.toolStrip1.TabIndex = 8;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(8, 78);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(50);
+            this.panel1.Size = new System.Drawing.Size(1423, 552);
+            this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // usernameLbl
+            // 
+            this.usernameLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.usernameLbl.AutoSize = true;
+            this.usernameLbl.Location = new System.Drawing.Point(1152, 43);
+            this.usernameLbl.Name = "usernameLbl";
+            this.usernameLbl.Size = new System.Drawing.Size(14, 13);
+            this.usernameLbl.TabIndex = 10;
+            this.usernameLbl.Text = "#";
+            // 
+            // userPbx
+            // 
+            this.userPbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.userPbx.BackgroundImage = global::ARM.Properties.Resources.User_Profile_128;
+            this.userPbx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.userPbx.Location = new System.Drawing.Point(1301, 25);
+            this.userPbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.userPbx.Name = "userPbx";
+            this.userPbx.Padding = new System.Windows.Forms.Padding(10);
+            this.userPbx.Size = new System.Drawing.Size(43, 31);
+            this.userPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.userPbx.TabIndex = 9;
+            this.userPbx.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::ARM.Properties.Resources.main_logo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(8, 9);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(10);
+            this.pictureBox1.Size = new System.Drawing.Size(176, 62);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // toolStripButton1
             // 
@@ -428,6 +464,51 @@
             this.toolStripButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click);
             // 
+            // toolStripDropDownButton2
+            // 
+            this.toolStripDropDownButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem4});
+            this.toolStripDropDownButton2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripDropDownButton2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.toolStripDropDownButton2.Image = global::ARM.Properties.Resources.Microsoft_Excel_01_24;
+            this.toolStripDropDownButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
+            this.toolStripDropDownButton2.Padding = new System.Windows.Forms.Padding(5);
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(91, 61);
+            this.toolStripDropDownButton2.Text = "From List";
+            this.toolStripDropDownButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(239, 24);
+            this.toolStripMenuItem1.Text = "Delivery/Pickup Ticket";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(239, 24);
+            this.toolStripMenuItem2.Text = "Order Intake";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click_1);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(239, 24);
+            this.toolStripMenuItem3.Text = "DME Instruction Delivery";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click_1);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(239, 24);
+            this.toolStripMenuItem4.Text = "Follow up plan of Care";
+            // 
             // toolStripDropDownButton7
             // 
             this.toolStripDropDownButton7.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -490,86 +571,6 @@
             this.toolStripButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
-            this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(8, 78);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(50);
-            this.panel1.Size = new System.Drawing.Size(1423, 552);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // userPbx
-            // 
-            this.userPbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.userPbx.BackgroundImage = global::ARM.Properties.Resources.User_Profile_128;
-            this.userPbx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.userPbx.Location = new System.Drawing.Point(1301, 25);
-            this.userPbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.userPbx.Name = "userPbx";
-            this.userPbx.Padding = new System.Windows.Forms.Padding(10);
-            this.userPbx.Size = new System.Drawing.Size(43, 31);
-            this.userPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.userPbx.TabIndex = 9;
-            this.userPbx.TabStop = false;
-            // 
-            // usernameLbl
-            // 
-            this.usernameLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.usernameLbl.AutoSize = true;
-            this.usernameLbl.Location = new System.Drawing.Point(1152, 43);
-            this.usernameLbl.Name = "usernameLbl";
-            this.usernameLbl.Size = new System.Drawing.Size(14, 13);
-            this.usernameLbl.TabIndex = 10;
-            this.usernameLbl.Text = "#";
-            // 
-            // toolStripDropDownButton2
-            // 
-            this.toolStripDropDownButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3,
-            this.toolStripMenuItem4});
-            this.toolStripDropDownButton2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripDropDownButton2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.toolStripDropDownButton2.Image = global::ARM.Properties.Resources.Microsoft_Excel_01_24;
-            this.toolStripDropDownButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Padding = new System.Windows.Forms.Padding(5);
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(91, 61);
-            this.toolStripDropDownButton2.Text = "From List";
-            this.toolStripDropDownButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(239, 24);
-            this.toolStripMenuItem1.Text = "Delivery/Pickup Ticket";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(239, 24);
-            this.toolStripMenuItem2.Text = "Order Intake";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click_1);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(239, 24);
-            this.toolStripMenuItem3.Text = "DME Instruction Delivery";
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(239, 24);
-            this.toolStripMenuItem4.Text = "Follow up plan of Care";
-            // 
             // MedicalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -583,10 +584,10 @@
             this.TransparencyKey = System.Drawing.Color.Empty;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPbx)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

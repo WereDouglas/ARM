@@ -92,21 +92,21 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.previewdlg = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printdoc1 = new System.Drawing.Printing.PrintDocument();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.userPbx = new System.Windows.Forms.PictureBox();
-            this.cusPbx = new System.Windows.Forms.PictureBox();
             this.productPbx = new System.Windows.Forms.PictureBox();
-            this.printdoc1 = new System.Drawing.Printing.PrintDocument();
+            this.cusPbx = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPbx)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productPbx)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -867,6 +867,10 @@
             this.previewdlg.Name = "previewdlg";
             this.previewdlg.Visible = false;
             // 
+            // printdoc1
+            // 
+            this.printdoc1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printdoc1_PrintPage);
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -934,6 +938,14 @@
             this.userPbx.TabIndex = 180;
             this.userPbx.TabStop = false;
             // 
+            // productPbx
+            // 
+            this.productPbx.Location = new System.Drawing.Point(4, 22);
+            this.productPbx.Name = "productPbx";
+            this.productPbx.Size = new System.Drawing.Size(82, 45);
+            this.productPbx.TabIndex = 444;
+            this.productPbx.TabStop = false;
+            // 
             // cusPbx
             // 
             this.cusPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
@@ -943,18 +955,6 @@
             this.cusPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.cusPbx.TabIndex = 179;
             this.cusPbx.TabStop = false;
-            // 
-            // productPbx
-            // 
-            this.productPbx.Location = new System.Drawing.Point(4, 22);
-            this.productPbx.Name = "productPbx";
-            this.productPbx.Size = new System.Drawing.Size(82, 45);
-            this.productPbx.TabIndex = 444;
-            this.productPbx.TabStop = false;
-            // 
-            // printdoc1
-            // 
-            this.printdoc1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printdoc1_PrintPage);
             // 
             // OrderIntakeForm
             // 
@@ -981,8 +981,8 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPbx)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productPbx)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -49,12 +49,12 @@
             this.label9 = new System.Windows.Forms.Label();
             this.totalTxt = new System.Windows.Forms.TextBox();
             this.descriptionTxt = new System.Windows.Forms.TextBox();
-            this.productPbx = new System.Windows.Forms.PictureBox();
             this.amountTxt = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.productTxt = new MetroFramework.Controls.MetroComboBox();
+            this.productPbx = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.productTxt = new MetroFramework.Controls.MetroComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productPbx)).BeginInit();
             this.SuspendLayout();
@@ -79,7 +79,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 66F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 181F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 190F));
             this.tableLayoutPanel1.Controls.Add(this.textBox7, 9, 1);
             this.tableLayoutPanel1.Controls.Add(this.ManufacturerTxt, 10, 1);
             this.tableLayoutPanel1.Controls.Add(this.measureTxt, 6, 1);
@@ -117,7 +117,7 @@
             this.textBox7.BackColor = System.Drawing.SystemColors.HighlightText;
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(732, 26);
+            this.textBox7.Location = new System.Drawing.Point(723, 26);
             this.textBox7.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(37, 14);
@@ -129,7 +129,7 @@
             this.ManufacturerTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.ManufacturerTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ManufacturerTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ManufacturerTxt.Location = new System.Drawing.Point(780, 26);
+            this.ManufacturerTxt.Location = new System.Drawing.Point(771, 26);
             this.ManufacturerTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.ManufacturerTxt.Multiline = true;
             this.ManufacturerTxt.Name = "ManufacturerTxt";
@@ -141,7 +141,7 @@
             this.measureTxt.BackColor = System.Drawing.SystemColors.HighlightText;
             this.measureTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.measureTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.measureTxt.Location = new System.Drawing.Point(527, 26);
+            this.measureTxt.Location = new System.Drawing.Point(518, 26);
             this.measureTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.measureTxt.Name = "measureTxt";
             this.measureTxt.Size = new System.Drawing.Size(62, 14);
@@ -164,7 +164,7 @@
             this.qtyTxt.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.qtyTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.qtyTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.qtyTxt.Location = new System.Drawing.Point(372, 26);
+            this.qtyTxt.Location = new System.Drawing.Point(363, 26);
             this.qtyTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.qtyTxt.Name = "qtyTxt";
             this.qtyTxt.Size = new System.Drawing.Size(48, 14);
@@ -177,7 +177,7 @@
             this.costTxt.BackColor = System.Drawing.SystemColors.HighlightText;
             this.costTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.costTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.costTxt.Location = new System.Drawing.Point(325, 26);
+            this.costTxt.Location = new System.Drawing.Point(316, 26);
             this.costTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.costTxt.Name = "costTxt";
             this.costTxt.Size = new System.Drawing.Size(39, 14);
@@ -187,7 +187,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(325, 2);
+            this.label8.Location = new System.Drawing.Point(316, 2);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(29, 17);
             this.label8.TabIndex = 209;
@@ -198,7 +198,7 @@
             this.measureDesTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.measureDesTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.measureDesTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.measureDesTxt.Location = new System.Drawing.Point(609, 26);
+            this.measureDesTxt.Location = new System.Drawing.Point(600, 26);
             this.measureDesTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.measureDesTxt.Multiline = true;
             this.measureDesTxt.Name = "measureDesTxt";
@@ -208,7 +208,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(148, 2);
+            this.label14.Location = new System.Drawing.Point(146, 2);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(75, 13);
             this.label14.TabIndex = 205;
@@ -226,7 +226,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(882, 2);
+            this.label7.Location = new System.Drawing.Point(873, 2);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(60, 13);
             this.label7.TabIndex = 258;
@@ -236,7 +236,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(780, 2);
+            this.label6.Location = new System.Drawing.Point(771, 2);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 13);
             this.label6.TabIndex = 257;
@@ -246,7 +246,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(732, 2);
+            this.label4.Location = new System.Drawing.Point(723, 2);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(27, 17);
             this.label4.TabIndex = 234;
@@ -256,7 +256,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(664, 2);
+            this.label5.Location = new System.Drawing.Point(655, 2);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 17);
             this.label5.TabIndex = 208;
@@ -266,7 +266,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(609, 2);
+            this.label2.Location = new System.Drawing.Point(600, 2);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 17);
             this.label2.TabIndex = 232;
@@ -276,7 +276,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(527, 2);
+            this.label1.Location = new System.Drawing.Point(518, 2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 17);
             this.label1.TabIndex = 231;
@@ -286,7 +286,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(372, 2);
+            this.label9.Location = new System.Drawing.Point(363, 2);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(64, 13);
             this.label9.TabIndex = 259;
@@ -298,7 +298,7 @@
             this.totalTxt.BackColor = System.Drawing.SystemColors.HighlightText;
             this.totalTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.totalTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalTxt.Location = new System.Drawing.Point(664, 26);
+            this.totalTxt.Location = new System.Drawing.Point(655, 26);
             this.totalTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.totalTxt.Name = "totalTxt";
             this.totalTxt.Size = new System.Drawing.Size(54, 14);
@@ -310,27 +310,19 @@
             this.descriptionTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.descriptionTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.descriptionTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionTxt.Location = new System.Drawing.Point(882, 26);
+            this.descriptionTxt.Location = new System.Drawing.Point(873, 26);
             this.descriptionTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.descriptionTxt.Multiline = true;
             this.descriptionTxt.Name = "descriptionTxt";
             this.descriptionTxt.Size = new System.Drawing.Size(164, 41);
             this.descriptionTxt.TabIndex = 262;
             // 
-            // productPbx
-            // 
-            this.productPbx.Location = new System.Drawing.Point(5, 24);
-            this.productPbx.Name = "productPbx";
-            this.productPbx.Size = new System.Drawing.Size(82, 45);
-            this.productPbx.TabIndex = 264;
-            this.productPbx.TabStop = false;
-            // 
             // amountTxt
             // 
             this.amountTxt.BackColor = System.Drawing.SystemColors.HighlightText;
             this.amountTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.amountTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amountTxt.Location = new System.Drawing.Point(446, 26);
+            this.amountTxt.Location = new System.Drawing.Point(437, 26);
             this.amountTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.amountTxt.Name = "amountTxt";
             this.amountTxt.Size = new System.Drawing.Size(73, 14);
@@ -340,11 +332,32 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(446, 2);
+            this.label10.Location = new System.Drawing.Point(437, 2);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(70, 13);
             this.label10.TabIndex = 266;
             this.label10.Text = "Total Amount";
+            // 
+            // productTxt
+            // 
+            this.productTxt.FormattingEnabled = true;
+            this.productTxt.ItemHeight = 23;
+            this.productTxt.Location = new System.Drawing.Point(146, 25);
+            this.productTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.productTxt.Name = "productTxt";
+            this.productTxt.PromptText = "Product/Device";
+            this.productTxt.Size = new System.Drawing.Size(162, 29);
+            this.productTxt.TabIndex = 444;
+            this.productTxt.UseSelectable = true;
+            this.productTxt.SelectedIndexChanged += new System.EventHandler(this.productTxt_SelectedIndexChanged);
+            // 
+            // productPbx
+            // 
+            this.productPbx.Location = new System.Drawing.Point(5, 24);
+            this.productPbx.Name = "productPbx";
+            this.productPbx.Size = new System.Drawing.Size(82, 45);
+            this.productPbx.TabIndex = 264;
+            this.productPbx.TabStop = false;
             // 
             // button3
             // 
@@ -383,19 +396,6 @@
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // productTxt
-            // 
-            this.productTxt.FormattingEnabled = true;
-            this.productTxt.ItemHeight = 23;
-            this.productTxt.Location = new System.Drawing.Point(148, 25);
-            this.productTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.productTxt.Name = "productTxt";
-            this.productTxt.PromptText = "Product/Device";
-            this.productTxt.Size = new System.Drawing.Size(169, 29);
-            this.productTxt.TabIndex = 444;
-            this.productTxt.UseSelectable = true;
-            this.productTxt.SelectedIndexChanged += new System.EventHandler(this.productTxt_SelectedIndexChanged);
             // 
             // AddPurchase
             // 

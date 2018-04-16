@@ -148,6 +148,13 @@
     <Compile Include="InsuranceDialog.Designer.cs">
       <DependentUpon>InsuranceDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Instruction.cs" />
+    <Compile Include="InstructionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InstructionForm.Designer.cs">
+      <DependentUpon>InstructionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="OrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +162,12 @@
       <DependentUpon>OrderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Orders.cs" />
+    <Compile Include="AddInstructionDelivery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddInstructionDelivery.Designer.cs">
+      <DependentUpon>AddInstructionDelivery.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScheduleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -404,8 +417,14 @@
     <EmbeddedResource Include="InsuranceDialog.resx">
       <DependentUpon>InsuranceDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InstructionForm.resx">
+      <DependentUpon>InstructionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OrderForm.resx">
       <DependentUpon>OrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddInstructionDelivery.resx">
+      <DependentUpon>AddInstructionDelivery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScheduleForm.resx">
       <DependentUpon>ScheduleForm.cs</DependentUpon>
