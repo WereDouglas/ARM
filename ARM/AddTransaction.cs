@@ -314,7 +314,7 @@ namespace ARM
             {
                 foreach (Transaction t in GenericCollection.transactions)
                 {
-                    Transaction c = new Transaction(t.Id, t.Date, noTxt.Text, t.ItemID, t.Total, t.Qty, t.Cost, t.Created, false);
+                    Transaction c = new Transaction(t.Id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, t.Total, t.Qty, t.Cost, t.Created, false);
                     if (DBConnect.Insert(c) != "")
                     {
                     }

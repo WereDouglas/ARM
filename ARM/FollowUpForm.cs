@@ -15,15 +15,17 @@ using System.Windows.Forms;
 
 namespace ARM
 {
-    public partial class InstructionForm : Form
+    public partial class FollowUpForm : Form
     {
-        public InstructionForm()
+        public FollowUpForm()
         {
             InitializeComponent();
+
             LoadData();
 
+
         }
-        List<Instruction> invoices = new List<Instruction>();
+        List<Follow> invoices = new List<Follow>();
 
         DataTable t = new DataTable();
         public void LoadData()
@@ -34,30 +36,31 @@ namespace ARM
             t.Columns.Add("ID");
             t.Columns.Add("uriCus");
             t.Columns.Add(new DataColumn("ImgCus", typeof(Bitmap)));//1  
-            t.Columns.Add("Customer");            
+            t.Columns.Add("Customer");
+            t.Columns.Add("Physician");
             t.Columns.Add("Product");
             t.Columns.Add("uriPro");
             t.Columns.Add(new DataColumn("imgPro", typeof(Bitmap)));//1  
-            t.Columns.Add("Date & Time");
-            t.Columns.Add("By");
-            t.Columns.Add("Alternate Contact");
-            t.Columns.Add("Safety");
-            t.Columns.Add("Appropriate ");
-            t.Columns.Add("Appropriate selection");
-            t.Columns.Add("Safety Other");
-            t.Columns.Add("Equipment Type");
-            t.Columns.Add("Equipment Other");
-            t.Columns.Add("Additional");
-            t.Columns.Add("Additional Notes");
-            t.Columns.Add("Follow up");
+            t.Columns.Add("Type");
+            t.Columns.Add("Diagnosis");
+            t.Columns.Add("Hospitalisation");
+            t.Columns.Add("Source");
+            t.Columns.Add("Length");
+            t.Columns.Add("Need");
+            t.Columns.Add("Goal");
+            t.Columns.Add("Results");
+            t.Columns.Add("Recommendation");
+            t.Columns.Add("Follow visit");
+            t.Columns.Add("Follow phone");
+            t.Columns.Add("Next");
+            t.Columns.Add("P/U");
             t.Columns.Add("Signature");
-            t.Columns.Add("Kin name");
-            t.Columns.Add("Kin contact");
-            t.Columns.Add("Kin Address");
-            t.Columns.Add("Reason");
-            t.Columns.Add("User Signature");            
+            t.Columns.Add("Authoriser");
+            t.Columns.Add("Relationship");
+            t.Columns.Add("Reason");          
             t.Columns.Add("Created");
-            t.Columns.Add("Sync"); 
+            t.Columns.Add("Sync");          
+           
             t.Columns.Add(new DataColumn("View", typeof(Image)));
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));
 
@@ -75,7 +78,7 @@ namespace ARM
                 g.DrawString("Loading...", this.Font, new SolidBrush(Color.Black), 0f, 0f);
             }
 
-            foreach (Instruction c in Instruction.List())
+            foreach (Follow c in Follow.List())
             {
                 string imageCus = "";
                 string imagePro = "";
@@ -85,17 +88,19 @@ namespace ARM
 
                 string prod = "";
                 string cus = "";
+                string phy = "";
                 try { prod = Item.Select(c.ItemID).Name; } catch { }
                 try { cus = Customer.Select(c.CustomerID).Name; } catch { }
+                try { phy = Users.Select(c.UserID).Name; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, imageCus as string, b, c.CustomerID +" "+cus, c.ItemID+" "+ prod, imagePro as string, b2, c.Date, c.UserID, c.AltContact, c.Safety, c.Appropriate, c.AppropriateSelection, c.SafetyOther, c.EquipmentOther, c.EquipmentType, c.Additional, c.AdditionalNotes, c.FollowUp, c.Signature, c.KinName, c.KinContact, c.KinAddress, c.Reason, c.UserSignature,c.Created, c.Sync,view, delete });
+                    t.Rows.Add(new object[] { false, c.Id, imageCus as string, b, c.CustomerID +" "+ cus, c.UserID + " "+ phy, c.ItemID+" "+ prod, imagePro as string, b2, c.Type, c.Diagnosis, c.Hospitalisation, c.Source, c.Length, c.Need, c.Goal, c.Results, c.Recommend, c.FollowVisit, c.FollowPhone, c.Next, c.Pu, c.Signature, c.Authoriser, c.Relationship, c.Reason,c.Created, c.Sync,view, delete });
 
                 }
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing customer {each customer list } Setup date" + c.CustomerID);
+                    Helper.Exceptions(m.Message + "Viewing Follow Up {each follow list } Setup date" + c.UserID);
                 }
             }
 
@@ -134,7 +139,7 @@ namespace ARM
 
             dtGrid.AllowUserToAddRows = false;
             dtGrid.Columns["Customer"].DefaultCellStyle.BackColor = Color.LightGreen;
-            dtGrid.Columns["Product"].DefaultCellStyle.BackColor = Color.WhiteSmoke;
+            dtGrid.Columns["Physician"].DefaultCellStyle.BackColor = Color.WhiteSmoke;
             dtGrid.Columns["ID"].Visible = false;
             dtGrid.Columns["ImgCus"].DefaultCellStyle.BackColor = Color.LightGreen;
             dtGrid.Columns["uriCus"].Visible = false;
@@ -170,12 +175,12 @@ namespace ARM
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("YES or No?", "Are you sure you want to delete these instructions? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MessageBox.Show("YES or No?", "Are you sure you want to delete these invoices? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
                 foreach (var item in selectedIDs)
                 {
-                    string Query = "DELETE from instruction WHERE id ='" + item + "'";
+                    string Query = "DELETE from follow WHERE id ='" + item + "'";
                     DBConnect.save(Query);
                     //  MessageBox.Show("Information deleted");
                 }
@@ -199,7 +204,7 @@ namespace ARM
             }
             if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
             {
-                using (AddInstructionDelivery form = new AddInstructionDelivery(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
+                using (FollowForm form = new FollowForm(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
                 {
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)
@@ -214,9 +219,9 @@ namespace ARM
                 if (e.ColumnIndex == dtGrid.Columns["Delete"].Index && e.RowIndex >= 0)
                 {
 
-                    if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Instruction? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Follow? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
-                        string Query = "DELETE from instruction WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
+                        string Query = "DELETE from follow WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
                         DBConnect.save(Query);
                         MessageBox.Show("Information deleted");
                         LoadData();

@@ -18,7 +18,7 @@ using System.Windows.Forms;
 
 namespace ARM.Util
 {
-  public static  class Helper
+    public static class Helper
     {
 
 
@@ -69,16 +69,16 @@ namespace ARM.Util
         public static void Exceptions(string message)
         {
             string id = Guid.NewGuid().ToString();
-            string Query = "INSERT INTO exceptions(id,message,created,process,sync) VALUES ('" + id + "','" + message + "','" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt") + "','"+message+"','false');";
+            string Query = "INSERT INTO exceptions(id,message,created,process,sync) VALUES ('" + id + "','" + message + "','" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt") + "','" + message + "','false');";
             DBConnect.save(Query);
         }
         public static void Log(string userName, string actions)
         {
             string id = Guid.NewGuid().ToString();
             string Query = "INSERT INTO logs(id,name,actions,created) VALUES ('" + id + "','" + userName + "','" + actions + "','" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt") + "');";
-           DBConnect.save(Query);
+            DBConnect.save(Query);
         }
-       
+
         public static string CleanString(string str)
         {
             return str.Replace("'", "''");
@@ -123,7 +123,7 @@ namespace ARM.Util
             Bitmap bps = new Bitmap(bmp, 50, 50);
             Image dstImage = Helper.CropToCircle(bps, Color.White);
             return dstImage;
-           
+
         }
         public static Image byteArrayToImage(byte[] byteArrayIn)
         {
@@ -150,6 +150,33 @@ namespace ARM.Util
                     return base64String;
                 }
             }
+        }
+        public static void ToCsV(DataGridView dGV, string filename)
+        {
+            string stOutput = "";
+            // Export titles:
+            string sHeaders = "";
+
+            for (int j = 0; j < dGV.Columns.Count; j++)
+                sHeaders = sHeaders.ToString() + Convert.ToString(dGV.Columns[j].HeaderText) + "\t";
+            stOutput += sHeaders + "\r\n";
+            // Export data.
+            for (int i = 0; i < dGV.RowCount - 1; i++)
+            {
+                string stLine = "";
+                for (int j = 0; j < dGV.Rows[i].Cells.Count; j++)
+                    stLine = stLine.ToString() + Convert.ToString(dGV.Rows[i].Cells[j].Value) + "\t";
+                stOutput += stLine + "\r\n";
+            }
+            Encoding utf16 = Encoding.GetEncoding(1254);
+            byte[] output = utf16.GetBytes(stOutput);
+            FileStream fs = new FileStream(filename, FileMode.Create);
+            BinaryWriter bw = new BinaryWriter(fs);
+            bw.Write(output, 0, output.Length); //write the encoded file
+            bw.Flush();
+            bw.Close();
+            fs.Close();
+
         }
         public static bool validateDouble(string t)
         {
@@ -229,7 +256,7 @@ namespace ARM.Util
             }
 
         }
-    
+
         public static string NumberToWords(int number)
         {
             if (number == 0)

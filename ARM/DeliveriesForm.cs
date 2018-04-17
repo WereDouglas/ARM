@@ -15,16 +15,15 @@ using System.Windows.Forms;
 
 namespace ARM
 {
-    public partial class TransactionForm : Form
+    public partial class DeliveriesForm : Form
     {
-        public TransactionForm()
+        public DeliveriesForm()
         {
             InitializeComponent();
             LoadData();
-           
+
         }
-      
-        List<Transaction> invoices = new List<Transaction>();
+        List<Deliveries> invoices = new List<Deliveries>();
 
         DataTable t = new DataTable();
         public void LoadData()
@@ -44,7 +43,7 @@ namespace ARM
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));  
             
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
-            foreach(Model.Transaction c in Model.Transaction.List())
+            foreach(Model.Deliveries c in Model.Deliveries.List())
             {
                 string prod = "";
                
@@ -96,7 +95,7 @@ namespace ARM
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("YES or No?", "Are you sure you want to delete these Transaction? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MessageBox.Show("YES or No?", "Are you sure you want to delete these Deliveries? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
                 foreach (var item in selectedIDs)
@@ -133,7 +132,7 @@ namespace ARM
                 if (e.ColumnIndex == dtGrid.Columns["Delete"].Index && e.RowIndex >= 0)
                 {
 
-                    if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Transaction? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Deliveries? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         string Query = "DELETE from transaction WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
                         DBConnect.save(Query);

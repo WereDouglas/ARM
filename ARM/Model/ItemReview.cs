@@ -11,37 +11,42 @@ namespace ARM.Model
     public class ItemReview
     {
         private string id;
-        private string title;
-        private string description;           
+        private string followID;
+        private string title;     
+        private string status;
+        private string details;           
         private string created;      
         private bool sync;
         public ItemReview() { }
 
-        public ItemReview(string id, string title, string description, string created, bool sync)
+        public ItemReview(string id, string followID, string title, string status, string details, string created, bool sync)
         {
             this.Id = id;
+            this.FollowID = followID;
             this.Title = title;
-            this.Description = description;
+            this.Status = status;
+            this.Details = details;
             this.Created = created;
             this.Sync = sync;
         }
 
-        static List<ItemReview> p = new List<ItemReview>();
-
         public string Id { get => id; set => id = value; }
+        public string FollowID { get => followID; set => followID = value; }
         public string Title { get => title; set => title = value; }
-        public string Description { get => description; set => description = value; }
+        public string Status { get => status; set => status = value; }
+        public string Details { get => details; set => details = value; }
         public string Created { get => created; set => created = value; }
         public bool Sync { get => sync; set => sync = value; }
-
-        public static List<ItemReview> List()
+        private static List<ItemReview> p = new List<ItemReview>();
+        public static List<ItemReview> List(string followID)
         {
-            string Q = "SELECT * FROM Review ";
+            p.Clear();
+            string Q = "SELECT * FROM ItemReview WHERE followID = '"+followID+"' ";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                ItemReview ps = new ItemReview(Reader["id"].ToString(), Reader["title"].ToString(),Reader["description"].ToString(),Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                ItemReview ps = new ItemReview(Reader["id"].ToString(), Reader["followID"].ToString(), Reader["title"].ToString(), Reader["status"].ToString(), Reader["details"].ToString(),Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
                 p.Add(ps);
             }
             DBConnect.CloseConn();

@@ -1,4 +1,5 @@
-﻿using ARM.Util;
+﻿using ARM.Model;
+using ARM.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,12 +12,17 @@ using System.Windows.Forms;
 
 namespace ARM
 {
-    public partial class AddFollowUpItemReviewForm : MetroFramework.Forms.MetroForm
+    public partial class AddItemReview : MetroFramework.Forms.MetroForm
     {
         string currentDialog = "";
-        public AddFollowUpItemReviewForm(string set)
+        string FollowID = "";
+        public AddItemReview(string set,string followID)
         {
             InitializeComponent();
+            if (!string.IsNullOrEmpty(followID)) {
+
+                FollowID = followID;
+            }
             if (set == "ItemReview")
             {
                 currentDialog = "ItemReview";
@@ -86,6 +92,12 @@ namespace ARM
                 {
                     Helper.ItemReview.Add(detailsCbx.Text + ":" + detailsTxt.Text, false);
                 }
+                string id = Guid.NewGuid().ToString();
+                ItemReview t = new ItemReview(id, FollowID, detailsCbx.Text, stateCbx.Text, detailsTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
+                GenericCollection.itemReviews.Add(t);
+                this.DialogResult = DialogResult.OK;
+                this.Dispose();
+                return;
             }
             if (currentDialog == "PatientStatus")
             {
@@ -95,6 +107,12 @@ namespace ARM
                     return;
                 }
                 Helper.PatientStatus.Add(detailsCbx.Text + ":" + detailsTxt.Text, stateCbx.Text);
+                string id = Guid.NewGuid().ToString();
+                PatientStatus t = new PatientStatus(id, FollowID, detailsCbx.Text, stateCbx.Text, detailsTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
+                GenericCollection.patientStatus.Add(t);
+                this.DialogResult = DialogResult.OK;
+                this.Dispose();
+                return;
             }
             if (currentDialog == "ItemSetting")
             {
@@ -104,9 +122,15 @@ namespace ARM
                     return;
                 }
                 Helper.ItemSetting.Add(detailsCbx.Text + ":" + detailsTxt.Text, stateCbx.Text);
+                string id = Guid.NewGuid().ToString();
+                ItemStatus t = new ItemStatus(id, FollowID, detailsCbx.Text, stateCbx.Text, detailsTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
+                GenericCollection.itemStatus.Add(t);
+                this.DialogResult = DialogResult.OK;
+                this.Dispose();
+                return;
+
             }
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            
 
         }
     }

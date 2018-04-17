@@ -29,7 +29,7 @@ namespace ARM
 
         private void button14_Click(object sender, EventArgs e)
         {
-            FollowForm f = new FollowForm();
+            FollowForm f = new FollowForm(null);
             f.Show();
         }
 
@@ -397,7 +397,7 @@ namespace ARM
 
         private void toolStripMenuItem11_Click(object sender, EventArgs e)
         {
-            DeliveryPickupForm f = new DeliveryPickupForm();
+            DeliveryPickupForm f = new DeliveryPickupForm(null);
             f.Show();
         }
 
@@ -420,7 +420,7 @@ namespace ARM
 
         private void toolStripMenuItem14_Click(object sender, EventArgs e)
         {
-            FollowForm f = new FollowForm();
+            FollowForm f = new FollowForm(null);
             f.Show();
         }
 

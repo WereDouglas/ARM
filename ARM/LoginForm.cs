@@ -73,6 +73,14 @@ namespace ARM
 
             DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Orders()));
             DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Instruction()));
+
+            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Deliveries()));
+            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Delivery()));
+
+            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new ItemReview()));
+            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new PatientStatus()));
+            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Follow()));
+            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new ItemStatus()));
         }
     }
 }

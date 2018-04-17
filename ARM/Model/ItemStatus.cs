@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ARM.Model
 {
-    public class ItemFollowReview
+    public class ItemStatus
     {
         private string id;
         private string followID;
@@ -17,9 +17,9 @@ namespace ARM.Model
         private string details;           
         private string created;      
         private bool sync;
-        public ItemFollowReview() { }
+        public ItemStatus() { }
 
-        public ItemFollowReview(string id, string followID, string title, string status, string details, string created, bool sync)
+        public ItemStatus(string id, string followID, string title, string status, string details, string created, bool sync)
         {
             this.Id = id;
             this.FollowID = followID;
@@ -37,21 +37,23 @@ namespace ARM.Model
         public string Details { get => details; set => details = value; }
         public string Created { get => created; set => created = value; }
         public bool Sync { get => sync; set => sync = value; }
-        private static List<ItemFollowReview> p = new List<ItemFollowReview>();
-        public static List<ItemFollowReview> List()
+        private static List<ItemStatus> p = new List<ItemStatus>();
+        public static List<ItemStatus> List(string followID)
         {
-            string Q = "SELECT * FROM ItemFollowReview ";
+            p.Clear();
+            string Q = "SELECT * FROM ItemStatus WHERE followID = '" + followID + "' ";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                ItemFollowReview ps = new ItemFollowReview(Reader["id"].ToString(), Reader["followID"].ToString(), Reader["title"].ToString(), Reader["status"].ToString(), Reader["details"].ToString(),Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                ItemStatus ps = new ItemStatus(Reader["id"].ToString(), Reader["followID"].ToString(), Reader["title"].ToString(), Reader["status"].ToString(), Reader["details"].ToString(),Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
                 p.Add(ps);
             }
             DBConnect.CloseConn();
             return p;
 
         }
+        
     }
 
 }

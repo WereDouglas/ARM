@@ -29,7 +29,7 @@ namespace ARM
 
         private void button14_Click(object sender, EventArgs e)
         {
-            FollowForm f = new FollowForm();
+            FollowForm f = new FollowForm(null);
             f.Show();
         }
 
@@ -398,7 +398,7 @@ namespace ARM
 
         private void toolStripMenuItem11_Click(object sender, EventArgs e)
         {
-            DeliveryPickupForm f = new DeliveryPickupForm();
+            DeliveryPickupForm f = new DeliveryPickupForm(null);
             f.Show();
         }
 
@@ -421,7 +421,7 @@ namespace ARM
 
         private void toolStripMenuItem14_Click(object sender, EventArgs e)
         {
-            FollowForm f = new FollowForm();
+            FollowForm f = new FollowForm(null);
             f.Show();
         }
 
@@ -448,6 +448,36 @@ namespace ARM
         private void toolStripMenuItem3_Click_1(object sender, EventArgs e)
         {
             InstructionForm frm = new InstructionForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            DeliveryForm frm = new DeliveryForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void deliveriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeliveriesForm frm = new DeliveriesForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem4_Click_1(object sender, EventArgs e)
+        {
+            FollowUpForm frm = new FollowUpForm();
             frm.TopLevel = false;
             panel1.Controls.Add(frm);
             frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

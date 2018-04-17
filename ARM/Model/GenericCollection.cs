@@ -9,5 +9,9 @@ namespace ARM.Model
    public static class GenericCollection
     {
         public static List<Transaction> transactions ;
+        public static List<Deliveries> deliveries;
+        public static List<ItemReview> itemReviews;
+        public static List<ItemStatus> itemStatus;
+        public static List<PatientStatus> patientStatus;
     }
 }

@@ -212,6 +212,7 @@ namespace ARM
                 c = Customer.Select(CustomerID);
                 subscriberInfoTxt.Text = "Name: " + c.Name + "\t DOB: " + c.Dob + " \r\n Address: " + c.Address + "\r\n City/state: " + c.City + " " + c.State + "\t Zip: " + c.Zip + " \r\n  Phone: " + c.Contact + "\t Soc.Sec.#: " + c.Ssn;
                 subscriberTypeTxt.Text = c.Category;
+                altContactTxt.Text = c.Contact;
                 System.Drawing.Image img = Helper.Base64ToImage(c.Image);
                 System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
                 cusPbx.Image = bmp;

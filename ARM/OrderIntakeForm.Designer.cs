@@ -61,9 +61,6 @@
             this.dispenseDateTxt = new MetroFramework.Controls.MetroDateTime();
             this.label19 = new System.Windows.Forms.Label();
             this.dispensedCbx = new MetroFramework.Controls.MetroComboBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.clinicalDateTxt = new MetroFramework.Controls.MetroDateTime();
-            this.productCbx = new MetroFramework.Controls.MetroComboBox();
             this.label43 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
@@ -82,14 +79,17 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.physicianTxt = new System.Windows.Forms.TextBox();
             this.customerCbx = new MetroFramework.Controls.MetroComboBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.subscriberInfoTxt = new System.Windows.Forms.TextBox();
-            this.subscriberTypeTxt = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.insuranceInfoTxt = new System.Windows.Forms.TextBox();
             this.userCbx = new MetroFramework.Controls.MetroComboBox();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label31 = new System.Windows.Forms.Label();
+            this.productCbx = new MetroFramework.Controls.MetroComboBox();
+            this.clinicalDateTxt = new MetroFramework.Controls.MetroDateTime();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.subscriberInfoTxt = new System.Windows.Forms.TextBox();
+            this.subscriberTypeTxt = new System.Windows.Forms.TextBox();
             this.previewdlg = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printdoc1 = new System.Drawing.Printing.PrintDocument();
@@ -102,8 +102,8 @@
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPbx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productPbx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).BeginInit();
@@ -527,38 +527,6 @@
             this.dispensedCbx.TabIndex = 442;
             this.dispensedCbx.UseSelectable = true;
             // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(1, 5);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(91, 16);
-            this.label31.TabIndex = 287;
-            this.label31.Text = "Device Ordered:";
-            // 
-            // clinicalDateTxt
-            // 
-            this.clinicalDateTxt.Location = new System.Drawing.Point(101, 38);
-            this.clinicalDateTxt.MinimumSize = new System.Drawing.Size(0, 29);
-            this.clinicalDateTxt.Name = "clinicalDateTxt";
-            this.clinicalDateTxt.Size = new System.Drawing.Size(259, 29);
-            this.clinicalDateTxt.TabIndex = 394;
-            // 
-            // productCbx
-            // 
-            this.productCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.productCbx.FormattingEnabled = true;
-            this.productCbx.ItemHeight = 23;
-            this.productCbx.Location = new System.Drawing.Point(101, 5);
-            this.productCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.productCbx.Name = "productCbx";
-            this.productCbx.PromptText = "Product/Device";
-            this.productCbx.Size = new System.Drawing.Size(259, 29);
-            this.productCbx.TabIndex = 443;
-            this.productCbx.UseSelectable = true;
-            this.productCbx.SelectedIndexChanged += new System.EventHandler(this.productCbx_SelectedIndexChanged);
-            // 
             // label43
             // 
             this.label43.AutoSize = true;
@@ -767,38 +735,6 @@
             this.customerCbx.UseSelectable = true;
             this.customerCbx.SelectedIndexChanged += new System.EventHandler(this.customerCbx_SelectedIndexChanged);
             // 
-            // panel2
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.panel2, 2);
-            this.panel2.Controls.Add(this.cusPbx);
-            this.panel2.Controls.Add(this.subscriberInfoTxt);
-            this.panel2.Controls.Add(this.subscriberTypeTxt);
-            this.panel2.Location = new System.Drawing.Point(8, 174);
-            this.panel2.Name = "panel2";
-            this.tableLayoutPanel1.SetRowSpan(this.panel2, 5);
-            this.panel2.Size = new System.Drawing.Size(388, 98);
-            this.panel2.TabIndex = 452;
-            // 
-            // subscriberInfoTxt
-            // 
-            this.subscriberInfoTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.subscriberInfoTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.subscriberInfoTxt.Location = new System.Drawing.Point(124, 27);
-            this.subscriberInfoTxt.Multiline = true;
-            this.subscriberInfoTxt.Name = "subscriberInfoTxt";
-            this.subscriberInfoTxt.Size = new System.Drawing.Size(261, 68);
-            this.subscriberInfoTxt.TabIndex = 259;
-            // 
-            // subscriberTypeTxt
-            // 
-            this.subscriberTypeTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.subscriberTypeTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.subscriberTypeTxt.Location = new System.Drawing.Point(124, 3);
-            this.subscriberTypeTxt.Multiline = true;
-            this.subscriberTypeTxt.Name = "subscriberTypeTxt";
-            this.subscriberTypeTxt.Size = new System.Drawing.Size(264, 21);
-            this.subscriberTypeTxt.TabIndex = 404;
-            // 
             // label23
             // 
             this.label23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -836,6 +772,14 @@
             this.userCbx.UseSelectable = true;
             this.userCbx.SelectedIndexChanged += new System.EventHandler(this.userCbx_SelectedIndexChanged);
             // 
+            // panel5
+            // 
+            this.panel5.Location = new System.Drawing.Point(528, 821);
+            this.panel5.Name = "panel5";
+            this.tableLayoutPanel1.SetRowSpan(this.panel5, 2);
+            this.panel5.Size = new System.Drawing.Size(200, 28);
+            this.panel5.TabIndex = 456;
+            // 
             // panel4
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.panel4, 2);
@@ -849,13 +793,69 @@
             this.panel4.Size = new System.Drawing.Size(365, 72);
             this.panel4.TabIndex = 455;
             // 
-            // panel5
+            // label31
             // 
-            this.panel5.Location = new System.Drawing.Point(528, 821);
-            this.panel5.Name = "panel5";
-            this.tableLayoutPanel1.SetRowSpan(this.panel5, 2);
-            this.panel5.Size = new System.Drawing.Size(200, 28);
-            this.panel5.TabIndex = 456;
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(1, 5);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(91, 16);
+            this.label31.TabIndex = 287;
+            this.label31.Text = "Device Ordered:";
+            // 
+            // productCbx
+            // 
+            this.productCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.productCbx.FormattingEnabled = true;
+            this.productCbx.ItemHeight = 23;
+            this.productCbx.Location = new System.Drawing.Point(101, 5);
+            this.productCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.productCbx.Name = "productCbx";
+            this.productCbx.PromptText = "Product/Device";
+            this.productCbx.Size = new System.Drawing.Size(259, 29);
+            this.productCbx.TabIndex = 443;
+            this.productCbx.UseSelectable = true;
+            this.productCbx.SelectedIndexChanged += new System.EventHandler(this.productCbx_SelectedIndexChanged);
+            // 
+            // clinicalDateTxt
+            // 
+            this.clinicalDateTxt.Location = new System.Drawing.Point(101, 38);
+            this.clinicalDateTxt.MinimumSize = new System.Drawing.Size(0, 29);
+            this.clinicalDateTxt.Name = "clinicalDateTxt";
+            this.clinicalDateTxt.Size = new System.Drawing.Size(259, 29);
+            this.clinicalDateTxt.TabIndex = 394;
+            // 
+            // panel2
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.panel2, 2);
+            this.panel2.Controls.Add(this.cusPbx);
+            this.panel2.Controls.Add(this.subscriberInfoTxt);
+            this.panel2.Controls.Add(this.subscriberTypeTxt);
+            this.panel2.Location = new System.Drawing.Point(8, 174);
+            this.panel2.Name = "panel2";
+            this.tableLayoutPanel1.SetRowSpan(this.panel2, 5);
+            this.panel2.Size = new System.Drawing.Size(388, 98);
+            this.panel2.TabIndex = 452;
+            // 
+            // subscriberInfoTxt
+            // 
+            this.subscriberInfoTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.subscriberInfoTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.subscriberInfoTxt.Location = new System.Drawing.Point(124, 27);
+            this.subscriberInfoTxt.Multiline = true;
+            this.subscriberInfoTxt.Name = "subscriberInfoTxt";
+            this.subscriberInfoTxt.Size = new System.Drawing.Size(261, 68);
+            this.subscriberInfoTxt.TabIndex = 259;
+            // 
+            // subscriberTypeTxt
+            // 
+            this.subscriberTypeTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.subscriberTypeTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.subscriberTypeTxt.Location = new System.Drawing.Point(124, 3);
+            this.subscriberTypeTxt.Multiline = true;
+            this.subscriberTypeTxt.Name = "subscriberTypeTxt";
+            this.subscriberTypeTxt.Size = new System.Drawing.Size(264, 21);
+            this.subscriberTypeTxt.TabIndex = 404;
             // 
             // previewdlg
             // 
@@ -976,10 +976,10 @@
             this.tableLayoutPanel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPbx)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productPbx)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).EndInit();

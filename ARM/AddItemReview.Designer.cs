@@ -1,6 +1,6 @@
 ﻿namespace ARM
 {
-    partial class AddFollowUpItemReviewForm
+    partial class AddItemReview
     {
         /// <summary>
         /// Required designer variable.

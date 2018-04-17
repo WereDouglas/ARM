@@ -11,46 +11,48 @@ namespace ARM.Model
     public class PatientStatus
     {
         private string id;
-        private string title;     
-        private string values;
-        private string description;           
-        private string created;      
+        private string followID;
+        private string title;
+        private string status;
+        private string details;
+        private string created;
         private bool sync;
         public PatientStatus() { }
 
-        public PatientStatus(string id, string title, string values, string description, string created, bool sync)
+        public PatientStatus(string id, string followID, string title, string status, string details, string created, bool sync)
         {
             this.Id = id;
+            this.FollowID = followID;
             this.Title = title;
-            this.Values = values;
-            this.Description = description;
+            this.Status = status;
+            this.Details = details;
             this.Created = created;
             this.Sync = sync;
         }
 
-        static List<PatientStatus> p = new List<PatientStatus>();
-
         public string Id { get => id; set => id = value; }
+        public string FollowID { get => followID; set => followID = value; }
         public string Title { get => title; set => title = value; }
-        public string Values { get => values; set => values = value; }
-        public string Description { get => description; set => description = value; }
+        public string Status { get => status; set => status = value; }
+        public string Details { get => details; set => details = value; }
         public string Created { get => created; set => created = value; }
         public bool Sync { get => sync; set => sync = value; }
-
-        public static List<PatientStatus> List()
+        private static List<PatientStatus> p = new List<PatientStatus>();
+        public static List<PatientStatus> List(string followID)
         {
-            string Q = "SELECT * FROM PatientStatus ";
+            p.Clear();
+            string Q = "SELECT * FROM PatientStatus WHERE followID = '" + followID + "' ";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                PatientStatus ps = new PatientStatus(Reader["id"].ToString(), Reader["title"].ToString(), Reader["values"].ToString(), Reader["description"].ToString(),Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                PatientStatus ps = new PatientStatus(Reader["id"].ToString(), Reader["followID"].ToString(), Reader["title"].ToString(), Reader["status"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
                 p.Add(ps);
             }
             DBConnect.CloseConn();
             return p;
 
-        }
+        }       
     }
 
 }

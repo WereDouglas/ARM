@@ -29,7 +29,7 @@ namespace ARM
 
         private void button14_Click(object sender, EventArgs e)
         {
-            FollowForm f = new FollowForm();
+            FollowForm f = new FollowForm(null);
             f.Show();
         }
 

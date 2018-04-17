@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
-            this.payrollChk = new MetroFramework.Controls.MetroRadioButton();
             this.medicalChk = new MetroFramework.Controls.MetroRadioButton();
+            this.payrollChk = new MetroFramework.Controls.MetroRadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.passwordTxt = new MetroFramework.Controls.MetroTextBox();
             this.contactTxt = new MetroFramework.Controls.MetroTextBox();
@@ -69,17 +69,6 @@
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             // 
-            // payrollChk
-            // 
-            this.payrollChk.AutoSize = true;
-            this.payrollChk.Location = new System.Drawing.Point(30, 175);
-            this.payrollChk.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.payrollChk.Name = "payrollChk";
-            this.payrollChk.Size = new System.Drawing.Size(89, 15);
-            this.payrollChk.TabIndex = 47;
-            this.payrollChk.Text = "HRM Payroll";
-            this.payrollChk.UseSelectable = true;
-            // 
             // medicalChk
             // 
             this.medicalChk.AutoSize = true;
@@ -90,6 +79,17 @@
             this.medicalChk.TabIndex = 48;
             this.medicalChk.Text = "ARM Medical";
             this.medicalChk.UseSelectable = true;
+            // 
+            // payrollChk
+            // 
+            this.payrollChk.AutoSize = true;
+            this.payrollChk.Location = new System.Drawing.Point(30, 175);
+            this.payrollChk.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.payrollChk.Name = "payrollChk";
+            this.payrollChk.Size = new System.Drawing.Size(89, 15);
+            this.payrollChk.TabIndex = 47;
+            this.payrollChk.Text = "HRM Payroll";
+            this.payrollChk.UseSelectable = true;
             // 
             // pictureBox1
             // 
@@ -211,7 +211,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = global::ARM.Properties.Resources.Gear_24;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(16, 458);
+            this.button1.Location = new System.Drawing.Point(47, 455);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 35);
             this.button1.TabIndex = 47;
@@ -219,7 +219,7 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // StartForm
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -228,7 +228,7 @@
             this.Controls.Add(this.metroPanel1);
             this.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "StartForm";
+            this.Name = "LoginForm";
             this.Padding = new System.Windows.Forms.Padding(20, 74, 20, 25);
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
             this.Style = MetroFramework.MetroColorStyle.White;
