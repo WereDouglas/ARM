@@ -25,9 +25,12 @@ namespace ARM.Util
         public static Dictionary<string, bool> ItemReview = new Dictionary<string, bool>();
         public static Dictionary<string, string> PatientStatus = new Dictionary<string, string>();
         public static Dictionary<string, string> ItemSetting = new Dictionary<string, string>();
-
-        public static string BranchID = "";
-        public static string UserID = "";
+        public static string UserID;
+        public static string CompanyID;
+        public static string CompanyImage;
+        public static string CompanyName;
+        public static string UserName;
+        public static string UserImage;
         public static string genUrl = "http://caseprofessional.pro/index.php/";
         // public static string genUrl = "http://localhost/caseprofessionals/index.php/";
         public static string fileUrl = "http://caseprofessional.pro/file/";
@@ -59,6 +62,34 @@ namespace ARM.Util
                 fstream.Close();
 
             }
+
+        }
+        public static void Exceptions(string message, string process)
+        {
+            string id = Guid.NewGuid().ToString();
+            string Query = "INSERT INTO exceptions(id,message,process,created) VALUES ('" + id + "','" + message + "','" + process + "','" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt") + "');";
+            DBConnect.save(Query);
+        }
+        public static bool validateDouble(string t)
+        {
+
+            double n;
+            if (!double.TryParse(t, out n))
+            {
+                return false;
+            }
+            else { return true; }
+
+        }
+        public static bool validateInt(string t)
+        {
+
+            int p;
+            if (!int.TryParse(t, out p))
+            {
+                return false;
+            }
+            else { return true; }
 
         }
         public static bool Contains(this string source, string toCheck, StringComparison comp)
@@ -178,7 +209,7 @@ namespace ARM.Util
             fs.Close();
 
         }
-        public static bool validateDouble(string t)
+        public static bool ValidateDouble(string t)
         {
 
             double n;

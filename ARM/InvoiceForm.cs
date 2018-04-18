@@ -86,7 +86,9 @@ namespace ARM
 
             // create and execute query  
             t = new DataTable();
+           
             t.Columns.Add("No");
+            t.Columns.Add(new DataColumn("Check", typeof(Image)));
             t.Columns.Add(new DataColumn("Select", typeof(bool)));
             t.Columns.Add("ID");           
             t.Columns.Add("Date");
@@ -110,6 +112,7 @@ namespace ARM
 
             Image view = new Bitmap(Properties.Resources.Document_Edit_24__1_);
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
+            Image check = new Bitmap(Properties.Resources.Bill_16);
 
             foreach (Invoice c in Invoice.List())
             {
@@ -119,7 +122,7 @@ namespace ARM
                 try { cus = Customer.Select(c.CustomerID).Name; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { c.No, false, c.Id,  c.Date, c.Type, c.Category, ven, cus, c.Method, c.Total.ToString("N0"), c.Terms, c.Tax.ToString("N0"), c.Paid.ToString("N0"), c.Balance.ToString("N0"), c.UserID, c.ItemCount, c.Amount.ToString("N0"), c.Sync, c.Created, view, delete });
+                    t.Rows.Add(new object[] { c.No, check, false, c.Id,  c.Date, c.Type, c.Category, ven, cus, c.Method, c.Total.ToString("N0"), c.Terms, c.Tax.ToString("N0"), c.Paid.ToString("N0"), c.Balance.ToString("N0"), c.UserID, c.ItemCount, c.Amount.ToString("N0"), c.Sync, c.Created, view, delete });
 
                 }
                 catch (Exception m)
@@ -236,12 +239,22 @@ namespace ARM
                     }
                 }
             }
+            if (e.ColumnIndex == dtGrid.Columns["Check"].Index && e.RowIndex >= 0)
+            {
+                using (ReceiptForm form = new ReceiptForm(dtGrid.Rows[e.RowIndex].Cells["No"].Value.ToString()))
+                {
+                    DialogResult dr = form.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                      //  LoadData();
+                    }
+                }
+            }
             try
             {
 
                 if (e.ColumnIndex == dtGrid.Columns["Delete"].Index && e.RowIndex >= 0)
                 {
-
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Invoice? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         string Query = "DELETE from invoice WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";

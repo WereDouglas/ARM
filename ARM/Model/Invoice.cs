@@ -88,6 +88,20 @@ namespace ARM.Model
             DBConnect.CloseConn();
             return p;
         }
+        static Invoice c = new Invoice();
+        public static Invoice Select(string no)
+        {
+            string Q = "SELECT * FROM invoice WHERE no = '" + no + "'";
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                c = new Invoice(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["vendorID"].ToString(), Reader["customerID"].ToString(), Reader["method"].ToString(), Convert.ToDouble(Reader["total"]), Reader["terms"].ToString(), Convert.ToDouble(Reader["tax"]), Convert.ToDouble(Reader["paid"]), Convert.ToDouble(Reader["balance"]), Convert.ToDouble(Reader["amount"]), Convert.ToInt32(Reader["itemCount"]), Reader["userID"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+            }
+            DBConnect.CloseConn();
+            return c;
+
+        }
     }
 
 }

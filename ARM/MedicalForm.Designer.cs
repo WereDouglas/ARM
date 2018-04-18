@@ -49,10 +49,6 @@
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton8 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
             this.toolStripDropDownButton5 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
@@ -306,11 +302,7 @@
             // 
             this.toolStripDropDownButton8.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripDropDownButton8.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem15,
-            this.toolStripMenuItem16,
-            this.toolStripMenuItem17,
-            this.toolStripMenuItem18,
-            this.toolStripMenuItem19});
+            this.toolStripMenuItem15});
             this.toolStripDropDownButton8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripDropDownButton8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.toolStripDropDownButton8.Image = global::ARM.Properties.Resources.Document_Settings_01_24__1_;
@@ -325,32 +317,9 @@
             // toolStripMenuItem15
             // 
             this.toolStripMenuItem15.Name = "toolStripMenuItem15";
-            this.toolStripMenuItem15.Size = new System.Drawing.Size(203, 24);
-            this.toolStripMenuItem15.Text = "Item Reviews";
-            // 
-            // toolStripMenuItem16
-            // 
-            this.toolStripMenuItem16.Name = "toolStripMenuItem16";
-            this.toolStripMenuItem16.Size = new System.Drawing.Size(203, 24);
-            this.toolStripMenuItem16.Text = "Patient Status";
-            // 
-            // toolStripMenuItem17
-            // 
-            this.toolStripMenuItem17.Name = "toolStripMenuItem17";
-            this.toolStripMenuItem17.Size = new System.Drawing.Size(203, 24);
-            this.toolStripMenuItem17.Text = "Equipment Settings";
-            // 
-            // toolStripMenuItem18
-            // 
-            this.toolStripMenuItem18.Name = "toolStripMenuItem18";
-            this.toolStripMenuItem18.Size = new System.Drawing.Size(203, 24);
-            this.toolStripMenuItem18.Text = "Follow up modes";
-            // 
-            // toolStripMenuItem19
-            // 
-            this.toolStripMenuItem19.Name = "toolStripMenuItem19";
-            this.toolStripMenuItem19.Size = new System.Drawing.Size(203, 24);
-            this.toolStripMenuItem19.Text = "Units of Measure";
+            this.toolStripMenuItem15.Size = new System.Drawing.Size(180, 24);
+            this.toolStripMenuItem15.Text = "Profile";
+            this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
             // 
             // toolStripButton11
             // 
@@ -639,10 +608,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton8;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem15;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem16;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem17;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem18;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem19;
         private System.Windows.Forms.PictureBox userPbx;
         private System.Windows.Forms.Label usernameLbl;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;

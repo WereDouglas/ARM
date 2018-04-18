@@ -31,18 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.InvoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.noTxt = new MetroFramework.Controls.MetroTextBox();
             this.dtGrid = new System.Windows.Forms.DataGridView();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.dateTxt = new MetroFramework.Controls.MetroDateTime();
             this.typeCbx = new MetroFramework.Controls.MetroComboBox();
             this.totalTxt = new MetroFramework.Controls.MetroTextBox();
@@ -56,58 +48,42 @@
             this.taxTxt = new MetroFramework.Controls.MetroTextBox();
             this.termsTxt = new MetroFramework.Controls.MetroTextBox();
             this.methodCbx = new MetroFramework.Controls.MetroComboBox();
+            this.noTxt = new MetroFramework.Controls.MetroTextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.vendorPbx = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.InvoiceBindingSource)).BeginInit();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.InvoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.TransactionBingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorPbx)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InvoiceBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TransactionBingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // InvoiceBindingSource
-            // 
-            this.InvoiceBindingSource.DataSource = typeof(ARM.Model.Invoice);
             // 
             // toolStrip1
             // 
+            this.toolStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.toolStrip1.AutoSize = false;
-            this.toolStrip1.BackColor = System.Drawing.Color.White;
+            this.toolStrip1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel1,
             this.toolStripButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Location = new System.Drawing.Point(9, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(10);
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(1242, 52);
+            this.toolStrip1.Size = new System.Drawing.Size(844, 52);
             this.toolStrip1.TabIndex = 46;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripLabel1.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.toolStripLabel1.Image = global::ARM.Properties.Resources.Inventory_24;
-            this.toolStripLabel1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(98, 29);
-            this.toolStripLabel1.Text = "Invoice";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::ARM.Properties.Resources.Cancel_16;
-            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 29);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -126,7 +102,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 99.19283F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1245, 502);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(853, 502);
             this.tableLayoutPanel1.TabIndex = 47;
             // 
             // panel1
@@ -137,7 +113,6 @@
             this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
             this.panel1.Controls.Add(this.noTxt);
             this.panel1.Controls.Add(this.dtGrid);
-            this.panel1.Controls.Add(this.reportViewer1);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.dateTxt);
@@ -159,49 +134,14 @@
             this.panel1.Location = new System.Drawing.Point(3, 6);
             this.panel1.Name = "panel1";
             this.tableLayoutPanel1.SetRowSpan(this.panel1, 2);
-            this.panel1.Size = new System.Drawing.Size(1239, 493);
+            this.panel1.Size = new System.Drawing.Size(847, 493);
             this.panel1.TabIndex = 41;
-            // 
-            // noTxt
-            // 
-            // 
-            // 
-            // 
-            this.noTxt.CustomButton.Image = null;
-            this.noTxt.CustomButton.Location = new System.Drawing.Point(99, 1);
-            this.noTxt.CustomButton.Name = "";
-            this.noTxt.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.noTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.noTxt.CustomButton.TabIndex = 1;
-            this.noTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.noTxt.CustomButton.UseSelectable = true;
-            this.noTxt.CustomButton.Visible = false;
-            this.noTxt.DisplayIcon = true;
-            this.noTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
-            this.noTxt.Lines = new string[0];
-            this.noTxt.Location = new System.Drawing.Point(335, 129);
-            this.noTxt.MaxLength = 32767;
-            this.noTxt.Name = "noTxt";
-            this.noTxt.PasswordChar = '\0';
-            this.noTxt.PromptText = "No.";
-            this.noTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.noTxt.SelectedText = "";
-            this.noTxt.SelectionLength = 0;
-            this.noTxt.SelectionStart = 0;
-            this.noTxt.ShortcutsEnabled = true;
-            this.noTxt.Size = new System.Drawing.Size(121, 23);
-            this.noTxt.Style = MetroFramework.MetroColorStyle.Green;
-            this.noTxt.TabIndex = 42;
-            this.noTxt.UseSelectable = true;
-            this.noTxt.WaterMark = "No.";
-            this.noTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.noTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // dtGrid
             // 
             this.dtGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dtGrid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dtGrid.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dtGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dtGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -215,7 +155,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtGrid.DefaultCellStyle = dataGridViewCellStyle1;
             this.dtGrid.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dtGrid.Location = new System.Drawing.Point(17, 156);
+            this.dtGrid.Location = new System.Drawing.Point(287, 129);
             this.dtGrid.Name = "dtGrid";
             this.dtGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -227,70 +167,15 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtGrid.RowHeadersWidth = 20;
-            this.dtGrid.Size = new System.Drawing.Size(440, 129);
+            this.dtGrid.Size = new System.Drawing.Size(547, 267);
             this.dtGrid.TabIndex = 251;
             this.dtGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellClick);
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.reportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.InvoiceBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "ARM.InvoiceReport.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(467, 3);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Padding = new System.Windows.Forms.Padding(5);
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(769, 477);
-            this.reportViewer1.TabIndex = 0;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.Image = global::ARM.Properties.Resources.Submit_01_32;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(349, 419);
-            this.button3.Name = "button3";
-            this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button3.Size = new System.Drawing.Size(99, 44);
-            this.button3.TabIndex = 249;
-            this.button3.Text = "Submit";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(13, 421);
-            this.button2.Name = "button2";
-            this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button2.Size = new System.Drawing.Size(103, 41);
-            this.button2.TabIndex = 250;
-            this.button2.Text = "Cancel";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // dateTxt
             // 
             this.dateTxt.DisplayFocus = true;
             this.dateTxt.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.dateTxt.Location = new System.Drawing.Point(267, 3);
+            this.dateTxt.Location = new System.Drawing.Point(645, 3);
             this.dateTxt.MinimumSize = new System.Drawing.Size(0, 29);
             this.dateTxt.Name = "dateTxt";
             this.dateTxt.Size = new System.Drawing.Size(189, 29);
@@ -325,7 +210,7 @@
             this.totalTxt.CustomButton.FlatAppearance.BorderSize = 0;
             this.totalTxt.CustomButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.totalTxt.CustomButton.Image = null;
-            this.totalTxt.CustomButton.Location = new System.Drawing.Point(157, 1);
+            this.totalTxt.CustomButton.Location = new System.Drawing.Point(-22, 1);
             this.totalTxt.CustomButton.Name = "";
             this.totalTxt.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.totalTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -344,7 +229,7 @@
             this.totalTxt.SelectionLength = 0;
             this.totalTxt.SelectionStart = 0;
             this.totalTxt.ShortcutsEnabled = true;
-            this.totalTxt.Size = new System.Drawing.Size(179, 23);
+            this.totalTxt.Size = new System.Drawing.Size(0, 23);
             this.totalTxt.Style = MetroFramework.MetroColorStyle.White;
             this.totalTxt.TabIndex = 7;
             this.totalTxt.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -448,7 +333,7 @@
             // 
             // 
             this.amountTxt.CustomButton.Image = null;
-            this.amountTxt.CustomButton.Location = new System.Drawing.Point(216, 1);
+            this.amountTxt.CustomButton.Location = new System.Drawing.Point(219, 1);
             this.amountTxt.CustomButton.Name = "";
             this.amountTxt.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.amountTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -457,7 +342,7 @@
             this.amountTxt.CustomButton.UseSelectable = true;
             this.amountTxt.CustomButton.Visible = false;
             this.amountTxt.Lines = new string[0];
-            this.amountTxt.Location = new System.Drawing.Point(13, 326);
+            this.amountTxt.Location = new System.Drawing.Point(17, 191);
             this.amountTxt.MaxLength = 32767;
             this.amountTxt.Name = "amountTxt";
             this.amountTxt.PasswordChar = '\0';
@@ -467,7 +352,7 @@
             this.amountTxt.SelectionLength = 0;
             this.amountTxt.SelectionStart = 0;
             this.amountTxt.ShortcutsEnabled = true;
-            this.amountTxt.Size = new System.Drawing.Size(238, 23);
+            this.amountTxt.Size = new System.Drawing.Size(241, 23);
             this.amountTxt.Style = MetroFramework.MetroColorStyle.Green;
             this.amountTxt.TabIndex = 8;
             this.amountTxt.UseSelectable = true;
@@ -479,12 +364,12 @@
             // 
             // metroLabel1
             // 
-            this.metroLabel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.metroLabel1.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.metroLabel1.Location = new System.Drawing.Point(39, 123);
+            this.metroLabel1.Location = new System.Drawing.Point(287, 103);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(90, 23);
+            this.metroLabel1.Size = new System.Drawing.Size(100, 23);
             this.metroLabel1.TabIndex = 248;
             this.metroLabel1.Text = "Products";
             this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -499,7 +384,7 @@
             this.ItemCountTxt.CustomButton.FlatAppearance.BorderSize = 0;
             this.ItemCountTxt.CustomButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ItemCountTxt.CustomButton.Image = null;
-            this.ItemCountTxt.CustomButton.Location = new System.Drawing.Point(157, 1);
+            this.ItemCountTxt.CustomButton.Location = new System.Drawing.Point(219, 1);
             this.ItemCountTxt.CustomButton.Name = "";
             this.ItemCountTxt.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.ItemCountTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -508,7 +393,7 @@
             this.ItemCountTxt.CustomButton.UseSelectable = true;
             this.ItemCountTxt.CustomButton.Visible = false;
             this.ItemCountTxt.Lines = new string[0];
-            this.ItemCountTxt.Location = new System.Drawing.Point(269, 326);
+            this.ItemCountTxt.Location = new System.Drawing.Point(17, 291);
             this.ItemCountTxt.MaxLength = 32767;
             this.ItemCountTxt.Name = "ItemCountTxt";
             this.ItemCountTxt.PasswordChar = '\0';
@@ -518,7 +403,7 @@
             this.ItemCountTxt.SelectionLength = 0;
             this.ItemCountTxt.SelectionStart = 0;
             this.ItemCountTxt.ShortcutsEnabled = true;
-            this.ItemCountTxt.Size = new System.Drawing.Size(179, 23);
+            this.ItemCountTxt.Size = new System.Drawing.Size(241, 23);
             this.ItemCountTxt.Style = MetroFramework.MetroColorStyle.White;
             this.ItemCountTxt.TabIndex = 9;
             this.ItemCountTxt.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -536,7 +421,7 @@
             this.balanceTxt.CustomButton.FlatAppearance.BorderSize = 0;
             this.balanceTxt.CustomButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.balanceTxt.CustomButton.Image = null;
-            this.balanceTxt.CustomButton.Location = new System.Drawing.Point(157, 1);
+            this.balanceTxt.CustomButton.Location = new System.Drawing.Point(219, 1);
             this.balanceTxt.CustomButton.Name = "";
             this.balanceTxt.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.balanceTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -545,7 +430,7 @@
             this.balanceTxt.CustomButton.UseSelectable = true;
             this.balanceTxt.CustomButton.Visible = false;
             this.balanceTxt.Lines = new string[0];
-            this.balanceTxt.Location = new System.Drawing.Point(269, 355);
+            this.balanceTxt.Location = new System.Drawing.Point(17, 320);
             this.balanceTxt.MaxLength = 32767;
             this.balanceTxt.Name = "balanceTxt";
             this.balanceTxt.PasswordChar = '\0';
@@ -555,7 +440,7 @@
             this.balanceTxt.SelectionLength = 0;
             this.balanceTxt.SelectionStart = 0;
             this.balanceTxt.ShortcutsEnabled = true;
-            this.balanceTxt.Size = new System.Drawing.Size(179, 23);
+            this.balanceTxt.Size = new System.Drawing.Size(241, 23);
             this.balanceTxt.Style = MetroFramework.MetroColorStyle.White;
             this.balanceTxt.TabIndex = 11;
             this.balanceTxt.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -571,7 +456,7 @@
             // 
             // 
             this.taxTxt.CustomButton.Image = null;
-            this.taxTxt.CustomButton.Location = new System.Drawing.Point(216, 1);
+            this.taxTxt.CustomButton.Location = new System.Drawing.Point(219, 1);
             this.taxTxt.CustomButton.Name = "";
             this.taxTxt.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.taxTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -580,7 +465,7 @@
             this.taxTxt.CustomButton.UseSelectable = true;
             this.taxTxt.CustomButton.Visible = false;
             this.taxTxt.Lines = new string[0];
-            this.taxTxt.Location = new System.Drawing.Point(13, 355);
+            this.taxTxt.Location = new System.Drawing.Point(17, 220);
             this.taxTxt.MaxLength = 32767;
             this.taxTxt.Name = "taxTxt";
             this.taxTxt.PasswordChar = '\0';
@@ -590,7 +475,7 @@
             this.taxTxt.SelectionLength = 0;
             this.taxTxt.SelectionStart = 0;
             this.taxTxt.ShortcutsEnabled = true;
-            this.taxTxt.Size = new System.Drawing.Size(238, 23);
+            this.taxTxt.Size = new System.Drawing.Size(241, 23);
             this.taxTxt.Style = MetroFramework.MetroColorStyle.Green;
             this.taxTxt.TabIndex = 10;
             this.taxTxt.UseSelectable = true;
@@ -604,7 +489,7 @@
             // 
             // 
             this.termsTxt.CustomButton.Image = null;
-            this.termsTxt.CustomButton.Location = new System.Drawing.Point(210, 1);
+            this.termsTxt.CustomButton.Location = new System.Drawing.Point(213, 1);
             this.termsTxt.CustomButton.Name = "";
             this.termsTxt.CustomButton.Size = new System.Drawing.Size(27, 27);
             this.termsTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -613,7 +498,7 @@
             this.termsTxt.CustomButton.UseSelectable = true;
             this.termsTxt.CustomButton.Visible = false;
             this.termsTxt.Lines = new string[0];
-            this.termsTxt.Location = new System.Drawing.Point(13, 384);
+            this.termsTxt.Location = new System.Drawing.Point(17, 249);
             this.termsTxt.MaxLength = 32767;
             this.termsTxt.Multiline = true;
             this.termsTxt.Name = "termsTxt";
@@ -624,7 +509,7 @@
             this.termsTxt.SelectionLength = 0;
             this.termsTxt.SelectionStart = 0;
             this.termsTxt.ShortcutsEnabled = true;
-            this.termsTxt.Size = new System.Drawing.Size(238, 29);
+            this.termsTxt.Size = new System.Drawing.Size(241, 29);
             this.termsTxt.Style = MetroFramework.MetroColorStyle.Green;
             this.termsTxt.TabIndex = 12;
             this.termsTxt.UseSelectable = true;
@@ -639,19 +524,92 @@
             this.methodCbx.Items.AddRange(new object[] {
             "Cash",
             "Cheque"});
-            this.methodCbx.Location = new System.Drawing.Point(13, 291);
+            this.methodCbx.Location = new System.Drawing.Point(17, 156);
             this.methodCbx.Name = "methodCbx";
             this.methodCbx.PromptText = "Method";
-            this.methodCbx.Size = new System.Drawing.Size(238, 29);
+            this.methodCbx.Size = new System.Drawing.Size(241, 29);
             this.methodCbx.Style = MetroFramework.MetroColorStyle.Green;
             this.methodCbx.TabIndex = 6;
             this.methodCbx.UseSelectable = true;
             this.methodCbx.UseStyleColors = true;
             this.methodCbx.SelectedIndexChanged += new System.EventHandler(this.metroComboBox1_SelectedIndexChanged);
             // 
+            // noTxt
+            // 
+            // 
+            // 
+            // 
+            this.noTxt.CustomButton.Image = null;
+            this.noTxt.CustomButton.Location = new System.Drawing.Point(167, 1);
+            this.noTxt.CustomButton.Name = "";
+            this.noTxt.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.noTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.noTxt.CustomButton.TabIndex = 1;
+            this.noTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.noTxt.CustomButton.UseSelectable = true;
+            this.noTxt.CustomButton.Visible = false;
+            this.noTxt.DisplayIcon = true;
+            this.noTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
+            this.noTxt.Lines = new string[0];
+            this.noTxt.Location = new System.Drawing.Point(645, 38);
+            this.noTxt.MaxLength = 32767;
+            this.noTxt.Name = "noTxt";
+            this.noTxt.PasswordChar = '\0';
+            this.noTxt.PromptText = "No.";
+            this.noTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.noTxt.SelectedText = "";
+            this.noTxt.SelectionLength = 0;
+            this.noTxt.SelectionStart = 0;
+            this.noTxt.ShortcutsEnabled = true;
+            this.noTxt.Size = new System.Drawing.Size(189, 23);
+            this.noTxt.Style = MetroFramework.MetroColorStyle.Green;
+            this.noTxt.TabIndex = 42;
+            this.noTxt.UseSelectable = true;
+            this.noTxt.WaterMark = "No.";
+            this.noTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.noTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button3.Image = global::ARM.Properties.Resources.Submit_01_32;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(735, 419);
+            this.button3.Name = "button3";
+            this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button3.Size = new System.Drawing.Size(99, 44);
+            this.button3.TabIndex = 249;
+            this.button3.Text = "Submit";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(13, 421);
+            this.button2.Name = "button2";
+            this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button2.Size = new System.Drawing.Size(103, 41);
+            this.button2.TabIndex = 250;
+            this.button2.Text = "Cancel";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button4.BackColor = System.Drawing.Color.Transparent;
             this.button4.BackgroundImage = global::ARM.Properties.Resources.Document_Add_01_24__1_;
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -671,19 +629,51 @@
             // 
             // vendorPbx
             // 
-            this.vendorPbx.Location = new System.Drawing.Point(269, 38);
+            this.vendorPbx.Location = new System.Drawing.Point(287, 3);
             this.vendorPbx.Name = "vendorPbx";
             this.vendorPbx.Size = new System.Drawing.Size(187, 85);
             this.vendorPbx.TabIndex = 35;
             this.vendorPbx.TabStop = false;
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripLabel1.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.toolStripLabel1.Image = global::ARM.Properties.Resources.Inventory_24;
+            this.toolStripLabel1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(98, 29);
+            this.toolStripLabel1.Text = "Invoice";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::ARM.Properties.Resources.Cancel_16;
+            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 29);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // InvoiceBindingSource
+            // 
+            this.InvoiceBindingSource.DataSource = typeof(ARM.Model.Invoice);
+            this.InvoiceBindingSource.CurrentChanged += new System.EventHandler(this.InvoiceBindingSource_CurrentChanged);
+            // 
+            // TransactionBingSource
+            // 
+            this.TransactionBingSource.DataSource = typeof(ARM.Model.Transaction);
+            this.TransactionBingSource.CurrentChanged += new System.EventHandler(this.TransactionBingSource_CurrentChanged);
             // 
             // AddTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1245, 560);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ClientSize = new System.Drawing.Size(862, 560);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -692,15 +682,15 @@
             this.Name = "AddTransaction";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AddTransaction";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.AddTransaction_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.InvoiceBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorPbx)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InvoiceBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TransactionBingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -713,7 +703,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox vendorPbx;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource InvoiceBindingSource;
         private MetroFramework.Controls.MetroDateTime dateTxt;
         private MetroFramework.Controls.MetroTextBox noTxt;
@@ -732,5 +721,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dtGrid;
+        private System.Windows.Forms.BindingSource TransactionBingSource;
     }
 }

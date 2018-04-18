@@ -124,6 +124,18 @@
     <Compile Include="AccountDialog.Designer.cs">
       <DependentUpon>AccountDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReceiptForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReceiptForm.Designer.cs">
+      <DependentUpon>ReceiptForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfileForm.Designer.cs">
+      <DependentUpon>ProfileForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CareDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +166,7 @@
     <Compile Include="DeliveryForm.Designer.cs">
       <DependentUpon>DeliveryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Company.cs" />
     <Compile Include="Model\Instruction.cs" />
     <Compile Include="InstructionForm.cs">
       <SubType>Form</SubType>
@@ -425,6 +438,12 @@
     <EmbeddedResource Include="AccountDialog.resx">
       <DependentUpon>AccountDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReceiptForm.resx">
+      <DependentUpon>ReceiptForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfileForm.resx">
+      <DependentUpon>ProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CareDialog.resx">
       <DependentUpon>CareDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -565,6 +584,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ARM.Model.Invoice.datasource" />
+    <None Include="Properties\DataSources\ARM.Model.Transaction.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -824,6 +844,7 @@
     <Content Include="docs\MySqlParameterCollection.xml" />
     <Content Include="docs\MySqlTransaction.xml" />
     <None Include="Resources\Print-24.png" />
+    <None Include="Resources\Bill-16.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

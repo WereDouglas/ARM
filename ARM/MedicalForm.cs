@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ARM.Model;
+using ARM.Util;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +17,39 @@ namespace ARM
         public MedicalForm()
         {
             InitializeComponent();
-        }
 
+            // Helper.UserImage
+
+            LoadProfile();
+        }
+        private void LoadProfile()
+        {
+            usernameLbl.Text = Helper.UserName;
+            try
+            {
+                Image img = Helper.Base64ToImageCropped(Helper.UserImage);             
+                userPbx.Image = img;              
+            }
+            catch (Exception p)
+            {
+                Helper.Exceptions(p.Message, "Loading the user image !");
+            }
+            try
+            {
+                Helper.CompanyImage = Company.Select().Image;
+                Helper.CompanyName = Company.Select().Name;
+                Image img = Helper.Base64ToImage(Company.Select().Image);
+                System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
+                //Bitmap bps = new Bitmap(bmp, 50, 50);
+                pictureBox1.Image = bmp;
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch (Exception p)
+            {
+                // Helper.Exceptions(p.Message, "Loading the Company Logo !");
+            }
+
+        }
         private void button10_Click(object sender, EventArgs e)
         {
 
@@ -427,12 +460,15 @@ namespace ARM
 
         private void toolStripButton7_Click(object sender, EventArgs e)
         {
-            AddTransaction frm = new AddTransaction(null);
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+           
+            using (AddTransaction form = new AddTransaction(null))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    // LoadingCalendarLite();
+                }
+            }
         }
 
         private void toolStripMenuItem2_Click_1(object sender, EventArgs e)
@@ -483,6 +519,18 @@ namespace ARM
             frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
             frm.Show();
+        }
+
+        private void toolStripMenuItem15_Click(object sender, EventArgs e)
+        {
+            using (ProfileForm form = new ProfileForm(null))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    // LoadingCalendarLite();
+                }
+            }
         }
     }
 }

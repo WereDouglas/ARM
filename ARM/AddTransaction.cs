@@ -1,6 +1,7 @@
 ﻿using ARM.DB;
 using ARM.Model;
 using ARM.Util;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,12 +31,12 @@ namespace ARM
             {
                 noTxt.Text = " 1 ";
             }
+         GenericCollection.transactions = new List<Transaction>();
 
-            GenericCollection.transactions = new List<Transaction>();
         }
+       
         private void AutoCompleteVendor()
         {
-
             AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
             VendorDictionary.Clear();
             foreach (Vendor v in Vendor.List())
@@ -46,9 +47,7 @@ namespace ARM
                 {
                     VendorDictionary.Add(v.Name, v.Id);
                 }
-
             }
-
             vendorTxt.AutoCompleteMode = AutoCompleteMode.Suggest;
             vendorTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
             vendorTxt.AutoCompleteCustomSource = AutoItem;
@@ -169,7 +168,7 @@ namespace ARM
 
         private void AddTransaction_Load(object sender, EventArgs e)
         {
-            this.reportViewer1.RefreshReport();
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -227,11 +226,13 @@ namespace ARM
 
                 AutoCompleteCustomer();
                 typeCbx.Text = "Credit";
+                vendorTxt.Text = Helper.CompanyName;
             }
             if (categoryCbx.Text == "Purchase")
             {
                 AutoCompleteVendor();
                 typeCbx.Text = "Debit";
+                customerTxt.Text = Helper.CompanyName;
 
             }
             if (categoryCbx.Text == "Rent")
@@ -246,6 +247,9 @@ namespace ARM
         }
         string CustomerID;
         Customer c;
+
+        public object ReportBindingSource { get; }
+
         private void customerTxt_Leave(object sender, EventArgs e)
         {
             try
@@ -266,9 +270,7 @@ namespace ARM
         {
             try
             {
-
-                balanceTxt.Text = (Total - Convert.ToDouble(amountTxt.Text)).ToString();
-
+                balanceTxt.Text =(Math.Round((Total - Convert.ToDouble(amountTxt.Text)),2)).ToString();
             }
             catch { }
         }
@@ -324,16 +326,34 @@ namespace ARM
                 Payment p = new Payment(Pid, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, typeCbx.Text, methodCbx.Text, Convert.ToDouble(amountTxt.Text), Convert.ToDouble(balanceTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
                 if (DBConnect.Insert(p) != "")
                 {
-                }
-
-                MessageBox.Show("Information Saved");
-                this.Close();
+                }               
             }
+            using (ReceiptForm form = new ReceiptForm(noTxt.Text))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    //  LoadData();
+                }
+            }
+
+            button3.Visible = false;
+
         }
 
         private void metroLabel1_Click(object sender, EventArgs e)
         {
             button4_Click(null, null);
+        }
+
+        private void InvoiceBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TransactionBingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

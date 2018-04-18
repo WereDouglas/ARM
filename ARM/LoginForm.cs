@@ -6,8 +6,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,6 +22,37 @@ namespace ARM
         {
 
             InitializeComponent();
+            InitializeCulture();
+        }
+        protected void InitializeCulture()
+        {
+            CultureInfo CI = new CultureInfo("en-Gb");
+            CI.DateTimeFormat.ShortDatePattern = "dd-MM-yyyy";
+
+            Thread.CurrentThread.CurrentCulture = CI;
+            Thread.CurrentThread.CurrentUICulture = CI;
+            //  base.InitializeCulture();
+            newInstallation();
+        }
+        private void newInstallation()
+        {
+            try
+            {
+                string c = Company.List().First().Name;
+
+                Image img = Helper.Base64ToImage(Company.List().First().Image);
+                System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
+                //Bitmap bps = new Bitmap(bmp, 50, 50);
+                pictureBox2.Image = bmp;
+                pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+                Helper.CompanyID = Company.List().First().Id;
+            }
+            catch
+            {
+                
+                
+            }
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -35,6 +68,11 @@ namespace ARM
 
         private void button3_Click(object sender, EventArgs e)
         {
+            Helper.UserID = Users.List().First().Id;
+            Helper.UserImage = Users.List().First().Image;
+            Helper.UserName = Users.List().First().Name;
+            //  Helper.Log(Helper.UserName, "Log in ");
+            Helper.CompanyID = Company.List().First().Id;
             if (medicalChk.Checked)
             {
 
@@ -46,6 +84,7 @@ namespace ARM
                 HrmForm f = new HrmForm();
                 f.Show();
             }
+           
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -81,6 +120,8 @@ namespace ARM
             DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new PatientStatus()));
             DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Follow()));
             DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new ItemStatus()));
+
+            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Company()));
         }
     }
 }

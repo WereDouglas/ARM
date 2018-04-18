@@ -113,6 +113,16 @@ namespace ARM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Bill_16 {
+            get {
+                object obj = ResourceManager.GetObject("Bill-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Bill_24 {
             get {
                 object obj = ResourceManager.GetObject("Bill-24", resourceCulture);

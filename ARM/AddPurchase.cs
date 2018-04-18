@@ -23,6 +23,7 @@ namespace ARM
             AutoCompleteProduct();
             No = no;
             Date = date;
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
