@@ -74,7 +74,7 @@ namespace ARM
         {
             string ID = Guid.NewGuid().ToString();
             Responsible r = new Responsible(ID,UserID,CustomerID,DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false);
-            if (DBConnect.Insert(r) != "")
+            if (DBConnect.InsertPostgre(r) != "")
             {
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;

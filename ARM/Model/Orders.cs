@@ -1,4 +1,5 @@
 ﻿using ARM.DB;
+using MySql.Data.MySqlClient;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -34,7 +35,7 @@ namespace ARM.Model
         private string notification;
         private string notificationDate;
         private string authoriz;
-        private string authorizationDate;       
+        private string authorizationDate;
         private string created;
         private bool sync;
         private string action;
@@ -74,27 +75,6 @@ namespace ARM.Model
             this.Other = other;
         }
 
-        static List<Orders> p = new List<Orders>();
-
-       
-
-        public static List<Orders> List()
-        {
-            p.Clear();
-            string Q = "SELECT * FROM Orders ";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
-            while (Reader.Read())
-            {
-                Orders ps = new Orders(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["itemID"].ToString(), Reader["orderDateTime"].ToString(), Reader["orderBy"].ToString(), Reader["dispenseDateTime"].ToString(), Reader["dispenseBy"].ToString(), Reader["customerType"].ToString(), Reader["diagnosis"].ToString(), Reader["surgery"].ToString(), Reader["clinicalDate"].ToString(), Reader["equipmentLimits"].ToString(), Reader["equipmentHeights"].ToString(), Reader["equipmentWeights"].ToString(), Reader["equipmentInstructions"].ToString(), Reader["equipmentPeriod"].ToString(), Reader["setupLocation"].ToString(), Reader["setupDate"].ToString(), Reader["dischargeLocation"].ToString(), Reader["dischargeDate"].ToString(), Reader["notification"].ToString(), Reader["notificationDate"].ToString(), Reader["authoriz"].ToString(), Reader["authorizationDate"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["action"].ToString(), Reader["other"].ToString());
-                p.Add(ps);
-            }
-            DBConnect.CloseConn();
-            return p;
-
-        }
-        private static Orders c = new Orders();
-
         public string Id { get => id; set => id = value; }
         public string CustomerID { get => customerID; set => customerID = value; }
         public string UserID { get => userID; set => userID = value; }
@@ -125,6 +105,54 @@ namespace ARM.Model
         public string Action { get => action; set => action = value; }
         public string Other { get => other; set => other = value; }
 
+
+        static List<Orders> p = new List<Orders>();
+        public static List<Orders> List()
+        {
+            p.Clear();
+            string Q = "SELECT * FROM Orders ";
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                Orders ps = new Orders(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["itemID"].ToString(), Reader["orderDateTime"].ToString(), Reader["orderBy"].ToString(), Reader["dispenseDateTime"].ToString(), Reader["dispenseBy"].ToString(), Reader["customerType"].ToString(), Reader["diagnosis"].ToString(), Reader["surgery"].ToString(), Reader["clinicalDate"].ToString(), Reader["equipmentLimits"].ToString(), Reader["equipmentHeights"].ToString(), Reader["equipmentWeights"].ToString(), Reader["equipmentInstructions"].ToString(), Reader["equipmentPeriod"].ToString(), Reader["setupLocation"].ToString(), Reader["setupDate"].ToString(), Reader["dischargeLocation"].ToString(), Reader["dischargeDate"].ToString(), Reader["notification"].ToString(), Reader["notificationDate"].ToString(), Reader["authoriz"].ToString(), Reader["authorizationDate"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["action"].ToString(), Reader["other"].ToString());
+                p.Add(ps);
+            }
+            DBConnect.CloseConn();
+            return p;
+        }
+        public static List<Orders> List(string Q)
+        {
+            p.Clear();
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                Orders ps = new Orders(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["itemID"].ToString(), Reader["orderDateTime"].ToString(), Reader["orderBy"].ToString(), Reader["dispenseDateTime"].ToString(), Reader["dispenseBy"].ToString(), Reader["customerType"].ToString(), Reader["diagnosis"].ToString(), Reader["surgery"].ToString(), Reader["clinicalDate"].ToString(), Reader["equipmentLimits"].ToString(), Reader["equipmentHeights"].ToString(), Reader["equipmentWeights"].ToString(), Reader["equipmentInstructions"].ToString(), Reader["equipmentPeriod"].ToString(), Reader["setupLocation"].ToString(), Reader["setupDate"].ToString(), Reader["dischargeLocation"].ToString(), Reader["dischargeDate"].ToString(), Reader["notification"].ToString(), Reader["notificationDate"].ToString(), Reader["authoriz"].ToString(), Reader["authorizationDate"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["action"].ToString(), Reader["other"].ToString());
+                p.Add(ps);
+            }
+            DBConnect.CloseConn();
+            return p;
+        }
+        public static List<Orders> ListOnline(string Q)
+        {
+            try
+            {
+                p.Clear();
+                DBConnect.OpenMySqlConn();
+                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+                while (Reader.Read())
+                {
+                    Orders ps = new Orders(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["itemID"].ToString(), Reader["orderDateTime"].ToString(), Reader["orderBy"].ToString(), Reader["dispenseDateTime"].ToString(), Reader["dispenseBy"].ToString(), Reader["customerType"].ToString(), Reader["diagnosis"].ToString(), Reader["surgery"].ToString(), Reader["clinicalDate"].ToString(), Reader["equipmentLimits"].ToString(), Reader["equipmentHeights"].ToString(), Reader["equipmentWeights"].ToString(), Reader["equipmentInstructions"].ToString(), Reader["equipmentPeriod"].ToString(), Reader["setupLocation"].ToString(), Reader["setupDate"].ToString(), Reader["dischargeLocation"].ToString(), Reader["dischargeDate"].ToString(), Reader["notification"].ToString(), Reader["notificationDate"].ToString(), Reader["authoriz"].ToString(), Reader["authorizationDate"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["action"].ToString(), Reader["other"].ToString());
+                    p.Add(ps);
+                }
+                DBConnect.CloseMySqlConn();
+            }
+            catch { }
+            return p;
+        }
+        private static Orders c = new Orders();
+
         public static Orders Select(string id)
         {
             string Q = "SELECT * FROM orders WHERE id = '" + id + "'";
@@ -139,6 +167,6 @@ namespace ARM.Model
 
         }
     }
-    
+
 
 }

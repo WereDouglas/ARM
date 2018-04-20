@@ -1,4 +1,5 @@
 ﻿using ARM.DB;
+using MySql.Data.MySqlClient;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ARM.Model
 {
-  public class Schedule
+    public class Schedule
     {
         private string id;
         private string date;
@@ -17,8 +18,8 @@ namespace ARM.Model
         private string starts;
         private string ends;
         private string location;
-        private string address;        
-        private string details;       
+        private string address;
+        private string details;
         private string indicator;
         private string period;
         private string category;//appointment or shift 
@@ -27,7 +28,7 @@ namespace ARM.Model
         private string created;
         private bool sync;
 
-      
+
         public Schedule() { }
 
         public Schedule(string id, string date, string customerID, string userID, string starts, string ends, string location, string address, string details, string indicator, string period, string category, string status, double cost, string created, bool sync)
@@ -48,8 +49,8 @@ namespace ARM.Model
             this.Cost = cost;
             this.Created = created;
             this.Sync = sync;
-        }        
-       
+        }
+
 
         public string Id { get => id; set => id = value; }
         public string Date { get => date; set => date = value; }
@@ -80,6 +81,38 @@ namespace ARM.Model
                 p.Add(ps);
             }
             DBConnect.CloseConn();
+            return p;
+
+        }
+        public static List<Schedule> List(string Q)
+        {
+            p.Clear();
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                Schedule ps = new Schedule(Reader["id"].ToString(), Reader["date"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["starts"].ToString(), Reader["ends"].ToString(), Reader["location"].ToString(), Reader["address"].ToString(), Reader["details"].ToString(), Reader["indicator"].ToString(), Reader["period"].ToString(), Reader["category"].ToString(), Reader["status"].ToString(), Convert.ToDouble(Reader["cost"].ToString()), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                p.Add(ps);
+            }
+            DBConnect.CloseConn();
+            return p;
+
+        }
+        public static List<Schedule> ListOnline(string Q)
+        {
+            try
+            {
+                p.Clear();
+                DBConnect.OpenMySqlConn();
+                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+                while (Reader.Read())
+                {
+                    Schedule ps = new Schedule(Reader["id"].ToString(), Reader["date"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["starts"].ToString(), Reader["ends"].ToString(), Reader["location"].ToString(), Reader["address"].ToString(), Reader["details"].ToString(), Reader["indicator"].ToString(), Reader["period"].ToString(), Reader["category"].ToString(), Reader["status"].ToString(), Convert.ToDouble(Reader["cost"].ToString()), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                    p.Add(ps);
+                }
+                DBConnect.CloseMySqlConn();
+            }
+            catch { }
             return p;
 
         }

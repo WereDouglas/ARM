@@ -146,7 +146,7 @@ namespace ARM
             var AdditionalJson = JsonConvert.SerializeObject(AdditionalDictionary);
             string id = Guid.NewGuid().ToString();
             Instruction i = new Instruction(id, CustomerID, UserID, ItemID, clinicalDateTxt.Text, typeListBx.SelectedItem.ToString(), altContactTxt.Text, SafetyJson, appropriateCbx.Text, AppropriateJson, safetyOtherTxt.Text, phoneTxt.Text, EquipmentJson, equipOtherTxt.Text, AdditionalJson, additionNotesTxt.Text, followUpCbx.Text, signatureTxt.Text, kinnameTxt.Text, kinContactTxt.Text, kinAddressTxt.Text, reasonTxt.Text, userSignatureTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
-            if (DBConnect.Insert(i) != "")
+            if (DBConnect.InsertPostgre(i) != "")
             {
 
                 MessageBox.Show("Information Saved");

@@ -108,7 +108,7 @@ namespace ARM
             string end = Convert.ToDateTime(dateTo.Text).ToString("yyyy-MM-dd");
 
             string Query = "DELETE from exceptions WHERE (created::date >= '" + start + "'::date AND  created::date <= '" + end + "'::date)  ";
-            DBConnect.save(Query);
+            DBConnect.QueryPostgre(Query);
             //Helper.Log(Helper.userID, Helper.username, "Exception DELETION");
         }
 

@@ -68,7 +68,7 @@ namespace ARM.Util
         {
             string id = Guid.NewGuid().ToString();
             string Query = "INSERT INTO exceptions(id,message,process,created) VALUES ('" + id + "','" + message + "','" + process + "','" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt") + "');";
-            DBConnect.save(Query);
+            DBConnect.QueryPostgre(Query);
         }
         public static bool validateDouble(string t)
         {
@@ -101,13 +101,13 @@ namespace ARM.Util
         {
             string id = Guid.NewGuid().ToString();
             string Query = "INSERT INTO exceptions(id,message,created,process,sync) VALUES ('" + id + "','" + message + "','" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt") + "','" + message + "','false');";
-            DBConnect.save(Query);
+            DBConnect.QueryPostgre(Query);
         }
         public static void Log(string userName, string actions)
         {
             string id = Guid.NewGuid().ToString();
             string Query = "INSERT INTO logs(id,name,actions,created) VALUES ('" + id + "','" + userName + "','" + actions + "','" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt") + "');";
-            DBConnect.save(Query);
+            DBConnect.QueryPostgre(Query);
         }
 
         public static string CleanString(string str)

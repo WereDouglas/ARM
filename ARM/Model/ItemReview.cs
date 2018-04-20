@@ -18,7 +18,6 @@ namespace ARM.Model
         private string created;      
         private bool sync;
         public ItemReview() { }
-
         public ItemReview(string id, string followID, string title, string status, string details, string created, bool sync)
         {
             this.Id = id;
@@ -53,6 +52,7 @@ namespace ARM.Model
             return p;
 
         }
+       
     }
 
 }

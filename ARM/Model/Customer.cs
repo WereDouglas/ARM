@@ -1,4 +1,5 @@
 ﻿using ARM.DB;
+using MySql.Data.MySqlClient;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace ARM.Model
         private string id;
         private string name;
         private string contact;
-        private string address;       
+        private string address;
         private string no;
         private string city;
         private string state;
@@ -31,7 +32,7 @@ namespace ARM.Model
             this.Id = id;
             this.Name = name;
             this.Contact = contact;
-            this.Address = address;           
+            this.Address = address;
             this.No = no;
             this.City = city;
             this.State = state;
@@ -50,7 +51,7 @@ namespace ARM.Model
         public string Name { get => name; set => name = value; }
         public string Contact { get => contact; set => contact = value; }
         public string Address { get => address; set => address = value; }
-       
+
         public string No { get => no; set => no = value; }
         public string City { get => city; set => city = value; }
         public string State { get => state; set => state = value; }
@@ -76,16 +77,48 @@ namespace ARM.Model
             return p;
 
         }
-        private static Customer c = new Customer();
-        public static Customer Select(string customerID)
+        public static List<Customer> List(string Q)
         {
-            string Q = "SELECT * FROM customer WHERE id = '"+ customerID +"'";
+            p.Clear();            
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                 c = new Customer(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["image"].ToString());
-              
+                Customer ps = new Customer(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["image"].ToString());
+                p.Add(ps);
+            }
+            DBConnect.CloseConn();
+            return p;
+
+        }
+        public static List<Customer> ListOnline(string Q)
+        {
+            try
+            {
+                p.Clear();               
+                DBConnect.OpenMySqlConn();
+                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+                while (Reader.Read())
+                {
+                    Customer ps = new Customer(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["image"].ToString());
+                    p.Add(ps);
+                }
+                DBConnect.CloseMySqlConn();
+            }
+            catch { }
+            return p;
+
+        }
+        private static Customer c = new Customer();
+        public static Customer Select(string customerID)
+        {
+            string Q = "SELECT * FROM customer WHERE id = '" + customerID + "'";
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                c = new Customer(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["image"].ToString());
+
             }
             DBConnect.CloseConn();
             return c;

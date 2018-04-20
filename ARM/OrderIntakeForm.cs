@@ -132,7 +132,7 @@ namespace ARM
             var SetupJson = JsonConvert.SerializeObject(SetupDictionary);
             string id = Guid.NewGuid().ToString();
             Orders i = new Orders(id, CustomerID, UserID, ItemID, orderDate.Text, recievedCbx.Text, dispenseDateTxt.Text, dispensedCbx.Text, subscriberTypeTxt.Text, diagnosisTxt.Text, surgeryTxt.Text, Convert.ToDateTime(clinicalDateTxt.Text).ToString("dd-MM-yyyy"), limitTxt.Text, heightTxt.Text, weightTxt.Text, instructionTxt.Text, periodTxt.Text, SetupJson, setupDate.Text, DischargeJson, Convert.ToDateTime(dispenseDateTxt.Text).ToString("dd-MM-yyyy"), ActionJson, Convert.ToDateTime(dateNotifiedTxt.Text).ToString("dd-MM-yyyy"), "", Convert.ToDateTime(dateAuthTxt.Text).ToString("dd-MM-yyyy"), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, ActionJson, otherTxt.Text);
-            if (DBConnect.Insert(i) != "")
+            if (DBConnect.InsertPostgre(i) != "")
             {
 
                 MessageBox.Show("Information Saved");

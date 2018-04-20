@@ -446,22 +446,22 @@ namespace ARM
 
             string id = Guid.NewGuid().ToString();
             Follow i = new Follow(FollowID, CustomerID, UserID, ItemID, type, diagnosisTxt.Text, hospitalTxt.Text, sourceTxt.Text, lengthTxt.Text, needTxt.Text, goalTxt.Text, resultTxt.Text, "", followVisit, followPhone, nextTxt.Text, puTxt.Text, authSignatureTxt.Text, authoriserTxt.Text, relationTxt.Text, reasonTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
-            if (DBConnect.Insert(i) != "")
+            if (DBConnect.InsertPostgre(i) != "")
             {
                 foreach (ItemReview t in GenericCollection.itemReviews)
                 {
                     ItemReview c = new ItemReview(t.Id, FollowID, t.Title, t.Status, t.Status, t.Created, false);
-                    DBConnect.Insert(c);
+                    DBConnect.InsertPostgre(c);
                 }
                 foreach (ItemStatus t in GenericCollection.itemStatus)
                 {
                     ItemStatus c = new ItemStatus(t.Id, FollowID, t.Title, t.Status, t.Status, t.Created, false);
-                    DBConnect.Insert(c);
+                    DBConnect.InsertPostgre(c);
                 }
                 foreach (PatientStatus t in GenericCollection.patientStatus)
                 {
                     PatientStatus c = new PatientStatus(t.Id, FollowID, t.Title, t.Status, t.Status, t.Created, false);
-                    DBConnect.Insert(c);
+                    DBConnect.InsertPostgre(c);
                 }
                 MessageBox.Show("Information Saved");
                 this.Close();

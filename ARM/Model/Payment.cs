@@ -1,4 +1,5 @@
 ﻿using ARM.DB;
+using MySql.Data.MySqlClient;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -12,16 +13,15 @@ namespace ARM.Model
     {
         private string id;
         private string date;
-        private string no;     
+        private string no;
         private string type;
         private string method;
         private double amount;
-        private double balance;       
-        private string created;        
+        private double balance;
+        private string created;
         private bool sync;
 
         public Payment() { }
-
         public Payment(string id, string date, string no, string type, string method, double amount, double balance, string created, bool sync)
         {
             this.Id = id;
@@ -35,8 +35,6 @@ namespace ARM.Model
             this.Sync = sync;
         }
 
-        static List<Payment> p = new List<Payment>();
-
         public string Id { get => id; set => id = value; }
         public string Date { get => date; set => date = value; }
         public string No { get => no; set => no = value; }
@@ -46,7 +44,7 @@ namespace ARM.Model
         public double Balance { get => balance; set => balance = value; }
         public string Created { get => created; set => created = value; }
         public bool Sync { get => sync; set => sync = value; }
-
+        static List<Payment> p = new List<Payment>();
         public static List<Payment> List()
         {
             p.Clear();
@@ -55,10 +53,40 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Payment ps = new Payment(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["type"].ToString(), Reader["method"].ToString(), Convert.ToDouble( Reader["amount"]), Convert.ToDouble(Reader["balance"]), Reader["created"].ToString(),Convert.ToBoolean(Reader["sync"]));
+                Payment ps = new Payment(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["type"].ToString(), Reader["method"].ToString(), Convert.ToDouble(Reader["amount"]), Convert.ToDouble(Reader["balance"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
                 p.Add(ps);
             }
             DBConnect.CloseConn();
+            return p;
+        }
+        public static List<Payment> List(string Q)
+        {
+            p.Clear();
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                Payment ps = new Payment(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["type"].ToString(), Reader["method"].ToString(), Convert.ToDouble(Reader["amount"]), Convert.ToDouble(Reader["balance"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                p.Add(ps);
+            }
+            DBConnect.CloseConn();
+            return p;
+        }
+        public static List<Payment> ListOnline(string Q)
+        {
+            try
+            {
+                p.Clear();
+                DBConnect.OpenMySqlConn();
+                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+                while (Reader.Read())
+                {
+                    Payment ps = new Payment(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["type"].ToString(), Reader["method"].ToString(), Convert.ToDouble(Reader["amount"]), Convert.ToDouble(Reader["balance"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                    p.Add(ps);
+                }
+                DBConnect.CloseMySqlConn();
+            }
+            catch { }
             return p;
         }
     }

@@ -89,7 +89,7 @@ namespace ARM
 
             string id = Guid.NewGuid().ToString();
             Company c = new Company(id, nameTxt.Text,addressTxt.Text,contactTxt.Text, emailTxt.Text, faxTxt.Text, telTxt.Text,DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false,fullimage);
-            if (DBConnect.Insert(c) != "")
+            if (DBConnect.InsertPostgre(c) != "")
             {
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;
@@ -102,7 +102,7 @@ namespace ARM
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
             Company c = new Company(CompanyID, nameTxt.Text, addressTxt.Text, contactTxt.Text, emailTxt.Text, faxTxt.Text, telTxt.Text,DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, fullimage);
-            DBConnect.Update(c, CompanyID);
+            DBConnect.UpdatePostgre(c, CompanyID);
            
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;

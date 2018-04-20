@@ -62,7 +62,7 @@ namespace ARM
         {
             string ID = Guid.NewGuid().ToString();
             Account r = new Account(ID, UserID,bankTxt.Text, accountTxt.Text, DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false);
-            if (DBConnect.Insert(r) != "")
+            if (DBConnect.InsertPostgre(r) != "")
             {
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;

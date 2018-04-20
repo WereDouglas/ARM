@@ -209,22 +209,20 @@ namespace ARM
                 return;
             }
             string type = (pickupChk.Checked) ?  pickupChk.Text :  deliveryChk.Text;
-
             string id = Guid.NewGuid().ToString();
             Delivery i = new Delivery(id,Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, type,UserID,CustomerID,commentTxt.Text,deliveredByTxt.Text,Convert.ToDateTime(dateDeliveredTxt.Text).ToString("dd-MM-yyyy"),recievedByTxt.Text,signatureTxt.Text,Convert.ToDouble(totalTxt.Text),DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
-            if (DBConnect.Insert(i) != "")
+            if (DBConnect.InsertPostgre(i) != "")
             {
                 foreach (Transaction t in GenericCollection.transactions)
                 {
                      Deliveries c = new Deliveries(t.Id,Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, t.Total, t.Qty, t.Cost, t.Created, false);
-                    if (DBConnect.Insert(c) != "")
+                    if (DBConnect.InsertPostgre(c) != "")
                     {
                     }
                 }
                 MessageBox.Show("Information Saved");
                 this.Close();
             }
-
         }
 
         private void dtGrid_CellClick(object sender, DataGridViewCellEventArgs e)

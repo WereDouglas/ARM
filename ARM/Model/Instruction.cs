@@ -1,4 +1,5 @@
 ﻿using ARM.DB;
+using MySql.Data.MySqlClient;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace ARM.Model
         private string customerID;
         private string userID;
         private string itemID;
-        private string date;      
+        private string date;
         private string type;
         private string altContact;
         private string safety;
@@ -34,7 +35,7 @@ namespace ARM.Model
         private string reason;
         private string userSignature;
         private string created;
-        private bool sync;       
+        private bool sync;
         public Instruction() { }
 
         public Instruction(string id, string customerID, string userID, string itemID, string date, string type, string altContact, string safety, string appropriate, string appropriateSelection, string safetyOther, string phone, string equipmentType, string equipmentOther, string additional, string additionalNotes, string followUp, string signature, string kinName, string kinContact, string kinAddress, string reason, string userSignature, string created, bool sync)
@@ -66,23 +67,7 @@ namespace ARM.Model
             this.Sync = sync;
         }
 
-        static List<Instruction> p = new List<Instruction>();
 
-        public static List<Instruction> List()
-        {
-            p.Clear();
-            string Q = "SELECT * FROM instruction ";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
-            while (Reader.Read())
-            {
-                Instruction ps = new Instruction(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["itemID"].ToString(), Reader["date"].ToString(), Reader["type"].ToString(), Reader["altContact"].ToString(), Reader["safety"].ToString(), Reader["appropriate"].ToString(), Reader["appropriateSelection"].ToString(), Reader["safetyOther"].ToString(), Reader["phone"].ToString(), Reader["equipmentType"].ToString(), Reader["equipmentOther"].ToString(), Reader["additional"].ToString(), Reader["additionalNotes"].ToString(), Reader["followUp"].ToString(), Reader["signature"].ToString(), Reader["kinName"].ToString(), Reader["kinContact"].ToString(), Reader["kinAddress"].ToString(), Reader["reason"].ToString(), Reader["userSignature"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"].ToString()));
-                p.Add(ps);
-            }
-            DBConnect.CloseConn();
-            return p;
-
-        }
         private static Instruction c = new Instruction();
 
         public string Id { get => id; set => id = value; }
@@ -111,6 +96,54 @@ namespace ARM.Model
         public string Created { get => created; set => created = value; }
         public bool Sync { get => sync; set => sync = value; }
 
+        static List<Instruction> p = new List<Instruction>();
+        public static List<Instruction> List()
+        {
+            p.Clear();
+            string Q = "SELECT * FROM instruction ";
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                Instruction ps = new Instruction(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["itemID"].ToString(), Reader["date"].ToString(), Reader["type"].ToString(), Reader["altContact"].ToString(), Reader["safety"].ToString(), Reader["appropriate"].ToString(), Reader["appropriateSelection"].ToString(), Reader["safetyOther"].ToString(), Reader["phone"].ToString(), Reader["equipmentType"].ToString(), Reader["equipmentOther"].ToString(), Reader["additional"].ToString(), Reader["additionalNotes"].ToString(), Reader["followUp"].ToString(), Reader["signature"].ToString(), Reader["kinName"].ToString(), Reader["kinContact"].ToString(), Reader["kinAddress"].ToString(), Reader["reason"].ToString(), Reader["userSignature"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"].ToString()));
+                p.Add(ps);
+            }
+            DBConnect.CloseConn();
+            return p;
+
+        }
+        public static List<Instruction> List(string Q)
+        {
+            p.Clear();
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                Instruction ps = new Instruction(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["itemID"].ToString(), Reader["date"].ToString(), Reader["type"].ToString(), Reader["altContact"].ToString(), Reader["safety"].ToString(), Reader["appropriate"].ToString(), Reader["appropriateSelection"].ToString(), Reader["safetyOther"].ToString(), Reader["phone"].ToString(), Reader["equipmentType"].ToString(), Reader["equipmentOther"].ToString(), Reader["additional"].ToString(), Reader["additionalNotes"].ToString(), Reader["followUp"].ToString(), Reader["signature"].ToString(), Reader["kinName"].ToString(), Reader["kinContact"].ToString(), Reader["kinAddress"].ToString(), Reader["reason"].ToString(), Reader["userSignature"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"].ToString()));
+                p.Add(ps);
+            }
+            DBConnect.CloseConn();
+            return p;
+
+        }
+        public static List<Instruction> ListOnline(string Q)
+        {
+            try
+            {
+                p.Clear();
+                DBConnect.OpenMySqlConn();
+                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+                while (Reader.Read())
+                {
+                    Instruction ps = new Instruction(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["itemID"].ToString(), Reader["date"].ToString(), Reader["type"].ToString(), Reader["altContact"].ToString(), Reader["safety"].ToString(), Reader["appropriate"].ToString(), Reader["appropriateSelection"].ToString(), Reader["safetyOther"].ToString(), Reader["phone"].ToString(), Reader["equipmentType"].ToString(), Reader["equipmentOther"].ToString(), Reader["additional"].ToString(), Reader["additionalNotes"].ToString(), Reader["followUp"].ToString(), Reader["signature"].ToString(), Reader["kinName"].ToString(), Reader["kinContact"].ToString(), Reader["kinAddress"].ToString(), Reader["reason"].ToString(), Reader["userSignature"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"].ToString()));
+                    p.Add(ps);
+                }
+                DBConnect.CloseMySqlConn();
+            }
+            catch { }
+            return p;
+
+        }
         public static Instruction Select(string id)
         {
             string Q = "SELECT * FROM instruction WHERE id = '" + id + "'";
@@ -118,13 +151,13 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                c = new Instruction(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["itemID"].ToString(), Reader["date"].ToString(), Reader["type"].ToString(), Reader["altContact"].ToString(), Reader["safety"].ToString(), Reader["appropriate"].ToString(), Reader["appropriateSelection"].ToString(), Reader["safetyOther"].ToString(), Reader["phone"].ToString(), Reader["equipmentType"].ToString(), Reader["equipmentOther"].ToString(), Reader["additional"].ToString(), Reader["additionalNotes"].ToString(), Reader["followUp"].ToString(), Reader["signature"].ToString(), Reader["kinName"].ToString(), Reader["kinContact"].ToString(), Reader["kinAddress"].ToString(), Reader["reason"].ToString(), Reader["userSignature"].ToString(), Reader["created"].ToString(),Convert.ToBoolean(Reader["sync"].ToString()));
+                c = new Instruction(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["itemID"].ToString(), Reader["date"].ToString(), Reader["type"].ToString(), Reader["altContact"].ToString(), Reader["safety"].ToString(), Reader["appropriate"].ToString(), Reader["appropriateSelection"].ToString(), Reader["safetyOther"].ToString(), Reader["phone"].ToString(), Reader["equipmentType"].ToString(), Reader["equipmentOther"].ToString(), Reader["additional"].ToString(), Reader["additionalNotes"].ToString(), Reader["followUp"].ToString(), Reader["signature"].ToString(), Reader["kinName"].ToString(), Reader["kinContact"].ToString(), Reader["kinAddress"].ToString(), Reader["reason"].ToString(), Reader["userSignature"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"].ToString()));
             }
             DBConnect.CloseConn();
             return c;
 
         }
     }
-    
+
 
 }

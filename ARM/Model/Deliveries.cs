@@ -1,4 +1,5 @@
 ﻿using ARM.DB;
+using MySql.Data.MySqlClient;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,10 @@ namespace ARM.Model
         private string date;
         private string no;
         private string itemID;
-        private double total;       
+        private double total;
         private double qty;
-        private double cost;       
-        private string created;        
+        private double cost;
+        private string created;
         private bool sync;
 
         public Deliveries() { }
@@ -55,10 +56,41 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Deliveries ps = new Deliveries(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(),Convert.ToDouble( Reader["total"]), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]),Reader["created"].ToString(),Convert.ToBoolean(Reader["sync"]));
+                Deliveries ps = new Deliveries(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Convert.ToDouble(Reader["total"]), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
                 p.Add(ps);
             }
             DBConnect.CloseConn();
+            return p;
+        }
+        public static List<Deliveries> List(string Q)
+        {
+            p.Clear();
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                Deliveries ps = new Deliveries(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Convert.ToDouble(Reader["total"]), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                p.Add(ps);
+            }
+            DBConnect.CloseConn();
+            return p;
+        }
+        public static List<Deliveries> ListOnline(string Q)
+        {
+            try
+            {
+                p.Clear();
+                DBConnect.OpenMySqlConn();
+                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+                while (Reader.Read())
+                {
+                    Deliveries ps = new Deliveries(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Convert.ToDouble(Reader["total"]), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                    p.Add(ps);
+                }
+                DBConnect.CloseMySqlConn();
+
+            }
+            catch { }
             return p;
         }
     }

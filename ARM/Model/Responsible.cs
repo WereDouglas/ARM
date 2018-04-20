@@ -1,4 +1,5 @@
 ﻿using ARM.DB;
+using MySql.Data.MySqlClient;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,8 @@ namespace ARM.Model
     {
         private string id;
         private string userID;
-        private string customerID;           
-        private string created;      
+        private string customerID;
+        private string created;
         private bool sync;
         public Responsible() { }
 
@@ -42,10 +43,40 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Responsible ps = new Responsible(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["customerID"].ToString(),Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                Responsible ps = new Responsible(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["customerID"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
                 p.Add(ps);
             }
             DBConnect.CloseConn();
+            return p;
+        }
+        public static List<Responsible> List(string Q)
+        {
+            p.Clear();
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                Responsible ps = new Responsible(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["customerID"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                p.Add(ps);
+            }
+            DBConnect.CloseConn();
+            return p;
+        }
+        public static List<Responsible> ListOnline(string Q)
+        {
+            try
+            {
+                p.Clear();
+                DBConnect.OpenMySqlConn();
+                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+                while (Reader.Read())
+                {
+                    Responsible ps = new Responsible(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["customerID"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                    p.Add(ps);
+                }
+                DBConnect.CloseMySqlConn();
+            }
+            catch { }
             return p;
 
         }

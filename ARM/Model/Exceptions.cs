@@ -50,6 +50,20 @@ namespace ARM.Model
             return p;
 
         }
+        public static List<Exceptions> List(string Q)
+        {
+            p.Clear();           
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                Exceptions ps = new Exceptions(Reader["id"].ToString(), Reader["message"].ToString(), Reader["created"].ToString(), Reader["process"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                p.Add(ps);
+            }
+            DBConnect.CloseConn();
+            return p;
+
+        }
     }
 
 }

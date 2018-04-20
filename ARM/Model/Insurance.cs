@@ -1,4 +1,5 @@
 ﻿using ARM.DB;
+using MySql.Data.MySqlClient;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,9 @@ namespace ARM.Model
         private string customerID;
         private string name;
         private string type;
-        private string image;       
+        private string image;
         private string no;
-        private string address;       
+        private string address;
         private string contact;
         private string zip;
         private string created;
@@ -60,12 +61,42 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Insurance ps = new Insurance(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["image"].ToString(), Reader["no"].ToString(), Reader["address"].ToString(), Reader["contact"].ToString(), Reader["zip"].ToString(),Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                Insurance ps = new Insurance(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["image"].ToString(), Reader["no"].ToString(), Reader["address"].ToString(), Reader["contact"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
                 p.Add(ps);
             }
             DBConnect.CloseConn();
             return p;
 
+        }
+        public static List<Insurance> List(string Q)
+        {
+            p.Clear();
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                Insurance ps = new Insurance(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["image"].ToString(), Reader["no"].ToString(), Reader["address"].ToString(), Reader["contact"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                p.Add(ps);
+            }
+            DBConnect.CloseConn();
+            return p;
+        }
+        public static List<Insurance> ListOnline(string Q)
+        {
+            try
+            {
+                p.Clear();
+                DBConnect.OpenMySqlConn();
+                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+                while (Reader.Read())
+                {
+                    Insurance ps = new Insurance(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["image"].ToString(), Reader["no"].ToString(), Reader["address"].ToString(), Reader["contact"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                    p.Add(ps);
+                }
+                DBConnect.CloseMySqlConn();
+            }
+            catch { }
+            return p;
         }
         static List<Insurance> c = new List<Insurance>();
         public static List<Insurance> Select(string id)
@@ -75,7 +106,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-             Insurance k  = new Insurance(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["image"].ToString(), Reader["no"].ToString(), Reader["address"].ToString(), Reader["contact"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                Insurance k = new Insurance(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["image"].ToString(), Reader["no"].ToString(), Reader["address"].ToString(), Reader["contact"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
                 c.Add(k);
             }
             DBConnect.CloseConn();

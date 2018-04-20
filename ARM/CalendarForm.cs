@@ -104,5 +104,109 @@ namespace ARM
         {
             this.calendar1.SetViewRange(this.monthView1.SelectionStart.Date, this.monthView1.SelectionEnd.Date);
         }
+
+        private void calendar1_LoadItems(object sender, CalendarLoadEventArgs e)
+        {
+            PlaceItems();
+        }
+
+        private void calendar1_ItemClick(object sender, CalendarItemEventArgs e)
+        {
+            MessageBox.Show(e.Item.Text);
+        }
+
+        private void calendar1_ItemDeleted(object sender, CalendarItemEventArgs e)
+        {
+            _items.Remove(e.Item);
+        }
+
+        private void hourToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            calendar1.TimeScale = CalendarTimeScale.SixtyMinutes;
+        }
+
+        private void minutesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            calendar1.TimeScale = CalendarTimeScale.ThirtyMinutes;
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            calendar1.TimeScale = CalendarTimeScale.FifteenMinutes;
+        }
+
+        private void minutesToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            calendar1.TimeScale = CalendarTimeScale.SixMinutes;
+        }
+
+        private void minutesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            calendar1.TimeScale = CalendarTimeScale.TenMinutes;
+        }
+
+        private void minutesToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            calendar1.TimeScale = CalendarTimeScale.FiveMinutes;
+        }
+
+        private void editItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            calendar1.ActivateEditMode();
+        }
+
+        private void otherColorTagToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (ColorDialog dlg = new ColorDialog())
+            {
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    foreach (CalendarItem item in calendar1.GetSelectedItems())
+                    {
+                        item.ApplyColor(dlg.Color);
+                        calendar1.Invalidate(item);
+                    }
+                }
+            }
+        }
+
+        private void selectImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dlg = new OpenFileDialog())
+            {
+                dlg.Filter = "*.gif|*.gif|*.png|*.png|*.jpg|*.jpg";
+
+                if (dlg.ShowDialog(this) == DialogResult.OK)
+                {
+                    Image img = Image.FromFile(dlg.FileName);
+
+                    foreach (CalendarItem item in calendar1.GetSelectedItems())
+                    {
+                        item.Image = img;
+                        calendar1.Invalidate(item);
+                    }
+                }
+            }
+        }
+
+        private void noneToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (CalendarItem item in calendar1.GetSelectedItems())
+            {
+                item.Pattern = System.Drawing.Drawing2D.HatchStyle.DiagonalCross;
+                item.PatternColor = Color.Empty;
+                calendar1.Invalidate(item);
+            }
+        }
+
+        private void diagonalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (CalendarItem item in calendar1.GetSelectedItems())
+            {
+                item.Pattern = System.Drawing.Drawing2D.HatchStyle.ForwardDiagonal;
+                item.PatternColor = Color.Red;
+                calendar1.Invalidate(item);
+            }
+        }
     }
 }

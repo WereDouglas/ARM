@@ -1,4 +1,5 @@
 ﻿using ARM.DB;
+using MySql.Data.MySqlClient;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -14,8 +15,8 @@ namespace ARM.Model
         private string userID;
         private double amount;
         private double period;
-        private string units;        
-        private string created;      
+        private string units;
+        private string created;
         private bool sync;
         public Rate() { }
 
@@ -48,14 +49,47 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Rate ps = new Rate(Reader["id"].ToString(), Reader["userID"].ToString(), Convert.ToDouble(Reader["amount"]),Convert.ToDouble( Reader["period"]), Reader["units"].ToString(),Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                Rate ps = new Rate(Reader["id"].ToString(), Reader["userID"].ToString(), Convert.ToDouble(Reader["amount"]), Convert.ToDouble(Reader["period"]), Reader["units"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
                 p.Add(ps);
             }
             DBConnect.CloseConn();
             return p;
 
         }
-       static Rate c;
+        public static List<Rate> List(string Q)
+        {
+            p.Clear();
+
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                Rate ps = new Rate(Reader["id"].ToString(), Reader["userID"].ToString(), Convert.ToDouble(Reader["amount"]), Convert.ToDouble(Reader["period"]), Reader["units"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                p.Add(ps);
+            }
+            DBConnect.CloseConn();
+            return p;
+
+        }
+        public static List<Rate> ListOnline(string Q)
+        {
+            try
+            {
+                p.Clear();
+                DBConnect.OpenMySqlConn();
+                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+                while (Reader.Read())
+                {
+                    Rate ps = new Rate(Reader["id"].ToString(), Reader["userID"].ToString(), Convert.ToDouble(Reader["amount"]), Convert.ToDouble(Reader["period"]), Reader["units"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                    p.Add(ps);
+                }
+                DBConnect.CloseMySqlConn();
+            }
+            catch { }
+            return p;
+
+        }
+        static Rate c;
         public static Rate Select(string ID)
         {
             string Q = "SELECT * FROM rate WHERE userID = '" + ID + "'";
@@ -63,7 +97,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                c = new Rate(Reader["id"].ToString(), Reader["userID"].ToString(),Convert.ToDouble( Reader["amount"]), Convert.ToDouble(Reader["period"]), Reader["units"].ToString(),Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                c = new Rate(Reader["id"].ToString(), Reader["userID"].ToString(), Convert.ToDouble(Reader["amount"]), Convert.ToDouble(Reader["period"]), Reader["units"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
 
             }
             DBConnect.CloseConn();

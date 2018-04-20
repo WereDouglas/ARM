@@ -85,7 +85,7 @@ namespace ARM
 
             string id = Guid.NewGuid().ToString();
             Vendor c = new Vendor(id,nameTxt.Text,emailTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), categoryCbx.Text, false, fullimage);
-            if (DBConnect.Insert(c) != "")
+            if (DBConnect.InsertPostgre(c) != "")
             {
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;
@@ -99,7 +99,7 @@ namespace ARM
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
             Vendor c = new Vendor(vendorID, nameTxt.Text, emailTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), categoryCbx.Text, false, fullimage);
-            DBConnect.Update(c, vendorID);
+            DBConnect.UpdatePostgre(c, vendorID);
             MessageBox.Show("Information Updated");
             this.DialogResult = DialogResult.OK;
             this.Dispose();

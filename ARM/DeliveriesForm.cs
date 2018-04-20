@@ -101,7 +101,7 @@ namespace ARM
                 foreach (var item in selectedIDs)
                 {
                     string Query = "DELETE from transaction WHERE id ='" + item + "'";
-                    DBConnect.save(Query);
+                    DBConnect.QueryPostgre(Query);
                     
                 }
             }
@@ -135,7 +135,7 @@ namespace ARM
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Deliveries? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         string Query = "DELETE from transaction WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
-                        DBConnect.save(Query);
+                        DBConnect.QueryPostgre(Query);
                         MessageBox.Show("Information deleted");
                         LoadData();
 

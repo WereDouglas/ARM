@@ -137,7 +137,7 @@ namespace ARM
                 foreach (var item in selectedIDs)
                 {
                     string Query = "DELETE from users WHERE id ='" + item + "'";
-                    DBConnect.save(Query);
+                    DBConnect.QueryPostgre(Query);
                     //  MessageBox.Show("Information deleted");
                 }
             }
@@ -312,19 +312,19 @@ namespace ARM
 
             string Iid = Guid.NewGuid().ToString();
             Invoice i = new Invoice(Iid, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, typeCbx.Text, categoryCbx.Text, VendorID, CustomerID, methodCbx.Text, Total, termsTxt.Text, Convert.ToDouble(taxTxt.Text), Convert.ToDouble(amountTxt.Text), Convert.ToDouble(balanceTxt.Text), Convert.ToDouble(amountTxt.Text), Convert.ToInt32(ItemCountTxt.Text), Helper.UserID, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
-            if (DBConnect.Insert(i) != "")
+            if (DBConnect.InsertPostgre(i) != "")
             {
                 foreach (Transaction t in GenericCollection.transactions)
                 {
                     Transaction c = new Transaction(t.Id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, t.Total, t.Qty, t.Cost, t.Created, false);
-                    if (DBConnect.Insert(c) != "")
+                    if (DBConnect.InsertPostgre(c) != "")
                     {
                     }
                 }
 
                 string Pid = Guid.NewGuid().ToString();
                 Payment p = new Payment(Pid, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, typeCbx.Text, methodCbx.Text, Convert.ToDouble(amountTxt.Text), Convert.ToDouble(balanceTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
-                if (DBConnect.Insert(p) != "")
+                if (DBConnect.InsertPostgre(p) != "")
                 {
                 }               
             }

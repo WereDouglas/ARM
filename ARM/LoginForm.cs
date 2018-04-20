@@ -89,39 +89,77 @@ namespace ARM
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            createSqlliteDB();
+            createPostgreDB();
         }
-        private void createSqlliteDB()
+        private void createPostgreDB()
         {
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Customer()));
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Exceptions()));
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Users()));
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Invoice()));
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Item()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Customer()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Exceptions()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Users()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Invoice()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Item()));
            
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Vendor()));
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Invoice()));
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Transaction()));
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Payment()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Vendor()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Invoice()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Transaction()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Payment()));
 
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Schedule()));
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Rate()));
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Account()));
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Responsible()));
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Insurance()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Schedule()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Rate()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Account()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Responsible()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Insurance()));
 
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Orders()));
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Instruction()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Orders()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Instruction()));
 
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Deliveries()));
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Delivery()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Deliveries()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Delivery()));
 
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new ItemReview()));
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new PatientStatus()));
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Follow()));
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new ItemStatus()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new ItemReview()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new PatientStatus()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Follow()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new ItemStatus()));
 
-            DBConnect.createSQLLiteDB(DBConnect.CreateDBSQL(new Company()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Company()));
+        }
+
+        private void createMySqlDB()
+        {
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Customer()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Exceptions()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Users()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Invoice()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Item()));
+
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Vendor()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Invoice()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Transaction()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Payment()));
+
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Schedule()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Rate()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Account()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Responsible()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Insurance()));
+
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Orders()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Instruction()));
+
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Deliveries()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Delivery()));
+
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new ItemReview()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new PatientStatus()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Follow()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new ItemStatus()));
+
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Company()));
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            createMySqlDB();
         }
     }
 }

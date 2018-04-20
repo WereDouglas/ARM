@@ -98,7 +98,7 @@ namespace ARM
                 foreach (var item in selectedIDs)
                 {
                     string Query = "DELETE from rate WHERE id ='" + item + "'";
-                    DBConnect.save(Query);
+                    DBConnect.QueryPostgre(Query);
                     //  MessageBox.Show("Information deleted");
                 }
             }
@@ -141,7 +141,7 @@ namespace ARM
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Rate? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         string Query = "DELETE from rate WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
-                        DBConnect.save(Query);
+                        DBConnect.QueryPostgre(Query);
                         MessageBox.Show("Information deleted");
                         LoadData();
 

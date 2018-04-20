@@ -63,7 +63,7 @@ namespace ARM
         { 
             string ID = Guid.NewGuid().ToString();
             Rate r = new Rate(ID,UserID,Convert.ToDouble(costTxt.Text), Convert.ToDouble(periodCbx.Text),unitCbx.Text,DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false);
-            if (DBConnect.Insert(r) != "")
+            if (DBConnect.InsertPostgre(r) != "")
             {
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;

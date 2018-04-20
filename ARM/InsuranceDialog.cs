@@ -67,7 +67,7 @@ namespace ARM
             }
             string ID = Guid.NewGuid().ToString();
             Insurance _e = new Insurance(ID,CustomerID,nameTxt.Text,typeCbx.Text,"",noTxt.Text,addressTxt.Text,contactTxt.Text,zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false);
-            if (DBConnect.Insert(_e) != "")
+            if (DBConnect.InsertPostgre(_e) != "")
             {
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;

@@ -1,4 +1,5 @@
 ﻿using ARM.DB;
+using MySql.Data.MySqlClient;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace ARM.Model
         private string name;
         private string email;
         private string contact;
-        private string address; 
+        private string address;
         private string city;
         private string state;
         private string zip;
@@ -46,7 +47,6 @@ namespace ARM.Model
 
         static List<Users> p = new List<Users>();
 
-
         public static List<Users> List()
         {
             p.Clear();
@@ -59,6 +59,39 @@ namespace ARM.Model
                 p.Add(ps);
             }
             DBConnect.CloseConn();
+            return p;
+
+        }
+        public static List<Users> List(string Q)
+        {
+            p.Clear();
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                Users ps = new Users(Reader["id"].ToString(), Reader["name"].ToString(), Reader["email"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["category"].ToString(), Reader["gender"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["password"].ToString(), Reader["image"].ToString());
+                p.Add(ps);
+            }
+            DBConnect.CloseConn();
+            return p;
+
+        }
+        public static List<Users> ListOnline(string Q)
+        {
+            try
+            {
+                p.Clear();
+                DBConnect.OpenMySqlConn();
+                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+                while (Reader.Read())
+                {
+                    Users ps = new Users(Reader["id"].ToString(), Reader["name"].ToString(), Reader["email"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["category"].ToString(), Reader["gender"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["password"].ToString(), Reader["image"].ToString());
+                    p.Add(ps);
+                }
+                DBConnect.CloseMySqlConn();
+                
+            }
+            catch { }
             return p;
 
         }
@@ -81,7 +114,7 @@ namespace ARM.Model
 
         public static Users Select(string userID)
         {
-            
+
             string Q = "SELECT * FROM users WHERE id = '" + userID + "'";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);

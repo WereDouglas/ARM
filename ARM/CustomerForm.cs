@@ -123,12 +123,10 @@ namespace ARM
 
             }
         }
-
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("YES or No?", "Are you sure you want to delete these customers? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -137,7 +135,7 @@ namespace ARM
                 foreach (var item in selectedIDs)
                 {
                     string Query = "DELETE from customer WHERE id ='" + item + "'";
-                    DBConnect.save(Query);
+                    DBConnect.QueryPostgre(Query);
                     //  MessageBox.Show("Information deleted");
                 }
             }
@@ -173,14 +171,12 @@ namespace ARM
             }
             try
             {
-
                 if (e.ColumnIndex == dtGrid.Columns["Delete"].Index && e.RowIndex >= 0)
                 {
-
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Customer? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         string Query = "DELETE from customer WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString() + "'";
-                        DBConnect.save(Query);
+                        DBConnect.QueryPostgre(Query);
                         MessageBox.Show("Information deleted");
                         LoadData();
 
@@ -206,6 +202,19 @@ namespace ARM
                     }
                 }
             }
+        }
+
+        private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (String.IsNullOrEmpty(dtGrid.Rows[e.RowIndex].Cells["surname"].Value.ToString()))
+            {
+                MessageBox.Show("Please input a name ");
+                return;
+            }
+            string ID = dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString();
+            Customer _c = new Customer(ID, dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["contact"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["address"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["city"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["state"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["zip"].Value.ToString(),DateTime.Now.ToString("dd-MM-yyyy"),dtGrid.Rows[e.RowIndex].Cells["ssn"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Date Of Birth"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString(), false, dtGrid.Rows[e.RowIndex].Cells["uri"].Value.ToString());
+            DBConnect.UpdatePostgre(_c, ID);
+
         }
     }
 }

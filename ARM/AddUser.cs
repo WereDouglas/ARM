@@ -85,7 +85,7 @@ namespace ARM
 
             string id = Guid.NewGuid().ToString();
             Users c = new Users(id, nameTxt.Text, emailTxt.Text, contactTxt.Text, addressTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, categoryCbx.Text, genderCbx.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.MD5Hash(passwordTxt.Text), fullimage);
-            if (DBConnect.Insert(c) != "")
+            if (DBConnect.InsertPostgre(c) != "")
             {
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;
@@ -108,7 +108,7 @@ namespace ARM
                 Query = "UPDATE users SET name='" + this.nameTxt.Text + "',address='" + addressTxt.Text + "',city='" + cityTxt.Text + "',state='" + stateTxt.Text + "',zip='" + zipTxt.Text + "',email='" + this.emailTxt.Text + "',image='" + fullimage + "',contact='" + contactTxt.Text + "',address='" + addressTxt.Text + "',city='" + cityTxt.Text + "',state='" + stateTxt.Text + "',zip='" + zipTxt.Text + "',category='" + categoryCbx.Text + "',sync='false' WHERE Id = '" + UsersID + "'";
 
             }
-            DBConnect.save(Query);
+            DBConnect.QueryPostgre(Query);
             MessageBox.Show("Information Updated");
             this.DialogResult = DialogResult.OK;
             this.Dispose();
