@@ -127,6 +127,24 @@
     <Compile Include="AccountDialog.Designer.cs">
       <DependentUpon>AccountDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="DashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DashboardForm.Designer.cs">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadingWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingWindow.Designer.cs">
+      <DependentUpon>LoadingWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReceiptForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -406,12 +424,6 @@
     <Compile Include="AddItem.Designer.cs">
       <DependentUpon>AddItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="HomeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HomeForm.Designer.cs">
-      <DependentUpon>HomeForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="MedicalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -442,6 +454,16 @@
     <Compile Include="Util\Helper.cs" />
     <EmbeddedResource Include="AccountDialog.resx">
       <DependentUpon>AccountDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashboardForm.resx">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashboardReport.rdlc" />
+    <EmbeddedResource Include="LoadingWindow.resx">
+      <DependentUpon>LoadingWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReceiptForm.resx">
       <DependentUpon>ReceiptForm.cs</DependentUpon>
@@ -570,9 +592,6 @@
     <EmbeddedResource Include="AddItem.resx">
       <DependentUpon>AddItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HomeForm.resx">
-      <DependentUpon>HomeForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MedicalForm.resx">
       <DependentUpon>MedicalForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -589,6 +608,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ARM.Model.Invoice.datasource" />
+    <None Include="Properties\DataSources\ARM.Model.Payment.datasource" />
     <None Include="Properties\DataSources\ARM.Model.Transaction.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -840,6 +860,13 @@
     <None Include="Resources\Print-24.png" />
     <None Include="Resources\Bill-16.png" />
     <None Include="Resources\download %282%29.png" />
+    <None Include="Resources\loading.gif" />
+    <None Include="Resources\statistic-box-red.png" />
+    <None Include="Resources\statistic-box-purple.png" />
+    <None Include="Resources\statistic-box-yellow.png" />
+    <None Include="Resources\statistic-box-green.png" />
+    <None Include="Resources\fancybox_overlay.png" />
+    <None Include="Resources\loading1.gif" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

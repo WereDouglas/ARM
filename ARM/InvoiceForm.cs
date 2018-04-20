@@ -129,9 +129,7 @@ namespace ARM
                 {
                     MessageBox.Show("" + m.Message + "Viewing Invoice {each Invoice list }" + c.No);
                     Helper.Exceptions(m.Message + "Viewing Invoice {each Invoice list }" + c.No);
-                }             
-                
-
+                } 
             }
             DataTable trans = new DataTable();
             trans = new DataTable();

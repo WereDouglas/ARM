@@ -206,13 +206,13 @@ namespace ARM
 
         private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (String.IsNullOrEmpty(dtGrid.Rows[e.RowIndex].Cells["surname"].Value.ToString()))
+            if (String.IsNullOrEmpty(dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString()))
             {
                 MessageBox.Show("Please input a name ");
                 return;
             }
-            string ID = dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString();
-            Customer _c = new Customer(ID, dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["contact"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["address"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["city"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["state"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["zip"].Value.ToString(),DateTime.Now.ToString("dd-MM-yyyy"),dtGrid.Rows[e.RowIndex].Cells["ssn"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Date Of Birth"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString(), false, dtGrid.Rows[e.RowIndex].Cells["uri"].Value.ToString());
+            string ID = dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString();
+            Customer _c = new Customer(ID, dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["contact"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["address"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["city"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["state"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["zip"].Value.ToString(),DateTime.Now.ToString("dd-MM-yyyy"),dtGrid.Rows[e.RowIndex].Cells["SOC-SEC#"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Date Of Birth"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString(), false, dtGrid.Rows[e.RowIndex].Cells["uri"].Value.ToString());
             DBConnect.UpdatePostgre(_c, ID);
 
         }

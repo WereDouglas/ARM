@@ -1,6 +1,7 @@
 ﻿using ARM.DB;
 using ARM.Model;
 using ARM.Util;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,6 +13,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace ARM
 {
@@ -20,15 +22,19 @@ namespace ARM
         public int r = 9;
         public LoginForm()
         {
-
             InitializeComponent();
+           /// LoadingWindow.ShowSplashScreen();
+           
+           
             InitializeCulture();
+           /// LoadingWindow.CloseForm();
+            LoadSettings();
+            autocomplete();
         }
         protected void InitializeCulture()
         {
             CultureInfo CI = new CultureInfo("en-Gb");
             CI.DateTimeFormat.ShortDatePattern = "dd-MM-yyyy";
-
             Thread.CurrentThread.CurrentCulture = CI;
             Thread.CurrentThread.CurrentUICulture = CI;
             //  base.InitializeCulture();
@@ -49,10 +55,10 @@ namespace ARM
             }
             catch
             {
-                
-                
+
+
             }
-           
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -68,23 +74,55 @@ namespace ARM
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Helper.UserID = Users.List().First().Id;
-            Helper.UserImage = Users.List().First().Image;
-            Helper.UserName = Users.List().First().Name;
-            //  Helper.Log(Helper.UserName, "Log in ");
-            Helper.CompanyID = Company.List().First().Id;
-            if (medicalChk.Checked)
+            loginBtn.Visible = false;
+            if (contactTxt.Text == "" || passwordTxt.Text == "")
+            {
+                MessageBox.Show("Insert login credentials");
+                loginBtn.Visible = true;
+                return;
+            }
+            try
+            {
+               
+
+                Helper.contact = u.Where(g => g.Contact.Contains(contactTxt.Text) && g.Password.Equals(Helper.MD5Hash(passwordTxt.Text))).First().Contact;
+            }
+            catch
+            {
+                MessageBox.Show("Invalid login credentials");
+                loginBtn.Visible = true;
+                return;
+
+            }
+            if (String.IsNullOrEmpty(Helper.contact))
+            {
+                MessageBox.Show("Access denied contact undefined");
+                loginBtn.Visible = true;
+            }
+            else
             {
 
-                MedicalForm frm = new MedicalForm();
-                frm.Show();
+                Helper.UserID = u.Where(g => g.Contact.Contains(contactTxt.Text) && g.Password.Equals(Helper.MD5Hash(passwordTxt.Text))).First().Id;
+                Helper.UserImage = u.Where(g => g.Contact.Contains(contactTxt.Text) && g.Password.Equals(Helper.MD5Hash(passwordTxt.Text))).First().Image;
+                Helper.UserName = u.Where(g => g.Contact.Contains(contactTxt.Text) && g.Password.Equals(Helper.MD5Hash(passwordTxt.Text))).First().Name;
+
+                //  Helper.Log(Helper.UserName, "Log in ");
+                Helper.CompanyID = Company.List().First().Id;
+                if (medicalChk.Checked)
+                {
+
+                    MedicalForm frm = new MedicalForm();
+                    frm.Show();
+                    this.Hide();
+                }
+                if (payrollChk.Checked)
+                {
+                    HrmForm f = new HrmForm();
+                    f.Show();
+                    this.Hide();
+                }
+                loginBtn.Visible = true;
             }
-            if (payrollChk.Checked)
-            {
-                HrmForm f = new HrmForm();
-                f.Show();
-            }
-           
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -98,7 +136,7 @@ namespace ARM
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Users()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Invoice()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Item()));
-           
+
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Vendor()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Invoice()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Transaction()));
@@ -160,6 +198,155 @@ namespace ARM
         private void button2_Click_1(object sender, EventArgs e)
         {
             createMySqlDB();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            using (SettingsForm form = new SettingsForm())
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    LoadSettings();
+                }
+            }
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            
+        }
+        private void LoadSettings()
+        {
+            XDocument xmlDoc = null;
+            try
+            {
+                xmlDoc = XDocument.Load(Helper.XMLFile());
+            }
+            catch {
+
+                using (SettingsForm form = new SettingsForm())
+                {
+                    DialogResult dr = form.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                        LoadSettings();
+                    }
+                }
+
+            }
+
+            xmlDoc = XDocument.Load(Helper.XMLFile());
+            var servers = from person in xmlDoc.Descendants("Server")
+           
+                          select new
+                          {
+                              Name = person.Element("Name").Value,
+                              Ip = person.Element("Ip").Value
+
+                          };
+            foreach (var server in servers)
+            {
+                
+                Helper.serverName = server.Name;
+                Helper.serverIP  = server.Ip;
+
+            }
+
+            if (!string.IsNullOrEmpty(Helper.serverName))
+            {
+                Helper.serverIP = Helper.IPAddressCheck(Helper.serverName);
+                lblStatus.Text += Helper.serverIP + ": " + Helper.serverName;
+                if (!string.IsNullOrEmpty(Helper.serverIP))
+                {
+                    DBConnect.conn = new NpgsqlConnection("Server=" + Helper.serverIP + ";Port=5432;User Id=postgres;Password=Admin;Database=arm;");
+
+                    if (TestServerConnection())
+                    {
+                        lblStatus.Text = lblStatus.Text + " Server connected you can continue to login";
+                        lblStatus.ForeColor = Color.Green;
+                        autocomplete();
+                    }
+                    else
+                    {
+
+                        lblStatus.Text = ("You are not able to connect to the server contact the administrator for further assistance");
+                        lblStatus.ForeColor = Color.Red;
+                    }
+
+                } else {
+
+                    lblStatus.Text = ("No server IP defined !");
+                    lblStatus.ForeColor = Color.Red;
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Please start the server");
+                return;
+            }  
+           
+        }
+        
+        
+        List<Users> u = new List<Users>();
+        private bool TestServerConnection()
+        {
+              u = Users.List();
+            try
+            {
+
+                if (u.Count() < 0)
+                {
+                    lblStatus.Text = ("You are not able to connect to the server contact the administrator for further assistance");
+                    lblStatus.ForeColor = Color.Red;
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception c)
+            {
+                System.Diagnostics.Debug.WriteLine(c.ToString());
+               
+                MessageBox.Show(c.Message.ToString());
+                lblStatus.Text = ("You are not able to connect to the server contact the administrator for further assistance");
+                lblStatus.ForeColor = Color.Red;
+                return false;
+
+            }
+        }
+        private void autocomplete()
+        
+            {
+            AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
+            DataTable dt = new DataTable();
+            foreach (Users u in Users.List())
+            {
+                AutoItem.Add(u.Contact);
+            }
+            contactTxt.AutoCompleteMode = AutoCompleteMode.Suggest;
+            contactTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            contactTxt.AutoCompleteCustomSource = AutoItem;
+        }
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            Application.Exit();
+
+        }
+
+        private void passwordTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loginBtn.PerformClick();
+            }
         }
     }
 }

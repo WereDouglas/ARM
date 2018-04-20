@@ -413,6 +413,16 @@ namespace ARM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fancybox_overlay {
+            get {
+                object obj = ResourceManager.GetObject("fancybox_overlay", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Filter_Edit_24 {
             get {
                 object obj = ResourceManager.GetObject("Filter-Edit-24", resourceCulture);
@@ -536,6 +546,26 @@ namespace ARM.Properties {
         internal static System.Drawing.Bitmap Library_Books_24__1_ {
             get {
                 object obj = ResourceManager.GetObject("Library-Books-24 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap loading {
+            get {
+                object obj = ResourceManager.GetObject("loading", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap loading1 {
+            get {
+                object obj = ResourceManager.GetObject("loading1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -716,6 +746,46 @@ namespace ARM.Properties {
         internal static System.Drawing.Bitmap Shape_Cube_24 {
             get {
                 object obj = ResourceManager.GetObject("Shape-Cube-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap statistic_box_green {
+            get {
+                object obj = ResourceManager.GetObject("statistic-box-green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap statistic_box_purple {
+            get {
+                object obj = ResourceManager.GetObject("statistic-box-purple", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap statistic_box_red {
+            get {
+                object obj = ResourceManager.GetObject("statistic-box-red", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap statistic_box_yellow {
+            get {
+                object obj = ResourceManager.GetObject("statistic-box-yellow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

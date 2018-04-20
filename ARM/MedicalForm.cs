@@ -28,7 +28,7 @@ namespace ARM
             backgroundWorker.DoWork += backgroundWorker1_DoWork;
             backgroundWorker.ProgressChanged += backgroundWorker1_ProgressChanged;
             backgroundWorker.WorkerReportsProgress = true;
-
+            
 
             _Form1 = this;
             System.Timers.Timer timer = new System.Timers.Timer();
@@ -40,12 +40,12 @@ namespace ARM
         }
         private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-           
+
             if (DBConnect.CloseMySqlConn())
-            {                
+            {
                 for (int i = 0; i < 30; i++)
                 {
-                    FeedBack("PROCESS " + i.ToString());                   
+                    FeedBack("PROCESS " + i.ToString());
                     process(i); backgroundWorker.ReportProgress(i);
                     Thread.Sleep(1500);
                 }
@@ -71,7 +71,7 @@ namespace ARM
             switch (val)
             {
                 case 1:
-                    Uploading.User();                 
+                    Uploading.User();
                     break;
                 case 2:
                     Downloading.User();
@@ -80,7 +80,7 @@ namespace ARM
                     Uploading.Customers();
                     break;
                 case 4:
-                    Downloading.Customers();                   
+                    Downloading.Customers();
                     break;
                 case 5:
                     Uploading.Schedules();
@@ -104,42 +104,42 @@ namespace ARM
                     Uploading.Deliverys();
                     break;
                 case 12:
-                  
+
                     break;
                 case 13:
-                  
+
                     break;
                 case 14:
-                    
+
                     break;
                 case 15:
-                   
+
                     break;
                 case 16:
-                   
+
                     break;
                 case 17:
-                    
+
                     break;
                 case 18:
                     break;
                 case 19:
-                 
+
                     break;
                 case 20:
-                    
+
                     break;
                 case 21:
-                   
+
                     break;
                 case 22:
-                    
+
                     break;
                 case 23:
-                  
+
                     break;
                 case 24:
-                  
+
                     break;
                 case 25:
                     //Download.SendEmail();
@@ -152,8 +152,8 @@ namespace ARM
                     break;
                 case 28:
                     if (DBConnect.CloseMySqlConn())
-                    {                       
-                        FeedBack("Uploading and Downloading of information complete");                      
+                    {
+                        FeedBack("Uploading and Downloading of information complete");
                         backgroundWorker.Dispose();
                         return;
                     }
@@ -168,7 +168,7 @@ namespace ARM
                     FeedBack("Processing");
                     break;
             }
-          
+
         }
         void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
@@ -182,8 +182,8 @@ namespace ARM
             usernameLbl.Text = Helper.UserName;
             try
             {
-                Image img = Helper.Base64ToImageCropped(Helper.UserImage);             
-                userPbx.Image = img;              
+                Image img = Helper.Base64ToImageCropped(Helper.UserImage);
+                userPbx.Image = img;
             }
             catch (Exception p)
             {
@@ -212,7 +212,7 @@ namespace ARM
 
         private void button11_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void button14_Click(object sender, EventArgs e)
@@ -229,7 +229,7 @@ namespace ARM
 
         private void button12_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -252,7 +252,7 @@ namespace ARM
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
             using (AddItem form = new AddItem(null))
             {
                 DialogResult dr = form.ShowDialog();
@@ -306,22 +306,22 @@ namespace ARM
 
         private void deliveryPickupTicketToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void orderIntakeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void dMEInstructionDeliveryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void followUpPlanOfCareToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -386,22 +386,22 @@ namespace ARM
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-         
+
         }
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void unitsOfMeasureToolStripMenuItem_Click(object sender, EventArgs e)
@@ -416,7 +416,7 @@ namespace ARM
 
         private void viewToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
@@ -431,13 +431,13 @@ namespace ARM
 
         private void viewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
-           
+
+
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void exceptionsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -452,7 +452,7 @@ namespace ARM
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
@@ -474,12 +474,12 @@ namespace ARM
 
         private void toolStripButton4_Click_1(object sender, EventArgs e)
         {
-          
+
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -496,22 +496,22 @@ namespace ARM
 
         private void toolStripButton6_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void salesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void purchasesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void rentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void toolStripButton8_Click(object sender, EventArgs e)
@@ -615,7 +615,7 @@ namespace ARM
 
         private void toolStripButton7_Click(object sender, EventArgs e)
         {
-           
+
             using (AddTransaction form = new AddTransaction(null))
             {
                 DialogResult dr = form.ShowDialog();
@@ -709,7 +709,7 @@ namespace ARM
                 processLbl.Visible = true;
             }
         }
-      
+
         public void FeedBack(string text)
         {
             try
@@ -734,6 +734,18 @@ namespace ARM
         {
             processLbl.SelectionStart = processLbl.Text.Length;
             processLbl.ScrollToCaret();
+        }
+
+        private void MedicalForm_Load(object sender, EventArgs e)
+        {
+            LoadingWindow.ShowSplashScreen();
+            DashboardForm frm = new DashboardForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+            LoadingWindow.CloseForm();
         }
     }
 }

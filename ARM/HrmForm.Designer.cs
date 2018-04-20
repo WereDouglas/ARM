@@ -30,11 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HrmForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.usernameLbl = new System.Windows.Forms.Label();
-            this.userPbx = new System.Windows.Forms.PictureBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
+            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripDropDownButton12 = new System.Windows.Forms.ToolStripDropDownButton();
             this.exceptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,10 +58,16 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.processLbl = new System.Windows.Forms.TextBox();
+            this.usernameLbl = new System.Windows.Forms.Label();
+            this.userPbx = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userPbx)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.toolStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userPbx)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -72,6 +79,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.73618F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.26382F));
+            this.tableLayoutPanel1.Controls.Add(this.statusStrip1, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.toolStrip1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
@@ -84,6 +92,57 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1439, 659);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.AutoSize = false;
+            this.tableLayoutPanel1.SetColumnSpan(this.statusStrip1, 2);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSplitButton3,
+            this.lblStatus,
+            this.toolStripProgressBar1});
+            this.statusStrip1.Location = new System.Drawing.Point(5, 633);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.statusStrip1.Size = new System.Drawing.Size(1429, 21);
+            this.statusStrip1.TabIndex = 10;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripSplitButton3
+            // 
+            this.toolStripSplitButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton3.Image = global::ARM.Properties.Resources.Globe_24;
+            this.toolStripSplitButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton3.Name = "toolStripSplitButton3";
+            this.toolStripSplitButton3.Size = new System.Drawing.Size(32, 19);
+            this.toolStripSplitButton3.Text = "Event data";
+            this.toolStripSplitButton3.ButtonClick += new System.EventHandler(this.toolStripSplitButton3_ButtonClick);
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(28, 16);
+            this.lblStatus.Text = "info";
+            // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Maximum = 29;
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(400, 15);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::ARM.Properties.Resources.main_logo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(8, 9);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(10);
+            this.pictureBox1.Size = new System.Drawing.Size(176, 62);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // toolStrip1
             // 
@@ -117,55 +176,6 @@
             this.toolStrip1.Stretch = true;
             this.toolStrip1.TabIndex = 8;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
-            this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(8, 78);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(50);
-            this.panel1.Size = new System.Drawing.Size(1423, 552);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // usernameLbl
-            // 
-            this.usernameLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.usernameLbl.AutoSize = true;
-            this.usernameLbl.Location = new System.Drawing.Point(1152, 43);
-            this.usernameLbl.Name = "usernameLbl";
-            this.usernameLbl.Size = new System.Drawing.Size(14, 13);
-            this.usernameLbl.TabIndex = 10;
-            this.usernameLbl.Text = "#";
-            // 
-            // userPbx
-            // 
-            this.userPbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.userPbx.BackgroundImage = global::ARM.Properties.Resources.User_Profile_128;
-            this.userPbx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.userPbx.Location = new System.Drawing.Point(1301, 25);
-            this.userPbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.userPbx.Name = "userPbx";
-            this.userPbx.Padding = new System.Windows.Forms.Padding(10);
-            this.userPbx.Size = new System.Drawing.Size(43, 31);
-            this.userPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.userPbx.TabIndex = 9;
-            this.userPbx.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::ARM.Properties.Resources.main_logo;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 9);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(10);
-            this.pictureBox1.Size = new System.Drawing.Size(176, 62);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
             // 
             // toolStripButton1
             // 
@@ -427,6 +437,57 @@
             this.toolStripButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
+            this.panel1.Controls.Add(this.processLbl);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(8, 78);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(50);
+            this.panel1.Size = new System.Drawing.Size(1423, 552);
+            this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // processLbl
+            // 
+            this.processLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.processLbl.BackColor = System.Drawing.SystemColors.ControlText;
+            this.processLbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.processLbl.ForeColor = System.Drawing.SystemColors.Info;
+            this.processLbl.Location = new System.Drawing.Point(4, 368);
+            this.processLbl.Multiline = true;
+            this.processLbl.Name = "processLbl";
+            this.processLbl.Size = new System.Drawing.Size(833, 184);
+            this.processLbl.TabIndex = 8;
+            this.processLbl.Visible = false;
+            this.processLbl.TextChanged += new System.EventHandler(this.processLbl_TextChanged);
+            // 
+            // usernameLbl
+            // 
+            this.usernameLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.usernameLbl.AutoSize = true;
+            this.usernameLbl.Location = new System.Drawing.Point(1152, 43);
+            this.usernameLbl.Name = "usernameLbl";
+            this.usernameLbl.Size = new System.Drawing.Size(14, 13);
+            this.usernameLbl.TabIndex = 10;
+            this.usernameLbl.Text = "#";
+            // 
+            // userPbx
+            // 
+            this.userPbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.userPbx.BackgroundImage = global::ARM.Properties.Resources.User_Profile_128;
+            this.userPbx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.userPbx.Location = new System.Drawing.Point(1301, 25);
+            this.userPbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.userPbx.Name = "userPbx";
+            this.userPbx.Padding = new System.Windows.Forms.Padding(10);
+            this.userPbx.Size = new System.Drawing.Size(43, 31);
+            this.userPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.userPbx.TabIndex = 9;
+            this.userPbx.TabStop = false;
+            // 
             // HrmForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -435,15 +496,21 @@
             this.Controls.Add(this.usernameLbl);
             this.Controls.Add(this.userPbx);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HrmForm";
             this.Text = "HHA Payroll";
             this.TransparencyKey = System.Drawing.Color.Empty;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.HrmForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPbx)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -479,5 +546,10 @@
         private System.Windows.Forms.ToolStripButton toolStripButton6;
         private System.Windows.Forms.ToolStripMenuItem rateToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButton7;
+        private System.Windows.Forms.TextBox processLbl;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton3;
+        private System.Windows.Forms.ToolStripStatusLabel lblStatus;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
     }
 }

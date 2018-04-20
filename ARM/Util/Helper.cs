@@ -15,6 +15,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Sockets;
 
 namespace ARM.Util
 {
@@ -31,16 +32,15 @@ namespace ARM.Util
         public static string CompanyName;
         public static string UserName;
         public static string UserImage;
+        public static string serverName;
+        public static string serverIP;
+        public static string  contact;
         public static string genUrl = "http://caseprofessional.pro/index.php/";
         // public static string genUrl = "http://localhost/caseprofessionals/index.php/";
         public static string fileUrl = "http://caseprofessional.pro/file/";
 
         // public static string url = "http://localhost/caseprofessionals/";
         public static string url = "http://caseprofessional.pro/";
-
-        public static string RemoteDocumentUrl = url + "/documents/uploads.php";
-        public static string RemoteDocumentFolder = url + "/documents/";
-        public static string msgUrl = "http://" + url + "/index.php/message/event";
 
 
         public static void SaveImageCapture(System.Drawing.Image image)
@@ -63,6 +63,24 @@ namespace ARM.Util
 
             }
 
+        }
+        public static String IPAddressCheck(string HostName)
+        {
+            //var ip = System.Net.Dns.GetHostEntry("JacksLaptop");
+            //  string ipStrings = ip.AddressList[0].ToString();
+            //var host =;
+            var IPAddr = Dns.GetHostEntry(HostName);
+            IPAddress ipString = null;
+
+            foreach (var IP in IPAddr.AddressList)
+            {
+                if (IPAddress.TryParse(IP.ToString(), out ipString) && IP.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    break;
+                }
+            }
+            // Helper.serverIP = ipString.ToString();
+            return ipString.ToString();
         }
         public static void Exceptions(string message, string process)
         {
@@ -263,6 +281,14 @@ namespace ARM.Util
                 return null;
 
             }
+
+        }
+        public static string XMLFile()
+        {
+            string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string appPath = Path.GetDirectoryName(Application.ExecutablePath);
+            string dir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            return dir + "\\Server.xml";
 
         }
         public static string get(string url, NameValueCollection data)

@@ -16,7 +16,9 @@ namespace ARM.DB
 {
     public static class DBConnect
     {
-        public static NpgsqlConnection conn = new NpgsqlConnection("Server=10.0.0.251;Port=5432;User Id=postgres;Password=Admin;Database=arm;");
+       // public static NpgsqlConnection conn = new NpgsqlConnection("Server=10.0.0.251;Port=5432;User Id=postgres;Password=Admin;Database=arm;");
+
+        public static NpgsqlConnection conn = new NpgsqlConnection("Server=" + Helper.serverIP + ";Port=5432;User Id=postgres;Password=Admin;Database=arm;");
         static NpgsqlDataReader Readers = null;
         static NpgsqlCommand cmd = null;
         public static MySqlConnection MySqlConn = new MySqlConnection("Server=10.0.0.251;Database=arm;UID=admin;Password=Admin");
@@ -35,7 +37,7 @@ namespace ARM.DB
             }
             catch (Exception exp)
             {
-                Console.WriteLine("Error :S");
+                Console.WriteLine("Error Connecting " + exp.Message);
                 ans = false;
             }
             return ans;
@@ -98,7 +100,10 @@ namespace ARM.DB
                 Readers = cmd.ExecuteReader();
               
             }
-            catch { }
+            catch(Exception c) {
+
+                throw;// (c.Message.ToString());
+            }
             return Readers;
 
         }

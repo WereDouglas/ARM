@@ -28,68 +28,81 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FollowForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.visitChk = new System.Windows.Forms.CheckBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.diagnosisTxt = new System.Windows.Forms.TextBox();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.typeVisitChk = new System.Windows.Forms.CheckBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.hospitalTxt = new System.Windows.Forms.TextBox();
-            this.label56 = new System.Windows.Forms.Label();
-            this.sourceTxt = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lengthTxt = new System.Windows.Forms.TextBox();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.needTxt = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.resultTxt = new System.Windows.Forms.TextBox();
-            this.nextTxt = new MetroFramework.Controls.MetroDateTime();
-            this.phoneChk = new System.Windows.Forms.CheckBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.authSignatureTxt = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.employeeTxt = new System.Windows.Forms.TextBox();
-            this.dtGridReview = new System.Windows.Forms.DataGridView();
-            this.dtGridPatientStatus = new System.Windows.Forms.DataGridView();
-            this.dtGridItemStatus = new System.Windows.Forms.DataGridView();
-            this.customerCbx = new MetroFramework.Controls.MetroComboBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.physicianTxt = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.subscriberInfoTxt = new System.Windows.Forms.TextBox();
-            this.subscriberTypeTxt = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.equipOtherTxt = new System.Windows.Forms.TextBox();
             this.typeTxt = new System.Windows.Forms.TextBox();
             this.serialTxt = new System.Windows.Forms.TextBox();
+            this.productPbx = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.productCbx = new MetroFramework.Controls.MetroComboBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.cusPbx = new System.Windows.Forms.PictureBox();
+            this.subscriberInfoTxt = new System.Windows.Forms.TextBox();
+            this.subscriberTypeTxt = new System.Windows.Forms.TextBox();
+            this.userCbx = new MetroFramework.Controls.MetroComboBox();
+            this.dtGridPatientStatus = new System.Windows.Forms.DataGridView();
+            this.dtGridReview = new System.Windows.Forms.DataGridView();
+            this.label17 = new System.Windows.Forms.Label();
+            this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
+            this.label32 = new System.Windows.Forms.Label();
+            this.hospitalTxt = new System.Windows.Forms.TextBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.sourceTxt = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.customerCbx = new MetroFramework.Controls.MetroComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.userPbx = new System.Windows.Forms.PictureBox();
+            this.physicianTxt = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.typePhoneChk = new System.Windows.Forms.CheckBox();
+            this.typeVisitChk = new System.Windows.Forms.CheckBox();
+            this.diagnosisTxt = new System.Windows.Forms.TextBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtGridItemStatus = new System.Windows.Forms.DataGridView();
+            this.lengthTxt = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.needTxt = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.goalTxt = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.resultTxt = new System.Windows.Forms.TextBox();
+            this.visitChk = new System.Windows.Forms.CheckBox();
+            this.phoneChk = new System.Windows.Forms.CheckBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.nextTxt = new MetroFramework.Controls.MetroDateTime();
+            this.label16 = new System.Windows.Forms.Label();
+            this.puTxt = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.authSignatureTxt = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.authoriserTxt = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.relationTxt = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.employeeTxt = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.reasonTxt = new System.Windows.Forms.TextBox();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
             this.printdoc1 = new System.Drawing.Printing.PrintDocument();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.previewdlg = new System.Windows.Forms.PrintPreviewDialog();
@@ -99,31 +112,18 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.productPbx = new System.Windows.Forms.PictureBox();
-            this.cusPbx = new System.Windows.Forms.PictureBox();
-            this.userPbx = new System.Windows.Forms.PictureBox();
-            this.puTxt = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.reasonTxt = new System.Windows.Forms.TextBox();
-            this.relationTxt = new System.Windows.Forms.TextBox();
-            this.authoriserTxt = new System.Windows.Forms.TextBox();
-            this.goalTxt = new System.Windows.Forms.TextBox();
-            this.typePhoneChk = new System.Windows.Forms.CheckBox();
-            this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
-            this.userCbx = new MetroFramework.Controls.MetroComboBox();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridReview)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridPatientStatus)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridItemStatus)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productPbx)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridPatientStatus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridReview)).BeginInit();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPbx)).BeginInit();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridItemStatus)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -143,7 +143,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.71429F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.28571F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 171F));
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 13);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.userCbx, 3, 1);
@@ -229,629 +229,6 @@
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(2, 34);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 32);
-            this.label3.TabIndex = 267;
-            this.label3.Text = "PATIENT NAME:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label15
-            // 
-            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.tableLayoutPanel1.SetColumnSpan(this.label15, 2);
-            this.label15.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(2, 607);
-            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(286, 17);
-            this.label15.TabIndex = 252;
-            this.label15.Text = "FOLLOW-UP/DISCHARGE";
-            // 
-            // visitChk
-            // 
-            this.visitChk.AutoSize = true;
-            this.visitChk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.visitChk.Location = new System.Drawing.Point(292, 610);
-            this.visitChk.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.visitChk.Name = "visitChk";
-            this.visitChk.Size = new System.Drawing.Size(97, 16);
-            this.visitChk.TabIndex = 356;
-            this.visitChk.Text = "FOLLOW -UP VISIT RECOMMENDED";
-            this.visitChk.UseVisualStyleBackColor = false;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(292, 629);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(92, 16);
-            this.label16.TabIndex = 378;
-            this.label16.Text = "EQUIP TO BE P/U";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(2, 629);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(82, 16);
-            this.label14.TabIndex = 377;
-            this.label14.Text = "NEXT DR VISIT:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label2, 4);
-            this.label2.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(2, 663);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(446, 16);
-            this.label2.TabIndex = 358;
-            this.label2.Text = "I HAVE READ,RECEIVED AND BEEN INSTRUCTED IN DETAIL ON THE ITEMS CHECKED ABOVE.";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label6, 2);
-            this.label6.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(2, 682);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(258, 16);
-            this.label6.TabIndex = 361;
-            this.label6.Text = "If patient is unable to sign,complete the following:";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(2, 758);
-            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(105, 16);
-            this.label21.TabIndex = 382;
-            this.label21.Text = "Employee signature";
-            // 
-            // label17
-            // 
-            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(292, 0);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(97, 34);
-            this.label17.TabIndex = 254;
-            this.label17.Text = "DATE:";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.tableLayoutPanel1.SetColumnSpan(this.label1, 2);
-            this.label1.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(2, 226);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(286, 17);
-            this.label1.TabIndex = 340;
-            this.label1.Text = "ALL ITEMS REVIEWED AND UNCHANGED BOX ONLY IF CHANGED && NOTE CHANGE ";
-            // 
-            // diagnosisTxt
-            // 
-            this.diagnosisTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.diagnosisTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.diagnosisTxt.Location = new System.Drawing.Point(121, 7);
-            this.diagnosisTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.diagnosisTxt.Multiline = true;
-            this.diagnosisTxt.Name = "diagnosisTxt";
-            this.diagnosisTxt.Size = new System.Drawing.Size(432, 61);
-            this.diagnosisTxt.TabIndex = 0;
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(2, 7);
-            this.label44.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(65, 16);
-            this.label44.TabIndex = 300;
-            this.label44.Text = "DIAGNOSIS:";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(292, 34);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 32);
-            this.label4.TabIndex = 359;
-            this.label4.Text = "PHYSICIAN:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // typeVisitChk
-            // 
-            this.typeVisitChk.AutoSize = true;
-            this.typeVisitChk.Location = new System.Drawing.Point(6, 49);
-            this.typeVisitChk.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.typeVisitChk.Name = "typeVisitChk";
-            this.typeVisitChk.Size = new System.Drawing.Size(45, 19);
-            this.typeVisitChk.TabIndex = 2;
-            this.typeVisitChk.Text = "VISIT";
-            this.typeVisitChk.UseVisualStyleBackColor = true;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(2, 332);
-            this.label32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(94, 25);
-            this.label32.TabIndex = 288;
-            this.label32.Text = "RECENT HOSPITALISATION";
-            // 
-            // hospitalTxt
-            // 
-            this.hospitalTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.hospitalTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tableLayoutPanel1.SetColumnSpan(this.hospitalTxt, 3);
-            this.hospitalTxt.Location = new System.Drawing.Point(123, 335);
-            this.hospitalTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.hospitalTxt.Multiline = true;
-            this.hospitalTxt.Name = "hospitalTxt";
-            this.hospitalTxt.Size = new System.Drawing.Size(436, 18);
-            this.hospitalTxt.TabIndex = 7;
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.Location = new System.Drawing.Point(2, 357);
-            this.label56.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(77, 26);
-            this.label56.TabIndex = 328;
-            this.label56.Text = "SOURCE OF INFORMATION";
-            // 
-            // sourceTxt
-            // 
-            this.sourceTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.sourceTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tableLayoutPanel1.SetColumnSpan(this.sourceTxt, 3);
-            this.sourceTxt.Location = new System.Drawing.Point(123, 360);
-            this.sourceTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.sourceTxt.Multiline = true;
-            this.sourceTxt.Name = "sourceTxt";
-            this.sourceTxt.Size = new System.Drawing.Size(436, 20);
-            this.sourceTxt.TabIndex = 8;
-            // 
-            // label24
-            // 
-            this.label24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.tableLayoutPanel1.SetColumnSpan(this.label24, 4);
-            this.label24.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(2, 383);
-            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(557, 12);
-            this.label24.TabIndex = 280;
-            this.label24.Text = "EQUIPMENT SETTINGS";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(2, 511);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(112, 27);
-            this.label11.TabIndex = 373;
-            this.label11.Text = "LENGTH OF TIME ON EQUIPMENT:";
-            // 
-            // lengthTxt
-            // 
-            this.lengthTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.lengthTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tableLayoutPanel1.SetColumnSpan(this.lengthTxt, 3);
-            this.lengthTxt.Location = new System.Drawing.Point(123, 514);
-            this.lengthTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.lengthTxt.Multiline = true;
-            this.lengthTxt.Name = "lengthTxt";
-            this.lengthTxt.Size = new System.Drawing.Size(433, 21);
-            this.lengthTxt.TabIndex = 10;
-            // 
-            // label53
-            // 
-            this.label53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.tableLayoutPanel1.SetColumnSpan(this.label53, 4);
-            this.label53.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(2, 538);
-            this.label53.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(557, 15);
-            this.label53.TabIndex = 325;
-            this.label53.Text = "ADDITIONAL NOTES";
-            // 
-            // label12
-            // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(2, 558);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(117, 16);
-            this.label12.TabIndex = 375;
-            this.label12.Text = "NEED";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // needTxt
-            // 
-            this.needTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.needTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.needTxt.Location = new System.Drawing.Point(123, 561);
-            this.needTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.needTxt.Multiline = true;
-            this.needTxt.Name = "needTxt";
-            this.needTxt.Size = new System.Drawing.Size(165, 21);
-            this.needTxt.TabIndex = 11;
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(292, 558);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(97, 16);
-            this.label13.TabIndex = 376;
-            this.label13.Text = "GOAL";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(2, 585);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(117, 16);
-            this.label10.TabIndex = 374;
-            this.label10.Text = "RESULTS";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // resultTxt
-            // 
-            this.resultTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.resultTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.resultTxt.Location = new System.Drawing.Point(123, 588);
-            this.resultTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.resultTxt.Multiline = true;
-            this.resultTxt.Name = "resultTxt";
-            this.resultTxt.Size = new System.Drawing.Size(165, 16);
-            this.resultTxt.TabIndex = 12;
-            // 
-            // nextTxt
-            // 
-            this.nextTxt.Location = new System.Drawing.Point(123, 632);
-            this.nextTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.nextTxt.MinimumSize = new System.Drawing.Size(0, 29);
-            this.nextTxt.Name = "nextTxt";
-            this.nextTxt.Size = new System.Drawing.Size(165, 29);
-            this.nextTxt.TabIndex = 14;
-            // 
-            // phoneChk
-            // 
-            this.phoneChk.AutoSize = true;
-            this.phoneChk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.phoneChk.Location = new System.Drawing.Point(393, 610);
-            this.phoneChk.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.phoneChk.Name = "phoneChk";
-            this.phoneChk.Size = new System.Drawing.Size(167, 16);
-            this.phoneChk.TabIndex = 357;
-            this.phoneChk.Text = "FOLLOW UP BY PHONE && AS NEEDED";
-            this.phoneChk.UseVisualStyleBackColor = false;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(2, 734);
-            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(40, 16);
-            this.label20.TabIndex = 381;
-            this.label20.Text = "(Print)";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(2, 702);
-            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(97, 32);
-            this.label18.TabIndex = 379;
-            this.label18.Text = "Patient/Auth Rep Signature:";
-            // 
-            // authSignatureTxt
-            // 
-            this.authSignatureTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.authSignatureTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.authSignatureTxt.Location = new System.Drawing.Point(123, 705);
-            this.authSignatureTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.authSignatureTxt.Multiline = true;
-            this.authSignatureTxt.Name = "authSignatureTxt";
-            this.authSignatureTxt.Size = new System.Drawing.Size(156, 24);
-            this.authSignatureTxt.TabIndex = 16;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(292, 702);
-            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(66, 32);
-            this.label19.TabIndex = 380;
-            this.label19.Text = "Name of authorized person";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(292, 734);
-            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(68, 16);
-            this.label22.TabIndex = 383;
-            this.label22.Text = "Relationship";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(292, 758);
-            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(85, 32);
-            this.label23.TabIndex = 384;
-            this.label23.Text = "Why Pt cannot Sign:";
-            // 
-            // textBox21
-            // 
-            this.textBox21.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBox21.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox21.Location = new System.Drawing.Point(123, 737);
-            this.textBox21.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.textBox21.Multiline = true;
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(156, 18);
-            this.textBox21.TabIndex = 18;
-            // 
-            // employeeTxt
-            // 
-            this.employeeTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.employeeTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.employeeTxt.Location = new System.Drawing.Point(123, 761);
-            this.employeeTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.employeeTxt.Multiline = true;
-            this.employeeTxt.Name = "employeeTxt";
-            this.employeeTxt.Size = new System.Drawing.Size(156, 24);
-            this.employeeTxt.TabIndex = 21;
-            // 
-            // dtGridReview
-            // 
-            this.dtGridReview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtGridReview.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dtGridReview.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dtGridReview.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtGridReview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dtGridReview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableLayoutPanel1.SetColumnSpan(this.dtGridReview, 2);
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridReview.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dtGridReview.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dtGridReview.Location = new System.Drawing.Point(2, 246);
-            this.dtGridReview.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.dtGridReview.Name = "dtGridReview";
-            this.dtGridReview.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridReview.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dtGridReview.RowHeadersVisible = false;
-            this.dtGridReview.RowHeadersWidth = 20;
-            this.tableLayoutPanel1.SetRowSpan(this.dtGridReview, 2);
-            this.dtGridReview.Size = new System.Drawing.Size(286, 71);
-            this.dtGridReview.TabIndex = 5;
-            this.dtGridReview.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridReview_CellClick);
-            // 
-            // dtGridPatientStatus
-            // 
-            this.dtGridPatientStatus.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtGridPatientStatus.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dtGridPatientStatus.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dtGridPatientStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtGridPatientStatus.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dtGridPatientStatus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableLayoutPanel1.SetColumnSpan(this.dtGridPatientStatus, 2);
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridPatientStatus.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dtGridPatientStatus.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dtGridPatientStatus.Location = new System.Drawing.Point(292, 246);
-            this.dtGridPatientStatus.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.dtGridPatientStatus.Name = "dtGridPatientStatus";
-            this.dtGridPatientStatus.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridPatientStatus.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dtGridPatientStatus.RowHeadersVisible = false;
-            this.dtGridPatientStatus.RowHeadersWidth = 20;
-            this.tableLayoutPanel1.SetRowSpan(this.dtGridPatientStatus, 2);
-            this.dtGridPatientStatus.Size = new System.Drawing.Size(266, 71);
-            this.dtGridPatientStatus.TabIndex = 6;
-            this.dtGridPatientStatus.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridPatientStatus_CellClick);
-            // 
-            // dtGridItemStatus
-            // 
-            this.dtGridItemStatus.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtGridItemStatus.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dtGridItemStatus.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dtGridItemStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtGridItemStatus.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dtGridItemStatus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableLayoutPanel1.SetColumnSpan(this.dtGridItemStatus, 2);
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridItemStatus.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dtGridItemStatus.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dtGridItemStatus.Location = new System.Drawing.Point(292, 401);
-            this.dtGridItemStatus.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.dtGridItemStatus.Name = "dtGridItemStatus";
-            this.dtGridItemStatus.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridItemStatus.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dtGridItemStatus.RowHeadersVisible = false;
-            this.dtGridItemStatus.RowHeadersWidth = 20;
-            this.tableLayoutPanel1.SetRowSpan(this.dtGridItemStatus, 2);
-            this.dtGridItemStatus.Size = new System.Drawing.Size(266, 103);
-            this.dtGridItemStatus.TabIndex = 9;
-            this.dtGridItemStatus.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridItemStatus_CellClick);
-            // 
-            // customerCbx
-            // 
-            this.customerCbx.FormattingEnabled = true;
-            this.customerCbx.ItemHeight = 23;
-            this.customerCbx.Location = new System.Drawing.Point(123, 38);
-            this.customerCbx.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.customerCbx.Name = "customerCbx";
-            this.customerCbx.PromptText = "Name";
-            this.customerCbx.Size = new System.Drawing.Size(165, 29);
-            this.customerCbx.TabIndex = 3;
-            this.customerCbx.UseSelectable = true;
-            this.customerCbx.SelectedIndexChanged += new System.EventHandler(this.customerCbx_SelectedIndexChanged);
-            // 
-            // panel3
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.panel3, 2);
-            this.panel3.Controls.Add(this.userPbx);
-            this.panel3.Controls.Add(this.physicianTxt);
-            this.panel3.Location = new System.Drawing.Point(292, 69);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.panel3.Name = "panel3";
-            this.tableLayoutPanel1.SetRowSpan(this.panel3, 3);
-            this.panel3.Size = new System.Drawing.Size(266, 68);
-            this.panel3.TabIndex = 456;
-            // 
-            // physicianTxt
-            // 
-            this.physicianTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.physicianTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.physicianTxt.Location = new System.Drawing.Point(93, 5);
-            this.physicianTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.physicianTxt.Multiline = true;
-            this.physicianTxt.Name = "physicianTxt";
-            this.physicianTxt.Size = new System.Drawing.Size(157, 61);
-            this.physicianTxt.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.panel2, 2);
-            this.panel2.Controls.Add(this.cusPbx);
-            this.panel2.Controls.Add(this.subscriberInfoTxt);
-            this.panel2.Controls.Add(this.subscriberTypeTxt);
-            this.panel2.Location = new System.Drawing.Point(2, 69);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.panel2.Name = "panel2";
-            this.tableLayoutPanel1.SetRowSpan(this.panel2, 3);
-            this.panel2.Size = new System.Drawing.Size(286, 68);
-            this.panel2.TabIndex = 454;
-            // 
-            // subscriberInfoTxt
-            // 
-            this.subscriberInfoTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.subscriberInfoTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.subscriberInfoTxt.Location = new System.Drawing.Point(121, 25);
-            this.subscriberInfoTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.subscriberInfoTxt.Multiline = true;
-            this.subscriberInfoTxt.Name = "subscriberInfoTxt";
-            this.subscriberInfoTxt.Size = new System.Drawing.Size(163, 40);
-            this.subscriberInfoTxt.TabIndex = 1;
-            // 
-            // subscriberTypeTxt
-            // 
-            this.subscriberTypeTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.subscriberTypeTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.subscriberTypeTxt.Location = new System.Drawing.Point(122, 0);
-            this.subscriberTypeTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.subscriberTypeTxt.Multiline = true;
-            this.subscriberTypeTxt.Name = "subscriberTypeTxt";
-            this.subscriberTypeTxt.Size = new System.Drawing.Size(162, 20);
-            this.subscriberTypeTxt.TabIndex = 0;
-            // 
             // panel4
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.panel4, 2);
@@ -866,7 +243,7 @@
             this.panel4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel4.Name = "panel4";
             this.tableLayoutPanel1.SetRowSpan(this.panel4, 2);
-            this.panel4.Size = new System.Drawing.Size(286, 107);
+            this.panel4.Size = new System.Drawing.Size(285, 107);
             this.panel4.TabIndex = 456;
             // 
             // label7
@@ -913,6 +290,15 @@
             this.serialTxt.Size = new System.Drawing.Size(166, 15);
             this.serialTxt.TabIndex = 1;
             // 
+            // productPbx
+            // 
+            this.productPbx.Location = new System.Drawing.Point(3, 21);
+            this.productPbx.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.productPbx.Name = "productPbx";
+            this.productPbx.Size = new System.Drawing.Size(68, 42);
+            this.productPbx.TabIndex = 444;
+            this.productPbx.TabStop = false;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -937,6 +323,765 @@
             this.productCbx.TabIndex = 0;
             this.productCbx.UseSelectable = true;
             this.productCbx.SelectedIndexChanged += new System.EventHandler(this.productCbx_SelectedIndexChanged);
+            // 
+            // panel2
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.panel2, 2);
+            this.panel2.Controls.Add(this.cusPbx);
+            this.panel2.Controls.Add(this.subscriberInfoTxt);
+            this.panel2.Controls.Add(this.subscriberTypeTxt);
+            this.panel2.Location = new System.Drawing.Point(2, 69);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panel2.Name = "panel2";
+            this.tableLayoutPanel1.SetRowSpan(this.panel2, 3);
+            this.panel2.Size = new System.Drawing.Size(285, 68);
+            this.panel2.TabIndex = 454;
+            // 
+            // cusPbx
+            // 
+            this.cusPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
+            this.cusPbx.Location = new System.Drawing.Point(2, 4);
+            this.cusPbx.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.cusPbx.Name = "cusPbx";
+            this.cusPbx.Size = new System.Drawing.Size(64, 42);
+            this.cusPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.cusPbx.TabIndex = 179;
+            this.cusPbx.TabStop = false;
+            // 
+            // subscriberInfoTxt
+            // 
+            this.subscriberInfoTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.subscriberInfoTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.subscriberInfoTxt.Location = new System.Drawing.Point(121, 25);
+            this.subscriberInfoTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.subscriberInfoTxt.Multiline = true;
+            this.subscriberInfoTxt.Name = "subscriberInfoTxt";
+            this.subscriberInfoTxt.Size = new System.Drawing.Size(163, 40);
+            this.subscriberInfoTxt.TabIndex = 1;
+            // 
+            // subscriberTypeTxt
+            // 
+            this.subscriberTypeTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.subscriberTypeTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.subscriberTypeTxt.Location = new System.Drawing.Point(122, 0);
+            this.subscriberTypeTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.subscriberTypeTxt.Multiline = true;
+            this.subscriberTypeTxt.Name = "subscriberTypeTxt";
+            this.subscriberTypeTxt.Size = new System.Drawing.Size(162, 20);
+            this.subscriberTypeTxt.TabIndex = 0;
+            // 
+            // userCbx
+            // 
+            this.userCbx.FormattingEnabled = true;
+            this.userCbx.ItemHeight = 23;
+            this.userCbx.Location = new System.Drawing.Point(392, 38);
+            this.userCbx.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.userCbx.Name = "userCbx";
+            this.userCbx.PromptText = "Physician";
+            this.userCbx.Size = new System.Drawing.Size(166, 29);
+            this.userCbx.TabIndex = 4;
+            this.userCbx.UseSelectable = true;
+            this.userCbx.SelectedIndexChanged += new System.EventHandler(this.userCbx_SelectedIndexChanged);
+            // 
+            // dtGridPatientStatus
+            // 
+            this.dtGridPatientStatus.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtGridPatientStatus.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dtGridPatientStatus.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dtGridPatientStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtGridPatientStatus.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dtGridPatientStatus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableLayoutPanel1.SetColumnSpan(this.dtGridPatientStatus, 2);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridPatientStatus.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dtGridPatientStatus.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.dtGridPatientStatus.Location = new System.Drawing.Point(291, 246);
+            this.dtGridPatientStatus.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dtGridPatientStatus.Name = "dtGridPatientStatus";
+            this.dtGridPatientStatus.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridPatientStatus.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtGridPatientStatus.RowHeadersVisible = false;
+            this.dtGridPatientStatus.RowHeadersWidth = 20;
+            this.tableLayoutPanel1.SetRowSpan(this.dtGridPatientStatus, 2);
+            this.dtGridPatientStatus.Size = new System.Drawing.Size(266, 71);
+            this.dtGridPatientStatus.TabIndex = 6;
+            this.dtGridPatientStatus.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridPatientStatus_CellClick);
+            // 
+            // dtGridReview
+            // 
+            this.dtGridReview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtGridReview.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dtGridReview.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dtGridReview.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtGridReview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dtGridReview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableLayoutPanel1.SetColumnSpan(this.dtGridReview, 2);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridReview.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dtGridReview.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.dtGridReview.Location = new System.Drawing.Point(2, 246);
+            this.dtGridReview.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dtGridReview.Name = "dtGridReview";
+            this.dtGridReview.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridReview.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dtGridReview.RowHeadersVisible = false;
+            this.dtGridReview.RowHeadersWidth = 20;
+            this.tableLayoutPanel1.SetRowSpan(this.dtGridReview, 2);
+            this.dtGridReview.Size = new System.Drawing.Size(285, 71);
+            this.dtGridReview.TabIndex = 5;
+            this.dtGridReview.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridReview_CellClick);
+            // 
+            // label17
+            // 
+            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(291, 0);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(97, 34);
+            this.label17.TabIndex = 254;
+            this.label17.Text = "DATE:";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // metroDateTime1
+            // 
+            this.metroDateTime1.Location = new System.Drawing.Point(392, 3);
+            this.metroDateTime1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTime1.Name = "metroDateTime1";
+            this.metroDateTime1.Size = new System.Drawing.Size(166, 29);
+            this.metroDateTime1.TabIndex = 2;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(2, 332);
+            this.label32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(94, 25);
+            this.label32.TabIndex = 288;
+            this.label32.Text = "RECENT HOSPITALISATION";
+            // 
+            // hospitalTxt
+            // 
+            this.hospitalTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.hospitalTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableLayoutPanel1.SetColumnSpan(this.hospitalTxt, 3);
+            this.hospitalTxt.Location = new System.Drawing.Point(122, 335);
+            this.hospitalTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.hospitalTxt.Multiline = true;
+            this.hospitalTxt.Name = "hospitalTxt";
+            this.hospitalTxt.Size = new System.Drawing.Size(436, 18);
+            this.hospitalTxt.TabIndex = 7;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(2, 357);
+            this.label56.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(77, 26);
+            this.label56.TabIndex = 328;
+            this.label56.Text = "SOURCE OF INFORMATION";
+            // 
+            // sourceTxt
+            // 
+            this.sourceTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.sourceTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableLayoutPanel1.SetColumnSpan(this.sourceTxt, 3);
+            this.sourceTxt.Location = new System.Drawing.Point(122, 360);
+            this.sourceTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.sourceTxt.Multiline = true;
+            this.sourceTxt.Name = "sourceTxt";
+            this.sourceTxt.Size = new System.Drawing.Size(436, 20);
+            this.sourceTxt.TabIndex = 8;
+            // 
+            // label24
+            // 
+            this.label24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.label24, 4);
+            this.label24.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(2, 383);
+            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(557, 12);
+            this.label24.TabIndex = 280;
+            this.label24.Text = "EQUIPMENT SETTINGS";
+            // 
+            // customerCbx
+            // 
+            this.customerCbx.FormattingEnabled = true;
+            this.customerCbx.ItemHeight = 23;
+            this.customerCbx.Location = new System.Drawing.Point(122, 38);
+            this.customerCbx.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.customerCbx.Name = "customerCbx";
+            this.customerCbx.PromptText = "Name";
+            this.customerCbx.Size = new System.Drawing.Size(165, 29);
+            this.customerCbx.TabIndex = 3;
+            this.customerCbx.UseSelectable = true;
+            this.customerCbx.SelectedIndexChanged += new System.EventHandler(this.customerCbx_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label3.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(2, 34);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(116, 32);
+            this.label3.TabIndex = 267;
+            this.label3.Text = "PATIENT NAME:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(291, 34);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(97, 32);
+            this.label4.TabIndex = 359;
+            this.label4.Text = "PHYSICIAN:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel3
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.panel3, 2);
+            this.panel3.Controls.Add(this.userPbx);
+            this.panel3.Controls.Add(this.physicianTxt);
+            this.panel3.Location = new System.Drawing.Point(291, 69);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panel3.Name = "panel3";
+            this.tableLayoutPanel1.SetRowSpan(this.panel3, 3);
+            this.panel3.Size = new System.Drawing.Size(266, 68);
+            this.panel3.TabIndex = 456;
+            // 
+            // userPbx
+            // 
+            this.userPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
+            this.userPbx.Location = new System.Drawing.Point(3, 5);
+            this.userPbx.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.userPbx.Name = "userPbx";
+            this.userPbx.Size = new System.Drawing.Size(57, 43);
+            this.userPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.userPbx.TabIndex = 180;
+            this.userPbx.TabStop = false;
+            // 
+            // physicianTxt
+            // 
+            this.physicianTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.physicianTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.physicianTxt.Location = new System.Drawing.Point(93, 5);
+            this.physicianTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.physicianTxt.Multiline = true;
+            this.physicianTxt.Name = "physicianTxt";
+            this.physicianTxt.Size = new System.Drawing.Size(157, 61);
+            this.physicianTxt.TabIndex = 0;
+            // 
+            // panel5
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.panel5, 4);
+            this.panel5.Controls.Add(this.typePhoneChk);
+            this.panel5.Controls.Add(this.typeVisitChk);
+            this.panel5.Controls.Add(this.diagnosisTxt);
+            this.panel5.Controls.Add(this.label44);
+            this.panel5.Location = new System.Drawing.Point(2, 144);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(555, 75);
+            this.panel5.TabIndex = 458;
+            // 
+            // typePhoneChk
+            // 
+            this.typePhoneChk.AutoSize = true;
+            this.typePhoneChk.Location = new System.Drawing.Point(6, 24);
+            this.typePhoneChk.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.typePhoneChk.Name = "typePhoneChk";
+            this.typePhoneChk.Size = new System.Drawing.Size(54, 19);
+            this.typePhoneChk.TabIndex = 1;
+            this.typePhoneChk.Text = "PHONE";
+            this.typePhoneChk.UseVisualStyleBackColor = true;
+            // 
+            // typeVisitChk
+            // 
+            this.typeVisitChk.AutoSize = true;
+            this.typeVisitChk.Location = new System.Drawing.Point(6, 49);
+            this.typeVisitChk.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.typeVisitChk.Name = "typeVisitChk";
+            this.typeVisitChk.Size = new System.Drawing.Size(45, 19);
+            this.typeVisitChk.TabIndex = 2;
+            this.typeVisitChk.Text = "VISIT";
+            this.typeVisitChk.UseVisualStyleBackColor = true;
+            // 
+            // diagnosisTxt
+            // 
+            this.diagnosisTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.diagnosisTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.diagnosisTxt.Location = new System.Drawing.Point(121, 7);
+            this.diagnosisTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.diagnosisTxt.Multiline = true;
+            this.diagnosisTxt.Name = "diagnosisTxt";
+            this.diagnosisTxt.Size = new System.Drawing.Size(432, 61);
+            this.diagnosisTxt.TabIndex = 0;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(2, 7);
+            this.label44.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(65, 16);
+            this.label44.TabIndex = 300;
+            this.label44.Text = "DIAGNOSIS:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(2, 511);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(112, 27);
+            this.label11.TabIndex = 373;
+            this.label11.Text = "LENGTH OF TIME ON EQUIPMENT:";
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.label1, 2);
+            this.label1.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(2, 226);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(285, 17);
+            this.label1.TabIndex = 340;
+            this.label1.Text = "ALL ITEMS REVIEWED AND UNCHANGED BOX ONLY IF CHANGED && NOTE CHANGE ";
+            // 
+            // dtGridItemStatus
+            // 
+            this.dtGridItemStatus.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtGridItemStatus.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dtGridItemStatus.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dtGridItemStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtGridItemStatus.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dtGridItemStatus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableLayoutPanel1.SetColumnSpan(this.dtGridItemStatus, 2);
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridItemStatus.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dtGridItemStatus.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.dtGridItemStatus.Location = new System.Drawing.Point(291, 401);
+            this.dtGridItemStatus.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dtGridItemStatus.Name = "dtGridItemStatus";
+            this.dtGridItemStatus.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridItemStatus.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dtGridItemStatus.RowHeadersVisible = false;
+            this.dtGridItemStatus.RowHeadersWidth = 20;
+            this.tableLayoutPanel1.SetRowSpan(this.dtGridItemStatus, 2);
+            this.dtGridItemStatus.Size = new System.Drawing.Size(266, 103);
+            this.dtGridItemStatus.TabIndex = 9;
+            this.dtGridItemStatus.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridItemStatus_CellClick);
+            // 
+            // lengthTxt
+            // 
+            this.lengthTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.lengthTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableLayoutPanel1.SetColumnSpan(this.lengthTxt, 3);
+            this.lengthTxt.Location = new System.Drawing.Point(122, 514);
+            this.lengthTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.lengthTxt.Multiline = true;
+            this.lengthTxt.Name = "lengthTxt";
+            this.lengthTxt.Size = new System.Drawing.Size(433, 21);
+            this.lengthTxt.TabIndex = 10;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(2, 558);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(116, 16);
+            this.label12.TabIndex = 375;
+            this.label12.Text = "NEED";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // needTxt
+            // 
+            this.needTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.needTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.needTxt.Location = new System.Drawing.Point(122, 561);
+            this.needTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.needTxt.Multiline = true;
+            this.needTxt.Name = "needTxt";
+            this.needTxt.Size = new System.Drawing.Size(165, 21);
+            this.needTxt.TabIndex = 11;
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(291, 558);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(97, 16);
+            this.label13.TabIndex = 376;
+            this.label13.Text = "GOAL";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // goalTxt
+            // 
+            this.goalTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.goalTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.goalTxt.Location = new System.Drawing.Point(392, 561);
+            this.goalTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.goalTxt.Multiline = true;
+            this.goalTxt.Name = "goalTxt";
+            this.goalTxt.Size = new System.Drawing.Size(165, 21);
+            this.goalTxt.TabIndex = 13;
+            this.goalTxt.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(2, 585);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(116, 16);
+            this.label10.TabIndex = 374;
+            this.label10.Text = "RESULTS";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // resultTxt
+            // 
+            this.resultTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.resultTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.resultTxt.Location = new System.Drawing.Point(122, 588);
+            this.resultTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.resultTxt.Multiline = true;
+            this.resultTxt.Name = "resultTxt";
+            this.resultTxt.Size = new System.Drawing.Size(165, 16);
+            this.resultTxt.TabIndex = 12;
+            // 
+            // visitChk
+            // 
+            this.visitChk.AutoSize = true;
+            this.visitChk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.visitChk.Location = new System.Drawing.Point(291, 610);
+            this.visitChk.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.visitChk.Name = "visitChk";
+            this.visitChk.Size = new System.Drawing.Size(97, 16);
+            this.visitChk.TabIndex = 356;
+            this.visitChk.Text = "FOLLOW -UP VISIT RECOMMENDED";
+            this.visitChk.UseVisualStyleBackColor = false;
+            // 
+            // phoneChk
+            // 
+            this.phoneChk.AutoSize = true;
+            this.phoneChk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.phoneChk.Location = new System.Drawing.Point(392, 610);
+            this.phoneChk.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.phoneChk.Name = "phoneChk";
+            this.phoneChk.Size = new System.Drawing.Size(168, 16);
+            this.phoneChk.TabIndex = 357;
+            this.phoneChk.Text = "FOLLOW UP BY PHONE && AS NEEDED";
+            this.phoneChk.UseVisualStyleBackColor = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(2, 629);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(82, 16);
+            this.label14.TabIndex = 377;
+            this.label14.Text = "NEXT DR VISIT:";
+            // 
+            // nextTxt
+            // 
+            this.nextTxt.Location = new System.Drawing.Point(122, 632);
+            this.nextTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.nextTxt.MinimumSize = new System.Drawing.Size(0, 29);
+            this.nextTxt.Name = "nextTxt";
+            this.nextTxt.Size = new System.Drawing.Size(165, 29);
+            this.nextTxt.TabIndex = 14;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(291, 629);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(92, 16);
+            this.label16.TabIndex = 378;
+            this.label16.Text = "EQUIP TO BE P/U";
+            // 
+            // puTxt
+            // 
+            this.puTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.puTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.puTxt.Location = new System.Drawing.Point(392, 632);
+            this.puTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.puTxt.Multiline = true;
+            this.puTxt.Name = "puTxt";
+            this.puTxt.Size = new System.Drawing.Size(165, 27);
+            this.puTxt.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.label2, 4);
+            this.label2.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(2, 663);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(446, 16);
+            this.label2.TabIndex = 358;
+            this.label2.Text = "I HAVE READ,RECEIVED AND BEEN INSTRUCTED IN DETAIL ON THE ITEMS CHECKED ABOVE.";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.label6, 2);
+            this.label6.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(2, 682);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(258, 16);
+            this.label6.TabIndex = 361;
+            this.label6.Text = "If patient is unable to sign,complete the following:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(2, 702);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(97, 32);
+            this.label18.TabIndex = 379;
+            this.label18.Text = "Patient/Auth Rep Signature:";
+            // 
+            // authSignatureTxt
+            // 
+            this.authSignatureTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.authSignatureTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.authSignatureTxt.Location = new System.Drawing.Point(122, 705);
+            this.authSignatureTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.authSignatureTxt.Multiline = true;
+            this.authSignatureTxt.Name = "authSignatureTxt";
+            this.authSignatureTxt.Size = new System.Drawing.Size(156, 24);
+            this.authSignatureTxt.TabIndex = 16;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(291, 702);
+            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(66, 32);
+            this.label19.TabIndex = 380;
+            this.label19.Text = "Name of authorized person";
+            // 
+            // authoriserTxt
+            // 
+            this.authoriserTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.authoriserTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.authoriserTxt.Location = new System.Drawing.Point(392, 705);
+            this.authoriserTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.authoriserTxt.Multiline = true;
+            this.authoriserTxt.Name = "authoriserTxt";
+            this.authoriserTxt.Size = new System.Drawing.Size(165, 24);
+            this.authoriserTxt.TabIndex = 17;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(2, 734);
+            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(40, 16);
+            this.label20.TabIndex = 381;
+            this.label20.Text = "(Print)";
+            // 
+            // textBox21
+            // 
+            this.textBox21.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBox21.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox21.Location = new System.Drawing.Point(122, 737);
+            this.textBox21.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.textBox21.Multiline = true;
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(156, 18);
+            this.textBox21.TabIndex = 18;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(291, 734);
+            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(68, 16);
+            this.label22.TabIndex = 383;
+            this.label22.Text = "Relationship";
+            // 
+            // relationTxt
+            // 
+            this.relationTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.relationTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.relationTxt.Location = new System.Drawing.Point(392, 737);
+            this.relationTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.relationTxt.Multiline = true;
+            this.relationTxt.Name = "relationTxt";
+            this.relationTxt.Size = new System.Drawing.Size(165, 18);
+            this.relationTxt.TabIndex = 19;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(2, 758);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(105, 16);
+            this.label21.TabIndex = 382;
+            this.label21.Text = "Employee signature";
+            // 
+            // employeeTxt
+            // 
+            this.employeeTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.employeeTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.employeeTxt.Location = new System.Drawing.Point(122, 761);
+            this.employeeTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.employeeTxt.Multiline = true;
+            this.employeeTxt.Name = "employeeTxt";
+            this.employeeTxt.Size = new System.Drawing.Size(156, 24);
+            this.employeeTxt.TabIndex = 21;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(291, 758);
+            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(85, 32);
+            this.label23.TabIndex = 384;
+            this.label23.Text = "Why Pt cannot Sign:";
+            // 
+            // reasonTxt
+            // 
+            this.reasonTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.reasonTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.reasonTxt.Location = new System.Drawing.Point(392, 761);
+            this.reasonTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.reasonTxt.Multiline = true;
+            this.reasonTxt.Name = "reasonTxt";
+            this.reasonTxt.Size = new System.Drawing.Size(165, 24);
+            this.reasonTxt.TabIndex = 20;
+            // 
+            // label53
+            // 
+            this.label53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.label53, 4);
+            this.label53.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.Location = new System.Drawing.Point(2, 538);
+            this.label53.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(557, 15);
+            this.label53.TabIndex = 325;
+            this.label53.Text = "ADDITIONAL NOTES";
+            // 
+            // label15
+            // 
+            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.label15, 2);
+            this.label15.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(2, 607);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(285, 17);
+            this.label15.TabIndex = 252;
+            this.label15.Text = "FOLLOW-UP/DISCHARGE";
+            // 
+            // label31
+            // 
+            this.label31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.label31, 2);
+            this.label31.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(291, 226);
+            this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(266, 17);
+            this.label31.TabIndex = 287;
+            this.label31.Text = "PATIENT STATUS";
             // 
             // previewdlg
             // 
@@ -1071,151 +1216,6 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // productPbx
-            // 
-            this.productPbx.Location = new System.Drawing.Point(3, 21);
-            this.productPbx.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.productPbx.Name = "productPbx";
-            this.productPbx.Size = new System.Drawing.Size(68, 42);
-            this.productPbx.TabIndex = 444;
-            this.productPbx.TabStop = false;
-            // 
-            // cusPbx
-            // 
-            this.cusPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
-            this.cusPbx.Location = new System.Drawing.Point(2, 4);
-            this.cusPbx.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.cusPbx.Name = "cusPbx";
-            this.cusPbx.Size = new System.Drawing.Size(64, 42);
-            this.cusPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.cusPbx.TabIndex = 179;
-            this.cusPbx.TabStop = false;
-            // 
-            // userPbx
-            // 
-            this.userPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
-            this.userPbx.Location = new System.Drawing.Point(3, 5);
-            this.userPbx.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.userPbx.Name = "userPbx";
-            this.userPbx.Size = new System.Drawing.Size(57, 43);
-            this.userPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.userPbx.TabIndex = 180;
-            this.userPbx.TabStop = false;
-            // 
-            // puTxt
-            // 
-            this.puTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.puTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.puTxt.Location = new System.Drawing.Point(393, 632);
-            this.puTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.puTxt.Multiline = true;
-            this.puTxt.Name = "puTxt";
-            this.puTxt.Size = new System.Drawing.Size(165, 27);
-            this.puTxt.TabIndex = 15;
-            // 
-            // label31
-            // 
-            this.label31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.tableLayoutPanel1.SetColumnSpan(this.label31, 2);
-            this.label31.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(292, 226);
-            this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(266, 17);
-            this.label31.TabIndex = 287;
-            this.label31.Text = "PATIENT STATUS";
-            // 
-            // reasonTxt
-            // 
-            this.reasonTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.reasonTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.reasonTxt.Location = new System.Drawing.Point(393, 761);
-            this.reasonTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.reasonTxt.Multiline = true;
-            this.reasonTxt.Name = "reasonTxt";
-            this.reasonTxt.Size = new System.Drawing.Size(165, 24);
-            this.reasonTxt.TabIndex = 20;
-            // 
-            // relationTxt
-            // 
-            this.relationTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.relationTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.relationTxt.Location = new System.Drawing.Point(393, 737);
-            this.relationTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.relationTxt.Multiline = true;
-            this.relationTxt.Name = "relationTxt";
-            this.relationTxt.Size = new System.Drawing.Size(165, 18);
-            this.relationTxt.TabIndex = 19;
-            // 
-            // authoriserTxt
-            // 
-            this.authoriserTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.authoriserTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.authoriserTxt.Location = new System.Drawing.Point(393, 705);
-            this.authoriserTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.authoriserTxt.Multiline = true;
-            this.authoriserTxt.Name = "authoriserTxt";
-            this.authoriserTxt.Size = new System.Drawing.Size(165, 24);
-            this.authoriserTxt.TabIndex = 17;
-            // 
-            // goalTxt
-            // 
-            this.goalTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.goalTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.goalTxt.Location = new System.Drawing.Point(393, 561);
-            this.goalTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.goalTxt.Multiline = true;
-            this.goalTxt.Name = "goalTxt";
-            this.goalTxt.Size = new System.Drawing.Size(165, 21);
-            this.goalTxt.TabIndex = 13;
-            this.goalTxt.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
-            // 
-            // typePhoneChk
-            // 
-            this.typePhoneChk.AutoSize = true;
-            this.typePhoneChk.Location = new System.Drawing.Point(6, 24);
-            this.typePhoneChk.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.typePhoneChk.Name = "typePhoneChk";
-            this.typePhoneChk.Size = new System.Drawing.Size(54, 19);
-            this.typePhoneChk.TabIndex = 1;
-            this.typePhoneChk.Text = "PHONE";
-            this.typePhoneChk.UseVisualStyleBackColor = true;
-            // 
-            // metroDateTime1
-            // 
-            this.metroDateTime1.Location = new System.Drawing.Point(393, 3);
-            this.metroDateTime1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
-            this.metroDateTime1.Name = "metroDateTime1";
-            this.metroDateTime1.Size = new System.Drawing.Size(166, 29);
-            this.metroDateTime1.TabIndex = 2;
-            // 
-            // userCbx
-            // 
-            this.userCbx.FormattingEnabled = true;
-            this.userCbx.ItemHeight = 23;
-            this.userCbx.Location = new System.Drawing.Point(393, 38);
-            this.userCbx.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.userCbx.Name = "userCbx";
-            this.userCbx.PromptText = "Physician";
-            this.userCbx.Size = new System.Drawing.Size(166, 29);
-            this.userCbx.TabIndex = 4;
-            this.userCbx.UseSelectable = true;
-            this.userCbx.SelectedIndexChanged += new System.EventHandler(this.userCbx_SelectedIndexChanged);
-            // 
-            // panel5
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.panel5, 4);
-            this.panel5.Controls.Add(this.typePhoneChk);
-            this.panel5.Controls.Add(this.typeVisitChk);
-            this.panel5.Controls.Add(this.diagnosisTxt);
-            this.panel5.Controls.Add(this.label44);
-            this.panel5.Location = new System.Drawing.Point(2, 144);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(555, 75);
-            this.panel5.TabIndex = 458;
-            // 
             // FollowForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 15F);
@@ -1237,20 +1237,20 @@
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridReview)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridPatientStatus)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridItemStatus)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productPbx)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridPatientStatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridReview)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPbx)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridItemStatus)).EndInit();
             this.ResumeLayout(false);
 
         }
