@@ -32,9 +32,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.noTxt = new MetroFramework.Controls.MetroTextBox();
             this.dtGrid = new System.Windows.Forms.DataGridView();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.dateTxt = new MetroFramework.Controls.MetroDateTime();
             this.typeCbx = new MetroFramework.Controls.MetroComboBox();
             this.totalTxt = new MetroFramework.Controls.MetroTextBox();
@@ -48,13 +53,8 @@
             this.taxTxt = new MetroFramework.Controls.MetroTextBox();
             this.termsTxt = new MetroFramework.Controls.MetroTextBox();
             this.methodCbx = new MetroFramework.Controls.MetroComboBox();
-            this.noTxt = new MetroFramework.Controls.MetroTextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.vendorPbx = new System.Windows.Forms.PictureBox();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.InvoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TransactionBingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1.SuspendLayout();
@@ -84,6 +84,28 @@
             this.toolStrip1.Size = new System.Drawing.Size(844, 52);
             this.toolStrip1.TabIndex = 46;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripLabel1.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.toolStripLabel1.Image = global::ARM.Properties.Resources.Inventory_24;
+            this.toolStripLabel1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(98, 29);
+            this.toolStripLabel1.Text = "Invoice";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::ARM.Properties.Resources.Cancel_16;
+            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 29);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -137,6 +159,41 @@
             this.panel1.Size = new System.Drawing.Size(847, 493);
             this.panel1.TabIndex = 41;
             // 
+            // noTxt
+            // 
+            // 
+            // 
+            // 
+            this.noTxt.CustomButton.Image = null;
+            this.noTxt.CustomButton.Location = new System.Drawing.Point(167, 1);
+            this.noTxt.CustomButton.Name = "";
+            this.noTxt.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.noTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.noTxt.CustomButton.TabIndex = 1;
+            this.noTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.noTxt.CustomButton.UseSelectable = true;
+            this.noTxt.CustomButton.Visible = false;
+            this.noTxt.DisplayIcon = true;
+            this.noTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
+            this.noTxt.Lines = new string[0];
+            this.noTxt.Location = new System.Drawing.Point(645, 38);
+            this.noTxt.MaxLength = 32767;
+            this.noTxt.Name = "noTxt";
+            this.noTxt.PasswordChar = '\0';
+            this.noTxt.PromptText = "No.";
+            this.noTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.noTxt.SelectedText = "";
+            this.noTxt.SelectionLength = 0;
+            this.noTxt.SelectionStart = 0;
+            this.noTxt.ShortcutsEnabled = true;
+            this.noTxt.Size = new System.Drawing.Size(189, 23);
+            this.noTxt.Style = MetroFramework.MetroColorStyle.Green;
+            this.noTxt.TabIndex = 11;
+            this.noTxt.UseSelectable = true;
+            this.noTxt.WaterMark = "No.";
+            this.noTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.noTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // dtGrid
             // 
             this.dtGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -171,6 +228,44 @@
             this.dtGrid.TabIndex = 251;
             this.dtGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellClick);
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button3.Image = global::ARM.Properties.Resources.Submit_01_32;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(735, 419);
+            this.button3.Name = "button3";
+            this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button3.Size = new System.Drawing.Size(99, 44);
+            this.button3.TabIndex = 12;
+            this.button3.Text = "Submit";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(13, 421);
+            this.button2.Name = "button2";
+            this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button2.Size = new System.Drawing.Size(103, 41);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Cancel";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // dateTxt
             // 
             this.dateTxt.DisplayFocus = true;
@@ -180,7 +275,7 @@
             this.dateTxt.Name = "dateTxt";
             this.dateTxt.Size = new System.Drawing.Size(189, 29);
             this.dateTxt.Style = MetroFramework.MetroColorStyle.Green;
-            this.dateTxt.TabIndex = 2;
+            this.dateTxt.TabIndex = 10;
             this.dateTxt.UseStyleColors = true;
             // 
             // typeCbx
@@ -195,7 +290,7 @@
             this.typeCbx.PromptText = "Credit/Debit";
             this.typeCbx.Size = new System.Drawing.Size(241, 29);
             this.typeCbx.Style = MetroFramework.MetroColorStyle.Green;
-            this.typeCbx.TabIndex = 4;
+            this.typeCbx.TabIndex = 3;
             this.typeCbx.Theme = MetroFramework.MetroThemeStyle.Light;
             this.typeCbx.UseSelectable = true;
             this.typeCbx.UseStyleColors = true;
@@ -254,7 +349,7 @@
             this.categoryCbx.PromptText = "Purchase/Sale";
             this.categoryCbx.Size = new System.Drawing.Size(241, 29);
             this.categoryCbx.Style = MetroFramework.MetroColorStyle.Green;
-            this.categoryCbx.TabIndex = 3;
+            this.categoryCbx.TabIndex = 0;
             this.categoryCbx.UseSelectable = true;
             this.categoryCbx.UseStyleColors = true;
             this.categoryCbx.SelectedIndexChanged += new System.EventHandler(this.categoryCbx_SelectedIndexChanged);
@@ -286,7 +381,7 @@
             this.customerTxt.ShortcutsEnabled = true;
             this.customerTxt.Size = new System.Drawing.Size(241, 23);
             this.customerTxt.Style = MetroFramework.MetroColorStyle.Green;
-            this.customerTxt.TabIndex = 1;
+            this.customerTxt.TabIndex = 2;
             this.customerTxt.UseSelectable = true;
             this.customerTxt.WaterMark = "Shipping to";
             this.customerTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -320,7 +415,7 @@
             this.vendorTxt.ShortcutsEnabled = true;
             this.vendorTxt.Size = new System.Drawing.Size(241, 23);
             this.vendorTxt.Style = MetroFramework.MetroColorStyle.Green;
-            this.vendorTxt.TabIndex = 0;
+            this.vendorTxt.TabIndex = 1;
             this.vendorTxt.UseSelectable = true;
             this.vendorTxt.WaterMark = "Shipping from";
             this.vendorTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -354,7 +449,7 @@
             this.amountTxt.ShortcutsEnabled = true;
             this.amountTxt.Size = new System.Drawing.Size(241, 23);
             this.amountTxt.Style = MetroFramework.MetroColorStyle.Green;
-            this.amountTxt.TabIndex = 8;
+            this.amountTxt.TabIndex = 5;
             this.amountTxt.UseSelectable = true;
             this.amountTxt.WaterMark = "Amount paid";
             this.amountTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -405,7 +500,7 @@
             this.ItemCountTxt.ShortcutsEnabled = true;
             this.ItemCountTxt.Size = new System.Drawing.Size(241, 23);
             this.ItemCountTxt.Style = MetroFramework.MetroColorStyle.White;
-            this.ItemCountTxt.TabIndex = 9;
+            this.ItemCountTxt.TabIndex = 8;
             this.ItemCountTxt.Theme = MetroFramework.MetroThemeStyle.Light;
             this.ItemCountTxt.UseSelectable = true;
             this.ItemCountTxt.UseStyleColors = true;
@@ -442,7 +537,7 @@
             this.balanceTxt.ShortcutsEnabled = true;
             this.balanceTxt.Size = new System.Drawing.Size(241, 23);
             this.balanceTxt.Style = MetroFramework.MetroColorStyle.White;
-            this.balanceTxt.TabIndex = 11;
+            this.balanceTxt.TabIndex = 9;
             this.balanceTxt.Theme = MetroFramework.MetroThemeStyle.Light;
             this.balanceTxt.UseSelectable = true;
             this.balanceTxt.UseStyleColors = true;
@@ -477,7 +572,7 @@
             this.taxTxt.ShortcutsEnabled = true;
             this.taxTxt.Size = new System.Drawing.Size(241, 23);
             this.taxTxt.Style = MetroFramework.MetroColorStyle.Green;
-            this.taxTxt.TabIndex = 10;
+            this.taxTxt.TabIndex = 6;
             this.taxTxt.UseSelectable = true;
             this.taxTxt.WaterMark = "Tax";
             this.taxTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -511,7 +606,7 @@
             this.termsTxt.ShortcutsEnabled = true;
             this.termsTxt.Size = new System.Drawing.Size(241, 29);
             this.termsTxt.Style = MetroFramework.MetroColorStyle.Green;
-            this.termsTxt.TabIndex = 12;
+            this.termsTxt.TabIndex = 7;
             this.termsTxt.UseSelectable = true;
             this.termsTxt.WaterMark = "Terms && conditions";
             this.termsTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -529,83 +624,10 @@
             this.methodCbx.PromptText = "Method";
             this.methodCbx.Size = new System.Drawing.Size(241, 29);
             this.methodCbx.Style = MetroFramework.MetroColorStyle.Green;
-            this.methodCbx.TabIndex = 6;
+            this.methodCbx.TabIndex = 4;
             this.methodCbx.UseSelectable = true;
             this.methodCbx.UseStyleColors = true;
             this.methodCbx.SelectedIndexChanged += new System.EventHandler(this.metroComboBox1_SelectedIndexChanged);
-            // 
-            // noTxt
-            // 
-            // 
-            // 
-            // 
-            this.noTxt.CustomButton.Image = null;
-            this.noTxt.CustomButton.Location = new System.Drawing.Point(167, 1);
-            this.noTxt.CustomButton.Name = "";
-            this.noTxt.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.noTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.noTxt.CustomButton.TabIndex = 1;
-            this.noTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.noTxt.CustomButton.UseSelectable = true;
-            this.noTxt.CustomButton.Visible = false;
-            this.noTxt.DisplayIcon = true;
-            this.noTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
-            this.noTxt.Lines = new string[0];
-            this.noTxt.Location = new System.Drawing.Point(645, 38);
-            this.noTxt.MaxLength = 32767;
-            this.noTxt.Name = "noTxt";
-            this.noTxt.PasswordChar = '\0';
-            this.noTxt.PromptText = "No.";
-            this.noTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.noTxt.SelectedText = "";
-            this.noTxt.SelectionLength = 0;
-            this.noTxt.SelectionStart = 0;
-            this.noTxt.ShortcutsEnabled = true;
-            this.noTxt.Size = new System.Drawing.Size(189, 23);
-            this.noTxt.Style = MetroFramework.MetroColorStyle.Green;
-            this.noTxt.TabIndex = 42;
-            this.noTxt.UseSelectable = true;
-            this.noTxt.WaterMark = "No.";
-            this.noTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.noTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.Image = global::ARM.Properties.Resources.Submit_01_32;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(735, 419);
-            this.button3.Name = "button3";
-            this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button3.Size = new System.Drawing.Size(99, 44);
-            this.button3.TabIndex = 249;
-            this.button3.Text = "Submit";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(13, 421);
-            this.button2.Name = "button2";
-            this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button2.Size = new System.Drawing.Size(103, 41);
-            this.button2.TabIndex = 250;
-            this.button2.Text = "Cancel";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // button4
             // 
@@ -634,28 +656,6 @@
             this.vendorPbx.Size = new System.Drawing.Size(187, 85);
             this.vendorPbx.TabIndex = 35;
             this.vendorPbx.TabStop = false;
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripLabel1.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.toolStripLabel1.Image = global::ARM.Properties.Resources.Inventory_24;
-            this.toolStripLabel1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(98, 29);
-            this.toolStripLabel1.Text = "Invoice";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::ARM.Properties.Resources.Cancel_16;
-            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 29);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // InvoiceBindingSource
             // 

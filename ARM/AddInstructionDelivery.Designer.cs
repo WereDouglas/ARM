@@ -31,12 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddInstructionDelivery));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.signatureTxt = new MetroFramework.Controls.MetroTextBox();
             this.followUpCbx = new MetroFramework.Controls.MetroComboBox();
             this.additionNotesTxt = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.customerCbx = new MetroFramework.Controls.MetroComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.altContactTxt = new System.Windows.Forms.TextBox();
+            this.cusPbx = new System.Windows.Forms.PictureBox();
             this.subscriberInfoTxt = new System.Windows.Forms.TextBox();
             this.subscriberTypeTxt = new System.Windows.Forms.TextBox();
             this.typeListBx = new System.Windows.Forms.CheckedListBox();
@@ -54,12 +56,18 @@
             this.equipmentTypeListBox = new System.Windows.Forms.CheckedListBox();
             this.typeTxt = new System.Windows.Forms.TextBox();
             this.serialTxt = new System.Windows.Forms.TextBox();
+            this.productPbx = new System.Windows.Forms.PictureBox();
             this.label31 = new System.Windows.Forms.Label();
             this.productCbx = new MetroFramework.Controls.MetroComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.clinicalDateTxt = new MetroFramework.Controls.MetroDateTime();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.kinContactTxt = new MetroFramework.Controls.MetroTextBox();
+            this.reasonTxt = new MetroFramework.Controls.MetroTextBox();
+            this.userSignatureTxt = new MetroFramework.Controls.MetroTextBox();
+            this.kinAddressTxt = new MetroFramework.Controls.MetroTextBox();
+            this.kinnameTxt = new MetroFramework.Controls.MetroTextBox();
             this.userCbx = new MetroFramework.Controls.MetroComboBox();
             this.additionalListBx = new System.Windows.Forms.CheckedListBox();
             this.label52 = new System.Windows.Forms.Label();
@@ -75,21 +83,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.signatureTxt = new MetroFramework.Controls.MetroTextBox();
-            this.cusPbx = new System.Windows.Forms.PictureBox();
-            this.productPbx = new System.Windows.Forms.PictureBox();
-            this.kinContactTxt = new MetroFramework.Controls.MetroTextBox();
-            this.reasonTxt = new MetroFramework.Controls.MetroTextBox();
-            this.userSignatureTxt = new MetroFramework.Controls.MetroTextBox();
-            this.kinAddressTxt = new MetroFramework.Controls.MetroTextBox();
-            this.kinnameTxt = new MetroFramework.Controls.MetroTextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).BeginInit();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productPbx)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -180,6 +180,40 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(776, 873);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
+            // signatureTxt
+            // 
+            // 
+            // 
+            // 
+            this.signatureTxt.CustomButton.Image = null;
+            this.signatureTxt.CustomButton.Location = new System.Drawing.Point(164, 1);
+            this.signatureTxt.CustomButton.Name = "";
+            this.signatureTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
+            this.signatureTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.signatureTxt.CustomButton.TabIndex = 1;
+            this.signatureTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.signatureTxt.CustomButton.UseSelectable = true;
+            this.signatureTxt.CustomButton.Visible = false;
+            this.signatureTxt.DisplayIcon = true;
+            this.signatureTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
+            this.signatureTxt.Lines = new string[0];
+            this.signatureTxt.Location = new System.Drawing.Point(196, 700);
+            this.signatureTxt.MaxLength = 32767;
+            this.signatureTxt.Name = "signatureTxt";
+            this.signatureTxt.PasswordChar = '\0';
+            this.signatureTxt.PromptText = "Patient signature";
+            this.signatureTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.signatureTxt.SelectedText = "";
+            this.signatureTxt.SelectionLength = 0;
+            this.signatureTxt.SelectionStart = 0;
+            this.signatureTxt.ShortcutsEnabled = true;
+            this.signatureTxt.Size = new System.Drawing.Size(198, 35);
+            this.signatureTxt.TabIndex = 15;
+            this.signatureTxt.UseSelectable = true;
+            this.signatureTxt.WaterMark = "Patient signature";
+            this.signatureTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.signatureTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // followUpCbx
             // 
             this.followUpCbx.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -190,12 +224,12 @@
             this.followUpCbx.Items.AddRange(new object[] {
             "FOLLOW-UP VISIT RECOMMENDED",
             "FOLLOW UP BY PHONE && AS NEEDED"});
-            this.followUpCbx.Location = new System.Drawing.Point(401, 641);
+            this.followUpCbx.Location = new System.Drawing.Point(400, 641);
             this.followUpCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.followUpCbx.Name = "followUpCbx";
             this.followUpCbx.PromptText = "Follow up /Discharge";
             this.followUpCbx.Size = new System.Drawing.Size(363, 29);
-            this.followUpCbx.TabIndex = 467;
+            this.followUpCbx.TabIndex = 14;
             this.followUpCbx.UseSelectable = true;
             // 
             // additionNotesTxt
@@ -206,8 +240,8 @@
             this.additionNotesTxt.Location = new System.Drawing.Point(196, 605);
             this.additionNotesTxt.Multiline = true;
             this.additionNotesTxt.Name = "additionNotesTxt";
-            this.additionNotesTxt.Size = new System.Drawing.Size(570, 29);
-            this.additionNotesTxt.TabIndex = 467;
+            this.additionNotesTxt.Size = new System.Drawing.Size(569, 29);
+            this.additionNotesTxt.TabIndex = 13;
             // 
             // label15
             // 
@@ -217,7 +251,7 @@
             this.label15.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(8, 150);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(758, 21);
+            this.label15.Size = new System.Drawing.Size(757, 21);
             this.label15.TabIndex = 462;
             this.label15.Text = "HOME ENVIRONMENT/SAFETY ASSESSMENT";
             // 
@@ -231,7 +265,7 @@
             this.customerCbx.Name = "customerCbx";
             this.customerCbx.PromptText = "Name";
             this.customerCbx.Size = new System.Drawing.Size(385, 29);
-            this.customerCbx.TabIndex = 440;
+            this.customerCbx.TabIndex = 0;
             this.customerCbx.UseSelectable = true;
             this.customerCbx.SelectedIndexChanged += new System.EventHandler(this.customerCbx_SelectedIndexChanged);
             // 
@@ -245,7 +279,7 @@
             this.panel2.Location = new System.Drawing.Point(8, 45);
             this.panel2.Name = "panel2";
             this.tableLayoutPanel1.SetRowSpan(this.panel2, 3);
-            this.panel2.Size = new System.Drawing.Size(387, 99);
+            this.panel2.Size = new System.Drawing.Size(386, 99);
             this.panel2.TabIndex = 452;
             // 
             // altContactTxt
@@ -256,7 +290,17 @@
             this.altContactTxt.Multiline = true;
             this.altContactTxt.Name = "altContactTxt";
             this.altContactTxt.Size = new System.Drawing.Size(241, 21);
-            this.altContactTxt.TabIndex = 405;
+            this.altContactTxt.TabIndex = 2;
+            // 
+            // cusPbx
+            // 
+            this.cusPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
+            this.cusPbx.Location = new System.Drawing.Point(3, 4);
+            this.cusPbx.Name = "cusPbx";
+            this.cusPbx.Size = new System.Drawing.Size(77, 45);
+            this.cusPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.cusPbx.TabIndex = 179;
+            this.cusPbx.TabStop = false;
             // 
             // subscriberInfoTxt
             // 
@@ -266,7 +310,7 @@
             this.subscriberInfoTxt.Multiline = true;
             this.subscriberInfoTxt.Name = "subscriberInfoTxt";
             this.subscriberInfoTxt.Size = new System.Drawing.Size(241, 39);
-            this.subscriberInfoTxt.TabIndex = 259;
+            this.subscriberInfoTxt.TabIndex = 1;
             // 
             // subscriberTypeTxt
             // 
@@ -276,7 +320,7 @@
             this.subscriberTypeTxt.Multiline = true;
             this.subscriberTypeTxt.Name = "subscriberTypeTxt";
             this.subscriberTypeTxt.Size = new System.Drawing.Size(241, 21);
-            this.subscriberTypeTxt.TabIndex = 404;
+            this.subscriberTypeTxt.TabIndex = 0;
             // 
             // typeListBx
             // 
@@ -286,17 +330,17 @@
             this.typeListBx.Items.AddRange(new object[] {
             "Long term care facility",
             "Physical Therapy/Occupational Therapy Clinic"});
-            this.typeListBx.Location = new System.Drawing.Point(401, 45);
+            this.typeListBx.Location = new System.Drawing.Point(400, 45);
             this.typeListBx.Name = "typeListBx";
             this.tableLayoutPanel1.SetRowSpan(this.typeListBx, 2);
             this.typeListBx.Size = new System.Drawing.Size(365, 60);
-            this.typeListBx.TabIndex = 451;
+            this.typeListBx.TabIndex = 2;
             // 
             // label37
             // 
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(401, 117);
+            this.label37.Location = new System.Drawing.Point(400, 117);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(115, 16);
             this.label37.TabIndex = 457;
@@ -308,10 +352,10 @@
             this.appropriateCbx.Items.AddRange(new object[] {
             "Yes",
             "No"});
-            this.appropriateCbx.Location = new System.Drawing.Point(537, 120);
+            this.appropriateCbx.Location = new System.Drawing.Point(536, 120);
             this.appropriateCbx.Name = "appropriateCbx";
             this.appropriateCbx.Size = new System.Drawing.Size(229, 24);
-            this.appropriateCbx.TabIndex = 458;
+            this.appropriateCbx.TabIndex = 3;
             // 
             // label22
             // 
@@ -346,7 +390,7 @@
             this.safetyListBx.Name = "safetyListBx";
             this.tableLayoutPanel1.SetRowSpan(this.safetyListBx, 4);
             this.safetyListBx.Size = new System.Drawing.Size(385, 75);
-            this.safetyListBx.TabIndex = 460;
+            this.safetyListBx.TabIndex = 8;
             // 
             // appropListBx
             // 
@@ -357,12 +401,12 @@
             "Alert understand INSTRUCTIONS",
             "Returns demonstration by patient",
             "Confused/caregiver instructed Personal/physical limit"});
-            this.appropListBx.Location = new System.Drawing.Point(537, 195);
+            this.appropListBx.Location = new System.Drawing.Point(536, 195);
             this.appropListBx.MultiColumn = true;
             this.appropListBx.Name = "appropListBx";
             this.tableLayoutPanel1.SetRowSpan(this.appropListBx, 4);
             this.appropListBx.Size = new System.Drawing.Size(228, 60);
-            this.appropListBx.TabIndex = 461;
+            this.appropListBx.TabIndex = 9;
             // 
             // label51
             // 
@@ -381,7 +425,7 @@
             this.safetyOtherTxt.Location = new System.Drawing.Point(196, 281);
             this.safetyOtherTxt.Multiline = true;
             this.safetyOtherTxt.Name = "safetyOtherTxt";
-            this.safetyOtherTxt.Size = new System.Drawing.Size(199, 16);
+            this.safetyOtherTxt.Size = new System.Drawing.Size(198, 16);
             this.safetyOtherTxt.TabIndex = 411;
             // 
             // label47
@@ -409,7 +453,7 @@
             this.panel4.Location = new System.Drawing.Point(8, 338);
             this.panel4.Name = "panel4";
             this.tableLayoutPanel1.SetRowSpan(this.panel4, 4);
-            this.panel4.Size = new System.Drawing.Size(758, 120);
+            this.panel4.Size = new System.Drawing.Size(757, 120);
             this.panel4.TabIndex = 455;
             // 
             // label2
@@ -430,7 +474,7 @@
             this.equipOtherTxt.Multiline = true;
             this.equipOtherTxt.Name = "equipOtherTxt";
             this.equipOtherTxt.Size = new System.Drawing.Size(199, 17);
-            this.equipOtherTxt.TabIndex = 465;
+            this.equipOtherTxt.TabIndex = 3;
             // 
             // equipmentTypeListBox
             // 
@@ -449,7 +493,7 @@
             this.equipmentTypeListBox.MultiColumn = true;
             this.equipmentTypeListBox.Name = "equipmentTypeListBox";
             this.equipmentTypeListBox.Size = new System.Drawing.Size(347, 105);
-            this.equipmentTypeListBox.TabIndex = 464;
+            this.equipmentTypeListBox.TabIndex = 4;
             // 
             // typeTxt
             // 
@@ -459,7 +503,7 @@
             this.typeTxt.Multiline = true;
             this.typeTxt.Name = "typeTxt";
             this.typeTxt.Size = new System.Drawing.Size(199, 17);
-            this.typeTxt.TabIndex = 463;
+            this.typeTxt.TabIndex = 2;
             // 
             // serialTxt
             // 
@@ -469,7 +513,15 @@
             this.serialTxt.Multiline = true;
             this.serialTxt.Name = "serialTxt";
             this.serialTxt.Size = new System.Drawing.Size(199, 16);
-            this.serialTxt.TabIndex = 462;
+            this.serialTxt.TabIndex = 1;
+            // 
+            // productPbx
+            // 
+            this.productPbx.Location = new System.Drawing.Point(4, 22);
+            this.productPbx.Name = "productPbx";
+            this.productPbx.Size = new System.Drawing.Size(82, 45);
+            this.productPbx.TabIndex = 444;
+            this.productPbx.TabStop = false;
             // 
             // label31
             // 
@@ -491,7 +543,7 @@
             this.productCbx.Name = "productCbx";
             this.productCbx.PromptText = "Product/Device";
             this.productCbx.Size = new System.Drawing.Size(199, 29);
-            this.productCbx.TabIndex = 443;
+            this.productCbx.TabIndex = 0;
             this.productCbx.UseSelectable = true;
             this.productCbx.SelectedIndexChanged += new System.EventHandler(this.productCbx_SelectedIndexChanged);
             // 
@@ -504,7 +556,7 @@
             this.label3.Location = new System.Drawing.Point(8, 300);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(760, 22);
-            this.label3.TabIndex = 463;
+            this.label3.TabIndex = 10;
             this.label3.Text = "EQUIPMENT";
             // 
             // label32
@@ -520,11 +572,11 @@
             // 
             // clinicalDateTxt
             // 
-            this.clinicalDateTxt.Location = new System.Drawing.Point(537, 8);
+            this.clinicalDateTxt.Location = new System.Drawing.Point(536, 8);
             this.clinicalDateTxt.MinimumSize = new System.Drawing.Size(0, 29);
             this.clinicalDateTxt.Name = "clinicalDateTxt";
             this.clinicalDateTxt.Size = new System.Drawing.Size(229, 29);
-            this.clinicalDateTxt.TabIndex = 394;
+            this.clinicalDateTxt.TabIndex = 1;
             // 
             // panel3
             // 
@@ -538,8 +590,178 @@
             this.panel3.Location = new System.Drawing.Point(8, 774);
             this.panel3.Name = "panel3";
             this.tableLayoutPanel1.SetRowSpan(this.panel3, 4);
-            this.panel3.Size = new System.Drawing.Size(758, 95);
+            this.panel3.Size = new System.Drawing.Size(757, 95);
             this.panel3.TabIndex = 471;
+            // 
+            // kinContactTxt
+            // 
+            // 
+            // 
+            // 
+            this.kinContactTxt.CustomButton.Image = null;
+            this.kinContactTxt.CustomButton.Location = new System.Drawing.Point(169, 1);
+            this.kinContactTxt.CustomButton.Name = "";
+            this.kinContactTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
+            this.kinContactTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.kinContactTxt.CustomButton.TabIndex = 1;
+            this.kinContactTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.kinContactTxt.CustomButton.UseSelectable = true;
+            this.kinContactTxt.CustomButton.Visible = false;
+            this.kinContactTxt.DisplayIcon = true;
+            this.kinContactTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
+            this.kinContactTxt.Lines = new string[0];
+            this.kinContactTxt.Location = new System.Drawing.Point(278, 45);
+            this.kinContactTxt.MaxLength = 32767;
+            this.kinContactTxt.Name = "kinContactTxt";
+            this.kinContactTxt.PasswordChar = '\0';
+            this.kinContactTxt.PromptText = "Contact";
+            this.kinContactTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.kinContactTxt.SelectedText = "";
+            this.kinContactTxt.SelectionLength = 0;
+            this.kinContactTxt.SelectionStart = 0;
+            this.kinContactTxt.ShortcutsEnabled = true;
+            this.kinContactTxt.Size = new System.Drawing.Size(203, 35);
+            this.kinContactTxt.TabIndex = 3;
+            this.kinContactTxt.UseSelectable = true;
+            this.kinContactTxt.WaterMark = "Contact";
+            this.kinContactTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.kinContactTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // reasonTxt
+            // 
+            // 
+            // 
+            // 
+            this.reasonTxt.CustomButton.Image = null;
+            this.reasonTxt.CustomButton.Location = new System.Drawing.Point(169, 1);
+            this.reasonTxt.CustomButton.Name = "";
+            this.reasonTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
+            this.reasonTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.reasonTxt.CustomButton.TabIndex = 1;
+            this.reasonTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.reasonTxt.CustomButton.UseSelectable = true;
+            this.reasonTxt.CustomButton.Visible = false;
+            this.reasonTxt.DisplayIcon = true;
+            this.reasonTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
+            this.reasonTxt.Lines = new string[0];
+            this.reasonTxt.Location = new System.Drawing.Point(529, 45);
+            this.reasonTxt.MaxLength = 32767;
+            this.reasonTxt.Name = "reasonTxt";
+            this.reasonTxt.PasswordChar = '\0';
+            this.reasonTxt.PromptText = "Reason for not signing";
+            this.reasonTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.reasonTxt.SelectedText = "";
+            this.reasonTxt.SelectionLength = 0;
+            this.reasonTxt.SelectionStart = 0;
+            this.reasonTxt.ShortcutsEnabled = true;
+            this.reasonTxt.Size = new System.Drawing.Size(203, 35);
+            this.reasonTxt.TabIndex = 5;
+            this.reasonTxt.UseSelectable = true;
+            this.reasonTxt.WaterMark = "Reason for not signing";
+            this.reasonTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.reasonTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // userSignatureTxt
+            // 
+            // 
+            // 
+            // 
+            this.userSignatureTxt.CustomButton.Image = null;
+            this.userSignatureTxt.CustomButton.Location = new System.Drawing.Point(169, 1);
+            this.userSignatureTxt.CustomButton.Name = "";
+            this.userSignatureTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
+            this.userSignatureTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.userSignatureTxt.CustomButton.TabIndex = 1;
+            this.userSignatureTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.userSignatureTxt.CustomButton.UseSelectable = true;
+            this.userSignatureTxt.CustomButton.Visible = false;
+            this.userSignatureTxt.DisplayIcon = true;
+            this.userSignatureTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
+            this.userSignatureTxt.Lines = new string[0];
+            this.userSignatureTxt.Location = new System.Drawing.Point(278, 4);
+            this.userSignatureTxt.MaxLength = 32767;
+            this.userSignatureTxt.Name = "userSignatureTxt";
+            this.userSignatureTxt.PasswordChar = '\0';
+            this.userSignatureTxt.PromptText = "Employee signature";
+            this.userSignatureTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.userSignatureTxt.SelectedText = "";
+            this.userSignatureTxt.SelectionLength = 0;
+            this.userSignatureTxt.SelectionStart = 0;
+            this.userSignatureTxt.ShortcutsEnabled = true;
+            this.userSignatureTxt.Size = new System.Drawing.Size(203, 35);
+            this.userSignatureTxt.TabIndex = 2;
+            this.userSignatureTxt.UseSelectable = true;
+            this.userSignatureTxt.WaterMark = "Employee signature";
+            this.userSignatureTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.userSignatureTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // kinAddressTxt
+            // 
+            // 
+            // 
+            // 
+            this.kinAddressTxt.CustomButton.Image = null;
+            this.kinAddressTxt.CustomButton.Location = new System.Drawing.Point(169, 1);
+            this.kinAddressTxt.CustomButton.Name = "";
+            this.kinAddressTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
+            this.kinAddressTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.kinAddressTxt.CustomButton.TabIndex = 1;
+            this.kinAddressTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.kinAddressTxt.CustomButton.UseSelectable = true;
+            this.kinAddressTxt.CustomButton.Visible = false;
+            this.kinAddressTxt.DisplayIcon = true;
+            this.kinAddressTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
+            this.kinAddressTxt.Lines = new string[0];
+            this.kinAddressTxt.Location = new System.Drawing.Point(17, 45);
+            this.kinAddressTxt.MaxLength = 32767;
+            this.kinAddressTxt.Name = "kinAddressTxt";
+            this.kinAddressTxt.PasswordChar = '\0';
+            this.kinAddressTxt.PromptText = "Address";
+            this.kinAddressTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.kinAddressTxt.SelectedText = "";
+            this.kinAddressTxt.SelectionLength = 0;
+            this.kinAddressTxt.SelectionStart = 0;
+            this.kinAddressTxt.ShortcutsEnabled = true;
+            this.kinAddressTxt.Size = new System.Drawing.Size(203, 35);
+            this.kinAddressTxt.TabIndex = 1;
+            this.kinAddressTxt.UseSelectable = true;
+            this.kinAddressTxt.WaterMark = "Address";
+            this.kinAddressTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.kinAddressTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // kinnameTxt
+            // 
+            // 
+            // 
+            // 
+            this.kinnameTxt.CustomButton.Image = null;
+            this.kinnameTxt.CustomButton.Location = new System.Drawing.Point(169, 1);
+            this.kinnameTxt.CustomButton.Name = "";
+            this.kinnameTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
+            this.kinnameTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.kinnameTxt.CustomButton.TabIndex = 1;
+            this.kinnameTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.kinnameTxt.CustomButton.UseSelectable = true;
+            this.kinnameTxt.CustomButton.Visible = false;
+            this.kinnameTxt.DisplayIcon = true;
+            this.kinnameTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
+            this.kinnameTxt.Lines = new string[0];
+            this.kinnameTxt.Location = new System.Drawing.Point(17, 4);
+            this.kinnameTxt.MaxLength = 32767;
+            this.kinnameTxt.Name = "kinnameTxt";
+            this.kinnameTxt.PasswordChar = '\0';
+            this.kinnameTxt.PromptText = "Name";
+            this.kinnameTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.kinnameTxt.SelectedText = "";
+            this.kinnameTxt.SelectionLength = 0;
+            this.kinnameTxt.SelectionStart = 0;
+            this.kinnameTxt.ShortcutsEnabled = true;
+            this.kinnameTxt.Size = new System.Drawing.Size(203, 35);
+            this.kinnameTxt.TabIndex = 0;
+            this.kinnameTxt.UseSelectable = true;
+            this.kinnameTxt.WaterMark = "Name";
+            this.kinnameTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.kinnameTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // userCbx
             // 
@@ -550,7 +772,7 @@
             this.userCbx.Name = "userCbx";
             this.userCbx.PromptText = "Employee Name";
             this.userCbx.Size = new System.Drawing.Size(203, 29);
-            this.userCbx.TabIndex = 448;
+            this.userCbx.TabIndex = 4;
             this.userCbx.UseSelectable = true;
             this.userCbx.SelectedIndexChanged += new System.EventHandler(this.userCbx_SelectedIndexChanged);
             // 
@@ -576,7 +798,7 @@
             this.additionalListBx.Name = "additionalListBx";
             this.tableLayoutPanel1.SetRowSpan(this.additionalListBx, 3);
             this.additionalListBx.Size = new System.Drawing.Size(756, 90);
-            this.additionalListBx.TabIndex = 465;
+            this.additionalListBx.TabIndex = 12;
             // 
             // label52
             // 
@@ -585,7 +807,7 @@
             this.label52.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label52.Location = new System.Drawing.Point(8, 637);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(387, 33);
+            this.label52.Size = new System.Drawing.Size(386, 33);
             this.label52.TabIndex = 466;
             this.label52.Text = "FOLLOW UP /DISCHARGE";
             // 
@@ -626,7 +848,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(401, 278);
+            this.label1.Location = new System.Drawing.Point(400, 278);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 16);
             this.label1.TabIndex = 472;
@@ -636,11 +858,11 @@
             // 
             this.phoneTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.phoneTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.phoneTxt.Location = new System.Drawing.Point(537, 281);
+            this.phoneTxt.Location = new System.Drawing.Point(536, 281);
             this.phoneTxt.Multiline = true;
             this.phoneTxt.Name = "phoneTxt";
             this.phoneTxt.Size = new System.Drawing.Size(199, 14);
-            this.phoneTxt.TabIndex = 473;
+            this.phoneTxt.TabIndex = 11;
             // 
             // label5
             // 
@@ -678,7 +900,7 @@
             this.button1.Name = "button1";
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button1.Size = new System.Drawing.Size(90, 45);
-            this.button1.TabIndex = 41;
+            this.button1.TabIndex = 1;
             this.button1.Text = "Print";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
@@ -697,7 +919,7 @@
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button3.Size = new System.Drawing.Size(108, 45);
-            this.button3.TabIndex = 40;
+            this.button3.TabIndex = 0;
             this.button3.Text = "Submit";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = false;
@@ -716,233 +938,11 @@
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(108, 38);
-            this.button2.TabIndex = 39;
+            this.button2.TabIndex = 2;
             this.button2.Text = "Cancel";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // signatureTxt
-            // 
-            // 
-            // 
-            // 
-            this.signatureTxt.CustomButton.Image = null;
-            this.signatureTxt.CustomButton.Location = new System.Drawing.Point(165, 1);
-            this.signatureTxt.CustomButton.Name = "";
-            this.signatureTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
-            this.signatureTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.signatureTxt.CustomButton.TabIndex = 1;
-            this.signatureTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.signatureTxt.CustomButton.UseSelectable = true;
-            this.signatureTxt.CustomButton.Visible = false;
-            this.signatureTxt.DisplayIcon = true;
-            this.signatureTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
-            this.signatureTxt.Lines = new string[0];
-            this.signatureTxt.Location = new System.Drawing.Point(196, 700);
-            this.signatureTxt.MaxLength = 32767;
-            this.signatureTxt.Name = "signatureTxt";
-            this.signatureTxt.PasswordChar = '\0';
-            this.signatureTxt.PromptText = "Patient signature";
-            this.signatureTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.signatureTxt.SelectedText = "";
-            this.signatureTxt.SelectionLength = 0;
-            this.signatureTxt.SelectionStart = 0;
-            this.signatureTxt.ShortcutsEnabled = true;
-            this.signatureTxt.Size = new System.Drawing.Size(199, 35);
-            this.signatureTxt.TabIndex = 454;
-            this.signatureTxt.UseSelectable = true;
-            this.signatureTxt.WaterMark = "Patient signature";
-            this.signatureTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.signatureTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // cusPbx
-            // 
-            this.cusPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
-            this.cusPbx.Location = new System.Drawing.Point(3, 4);
-            this.cusPbx.Name = "cusPbx";
-            this.cusPbx.Size = new System.Drawing.Size(77, 45);
-            this.cusPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.cusPbx.TabIndex = 179;
-            this.cusPbx.TabStop = false;
-            // 
-            // productPbx
-            // 
-            this.productPbx.Location = new System.Drawing.Point(4, 22);
-            this.productPbx.Name = "productPbx";
-            this.productPbx.Size = new System.Drawing.Size(82, 45);
-            this.productPbx.TabIndex = 444;
-            this.productPbx.TabStop = false;
-            // 
-            // kinContactTxt
-            // 
-            // 
-            // 
-            // 
-            this.kinContactTxt.CustomButton.Image = null;
-            this.kinContactTxt.CustomButton.Location = new System.Drawing.Point(169, 1);
-            this.kinContactTxt.CustomButton.Name = "";
-            this.kinContactTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
-            this.kinContactTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.kinContactTxt.CustomButton.TabIndex = 1;
-            this.kinContactTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.kinContactTxt.CustomButton.UseSelectable = true;
-            this.kinContactTxt.CustomButton.Visible = false;
-            this.kinContactTxt.DisplayIcon = true;
-            this.kinContactTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
-            this.kinContactTxt.Lines = new string[0];
-            this.kinContactTxt.Location = new System.Drawing.Point(278, 45);
-            this.kinContactTxt.MaxLength = 32767;
-            this.kinContactTxt.Name = "kinContactTxt";
-            this.kinContactTxt.PasswordChar = '\0';
-            this.kinContactTxt.PromptText = "Contact";
-            this.kinContactTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.kinContactTxt.SelectedText = "";
-            this.kinContactTxt.SelectionLength = 0;
-            this.kinContactTxt.SelectionStart = 0;
-            this.kinContactTxt.ShortcutsEnabled = true;
-            this.kinContactTxt.Size = new System.Drawing.Size(203, 35);
-            this.kinContactTxt.TabIndex = 453;
-            this.kinContactTxt.UseSelectable = true;
-            this.kinContactTxt.WaterMark = "Contact";
-            this.kinContactTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.kinContactTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // reasonTxt
-            // 
-            // 
-            // 
-            // 
-            this.reasonTxt.CustomButton.Image = null;
-            this.reasonTxt.CustomButton.Location = new System.Drawing.Point(169, 1);
-            this.reasonTxt.CustomButton.Name = "";
-            this.reasonTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
-            this.reasonTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.reasonTxt.CustomButton.TabIndex = 1;
-            this.reasonTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.reasonTxt.CustomButton.UseSelectable = true;
-            this.reasonTxt.CustomButton.Visible = false;
-            this.reasonTxt.DisplayIcon = true;
-            this.reasonTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
-            this.reasonTxt.Lines = new string[0];
-            this.reasonTxt.Location = new System.Drawing.Point(529, 45);
-            this.reasonTxt.MaxLength = 32767;
-            this.reasonTxt.Name = "reasonTxt";
-            this.reasonTxt.PasswordChar = '\0';
-            this.reasonTxt.PromptText = "Reason for not signing";
-            this.reasonTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.reasonTxt.SelectedText = "";
-            this.reasonTxt.SelectionLength = 0;
-            this.reasonTxt.SelectionStart = 0;
-            this.reasonTxt.ShortcutsEnabled = true;
-            this.reasonTxt.Size = new System.Drawing.Size(203, 35);
-            this.reasonTxt.TabIndex = 452;
-            this.reasonTxt.UseSelectable = true;
-            this.reasonTxt.WaterMark = "Reason for not signing";
-            this.reasonTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.reasonTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // userSignatureTxt
-            // 
-            // 
-            // 
-            // 
-            this.userSignatureTxt.CustomButton.Image = null;
-            this.userSignatureTxt.CustomButton.Location = new System.Drawing.Point(169, 1);
-            this.userSignatureTxt.CustomButton.Name = "";
-            this.userSignatureTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
-            this.userSignatureTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.userSignatureTxt.CustomButton.TabIndex = 1;
-            this.userSignatureTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.userSignatureTxt.CustomButton.UseSelectable = true;
-            this.userSignatureTxt.CustomButton.Visible = false;
-            this.userSignatureTxt.DisplayIcon = true;
-            this.userSignatureTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
-            this.userSignatureTxt.Lines = new string[0];
-            this.userSignatureTxt.Location = new System.Drawing.Point(278, 4);
-            this.userSignatureTxt.MaxLength = 32767;
-            this.userSignatureTxt.Name = "userSignatureTxt";
-            this.userSignatureTxt.PasswordChar = '\0';
-            this.userSignatureTxt.PromptText = "Employee signature";
-            this.userSignatureTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.userSignatureTxt.SelectedText = "";
-            this.userSignatureTxt.SelectionLength = 0;
-            this.userSignatureTxt.SelectionStart = 0;
-            this.userSignatureTxt.ShortcutsEnabled = true;
-            this.userSignatureTxt.Size = new System.Drawing.Size(203, 35);
-            this.userSignatureTxt.TabIndex = 451;
-            this.userSignatureTxt.UseSelectable = true;
-            this.userSignatureTxt.WaterMark = "Employee signature";
-            this.userSignatureTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.userSignatureTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // kinAddressTxt
-            // 
-            // 
-            // 
-            // 
-            this.kinAddressTxt.CustomButton.Image = null;
-            this.kinAddressTxt.CustomButton.Location = new System.Drawing.Point(169, 1);
-            this.kinAddressTxt.CustomButton.Name = "";
-            this.kinAddressTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
-            this.kinAddressTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.kinAddressTxt.CustomButton.TabIndex = 1;
-            this.kinAddressTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.kinAddressTxt.CustomButton.UseSelectable = true;
-            this.kinAddressTxt.CustomButton.Visible = false;
-            this.kinAddressTxt.DisplayIcon = true;
-            this.kinAddressTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
-            this.kinAddressTxt.Lines = new string[0];
-            this.kinAddressTxt.Location = new System.Drawing.Point(17, 45);
-            this.kinAddressTxt.MaxLength = 32767;
-            this.kinAddressTxt.Name = "kinAddressTxt";
-            this.kinAddressTxt.PasswordChar = '\0';
-            this.kinAddressTxt.PromptText = "Address";
-            this.kinAddressTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.kinAddressTxt.SelectedText = "";
-            this.kinAddressTxt.SelectionLength = 0;
-            this.kinAddressTxt.SelectionStart = 0;
-            this.kinAddressTxt.ShortcutsEnabled = true;
-            this.kinAddressTxt.Size = new System.Drawing.Size(203, 35);
-            this.kinAddressTxt.TabIndex = 450;
-            this.kinAddressTxt.UseSelectable = true;
-            this.kinAddressTxt.WaterMark = "Address";
-            this.kinAddressTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.kinAddressTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // kinnameTxt
-            // 
-            // 
-            // 
-            // 
-            this.kinnameTxt.CustomButton.Image = null;
-            this.kinnameTxt.CustomButton.Location = new System.Drawing.Point(169, 1);
-            this.kinnameTxt.CustomButton.Name = "";
-            this.kinnameTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
-            this.kinnameTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.kinnameTxt.CustomButton.TabIndex = 1;
-            this.kinnameTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.kinnameTxt.CustomButton.UseSelectable = true;
-            this.kinnameTxt.CustomButton.Visible = false;
-            this.kinnameTxt.DisplayIcon = true;
-            this.kinnameTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
-            this.kinnameTxt.Lines = new string[0];
-            this.kinnameTxt.Location = new System.Drawing.Point(17, 4);
-            this.kinnameTxt.MaxLength = 32767;
-            this.kinnameTxt.Name = "kinnameTxt";
-            this.kinnameTxt.PasswordChar = '\0';
-            this.kinnameTxt.PromptText = "Name";
-            this.kinnameTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.kinnameTxt.SelectedText = "";
-            this.kinnameTxt.SelectionLength = 0;
-            this.kinnameTxt.SelectionStart = 0;
-            this.kinnameTxt.ShortcutsEnabled = true;
-            this.kinnameTxt.Size = new System.Drawing.Size(203, 35);
-            this.kinnameTxt.TabIndex = 449;
-            this.kinnameTxt.UseSelectable = true;
-            this.kinnameTxt.WaterMark = "Name";
-            this.kinnameTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.kinnameTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // AddInstructionDelivery
             // 
@@ -965,11 +965,11 @@
             this.tableLayoutPanel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productPbx)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

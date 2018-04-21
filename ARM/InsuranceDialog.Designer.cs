@@ -55,7 +55,7 @@
             this.customerCbx.Name = "customerCbx";
             this.customerCbx.PromptText = "Patient";
             this.customerCbx.Size = new System.Drawing.Size(265, 29);
-            this.customerCbx.TabIndex = 133;
+            this.customerCbx.TabIndex = 0;
             this.customerCbx.UseSelectable = true;
             this.customerCbx.SelectedIndexChanged += new System.EventHandler(this.customerCbx_SelectedIndexChanged);
             // 
@@ -71,7 +71,7 @@
             this.typeCbx.Name = "typeCbx";
             this.typeCbx.PromptText = "Type of Insurance";
             this.typeCbx.Size = new System.Drawing.Size(265, 29);
-            this.typeCbx.TabIndex = 180;
+            this.typeCbx.TabIndex = 2;
             this.typeCbx.UseSelectable = true;
             // 
             // zipTxt
@@ -102,7 +102,7 @@
             this.zipTxt.SelectionStart = 0;
             this.zipTxt.ShortcutsEnabled = true;
             this.zipTxt.Size = new System.Drawing.Size(265, 35);
-            this.zipTxt.TabIndex = 185;
+            this.zipTxt.TabIndex = 6;
             this.zipTxt.UseSelectable = true;
             this.zipTxt.WaterMark = "Zip code";
             this.zipTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -136,7 +136,7 @@
             this.contactTxt.SelectionStart = 0;
             this.contactTxt.ShortcutsEnabled = true;
             this.contactTxt.Size = new System.Drawing.Size(265, 35);
-            this.contactTxt.TabIndex = 184;
+            this.contactTxt.TabIndex = 5;
             this.contactTxt.UseSelectable = true;
             this.contactTxt.WaterMark = "Insurance Contact";
             this.contactTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -170,7 +170,7 @@
             this.addressTxt.SelectionStart = 0;
             this.addressTxt.ShortcutsEnabled = true;
             this.addressTxt.Size = new System.Drawing.Size(265, 35);
-            this.addressTxt.TabIndex = 183;
+            this.addressTxt.TabIndex = 4;
             this.addressTxt.UseSelectable = true;
             this.addressTxt.WaterMark = "Address";
             this.addressTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -204,7 +204,7 @@
             this.nameTxt.SelectionStart = 0;
             this.nameTxt.ShortcutsEnabled = true;
             this.nameTxt.Size = new System.Drawing.Size(265, 35);
-            this.nameTxt.TabIndex = 181;
+            this.nameTxt.TabIndex = 1;
             this.nameTxt.UseSelectable = true;
             this.nameTxt.WaterMark = "Name";
             this.nameTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -248,7 +248,7 @@
             this.noTxt.SelectionStart = 0;
             this.noTxt.ShortcutsEnabled = true;
             this.noTxt.Size = new System.Drawing.Size(265, 35);
-            this.noTxt.TabIndex = 4;
+            this.noTxt.TabIndex = 3;
             this.noTxt.UseSelectable = true;
             this.noTxt.WaterMark = "No.";
             this.noTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -267,7 +267,7 @@
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button3.Size = new System.Drawing.Size(108, 49);
-            this.button3.TabIndex = 12;
+            this.button3.TabIndex = 7;
             this.button3.Text = "Submit";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = false;
@@ -286,7 +286,7 @@
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(108, 49);
-            this.button2.TabIndex = 13;
+            this.button2.TabIndex = 8;
             this.button2.Text = "Cancel";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;

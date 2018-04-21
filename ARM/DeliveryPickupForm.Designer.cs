@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeliveryPickupForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.noTxt = new MetroFramework.Controls.MetroTextBox();
             this.dtGrid = new System.Windows.Forms.DataGridView();
             this.totalTxt = new MetroFramework.Controls.MetroTextBox();
             this.dateTxt = new MetroFramework.Controls.MetroDateTime();
@@ -48,15 +49,17 @@
             this.commentTxt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.physicianTxt = new System.Windows.Forms.TextBox();
-            this.userCbx = new MetroFramework.Controls.MetroComboBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.userPbx = new System.Windows.Forms.PictureBox();
+            this.userCbx = new MetroFramework.Controls.MetroComboBox();
+            this.physicianTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.customerCbx = new MetroFramework.Controls.MetroComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.customerCbx = new MetroFramework.Controls.MetroComboBox();
+            this.cusPbx = new System.Windows.Forms.PictureBox();
             this.subscriberInfoTxt = new System.Windows.Forms.TextBox();
             this.subscriberTypeTxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -69,17 +72,14 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.noTxt = new MetroFramework.Controls.MetroTextBox();
-            this.userPbx = new System.Windows.Forms.PictureBox();
-            this.cusPbx = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrid)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userPbx)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userPbx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,6 +106,41 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(754, 803);
             this.panel1.TabIndex = 0;
+            // 
+            // noTxt
+            // 
+            // 
+            // 
+            // 
+            this.noTxt.CustomButton.Image = null;
+            this.noTxt.CustomButton.Location = new System.Drawing.Point(93, 1);
+            this.noTxt.CustomButton.Name = "";
+            this.noTxt.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.noTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.noTxt.CustomButton.TabIndex = 1;
+            this.noTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.noTxt.CustomButton.UseSelectable = true;
+            this.noTxt.CustomButton.Visible = false;
+            this.noTxt.DisplayIcon = true;
+            this.noTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
+            this.noTxt.Lines = new string[0];
+            this.noTxt.Location = new System.Drawing.Point(366, 62);
+            this.noTxt.MaxLength = 32767;
+            this.noTxt.Name = "noTxt";
+            this.noTxt.PasswordChar = '\0';
+            this.noTxt.PromptText = "No.";
+            this.noTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.noTxt.SelectedText = "";
+            this.noTxt.SelectionLength = 0;
+            this.noTxt.SelectionStart = 0;
+            this.noTxt.ShortcutsEnabled = true;
+            this.noTxt.Size = new System.Drawing.Size(115, 23);
+            this.noTxt.Style = MetroFramework.MetroColorStyle.Green;
+            this.noTxt.TabIndex = 2;
+            this.noTxt.UseSelectable = true;
+            this.noTxt.WaterMark = "No.";
+            this.noTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.noTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // dtGrid
             // 
@@ -138,7 +173,7 @@
             this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtGrid.RowHeadersWidth = 20;
             this.dtGrid.Size = new System.Drawing.Size(702, 144);
-            this.dtGrid.TabIndex = 4;
+            this.dtGrid.TabIndex = 5;
             this.dtGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellClick);
             this.dtGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellContentClick);
             // 
@@ -188,7 +223,7 @@
             this.dateTxt.MinimumSize = new System.Drawing.Size(0, 29);
             this.dateTxt.Name = "dateTxt";
             this.dateTxt.Size = new System.Drawing.Size(175, 29);
-            this.dateTxt.TabIndex = 1;
+            this.dateTxt.TabIndex = 3;
             // 
             // metroLabel4
             // 
@@ -308,7 +343,7 @@
             this.commentTxt.Multiline = true;
             this.commentTxt.Name = "commentTxt";
             this.commentTxt.Size = new System.Drawing.Size(479, 39);
-            this.commentTxt.TabIndex = 3;
+            this.commentTxt.TabIndex = 4;
             // 
             // label3
             // 
@@ -326,7 +361,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.30928F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.69072F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 232F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 233F));
             this.tableLayoutPanel2.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel3, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(36, 239);
@@ -339,27 +374,37 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(705, 100);
             this.tableLayoutPanel2.TabIndex = 8;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(3, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(86, 16);
+            this.label8.TabIndex = 245;
+            this.label8.Text = "DOCTOR\'S NAME";
+            // 
             // panel3
             // 
             this.tableLayoutPanel2.SetColumnSpan(this.panel3, 3);
             this.panel3.Controls.Add(this.userPbx);
             this.panel3.Controls.Add(this.userCbx);
             this.panel3.Controls.Add(this.physicianTxt);
-            this.panel3.Location = new System.Drawing.Point(134, 3);
+            this.panel3.Location = new System.Drawing.Point(133, 3);
             this.panel3.Name = "panel3";
             this.tableLayoutPanel2.SetRowSpan(this.panel3, 3);
             this.panel3.Size = new System.Drawing.Size(567, 94);
-            this.panel3.TabIndex = 455;
+            this.panel3.TabIndex = 0;
             // 
-            // physicianTxt
+            // userPbx
             // 
-            this.physicianTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.physicianTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.physicianTxt.Location = new System.Drawing.Point(78, 41);
-            this.physicianTxt.Multiline = true;
-            this.physicianTxt.Name = "physicianTxt";
-            this.physicianTxt.Size = new System.Drawing.Size(486, 46);
-            this.physicianTxt.TabIndex = 1;
+            this.userPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
+            this.userPbx.Location = new System.Drawing.Point(4, 5);
+            this.userPbx.Name = "userPbx";
+            this.userPbx.Size = new System.Drawing.Size(68, 46);
+            this.userPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.userPbx.TabIndex = 180;
+            this.userPbx.TabStop = false;
             // 
             // userCbx
             // 
@@ -374,15 +419,15 @@
             this.userCbx.UseSelectable = true;
             this.userCbx.SelectedIndexChanged += new System.EventHandler(this.userCbx_SelectedIndexChanged);
             // 
-            // label8
+            // physicianTxt
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(86, 16);
-            this.label8.TabIndex = 245;
-            this.label8.Text = "DOCTOR\'S NAME";
+            this.physicianTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.physicianTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.physicianTxt.Location = new System.Drawing.Point(78, 41);
+            this.physicianTxt.Multiline = true;
+            this.physicianTxt.Name = "physicianTxt";
+            this.physicianTxt.Size = new System.Drawing.Size(486, 46);
+            this.physicianTxt.TabIndex = 1;
             // 
             // label2
             // 
@@ -402,7 +447,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 134F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 124F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 126F));
             this.tableLayoutPanel1.Controls.Add(this.label12, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(35, 106);
@@ -416,19 +461,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(705, 111);
             this.tableLayoutPanel1.TabIndex = 7;
-            // 
-            // customerCbx
-            // 
-            this.customerCbx.FormattingEnabled = true;
-            this.customerCbx.ItemHeight = 23;
-            this.customerCbx.Location = new System.Drawing.Point(86, 4);
-            this.customerCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.customerCbx.Name = "customerCbx";
-            this.customerCbx.PromptText = "Subscriber";
-            this.customerCbx.Size = new System.Drawing.Size(471, 29);
-            this.customerCbx.TabIndex = 0;
-            this.customerCbx.UseSelectable = true;
-            this.customerCbx.SelectedIndexChanged += new System.EventHandler(this.customerCbx_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -447,11 +479,34 @@
             this.panel2.Controls.Add(this.cusPbx);
             this.panel2.Controls.Add(this.subscriberInfoTxt);
             this.panel2.Controls.Add(this.subscriberTypeTxt);
-            this.panel2.Location = new System.Drawing.Point(134, 3);
+            this.panel2.Location = new System.Drawing.Point(133, 3);
             this.panel2.Name = "panel2";
             this.tableLayoutPanel1.SetRowSpan(this.panel2, 4);
             this.panel2.Size = new System.Drawing.Size(568, 105);
             this.panel2.TabIndex = 453;
+            // 
+            // customerCbx
+            // 
+            this.customerCbx.FormattingEnabled = true;
+            this.customerCbx.ItemHeight = 23;
+            this.customerCbx.Location = new System.Drawing.Point(86, 4);
+            this.customerCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.customerCbx.Name = "customerCbx";
+            this.customerCbx.PromptText = "Subscriber";
+            this.customerCbx.Size = new System.Drawing.Size(471, 29);
+            this.customerCbx.TabIndex = 0;
+            this.customerCbx.UseSelectable = true;
+            this.customerCbx.SelectedIndexChanged += new System.EventHandler(this.customerCbx_SelectedIndexChanged);
+            // 
+            // cusPbx
+            // 
+            this.cusPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
+            this.cusPbx.Location = new System.Drawing.Point(3, 4);
+            this.cusPbx.Name = "cusPbx";
+            this.cusPbx.Size = new System.Drawing.Size(77, 45);
+            this.cusPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.cusPbx.TabIndex = 179;
+            this.cusPbx.TabStop = false;
             // 
             // subscriberInfoTxt
             // 
@@ -543,7 +598,7 @@
             this.button1.Name = "button1";
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button1.Size = new System.Drawing.Size(90, 45);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 1;
             this.button1.Text = "Print";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
@@ -561,7 +616,7 @@
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button3.Size = new System.Drawing.Size(108, 45);
-            this.button3.TabIndex = 1;
+            this.button3.TabIndex = 0;
             this.button3.Text = "Submit";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = false;
@@ -605,61 +660,6 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // noTxt
-            // 
-            // 
-            // 
-            // 
-            this.noTxt.CustomButton.Image = null;
-            this.noTxt.CustomButton.Location = new System.Drawing.Point(93, 1);
-            this.noTxt.CustomButton.Name = "";
-            this.noTxt.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.noTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.noTxt.CustomButton.TabIndex = 1;
-            this.noTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.noTxt.CustomButton.UseSelectable = true;
-            this.noTxt.CustomButton.Visible = false;
-            this.noTxt.DisplayIcon = true;
-            this.noTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
-            this.noTxt.Lines = new string[0];
-            this.noTxt.Location = new System.Drawing.Point(366, 62);
-            this.noTxt.MaxLength = 32767;
-            this.noTxt.Name = "noTxt";
-            this.noTxt.PasswordChar = '\0';
-            this.noTxt.PromptText = "No.";
-            this.noTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.noTxt.SelectedText = "";
-            this.noTxt.SelectionLength = 0;
-            this.noTxt.SelectionStart = 0;
-            this.noTxt.ShortcutsEnabled = true;
-            this.noTxt.Size = new System.Drawing.Size(115, 23);
-            this.noTxt.Style = MetroFramework.MetroColorStyle.Green;
-            this.noTxt.TabIndex = 0;
-            this.noTxt.UseSelectable = true;
-            this.noTxt.WaterMark = "No.";
-            this.noTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.noTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // userPbx
-            // 
-            this.userPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
-            this.userPbx.Location = new System.Drawing.Point(4, 5);
-            this.userPbx.Name = "userPbx";
-            this.userPbx.Size = new System.Drawing.Size(68, 46);
-            this.userPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.userPbx.TabIndex = 180;
-            this.userPbx.TabStop = false;
-            // 
-            // cusPbx
-            // 
-            this.cusPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
-            this.cusPbx.Location = new System.Drawing.Point(3, 4);
-            this.cusPbx.Name = "cusPbx";
-            this.cusPbx.Size = new System.Drawing.Size(77, 45);
-            this.cusPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.cusPbx.TabIndex = 179;
-            this.cusPbx.TabStop = false;
-            // 
             // DeliveryPickupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
@@ -684,11 +684,11 @@
             this.tableLayoutPanel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userPbx)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userPbx)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).EndInit();
             this.ResumeLayout(false);
 

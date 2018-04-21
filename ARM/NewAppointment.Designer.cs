@@ -86,7 +86,7 @@
             this.metroTextBox1.SelectionStart = 0;
             this.metroTextBox1.ShortcutsEnabled = true;
             this.metroTextBox1.Size = new System.Drawing.Size(171, 28);
-            this.metroTextBox1.TabIndex = 1;
+            this.metroTextBox1.TabIndex = 5;
             this.metroTextBox1.UseSelectable = true;
             this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -109,7 +109,7 @@
             this.metroCheckBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.metroCheckBox1.Name = "metroCheckBox1";
             this.metroCheckBox1.Size = new System.Drawing.Size(113, 15);
-            this.metroCheckBox1.TabIndex = 5;
+            this.metroCheckBox1.TabIndex = 6;
             this.metroCheckBox1.Text = "metroCheckBox1";
             this.metroCheckBox1.UseSelectable = true;
             // 
@@ -188,7 +188,7 @@
             this.metroComboBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.metroComboBox2.Name = "metroComboBox2";
             this.metroComboBox2.Size = new System.Drawing.Size(171, 29);
-            this.metroComboBox2.TabIndex = 14;
+            this.metroComboBox2.TabIndex = 3;
             this.metroComboBox2.UseSelectable = true;
             // 
             // metroButton1
@@ -198,7 +198,7 @@
             this.metroButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(77, 59);
-            this.metroButton1.TabIndex = 16;
+            this.metroButton1.TabIndex = 8;
             this.metroButton1.Text = "Cancel";
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
@@ -209,7 +209,7 @@
             this.metroButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(68, 59);
-            this.metroButton2.TabIndex = 17;
+            this.metroButton2.TabIndex = 7;
             this.metroButton2.Text = "Save";
             this.metroButton2.UseSelectable = true;
             // 
@@ -222,7 +222,7 @@
             this.startTimeTxt.Name = "startTimeTxt";
             this.startTimeTxt.ShowUpDown = true;
             this.startTimeTxt.Size = new System.Drawing.Size(171, 29);
-            this.startTimeTxt.TabIndex = 18;
+            this.startTimeTxt.TabIndex = 1;
             // 
             // endTimeTxt
             // 
@@ -233,7 +233,7 @@
             this.endTimeTxt.Name = "endTimeTxt";
             this.endTimeTxt.ShowUpDown = true;
             this.endTimeTxt.Size = new System.Drawing.Size(171, 29);
-            this.endTimeTxt.TabIndex = 19;
+            this.endTimeTxt.TabIndex = 2;
             // 
             // pictureBox2
             // 

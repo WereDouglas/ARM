@@ -67,7 +67,7 @@
             this.categoryCbx.Name = "categoryCbx";
             this.categoryCbx.PromptText = "Shift/Appointment";
             this.categoryCbx.Size = new System.Drawing.Size(265, 29);
-            this.categoryCbx.TabIndex = 8;
+            this.categoryCbx.TabIndex = 4;
             this.categoryCbx.UseSelectable = true;
             this.categoryCbx.SelectedIndexChanged += new System.EventHandler(this.categoryCbx_SelectedIndexChanged);
             // 
@@ -77,7 +77,7 @@
             this.openedDate.MinimumSize = new System.Drawing.Size(0, 29);
             this.openedDate.Name = "openedDate";
             this.openedDate.Size = new System.Drawing.Size(265, 29);
-            this.openedDate.TabIndex = 130;
+            this.openedDate.TabIndex = 0;
             // 
             // customerCbx
             // 
@@ -88,7 +88,7 @@
             this.customerCbx.Name = "customerCbx";
             this.customerCbx.PromptText = "Patient";
             this.customerCbx.Size = new System.Drawing.Size(265, 29);
-            this.customerCbx.TabIndex = 133;
+            this.customerCbx.TabIndex = 1;
             this.customerCbx.UseSelectable = true;
             this.customerCbx.SelectedIndexChanged += new System.EventHandler(this.customerCbx_SelectedIndexChanged);
             // 
@@ -101,7 +101,7 @@
             this.userCbx.Name = "userCbx";
             this.userCbx.PromptText = "Physician";
             this.userCbx.Size = new System.Drawing.Size(265, 29);
-            this.userCbx.TabIndex = 134;
+            this.userCbx.TabIndex = 6;
             this.userCbx.UseSelectable = true;
             this.userCbx.SelectedIndexChanged += new System.EventHandler(this.userCbx_SelectedIndexChanged);
             // 
@@ -118,7 +118,7 @@
             this.statusCbx.Name = "statusCbx";
             this.statusCbx.PromptText = "Status";
             this.statusCbx.Size = new System.Drawing.Size(265, 29);
-            this.statusCbx.TabIndex = 180;
+            this.statusCbx.TabIndex = 9;
             this.statusCbx.UseSelectable = true;
             // 
             // startHrTxt
@@ -130,7 +130,7 @@
             this.startHrTxt.Name = "startHrTxt";
             this.startHrTxt.ShowUpDown = true;
             this.startHrTxt.Size = new System.Drawing.Size(265, 27);
-            this.startHrTxt.TabIndex = 184;
+            this.startHrTxt.TabIndex = 2;
             // 
             // endHrTxt
             // 
@@ -141,7 +141,7 @@
             this.endHrTxt.Name = "endHrTxt";
             this.endHrTxt.ShowUpDown = true;
             this.endHrTxt.Size = new System.Drawing.Size(265, 27);
-            this.endHrTxt.TabIndex = 185;
+            this.endHrTxt.TabIndex = 3;
             // 
             // label1
             // 
@@ -193,7 +193,7 @@
             this.totalTxt.SelectionStart = 0;
             this.totalTxt.ShortcutsEnabled = true;
             this.totalTxt.Size = new System.Drawing.Size(265, 35);
-            this.totalTxt.TabIndex = 183;
+            this.totalTxt.TabIndex = 8;
             this.totalTxt.UseSelectable = true;
             this.totalTxt.WaterMark = "Total Charge";
             this.totalTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -228,7 +228,7 @@
             this.locationTxt.SelectionStart = 0;
             this.locationTxt.ShortcutsEnabled = true;
             this.locationTxt.Size = new System.Drawing.Size(265, 52);
-            this.locationTxt.TabIndex = 182;
+            this.locationTxt.TabIndex = 11;
             this.locationTxt.UseSelectable = true;
             this.locationTxt.WaterMark = "Location";
             this.locationTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -262,7 +262,7 @@
             this.periodTxt.SelectionStart = 0;
             this.periodTxt.ShortcutsEnabled = true;
             this.periodTxt.Size = new System.Drawing.Size(265, 35);
-            this.periodTxt.TabIndex = 181;
+            this.periodTxt.TabIndex = 5;
             this.periodTxt.UseSelectable = true;
             this.periodTxt.WaterMark = "Period";
             this.periodTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -316,7 +316,7 @@
             this.costTxt.SelectionStart = 0;
             this.costTxt.ShortcutsEnabled = true;
             this.costTxt.Size = new System.Drawing.Size(265, 35);
-            this.costTxt.TabIndex = 4;
+            this.costTxt.TabIndex = 10;
             this.costTxt.UseSelectable = true;
             this.costTxt.WaterMark = "Rate/Hr";
             this.costTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -351,7 +351,7 @@
             this.detailsTxt.SelectionStart = 0;
             this.detailsTxt.ShortcutsEnabled = true;
             this.detailsTxt.Size = new System.Drawing.Size(265, 52);
-            this.detailsTxt.TabIndex = 3;
+            this.detailsTxt.TabIndex = 7;
             this.detailsTxt.UseSelectable = true;
             this.detailsTxt.WaterMark = "Details";
             this.detailsTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));

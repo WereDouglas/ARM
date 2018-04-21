@@ -379,7 +379,7 @@
             this.userCbx.Name = "userCbx";
             this.userCbx.PromptText = "Physician";
             this.userCbx.Size = new System.Drawing.Size(166, 29);
-            this.userCbx.TabIndex = 4;
+            this.userCbx.TabIndex = 1;
             this.userCbx.UseSelectable = true;
             this.userCbx.SelectedIndexChanged += new System.EventHandler(this.userCbx_SelectedIndexChanged);
             // 
@@ -418,7 +418,7 @@
             this.dtGridPatientStatus.RowHeadersWidth = 20;
             this.tableLayoutPanel1.SetRowSpan(this.dtGridPatientStatus, 2);
             this.dtGridPatientStatus.Size = new System.Drawing.Size(266, 71);
-            this.dtGridPatientStatus.TabIndex = 6;
+            this.dtGridPatientStatus.TabIndex = 4;
             this.dtGridPatientStatus.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridPatientStatus_CellClick);
             // 
             // dtGridReview
@@ -456,7 +456,7 @@
             this.dtGridReview.RowHeadersWidth = 20;
             this.tableLayoutPanel1.SetRowSpan(this.dtGridReview, 2);
             this.dtGridReview.Size = new System.Drawing.Size(284, 71);
-            this.dtGridReview.TabIndex = 5;
+            this.dtGridReview.TabIndex = 3;
             this.dtGridReview.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridReview_CellClick);
             // 
             // label17
@@ -481,7 +481,7 @@
             this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTime1.Name = "metroDateTime1";
             this.metroDateTime1.Size = new System.Drawing.Size(166, 29);
-            this.metroDateTime1.TabIndex = 2;
+            this.metroDateTime1.TabIndex = 0;
             // 
             // label32
             // 
@@ -504,7 +504,7 @@
             this.hospitalTxt.Multiline = true;
             this.hospitalTxt.Name = "hospitalTxt";
             this.hospitalTxt.Size = new System.Drawing.Size(436, 18);
-            this.hospitalTxt.TabIndex = 7;
+            this.hospitalTxt.TabIndex = 5;
             // 
             // label56
             // 
@@ -527,7 +527,7 @@
             this.sourceTxt.Multiline = true;
             this.sourceTxt.Name = "sourceTxt";
             this.sourceTxt.Size = new System.Drawing.Size(436, 20);
-            this.sourceTxt.TabIndex = 8;
+            this.sourceTxt.TabIndex = 6;
             // 
             // label24
             // 
@@ -550,7 +550,7 @@
             this.customerCbx.Name = "customerCbx";
             this.customerCbx.PromptText = "Name";
             this.customerCbx.Size = new System.Drawing.Size(164, 29);
-            this.customerCbx.TabIndex = 3;
+            this.customerCbx.TabIndex = 2;
             this.customerCbx.UseSelectable = true;
             this.customerCbx.SelectedIndexChanged += new System.EventHandler(this.customerCbx_SelectedIndexChanged);
             // 
@@ -734,7 +734,7 @@
             this.dtGridItemStatus.RowHeadersWidth = 20;
             this.tableLayoutPanel1.SetRowSpan(this.dtGridItemStatus, 2);
             this.dtGridItemStatus.Size = new System.Drawing.Size(266, 103);
-            this.dtGridItemStatus.TabIndex = 9;
+            this.dtGridItemStatus.TabIndex = 8;
             this.dtGridItemStatus.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridItemStatus_CellClick);
             // 
             // lengthTxt
@@ -747,7 +747,7 @@
             this.lengthTxt.Multiline = true;
             this.lengthTxt.Name = "lengthTxt";
             this.lengthTxt.Size = new System.Drawing.Size(433, 21);
-            this.lengthTxt.TabIndex = 10;
+            this.lengthTxt.TabIndex = 7;
             // 
             // label12
             // 
@@ -772,7 +772,7 @@
             this.needTxt.Multiline = true;
             this.needTxt.Name = "needTxt";
             this.needTxt.Size = new System.Drawing.Size(164, 21);
-            this.needTxt.TabIndex = 11;
+            this.needTxt.TabIndex = 9;
             // 
             // label13
             // 
@@ -797,7 +797,7 @@
             this.goalTxt.Multiline = true;
             this.goalTxt.Name = "goalTxt";
             this.goalTxt.Size = new System.Drawing.Size(165, 21);
-            this.goalTxt.TabIndex = 13;
+            this.goalTxt.TabIndex = 11;
             this.goalTxt.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // label10
@@ -823,7 +823,7 @@
             this.resultTxt.Multiline = true;
             this.resultTxt.Name = "resultTxt";
             this.resultTxt.Size = new System.Drawing.Size(164, 16);
-            this.resultTxt.TabIndex = 12;
+            this.resultTxt.TabIndex = 10;
             // 
             // visitChk
             // 
@@ -867,7 +867,7 @@
             this.nextTxt.MinimumSize = new System.Drawing.Size(0, 29);
             this.nextTxt.Name = "nextTxt";
             this.nextTxt.Size = new System.Drawing.Size(164, 29);
-            this.nextTxt.TabIndex = 14;
+            this.nextTxt.TabIndex = 12;
             // 
             // label16
             // 
@@ -889,7 +889,7 @@
             this.puTxt.Multiline = true;
             this.puTxt.Name = "puTxt";
             this.puTxt.Size = new System.Drawing.Size(165, 27);
-            this.puTxt.TabIndex = 15;
+            this.puTxt.TabIndex = 13;
             // 
             // label2
             // 
@@ -935,7 +935,7 @@
             this.authSignatureTxt.Multiline = true;
             this.authSignatureTxt.Name = "authSignatureTxt";
             this.authSignatureTxt.Size = new System.Drawing.Size(156, 24);
-            this.authSignatureTxt.TabIndex = 16;
+            this.authSignatureTxt.TabIndex = 14;
             // 
             // label19
             // 
@@ -979,7 +979,7 @@
             this.textBox21.Multiline = true;
             this.textBox21.Name = "textBox21";
             this.textBox21.Size = new System.Drawing.Size(156, 18);
-            this.textBox21.TabIndex = 18;
+            this.textBox21.TabIndex = 15;
             // 
             // label22
             // 
@@ -1001,7 +1001,7 @@
             this.relationTxt.Multiline = true;
             this.relationTxt.Name = "relationTxt";
             this.relationTxt.Size = new System.Drawing.Size(165, 18);
-            this.relationTxt.TabIndex = 19;
+            this.relationTxt.TabIndex = 18;
             // 
             // label21
             // 
@@ -1023,7 +1023,7 @@
             this.employeeTxt.Multiline = true;
             this.employeeTxt.Name = "employeeTxt";
             this.employeeTxt.Size = new System.Drawing.Size(156, 24);
-            this.employeeTxt.TabIndex = 21;
+            this.employeeTxt.TabIndex = 16;
             // 
             // label23
             // 
@@ -1045,7 +1045,7 @@
             this.reasonTxt.Multiline = true;
             this.reasonTxt.Name = "reasonTxt";
             this.reasonTxt.Size = new System.Drawing.Size(165, 24);
-            this.reasonTxt.TabIndex = 20;
+            this.reasonTxt.TabIndex = 19;
             // 
             // label53
             // 
@@ -1107,7 +1107,7 @@
             this.button6.Name = "button6";
             this.button6.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button6.Size = new System.Drawing.Size(90, 36);
-            this.button6.TabIndex = 44;
+            this.button6.TabIndex = 4;
             this.button6.Text = "Print";
             this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button6.UseVisualStyleBackColor = false;
@@ -1149,7 +1149,7 @@
             this.button1.Name = "button1";
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button1.Size = new System.Drawing.Size(105, 26);
-            this.button1.TabIndex = 1;
+            this.button1.TabIndex = 0;
             this.button1.Text = "Add Status";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
@@ -1170,7 +1170,7 @@
             this.button4.Name = "button4";
             this.button4.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button4.Size = new System.Drawing.Size(111, 30);
-            this.button4.TabIndex = 0;
+            this.button4.TabIndex = 1;
             this.button4.Text = "Add Review";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button4.UseVisualStyleBackColor = false;
@@ -1190,7 +1190,7 @@
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button3.Size = new System.Drawing.Size(90, 36);
-            this.button3.TabIndex = 39;
+            this.button3.TabIndex = 3;
             this.button3.Text = "Submit";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = false;
@@ -1210,7 +1210,7 @@
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(83, 36);
-            this.button2.TabIndex = 38;
+            this.button2.TabIndex = 5;
             this.button2.Text = "Cancel";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;

@@ -52,7 +52,7 @@
             this.userCbx.Name = "userCbx";
             this.userCbx.PromptText = "Physician";
             this.userCbx.Size = new System.Drawing.Size(265, 29);
-            this.userCbx.TabIndex = 134;
+            this.userCbx.TabIndex = 0;
             this.userCbx.UseSelectable = true;
             this.userCbx.SelectedIndexChanged += new System.EventHandler(this.userCbx_SelectedIndexChanged);
             // 
@@ -69,7 +69,7 @@
             this.unitCbx.Name = "unitCbx";
             this.unitCbx.PromptText = "Units";
             this.unitCbx.Size = new System.Drawing.Size(265, 29);
-            this.unitCbx.TabIndex = 180;
+            this.unitCbx.TabIndex = 2;
             this.unitCbx.UseSelectable = true;
             // 
             // periodCbx
@@ -87,7 +87,7 @@
             this.periodCbx.Name = "periodCbx";
             this.periodCbx.PromptText = "Period";
             this.periodCbx.Size = new System.Drawing.Size(265, 29);
-            this.periodCbx.TabIndex = 181;
+            this.periodCbx.TabIndex = 3;
             this.periodCbx.UseSelectable = true;
             // 
             // userPbx
@@ -128,7 +128,7 @@
             this.costTxt.SelectionStart = 0;
             this.costTxt.ShortcutsEnabled = true;
             this.costTxt.Size = new System.Drawing.Size(265, 35);
-            this.costTxt.TabIndex = 4;
+            this.costTxt.TabIndex = 1;
             this.costTxt.UseSelectable = true;
             this.costTxt.WaterMark = "Rate/Hr";
             this.costTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -148,7 +148,7 @@
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button3.Size = new System.Drawing.Size(108, 49);
-            this.button3.TabIndex = 12;
+            this.button3.TabIndex = 4;
             this.button3.Text = "Submit";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = false;
@@ -167,7 +167,7 @@
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(108, 49);
-            this.button2.TabIndex = 13;
+            this.button2.TabIndex = 5;
             this.button2.Text = "Cancel";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;

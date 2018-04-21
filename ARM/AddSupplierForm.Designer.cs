@@ -78,7 +78,7 @@
             this.textBox1.Location = new System.Drawing.Point(109, 225);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(213, 20);
-            this.textBox1.TabIndex = 20;
+            this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
@@ -86,14 +86,14 @@
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(213, 63);
-            this.textBox2.TabIndex = 21;
+            this.textBox2.TabIndex = 2;
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(109, 320);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(213, 20);
-            this.textBox3.TabIndex = 22;
+            this.textBox3.TabIndex = 3;
             // 
             // htmlToolTip1
             // 
@@ -116,7 +116,7 @@
             this.metroComboBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.metroComboBox2.Name = "metroComboBox2";
             this.metroComboBox2.Size = new System.Drawing.Size(213, 29);
-            this.metroComboBox2.TabIndex = 27;
+            this.metroComboBox2.TabIndex = 4;
             this.metroComboBox2.UseSelectable = true;
             // 
             // metroLabel5
@@ -133,7 +133,7 @@
             this.textBox4.Location = new System.Drawing.Point(109, 199);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(213, 20);
-            this.textBox4.TabIndex = 31;
+            this.textBox4.TabIndex = 0;
             // 
             // pictureBox1
             // 
@@ -173,7 +173,7 @@
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button3.Size = new System.Drawing.Size(79, 49);
-            this.button3.TabIndex = 38;
+            this.button3.TabIndex = 5;
             this.button3.Text = "Add";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = false;
@@ -191,7 +191,7 @@
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(107, 49);
-            this.button2.TabIndex = 39;
+            this.button2.TabIndex = 6;
             this.button2.Text = "Cancel";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
