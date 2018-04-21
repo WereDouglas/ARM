@@ -43,7 +43,7 @@ namespace ARM
 
             if (DBConnect.CloseMySqlConn())
             {
-                for (int i = 0; i < 30; i++)
+                for (int i = 0; i < 42; i++)
                 {
                     FeedBack("PROCESS " + i.ToString());
                     process(i); backgroundWorker.ReportProgress(i);
@@ -101,56 +101,97 @@ namespace ARM
                     Uploading.Deliverie();
                     break;
                 case 11:
-                    Uploading.Deliverys();
+                    Downloading.Deliverie();
                     break;
                 case 12:
-
+                    Uploading.Deliverys();
                     break;
                 case 13:
-
+                    Downloading.Deliverys();
                     break;
                 case 14:
-
+                    Uploading.Invoices();
                     break;
                 case 15:
-
+                    Downloading.Invoices();
                     break;
                 case 16:
-
+                    Uploading.Transactions();
                     break;
                 case 17:
-
+                    Downloading.Transactions();
                     break;
                 case 18:
+                    Uploading.Payments();
                     break;
                 case 19:
-
+                    Downloading.Payments();
                     break;
                 case 20:
-
+                    Uploading.Order();
                     break;
                 case 21:
-
+                    Downloading.Order();
                     break;
                 case 22:
-
+                    Uploading.Instructions();
                     break;
                 case 23:
-
+                    Downloading.Instructions();
                     break;
                 case 24:
-
+                    Uploading.Follows();
                     break;
                 case 25:
-                    //Download.SendEmail();
+                    Downloading.Follows();//.SendEmail();
                     break;
                 case 26:
-                    // Download.DownloadWallet();
+                    Uploading.ItemReveiews();
                     break;
                 case 27:
-                    // Download.DownloadEvents();
+                    Downloading.ItemReveiews();
                     break;
                 case 28:
+                    Uploading.Vendors();
+                    break;
+                case 29:
+                    Downloading.Vendors();
+                    break;
+                case 30:
+                    Uploading.ItemStatuses();
+                    break;
+                case 31:
+                    Downloading.ItemStatuses();
+                    break;
+                case 32:
+                    Uploading.Rates();
+                    break;
+                case 33:
+                    Downloading.Rates();
+                    break;
+                case 34:
+                    Uploading.Accounts();
+                    break;
+                case 35:
+                    Downloading.Accounts();
+                    break;
+                case 36:
+                    Uploading.Repsonsibles();
+                    break;
+                case 37:
+                    Downloading.Repsonsibles();
+                    break;
+                case 38:
+                    Uploading.Insurances();
+                    break;
+                case 39:
+                    Downloading.Insurances();
+                    break;
+                case 40:
+
+                    break;
+                case 41:
+
                     if (DBConnect.CloseMySqlConn())
                     {
                         FeedBack("Uploading and Downloading of information complete");
@@ -162,7 +203,8 @@ namespace ARM
                         FeedBack("No valid connection ");
                     }
                     break;
-                case 29:
+                case 42:
+
                     break;
                 default:
                     FeedBack("Processing");

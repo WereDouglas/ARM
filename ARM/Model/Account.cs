@@ -52,6 +52,20 @@ namespace ARM.Model
             return p;
 
         }
+        public static List<Account> List(string Q)
+        {
+            p.Clear();           
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                Account ps = new Account(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["bank"].ToString(), Reader["accountNo"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                p.Add(ps);
+            }
+            DBConnect.CloseConn();
+            return p;
+
+        }
     }
 
 }
