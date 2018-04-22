@@ -153,5 +153,11 @@ namespace ARM
         {
 
         }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            string Query = "UPDATE transaction SET sync ='false'";
+            DBConnect.QueryPostgre(Query);
+        }
     }
 }

@@ -263,11 +263,11 @@ namespace ARM.Sync
         public static List<Instruction> j = new List<Instruction>();
         public static void Instructions()
         {
-            j = Instruction.List("SELECT * FROM instrucions WHERE sync = 'false'");
+            j = Instruction.List("SELECT * FROM instruction WHERE sync = 'false'");
             MedicalForm._Form1.FeedBack("Uploading instructions ... " + j.Count);
             foreach (var h in j)
             {
-                string Query = "DELETE from instructions WHERE id ='" + h.Id + "'";
+                string Query = "DELETE from instruction WHERE id ='" + h.Id + "'";
                 DBConnect.QueryMySql(Query);
                 Instruction p = new Instruction(h.Id, h.CustomerID, h.UserID, h.ItemID, h.Date, h.Type, h.AltContact, h.Safety, h.Appropriate, h.AppropriateSelection, h.SafetyOther, h.Phone, h.EquipmentType, h.EquipmentOther, h.Additional, h.AdditionalNotes, h.FollowUp, h.Signature, h.KinName, h.KinContact, h.KinAddress, h.Reason, h.UserSignature, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), true);
                 if (DBConnect.InsertMySQL(p) != "")
@@ -301,9 +301,9 @@ namespace ARM.Sync
             MedicalForm._Form1.FeedBack("Uploading Follows Complete");
         }
         public static List<ItemReview> w = new List<ItemReview>();
-        public static void ItemReveiews()
+        public static void ItemReviews()
         {
-            w = ItemReview.List("SELECT * FROM itemReview WHERE sync = 'false'");
+            w = ItemReview.ListUpload("SELECT * FROM itemReview WHERE sync = 'false'");
             MedicalForm._Form1.FeedBack("Uploading item reviews... " + w.Count);
             foreach (var h in w)
             {
@@ -323,7 +323,7 @@ namespace ARM.Sync
         public static List<ItemStatus> q = new List<ItemStatus>();
         public static void ItemStatuses()
         {
-            q = ItemStatus.List("SELECT * FROM itemStatus WHERE sync = 'false'");
+            q = ItemStatus.ListUpload("SELECT * FROM itemStatus WHERE sync = 'false'");
             MedicalForm._Form1.FeedBack("Uploading item status... " + q.Count);
             foreach (var h in q)
             {

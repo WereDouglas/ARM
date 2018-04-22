@@ -21,7 +21,7 @@ namespace ARM.DB
         public static NpgsqlConnection conn = new NpgsqlConnection("Server=" + Helper.serverIP + ";Port=5432;User Id=postgres;Password=Admin;Database=arm;");
         static NpgsqlDataReader Readers = null;
         static NpgsqlCommand cmd = null;
-        public static MySqlConnection MySqlConn = new MySqlConnection("Server=10.0.0.251;Database=arm;UID=admin;Password=Admin");
+        public static MySqlConnection MySqlConn = new MySqlConnection("Server=192.168.1.249;Database=arm;UID=admin;Password=Admin");
 
         static MySqlDataReader ReadersMySql = null;
         static MySqlCommand cmdMySql = null;
@@ -148,20 +148,21 @@ namespace ARM.DB
         {
             Int32 rowsaffected = 0;
 
-            //try
-            //{
+            
             OpenMySqlConn();
             MySqlCommand command = new MySqlCommand(query, MySqlConn);
-            rowsaffected = command.ExecuteNonQuery();
+            try
+            {
+                rowsaffected = command.ExecuteNonQuery();
+            }
+            catch(Exception c) {
 
+                Console.WriteLine("Errr on insert!" + c.Message);
+               // throw;
+                //    return "";
+            }
             CloseMySqlConn();
-            // return rowsaffected.ToString();
-            //}
-            //catch (Exception c)
-            //{
-            //    Console.WriteLine("Errr on insert!" + c.Message);
-            //    return "";
-            //}
+            
 
             return rowsaffected.ToString();
         }
@@ -291,7 +292,15 @@ namespace ARM.DB
             // Execute command
             OpenMySqlConn();
             MySqlCommand command = new MySqlCommand(SQL, MySqlConn);
-            rowsaffected = command.ExecuteNonQuery();
+            //try
+            //{
+                rowsaffected = command.ExecuteNonQuery();
+            //}
+            //catch(Exception u) {
+
+            //    System.Diagnostics.Debug.WriteLine(u.Message);
+
+            //}
 
             CloseMySqlConn();
             return rowsaffected.ToString();

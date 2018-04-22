@@ -1,4 +1,5 @@
 ﻿using ARM.DB;
+using MySql.Data.MySqlClient;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -52,7 +53,40 @@ namespace ARM.Model
             return p;
 
         }
-       
+        public static List<ItemReview> ListOnline(string Q)
+        {
+            try
+            {
+                p.Clear();
+                DBConnect.OpenMySqlConn();
+                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+                while (Reader.Read())
+                {
+                    ItemReview ps = new ItemReview(Reader["id"].ToString(), Reader["followID"].ToString(), Reader["title"].ToString(), Reader["status"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                    p.Add(ps);
+                }
+                DBConnect.CloseMySqlConn();
+            }
+            catch { }
+            return p;
+
+        }
+        public static List<ItemReview> ListUpload(string Q)
+        {
+            p.Clear();
+             
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                ItemReview ps = new ItemReview(Reader["id"].ToString(), Reader["followID"].ToString(), Reader["title"].ToString(), Reader["status"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                p.Add(ps);
+            }
+            DBConnect.CloseConn();
+            return p;
+
+        }
+
     }
 
 }

@@ -284,5 +284,16 @@ namespace ARM
                 Helper.ToCsV(dtGrid, sfd.FileName); // Here dataGridview1 is your grid view name
             }
         }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void toolStripButton4_Click_1(object sender, EventArgs e)
+        {
+            string Query = "UPDATE invoice SET sync ='false'";
+            DBConnect.QueryPostgre(Query);
+        }
     }
 }

@@ -77,7 +77,6 @@
             this.label50 = new System.Windows.Forms.Label();
             this.setupDate = new MetroFramework.Controls.MetroDateTime();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.userPbx = new System.Windows.Forms.PictureBox();
             this.physicianTxt = new System.Windows.Forms.TextBox();
             this.customerCbx = new MetroFramework.Controls.MetroComboBox();
             this.label23 = new System.Windows.Forms.Label();
@@ -85,12 +84,10 @@
             this.userCbx = new MetroFramework.Controls.MetroComboBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.productPbx = new System.Windows.Forms.PictureBox();
             this.label31 = new System.Windows.Forms.Label();
             this.productCbx = new MetroFramework.Controls.MetroComboBox();
             this.clinicalDateTxt = new MetroFramework.Controls.MetroDateTime();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.cusPbx = new System.Windows.Forms.PictureBox();
             this.subscriberInfoTxt = new System.Windows.Forms.TextBox();
             this.subscriberTypeTxt = new System.Windows.Forms.TextBox();
             this.previewdlg = new System.Windows.Forms.PrintPreviewDialog();
@@ -99,13 +96,16 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.userPbx = new System.Windows.Forms.PictureBox();
+            this.productPbx = new System.Windows.Forms.PictureBox();
+            this.cusPbx = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userPbx)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productPbx)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userPbx)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productPbx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).BeginInit();
             this.SuspendLayout();
             // 
@@ -449,7 +449,7 @@
             // orderDate
             // 
             this.orderDate.Location = new System.Drawing.Point(197, 32);
-            this.orderDate.MinimumSize = new System.Drawing.Size(0, 29);
+            this.orderDate.MinimumSize = new System.Drawing.Size(4, 29);
             this.orderDate.Name = "orderDate";
             this.orderDate.Size = new System.Drawing.Size(199, 29);
             this.orderDate.TabIndex = 0;
@@ -500,7 +500,7 @@
             // dispenseDateTxt
             // 
             this.dispenseDateTxt.Location = new System.Drawing.Point(528, 32);
-            this.dispenseDateTxt.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dispenseDateTxt.MinimumSize = new System.Drawing.Size(4, 29);
             this.dispenseDateTxt.Name = "dispenseDateTxt";
             this.dispenseDateTxt.Size = new System.Drawing.Size(234, 29);
             this.dispenseDateTxt.TabIndex = 2;
@@ -711,16 +711,6 @@
             this.panel3.Size = new System.Drawing.Size(388, 67);
             this.panel3.TabIndex = 454;
             // 
-            // userPbx
-            // 
-            this.userPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
-            this.userPbx.Location = new System.Drawing.Point(4, 5);
-            this.userPbx.Name = "userPbx";
-            this.userPbx.Size = new System.Drawing.Size(68, 46);
-            this.userPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.userPbx.TabIndex = 180;
-            this.userPbx.TabStop = false;
-            // 
             // physicianTxt
             // 
             this.physicianTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
@@ -803,14 +793,6 @@
             this.panel4.Size = new System.Drawing.Size(365, 72);
             this.panel4.TabIndex = 455;
             // 
-            // productPbx
-            // 
-            this.productPbx.Location = new System.Drawing.Point(4, 22);
-            this.productPbx.Name = "productPbx";
-            this.productPbx.Size = new System.Drawing.Size(82, 45);
-            this.productPbx.TabIndex = 444;
-            this.productPbx.TabStop = false;
-            // 
             // label31
             // 
             this.label31.AutoSize = true;
@@ -854,16 +836,6 @@
             this.tableLayoutPanel1.SetRowSpan(this.panel2, 5);
             this.panel2.Size = new System.Drawing.Size(388, 98);
             this.panel2.TabIndex = 452;
-            // 
-            // cusPbx
-            // 
-            this.cusPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
-            this.cusPbx.Location = new System.Drawing.Point(3, 4);
-            this.cusPbx.Name = "cusPbx";
-            this.cusPbx.Size = new System.Drawing.Size(77, 45);
-            this.cusPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.cusPbx.TabIndex = 179;
-            this.cusPbx.TabStop = false;
             // 
             // subscriberInfoTxt
             // 
@@ -956,6 +928,34 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // userPbx
+            // 
+            this.userPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
+            this.userPbx.Location = new System.Drawing.Point(4, 5);
+            this.userPbx.Name = "userPbx";
+            this.userPbx.Size = new System.Drawing.Size(68, 46);
+            this.userPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.userPbx.TabIndex = 180;
+            this.userPbx.TabStop = false;
+            // 
+            // productPbx
+            // 
+            this.productPbx.Location = new System.Drawing.Point(4, 22);
+            this.productPbx.Name = "productPbx";
+            this.productPbx.Size = new System.Drawing.Size(82, 45);
+            this.productPbx.TabIndex = 444;
+            this.productPbx.TabStop = false;
+            // 
+            // cusPbx
+            // 
+            this.cusPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
+            this.cusPbx.Location = new System.Drawing.Point(3, 4);
+            this.cusPbx.Name = "cusPbx";
+            this.cusPbx.Size = new System.Drawing.Size(77, 45);
+            this.cusPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.cusPbx.TabIndex = 179;
+            this.cusPbx.TabStop = false;
+            // 
             // OrderIntakeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
@@ -976,12 +976,12 @@
             this.tableLayoutPanel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userPbx)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productPbx)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userPbx)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productPbx)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).EndInit();
             this.ResumeLayout(false);
 

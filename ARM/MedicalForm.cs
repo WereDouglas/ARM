@@ -71,6 +71,7 @@ namespace ARM
             switch (val)
             {
                 case 1:
+                    
                     Uploading.User();
                     break;
                 case 2:
@@ -146,10 +147,10 @@ namespace ARM
                     Downloading.Follows();//.SendEmail();
                     break;
                 case 26:
-                    Uploading.ItemReveiews();
+                    Uploading.ItemReviews();
                     break;
                 case 27:
-                    Downloading.ItemReveiews();
+                    Downloading.ItemReviews();
                     break;
                 case 28:
                     Uploading.Vendors();
@@ -788,6 +789,11 @@ namespace ARM
             frm.Dock = DockStyle.Fill;
             frm.Show();
             LoadingWindow.CloseForm();
+        }
+
+        private void MedicalForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

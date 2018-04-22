@@ -170,10 +170,10 @@ namespace ARM
                     Downloading.Follows();//.SendEmail();
                     break;
                 case 26:
-                    Uploading.ItemReveiews();
+                    Uploading.ItemReviews();
                     break;
                 case 27:
-                    Downloading.ItemReveiews();
+                    Downloading.ItemReviews();
                     break;
                 case 28:
                     Uploading.Vendors();
@@ -779,6 +779,11 @@ namespace ARM
         {
             processLbl.SelectionStart = processLbl.Text.Length;
             processLbl.ScrollToCaret();
+        }
+
+        private void HrmForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

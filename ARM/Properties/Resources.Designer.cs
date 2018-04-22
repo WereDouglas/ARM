@@ -253,6 +253,16 @@ namespace ARM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Command_Refresh_16 {
+            get {
+                object obj = ResourceManager.GetObject("Command-Refresh-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Contact_24 {
             get {
                 object obj = ResourceManager.GetObject("Contact-24", resourceCulture);

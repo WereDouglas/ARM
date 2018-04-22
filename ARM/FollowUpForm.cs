@@ -227,7 +227,6 @@ namespace ARM
                         LoadData();
 
                     }
-
                 }
 
             }
@@ -237,6 +236,18 @@ namespace ARM
         private void dtGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            string Query = "UPDATE follow SET sync ='false'";
+            DBConnect.QueryPostgre(Query);
+            string Query1 = "UPDATE itemReview SET sync ='false'";
+            DBConnect.QueryPostgre(Query1);
+            string Query2 = "UPDATE itemStatus SET sync ='false'";
+            DBConnect.QueryPostgre(Query2);
+            string Query3 = "UPDATE patientStatus SET sync ='false'";
+            DBConnect.QueryPostgre(Query3);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ARM.DB;
+using MySql.Data.MySqlClient;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -13,8 +14,8 @@ namespace ARM.Model
         private string id;
         private string userID;
         private string bank;
-        private string accountNo;           
-        private string created;      
+        private string accountNo;
+        private string created;
         private bool sync;
         public Account() { }
 
@@ -54,7 +55,7 @@ namespace ARM.Model
         }
         public static List<Account> List(string Q)
         {
-            p.Clear();           
+            p.Clear();
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
@@ -65,6 +66,28 @@ namespace ARM.Model
             DBConnect.CloseConn();
             return p;
 
+        }
+        public static List<Account> ListOnline(string Q)
+        {
+            try
+            {
+                p.Clear();
+                DBConnect.OpenMySqlConn();
+                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+                while (Reader.Read())
+                {
+                    Account ps = new Account(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["bank"].ToString(), Reader["accountNo"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                    p.Add(ps);
+                }
+                DBConnect.CloseMySqlConn();
+                return p;
+            }
+            catch
+            {
+                return p;
+
+            }
+           
         }
     }
 

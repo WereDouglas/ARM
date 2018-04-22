@@ -141,7 +141,7 @@
             // 
             // toolStripProgressBar1
             // 
-            this.toolStripProgressBar1.Maximum = 29;
+            this.toolStripProgressBar1.Maximum = 42;
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             this.toolStripProgressBar1.Size = new System.Drawing.Size(400, 30);
             // 
@@ -626,6 +626,7 @@
             this.Text = "Medical Department";
             this.TransparencyKey = System.Drawing.Color.Empty;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MedicalForm_FormClosed);
             this.Load += new System.EventHandler(this.MedicalForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);

@@ -501,6 +501,7 @@
             this.Text = "HHA Payroll";
             this.TransparencyKey = System.Drawing.Color.Empty;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HrmForm_FormClosed);
             this.Load += new System.EventHandler(this.HrmForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);

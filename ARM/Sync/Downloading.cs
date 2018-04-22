@@ -78,7 +78,7 @@ namespace ARM.Sync
         public static List<Item> i = new List<Item>();
         public static void Items()
         {
-            i = Item.List("SELECT * FROM item WHERE sync = 'false'");
+            i = Item.ListOnline("SELECT * FROM item WHERE sync = 'false'");
             MedicalForm._Form1.FeedBack("Downloading products ... " + u.Count);
             foreach (var h in i)
             {
@@ -98,7 +98,7 @@ namespace ARM.Sync
         public static List<Delivery> d = new List<Delivery>();
         public static void Deliverys()
         {
-            d = Delivery.List("SELECT * FROM delivery WHERE sync = 'false'");
+            d = Delivery.ListOnline("SELECT * FROM delivery WHERE sync = 'false'");
             MedicalForm._Form1.FeedBack("Downloading delivery ... " + d.Count);
             foreach (var h in d)
             {
@@ -118,7 +118,7 @@ namespace ARM.Sync
         public static List<Deliveries> y = new List<Deliveries>();
         public static void Deliverie()
         {
-            y = Deliveries.List("SELECT * FROM deliveries WHERE sync = 'false'");
+            y = Deliveries.ListOnline("SELECT * FROM deliveries WHERE sync = 'false'");
             MedicalForm._Form1.FeedBack("Downloading deliveries ... " + y.Count);
             foreach (var h in y)
             {
@@ -138,7 +138,7 @@ namespace ARM.Sync
         public static List<Invoice> n = new List<Invoice>();
         public static void Invoices()
         {
-            n = Invoice.List("SELECT * FROM invoice WHERE sync = 'false'");
+            n = Invoice.ListOnline("SELECT * FROM invoice WHERE sync = 'false'");
             MedicalForm._Form1.FeedBack("Downloading invoice ... " + n.Count);
             foreach (var h in n)
             {
@@ -158,7 +158,7 @@ namespace ARM.Sync
         public static List<Transaction> t = new List<Transaction>();
         public static void Transactions()
         {
-            t = Transaction.List("SELECT * FROM transaction WHERE sync = 'false'");
+            t = Transaction.ListOnline("SELECT * FROM transaction WHERE sync = 'false'");
             MedicalForm._Form1.FeedBack("Downloading transaction ... " + t.Count);
             foreach (var h in t)
             {
@@ -178,7 +178,7 @@ namespace ARM.Sync
         public static List<Payment> k = new List<Payment>();
         public static void Payments()
         {
-            k = Payment.List("SELECT * FROM payment WHERE sync = 'false'");
+            k = Payment.ListOnline("SELECT * FROM payment WHERE sync = 'false'");
             MedicalForm._Form1.FeedBack("Downloading payment ... " + t.Count);
             foreach (var h in k)
             {
@@ -199,7 +199,7 @@ namespace ARM.Sync
         public static List<Orders> o = new List<Orders>();
         public static void Order()
         {
-            o = Orders.List("SELECT * FROM orders WHERE sync = 'false'");
+            o = Orders.ListOnline("SELECT * FROM orders WHERE sync = 'false'");
             MedicalForm._Form1.FeedBack("Downloading orders ... " + o.Count);
             foreach (var h in o)
             {
@@ -219,8 +219,8 @@ namespace ARM.Sync
         public static List<Instruction> j = new List<Instruction>();
         public static void Instructions()
         {
-            j = Instruction.List("SELECT * FROM instrucions WHERE sync = 'false'");
-            MedicalForm._Form1.FeedBack("Downloading instructions ... " + j.Count);
+            j = Instruction.ListOnline("SELECT * FROM instruction WHERE sync = 'false'");
+            MedicalForm._Form1.FeedBack("Downloading instruction ... " + j.Count);
             foreach (var h in j)
             {
                 string Query = "DELETE from instructions WHERE id ='" + h.Id + "'";
@@ -239,7 +239,7 @@ namespace ARM.Sync
         public static List<Follow> a = new List<Follow>();
         public static void Follows()
         {
-            a = Follow.List("SELECT * FROM follow WHERE sync = 'false'");
+            a = Follow.ListOnline("SELECT * FROM follow WHERE sync = 'false'");
             MedicalForm._Form1.FeedBack("Downloading follow ... " + a.Count);
             foreach (var h in a)
             {
@@ -257,9 +257,9 @@ namespace ARM.Sync
             MedicalForm._Form1.FeedBack("Downloading Follows Complete");
         }
         public static List<ItemReview> w = new List<ItemReview>();
-        public static void ItemReveiews()
+        public static void ItemReviews()
         {
-            w = ItemReview.List("SELECT * FROM itemReview WHERE sync = 'false'");
+            w = ItemReview.ListOnline("SELECT * FROM itemReview WHERE sync = 'false'");
             MedicalForm._Form1.FeedBack("Downloading item reviews... " + w.Count);
             foreach (var h in w)
             {
@@ -279,7 +279,7 @@ namespace ARM.Sync
         public static List<ItemStatus> q = new List<ItemStatus>();
         public static void ItemStatuses()
         {
-            q = ItemStatus.List("SELECT * FROM itemStatus WHERE sync = 'false'");
+            q = ItemStatus.ListOnline("SELECT * FROM itemStatus WHERE sync = 'false'");
             MedicalForm._Form1.FeedBack("Downloading item status... " + q.Count);
             foreach (var h in q)
             {
@@ -300,7 +300,7 @@ namespace ARM.Sync
         public static List<Rate> b = new List<Rate>();
         public static void Rates()
         {
-            b = Rate.List("SELECT * FROM rate WHERE sync = 'false'");
+            b = Rate.ListOnline("SELECT * FROM rate WHERE sync = 'false'");
             MedicalForm._Form1.FeedBack("Downloading rates... " + b.Count);
             foreach (var h in b)
             {
@@ -320,7 +320,7 @@ namespace ARM.Sync
         public static List<Account> l = new List<Account>();
         public static void Accounts()
         {
-            l = Account.List("SELECT * FROM account WHERE sync = 'false'");
+            l = Account.ListOnline("SELECT * FROM account WHERE sync = 'false'");
             MedicalForm._Form1.FeedBack("Downloading Accounts... " + l.Count);
             foreach (var h in l)
             {
@@ -340,7 +340,7 @@ namespace ARM.Sync
         public static List<Responsible> e = new List<Responsible>();
         public static void Repsonsibles()
         {
-            e = Responsible.List("SELECT * FROM responsible WHERE sync = 'false'");
+            e = Responsible.ListOnline("SELECT * FROM responsible WHERE sync = 'false'");
             MedicalForm._Form1.FeedBack("Downloading Responsible... " + e.Count);
             foreach (var h in e)
             {
@@ -360,7 +360,7 @@ namespace ARM.Sync
         public static List<Insurance> f = new List<Insurance>();
         public static void Insurances()
         {
-            f = Insurance.List("SELECT * FROM insurance WHERE sync = 'false'");
+            f = Insurance.ListOnline("SELECT * FROM insurance WHERE sync = 'false'");
             MedicalForm._Form1.FeedBack("Downloading Insurance... " + f.Count);
             foreach (var h in f)
             {
@@ -380,7 +380,7 @@ namespace ARM.Sync
         public static List<Vendor> v = new List<Vendor>();
         public static void Vendors()
         {
-            v = Vendor.List("SELECT * FROM vendor WHERE sync = 'false'");
+            v = Vendor.ListOnline("SELECT * FROM vendor WHERE sync = 'false'");
             MedicalForm._Form1.FeedBack("Downloading Vendor ... " + v.Count);
             foreach (var h in v)
             {

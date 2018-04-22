@@ -867,6 +867,7 @@
     <None Include="Resources\statistic-box-green.png" />
     <None Include="Resources\fancybox_overlay.png" />
     <None Include="Resources\loading1.gif" />
+    <None Include="Resources\Command-Refresh-16.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
