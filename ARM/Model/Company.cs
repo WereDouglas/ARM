@@ -14,6 +14,7 @@ namespace ARM.Model
         private string id;
         private string name;       
         private string contact;
+        private string email;
         private string npi;//National Provider Identifier
         private string address;
         private string office;

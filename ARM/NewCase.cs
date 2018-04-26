@@ -289,7 +289,7 @@ namespace ARM
 
         private void button5_Click(object sender, EventArgs e)
         {
-            using (AddCustomerForm form = new AddCustomerForm(null, "Patient"))
+            using (CustomerDemo form = new CustomerDemo(null, "Patient"))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)

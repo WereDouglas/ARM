@@ -15,16 +15,16 @@ using System.Windows.Forms;
 
 namespace ARM
 {
-    public partial class OrderForm : Form
+    public partial class CaseForm : Form
     {
-        public OrderForm()
+        public CaseForm()
         {
             InitializeComponent();
 
             LoadData();
 
         }
-        List<Orders> invoices = new List<Orders>();
+        List<Case> invoices = new List<Case>();
 
         DataTable t = new DataTable();
         public void LoadData()
@@ -36,35 +36,19 @@ namespace ARM
             t.Columns.Add("uriCus");
             t.Columns.Add(new DataColumn("ImgCus", typeof(Bitmap)));//1  
             t.Columns.Add("Customer");
-            t.Columns.Add("Physician");
-            t.Columns.Add("Product");
-            t.Columns.Add("uriPro");
-            t.Columns.Add(new DataColumn("imgPro", typeof(Bitmap)));//1  
-            t.Columns.Add("Date & Time");
-            t.Columns.Add("By");
-            t.Columns.Add("Dispensed On");
-            t.Columns.Add("Dispensed By");
-            t.Columns.Add("Category");
-            t.Columns.Add("Diagnosis");
-            t.Columns.Add("Surgery");
-            t.Columns.Add("Clinical Date");
-            t.Columns.Add("EQ Limits");
-            t.Columns.Add("EQ Heights");
-            t.Columns.Add("EQ Weights");
-            t.Columns.Add("EQ Instructions");
-            t.Columns.Add("EQ Period");
-            t.Columns.Add("Setup Location");
-            t.Columns.Add("Setup Date");
-            t.Columns.Add("Discharge location");
-            t.Columns.Add("Discharge Date");
-            t.Columns.Add("Notification");
-            t.Columns.Add("Notification Date");
-            t.Columns.Add("Authorization");
-            t.Columns.Add("Authorization Date");
+            t.Columns.Add("Physician");              
+            t.Columns.Add("Date");
+            t.Columns.Add("No");
+            t.Columns.Add("Provider #");
+            t.Columns.Add("Referring Role");
+            t.Columns.Add("Company Role");
+            t.Columns.Add("Place of service");
+            t.Columns.Add("Type of service");
+            t.Columns.Add("Information");           
             t.Columns.Add("Created");
-            t.Columns.Add("Sync");           
-            t.Columns.Add("Action");
-            t.Columns.Add("Other");
+            t.Columns.Add("Sync");
+            t.Columns.Add("Invoice");
+            t.Columns.Add("Intake form");
             t.Columns.Add(new DataColumn("View", typeof(Image)));
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));
 
@@ -82,27 +66,27 @@ namespace ARM
                 g.DrawString("Loading...", this.Font, new SolidBrush(Color.Black), 0f, 0f);
             }
 
-            foreach (Orders c in Orders.List())
+            foreach (Case c in Case.List("SELECT * FROM case "))
             {
                 string imageCus = "";
                 string imagePro = "";
 
                 try { imageCus = Customer.Select(c.CustomerID).Image; } catch { }
-                try { imagePro = Product.Select(c.ItemID).Image; } catch { }
+                try { imagePro = Product.Select(c.Id).Image; } catch { }
 
                 string prod = "";
                 string cus = "";
-                try { prod = Product.Select(c.ItemID).Name; } catch { }
+               
                 try { cus = Customer.Select(c.CustomerID).Name; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, imageCus as string, b, c.CustomerID, c.UserID, c.ItemID+" "+ prod, imagePro as string, b2, c.OrderDateTime, c.OrderBy, c.DispenseDateTime, c.DispenseBy, c.CustomerType, c.Diagnosis, c.Surgery, c.ClinicalDate, c.EquipmentLimits, c.EquipmentHeights, c.EquipmentWeights, c.EquipmentInstructions, c.EquipmentPeriod, c.SetupLocation, c.SetupDate, c.DischargeLocation, c.DischargeDate, c.Notification, c.NotificationDate, c.Authoriz, c.AuthorizationDate, c.Created, c.Sync, c.Action, c.Other, view, delete });
+                    t.Rows.Add(new object[] { false, c.Id, imageCus as string, b,cus,c.PractitionerID,c.Date,c.No,c.ProvideNo,c.PractitionerType,c.RoleType,c.Place,c.Type,c.Information,c.Created,c.Sync,"Invoice","Intake", view, delete });
 
                 }
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing customer {each customer list } Setup date" + c.ClinicalDate);
+                    Helper.Exceptions(m.Message + "Viewing customer {each customer list } Setup date" + c.Date);
                 }
             }
 
@@ -122,22 +106,7 @@ namespace ARM
                     }
                 }
             });
-            ThreadPool.QueueUserWorkItem(delegate
-            {
-                foreach (DataRow row in t.Rows)
-                {
-                    try
-                    {
-
-                        Image img = Helper.Base64ToImageCropped(row["uriPro"].ToString().Replace('"', ' ').Trim());                       
-                        row["imgPro"] = img;
-                    }
-                    catch
-                    {
-
-                    }
-                }
-            });
+            
 
             dtGrid.AllowUserToAddRows = false;
             dtGrid.Columns["Customer"].DefaultCellStyle.BackColor = Color.LightGreen;
@@ -145,10 +114,6 @@ namespace ARM
             dtGrid.Columns["ID"].Visible = false;
             dtGrid.Columns["ImgCus"].DefaultCellStyle.BackColor = Color.LightGreen;
             dtGrid.Columns["uriCus"].Visible = false;
-
-            dtGrid.Columns["uriPro"].Visible = false;
-            dtGrid.Columns["imgPro"].DefaultCellStyle.BackColor = Color.Wheat;
-
 
         }
 
@@ -211,7 +176,7 @@ namespace ARM
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)
                     {
-                        LoadData();
+                        //LoadData();
                     }
                 }
             }
@@ -249,7 +214,7 @@ namespace ARM
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            OrderIntakeForm o = new OrderIntakeForm(null);
+            NewCase o  = new NewCase(null);
             o.Show();
         }
     }

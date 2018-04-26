@@ -620,7 +620,7 @@
             // 
             this.dateAuthTxt.AllowDrop = true;
             this.dateAuthTxt.Location = new System.Drawing.Point(197, 749);
-            this.dateAuthTxt.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dateAuthTxt.MinimumSize = new System.Drawing.Size(4, 29);
             this.dateAuthTxt.Name = "dateAuthTxt";
             this.dateAuthTxt.Size = new System.Drawing.Size(199, 29);
             this.dateAuthTxt.TabIndex = 19;
@@ -987,7 +987,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(854, 1100);
+            this.ClientSize = new System.Drawing.Size(854, 1134);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);

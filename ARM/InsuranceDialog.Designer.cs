@@ -35,6 +35,7 @@
             this.noTxt = new MetroFramework.Controls.MetroTextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.catCbx = new MetroFramework.Controls.MetroComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,7 +119,7 @@
             this.noTxt.DisplayIcon = true;
             this.noTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
             this.noTxt.Lines = new string[0];
-            this.noTxt.Location = new System.Drawing.Point(75, 213);
+            this.noTxt.Location = new System.Drawing.Point(75, 255);
             this.noTxt.MaxLength = 32767;
             this.noTxt.Name = "noTxt";
             this.noTxt.PasswordChar = '\0';
@@ -173,11 +174,27 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // catCbx
+            // 
+            this.catCbx.FormattingEnabled = true;
+            this.catCbx.ItemHeight = 23;
+            this.catCbx.Items.AddRange(new object[] {
+            "Primary",
+            "Secondary"});
+            this.catCbx.Location = new System.Drawing.Point(75, 219);
+            this.catCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.catCbx.Name = "catCbx";
+            this.catCbx.PromptText = "Category of Insurance";
+            this.catCbx.Size = new System.Drawing.Size(265, 29);
+            this.catCbx.TabIndex = 179;
+            this.catCbx.UseSelectable = true;
+            // 
             // InsuranceDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(403, 419);
+            this.Controls.Add(this.catCbx);
             this.Controls.Add(this.nameTxt);
             this.Controls.Add(this.typeCbx);
             this.Controls.Add(this.cusPbx);
@@ -201,5 +218,6 @@
         private System.Windows.Forms.PictureBox cusPbx;
         private MetroFramework.Controls.MetroComboBox typeCbx;
         private MetroFramework.Controls.MetroTextBox nameTxt;
+        private MetroFramework.Controls.MetroComboBox catCbx;
     }
 }

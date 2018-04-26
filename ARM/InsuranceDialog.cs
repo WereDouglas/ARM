@@ -22,14 +22,10 @@ namespace ARM
         Dictionary<string, string> CustomerDictionary = new Dictionary<string, string>();
         string CustomerID;
         string UserID;
-        public InsuranceDialog(string customerID,string id)
+        public InsuranceDialog(string customerID)
         {
             InitializeComponent();
-
-            if (!String.IsNullOrEmpty(id))
-            {                
-
-            }
+           
             CustomerID = customerID;
             AutoCompleteCustomer();           
         }
@@ -67,7 +63,7 @@ namespace ARM
                 return;
             }
             string ID = Guid.NewGuid().ToString();
-            Coverage _e = new Coverage(ID,CustomerID,nameTxt.Text,typeCbx.Text,noTxt.Text, DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),false,Helper.CompanyID);
+            Coverage _e = new Coverage(ID,CustomerID,nameTxt.Text,typeCbx.Text,catCbx.Text,noTxt.Text, DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),false,Helper.CompanyID);
             if (DBConnect.InsertPostgre(_e) != "")
             {
                 MessageBox.Show("Information Saved");

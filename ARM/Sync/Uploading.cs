@@ -118,20 +118,20 @@ namespace ARM.Sync
             }
             MedicalForm._Form1.FeedBack("Uploading Company Complete");
         }
-        public static List<Item> i = new List<Item>();
+        public static List<Product> i = new List<Product>();
         public static void Items()
         {
-            i = Item.List("SELECT * FROM item WHERE sync = 'false'");
+            i = Product.List("SELECT * FROM item WHERE sync = 'false'");
             MedicalForm._Form1.FeedBack("Uploading products ... " + i.Count);
             foreach (var h in i)
             {
                 string Query = "DELETE from item WHERE id ='" + h.Id + "'";
                 DBConnect.QueryMySql(Query);
-                Item p = new Item(h.Id, h.Name, h.Category, h.Type, h.Description, h.Cost, h.BatchNo, h.SerialNo, h.Barcode, h.UnitOfMeasure, h.MeasureDescription, h.Manufacturer, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), true,Helper.CompanyID,h.Image);
+                Product p = new Product(h.Id, h.Name, h.Category, h.Type, h.Description, h.Cost, h.Batch, h.Serial, h.Barcode, h.UnitOfMeasure, h.MeasureDescription, h.Manufacturer, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), true,Helper.CompanyID,h.Image);
                 if (DBConnect.InsertMySQL(p) != "")
                 {
                     MedicalForm._Form1.FeedBack("Uploading ... " + h.Name.ToString());
-                    Item u = new Item(h.Id, h.Name, h.Category, h.Type, h.Description, h.Cost, h.BatchNo, h.SerialNo, h.Barcode, h.UnitOfMeasure, h.MeasureDescription, h.Manufacturer, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), true,Helper.CompanyID,h.Image);
+                    Product u = new Product(h.Id, h.Name, h.Category, h.Type, h.Description, h.Cost, h.Batch, h.Serial, h.Barcode, h.UnitOfMeasure, h.MeasureDescription, h.Manufacturer, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), true,Helper.CompanyID,h.Image);
                     DBConnect.UpdatePostgre(u, h.Id);
                     MedicalForm._Form1.FeedBack("Updating .. " + h.Name.ToString());
                 }

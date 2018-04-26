@@ -22,56 +22,18 @@ namespace ARM.Model
         private string zip;
         private string gender;
         private string relationship;
-        private string created;      
-       
-        private string category;
+        private string created;
         private bool sync;
         private string companyID;
-        private string image;
-
-        public Emergency() { }
-
-        public Emergency(string id, string name, string contact, string address, string no, string city, string state, string zip, string created, string ssn, string dob, string category,bool sync,string companyID, string image)
-        {
-            this.Id = id;
-            this.Name = name;
-            this.Contact = contact;
-            this.Address = address;
-            this.No = no;
-            this.City = city;
-            this.State = state;
-            this.Zip = zip;
-            this.Created = created;
-            this.Ssn = ssn;
-            this.Dob = dob;
-            this.Category = category;
-            this.Sync = sync;
-            this.CompanyID = companyID;
-            this.Image = image;
-        }
+        private string image;       
 
         static List<Emergency> p = new List<Emergency>();
 
-        public string Id { get => id; set => id = value; }
-        public string Name { get => name; set => name = value; }
-        public string Contact { get => contact; set => contact = value; }
-        public string Address { get => address; set => address = value; }
-
-        public string No { get => no; set => no = value; }
-        public string City { get => city; set => city = value; }
-        public string State { get => state; set => state = value; }
-        public string Zip { get => zip; set => zip = value; }
-        public string Created { get => created; set => created = value; }
-        public string Ssn { get => ssn; set => ssn = value; }
-        public string Dob { get => dob; set => dob = value; }
-        public string Category { get => category; set => category = value; }
-        public bool Sync { get => sync; set => sync = value; }
-        public string CompanyID { get => companyID; set => companyID = value; }
-        public string Image { get => image; set => image = value; }
+        
         public static List<Emergency> List()
         {
             p.Clear();
-            string Q = "SELECT * FROM customer ";
+            string Q = "SELECT * FROM emergency ";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
@@ -116,9 +78,45 @@ namespace ARM.Model
 
         }
         private static Emergency c = new Emergency();
-        public static Emergency Select(string customerID)
+
+        public string Id { get => id; set => id = value; }
+        public string CustomerID { get => customerID; set => customerID = value; }
+        public string Name { get => name; set => name = value; }
+        public string Contact { get => contact; set => contact = value; }
+        public string Address { get => address; set => address = value; }
+        public string No { get => no; set => no = value; }
+        public string City { get => city; set => city = value; }
+        public string State { get => state; set => state = value; }
+        public string Zip { get => zip; set => zip = value; }
+        public string Gender { get => gender; set => gender = value; }
+        public string Relationship { get => relationship; set => relationship = value; }
+        public string Created { get => created; set => created = value; }
+        public bool Sync { get => sync; set => sync = value; }
+        public string CompanyID { get => companyID; set => companyID = value; }
+        public string Image { get => image; set => image = value; }
+        public Emergency() { }
+        public Emergency(string id, string customerID, string name, string contact, string address, string no, string city, string state, string zip, string gender, string relationship, string created, bool sync, string companyID, string image)
         {
-            string Q = "SELECT * FROM customer WHERE id = '" + customerID + "'";
+            this.Id = id;
+            this.CustomerID = customerID;
+            this.Name = name;
+            this.Contact = contact;
+            this.Address = address;
+            this.No = no;
+            this.City = city;
+            this.State = state;
+            this.Zip = zip;
+            this.Gender = gender;
+            this.Relationship = relationship;
+            this.Created = created;
+            this.Sync = sync;
+            this.CompanyID = companyID;
+            this.Image = image;
+        }
+
+        public static Emergency Select(string ID)
+        {
+            string Q = "SELECT * FROM emergency WHERE id = '" + ID + "'";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())

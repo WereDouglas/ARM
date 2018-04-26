@@ -113,7 +113,7 @@ namespace ARM.Model
 
         public static List<Case> Select(string id)
         {
-            string Q = "SELECT * FROM coverage WHERE customerID = '" + id + "'";
+            string Q = "SELECT * FROM case WHERE customerID = '" + id + "'";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())

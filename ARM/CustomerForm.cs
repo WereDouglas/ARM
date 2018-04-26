@@ -160,7 +160,7 @@ namespace ARM
             }
             if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
             {
-                using (AddCustomerForm form = new AddCustomerForm(dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString()))
+                using (CustomerDemo form = new CustomerDemo(dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString()))
                 {
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)
@@ -193,7 +193,7 @@ namespace ARM
         {
             if (e.ColumnIndex == 1)
             {
-                using (AddCustomerForm form = new AddCustomerForm(dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString()))
+                using (CustomerDemo form = new CustomerDemo(dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString()))
                 {
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)
@@ -225,7 +225,7 @@ namespace ARM
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            using (AddCustomerForm form = new AddCustomerForm(null,null))
+            using (CustomerDemo form = new CustomerDemo(null,null))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
