@@ -23,7 +23,7 @@ namespace ARM
             LoadData();
 
         }
-        List<Insurance> invoices = new List<Insurance>();
+        List<Coverage> invoices = new List<Coverage>();
 
         DataTable t = new DataTable();
         public void LoadData()
@@ -38,13 +38,12 @@ namespace ARM
             t.Columns.Add("Company");
             t.Columns.Add("Type");
             t.Columns.Add("No");
-            t.Columns.Add("Address");
-            t.Columns.Add("Contact");
-            t.Columns.Add("Zip");
+            
             t.Columns.Add("Sync");
             t.Columns.Add("Created");
             t.Columns.Add(new DataColumn("View", typeof(Image)));
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));
+            t.Columns.Add("customerID");
 
             Image view = new Bitmap(Properties.Resources.Document_Edit_24__1_);
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
@@ -56,7 +55,7 @@ namespace ARM
             }
             
 
-            foreach (Insurance c in Insurance.List())
+            foreach (Coverage c in Coverage.List())
             {
                
                 string cus = "";
@@ -66,7 +65,7 @@ namespace ARM
                 try { imageCus = Customer.Select(c.CustomerID).Image; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, imageCus as string, b, cus, c.Name,c.Type,c.No,c.Address,c.Contact,c.Zip, c.Sync, c.Created, view, delete });
+                    t.Rows.Add(new object[] { false, c.Id, imageCus as string, b, cus, c.Name,c.Type,c.No, c.Sync, c.Created, view, delete ,c.CustomerID});
 
                 }
                 catch (Exception m)
@@ -103,6 +102,7 @@ namespace ARM
             dtGrid.Columns["ImgCus"].DefaultCellStyle.BackColor =  Color.LightGreen;
 
             dtGrid.Columns["ID"].Visible = false;
+            dtGrid.Columns["customerID"].Visible = false;
             dtGrid.Columns["uriCus"].Visible = false;
            
         }
@@ -161,7 +161,7 @@ namespace ARM
             }
             if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
             {
-                using (InsuranceDialog form = new InsuranceDialog(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
+                using (InsuranceDialog form = new InsuranceDialog(dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
                 {
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)
@@ -195,5 +195,12 @@ namespace ARM
         {
 
         }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            string Query = "UPDATE customer SET sync ='false'";
+            DBConnect.QueryPostgre(Query);
+        }
+
     }
 }

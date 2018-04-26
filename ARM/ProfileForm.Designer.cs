@@ -28,18 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfileForm));
             this.htmlToolTip1 = new MetroFramework.Drawing.Html.HtmlToolTip();
             this.fileUrlTxtBx = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.updateBtn = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.telTxt = new MetroFramework.Controls.MetroTextBox();
+            this.faxTxt = new MetroFramework.Controls.MetroTextBox();
             this.addressTxt = new MetroFramework.Controls.MetroTextBox();
             this.contactTxt = new MetroFramework.Controls.MetroTextBox();
             this.nameTxt = new MetroFramework.Controls.MetroTextBox();
             this.emailTxt = new MetroFramework.Controls.MetroTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.saveBtn = new System.Windows.Forms.Button();
             this.imgCapture = new System.Windows.Forms.PictureBox();
-            this.faxTxt = new MetroFramework.Controls.MetroTextBox();
-            this.telTxt = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,12 +56,131 @@
             this.fileUrlTxtBx.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.fileUrlTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.fileUrlTxtBx.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fileUrlTxtBx.Location = new System.Drawing.Point(53, 563);
+            this.fileUrlTxtBx.Location = new System.Drawing.Point(50, 515);
             this.fileUrlTxtBx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.fileUrlTxtBx.Name = "fileUrlTxtBx";
             this.fileUrlTxtBx.Size = new System.Drawing.Size(268, 14);
-            this.fileUrlTxtBx.TabIndex = 15;
+            this.fileUrlTxtBx.TabIndex = 10;
             this.fileUrlTxtBx.Visible = false;
+            // 
+            // button3
+            // 
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = global::ARM.Properties.Resources.Server_02_16;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(95, 658);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(159, 35);
+            this.button3.TabIndex = 12;
+            this.button3.Text = "Setup Server Database";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // updateBtn
+            // 
+            this.updateBtn.BackColor = System.Drawing.Color.Beige;
+            this.updateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updateBtn.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.updateBtn.Image = global::ARM.Properties.Resources.Note_04_24;
+            this.updateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.updateBtn.Location = new System.Drawing.Point(130, 538);
+            this.updateBtn.Name = "updateBtn";
+            this.updateBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.updateBtn.Size = new System.Drawing.Size(103, 49);
+            this.updateBtn.TabIndex = 8;
+            this.updateBtn.Text = "Update";
+            this.updateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.updateBtn.UseVisualStyleBackColor = false;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button4.Image = global::ARM.Properties.Resources.Command_Refresh_16;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(307, 19);
+            this.button4.Name = "button4";
+            this.button4.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button4.Size = new System.Drawing.Size(31, 21);
+            this.button4.TabIndex = 11;
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // telTxt
+            // 
+            // 
+            // 
+            // 
+            this.telTxt.CustomButton.Image = null;
+            this.telTxt.CustomButton.Location = new System.Drawing.Point(231, 1);
+            this.telTxt.CustomButton.Name = "";
+            this.telTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
+            this.telTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.telTxt.CustomButton.TabIndex = 1;
+            this.telTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.telTxt.CustomButton.UseSelectable = true;
+            this.telTxt.CustomButton.Visible = false;
+            this.telTxt.DisplayIcon = true;
+            this.telTxt.Icon = global::ARM.Properties.Resources.Telephone_01_161;
+            this.telTxt.Lines = new string[0];
+            this.telTxt.Location = new System.Drawing.Point(53, 473);
+            this.telTxt.MaxLength = 32767;
+            this.telTxt.Name = "telTxt";
+            this.telTxt.PasswordChar = '\0';
+            this.telTxt.PromptText = "Tel";
+            this.telTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.telTxt.SelectedText = "";
+            this.telTxt.SelectionLength = 0;
+            this.telTxt.SelectionStart = 0;
+            this.telTxt.ShortcutsEnabled = true;
+            this.telTxt.Size = new System.Drawing.Size(265, 35);
+            this.telTxt.TabIndex = 6;
+            this.telTxt.UseSelectable = true;
+            this.telTxt.WaterMark = "Tel";
+            this.telTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.telTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // faxTxt
+            // 
+            // 
+            // 
+            // 
+            this.faxTxt.CustomButton.Image = null;
+            this.faxTxt.CustomButton.Location = new System.Drawing.Point(231, 1);
+            this.faxTxt.CustomButton.Name = "";
+            this.faxTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
+            this.faxTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.faxTxt.CustomButton.TabIndex = 1;
+            this.faxTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.faxTxt.CustomButton.UseSelectable = true;
+            this.faxTxt.CustomButton.Visible = false;
+            this.faxTxt.DisplayIcon = true;
+            this.faxTxt.Icon = global::ARM.Properties.Resources.Fax_16;
+            this.faxTxt.Lines = new string[0];
+            this.faxTxt.Location = new System.Drawing.Point(53, 432);
+            this.faxTxt.MaxLength = 32767;
+            this.faxTxt.Name = "faxTxt";
+            this.faxTxt.PasswordChar = '\0';
+            this.faxTxt.PromptText = "Fax";
+            this.faxTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.faxTxt.SelectedText = "";
+            this.faxTxt.SelectionLength = 0;
+            this.faxTxt.SelectionStart = 0;
+            this.faxTxt.ShortcutsEnabled = true;
+            this.faxTxt.Size = new System.Drawing.Size(265, 35);
+            this.faxTxt.TabIndex = 5;
+            this.faxTxt.UseSelectable = true;
+            this.faxTxt.WaterMark = "Fax";
+            this.faxTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.faxTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // addressTxt
             // 
@@ -76,7 +199,7 @@
             this.addressTxt.DisplayIcon = true;
             this.addressTxt.Icon = global::ARM.Properties.Resources.Map_Location_24;
             this.addressTxt.Lines = new string[0];
-            this.addressTxt.Location = new System.Drawing.Point(53, 332);
+            this.addressTxt.Location = new System.Drawing.Point(53, 363);
             this.addressTxt.MaxLength = 32767;
             this.addressTxt.Multiline = true;
             this.addressTxt.Name = "addressTxt";
@@ -88,7 +211,7 @@
             this.addressTxt.SelectionStart = 0;
             this.addressTxt.ShortcutsEnabled = true;
             this.addressTxt.Size = new System.Drawing.Size(265, 63);
-            this.addressTxt.TabIndex = 5;
+            this.addressTxt.TabIndex = 4;
             this.addressTxt.UseSelectable = true;
             this.addressTxt.WaterMark = "Address";
             this.addressTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -111,7 +234,7 @@
             this.contactTxt.DisplayIcon = true;
             this.contactTxt.Icon = global::ARM.Properties.Resources.Contact_24;
             this.contactTxt.Lines = new string[0];
-            this.contactTxt.Location = new System.Drawing.Point(53, 291);
+            this.contactTxt.Location = new System.Drawing.Point(53, 322);
             this.contactTxt.MaxLength = 32767;
             this.contactTxt.Name = "contactTxt";
             this.contactTxt.PasswordChar = '\0';
@@ -145,7 +268,7 @@
             this.nameTxt.DisplayIcon = true;
             this.nameTxt.Icon = global::ARM.Properties.Resources.User_Profile_24;
             this.nameTxt.Lines = new string[0];
-            this.nameTxt.Location = new System.Drawing.Point(53, 209);
+            this.nameTxt.Location = new System.Drawing.Point(53, 240);
             this.nameTxt.MaxLength = 32767;
             this.nameTxt.Name = "nameTxt";
             this.nameTxt.PasswordChar = '\0';
@@ -179,7 +302,7 @@
             this.emailTxt.DisplayIcon = true;
             this.emailTxt.Icon = global::ARM.Properties.Resources.Mail_24;
             this.emailTxt.Lines = new string[0];
-            this.emailTxt.Location = new System.Drawing.Point(53, 250);
+            this.emailTxt.Location = new System.Drawing.Point(53, 281);
             this.emailTxt.MaxLength = 32767;
             this.emailTxt.Name = "emailTxt";
             this.emailTxt.PasswordChar = '\0';
@@ -201,11 +324,11 @@
             this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.button1.Image = global::ARM.Properties.Resources.Search_Folder_New_32;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(233, 173);
+            this.button1.Location = new System.Drawing.Point(110, 204);
             this.button1.Name = "button1";
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button1.Size = new System.Drawing.Size(103, 30);
@@ -224,119 +347,54 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(53, 507);
+            this.button2.Location = new System.Drawing.Point(17, 538);
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(107, 49);
-            this.button2.TabIndex = 14;
+            this.button2.TabIndex = 9;
             this.button2.Text = "Cancel";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // saveBtn
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.Image = global::ARM.Properties.Resources.Submit_01_32;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(215, 507);
-            this.button3.Name = "button3";
-            this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button3.Size = new System.Drawing.Size(103, 49);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Submit";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.saveBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.saveBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveBtn.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.saveBtn.Image = global::ARM.Properties.Resources.Submit_01_32;
+            this.saveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.saveBtn.Location = new System.Drawing.Point(235, 538);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.saveBtn.Size = new System.Drawing.Size(103, 49);
+            this.saveBtn.TabIndex = 7;
+            this.saveBtn.Text = "Submit";
+            this.saveBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.saveBtn.UseVisualStyleBackColor = false;
+            this.saveBtn.Click += new System.EventHandler(this.button3_Click);
             // 
             // imgCapture
             // 
             this.imgCapture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.imgCapture.Image = global::ARM.Properties.Resources.temp1;
-            this.imgCapture.Location = new System.Drawing.Point(96, 63);
+            this.imgCapture.Image = global::ARM.Properties.Resources.Place;
+            this.imgCapture.Location = new System.Drawing.Point(72, 60);
             this.imgCapture.Name = "imgCapture";
-            this.imgCapture.Size = new System.Drawing.Size(128, 128);
+            this.imgCapture.Size = new System.Drawing.Size(203, 138);
             this.imgCapture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.imgCapture.TabIndex = 25;
             this.imgCapture.TabStop = false;
-            // 
-            // faxTxt
-            // 
-            // 
-            // 
-            // 
-            this.faxTxt.CustomButton.Image = null;
-            this.faxTxt.CustomButton.Location = new System.Drawing.Point(231, 1);
-            this.faxTxt.CustomButton.Name = "";
-            this.faxTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
-            this.faxTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.faxTxt.CustomButton.TabIndex = 1;
-            this.faxTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.faxTxt.CustomButton.UseSelectable = true;
-            this.faxTxt.CustomButton.Visible = false;
-            this.faxTxt.DisplayIcon = true;
-            this.faxTxt.Icon = global::ARM.Properties.Resources.Mail_24;
-            this.faxTxt.Lines = new string[0];
-            this.faxTxt.Location = new System.Drawing.Point(53, 401);
-            this.faxTxt.MaxLength = 32767;
-            this.faxTxt.Name = "faxTxt";
-            this.faxTxt.PasswordChar = '\0';
-            this.faxTxt.PromptText = "Fax";
-            this.faxTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.faxTxt.SelectedText = "";
-            this.faxTxt.SelectionLength = 0;
-            this.faxTxt.SelectionStart = 0;
-            this.faxTxt.ShortcutsEnabled = true;
-            this.faxTxt.Size = new System.Drawing.Size(265, 35);
-            this.faxTxt.TabIndex = 26;
-            this.faxTxt.UseSelectable = true;
-            this.faxTxt.WaterMark = "Fax";
-            this.faxTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.faxTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // telTxt
-            // 
-            // 
-            // 
-            // 
-            this.telTxt.CustomButton.Image = null;
-            this.telTxt.CustomButton.Location = new System.Drawing.Point(231, 1);
-            this.telTxt.CustomButton.Name = "";
-            this.telTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
-            this.telTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.telTxt.CustomButton.TabIndex = 1;
-            this.telTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.telTxt.CustomButton.UseSelectable = true;
-            this.telTxt.CustomButton.Visible = false;
-            this.telTxt.DisplayIcon = true;
-            this.telTxt.Icon = global::ARM.Properties.Resources.Mail_24;
-            this.telTxt.Lines = new string[0];
-            this.telTxt.Location = new System.Drawing.Point(53, 442);
-            this.telTxt.MaxLength = 32767;
-            this.telTxt.Name = "telTxt";
-            this.telTxt.PasswordChar = '\0';
-            this.telTxt.PromptText = "Tel";
-            this.telTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.telTxt.SelectedText = "";
-            this.telTxt.SelectionLength = 0;
-            this.telTxt.SelectionStart = 0;
-            this.telTxt.ShortcutsEnabled = true;
-            this.telTxt.Size = new System.Drawing.Size(265, 35);
-            this.telTxt.TabIndex = 27;
-            this.telTxt.UseSelectable = true;
-            this.telTxt.WaterMark = "Tel";
-            this.telTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.telTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 611);
+            this.ClientSize = new System.Drawing.Size(359, 716);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.updateBtn);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.telTxt);
             this.Controls.Add(this.faxTxt);
             this.Controls.Add(this.addressTxt);
@@ -346,8 +404,9 @@
             this.Controls.Add(this.fileUrlTxtBx);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.imgCapture);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProfileForm";
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
             this.Style = MetroFramework.MetroColorStyle.Brown;
@@ -362,7 +421,7 @@
         private MetroFramework.Drawing.Html.HtmlToolTip htmlToolTip1;
         private System.Windows.Forms.PictureBox imgCapture;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox fileUrlTxtBx;
         private MetroFramework.Controls.MetroTextBox emailTxt;
@@ -371,5 +430,8 @@
         private MetroFramework.Controls.MetroTextBox addressTxt;
         private MetroFramework.Controls.MetroTextBox faxTxt;
         private MetroFramework.Controls.MetroTextBox telTxt;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button updateBtn;
+        private System.Windows.Forms.Button button3;
     }
 }

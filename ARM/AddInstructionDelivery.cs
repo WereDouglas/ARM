@@ -125,19 +125,19 @@ namespace ARM
         {
             foreach (var s in safetyListBx.CheckedItems)
             {
-                SafetyDictionary.Add(s.ToString(), true);
+                SafetyDictionary.Add(s.ToString(),true);
             }
             foreach (var s in appropListBx.CheckedItems)
             {
-                AppropriateDictionary.Add(s.ToString(), true);
+                AppropriateDictionary.Add(s.ToString(),true);
             }
             foreach (var s in equipmentTypeListBox.CheckedItems)
             {
-                EquipmentDictionary.Add(s.ToString(), true);
+                EquipmentDictionary.Add(s.ToString(),true);
             }
             foreach (var s in additionalListBx.CheckedItems)
             {
-                AdditionalDictionary.Add(s.ToString(), true);
+                AdditionalDictionary.Add(s.ToString(),true);
             }
 
             var SafetyJson = JsonConvert.SerializeObject(SafetyDictionary);
@@ -145,7 +145,7 @@ namespace ARM
             var EquipmentJson = JsonConvert.SerializeObject(EquipmentDictionary);
             var AdditionalJson = JsonConvert.SerializeObject(AdditionalDictionary);
             string id = Guid.NewGuid().ToString();
-            Instruction i = new Instruction(id, CustomerID, UserID, ItemID, clinicalDateTxt.Text, typeListBx.SelectedItem.ToString(), altContactTxt.Text, SafetyJson, appropriateCbx.Text, AppropriateJson, safetyOtherTxt.Text, phoneTxt.Text, EquipmentJson, equipOtherTxt.Text, AdditionalJson, additionNotesTxt.Text, followUpCbx.Text, signatureTxt.Text, kinnameTxt.Text, kinContactTxt.Text, kinAddressTxt.Text, reasonTxt.Text, userSignatureTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
+            Instruction i = new Instruction(id, CustomerID, UserID, ItemID, clinicalDateTxt.Text, typeListBx.SelectedItem.ToString(), altContactTxt.Text, SafetyJson, appropriateCbx.Text, AppropriateJson, safetyOtherTxt.Text, phoneTxt.Text, EquipmentJson, equipOtherTxt.Text, AdditionalJson, additionNotesTxt.Text, followUpCbx.Text, signatureTxt.Text, kinnameTxt.Text, kinContactTxt.Text, kinAddressTxt.Text, reasonTxt.Text, userSignatureTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false,Helper.CompanyID);
             if (DBConnect.InsertPostgre(i) != "")
             {
 
@@ -202,7 +202,7 @@ namespace ARM
             }
         }
         Customer c;
-        Insurance ins;
+        Coverage ins;
         private void customerCbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             try

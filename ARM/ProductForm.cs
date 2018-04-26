@@ -206,5 +206,23 @@ namespace ARM
                 }
             }
         }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            string Query = "UPDATE item SET sync ='false'";
+            DBConnect.QueryPostgre(Query);
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            using (AddItem form = new AddItem(null))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    // LoadingCalendarLite();
+                }
+            }
+        }
     }
 }

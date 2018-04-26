@@ -93,6 +93,7 @@
             this.previewdlg = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printdoc1 = new System.Drawing.Printing.PrintDocument();
+            this.button5 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -204,11 +205,11 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 58F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 11F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
@@ -237,7 +238,7 @@
             // 
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label51.Location = new System.Drawing.Point(8, 613);
+            this.label51.Location = new System.Drawing.Point(8, 623);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(38, 16);
             this.label51.TabIndex = 317;
@@ -248,7 +249,7 @@
             this.label57.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.tableLayoutPanel1.SetColumnSpan(this.label57, 4);
             this.label57.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.Location = new System.Drawing.Point(8, 761);
+            this.label57.Location = new System.Drawing.Point(8, 784);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(759, 20);
             this.label57.TabIndex = 329;
@@ -259,9 +260,9 @@
             this.label52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.tableLayoutPanel1.SetColumnSpan(this.label52, 4);
             this.label52.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.Location = new System.Drawing.Point(8, 646);
+            this.label52.Location = new System.Drawing.Point(8, 659);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(759, 17);
+            this.label52.Size = new System.Drawing.Size(759, 24);
             this.label52.TabIndex = 318;
             this.label52.Text = "Action Taken:";
             // 
@@ -269,7 +270,7 @@
             // 
             this.label54.AutoSize = true;
             this.label54.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.Location = new System.Drawing.Point(8, 663);
+            this.label54.Location = new System.Drawing.Point(8, 688);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(110, 16);
             this.label54.TabIndex = 326;
@@ -277,7 +278,8 @@
             // 
             // dateNotifiedTxt
             // 
-            this.dateNotifiedTxt.Location = new System.Drawing.Point(197, 666);
+            this.dateNotifiedTxt.AllowDrop = true;
+            this.dateNotifiedTxt.Location = new System.Drawing.Point(197, 691);
             this.dateNotifiedTxt.MinimumSize = new System.Drawing.Size(0, 29);
             this.dateNotifiedTxt.Name = "dateNotifiedTxt";
             this.dateNotifiedTxt.Size = new System.Drawing.Size(199, 29);
@@ -448,8 +450,9 @@
             // 
             // orderDate
             // 
+            this.orderDate.AllowDrop = true;
             this.orderDate.Location = new System.Drawing.Point(197, 32);
-            this.orderDate.MinimumSize = new System.Drawing.Size(4, 29);
+            this.orderDate.MinimumSize = new System.Drawing.Size(0, 29);
             this.orderDate.Name = "orderDate";
             this.orderDate.Size = new System.Drawing.Size(199, 29);
             this.orderDate.TabIndex = 0;
@@ -499,8 +502,9 @@
             // 
             // dispenseDateTxt
             // 
+            this.dispenseDateTxt.AllowDrop = true;
             this.dispenseDateTxt.Location = new System.Drawing.Point(528, 32);
-            this.dispenseDateTxt.MinimumSize = new System.Drawing.Size(4, 29);
+            this.dispenseDateTxt.MinimumSize = new System.Drawing.Size(0, 29);
             this.dispenseDateTxt.Name = "dispenseDateTxt";
             this.dispenseDateTxt.Size = new System.Drawing.Size(234, 29);
             this.dispenseDateTxt.TabIndex = 2;
@@ -606,15 +610,16 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 698);
+            this.label1.Location = new System.Drawing.Point(8, 746);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 16);
+            this.label1.Size = new System.Drawing.Size(118, 11);
             this.label1.TabIndex = 448;
             this.label1.Text = "Date Of Authorization";
             // 
             // dateAuthTxt
             // 
-            this.dateAuthTxt.Location = new System.Drawing.Point(197, 701);
+            this.dateAuthTxt.AllowDrop = true;
+            this.dateAuthTxt.Location = new System.Drawing.Point(197, 749);
             this.dateAuthTxt.MinimumSize = new System.Drawing.Size(0, 29);
             this.dateAuthTxt.Name = "dateAuthTxt";
             this.dateAuthTxt.Size = new System.Drawing.Size(199, 29);
@@ -632,10 +637,10 @@
             "Patient/facility contacted  ",
             "CMN sent  ",
             "CMN returned  "});
-            this.actionListBx.Location = new System.Drawing.Point(402, 666);
+            this.actionListBx.Location = new System.Drawing.Point(402, 691);
             this.actionListBx.Name = "actionListBx";
             this.tableLayoutPanel1.SetRowSpan(this.actionListBx, 3);
-            this.actionListBx.Size = new System.Drawing.Size(365, 75);
+            this.actionListBx.Size = new System.Drawing.Size(365, 90);
             this.actionListBx.TabIndex = 20;
             // 
             // instructionTxt
@@ -673,7 +678,7 @@
             // 
             this.otherTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.otherTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.otherTxt.Location = new System.Drawing.Point(197, 616);
+            this.otherTxt.Location = new System.Drawing.Point(197, 626);
             this.otherTxt.Multiline = true;
             this.otherTxt.Name = "otherTxt";
             this.otherTxt.Size = new System.Drawing.Size(199, 24);
@@ -685,7 +690,7 @@
             this.label50.BackColor = System.Drawing.Color.White;
             this.label50.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label50.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label50.Location = new System.Drawing.Point(402, 619);
+            this.label50.Location = new System.Drawing.Point(402, 632);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(120, 27);
             this.label50.TabIndex = 316;
@@ -694,7 +699,8 @@
             // 
             // setupDate
             // 
-            this.setupDate.Location = new System.Drawing.Point(528, 616);
+            this.setupDate.AllowDrop = true;
+            this.setupDate.Location = new System.Drawing.Point(528, 626);
             this.setupDate.MinimumSize = new System.Drawing.Size(0, 29);
             this.setupDate.Name = "setupDate";
             this.setupDate.Size = new System.Drawing.Size(239, 29);
@@ -705,10 +711,10 @@
             this.tableLayoutPanel1.SetColumnSpan(this.panel3, 2);
             this.panel3.Controls.Add(this.userPbx);
             this.panel3.Controls.Add(this.physicianTxt);
-            this.panel3.Location = new System.Drawing.Point(8, 821);
+            this.panel3.Location = new System.Drawing.Point(8, 844);
             this.panel3.Name = "panel3";
             this.tableLayoutPanel1.SetRowSpan(this.panel3, 3);
-            this.panel3.Size = new System.Drawing.Size(388, 67);
+            this.panel3.Size = new System.Drawing.Size(388, 62);
             this.panel3.TabIndex = 454;
             // 
             // physicianTxt
@@ -763,7 +769,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.userCbx, 2);
             this.userCbx.FormattingEnabled = true;
             this.userCbx.ItemHeight = 23;
-            this.userCbx.Location = new System.Drawing.Point(8, 788);
+            this.userCbx.Location = new System.Drawing.Point(8, 811);
             this.userCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.userCbx.Name = "userCbx";
             this.userCbx.PromptText = "Physician";
@@ -774,7 +780,7 @@
             // 
             // panel5
             // 
-            this.panel5.Location = new System.Drawing.Point(528, 821);
+            this.panel5.Location = new System.Drawing.Point(528, 844);
             this.panel5.Name = "panel5";
             this.tableLayoutPanel1.SetRowSpan(this.panel5, 2);
             this.panel5.Size = new System.Drawing.Size(200, 28);
@@ -819,6 +825,7 @@
             // 
             // clinicalDateTxt
             // 
+            this.clinicalDateTxt.AllowDrop = true;
             this.clinicalDateTxt.Location = new System.Drawing.Point(101, 38);
             this.clinicalDateTxt.MinimumSize = new System.Drawing.Size(0, 29);
             this.clinicalDateTxt.Name = "clinicalDateTxt";
@@ -870,6 +877,25 @@
             // printdoc1
             // 
             this.printdoc1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printdoc1_PrintPage);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button5.Image = global::ARM.Properties.Resources.Document_Add_01_24__1_;
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(814, 165);
+            this.button5.Name = "button5";
+            this.button5.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button5.Size = new System.Drawing.Size(87, 32);
+            this.button5.TabIndex = 245;
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button1
             // 
@@ -961,7 +987,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(854, 1099);
+            this.ClientSize = new System.Drawing.Size(854, 1100);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -1059,5 +1086,6 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.Button button1;
         private System.Drawing.Printing.PrintDocument printdoc1;
+        private System.Windows.Forms.Button button5;
     }
 }

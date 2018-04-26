@@ -28,11 +28,11 @@ namespace ARM.Model
         private int itemCount;
         private string userID;
         private string created;
-        private bool sync;
+       private bool sync; private string companyID;
 
         public Invoice() { }
 
-        public Invoice(string id, string date, string no, string type, string category, string vendorID, string customerID, string method, double total, string terms, double tax, double paid, double balance, double amount, int itemCount, string userID, string created, bool sync)
+        public Invoice(string id, string date, string no, string type, string category, string vendorID, string customerID, string method, double total, string terms, double tax, double paid, double balance, double amount, int itemCount, string userID, string created, bool sync,string companyID)
         {
             this.Id = id;
             this.Date = date;
@@ -52,6 +52,7 @@ namespace ARM.Model
             this.UserID = userID;
             this.Created = created;
             this.Sync = sync;
+            this.CompanyID = companyID;
         }
 
         static List<Invoice> p = new List<Invoice>();
@@ -74,6 +75,7 @@ namespace ARM.Model
         public string UserID { get => userID; set => userID = value; }
         public string Created { get => created; set => created = value; }
         public bool Sync { get => sync; set => sync = value; }
+        public string CompanyID { get => companyID; set => companyID = value; }
 
         public static List<Invoice> List()
         {
@@ -83,7 +85,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Invoice ps = new Invoice(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["vendorID"].ToString(), Reader["customerID"].ToString(), Reader["method"].ToString(), Convert.ToDouble(Reader["total"]), Reader["terms"].ToString(), Convert.ToDouble(Reader["tax"]), Convert.ToDouble(Reader["paid"]), Convert.ToDouble(Reader["balance"]), Convert.ToDouble(Reader["amount"]), Convert.ToInt32(Reader["itemCount"]), Reader["userID"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                Invoice ps = new Invoice(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["vendorID"].ToString(), Reader["customerID"].ToString(), Reader["method"].ToString(), Convert.ToDouble(Reader["total"]), Reader["terms"].ToString(), Convert.ToDouble(Reader["tax"]), Convert.ToDouble(Reader["paid"]), Convert.ToDouble(Reader["balance"]), Convert.ToDouble(Reader["amount"]), Convert.ToInt32(Reader["itemCount"]), Reader["userID"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -97,7 +99,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Invoice ps = new Invoice(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["vendorID"].ToString(), Reader["customerID"].ToString(), Reader["method"].ToString(), Convert.ToDouble(Reader["total"]), Reader["terms"].ToString(), Convert.ToDouble(Reader["tax"]), Convert.ToDouble(Reader["paid"]), Convert.ToDouble(Reader["balance"]), Convert.ToDouble(Reader["amount"]), Convert.ToInt32(Reader["itemCount"]), Reader["userID"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                Invoice ps = new Invoice(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["vendorID"].ToString(), Reader["customerID"].ToString(), Reader["method"].ToString(), Convert.ToDouble(Reader["total"]), Reader["terms"].ToString(), Convert.ToDouble(Reader["tax"]), Convert.ToDouble(Reader["paid"]), Convert.ToDouble(Reader["balance"]), Convert.ToDouble(Reader["amount"]), Convert.ToInt32(Reader["itemCount"]), Reader["userID"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -112,7 +114,7 @@ namespace ARM.Model
                 MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
                 while (Reader.Read())
                 {
-                    Invoice ps = new Invoice(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["vendorID"].ToString(), Reader["customerID"].ToString(), Reader["method"].ToString(), Convert.ToDouble(Reader["total"]), Reader["terms"].ToString(), Convert.ToDouble(Reader["tax"]), Convert.ToDouble(Reader["paid"]), Convert.ToDouble(Reader["balance"]), Convert.ToDouble(Reader["amount"]), Convert.ToInt32(Reader["itemCount"]), Reader["userID"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                    Invoice ps = new Invoice(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["vendorID"].ToString(), Reader["customerID"].ToString(), Reader["method"].ToString(), Convert.ToDouble(Reader["total"]), Reader["terms"].ToString(), Convert.ToDouble(Reader["tax"]), Convert.ToDouble(Reader["paid"]), Convert.ToDouble(Reader["balance"]), Convert.ToDouble(Reader["amount"]), Convert.ToInt32(Reader["itemCount"]), Reader["userID"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
@@ -128,7 +130,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                c = new Invoice(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["vendorID"].ToString(), Reader["customerID"].ToString(), Reader["method"].ToString(), Convert.ToDouble(Reader["total"]), Reader["terms"].ToString(), Convert.ToDouble(Reader["tax"]), Convert.ToDouble(Reader["paid"]), Convert.ToDouble(Reader["balance"]), Convert.ToDouble(Reader["amount"]), Convert.ToInt32(Reader["itemCount"]), Reader["userID"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                c = new Invoice(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["vendorID"].ToString(), Reader["customerID"].ToString(), Reader["method"].ToString(), Convert.ToDouble(Reader["total"]), Reader["terms"].ToString(), Convert.ToDouble(Reader["tax"]), Convert.ToDouble(Reader["paid"]), Convert.ToDouble(Reader["balance"]), Convert.ToDouble(Reader["amount"]), Convert.ToInt32(Reader["itemCount"]), Reader["userID"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
             }
             DBConnect.CloseConn();
             return c;

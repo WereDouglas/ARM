@@ -27,12 +27,12 @@ namespace ARM
                 Profile(itemID);
             }
         }
-        private Item c;
+        private Product c;
         private void Profile(string itemID)
         {
             ItemID = itemID;
-            c = new Item();//.Select(ItemID);
-            c = Item.Select(ItemID);
+            c = new Product();//.Select(ItemID);
+            c = Product.Select(ItemID);
             nameTxt.Text = c.Name;
             categoryCbx.Text = c.Category;
             typeCbx.Text = c.Type;
@@ -88,7 +88,7 @@ namespace ARM
             string fullimage = Helper.ImageToBase64(stream);
 
             string id = Guid.NewGuid().ToString();
-            Item c = new Item(id, nameTxt.Text, categoryCbx.Text, typeCbx.Text, descriptionxt.Text, costTxt.Text, batchTxt.Text, serialTxt.Text,barTxt.Text,unitTxt.Text,unitDescTxt.Text,manuTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, fullimage);
+            Product c = new Product(id, nameTxt.Text, categoryCbx.Text, typeCbx.Text, descriptionxt.Text, costTxt.Text, batchTxt.Text, serialTxt.Text,barTxt.Text,unitTxt.Text,unitDescTxt.Text,manuTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false,Helper.CompanyID, fullimage);
             if (DBConnect.InsertPostgre(c) != "")
             {
                 MessageBox.Show("Information Saved");
@@ -102,7 +102,7 @@ namespace ARM
 
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
-            Item c = new Item(itemID, nameTxt.Text, categoryCbx.Text, typeCbx.Text, descriptionxt.Text, costTxt.Text, batchTxt.Text, serialTxt.Text, barTxt.Text, unitTxt.Text, unitDescTxt.Text, manuTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, fullimage);
+            Product c = new Product(itemID, nameTxt.Text, categoryCbx.Text, typeCbx.Text, descriptionxt.Text, costTxt.Text, batchTxt.Text, serialTxt.Text, barTxt.Text, unitTxt.Text, unitDescTxt.Text, manuTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, fullimage);
             DBConnect.UpdatePostgre(c, itemID);
             MessageBox.Show("Information Updated");
             this.DialogResult = DialogResult.OK;

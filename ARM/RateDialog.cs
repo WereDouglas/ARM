@@ -62,7 +62,7 @@ namespace ARM
         private void button3_Click(object sender, EventArgs e)
         { 
             string ID = Guid.NewGuid().ToString();
-            Rate r = new Rate(ID,UserID,Convert.ToDouble(costTxt.Text), Convert.ToDouble(periodCbx.Text),unitCbx.Text,DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false);
+            Rate r = new Rate(ID,UserID,Convert.ToDouble(costTxt.Text), Convert.ToDouble(periodCbx.Text),unitCbx.Text,DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),false,Helper.CompanyID);
             if (DBConnect.InsertPostgre(r) != "")
             {
                 MessageBox.Show("Information Saved");

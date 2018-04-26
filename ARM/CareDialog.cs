@@ -73,7 +73,7 @@ namespace ARM
         private void button3_Click(object sender, EventArgs e)
         {
             string ID = Guid.NewGuid().ToString();
-            Responsible r = new Responsible(ID,UserID,CustomerID,DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false);
+            Responsible r = new Responsible(ID,UserID,CustomerID,DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),false,Helper.CompanyID);
             if (DBConnect.InsertPostgre(r) != "")
             {
                 MessageBox.Show("Information Saved");

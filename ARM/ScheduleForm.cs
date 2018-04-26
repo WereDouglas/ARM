@@ -2,6 +2,7 @@
 using ARM.Model;
 using ARM.Util;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -43,16 +44,22 @@ namespace ARM
             t.Columns.Add("Details");
             t.Columns.Add("Indicator");
             t.Columns.Add("Period");
+          
+           // t.Columns.Add(new DataColumn("Category", typeof(DataGridViewComboBoxColumn)));
             t.Columns.Add("Category");
             t.Columns.Add("Status");
             t.Columns.Add("Cost");
             t.Columns.Add("Sync");
             t.Columns.Add("Created");
-            t.Columns.Add(new DataColumn("View", typeof(Image)));
+            
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));
 
             Image view = new Bitmap(Properties.Resources.Document_Edit_24__1_);
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
+
+
+
+
 
             foreach (Schedule c in Schedule.List())
             {
@@ -62,7 +69,7 @@ namespace ARM
                 try { cus = Customer.Select(c.CustomerID).Name; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, c.Date, cus, user, c.Starts, c.Ends, c.Location, c.Address, c.Details, c.Indicator, c.Period, c.Category, c.Status, c.Cost, c.Sync, c.Created, view, delete });
+                    t.Rows.Add(new object[] { false, c.Id, c.Date, cus, user, c.Starts, c.Ends, c.Location, c.Address, c.Details, c.Indicator, c.Period, c.Category, c.Status, c.Cost, c.Sync, c.Created,  delete });
 
                 }
                 catch (Exception m)
@@ -76,8 +83,41 @@ namespace ARM
 
             dtGrid.AllowUserToAddRows = false;
             dtGrid.Columns["Start"].DefaultCellStyle.BackColor = Color.LightGreen;
-            dtGrid.Columns["End"].DefaultCellStyle.BackColor = Color.Red;
+            dtGrid.Columns["End"].DefaultCellStyle.BackColor = Color.LightCoral;
             dtGrid.Columns["ID"].Visible = false;
+            string summary = "";
+            foreach (DataGridViewRow row in dtGrid.Rows)
+            {
+
+                try
+                {
+                    summary = row.Cells["Category"].Value.ToString();
+                }
+                catch { }
+                if (summary.Contains("Shift"))
+                {
+                    row.DefaultCellStyle.ForeColor = Color.Azure;
+                    row.DefaultCellStyle.Font = new Font("Calibri", 9.5F, FontStyle.Bold, GraphicsUnit.Pixel);
+                }
+                else
+                {
+                    row.DefaultCellStyle.ForeColor = Color.Orange;
+                }
+
+            }
+            DataTable dtConnectorSource = new DataTable();
+
+            dtConnectorSource.Columns.Add("ConnectorName", typeof(int));
+            dtConnectorSource.Columns.Add("ConnectorNameDisplay", typeof(String));
+
+            DataGridViewComboBoxColumn cmb = new DataGridViewComboBoxColumn();
+            cmb.DataSource = dtConnectorSource;
+            cmb.DisplayMember = "ConnectorNameDisplay";
+            cmb.ValueMember = "ConnectorName";
+
+            cmb.DataPropertyName = "ConnectorName";
+
+            dtGrid.Columns.Add(cmb);
 
 
         }
@@ -134,17 +174,7 @@ namespace ARM
                     selectedIDs.Add(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString());
                 }
             }
-            if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
-            {
-                using (AddTransaction form = new AddTransaction(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
-                {
-                    DialogResult dr = form.ShowDialog();
-                    if (dr == DialogResult.OK)
-                    {
-                        LoadData();
-                    }
-                }
-            }
+          
             try
             {
 
@@ -164,11 +194,77 @@ namespace ARM
 
             }
             catch { }
+
+            //// Bind grid cell with combobox and than bind combobox with datasource.  
+            //DataGridViewComboBoxCell l_objGridDropbox = new DataGridViewComboBoxCell();
+
+            //// Check the column  cell, in which it click.  
+            //if (dtGrid.Columns[e.ColumnIndex].Name.Contains("Category"))
+            //{
+            //    // On click of datagridview cell, attched combobox with this click cell of datagridview  
+            //    DataGridViewComboBoxColumn dgvCmb = new DataGridViewComboBoxColumn();
+            //    dgvCmb.HeaderText = "Name";
+            //    dgvCmb.Items.Add("Ghanashyam");
+            //    dgvCmb.Items.Add("Jignesh");
+            //    dgvCmb.Items.Add("Ishver");
+            //    dgvCmb.Items.Add("Anand");
+            //    dgvCmb.Name = "cmbName";
+            //    dtGrid.Columns.Add(dgvCmb);
+            //}
+
+            if (dtGrid.Columns[e.ColumnIndex].Name.Contains("Status"))
+            {
+              
+            }
+
+
         }
+        private DataGridViewComboBoxColumn CreateComboBox()
+        {
+            DataGridViewComboBoxColumn combo = new DataGridViewComboBoxColumn();
+            {
+                combo.Name = "comboColumn";
+                combo.HeaderText = "Grade";
+                ArrayList drl = new ArrayList();
+                drl.Add("GS1");
+                drl.Add("GS2");
+                drl.Add("WG1");
+                drl.Add("WG2");
+                combo.Items.AddRange(drl.ToArray());
+                combo.DataSource = drl;
+                //combo.ValueMember = "EmployeeID";
+                //combo.DisplayMember = "Grade";
+                //combo.DataPropertyName = "Grade";
+            }
+            return combo;
+        }
+
 
         private void dtGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            string Query = "UPDATE schedule SET sync ='false'";
+            DBConnect.QueryPostgre(Query);
+        }
+
+        private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            using (ScheduleDialog form = new ScheduleDialog(null, null, null))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                }
+            }
         }
     }
 }

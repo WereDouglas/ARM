@@ -73,7 +73,7 @@
             this.panel1.Controls.Add(this.reportViewer1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(530, 387);
+            this.panel1.Size = new System.Drawing.Size(548, 617);
             this.panel1.TabIndex = 1;
             // 
             // panel6
@@ -83,7 +83,7 @@
             this.panel6.Controls.Add(this.invoiceLbl);
             this.panel6.Location = new System.Drawing.Point(3, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(122, 381);
+            this.panel6.Size = new System.Drawing.Size(122, 602);
             this.panel6.TabIndex = 1;
             // 
             // label14
@@ -112,7 +112,8 @@
             // 
             // reportViewer1
             // 
-            this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.reportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             reportDataSource1.Name = "DataSetInvoice";
@@ -123,7 +124,7 @@
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.ShowToolBar = false;
-            this.reportViewer1.Size = new System.Drawing.Size(396, 376);
+            this.reportViewer1.Size = new System.Drawing.Size(414, 599);
             this.reportViewer1.TabIndex = 0;
             // 
             // panel5
@@ -134,7 +135,7 @@
             this.panel5.Controls.Add(this.label10);
             this.panel5.Controls.Add(this.label11);
             this.panel5.Controls.Add(this.itemLbl);
-            this.panel5.Location = new System.Drawing.Point(881, 222);
+            this.panel5.Location = new System.Drawing.Point(881, 217);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(288, 177);
             this.panel5.TabIndex = 4;
@@ -184,7 +185,7 @@
             this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.customerLbl);
-            this.panel4.Location = new System.Drawing.Point(548, 222);
+            this.panel4.Location = new System.Drawing.Point(566, 217);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(288, 177);
             this.panel4.TabIndex = 4;
@@ -282,7 +283,7 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.pendingLbl);
-            this.panel2.Location = new System.Drawing.Point(548, 12);
+            this.panel2.Location = new System.Drawing.Point(566, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(288, 177);
             this.panel2.TabIndex = 2;
@@ -325,8 +326,7 @@
             // 
             // dtGrid
             // 
-            this.dtGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dtGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dtGrid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -344,7 +344,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtGrid.DefaultCellStyle = dataGridViewCellStyle1;
             this.dtGrid.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dtGrid.Location = new System.Drawing.Point(15, 405);
+            this.dtGrid.Location = new System.Drawing.Point(566, 405);
             this.dtGrid.Name = "dtGrid";
             this.dtGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -356,7 +356,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtGrid.RowHeadersWidth = 20;
-            this.dtGrid.Size = new System.Drawing.Size(1154, 224);
+            this.dtGrid.Size = new System.Drawing.Size(603, 224);
             this.dtGrid.TabIndex = 49;
             // 
             // InvoiceBindingSource
@@ -367,6 +367,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1181, 641);

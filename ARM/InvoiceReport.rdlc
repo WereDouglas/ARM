@@ -420,8 +420,7 @@
                                 <TextRun>
                                   <Value>=Fields!Cost.Value</Value>
                                   <Style>
-                                    <Format>C</Format>
-                                    <Language>en-US</Language>
+                                    <Format>'$'#,0.00;('$'#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -438,6 +437,7 @@
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
+                            <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -482,7 +482,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Total.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <Format>'$'#,0.00;('$'#,0.00)</Format>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -499,6 +501,7 @@
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
+                            <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -746,6 +749,7 @@
                                   <Style>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>ExtraBold</FontWeight>
+                                    <Format>c2</Format>
                                     <Color>#819acd</Color>
                                   </Style>
                                 </TextRun>
@@ -803,7 +807,7 @@
             <Top>2.51785in</Top>
             <Left>0.16901in</Left>
             <Height>0.98958in</Height>
-            <Width>5.92945in</Width>
+            <Width>5.92944in</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -811,6 +815,7 @@
                 <Style>Solid</Style>
               </Border>
               <FontSize>8pt</FontSize>
+              <Format>c2</Format>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -993,6 +998,7 @@
                     <Style>
                       <FontSize>12pt</FontSize>
                       <FontWeight>ExtraBold</FontWeight>
+                      <Format>c2</Format>
                       <Color>#819acd</Color>
                     </Style>
                   </TextRun>
@@ -1182,7 +1188,9 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Parameters!balance.Value</Value>
-                    <Style />
+                    <Style>
+                      <Format>c2</Format>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -1190,7 +1198,7 @@
             </Paragraphs>
             <rd:DefaultName>Balance</rd:DefaultName>
             <Top>4.22792in</Top>
-            <Left>4.57365in</Left>
+            <Left>4.57366in</Left>
             <Height>0.25in</Height>
             <Width>1.52481in</Width>
             <ZIndex>15</ZIndex>
@@ -1257,7 +1265,9 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Parameters!tax.Value</Value>
-                    <Style />
+                    <Style>
+                      <Format>c2</Format>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -1441,7 +1451,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Parameters!customerAddress.Value</Value>
+                    <Value>=Parameters!companyAddress.Value</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>

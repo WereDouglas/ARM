@@ -47,7 +47,7 @@ namespace ARM
             {
                 string prod = "";
                
-                try { prod = Item.Select(c.ItemID).Name; } catch { }
+                try { prod = Product.Select(c.ItemID).Name; } catch { }
                
                 try
                 {
@@ -100,7 +100,7 @@ namespace ARM
 
                 foreach (var item in selectedIDs)
                 {
-                    string Query = "DELETE from transaction WHERE id ='" + item + "'";
+                    string Query = "DELETE from deliveries WHERE id ='" + item + "'";
                     DBConnect.QueryPostgre(Query);
                     
                 }
@@ -134,7 +134,7 @@ namespace ARM
 
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Deliveries? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
-                        string Query = "DELETE from transaction WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
+                        string Query = "DELETE from deliveries WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
                         DBConnect.QueryPostgre(Query);
                         MessageBox.Show("Information deleted");
                         LoadData();
@@ -149,6 +149,17 @@ namespace ARM
         }
 
         private void dtGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            string Query = "UPDATE deliveries SET sync ='false'";
+            DBConnect.QueryPostgre(Query);
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
         {
 
         }

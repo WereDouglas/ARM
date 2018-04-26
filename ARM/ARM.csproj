@@ -127,6 +127,12 @@
     <Compile Include="AccountDialog.Designer.cs">
       <DependentUpon>AccountDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddCoverage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCoverage.Designer.cs">
+      <DependentUpon>AddCoverage.cs</DependentUpon>
+    </Compile>
     <Compile Include="DashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,7 @@
     <Compile Include="LoadingWindow.Designer.cs">
       <DependentUpon>LoadingWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\ItemCoverage.cs" />
     <Compile Include="SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -355,12 +362,6 @@
     <Compile Include="FollowForm.Designer.cs">
       <DependentUpon>FollowForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DmeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DmeForm.Designer.cs">
-      <DependentUpon>DmeForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\ItemReview.cs" />
     <Compile Include="Model\PatientFollowStatus.cs" />
@@ -371,7 +372,7 @@
     <Compile Include="Model\Rate.cs" />
     <Compile Include="Model\Transaction.cs" />
     <Compile Include="Model\Invoice.cs" />
-    <Compile Include="Model\Insurance.cs" />
+    <Compile Include="Model\Coverage.cs" />
     <Compile Include="Model\Vendor.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\Users.cs" />
@@ -454,6 +455,9 @@
     <Compile Include="Util\Helper.cs" />
     <EmbeddedResource Include="AccountDialog.resx">
       <DependentUpon>AccountDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddCoverage.resx">
+      <DependentUpon>AddCoverage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
@@ -564,9 +568,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FollowForm.resx">
       <DependentUpon>FollowForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DmeForm.resx">
-      <DependentUpon>DmeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ParentForm.resx">
       <DependentUpon>ParentForm.cs</DependentUpon>
@@ -868,6 +869,18 @@
     <None Include="Resources\fancybox_overlay.png" />
     <None Include="Resources\loading1.gif" />
     <None Include="Resources\Command-Refresh-16.png" />
+    <None Include="Resources\News-Add-24.png" />
+    <None Include="Resources\News-Add-24 %281%29.png" />
+    <None Include="Resources\Folder-New-01-16.png" />
+    <None Include="Resources\Folder-New-01-24.png" />
+    <None Include="Resources\Folder-Sharing-16.png" />
+    <None Include="Resources\Server-02-16.png" />
+    <None Include="Resources\Document-Add-01-16.png" />
+    <None Include="Resources\Telephone-01-16.png" />
+    <None Include="Resources\Fax-16.png" />
+    <None Include="Resources\Telephone-01-161.png" />
+    <None Include="Resources\House-16.png" />
+    <None Include="Resources\Place.PNG" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

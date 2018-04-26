@@ -73,6 +73,7 @@
             // 
             // openedDate
             // 
+            this.openedDate.AllowDrop = true;
             this.openedDate.Location = new System.Drawing.Point(75, 63);
             this.openedDate.MinimumSize = new System.Drawing.Size(0, 29);
             this.openedDate.Name = "openedDate";
@@ -198,6 +199,7 @@
             this.totalTxt.WaterMark = "Total Charge";
             this.totalTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.totalTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.totalTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.periodTxt_KeyPress);
             // 
             // locationTxt
             // 
@@ -267,6 +269,7 @@
             this.periodTxt.WaterMark = "Period";
             this.periodTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.periodTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.periodTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.periodTxt_KeyPress);
             // 
             // userPbx
             // 
@@ -321,6 +324,7 @@
             this.costTxt.WaterMark = "Rate/Hr";
             this.costTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.costTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.costTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.periodTxt_KeyPress);
             // 
             // detailsTxt
             // 

@@ -16,6 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Sockets;
+using System.Net.Mail;
 
 namespace ARM.Util
 {
@@ -30,6 +31,9 @@ namespace ARM.Util
         public static string CompanyID;
         public static string CompanyImage;
         public static string CompanyName;
+        public static string CompanyAddress;
+        public static string CompanyContact;
+        public static string CompanyFax;
         public static string UserName;
         public static string UserImage;
         public static string serverName;
@@ -99,6 +103,20 @@ namespace ARM.Util
             else { return true; }
 
         }
+        public static bool Email(string email)
+        {
+
+            try
+            {
+                var test = new MailAddress(email);
+                return true;
+            }
+            catch (FormatException ex)
+            {
+                return false;
+            }
+
+        }
         public static bool validateInt(string t)
         {
 
@@ -158,7 +176,7 @@ namespace ARM.Util
             byte[] imageBytes = Convert.FromBase64String(bases);
             MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
             ms.Write(imageBytes, 0, imageBytes.Length);
-            System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
+            System.Drawing.Image image = System.Drawing.Image.FromStream(ms,true);
             return image;
         }
         public static System.Drawing.Image Base64ToImageCropped(string bases)
@@ -166,7 +184,7 @@ namespace ARM.Util
             byte[] imageBytes = Convert.FromBase64String(bases);
             MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
             ms.Write(imageBytes, 0, imageBytes.Length);
-            System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
+            System.Drawing.Image image = System.Drawing.Image.FromStream(ms,true);
 
             System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(image);
             Bitmap bps = new Bitmap(bmp, 50, 50);

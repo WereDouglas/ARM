@@ -52,6 +52,7 @@
             // 
             // dateTxt
             // 
+            this.dateTxt.AllowDrop = true;
             this.dateTxt.Location = new System.Drawing.Point(115, 60);
             this.dateTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateTxt.MinimumSize = new System.Drawing.Size(0, 29);

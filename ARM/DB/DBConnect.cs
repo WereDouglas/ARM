@@ -21,7 +21,8 @@ namespace ARM.DB
         public static NpgsqlConnection conn = new NpgsqlConnection("Server=" + Helper.serverIP + ";Port=5432;User Id=postgres;Password=Admin;Database=arm;");
         static NpgsqlDataReader Readers = null;
         static NpgsqlCommand cmd = null;
-        public static MySqlConnection MySqlConn = new MySqlConnection("Server=192.168.1.249;Database=arm;UID=admin;Password=Admin");
+        // public static MySqlConnection MySqlConn = new MySqlConnection("Server=192.168.1.249;Database=arm;UID=admin;Password=Admin");
+        public static MySqlConnection MySqlConn = new MySqlConnection("Server=novariss.com;Database=novaris2_arm;UID=novaris2_arm;;Password=Arm.2018");
 
         static MySqlDataReader ReadersMySql = null;
         static MySqlCommand cmdMySql = null;
@@ -102,7 +103,7 @@ namespace ARM.DB
             }
             catch(Exception c) {
 
-                throw;// (c.Message.ToString());
+                //throw;// (c.Message.ToString());
             }
             return Readers;
 

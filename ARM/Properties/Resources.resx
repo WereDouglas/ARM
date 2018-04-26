@@ -130,6 +130,12 @@
   <data name="City-24 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\City-24 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Inventory-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Inventory-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Document-Add-01-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Document-Add-01-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Hospital-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Hospital-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,14 +148,23 @@
   <data name="Bell-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bell-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Stethoscope-03-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Stethoscope-03-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="loading1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loading1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Submit-01-48 (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Submit-01-48 (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Telephone-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Telephone-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Telephone-01-161" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Telephone-01-161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Stop-Clock-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Stop-Clock-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Server-Delete-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Server-Delete-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Lock-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Lock-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,9 +199,6 @@
   <data name="Add-New-24 (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Add-New-24 (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="statistic-box-purple" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\statistic-box-purple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Appointment-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Appointment-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -196,17 +208,17 @@
   <data name="Hospital-Lab-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Hospital-Lab-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Folder-Sharing-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Folder-Sharing-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Document-Add-01-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Document-Add-01-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Wheelchair-32 (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Wheelchair-32 (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Document-Settings-01-24 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Document-Settings-01-24 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Safety-Box-02-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Safety-Box-02-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="User-Group-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\User-Group-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Document-Add-01-24 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Document-Add-01-24 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,20 +226,23 @@
   <data name="Customer-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Customer-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Garbage-Closed-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Garbage-Closed-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Garbage-Closed-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Garbage-Closed-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Folder-New-01-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Folder-New-01-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Doctor-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Doctor-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="loading" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loading.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Clock-01-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Clock-01-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Folder-New-01-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Folder-New-01-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="User-Group-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\User-Group-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Garbage-Closed-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Garbage-Closed-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Command-Refresh-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Command-Refresh-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="QR-Code-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\QR-Code-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -235,14 +250,23 @@
   <data name="Calendar-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Calendar-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Wheelchair-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wheelchair-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Contact-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Contact-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Filter-Edit-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Filter-Edit-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Place" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Place.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="News-Add-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\News-Add-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Product-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Product-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Garbage-Open-24 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Garbage-Open-24 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Date-32 (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Date-32 (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -262,11 +286,17 @@
   <data name="Submit-01-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Submit-01-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Add-Shield-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Add-Shield-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Server-02-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Server-02-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="User-Login-32 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\User-Login-32 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Shape-Cube-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Shape-Cube-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Telephone-01-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Telephone-01-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Box -48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Box -48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -274,14 +304,17 @@
   <data name="Library-Books-24 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Library-Books-24 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Server-Delete-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Server-Delete-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="statistic-box-purple" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\statistic-box-purple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Box-02-128 (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Box-02-128 (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Submit-01-481" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Submit-01-481.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Clock-01-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Clock-01-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Orientation-Portrait-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Orientation-Portrait-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -295,8 +328,11 @@
   <data name="Box -32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Box -32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Wheelchair-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Wheelchair-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Filter-Edit-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Filter-Edit-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Garbage-Closed-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Garbage-Closed-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Bill-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bill-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -307,6 +343,9 @@
   <data name="Print-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Print-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Fax-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fax-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Bill-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bill-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -315,6 +354,9 @@
   </data>
   <data name="Documents-01-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Documents-01-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="News-Add-24 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\News-Add-24 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Doctor-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Doctor-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -328,17 +370,29 @@
   <data name="download (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\download (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="House-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\House-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Microsoft-Excel-01-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Microsoft-Excel-01-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Garbage-Open-24 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Garbage-Open-24 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Add-New-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Add-New-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="User-Add-16 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\User-Add-16 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Shape-Cube-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Shape-Cube-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Band-Aid-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Band-Aid-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fancybox_overlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fancybox_overlay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Add-New-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Add-New-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Document-Settings-01-24 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Document-Settings-01-24 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Barcode-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Barcode-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -364,8 +418,8 @@
   <data name="statistic-box-green" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\statistic-box-green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Inventory-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Inventory-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Safety-Box-02-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Safety-Box-02-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Dollar-Tag-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dollar-Tag-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -388,7 +442,10 @@
   <data name="User-Profile-128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\User-Profile-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Command-Refresh-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Command-Refresh-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Submit-01-48 (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Submit-01-48 (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wheelchair-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wheelchair-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

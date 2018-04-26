@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeliveryPickupForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
             this.noTxt = new MetroFramework.Controls.MetroTextBox();
             this.dtGrid = new System.Windows.Forms.DataGridView();
             this.totalTxt = new MetroFramework.Controls.MetroTextBox();
             this.dateTxt = new MetroFramework.Controls.MetroDateTime();
+            this.button4 = new System.Windows.Forms.Button();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.dateDeliveredTxt = new MetroFramework.Controls.MetroDateTime();
@@ -71,7 +73,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.previewdlg = new System.Windows.Forms.PrintPreviewDialog();
+            this.printdoc1 = new System.Drawing.Printing.PrintDocument();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrid)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
@@ -85,10 +91,13 @@
             // 
             // panel1
             // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.metroCheckBox1);
             this.panel1.Controls.Add(this.noTxt);
             this.panel1.Controls.Add(this.dtGrid);
             this.panel1.Controls.Add(this.totalTxt);
             this.panel1.Controls.Add(this.dateTxt);
+            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.metroLabel4);
             this.panel1.Controls.Add(this.tableLayoutPanel3);
             this.panel1.Controls.Add(this.commentTxt);
@@ -104,8 +113,18 @@
             this.panel1.Controls.Add(this.deliveryChk);
             this.panel1.Location = new System.Drawing.Point(23, 67);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(754, 803);
+            this.panel1.Size = new System.Drawing.Size(754, 734);
             this.panel1.TabIndex = 0;
+            // 
+            // metroCheckBox1
+            // 
+            this.metroCheckBox1.AutoSize = true;
+            this.metroCheckBox1.Location = new System.Drawing.Point(194, 69);
+            this.metroCheckBox1.Name = "metroCheckBox1";
+            this.metroCheckBox1.Size = new System.Drawing.Size(88, 15);
+            this.metroCheckBox1.TabIndex = 398;
+            this.metroCheckBox1.Text = "FOLLOW UP";
+            this.metroCheckBox1.UseSelectable = true;
             // 
             // noTxt
             // 
@@ -146,33 +165,33 @@
             // 
             this.dtGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dtGrid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dtGrid.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dtGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dtGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtGrid.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dtGrid.Location = new System.Drawing.Point(38, 406);
+            this.dtGrid.Location = new System.Drawing.Point(39, 406);
             this.dtGrid.Name = "dtGrid";
             this.dtGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dtGrid.RowHeadersWidth = 20;
-            this.dtGrid.Size = new System.Drawing.Size(702, 144);
+            this.dtGrid.Size = new System.Drawing.Size(702, 82);
             this.dtGrid.TabIndex = 5;
             this.dtGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellClick);
             this.dtGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellContentClick);
@@ -196,7 +215,7 @@
             this.totalTxt.CustomButton.UseSelectable = true;
             this.totalTxt.CustomButton.Visible = false;
             this.totalTxt.Lines = new string[0];
-            this.totalTxt.Location = new System.Drawing.Point(562, 556);
+            this.totalTxt.Location = new System.Drawing.Point(556, 494);
             this.totalTxt.MaxLength = 32767;
             this.totalTxt.Name = "totalTxt";
             this.totalTxt.PasswordChar = '\0';
@@ -219,20 +238,42 @@
             // 
             // dateTxt
             // 
+            this.dateTxt.AllowDrop = true;
             this.dateTxt.Location = new System.Drawing.Point(566, 61);
             this.dateTxt.MinimumSize = new System.Drawing.Size(0, 29);
             this.dateTxt.Name = "dateTxt";
             this.dateTxt.Size = new System.Drawing.Size(175, 29);
             this.dateTxt.TabIndex = 3;
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button4.Image = global::ARM.Properties.Resources.Document_Add_01_24__1_;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(38, 368);
+            this.button4.Name = "button4";
+            this.button4.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button4.Size = new System.Drawing.Size(147, 32);
+            this.button4.TabIndex = 243;
+            this.button4.Text = "Customer Orders";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // metroLabel4
             // 
-            this.metroLabel4.Location = new System.Drawing.Point(38, 582);
+            this.metroLabel4.Location = new System.Drawing.Point(42, 520);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(705, 68);
             this.metroLabel4.TabIndex = 243;
             this.metroLabel4.Text = resources.GetString("metroLabel4.Text");
             this.metroLabel4.WrapToLine = true;
+            this.metroLabel4.Click += new System.EventHandler(this.metroLabel4_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -247,7 +288,7 @@
             this.tableLayoutPanel3.Controls.Add(this.label6, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.label7, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.deliveredByTxt, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(36, 653);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(38, 591);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
@@ -259,6 +300,7 @@
             // 
             // dateDeliveredTxt
             // 
+            this.dateDeliveredTxt.AllowDrop = true;
             this.dateDeliveredTxt.Location = new System.Drawing.Point(204, 31);
             this.dateDeliveredTxt.MinimumSize = new System.Drawing.Size(0, 29);
             this.dateDeliveredTxt.Name = "dateDeliveredTxt";
@@ -339,7 +381,7 @@
             // 
             this.commentTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.commentTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.commentTxt.Location = new System.Drawing.Point(248, 361);
+            this.commentTxt.Location = new System.Drawing.Point(245, 345);
             this.commentTxt.Multiline = true;
             this.commentTxt.Name = "commentTxt";
             this.commentTxt.Size = new System.Drawing.Size(479, 39);
@@ -349,7 +391,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(316, 342);
+            this.label3.Location = new System.Drawing.Point(41, 342);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 16);
             this.label3.TabIndex = 9;
@@ -361,7 +403,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.30928F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.69072F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 233F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 240F));
             this.tableLayoutPanel2.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel3, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(36, 239);
@@ -390,7 +432,7 @@
             this.panel3.Controls.Add(this.userPbx);
             this.panel3.Controls.Add(this.userCbx);
             this.panel3.Controls.Add(this.physicianTxt);
-            this.panel3.Location = new System.Drawing.Point(133, 3);
+            this.panel3.Location = new System.Drawing.Point(131, 3);
             this.panel3.Name = "panel3";
             this.tableLayoutPanel2.SetRowSpan(this.panel3, 3);
             this.panel3.Size = new System.Drawing.Size(567, 94);
@@ -447,7 +489,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 134F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 126F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
             this.tableLayoutPanel1.Controls.Add(this.label12, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(35, 106);
@@ -479,7 +521,7 @@
             this.panel2.Controls.Add(this.cusPbx);
             this.panel2.Controls.Add(this.subscriberInfoTxt);
             this.panel2.Controls.Add(this.subscriberTypeTxt);
-            this.panel2.Location = new System.Drawing.Point(133, 3);
+            this.panel2.Location = new System.Drawing.Point(128, 3);
             this.panel2.Name = "panel2";
             this.tableLayoutPanel1.SetRowSpan(this.panel2, 4);
             this.panel2.Size = new System.Drawing.Size(568, 105);
@@ -594,7 +636,7 @@
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button1.Image = global::ARM.Properties.Resources.Print_24;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(364, 876);
+            this.button1.Location = new System.Drawing.Point(342, 807);
             this.button1.Name = "button1";
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button1.Size = new System.Drawing.Size(90, 45);
@@ -602,6 +644,7 @@
             this.button1.Text = "Print";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
@@ -612,7 +655,7 @@
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button3.Image = global::ARM.Properties.Resources.Submit_01_32;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(669, 876);
+            this.button3.Location = new System.Drawing.Point(655, 807);
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button3.Size = new System.Drawing.Size(108, 45);
@@ -631,7 +674,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(23, 876);
+            this.button2.Location = new System.Drawing.Point(28, 807);
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(108, 38);
@@ -641,34 +684,64 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button4
+            // previewdlg
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button4.Image = global::ARM.Properties.Resources.Document_Add_01_24__1_;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(0, 419);
-            this.button4.Name = "button4";
-            this.button4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button4.Size = new System.Drawing.Size(34, 32);
-            this.button4.TabIndex = 243;
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.previewdlg.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.previewdlg.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.previewdlg.ClientSize = new System.Drawing.Size(400, 300);
+            this.previewdlg.Enabled = true;
+            this.previewdlg.Icon = ((System.Drawing.Icon)(resources.GetObject("previewdlg.Icon")));
+            this.previewdlg.Name = "previewdlg";
+            this.previewdlg.Visible = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button5.Image = global::ARM.Properties.Resources.Document_Add_01_24__1_;
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(769, 176);
+            this.button5.Name = "button5";
+            this.button5.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button5.Size = new System.Drawing.Size(35, 32);
+            this.button5.TabIndex = 244;
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button6.Image = global::ARM.Properties.Resources.Document_Add_01_24__1_;
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(770, 311);
+            this.button6.Name = "button6";
+            this.button6.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button6.Size = new System.Drawing.Size(34, 32);
+            this.button6.TabIndex = 245;
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button6.UseVisualStyleBackColor = false;
             // 
             // DeliveryPickupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 920);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(824, 891);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -737,5 +810,11 @@
         private MetroFramework.Controls.MetroDateTime dateDeliveredTxt;
         private System.Windows.Forms.DataGridView dtGrid;
         private MetroFramework.Controls.MetroTextBox noTxt;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog previewdlg;
+        private System.Drawing.Printing.PrintDocument printdoc1;
+        private MetroFramework.Controls.MetroCheckBox metroCheckBox1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }

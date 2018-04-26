@@ -17,9 +17,11 @@ namespace ARM
     public partial class AddCustomerForm : MetroFramework.Forms.MetroForm
     {
         string CustomerID;
-        public AddCustomerForm(string customerID)
+        public AddCustomerForm(string customerID,string category)
         {
+            
             InitializeComponent();
+            this.Text = category;
             try
             {
                 noTxt.Text = (DBConnect.Max("SELECT MAX(CAST(no AS DOUBLE PRECISION)) FROM customer") + 1).ToString();
@@ -31,7 +33,14 @@ namespace ARM
             if (!string.IsNullOrEmpty(customerID))
             {
                 Profile(customerID);
+                saveBtn.Visible = false;
             }
+            else {
+
+                CustomerID = Guid.NewGuid().ToString();
+                updateBtn.Visible = false;
+            }
+            categoryCbx.Text = category;
         }
         private Customer c;
         private void Profile(string customerID)
@@ -84,17 +93,11 @@ namespace ARM
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(CustomerID))
-            {
-
-                Update(CustomerID);
-                return;
-            }
+           
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
-
-            string id = Guid.NewGuid().ToString();
-            Customer c = new Customer(id, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), ssnTxt.Text, dobTxt.Text, categoryCbx.Text, false, fullimage);
+           
+            Customer c = new Customer(CustomerID, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), ssnTxt.Text, dobTxt.Text, categoryCbx.Text, false,Helper.CompanyID, fullimage);
             if (DBConnect.InsertPostgre(c) != "")
             {
                 MessageBox.Show("Information Saved");
@@ -107,13 +110,51 @@ namespace ARM
 
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
-            Customer c = new Customer(customerID, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), ssnTxt.Text, dobTxt.Text, categoryCbx.Text, false, fullimage);
+            Customer c = new Customer(customerID, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), ssnTxt.Text, dobTxt.Text, categoryCbx.Text, false, Helper.CompanyID, fullimage);
             DBConnect.UpdatePostgre(c, customerID);
 
             MessageBox.Show("Information Updated");
             this.DialogResult = DialogResult.OK;
             this.Dispose();
 
+        }
+
+        private void contactTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)
+            && !char.IsDigit(e.KeyChar)
+            && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow two decimal point
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            using (InsuranceDialog form = new InsuranceDialog(CustomerID,noTxt.Text))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                }
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(CustomerID))
+            {
+
+                Update(CustomerID);
+                return;
+            }
         }
     }
 }

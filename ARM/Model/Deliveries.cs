@@ -19,11 +19,12 @@ namespace ARM.Model
         private double qty;
         private double cost;
         private string created;
-        private bool sync;
+       private bool sync; private string companyID;
+      
 
         public Deliveries() { }
 
-        public Deliveries(string id, string date, string no, string itemID, double total, double qty, double cost, string created, bool sync)
+        public Deliveries(string id, string date, string no, string itemID, double total, double qty, double cost, string created, bool sync,string companyID)
         {
             this.Id = id;
             this.Date = date;
@@ -34,6 +35,7 @@ namespace ARM.Model
             this.Cost = cost;
             this.Created = created;
             this.Sync = sync;
+            this.CompanyID = companyID;
         }
 
         static List<Deliveries> p = new List<Deliveries>();
@@ -47,7 +49,9 @@ namespace ARM.Model
         public double Cost { get => cost; set => cost = value; }
         public string Created { get => created; set => created = value; }
         public bool Sync { get => sync; set => sync = value; }
+        public string CompanyID { get => companyID; set => companyID = value; }
 
+       
         public static List<Deliveries> List()
         {
             p.Clear();
@@ -56,7 +60,21 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Deliveries ps = new Deliveries(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Convert.ToDouble(Reader["total"]), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                Deliveries ps = new Deliveries(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Convert.ToDouble(Reader["total"]), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                p.Add(ps);
+            }
+            DBConnect.CloseConn();
+            return p;
+        }
+        public static List<Deliveries> ListNo(string no)
+        {
+            p.Clear();
+            string Q = "SELECT * FROM Deliveries WHERE no = '"+no+"' ";
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                Deliveries ps = new Deliveries(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Convert.ToDouble(Reader["total"]), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -69,7 +87,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Deliveries ps = new Deliveries(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Convert.ToDouble(Reader["total"]), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                Deliveries ps = new Deliveries(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Convert.ToDouble(Reader["total"]), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -84,7 +102,7 @@ namespace ARM.Model
                 MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
                 while (Reader.Read())
                 {
-                    Deliveries ps = new Deliveries(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Convert.ToDouble(Reader["total"]), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                    Deliveries ps = new Deliveries(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Convert.ToDouble(Reader["total"]), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();

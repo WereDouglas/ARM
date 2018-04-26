@@ -30,8 +30,7 @@ namespace ARM
         {
 
             reportViewer1.LocalReport.DataSources.Clear();
-            Microsoft.Reporting.WinForms.ReportParameter rp = new Microsoft.Reporting.WinForms.ReportParameter("image", Helper.CompanyImage);
-            this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp });
+            
             Invoice v = new Invoice();
             Customer c = new Customer();
             Company y = new Company();
@@ -39,23 +38,61 @@ namespace ARM
             c = Customer.Select(v.CustomerID);
             y = Company.Select();
             /**Company Customer***/
-            Microsoft.Reporting.WinForms.ReportParameter rpImage = new Microsoft.Reporting.WinForms.ReportParameter("customerImage", c.Image);
-            this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rpImage });
-           
-            Microsoft.Reporting.WinForms.ReportParameter rpName = new Microsoft.Reporting.WinForms.ReportParameter("customerName", c.Name);
-            this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rpName });
-            Microsoft.Reporting.WinForms.ReportParameter rpAddress = new Microsoft.Reporting.WinForms.ReportParameter("customerAddress", c.Address);
-            this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rpAddress });
-            Microsoft.Reporting.WinForms.ReportParameter rpContact = new Microsoft.Reporting.WinForms.ReportParameter("customerContact", c.Contact);
-            this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rpContact });
+            if (v.Category.Contains("Purchase")) {
+
+                Microsoft.Reporting.WinForms.ReportParameter rpImage = new Microsoft.Reporting.WinForms.ReportParameter("customerImage", Helper.CompanyImage);
+                this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rpImage });
+
+                Microsoft.Reporting.WinForms.ReportParameter rpName = new Microsoft.Reporting.WinForms.ReportParameter("customerName",Helper.CompanyName);
+                this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rpName });
+                Microsoft.Reporting.WinForms.ReportParameter rpAddress = new Microsoft.Reporting.WinForms.ReportParameter("customerAddress", Helper.CompanyAddress);
+                this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rpAddress });
+                Microsoft.Reporting.WinForms.ReportParameter rpContact = new Microsoft.Reporting.WinForms.ReportParameter("customerContact", Helper.CompanyContact);
+                this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rpContact });
+
+                /**Company information***/
+                Microsoft.Reporting.WinForms.ReportParameter rp2Name = new Microsoft.Reporting.WinForms.ReportParameter("companyName", c.Name);
+                this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp2Name });
+                Microsoft.Reporting.WinForms.ReportParameter rp2Address = new Microsoft.Reporting.WinForms.ReportParameter("companyAddress", c.Address);
+                this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp2Address });
+                Microsoft.Reporting.WinForms.ReportParameter rp2Contact = new Microsoft.Reporting.WinForms.ReportParameter("companyContact", c.Contact);
+                this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp2Contact });
+
+                Microsoft.Reporting.WinForms.ReportParameter rp = new Microsoft.Reporting.WinForms.ReportParameter("image", c.Image);
+                this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp });
+
+
+
+            }
+            if (v.Category.Contains("Sale"))
+            {
+                Microsoft.Reporting.WinForms.ReportParameter rp = new Microsoft.Reporting.WinForms.ReportParameter("image",Helper.CompanyImage);
+                this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp });
+                Microsoft.Reporting.WinForms.ReportParameter rpImage = new Microsoft.Reporting.WinForms.ReportParameter("customerImage", c.Image);
+                this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rpImage });
+
+                Microsoft.Reporting.WinForms.ReportParameter rpName = new Microsoft.Reporting.WinForms.ReportParameter("customerName", c.Name);
+                this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rpName });
+                Microsoft.Reporting.WinForms.ReportParameter rpAddress = new Microsoft.Reporting.WinForms.ReportParameter("customerAddress", c.Address);
+                this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rpAddress });
+                Microsoft.Reporting.WinForms.ReportParameter rpContact = new Microsoft.Reporting.WinForms.ReportParameter("customerContact", c.Contact);
+                this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rpContact });
+
+                /**Company information***/
+                Microsoft.Reporting.WinForms.ReportParameter rp2Name = new Microsoft.Reporting.WinForms.ReportParameter("companyName", y.Name);
+                this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp2Name });
+                Microsoft.Reporting.WinForms.ReportParameter rp2Address = new Microsoft.Reporting.WinForms.ReportParameter("companyAddress", Helper.CompanyAddress);
+                this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp2Address });
+                Microsoft.Reporting.WinForms.ReportParameter rp2Contact = new Microsoft.Reporting.WinForms.ReportParameter("companyContact", y.Contact);
+                this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp2Contact });
+
+            }
+
             
-            /**Company information***/
-            Microsoft.Reporting.WinForms.ReportParameter rp2Name = new Microsoft.Reporting.WinForms.ReportParameter("companyName", y.Name);
-            this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp2Name });
-            Microsoft.Reporting.WinForms.ReportParameter rp2Address = new Microsoft.Reporting.WinForms.ReportParameter("companyAddress", y.Address);
-            this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp2Address });
-            Microsoft.Reporting.WinForms.ReportParameter rp2Contact = new Microsoft.Reporting.WinForms.ReportParameter("companyContact", y.Contact);
-            this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp2Contact });
+            
+          
+
+
             /**total tax balance**/
             Microsoft.Reporting.WinForms.ReportParameter rp3Total = new Microsoft.Reporting.WinForms.ReportParameter("total", v.Total.ToString("n0"));
             this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp3Total });

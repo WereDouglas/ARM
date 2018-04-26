@@ -117,21 +117,21 @@ namespace ARM
         {           
             foreach (var s in setupListBx.CheckedItems)
             {
-                SetupDictionary.Add(s.ToString(), true);               
+                SetupDictionary.Add(s.ToString(),true);               
             }           
             foreach (var s in dischargeListBx.CheckedItems)
             {
-                DischargeDictionary.Add(s.ToString(), true);              
+                DischargeDictionary.Add(s.ToString(),true);              
             }
             foreach (var s in actionListBx.CheckedItems)
             {
-                ActionDictionary.Add(s.ToString(), true);               
+                ActionDictionary.Add(s.ToString(),true);               
             }
             var DischargeJson = JsonConvert.SerializeObject(DischargeDictionary);
             var ActionJson = JsonConvert.SerializeObject(ActionDictionary);
             var SetupJson = JsonConvert.SerializeObject(SetupDictionary);
             string id = Guid.NewGuid().ToString();
-            Orders i = new Orders(id, CustomerID, UserID, ItemID, orderDate.Text, recievedCbx.Text, dispenseDateTxt.Text, dispensedCbx.Text, subscriberTypeTxt.Text, diagnosisTxt.Text, surgeryTxt.Text, Convert.ToDateTime(clinicalDateTxt.Text).ToString("dd-MM-yyyy"), limitTxt.Text, heightTxt.Text, weightTxt.Text, instructionTxt.Text, periodTxt.Text, SetupJson, setupDate.Text, DischargeJson, Convert.ToDateTime(dispenseDateTxt.Text).ToString("dd-MM-yyyy"), ActionJson, Convert.ToDateTime(dateNotifiedTxt.Text).ToString("dd-MM-yyyy"), "", Convert.ToDateTime(dateAuthTxt.Text).ToString("dd-MM-yyyy"), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, ActionJson, otherTxt.Text);
+            Orders i = new Orders(id, CustomerID, UserID, ItemID, orderDate.Text, recievedCbx.Text, dispenseDateTxt.Text, dispensedCbx.Text, subscriberTypeTxt.Text, diagnosisTxt.Text, surgeryTxt.Text, Convert.ToDateTime(clinicalDateTxt.Text).ToString("dd-MM-yyyy"), limitTxt.Text, heightTxt.Text, weightTxt.Text, instructionTxt.Text, periodTxt.Text, SetupJson, setupDate.Text, DischargeJson, Convert.ToDateTime(dispenseDateTxt.Text).ToString("dd-MM-yyyy"), ActionJson, Convert.ToDateTime(dateNotifiedTxt.Text).ToString("dd-MM-yyyy"), "", Convert.ToDateTime(dateAuthTxt.Text).ToString("dd-MM-yyyy"), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, ActionJson, otherTxt.Text);
             if (DBConnect.InsertPostgre(i) != "")
             {
 
@@ -163,7 +163,7 @@ namespace ARM
         {
             AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
             ProductDictionary.Clear();
-            foreach (Item v in Item.List())
+            foreach (Product v in Product.List())
             {
                 AutoItem.Add((v.Name));
 
@@ -191,7 +191,7 @@ namespace ARM
             }
         }
         Customer c;
-        Insurance ins;
+        Coverage ins;
         private void customerCbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -213,9 +213,9 @@ namespace ARM
             try
             {
 
-                foreach (Insurance c in Insurance.Select(CustomerID))
+                foreach (Coverage c in Coverage.Select(CustomerID))
                 {
-                    insuranceInfoTxt.Text = "" + c.Type + "\r\n" + "Name: " + c.Name + "\t ID# : " + c.No + " \r\n Address: " + c.Address + "\t Zip: " + c.Zip + " \r\n  Phone: " + c.Contact;
+                    insuranceInfoTxt.Text = "" + c.Type + "\r\n" + "Name: " + c.Name + "\t ID# : " + c.No + " \r\n  "  + " \r\n  Type: " + c.Type;
                 }
 
             }
@@ -244,14 +244,14 @@ namespace ARM
 
         }
         string ItemID;
-        Item i;
+        Product i;
         private void productCbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 ItemID = ProductDictionary[productCbx.Text];
-                i = new Item();//.Select(ItemID);
-                i = Item.Select(ItemID);
+                i = new Product();//.Select(ItemID);
+                i = Product.Select(ItemID);
                 System.Drawing.Image img = Helper.Base64ToImage(i.Image);
                 System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
                 productPbx.Image = bmp;
@@ -299,6 +299,18 @@ namespace ARM
         {
             Rectangle pagearea = e.PageBounds;
             e.Graphics.DrawImage(MemoryImage, (pagearea.Width / 2) - (this.panel1.Width / 2), this.panel1.Location.Y);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            using (AddCustomerForm form = new AddCustomerForm(null, "Patient"))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    // LoadingCalendarLite();
+                }
+            }
         }
     }
 }

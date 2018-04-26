@@ -170,7 +170,14 @@ namespace ARM
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
+            string Query = "UPDATE delivery SET sync ='false'";
+            DBConnect.QueryPostgre(Query);
+        }
 
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            DeliveryPickupForm f = new DeliveryPickupForm(null);
+            f.Show();
         }
     }
 }

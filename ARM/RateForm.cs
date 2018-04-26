@@ -36,10 +36,10 @@ namespace ARM
             t.Columns.Add("Period");
             t.Columns.Add("Sync");
             t.Columns.Add("Created");
-            t.Columns.Add(new DataColumn("View", typeof(Image)));
+           
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));
 
-            Image view = new Bitmap(Properties.Resources.Document_Edit_24__1_);
+         
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
 
             foreach (Rate c in Rate.List())
@@ -48,7 +48,7 @@ namespace ARM
                 try { user = Users.Select(c.UserID).Name; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id,user,c.Amount,c.Units,c.Period, c.Sync, c.Created, view, delete });
+                    t.Rows.Add(new object[] { false, c.Id,user,c.Amount,c.Units,c.Period, c.Sync, c.Created, delete });
 
                 }
                 catch (Exception m)
@@ -121,17 +121,7 @@ namespace ARM
                     Console.WriteLine("ADDED ITEM " + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString());
                 }
             }
-            if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
-            {
-                using (AddTransaction form = new AddTransaction(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
-                {
-                    DialogResult dr = form.ShowDialog();
-                    if (dr == DialogResult.OK)
-                    {
-                        LoadData();
-                    }
-                }
-            }
+          
             try
             {
 

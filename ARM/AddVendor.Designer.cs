@@ -58,7 +58,7 @@
             "Supplier",
             "Service Provider",
             "Other"});
-            this.categoryCbx.Location = new System.Drawing.Point(49, 362);
+            this.categoryCbx.Location = new System.Drawing.Point(49, 397);
             this.categoryCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.categoryCbx.Name = "categoryCbx";
             this.categoryCbx.PromptText = "Category/type";
@@ -71,7 +71,7 @@
             this.fileUrlTxtBx.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.fileUrlTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.fileUrlTxtBx.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fileUrlTxtBx.Location = new System.Drawing.Point(46, 591);
+            this.fileUrlTxtBx.Location = new System.Drawing.Point(320, 208);
             this.fileUrlTxtBx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.fileUrlTxtBx.Name = "fileUrlTxtBx";
             this.fileUrlTxtBx.Size = new System.Drawing.Size(268, 14);
@@ -95,7 +95,7 @@
             this.noTxt.DisplayIcon = true;
             this.noTxt.Icon = global::ARM.Properties.Resources.Orientation_Portrait_24;
             this.noTxt.Lines = new string[0];
-            this.noTxt.Location = new System.Drawing.Point(46, 197);
+            this.noTxt.Location = new System.Drawing.Point(46, 232);
             this.noTxt.MaxLength = 32767;
             this.noTxt.Name = "noTxt";
             this.noTxt.PasswordChar = '\0';
@@ -129,7 +129,7 @@
             this.zipTxt.DisplayIcon = true;
             this.zipTxt.Icon = global::ARM.Properties.Resources.Map_24;
             this.zipTxt.Lines = new string[0];
-            this.zipTxt.Location = new System.Drawing.Point(49, 549);
+            this.zipTxt.Location = new System.Drawing.Point(320, 314);
             this.zipTxt.MaxLength = 32767;
             this.zipTxt.Name = "zipTxt";
             this.zipTxt.PasswordChar = '\0';
@@ -145,6 +145,7 @@
             this.zipTxt.WaterMark = "Zip code";
             this.zipTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.zipTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.zipTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contactTxt_KeyPress);
             // 
             // stateTxt
             // 
@@ -163,7 +164,7 @@
             this.stateTxt.DisplayIcon = true;
             this.stateTxt.Icon = global::ARM.Properties.Resources.Globe_24;
             this.stateTxt.Lines = new string[0];
-            this.stateTxt.Location = new System.Drawing.Point(49, 508);
+            this.stateTxt.Location = new System.Drawing.Point(320, 273);
             this.stateTxt.MaxLength = 32767;
             this.stateTxt.Name = "stateTxt";
             this.stateTxt.PasswordChar = '\0';
@@ -197,7 +198,7 @@
             this.cityTxt.DisplayIcon = true;
             this.cityTxt.Icon = global::ARM.Properties.Resources.City_24__1_;
             this.cityTxt.Lines = new string[0];
-            this.cityTxt.Location = new System.Drawing.Point(49, 467);
+            this.cityTxt.Location = new System.Drawing.Point(320, 232);
             this.cityTxt.MaxLength = 32767;
             this.cityTxt.Name = "cityTxt";
             this.cityTxt.PasswordChar = '\0';
@@ -231,7 +232,7 @@
             this.addressTxt.DisplayIcon = true;
             this.addressTxt.Icon = global::ARM.Properties.Resources.Map_Location_24;
             this.addressTxt.Lines = new string[0];
-            this.addressTxt.Location = new System.Drawing.Point(49, 398);
+            this.addressTxt.Location = new System.Drawing.Point(320, 363);
             this.addressTxt.MaxLength = 32767;
             this.addressTxt.Multiline = true;
             this.addressTxt.Name = "addressTxt";
@@ -266,7 +267,7 @@
             this.contactTxt.DisplayIcon = true;
             this.contactTxt.Icon = global::ARM.Properties.Resources.Contact_24;
             this.contactTxt.Lines = new string[0];
-            this.contactTxt.Location = new System.Drawing.Point(49, 320);
+            this.contactTxt.Location = new System.Drawing.Point(49, 355);
             this.contactTxt.MaxLength = 32767;
             this.contactTxt.Name = "contactTxt";
             this.contactTxt.PasswordChar = '\0';
@@ -282,6 +283,7 @@
             this.contactTxt.WaterMark = "Contact/Phone";
             this.contactTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.contactTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.contactTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contactTxt_KeyPress);
             // 
             // nameTxt
             // 
@@ -300,7 +302,7 @@
             this.nameTxt.DisplayIcon = true;
             this.nameTxt.Icon = global::ARM.Properties.Resources.User_Profile_24;
             this.nameTxt.Lines = new string[0];
-            this.nameTxt.Location = new System.Drawing.Point(49, 238);
+            this.nameTxt.Location = new System.Drawing.Point(49, 273);
             this.nameTxt.MaxLength = 32767;
             this.nameTxt.Name = "nameTxt";
             this.nameTxt.PasswordChar = '\0';
@@ -334,7 +336,7 @@
             this.emailTxt.DisplayIcon = true;
             this.emailTxt.Icon = global::ARM.Properties.Resources.Mail_24;
             this.emailTxt.Lines = new string[0];
-            this.emailTxt.Location = new System.Drawing.Point(49, 279);
+            this.emailTxt.Location = new System.Drawing.Point(49, 314);
             this.emailTxt.MaxLength = 32767;
             this.emailTxt.Name = "emailTxt";
             this.emailTxt.PasswordChar = '\0';
@@ -350,20 +352,21 @@
             this.emailTxt.WaterMark = "Email";
             this.emailTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.emailTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.emailTxt.Leave += new System.EventHandler(this.emailTxt_Leave);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.button1.Image = global::ARM.Properties.Resources.Search_Folder_New_32;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(113, 161);
+            this.button1.Location = new System.Drawing.Point(113, 196);
             this.button1.Name = "button1";
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button1.Size = new System.Drawing.Size(130, 30);
+            this.button1.Size = new System.Drawing.Size(110, 30);
             this.button1.TabIndex = 0;
             this.button1.Text = "Browse";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -379,7 +382,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(46, 612);
+            this.button2.Location = new System.Drawing.Point(49, 433);
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(107, 49);
@@ -398,7 +401,7 @@
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button3.Image = global::ARM.Properties.Resources.Submit_01_32;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(211, 612);
+            this.button3.Location = new System.Drawing.Point(482, 447);
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button3.Size = new System.Drawing.Size(103, 49);
@@ -412,7 +415,7 @@
             // 
             this.imgCapture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.imgCapture.Image = global::ARM.Properties.Resources.temp1;
-            this.imgCapture.Location = new System.Drawing.Point(113, 21);
+            this.imgCapture.Location = new System.Drawing.Point(113, 62);
             this.imgCapture.Name = "imgCapture";
             this.imgCapture.Size = new System.Drawing.Size(128, 128);
             this.imgCapture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -423,7 +426,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 683);
+            this.ClientSize = new System.Drawing.Size(609, 505);
             this.Controls.Add(this.noTxt);
             this.Controls.Add(this.zipTxt);
             this.Controls.Add(this.stateTxt);

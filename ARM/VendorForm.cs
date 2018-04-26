@@ -210,5 +210,17 @@ namespace ARM
             string Query = "UPDATE vendor SET sync ='false'";
             DBConnect.QueryPostgre(Query);
         }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            using (AddVendor form = new AddVendor(null))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    // LoadingCalendarLite();
+                }
+            }
+        }
     }
 }

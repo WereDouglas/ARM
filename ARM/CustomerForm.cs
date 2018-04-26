@@ -160,7 +160,7 @@ namespace ARM
             }
             if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
             {
-                using (AddCustomerForm form = new AddCustomerForm(dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString()))
+                using (AddCustomerForm form = new AddCustomerForm(dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString()))
                 {
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)
@@ -193,7 +193,7 @@ namespace ARM
         {
             if (e.ColumnIndex == 1)
             {
-                using (AddCustomerForm form = new AddCustomerForm(dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString()))
+                using (AddCustomerForm form = new AddCustomerForm(dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString()))
                 {
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)
@@ -212,9 +212,27 @@ namespace ARM
                 return;
             }
             string ID = dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString();
-            Customer _c = new Customer(ID, dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["contact"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["address"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["city"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["state"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["zip"].Value.ToString(),DateTime.Now.ToString("dd-MM-yyyy"),dtGrid.Rows[e.RowIndex].Cells["SOC-SEC#"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Date Of Birth"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString(), false, dtGrid.Rows[e.RowIndex].Cells["uri"].Value.ToString());
+            Customer _c = new Customer(ID, dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["contact"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["address"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["city"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["state"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["zip"].Value.ToString(),DateTime.Now.ToString("dd-MM-yyyy"),dtGrid.Rows[e.RowIndex].Cells["SOC-SEC#"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Date Of Birth"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString(), false,Helper.CompanyID, dtGrid.Rows[e.RowIndex].Cells["uri"].Value.ToString());
             DBConnect.UpdatePostgre(_c, ID);
 
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            string Query = "UPDATE customer SET sync ='false'";
+            DBConnect.QueryPostgre(Query);
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            using (AddCustomerForm form = new AddCustomerForm(null,null))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    // LoadingCalendarLite();
+                }
+            }
         }
     }
 }

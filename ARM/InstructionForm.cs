@@ -233,5 +233,17 @@ namespace ARM
         {
 
         }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            string Query = "UPDATE instruction SET sync ='false'";
+            DBConnect.QueryPostgre(Query);
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            AddInstructionDelivery d = new AddInstructionDelivery(null);
+            d.Show();
+        }
     }
 }

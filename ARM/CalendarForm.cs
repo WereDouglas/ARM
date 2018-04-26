@@ -46,7 +46,7 @@ namespace ARM
                 try { cus = Customer.Select(e.UserID).Name; } catch { }
                 try
                 {
-                    CalendarItem cal = new CalendarItem(calendar1, Convert.ToDateTime(e.Starts), Convert.ToDateTime(e.Ends), user + " " + cus + " " + e.Cost + " " + e.Details);
+                    CalendarItem cal = new CalendarItem(calendar1, Convert.ToDateTime(e.Starts), Convert.ToDateTime(e.Ends), cus + " C/O " + user + " " + e.Cost + " " + e.Details);
 
                     if (e.Category == "Shift")
                     {
@@ -83,7 +83,6 @@ namespace ARM
                 }
             }
         }
-
         private void calendar1_ItemCreated(object sender, System.Windows.Forms.Calendar.CalendarItemCancelEventArgs e)
         {
             var start = Convert.ToDateTime(e.Item.Date).ToString("yyyy-MM-dd") + "T" + Convert.ToDateTime(e.Item.Date).ToString("HH:mm:ss");
@@ -99,7 +98,6 @@ namespace ARM
                 }
             }
         }
-
         private void monthView1_SelectionChanged(object sender, EventArgs e)
         {
             this.calendar1.SetViewRange(this.monthView1.SelectionStart.Date, this.monthView1.SelectionEnd.Date);
@@ -206,6 +204,17 @@ namespace ARM
                 item.Pattern = System.Drawing.Drawing2D.HatchStyle.ForwardDiagonal;
                 item.PatternColor = Color.Red;
                 calendar1.Invalidate(item);
+            }
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            using (ScheduleDialog form = new ScheduleDialog(null, null, null))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                }
             }
         }
     }

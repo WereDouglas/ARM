@@ -109,7 +109,7 @@ namespace ARM
             var start = Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd") + "T" + this.startHrTxt.Text;
             var end = Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd") + "T" + this.endHrTxt.Text;           
 
-            Schedule _event = new Schedule(ID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, start, end, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), categoryCbx.Text, periodTxt.Text, categoryCbx.Text, statusCbx.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false);
+            Schedule _event = new Schedule(ID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, start, end, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), categoryCbx.Text, periodTxt.Text, categoryCbx.Text, statusCbx.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),false,Helper.CompanyID);
             if (DBConnect.InsertPostgre(_event) != "")
             {
                 MessageBox.Show("Information Saved");
@@ -196,6 +196,23 @@ namespace ARM
            var end = Convert.ToDateTime(Convert.ToDateTime(endHrTxt.Text).ToString("HH:mm:ss"));
             var hours = (end - start).TotalHours;
             periodTxt.Text = hours.ToString();
+        }
+
+        private void periodTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)
+             && !char.IsDigit(e.KeyChar)
+             && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow two decimal point
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

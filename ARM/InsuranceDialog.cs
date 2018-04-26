@@ -22,7 +22,7 @@ namespace ARM
         Dictionary<string, string> CustomerDictionary = new Dictionary<string, string>();
         string CustomerID;
         string UserID;
-        public InsuranceDialog(string id)
+        public InsuranceDialog(string customerID,string id)
         {
             InitializeComponent();
 
@@ -30,6 +30,7 @@ namespace ARM
             {                
 
             }
+            CustomerID = customerID;
             AutoCompleteCustomer();           
         }
        
@@ -44,7 +45,7 @@ namespace ARM
                 if (!CustomerDictionary.ContainsKey(c.Name))
                 {
                     CustomerDictionary.Add(c.Name, c.Id);
-                    customerCbx.Items.Add(c.Name);
+                  // customerCbx.Items.Add(c.Name);
                 }
             }
         }
@@ -66,7 +67,7 @@ namespace ARM
                 return;
             }
             string ID = Guid.NewGuid().ToString();
-            Insurance _e = new Insurance(ID,CustomerID,nameTxt.Text,typeCbx.Text,"",noTxt.Text,addressTxt.Text,contactTxt.Text,zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false);
+            Coverage _e = new Coverage(ID,CustomerID,nameTxt.Text,typeCbx.Text,noTxt.Text, DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),false,Helper.CompanyID);
             if (DBConnect.InsertPostgre(_e) != "")
             {
                 MessageBox.Show("Information Saved");
@@ -92,7 +93,7 @@ namespace ARM
         {
             try
             {
-                CustomerID = CustomerDictionary[customerCbx.Text];
+               // CustomerID = CustomerDictionary[customerCbx.Text];
                 c = new Customer();//.Select(ItemID);
                 c = Customer.Select(CustomerID);               
                 Image img = Helper.Base64ToImage(c.Image);

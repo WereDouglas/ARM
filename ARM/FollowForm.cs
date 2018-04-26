@@ -65,20 +65,20 @@ namespace ARM
             sourceTxt.Text = o.Source;
             foreach (ItemReview i in Model.ItemReview.List(o.Id))
             {
-                ItemReview t = new ItemReview(id, i.FollowID, i.Title, i.Status, i.Details, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
+                ItemReview t = new ItemReview(id, i.FollowID, i.Title, i.Status, i.Details, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false,Helper.CompanyID);
                 GenericCollection.itemReviews.Add(t);
             }
             LoadItemReview();
             foreach (ItemStatus i in Model.ItemStatus.List(o.Id))
             {
-                ItemStatus t = new ItemStatus(id, i.FollowID, i.Title, i.Status, i.Details, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
+                ItemStatus t = new ItemStatus(id, i.FollowID, i.Title, i.Status, i.Details, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false,Helper.CompanyID);
                 GenericCollection.itemStatus.Add(t);
             }
             LoadItemStatus();
           
             foreach (PatientStatus i in Model.PatientStatus.List(o.Id))
             {
-                PatientStatus t = new PatientStatus(id, i.FollowID, i.Title, i.Status, i.Details, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
+                PatientStatus t = new PatientStatus(id, i.FollowID, i.Title, i.Status, i.Details, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false,Helper.CompanyID);
                 GenericCollection.patientStatus.Add(t);
             }
             LoadPatientStatus();
@@ -366,7 +366,7 @@ namespace ARM
         }
         Customer c;
         Users u;
-        Insurance ins;
+        Coverage ins;
         string CustomerID;
         string UserID;
         string OrderID;
@@ -445,22 +445,22 @@ namespace ARM
             followPhone = (phoneChk.Checked) ? "Yes" : "No";
 
             string id = Guid.NewGuid().ToString();
-            Follow i = new Follow(FollowID, CustomerID, UserID, ItemID, type, diagnosisTxt.Text, hospitalTxt.Text, sourceTxt.Text, lengthTxt.Text, needTxt.Text, goalTxt.Text, resultTxt.Text, "", followVisit, followPhone, nextTxt.Text, puTxt.Text, authSignatureTxt.Text, authoriserTxt.Text, relationTxt.Text, reasonTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
+            Follow i = new Follow(FollowID, CustomerID, UserID, ItemID, type, diagnosisTxt.Text, hospitalTxt.Text, sourceTxt.Text, lengthTxt.Text, needTxt.Text, goalTxt.Text, resultTxt.Text, "", followVisit, followPhone, nextTxt.Text, puTxt.Text, authSignatureTxt.Text, authoriserTxt.Text, relationTxt.Text, reasonTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false,Helper.CompanyID);
             if (DBConnect.InsertPostgre(i) != "")
             {
                 foreach (ItemReview t in GenericCollection.itemReviews)
                 {
-                    ItemReview c = new ItemReview(t.Id, FollowID, t.Title, t.Status, t.Status, t.Created, false);
+                    ItemReview c = new ItemReview(t.Id, FollowID, t.Title, t.Status, t.Status, t.Created,false,Helper.CompanyID);
                     DBConnect.InsertPostgre(c);
                 }
                 foreach (ItemStatus t in GenericCollection.itemStatus)
                 {
-                    ItemStatus c = new ItemStatus(t.Id, FollowID, t.Title, t.Status, t.Status, t.Created, false);
+                    ItemStatus c = new ItemStatus(t.Id, FollowID, t.Title, t.Status, t.Status, t.Created,false,Helper.CompanyID);
                     DBConnect.InsertPostgre(c);
                 }
                 foreach (PatientStatus t in GenericCollection.patientStatus)
                 {
-                    PatientStatus c = new PatientStatus(t.Id, FollowID, t.Title, t.Status, t.Status, t.Created, false);
+                    PatientStatus c = new PatientStatus(t.Id, FollowID, t.Title, t.Status, t.Status, t.Created,false,Helper.CompanyID);
                     DBConnect.InsertPostgre(c);
                 }
                 MessageBox.Show("Information Saved");

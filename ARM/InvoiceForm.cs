@@ -72,7 +72,7 @@ namespace ARM
             dsDataset.Tables.Add(dtstudentMarks);
 
 
-            DataRelation Datatablerelation = new DataRelation("DetailsMarks", dsDataset.Tables[0].Columns[0], dsDataset.Tables[1].Columns[0], true);
+            DataRelation Datatablerelation = new DataRelation("DetailsMarks", dsDataset.Tables[0].Columns[0], dsDataset.Tables[1].Columns[0],true);
             dsDataset.Relations.Add(Datatablerelation);
             dtGrid.DataSource = dsDataset.Tables[0];
 
@@ -162,14 +162,14 @@ namespace ARM
             //DataSet dsDataset = new DataSet();
             //dsDataset.Tables.Add(t);
             //dsDataset.Tables.Add(trans);
-            //DataRelation Datatablerelation = new DataRelation("No", dsDataset.Tables[0].Columns[0], dsDataset.Tables[1].Columns[0], true);
+            //DataRelation Datatablerelation = new DataRelation("No", dsDataset.Tables[0].Columns[0], dsDataset.Tables[1].Columns[0],true,Helper.CompanyID);
             //dsDataset.Relations.Add(Datatablerelation);
             //dtGrid.DataSource = dsDataset.Tables[0];
             dtGrid.DataSource = t;
 
             dtGrid.AllowUserToAddRows = false;
             dtGrid.Columns["Paid"].DefaultCellStyle.BackColor = Color.LightGreen;
-            dtGrid.Columns["Balance"].DefaultCellStyle.BackColor = Color.Red;
+            dtGrid.Columns["Balance"].DefaultCellStyle.BackColor = Color.LightSalmon;
             dtGrid.Columns["ID"].Visible = false;
            // dataGrid1.DataSource = dsDataset.Tables[0];
 
@@ -179,7 +179,7 @@ namespace ARM
         {
 
         }
-        string filterField = "Name";
+        string filterField = "Date";
         private void searchTxt_TextChanged(object sender, EventArgs e)
         {
             try
@@ -228,12 +228,12 @@ namespace ARM
             }
             if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
             {
-                using (AddTransaction form = new AddTransaction(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
+                using (ReceiptForm form = new ReceiptForm(dtGrid.Rows[e.RowIndex].Cells["No"].Value.ToString()))
                 {
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)
                     {
-                        LoadData();
+                        //  LoadData();
                     }
                 }
             }

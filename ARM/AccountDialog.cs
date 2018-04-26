@@ -61,7 +61,7 @@ namespace ARM
         private void button3_Click(object sender, EventArgs e)
         {
             string ID = Guid.NewGuid().ToString();
-            Account r = new Account(ID, UserID,bankTxt.Text, accountTxt.Text, DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false);
+            Account r = new Account(ID, UserID,bankTxt.Text, accountTxt.Text, DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),false,Helper.CompanyID);
             if (DBConnect.InsertPostgre(r) != "")
             {
                 MessageBox.Show("Information Saved");
@@ -112,6 +112,23 @@ namespace ARM
         private void costTxt_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void accountTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)
+            && !char.IsDigit(e.KeyChar)
+            && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow two decimal point
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

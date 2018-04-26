@@ -83,9 +83,29 @@ namespace ARM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Add_Shield_16 {
+            get {
+                object obj = ResourceManager.GetObject("Add-Shield-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Appointment_24 {
             get {
                 object obj = ResourceManager.GetObject("Appointment-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Band_Aid_16 {
+            get {
+                object obj = ResourceManager.GetObject("Band-Aid-16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -323,9 +343,29 @@ namespace ARM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Doctor_16 {
+            get {
+                object obj = ResourceManager.GetObject("Doctor-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Doctor_24 {
             get {
                 object obj = ResourceManager.GetObject("Doctor-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Document_Add_01_16 {
+            get {
+                object obj = ResourceManager.GetObject("Document-Add-01-16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -433,6 +473,16 @@ namespace ARM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Fax_16 {
+            get {
+                object obj = ResourceManager.GetObject("Fax-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Filter_Edit_24 {
             get {
                 object obj = ResourceManager.GetObject("Filter-Edit-24", resourceCulture);
@@ -446,6 +496,36 @@ namespace ARM.Properties {
         internal static System.Drawing.Bitmap Folder_48 {
             get {
                 object obj = ResourceManager.GetObject("Folder-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Folder_New_01_16 {
+            get {
+                object obj = ResourceManager.GetObject("Folder-New-01-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Folder_New_01_24 {
+            get {
+                object obj = ResourceManager.GetObject("Folder-New-01-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Folder_Sharing_16 {
+            get {
+                object obj = ResourceManager.GetObject("Folder-Sharing-16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -526,6 +606,16 @@ namespace ARM.Properties {
         internal static System.Drawing.Bitmap Hospital_Lab_24 {
             get {
                 object obj = ResourceManager.GetObject("Hospital-Lab-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap House_16 {
+            get {
+                object obj = ResourceManager.GetObject("House-16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -643,6 +733,26 @@ namespace ARM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap News_Add_24 {
+            get {
+                object obj = ResourceManager.GetObject("News-Add-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap News_Add_24__1_ {
+            get {
+                object obj = ResourceManager.GetObject("News-Add-24 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Note_04_24 {
             get {
                 object obj = ResourceManager.GetObject("Note-04-24", resourceCulture);
@@ -666,6 +776,16 @@ namespace ARM.Properties {
         internal static System.Drawing.Bitmap Orientation_Portrait_24 {
             get {
                 object obj = ResourceManager.GetObject("Orientation-Portrait-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Place {
+            get {
+                object obj = ResourceManager.GetObject("Place", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -743,6 +863,16 @@ namespace ARM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Server_02_16 {
+            get {
+                object obj = ResourceManager.GetObject("Server-02-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Server_Delete_16 {
             get {
                 object obj = ResourceManager.GetObject("Server-Delete-16", resourceCulture);
@@ -796,6 +926,16 @@ namespace ARM.Properties {
         internal static System.Drawing.Bitmap statistic_box_yellow {
             get {
                 object obj = ResourceManager.GetObject("statistic-box-yellow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Stethoscope_03_16 {
+            get {
+                object obj = ResourceManager.GetObject("Stethoscope-03-16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -863,6 +1003,36 @@ namespace ARM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Telephone_01_16 {
+            get {
+                object obj = ResourceManager.GetObject("Telephone-01-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Telephone_01_161 {
+            get {
+                object obj = ResourceManager.GetObject("Telephone-01-161", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Telephone_16 {
+            get {
+                object obj = ResourceManager.GetObject("Telephone-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap temp {
             get {
                 object obj = ResourceManager.GetObject("temp", resourceCulture);
@@ -886,6 +1056,16 @@ namespace ARM.Properties {
         internal static System.Drawing.Bitmap Transport_Van_24 {
             get {
                 object obj = ResourceManager.GetObject("Transport-Van-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap User_Add_16__1_ {
+            get {
+                object obj = ResourceManager.GetObject("User-Add-16 (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -936,6 +1116,16 @@ namespace ARM.Properties {
         internal static System.Drawing.Bitmap User_Shield_24 {
             get {
                 object obj = ResourceManager.GetObject("User-Shield-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Wheelchair_16 {
+            get {
+                object obj = ResourceManager.GetObject("Wheelchair-16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

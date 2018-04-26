@@ -222,5 +222,23 @@ namespace ARM
         {
 
         }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            string Query = "UPDATE responsible SET sync ='false'";
+            DBConnect.QueryPostgre(Query);
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            using (CareDialog form = new CareDialog(null))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+
+                }
+            }
+        }
     }
 }

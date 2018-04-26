@@ -51,6 +51,9 @@ namespace ARM
                 Helper.CompanyImage = Company.Select().Image;
                 Helper.CompanyName = Company.Select().Name;
                 Image img = Helper.Base64ToImage(Company.Select().Image);
+                Helper.CompanyAddress = Company.Select().Name;
+                Helper.CompanyContact = Company.Select().Name;
+                Helper.CompanyFax = Company.Select().Fax;
                 System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
                 //Bitmap bps = new Bitmap(bmp, 50, 50);
                 pictureBox1.Image = bmp;
@@ -209,7 +212,7 @@ namespace ARM
                     Uploading.Insurances();
                     break;
                 case 39:
-                    Downloading.Insurances();
+                    Downloading.Coverages();
                     break;
                 case 40:                    
                    
@@ -278,11 +281,6 @@ namespace ARM
             f.Show();
         }
 
-        private void button13_Click(object sender, EventArgs e)
-        {
-            DmeForm d = new DmeForm();
-            d.Show();
-        }
 
         private void button12_Click(object sender, EventArgs e)
         {
@@ -297,13 +295,7 @@ namespace ARM
 
         private void itemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (ScheduleDialog form = new ScheduleDialog(null,null,null))
-            {
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                }
-            }
+            
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
@@ -394,31 +386,17 @@ namespace ARM
 
         private void purchaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (AddCustomerForm form = new AddCustomerForm(null))
-            {
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                    
-                }
-            }
+           
         }
 
         private void patientToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (AccountDialog form = new AccountDialog(null))
-            {
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                   
-                }
-            }
+           
         }
 
         private void addToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            using (AddCustomerForm form = new AddCustomerForm(null))
+            using (AddCustomerForm form = new AddCustomerForm(null,"Patient"))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
@@ -518,14 +496,7 @@ namespace ARM
 
         private void vendorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (CareDialog form = new CareDialog(null))
-            {
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                   
-                }
-            }
+           
         }
 
         private void toolStripButton4_Click_1(object sender, EventArgs e)
@@ -540,122 +511,23 @@ namespace ARM
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (AddUser form = new AddUser(null))
-            {
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                    
-                }
-            }
-        }
-
-        private void toolStripButton6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void salesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void purchasesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rentToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
+           
         }
 
         private void toolStripButton8_Click(object sender, EventArgs e)
         {
-            CalendarForm frm = new CalendarForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
-
-        private void toolStripMenuItem9_Click(object sender, EventArgs e)
-        {
-            TransactionForm frm = new TransactionForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+           
         }
 
         private void toolStripButton9_Click(object sender, EventArgs e)
         {
-            CustomerForm frm = new CustomerForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+           
         }
 
-        private void toolStripButton10_Click(object sender, EventArgs e)
-        {
-            VendorForm frm = new VendorForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
 
         private void toolStripButton11_Click(object sender, EventArgs e)
         {
-            UserForm frm = new UserForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
-
-        private void toolStripMenuItem8_Click(object sender, EventArgs e)
-        {
-            InvoiceForm frm = new InvoiceForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
-
-        private void toolStripMenuItem10_Click(object sender, EventArgs e)
-        {
-            PaymentForm frm = new PaymentForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
-
-        private void toolStripMenuItem11_Click(object sender, EventArgs e)
-        {
-            DeliveryPickupForm f = new DeliveryPickupForm(null);
-            f.Show();
-        }
-
-        private void toolStripMenuItem12_Click(object sender, EventArgs e)
-        {
-            OrderIntakeForm o = new OrderIntakeForm(null);
-            o.Show();
-        }
-
-        private void toolStripMenuItem13_Click(object sender, EventArgs e)
-        {
-            DmeForm d = new DmeForm();
-            d.Show();
+           
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -681,44 +553,22 @@ namespace ARM
 
         private void rateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (RateDialog form = new RateDialog(null))
-            {
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                }
-            }
+            
         }
 
         private void reviewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (InsuranceDialog form = new InsuranceDialog(null))
-            {
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                }
-            }
+            
         }
 
         private void toolStripButton5_Click_1(object sender, EventArgs e)
         {
-            AccountForm frm = new AccountForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+           
         }
 
         private void toolStripButton7_Click_1(object sender, EventArgs e)
         {
-            RateForm frm = new RateForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+            
         }
 
         private void toolStripButton3_Click_1(object sender, EventArgs e)
@@ -733,22 +583,12 @@ namespace ARM
 
         private void toolStripButton2_Click_1(object sender, EventArgs e)
         {
-            CareForm frm = new CareForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+            
         }
 
         private void toolStripButton6_Click_1(object sender, EventArgs e)
         {
-           InsuranceForm frm = new InsuranceForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+           
         }
 
         private void HrmForm_Load(object sender, EventArgs e)
@@ -783,7 +623,191 @@ namespace ARM
 
         private void HrmForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
+            LoginForm t = new LoginForm();
+            t.Show();
+        }
+
+        private void lblStatus_Click(object sender, EventArgs e)
+        {
+            if (processLbl.Visible == true)
+            {
+                processLbl.Visible = false;
+            }
+            else
+            {
+                processLbl.Visible = true;
+            }
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            LoadingWindow.ShowSplashScreen();
+            DashboardForm frm = new DashboardForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+            LoadingWindow.CloseForm();
+        }
+
+        private void addToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            using (ScheduleDialog form = new ScheduleDialog(null, null, null))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                }
+            }
+        }
+
+        private void viewToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            CalendarForm frm = new CalendarForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            using (RateDialog form = new RateDialog(null))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                }
+            }
+        }
+
+        private void toolStripMenuItem2_Click_1(object sender, EventArgs e)
+        {
+            RateForm frm = new RateForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem3_Click_1(object sender, EventArgs e)
+        {
+            using (InsuranceDialog form = new InsuranceDialog(null, null))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                }
+            }
+        }
+
+        private void toolStripMenuItem4_Click_1(object sender, EventArgs e)
+        {
+            InsuranceForm frm = new InsuranceForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem5_Click_1(object sender, EventArgs e)
+        {
+            using (AccountDialog form = new AccountDialog(null))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+
+                }
+            }
+        }
+
+        private void toolStripMenuItem6_Click_1(object sender, EventArgs e)
+        {
+            AccountForm frm = new AccountForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            CareForm frm = new CareForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            using (CareDialog form = new CareDialog(null))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+
+                }
+            }
+        }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            using (AddCustomerForm form = new AddCustomerForm(null, "Patient"))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+
+                }
+            }
+        }
+
+        private void toolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+            CustomerForm frm = new CustomerForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            UserForm frm = new UserForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+            using (AddUser form = new AddUser(null))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+
+                }
+            }
+        }
+
+        private void toolStripMenuItem19_Click(object sender, EventArgs e)
+        {
+            LoginForm r = new LoginForm();
+            r.Show();
+            this.Close();
         }
     }
 }

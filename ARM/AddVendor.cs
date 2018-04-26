@@ -84,7 +84,7 @@ namespace ARM
             string fullimage = Helper.ImageToBase64(stream);
 
             string id = Guid.NewGuid().ToString();
-            Vendor c = new Vendor(id,nameTxt.Text,emailTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), categoryCbx.Text, false, fullimage);
+            Vendor c = new Vendor(id,nameTxt.Text,emailTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), categoryCbx.Text, false, Helper.CompanyID, fullimage);
             if (DBConnect.InsertPostgre(c) != "")
             {
                 MessageBox.Show("Information Saved");
@@ -98,7 +98,7 @@ namespace ARM
 
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
-            Vendor c = new Vendor(vendorID, nameTxt.Text, emailTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), categoryCbx.Text, false, fullimage);
+            Vendor c = new Vendor(vendorID, nameTxt.Text, emailTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), categoryCbx.Text, false, Helper.CompanyID, fullimage);
             DBConnect.UpdatePostgre(c, vendorID);
             MessageBox.Show("Information Updated");
             this.DialogResult = DialogResult.OK;
@@ -109,6 +109,32 @@ namespace ARM
         private void metroLabel9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void contactTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)
+            && !char.IsDigit(e.KeyChar)
+            && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow two decimal point
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void emailTxt_Leave(object sender, EventArgs e)
+        {
+            if (!Helper.Email(emailTxt.Text))
+            {
+                emailTxt.BackColor = Color.Red;
+                MessageBox.Show("Invalid Email !");
+            }
         }
     }
 }

@@ -72,7 +72,7 @@ namespace ARM
 
         }
         List<Users> users = new List<Users>();
-        Item k = new Item();
+        Product k = new Product();
         DataTable t = new DataTable();
         double Total = 0;
         public void LoadTransactions()
@@ -93,7 +93,7 @@ namespace ARM
             {
                 try
                 {
-                    k = Item.Select(j.ItemID);
+                    k = Product.Select(j.ItemID);
                     t.Rows.Add(new object[] { j.Id, j.ItemID, k.Name, j.Qty, j.Cost.ToString("N0"), j.Total.ToString("N0"), delete });
 
                 }
@@ -173,7 +173,7 @@ namespace ARM
 
         private void button4_Click(object sender, EventArgs e)
         {
-            using (AddPurchase form = new AddPurchase(noTxt.Text, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy")))
+            using (AddPurchase form = new AddPurchase(noTxt.Text, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), null))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
@@ -233,6 +233,7 @@ namespace ARM
                 AutoCompleteVendor();
                 typeCbx.Text = "Debit";
                 customerTxt.Text = Helper.CompanyName;
+                CustomerID = Helper.CompanyID;
 
             }
             if (categoryCbx.Text == "Rent")
@@ -271,8 +272,15 @@ namespace ARM
             try
             {
                 balanceTxt.Text =(Math.Round((Total - Convert.ToDouble(amountTxt.Text)),2)).ToString();
+                if ((Math.Round((Total - Convert.ToDouble(amountTxt.Text)), 2))<0) {
+                    MessageBox.Show("Balance cannot be negative");
+                    balanceTxt.BackColor = Color.Red;
+                    return;
+
+                }
             }
             catch { }
+
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -308,22 +316,22 @@ namespace ARM
             }
             taxTxt.Text = string.IsNullOrEmpty(taxTxt.Text) ? "0" : taxTxt.Text;
             amountTxt.Text = string.IsNullOrEmpty(amountTxt.Text) ? "0" : amountTxt.Text;
-            methodCbx.Text = string.IsNullOrEmpty(amountTxt.Text) ? "none" : "none";
-
+            methodCbx.Text = string.IsNullOrEmpty(methodCbx.Text) ? "none" : "none";
+          
             string Iid = Guid.NewGuid().ToString();
-            Invoice i = new Invoice(Iid, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, typeCbx.Text, categoryCbx.Text, VendorID, CustomerID, methodCbx.Text, Total, termsTxt.Text, Convert.ToDouble(taxTxt.Text), Convert.ToDouble(amountTxt.Text), Convert.ToDouble(balanceTxt.Text), Convert.ToDouble(amountTxt.Text), Convert.ToInt32(ItemCountTxt.Text), Helper.UserID, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
+            Invoice i = new Invoice(Iid, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, typeCbx.Text, categoryCbx.Text, VendorID, CustomerID, methodCbx.Text, Total, termsTxt.Text, Convert.ToDouble(taxTxt.Text), Convert.ToDouble(amountTxt.Text), Convert.ToDouble(balanceTxt.Text), Convert.ToDouble(amountTxt.Text), Convert.ToInt32(ItemCountTxt.Text), Helper.UserID, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false,Helper.CompanyID);
             if (DBConnect.InsertPostgre(i) != "")
             {
                 foreach (Transaction t in GenericCollection.transactions)
                 {
-                    Transaction c = new Transaction(t.Id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, t.Total, t.Qty, t.Cost, t.Created, false);
+                    Transaction c = new Transaction(t.Id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, t.Total, t.Qty, t.Cost, t.Created,false,Helper.CompanyID);
                     if (DBConnect.InsertPostgre(c) != "")
                     {
                     }
                 }
 
                 string Pid = Guid.NewGuid().ToString();
-                Payment p = new Payment(Pid, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, typeCbx.Text, methodCbx.Text, Convert.ToDouble(amountTxt.Text), Convert.ToDouble(balanceTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
+                Payment p = new Payment(Pid, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, typeCbx.Text, methodCbx.Text, Convert.ToDouble(amountTxt.Text), Convert.ToDouble(balanceTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false,Helper.CompanyID);
                 if (DBConnect.InsertPostgre(p) != "")
                 {
                 }               
@@ -354,6 +362,40 @@ namespace ARM
         private void TransactionBingSource_CurrentChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void balanceTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)
+            && !char.IsDigit(e.KeyChar)
+            && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow two decimal point
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void taxTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)
+            && !char.IsDigit(e.KeyChar)
+            && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow two decimal point
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

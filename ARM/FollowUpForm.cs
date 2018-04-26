@@ -249,5 +249,11 @@ namespace ARM
             string Query3 = "UPDATE patientStatus SET sync ='false'";
             DBConnect.QueryPostgre(Query3);
         }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            FollowForm f = new FollowForm(null);
+            f.Show();
+        }
     }
 }

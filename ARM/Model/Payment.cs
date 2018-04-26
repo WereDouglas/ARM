@@ -20,9 +20,10 @@ namespace ARM.Model
         private double balance;
         private string created;
         private bool sync;
+        private string companyID;
 
         public Payment() { }
-        public Payment(string id, string date, string no, string type, string method, double amount, double balance, string created, bool sync)
+        public Payment(string id, string date, string no, string type, string method, double amount, double balance, string created, bool sync, string companyID)
         {
             this.Id = id;
             this.Date = date;
@@ -33,6 +34,7 @@ namespace ARM.Model
             this.Balance = balance;
             this.Created = created;
             this.Sync = sync;
+            this.CompanyID = companyID;
         }
 
         public string Id { get => id; set => id = value; }
@@ -44,6 +46,7 @@ namespace ARM.Model
         public double Balance { get => balance; set => balance = value; }
         public string Created { get => created; set => created = value; }
         public bool Sync { get => sync; set => sync = value; }
+        public string CompanyID { get => companyID; set => companyID = value; }
         static List<Payment> p = new List<Payment>();
         public static List<Payment> List()
         {
@@ -53,7 +56,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Payment ps = new Payment(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["type"].ToString(), Reader["method"].ToString(), Convert.ToDouble(Reader["amount"]), Convert.ToDouble(Reader["balance"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                Payment ps = new Payment(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["type"].ToString(), Reader["method"].ToString(), Convert.ToDouble(Reader["amount"]), Convert.ToDouble(Reader["balance"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -66,7 +69,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Payment ps = new Payment(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["type"].ToString(), Reader["method"].ToString(), Convert.ToDouble(Reader["amount"]), Convert.ToDouble(Reader["balance"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                Payment ps = new Payment(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["type"].ToString(), Reader["method"].ToString(), Convert.ToDouble(Reader["amount"]), Convert.ToDouble(Reader["balance"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -81,7 +84,7 @@ namespace ARM.Model
                 MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
                 while (Reader.Read())
                 {
-                    Payment ps = new Payment(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["type"].ToString(), Reader["method"].ToString(), Convert.ToDouble(Reader["amount"]), Convert.ToDouble(Reader["balance"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]));
+                    Payment ps = new Payment(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["type"].ToString(), Reader["method"].ToString(), Convert.ToDouble(Reader["amount"]), Convert.ToDouble(Reader["balance"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();

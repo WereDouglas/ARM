@@ -84,7 +84,7 @@ namespace ARM
             string fullimage = Helper.ImageToBase64(stream);
 
             string id = Guid.NewGuid().ToString();
-            Users c = new Users(id, nameTxt.Text, emailTxt.Text, contactTxt.Text, addressTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, categoryCbx.Text, genderCbx.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.MD5Hash(passwordTxt.Text), fullimage);
+            Users c = new Users(id, nameTxt.Text, emailTxt.Text, contactTxt.Text, addressTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, categoryCbx.Text, genderCbx.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, Helper.MD5Hash(passwordTxt.Text), fullimage);
             if (DBConnect.InsertPostgre(c) != "")
             {
                 MessageBox.Show("Information Saved");
@@ -124,6 +124,49 @@ namespace ARM
         private void metroLabel9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void contactTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)
+             && !char.IsDigit(e.KeyChar)
+             && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow two decimal point
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void zipTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)
+             && !char.IsDigit(e.KeyChar)
+             && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow two decimal point
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void emailTxt_Leave(object sender, EventArgs e)
+        {
+            if (!Helper.Email(emailTxt.Text)) {
+
+                emailTxt.BackColor = Color.Red;
+                MessageBox.Show("Invalid Email !");
+            }
         }
     }
 }

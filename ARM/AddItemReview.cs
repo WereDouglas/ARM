@@ -86,14 +86,14 @@ namespace ARM
                 }
                 if (stateCbx.Text == "Yes")
                 {
-                    Helper.ItemReview.Add(detailsCbx.Text + ":" + detailsTxt.Text, true);
+                    Helper.ItemReview.Add(detailsCbx.Text + ":" + detailsTxt.Text,true);
                 }
                 if (stateCbx.Text == "No")
                 {
-                    Helper.ItemReview.Add(detailsCbx.Text + ":" + detailsTxt.Text, false);
+                    Helper.ItemReview.Add(detailsCbx.Text + ":" + detailsTxt.Text,false);
                 }
                 string id = Guid.NewGuid().ToString();
-                ItemReview t = new ItemReview(id, FollowID, detailsCbx.Text, stateCbx.Text, detailsTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
+                ItemReview t = new ItemReview(id, FollowID, detailsCbx.Text, stateCbx.Text, detailsTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false,Helper.CompanyID);
                 GenericCollection.itemReviews.Add(t);
                 this.DialogResult = DialogResult.OK;
                 this.Dispose();
@@ -108,7 +108,7 @@ namespace ARM
                 }
                 Helper.PatientStatus.Add(detailsCbx.Text + ":" + detailsTxt.Text, stateCbx.Text);
                 string id = Guid.NewGuid().ToString();
-                PatientStatus t = new PatientStatus(id, FollowID, detailsCbx.Text, stateCbx.Text, detailsTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
+                PatientStatus t = new PatientStatus(id, FollowID, detailsCbx.Text, stateCbx.Text, detailsTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false,Helper.CompanyID);
                 GenericCollection.patientStatus.Add(t);
                 this.DialogResult = DialogResult.OK;
                 this.Dispose();
@@ -123,7 +123,7 @@ namespace ARM
                 }
                 Helper.ItemSetting.Add(detailsCbx.Text + ":" + detailsTxt.Text, stateCbx.Text);
                 string id = Guid.NewGuid().ToString();
-                ItemStatus t = new ItemStatus(id, FollowID, detailsCbx.Text, stateCbx.Text, detailsTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false);
+                ItemStatus t = new ItemStatus(id, FollowID, detailsCbx.Text, stateCbx.Text, detailsTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false,Helper.CompanyID);
                 GenericCollection.itemStatus.Add(t);
                 this.DialogResult = DialogResult.OK;
                 this.Dispose();

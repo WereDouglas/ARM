@@ -23,13 +23,13 @@ namespace ARM
         public LoginForm()
         {
             InitializeComponent();
-           /// LoadingWindow.ShowSplashScreen();
-           
-           
+            /// LoadingWindow.ShowSplashScreen();
+
+
             InitializeCulture();
-           /// LoadingWindow.CloseForm();
+            /// LoadingWindow.CloseForm();
             LoadSettings();
-            autocomplete();
+
         }
         protected void InitializeCulture()
         {
@@ -60,18 +60,6 @@ namespace ARM
             }
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             loginBtn.Visible = false;
@@ -83,7 +71,7 @@ namespace ARM
             }
             try
             {
-               
+
 
                 Helper.contact = u.Where(g => g.Contact.Contains(contactTxt.Text) && g.Password.Equals(Helper.MD5Hash(passwordTxt.Text))).First().Contact;
             }
@@ -146,7 +134,8 @@ namespace ARM
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Rate()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Account()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Responsible()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Insurance()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Coverage()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new ItemCoverage()));
 
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Orders()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Instruction()));
@@ -179,7 +168,8 @@ namespace ARM
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Rate()));
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Account()));
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Responsible()));
-            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Insurance()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Coverage()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new ItemCoverage()));
 
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Orders()));
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Instruction()));
@@ -215,16 +205,103 @@ namespace ARM
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            
+
+        }
+        private void LoadCompany()
+        {
+            try
+            {
+                c = Company.Select();
+                if (string.IsNullOrEmpty(c.Name))
+                {
+
+                    using (ProfileForm form = new ProfileForm(""))
+                    {
+                        DialogResult dr = form.ShowDialog();
+                        if (dr == DialogResult.OK)
+                        {
+                            LoadUsers();
+                        }
+                    }
+
+                }
+                else
+                {
+
+                    Helper.CompanyID = c.Id;
+                    LoadUsers();
+
+                }
+            }
+            catch (Exception c)
+            {
+               // MessageBox.Show(c.Message);
+                using (ProfileForm form = new ProfileForm(""))
+                {
+                    DialogResult dr = form.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                        if (string.IsNullOrEmpty(Helper.CompanyID))
+                        {
+                            LoadUsers();
+                        }
+                    }
+                }
+
+            }
+        }
+        private void LoadUsers()
+        {
+           
+            try
+            {
+                u = Users.List();
+                if (u.Count() < 1)
+                {                    
+
+                    using (AddUser form = new AddUser(""))
+                    {
+                        DialogResult dr = form.ShowDialog();
+                        if (dr == DialogResult.OK)
+                        {
+                            lblStatus.Text = lblStatus.Text + " Server connected you can continue to login";
+                            lblStatus.ForeColor = Color.Gray;
+                            autocomplete();
+                        }
+                    }
+
+                    return ;
+                }
+                else
+                {
+                    lblStatus.Text = lblStatus.Text + " Server connected you can continue to login";
+                    lblStatus.ForeColor = Color.Gray;
+                    autocomplete();
+                    return ;
+                }
+            }
+            catch (Exception c)
+            {
+                System.Diagnostics.Debug.WriteLine(c.ToString());
+
+                MessageBox.Show(c.Message.ToString());
+                lblStatus.Text = ("No users defined");
+                lblStatus.ForeColor = Color.Red;
+                return ;
+
+            }
+
         }
         private void LoadSettings()
         {
+            lblStatus.Text = "";
             XDocument xmlDoc = null;
             try
             {
                 xmlDoc = XDocument.Load(Helper.XMLFile());
             }
-            catch {
+            catch
+            {
 
                 using (SettingsForm form = new SettingsForm())
                 {
@@ -239,7 +316,7 @@ namespace ARM
 
             xmlDoc = XDocument.Load(Helper.XMLFile());
             var servers = from person in xmlDoc.Descendants("Server")
-           
+
                           select new
                           {
                               Name = person.Element("Name").Value,
@@ -248,34 +325,35 @@ namespace ARM
                           };
             foreach (var server in servers)
             {
-                
+
                 Helper.serverName = server.Name;
-                Helper.serverIP  = server.Ip;
+                Helper.serverIP = server.Ip;
 
             }
 
             if (!string.IsNullOrEmpty(Helper.serverName))
             {
-                Helper.serverIP = Helper.IPAddressCheck(Helper.serverName);
+                try
+                {
+                    Helper.serverIP = Helper.IPAddressCheck(Helper.serverName);
+                }
+                catch (Exception c)
+                {
+
+                    MessageBox.Show(" " + c.Message);
+                    return;
+
+                }
                 lblStatus.Text += Helper.serverIP + ": " + Helper.serverName;
                 if (!string.IsNullOrEmpty(Helper.serverIP))
                 {
                     DBConnect.conn = new NpgsqlConnection("Server=" + Helper.serverIP + ";Port=5432;User Id=postgres;Password=Admin;Database=arm;");
 
-                    if (TestServerConnection())
-                    {
-                        lblStatus.Text = lblStatus.Text + " Server connected you can continue to login";
-                        lblStatus.ForeColor = Color.Green;
-                        autocomplete();
-                    }
-                    else
-                    {
+                    LoadCompany();                   
 
-                        lblStatus.Text = ("You are not able to connect to the server contact the administrator for further assistance");
-                        lblStatus.ForeColor = Color.Red;
-                    }
-
-                } else {
+                }
+                else
+                {
 
                     lblStatus.Text = ("No server IP defined !");
                     lblStatus.ForeColor = Color.Red;
@@ -286,43 +364,17 @@ namespace ARM
             {
                 MessageBox.Show("Please start the server");
                 return;
-            }  
-           
+            }
+
         }
-        
-        
+
+
         List<Users> u = new List<Users>();
-        private bool TestServerConnection()
-        {
-              u = Users.List();
-            try
-            {
-
-                if (u.Count() < 0)
-                {
-                    lblStatus.Text = ("You are not able to connect to the server contact the administrator for further assistance");
-                    lblStatus.ForeColor = Color.Red;
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            }
-            catch (Exception c)
-            {
-                System.Diagnostics.Debug.WriteLine(c.ToString());
-               
-                MessageBox.Show(c.Message.ToString());
-                lblStatus.Text = ("You are not able to connect to the server contact the administrator for further assistance");
-                lblStatus.ForeColor = Color.Red;
-                return false;
-
-            }
-        }
+        Company c = new Company();
+       
         private void autocomplete()
-        
-            {
+
+        {
             AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
             DataTable dt = new DataTable();
             foreach (Users u in Users.List())

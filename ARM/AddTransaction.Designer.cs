@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddTransaction));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
@@ -57,6 +58,7 @@
             this.vendorPbx = new System.Windows.Forms.PictureBox();
             this.InvoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TransactionBingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.percTxt = new MetroFramework.Controls.MetroTextBox();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -81,7 +83,7 @@
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(10);
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(844, 52);
+            this.toolStrip1.Size = new System.Drawing.Size(1149, 52);
             this.toolStrip1.TabIndex = 46;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -124,7 +126,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 99.19283F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(853, 502);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1158, 557);
             this.tableLayoutPanel1.TabIndex = 47;
             // 
             // panel1
@@ -133,6 +135,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
+            this.panel1.Controls.Add(this.percTxt);
             this.panel1.Controls.Add(this.noTxt);
             this.panel1.Controls.Add(this.dtGrid);
             this.panel1.Controls.Add(this.button3);
@@ -153,10 +156,10 @@
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.vendorPbx);
             this.panel1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(3, 6);
+            this.panel1.Location = new System.Drawing.Point(3, 7);
             this.panel1.Name = "panel1";
             this.tableLayoutPanel1.SetRowSpan(this.panel1, 2);
-            this.panel1.Size = new System.Drawing.Size(847, 493);
+            this.panel1.Size = new System.Drawing.Size(1152, 547);
             this.panel1.TabIndex = 41;
             // 
             // noTxt
@@ -176,7 +179,7 @@
             this.noTxt.DisplayIcon = true;
             this.noTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
             this.noTxt.Lines = new string[0];
-            this.noTxt.Location = new System.Drawing.Point(645, 38);
+            this.noTxt.Location = new System.Drawing.Point(945, 38);
             this.noTxt.MaxLength = 32767;
             this.noTxt.Name = "noTxt";
             this.noTxt.PasswordChar = '\0';
@@ -198,7 +201,7 @@
             // 
             this.dtGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dtGrid.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.dtGrid.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dtGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dtGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -212,7 +215,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtGrid.DefaultCellStyle = dataGridViewCellStyle1;
             this.dtGrid.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dtGrid.Location = new System.Drawing.Point(287, 129);
+            this.dtGrid.Location = new System.Drawing.Point(591, 104);
             this.dtGrid.Name = "dtGrid";
             this.dtGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -224,7 +227,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtGrid.RowHeadersWidth = 20;
-            this.dtGrid.Size = new System.Drawing.Size(547, 267);
+            this.dtGrid.Size = new System.Drawing.Size(547, 239);
             this.dtGrid.TabIndex = 251;
             this.dtGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellClick);
             // 
@@ -237,7 +240,7 @@
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button3.Image = global::ARM.Properties.Resources.Submit_01_32;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(735, 419);
+            this.button3.Location = new System.Drawing.Point(1039, 480);
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button3.Size = new System.Drawing.Size(99, 44);
@@ -256,7 +259,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(13, 421);
+            this.button2.Location = new System.Drawing.Point(17, 480);
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(103, 41);
@@ -270,7 +273,7 @@
             // 
             this.dateTxt.DisplayFocus = true;
             this.dateTxt.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.dateTxt.Location = new System.Drawing.Point(645, 3);
+            this.dateTxt.Location = new System.Drawing.Point(945, 3);
             this.dateTxt.MinimumSize = new System.Drawing.Size(0, 29);
             this.dateTxt.Name = "dateTxt";
             this.dateTxt.Size = new System.Drawing.Size(189, 29);
@@ -305,7 +308,7 @@
             this.totalTxt.CustomButton.FlatAppearance.BorderSize = 0;
             this.totalTxt.CustomButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.totalTxt.CustomButton.Image = null;
-            this.totalTxt.CustomButton.Location = new System.Drawing.Point(-22, 1);
+            this.totalTxt.CustomButton.Location = new System.Drawing.Point(171, 1);
             this.totalTxt.CustomButton.Name = "";
             this.totalTxt.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.totalTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -314,7 +317,7 @@
             this.totalTxt.CustomButton.UseSelectable = true;
             this.totalTxt.CustomButton.Visible = false;
             this.totalTxt.Lines = new string[0];
-            this.totalTxt.Location = new System.Drawing.Point(269, 291);
+            this.totalTxt.Location = new System.Drawing.Point(945, 349);
             this.totalTxt.MaxLength = 32767;
             this.totalTxt.Name = "totalTxt";
             this.totalTxt.PasswordChar = '\0';
@@ -324,7 +327,7 @@
             this.totalTxt.SelectionLength = 0;
             this.totalTxt.SelectionStart = 0;
             this.totalTxt.ShortcutsEnabled = true;
-            this.totalTxt.Size = new System.Drawing.Size(0, 23);
+            this.totalTxt.Size = new System.Drawing.Size(193, 23);
             this.totalTxt.Style = MetroFramework.MetroColorStyle.White;
             this.totalTxt.TabIndex = 7;
             this.totalTxt.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -462,7 +465,7 @@
             this.metroLabel1.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.metroLabel1.Location = new System.Drawing.Point(287, 103);
+            this.metroLabel1.Location = new System.Drawing.Point(587, 78);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(100, 23);
             this.metroLabel1.TabIndex = 248;
@@ -544,6 +547,7 @@
             this.balanceTxt.WaterMark = "Balance";
             this.balanceTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.balanceTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.balanceTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.balanceTxt_KeyPress);
             // 
             // taxTxt
             // 
@@ -577,6 +581,7 @@
             this.taxTxt.WaterMark = "Tax";
             this.taxTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.taxTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.taxTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.taxTxt_KeyPress);
             // 
             // termsTxt
             // 
@@ -651,9 +656,9 @@
             // 
             // vendorPbx
             // 
-            this.vendorPbx.Location = new System.Drawing.Point(287, 3);
+            this.vendorPbx.Location = new System.Drawing.Point(587, 3);
             this.vendorPbx.Name = "vendorPbx";
-            this.vendorPbx.Size = new System.Drawing.Size(187, 85);
+            this.vendorPbx.Size = new System.Drawing.Size(100, 72);
             this.vendorPbx.TabIndex = 35;
             this.vendorPbx.TabStop = false;
             // 
@@ -667,17 +672,52 @@
             this.TransactionBingSource.DataSource = typeof(ARM.Model.Transaction);
             this.TransactionBingSource.CurrentChanged += new System.EventHandler(this.TransactionBingSource_CurrentChanged);
             // 
+            // percTxt
+            // 
+            // 
+            // 
+            // 
+            this.percTxt.CustomButton.Image = null;
+            this.percTxt.CustomButton.Location = new System.Drawing.Point(207, 1);
+            this.percTxt.CustomButton.Name = "";
+            this.percTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
+            this.percTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.percTxt.CustomButton.TabIndex = 1;
+            this.percTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.percTxt.CustomButton.UseSelectable = true;
+            this.percTxt.CustomButton.Visible = false;
+            this.percTxt.DisplayIcon = true;
+            this.percTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
+            this.percTxt.Lines = new string[0];
+            this.percTxt.Location = new System.Drawing.Point(17, 361);
+            this.percTxt.MaxLength = 32767;
+            this.percTxt.Name = "percTxt";
+            this.percTxt.PasswordChar = '\0';
+            this.percTxt.PromptText = "% Cover";
+            this.percTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.percTxt.SelectedText = "";
+            this.percTxt.SelectionLength = 0;
+            this.percTxt.SelectionStart = 0;
+            this.percTxt.ShortcutsEnabled = true;
+            this.percTxt.Size = new System.Drawing.Size(241, 35);
+            this.percTxt.TabIndex = 252;
+            this.percTxt.UseSelectable = true;
+            this.percTxt.WaterMark = "% Cover";
+            this.percTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.percTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // AddTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(862, 560);
+            this.ClientSize = new System.Drawing.Size(1167, 615);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AddTransaction";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -722,5 +762,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dtGrid;
         private System.Windows.Forms.BindingSource TransactionBingSource;
+        private MetroFramework.Controls.MetroTextBox percTxt;
     }
 }
