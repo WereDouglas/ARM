@@ -37,13 +37,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewCase));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.button8 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.dateTxt = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
             this.customerCbx = new System.Windows.Forms.ComboBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
+            this.cusPbx = new System.Windows.Forms.PictureBox();
             this.subscriberInfoTxt = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.noTxt = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.dtGridEquip = new System.Windows.Forms.DataGridView();
             this.dtGrid = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
@@ -54,39 +60,33 @@
             this.informationTxt = new System.Windows.Forms.TextBox();
             this.placeListBx = new System.Windows.Forms.CheckedListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.userCbx = new System.Windows.Forms.ComboBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.practitionerCbx = new System.Windows.Forms.ComboBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.typeListBx = new System.Windows.Forms.CheckedListBox();
             this.roleTypeCbx = new System.Windows.Forms.ComboBox();
             this.practictionerTypeCbx = new System.Windows.Forms.ComboBox();
+            this.userPbx = new System.Windows.Forms.PictureBox();
             this.physicianTxt = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.providerNoTxt = new System.Windows.Forms.TextBox();
             this.previewdlg = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printdoc1 = new System.Drawing.Printing.PrintDocument();
-            this.noTxt = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.providerNoTxt = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.cusPbx = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.userPbx = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridEquip)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPbx)).BeginInit();
             this.SuspendLayout();
             // 
@@ -157,6 +157,37 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(776, 768);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button8.Image = global::ARM.Properties.Resources.Add_Shield_16;
+            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button8.Location = new System.Drawing.Point(365, 158);
+            this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button8.Name = "button8";
+            this.button8.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button8.Size = new System.Drawing.Size(148, 19);
+            this.button8.TabIndex = 464;
+            this.button8.Text = "Add Insurance Coverage";
+            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(8, 4);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(21, 16);
+            this.label6.TabIndex = 464;
+            this.label6.Text = "No";
+            // 
             // dateTxt
             // 
             this.dateTxt.Location = new System.Drawing.Point(558, 6);
@@ -193,6 +224,28 @@
             this.customerCbx.Name = "customerCbx";
             this.customerCbx.Size = new System.Drawing.Size(335, 21);
             this.customerCbx.TabIndex = 290;
+            this.customerCbx.SelectedIndexChanged += new System.EventHandler(this.customerCbx_SelectedIndexChanged);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button5.Image = global::ARM.Properties.Resources.User_Add_16__1_;
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(13, 51);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button5.Name = "button5";
+            this.button5.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button5.Size = new System.Drawing.Size(118, 24);
+            this.button5.TabIndex = 245;
+            this.button5.Text = "New patient";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label15
             // 
@@ -204,6 +257,17 @@
             this.label15.Size = new System.Drawing.Size(747, 24);
             this.label15.TabIndex = 252;
             this.label15.Text = "Member Information";
+            // 
+            // cusPbx
+            // 
+            this.cusPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
+            this.cusPbx.Location = new System.Drawing.Point(166, 51);
+            this.cusPbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cusPbx.Name = "cusPbx";
+            this.cusPbx.Size = new System.Drawing.Size(127, 59);
+            this.cusPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.cusPbx.TabIndex = 179;
+            this.cusPbx.TabStop = false;
             // 
             // subscriberInfoTxt
             // 
@@ -226,6 +290,14 @@
             this.label13.TabIndex = 250;
             this.label13.Text = "Date time";
             // 
+            // noTxt
+            // 
+            this.noTxt.BackColor = System.Drawing.SystemColors.Info;
+            this.noTxt.Location = new System.Drawing.Point(179, 7);
+            this.noTxt.Name = "noTxt";
+            this.noTxt.Size = new System.Drawing.Size(180, 21);
+            this.noTxt.TabIndex = 463;
+            // 
             // panel3
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.panel3, 4);
@@ -241,7 +313,7 @@
             this.panel3.Controls.Add(this.placeListBx);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.button7);
-            this.panel3.Controls.Add(this.userCbx);
+            this.panel3.Controls.Add(this.practitionerCbx);
             this.panel3.Controls.Add(this.button6);
             this.panel3.Controls.Add(this.typeListBx);
             this.panel3.Controls.Add(this.roleTypeCbx);
@@ -258,6 +330,27 @@
             this.tableLayoutPanel1.SetRowSpan(this.panel3, 19);
             this.panel3.Size = new System.Drawing.Size(759, 573);
             this.panel3.TabIndex = 457;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button4.Image = global::ARM.Properties.Resources.Doctor_16;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(21, 54);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button4.Name = "button4";
+            this.button4.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button4.Size = new System.Drawing.Size(111, 24);
+            this.button4.TabIndex = 246;
+            this.button4.Text = "New practitioner";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
             // dtGridEquip
             // 
@@ -419,19 +512,62 @@
             this.label1.TabIndex = 300;
             this.label1.Text = "Place of service";
             // 
-            // userCbx
+            // button7
             // 
-            this.userCbx.AutoCompleteCustomSource.AddRange(new string[] {
+            this.button7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button7.Image = global::ARM.Properties.Resources.Wheelchair_16;
+            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button7.Location = new System.Drawing.Point(366, 132);
+            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button7.Name = "button7";
+            this.button7.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button7.Size = new System.Drawing.Size(164, 24);
+            this.button7.TabIndex = 248;
+            this.button7.Text = "Add Equipment CPT Code(s)";
+            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // practitionerCbx
+            // 
+            this.practitionerCbx.AutoCompleteCustomSource.AddRange(new string[] {
             "Participating",
             "Nonparticipating"});
-            this.userCbx.BackColor = System.Drawing.SystemColors.Info;
-            this.userCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.userCbx.FormattingEnabled = true;
-            this.userCbx.Location = new System.Drawing.Point(9, 29);
-            this.userCbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.userCbx.Name = "userCbx";
-            this.userCbx.Size = new System.Drawing.Size(334, 21);
-            this.userCbx.TabIndex = 289;
+            this.practitionerCbx.BackColor = System.Drawing.SystemColors.Info;
+            this.practitionerCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.practitionerCbx.FormattingEnabled = true;
+            this.practitionerCbx.Location = new System.Drawing.Point(9, 29);
+            this.practitionerCbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.practitionerCbx.Name = "practitionerCbx";
+            this.practitionerCbx.Size = new System.Drawing.Size(334, 21);
+            this.practitionerCbx.TabIndex = 289;
+            this.practitionerCbx.SelectedIndexChanged += new System.EventHandler(this.practitionerCbx_SelectedIndexChanged);
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button6.Image = global::ARM.Properties.Resources.Stethoscope_03_16;
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(21, 132);
+            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button6.Name = "button6";
+            this.button6.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button6.Size = new System.Drawing.Size(166, 24);
+            this.button6.TabIndex = 247;
+            this.button6.Text = "Add Diagnosis (CD10 Code)";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // typeListBx
             // 
@@ -466,7 +602,7 @@
             this.roleTypeCbx.Items.AddRange(new object[] {
             "Participating",
             "Nonparticipating"});
-            this.roleTypeCbx.Location = new System.Drawing.Point(577, 0);
+            this.roleTypeCbx.Location = new System.Drawing.Point(577, 2);
             this.roleTypeCbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.roleTypeCbx.Name = "roleTypeCbx";
             this.roleTypeCbx.Size = new System.Drawing.Size(177, 21);
@@ -487,15 +623,26 @@
             this.practictionerTypeCbx.TabIndex = 181;
             this.practictionerTypeCbx.SelectedIndexChanged += new System.EventHandler(this.practictionerTypeCbx_SelectedIndexChanged);
             // 
+            // userPbx
+            // 
+            this.userPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
+            this.userPbx.Location = new System.Drawing.Point(166, 54);
+            this.userPbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.userPbx.Name = "userPbx";
+            this.userPbx.Size = new System.Drawing.Size(127, 74);
+            this.userPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.userPbx.TabIndex = 180;
+            this.userPbx.TabStop = false;
+            // 
             // physicianTxt
             // 
             this.physicianTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.physicianTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.physicianTxt.Location = new System.Drawing.Point(349, 53);
+            this.physicianTxt.Location = new System.Drawing.Point(360, 53);
             this.physicianTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.physicianTxt.Multiline = true;
             this.physicianTxt.Name = "physicianTxt";
-            this.physicianTxt.Size = new System.Drawing.Size(407, 75);
+            this.physicianTxt.Size = new System.Drawing.Size(396, 75);
             this.physicianTxt.TabIndex = 0;
             // 
             // label30
@@ -541,6 +688,24 @@
             this.label24.TabIndex = 280;
             this.label24.Text = "Referring provider";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(8, 156);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(64, 16);
+            this.label7.TabIndex = 466;
+            this.label7.Text = "Provider ID";
+            // 
+            // providerNoTxt
+            // 
+            this.providerNoTxt.BackColor = System.Drawing.SystemColors.Info;
+            this.providerNoTxt.Location = new System.Drawing.Point(179, 159);
+            this.providerNoTxt.Name = "providerNoTxt";
+            this.providerNoTxt.Size = new System.Drawing.Size(180, 21);
+            this.providerNoTxt.TabIndex = 465;
+            // 
             // previewdlg
             // 
             this.previewdlg.AutoScrollMargin = new System.Drawing.Size(0, 0);
@@ -554,42 +719,6 @@
             // printdoc1
             // 
             this.printdoc1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printdoc1_PrintPage);
-            // 
-            // noTxt
-            // 
-            this.noTxt.BackColor = System.Drawing.SystemColors.Info;
-            this.noTxt.Location = new System.Drawing.Point(179, 7);
-            this.noTxt.Name = "noTxt";
-            this.noTxt.Size = new System.Drawing.Size(180, 21);
-            this.noTxt.TabIndex = 463;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(8, 4);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(21, 16);
-            this.label6.TabIndex = 464;
-            this.label6.Text = "No";
-            // 
-            // providerNoTxt
-            // 
-            this.providerNoTxt.BackColor = System.Drawing.SystemColors.Info;
-            this.providerNoTxt.Location = new System.Drawing.Point(179, 159);
-            this.providerNoTxt.Name = "providerNoTxt";
-            this.providerNoTxt.Size = new System.Drawing.Size(180, 21);
-            this.providerNoTxt.TabIndex = 465;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(8, 156);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(64, 16);
-            this.label7.TabIndex = 466;
-            this.label7.Text = "Provider ID";
             // 
             // button1
             // 
@@ -651,132 +780,6 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button8.Image = global::ARM.Properties.Resources.Add_Shield_16;
-            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(365, 158);
-            this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button8.Name = "button8";
-            this.button8.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button8.Size = new System.Drawing.Size(148, 19);
-            this.button8.TabIndex = 464;
-            this.button8.Text = "Add Insurance Coverage";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button5.Image = global::ARM.Properties.Resources.User_Add_16__1_;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(13, 51);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button5.Size = new System.Drawing.Size(118, 24);
-            this.button5.TabIndex = 245;
-            this.button5.Text = "New patient";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // cusPbx
-            // 
-            this.cusPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
-            this.cusPbx.Location = new System.Drawing.Point(166, 51);
-            this.cusPbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cusPbx.Name = "cusPbx";
-            this.cusPbx.Size = new System.Drawing.Size(127, 59);
-            this.cusPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.cusPbx.TabIndex = 179;
-            this.cusPbx.TabStop = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button4.Image = global::ARM.Properties.Resources.Doctor_16;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(21, 54);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button4.Size = new System.Drawing.Size(111, 24);
-            this.button4.TabIndex = 246;
-            this.button4.Text = "New practitioner";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button7.Image = global::ARM.Properties.Resources.Wheelchair_16;
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(349, 132);
-            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button7.Name = "button7";
-            this.button7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button7.Size = new System.Drawing.Size(164, 24);
-            this.button7.TabIndex = 248;
-            this.button7.Text = "Add Equipment CPT Code(s)";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button6.Image = global::ARM.Properties.Resources.Stethoscope_03_16;
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(21, 132);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button6.Name = "button6";
-            this.button6.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button6.Size = new System.Drawing.Size(166, 24);
-            this.button6.TabIndex = 247;
-            this.button6.Text = "Add Diagnosis (CD10 Code)";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // userPbx
-            // 
-            this.userPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
-            this.userPbx.Location = new System.Drawing.Point(166, 54);
-            this.userPbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.userPbx.Name = "userPbx";
-            this.userPbx.Size = new System.Drawing.Size(127, 74);
-            this.userPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.userPbx.TabIndex = 180;
-            this.userPbx.TabStop = false;
-            // 
             // NewCase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -796,11 +799,11 @@
             this.tableLayoutPanel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridEquip)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPbx)).EndInit();
             this.ResumeLayout(false);
 
@@ -833,7 +836,7 @@
         private System.Windows.Forms.ComboBox practictionerTypeCbx;
         private System.Windows.Forms.ComboBox roleTypeCbx;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox userCbx;
+        private System.Windows.Forms.ComboBox practitionerCbx;
         private System.Windows.Forms.ComboBox customerCbx;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;

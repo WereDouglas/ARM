@@ -34,15 +34,23 @@ namespace ARM.Model
         static List<Company> p = new List<Company>();
         public Company() { }
 
-        public Company(string id, string name, string address, string contact, string email, string fax, string tel, string created,bool sync,string companyID, string image)
+        public Company(string id, string name, string contact, string email, string npi, string address, string office, string providerID, string tin, string officePhone, string officeFax, string city, string zip, string state, string speciality, string created, bool sync, string companyID, string image)
         {
             this.Id = id;
             this.Name = name;
-            this.Address = address;
             this.Contact = contact;
             this.Email = email;
-            this.Fax = fax;
-            this.Tel = tel;
+            this.Npi = npi;
+            this.Address = address;
+            this.Office = office;
+            this.ProviderID = providerID;
+            this.Tin = tin;
+            this.OfficePhone = officePhone;
+            this.OfficeFax = officeFax;
+            this.City = city;
+            this.Zip = zip;
+            this.State = state;
+            this.Speciality = speciality;
             this.Created = created;
             this.Sync = sync;
             this.CompanyID = companyID;
@@ -53,11 +61,19 @@ namespace ARM.Model
 
         public string Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
-        public string Address { get => address; set => address = value; }
         public string Contact { get => contact; set => contact = value; }
         public string Email { get => email; set => email = value; }
-        public string Fax { get => fax; set => fax = value; }
-        public string Tel { get => tel; set => tel = value; }
+        public string Npi { get => npi; set => npi = value; }
+        public string Address { get => address; set => address = value; }
+        public string Office { get => office; set => office = value; }
+        public string ProviderID { get => providerID; set => providerID = value; }
+        public string Tin { get => tin; set => tin = value; }
+        public string OfficePhone { get => officePhone; set => officePhone = value; }
+        public string OfficeFax { get => officeFax; set => officeFax = value; }
+        public string City { get => city; set => city = value; }
+        public string Zip { get => zip; set => zip = value; }
+        public string State { get => state; set => state = value; }
+        public string Speciality { get => speciality; set => speciality = value; }
         public string Created { get => created; set => created = value; }
         public bool Sync { get => sync; set => sync = value; }
         public string CompanyID { get => companyID; set => companyID = value; }
@@ -70,7 +86,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Company c = new Company(Reader["id"].ToString(), Reader["name"].ToString(), Reader["address"].ToString(), Reader["contact"].ToString(), Reader["email"].ToString(), Reader["fax"].ToString(), Reader["tel"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
+                Company c = new Company(Reader["id"].ToString(),Reader["name"].ToString(), Reader["contact"].ToString(),Reader["email"].ToString(), Reader["npi"].ToString(), Reader["address"].ToString(), Reader["office"].ToString(), Reader["providerID"].ToString(), Reader["tin"].ToString(), Reader["officePhone"].ToString(), Reader["officeFax"].ToString(), Reader["city"].ToString(), Reader["zip"].ToString(), Reader["state"].ToString(), Reader["speciality"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
                 p.Add(c);
             }
             DBConnect.CloseConn();
@@ -84,7 +100,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Company c = new Company(Reader["id"].ToString(), Reader["name"].ToString(), Reader["address"].ToString(), Reader["contact"].ToString(), Reader["email"].ToString(), Reader["fax"].ToString(), Reader["tel"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
+                Company c = new Company(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["email"].ToString(), Reader["npi"].ToString(), Reader["address"].ToString(), Reader["office"].ToString(), Reader["providerID"].ToString(), Reader["tin"].ToString(), Reader["officePhone"].ToString(), Reader["officeFax"].ToString(), Reader["city"].ToString(), Reader["zip"].ToString(), Reader["state"].ToString(), Reader["speciality"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
                 p.Add(c);
             }
             DBConnect.CloseConn();
@@ -99,7 +115,7 @@ namespace ARM.Model
                 MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
                 while (Reader.Read())
                 {
-                    Company ps = new Company(Reader["id"].ToString(), Reader["name"].ToString(), Reader["address"].ToString(), Reader["contact"].ToString(), Reader["email"].ToString(), Reader["fax"].ToString(), Reader["tel"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(),Reader["image"].ToString());
+                    Company ps = new Company(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["email"].ToString(), Reader["npi"].ToString(), Reader["address"].ToString(), Reader["office"].ToString(), Reader["providerID"].ToString(), Reader["tin"].ToString(), Reader["officePhone"].ToString(), Reader["officeFax"].ToString(), Reader["city"].ToString(), Reader["zip"].ToString(), Reader["state"].ToString(), Reader["speciality"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
@@ -115,7 +131,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                c = new Company(Reader["id"].ToString(), Reader["name"].ToString(), Reader["address"].ToString(), Reader["contact"].ToString(), Reader["email"].ToString(), Reader["fax"].ToString(), Reader["tel"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
+                c = new Company(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["email"].ToString(), Reader["npi"].ToString(), Reader["address"].ToString(), Reader["office"].ToString(), Reader["providerID"].ToString(), Reader["tin"].ToString(), Reader["officePhone"].ToString(), Reader["officeFax"].ToString(), Reader["city"].ToString(), Reader["zip"].ToString(), Reader["state"].ToString(), Reader["speciality"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
             }
             DBConnect.CloseConn();
             return c;

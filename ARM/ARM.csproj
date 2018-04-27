@@ -127,6 +127,36 @@
     <Compile Include="AccountDialog.Designer.cs">
       <DependentUpon>AccountDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="PractitionerDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PractitionerDialog.Designer.cs">
+      <DependentUpon>PractitionerDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConditionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConditionDialog.Designer.cs">
+      <DependentUpon>ConditionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmergencyDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmergencyDialog.Designer.cs">
+      <DependentUpon>EmergencyDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CoverageDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CoverageDialog.Designer.cs">
+      <DependentUpon>CoverageDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddDiagnosis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDiagnosis.Designer.cs">
+      <DependentUpon>AddDiagnosis.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddCoverage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,7 +175,29 @@
     <Compile Include="LoadingWindow.Designer.cs">
       <DependentUpon>LoadingWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Condition.cs" />
+    <Compile Include="Model\Dosage.cs" />
+    <Compile Include="Model\Care.cs" />
+    <Compile Include="Model\ICD10.cs" />
+    <Compile Include="Model\Pharmacy.cs" />
+    <Compile Include="Model\Case.cs" />
+    <Compile Include="Model\Service.cs" />
+    <Compile Include="Model\Facility.cs" />
+    <Compile Include="Model\Practitioner.cs" />
+    <Compile Include="Model\Emergency.cs" />
     <Compile Include="Model\ItemCoverage.cs" />
+    <Compile Include="NewCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewCase.Designer.cs">
+      <DependentUpon>NewCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CaseForm.Designer.cs">
+      <DependentUpon>CaseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,7 +254,6 @@
     <Compile Include="InstructionForm.Designer.cs">
       <DependentUpon>InstructionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Deliveries.cs" />
     <Compile Include="Model\Delivery.cs" />
     <Compile Include="Model\ItemStatus.cs" />
     <Compile Include="FollowUpForm.cs">
@@ -266,11 +317,11 @@
     <Compile Include="AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddCustomerForm.cs">
+    <Compile Include="CustomerDemo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddCustomerForm.Designer.cs">
-      <DependentUpon>AddCustomerForm.cs</DependentUpon>
+    <Compile Include="CustomerDemo.Designer.cs">
+      <DependentUpon>CustomerDemo.cs</DependentUpon>
     </Compile>
     <Compile Include="AddPurchase.cs">
       <SubType>Form</SubType>
@@ -374,7 +425,7 @@
     <Compile Include="Model\Invoice.cs" />
     <Compile Include="Model\Coverage.cs" />
     <Compile Include="Model\Vendor.cs" />
-    <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Users.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="ParentForm.cs">
@@ -456,6 +507,21 @@
     <EmbeddedResource Include="AccountDialog.resx">
       <DependentUpon>AccountDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PractitionerDialog.resx">
+      <DependentUpon>PractitionerDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConditionDialog.resx">
+      <DependentUpon>ConditionDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmergencyDialog.resx">
+      <DependentUpon>EmergencyDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CoverageDialog.resx">
+      <DependentUpon>CoverageDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddDiagnosis.resx">
+      <DependentUpon>AddDiagnosis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddCoverage.resx">
       <DependentUpon>AddCoverage.cs</DependentUpon>
     </EmbeddedResource>
@@ -465,6 +531,12 @@
     <EmbeddedResource Include="DashboardReport.rdlc" />
     <EmbeddedResource Include="LoadingWindow.resx">
       <DependentUpon>LoadingWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewCase.resx">
+      <DependentUpon>NewCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CaseForm.resx">
+      <DependentUpon>CaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
@@ -523,8 +595,8 @@
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddCustomerForm.resx">
-      <DependentUpon>AddCustomerForm.cs</DependentUpon>
+    <EmbeddedResource Include="CustomerDemo.resx">
+      <DependentUpon>CustomerDemo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddPurchase.resx">
       <DependentUpon>AddPurchase.cs</DependentUpon>
@@ -881,6 +953,13 @@
     <None Include="Resources\Telephone-01-161.png" />
     <None Include="Resources\House-16.png" />
     <None Include="Resources\Place.PNG" />
+    <None Include="Resources\User-Add-16 %281%29.png" />
+    <None Include="Resources\Add-Shield-16.png" />
+    <None Include="Resources\Band-Aid-16.png" />
+    <None Include="Resources\Telephone-16.png" />
+    <None Include="Resources\Doctor-16.png" />
+    <None Include="Resources\Stethoscope-03-16.png" />
+    <None Include="Resources\Wheelchair-16.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

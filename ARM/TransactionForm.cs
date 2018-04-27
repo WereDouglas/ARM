@@ -48,7 +48,7 @@ namespace ARM
             {
                 string prod = "";
                
-                try { prod = Item.Select(c.ItemID).Name; } catch { }
+                try { prod = Product.Select(c.ItemID).Name; } catch { }
                
                 try
                 {

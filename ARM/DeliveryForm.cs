@@ -56,17 +56,17 @@ namespace ARM
             {
                 string user = "";
                 string cus = "";
-                try { user = Users.Select(c.UserID).Name; } catch { }
+               
                 try { cus = Customer.Select(c.CustomerID).Name; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, c.No, c.Date, c.Type,  cus,user,c.Comments, c.DeliveredBy,c.DateReceived,c.ReceivedBy,c.Signature,c.Total.ToString("n0"),c.Created,c.Sync, view, delete });
+                    t.Rows.Add(new object[] { false, c.Id, "", c.Date, c.Type,  cus,user,c.Comments, c.DeliveredBy,c.DateReceived,c.ReceivedBy,c.Signature,c.Total.ToString("n0"),c.Created,c.Sync, view, delete });
 
                 }
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing customer {each customer list }" + c.No);
+                    Helper.Exceptions(m.Message + "Viewing customer {each customer list }" + c.Date);
                 }
             }
 
@@ -133,7 +133,7 @@ namespace ARM
             }
             if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
             {
-                using (DeliveryPickupForm form = new DeliveryPickupForm(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
+                using (DeliveryPickupForm form = new DeliveryPickupForm(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString(),""))
                 {
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)
@@ -176,7 +176,7 @@ namespace ARM
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
-            DeliveryPickupForm f = new DeliveryPickupForm(null);
+            DeliveryPickupForm f = new DeliveryPickupForm("","");
             f.Show();
         }
     }

@@ -30,43 +30,28 @@ namespace ARM.Model
 
         public Dosage() { }
 
-        public Dosage(string id, string name, string contact, string address, string no, string city, string state, string zip, string created, string ssn, string dob, string category,bool sync,string companyID, string image)
+        public Dosage(string id, string serviceID, string customerID, string medication, string dosage, string route, string freq, string starting, string dc, string n, string c, string details, string created, bool sync, string companyID)
         {
-            this.Id = id;
-            this.Name = name;
-            this.Contact = contact;
-            this.Address = address;
-            this.No = no;
-            this.City = city;
-            this.State = state;
-            this.Zip = zip;
-            this.Created = created;
-            this.Ssn = ssn;
-            this.Dob = dob;
-            this.Category = category;
-            this.Sync = sync;
-            this.CompanyID = companyID;
-            this.Image = image;
+            this.id = id;
+            this.serviceID = serviceID;
+            this.customerID = customerID;
+            this.medication = medication;
+            this.dosage = dosage;
+            this.route = route;
+            this.freq = freq;
+            this.starting = starting;
+            this.dc = dc;
+            this.n = n;
+            this.c = c;
+            this.details = details;
+            this.created = created;
+            this.sync = sync;
+            this.companyID = companyID;
         }
 
         static List<Dosage> p = new List<Dosage>();
 
-        public string Id { get => id; set => id = value; }
-        public string Name { get => name; set => name = value; }
-        public string Contact { get => contact; set => contact = value; }
-        public string Address { get => address; set => address = value; }
-
-        public string No { get => no; set => no = value; }
-        public string City { get => city; set => city = value; }
-        public string State { get => state; set => state = value; }
-        public string Zip { get => zip; set => zip = value; }
-        public string Created { get => created; set => created = value; }
-        public string Ssn { get => ssn; set => ssn = value; }
-        public string Dob { get => dob; set => dob = value; }
-        public string Category { get => category; set => category = value; }
-        public bool Sync { get => sync; set => sync = value; }
-        public string CompanyID { get => companyID; set => companyID = value; }
-        public string Image { get => image; set => image = value; }
+        
         public static List<Dosage> List()
         {
             p.Clear();
@@ -75,7 +60,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Dosage ps = new Dosage(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
+                Dosage ps = new Dosage(Reader["id"].ToString(), Reader["serviceID"].ToString(), Reader["customerID"].ToString(), Reader["medication"].ToString(), Reader["dosage"].ToString(), Reader["route"].ToString(), Reader["freq"].ToString(), Reader["starting"].ToString(), Reader["dc"].ToString(),Reader["n"].ToString(), Reader["c"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -89,7 +74,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Dosage ps = new Dosage(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
+                Dosage ps = new Dosage(Reader["id"].ToString(), Reader["serviceID"].ToString(), Reader["customerID"].ToString(), Reader["medication"].ToString(), Reader["dosage"].ToString(), Reader["route"].ToString(), Reader["freq"].ToString(), Reader["starting"].ToString(), Reader["dc"].ToString(), Reader["n"].ToString(), Reader["c"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -105,7 +90,7 @@ namespace ARM.Model
                 MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
                 while (Reader.Read())
                 {
-                    Dosage ps = new Dosage(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
+                    Dosage ps = new Dosage(Reader["id"].ToString(), Reader["serviceID"].ToString(), Reader["customerID"].ToString(), Reader["medication"].ToString(), Reader["dosage"].ToString(), Reader["route"].ToString(), Reader["freq"].ToString(), Reader["starting"].ToString(), Reader["dc"].ToString(), Reader["n"].ToString(), Reader["c"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
@@ -114,7 +99,7 @@ namespace ARM.Model
             return p;
 
         }
-        private static Dosage c = new Dosage();
+        private static Dosage m = new Dosage();
         public static Dosage Select(string customerID)
         {
             string Q = "SELECT * FROM customer WHERE id = '" + customerID + "'";
@@ -122,11 +107,11 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                c = new Dosage(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
+                m = new Dosage(Reader["id"].ToString(), Reader["serviceID"].ToString(), Reader["customerID"].ToString(), Reader["medication"].ToString(), Reader["dosage"].ToString(), Reader["route"].ToString(), Reader["freq"].ToString(), Reader["starting"].ToString(), Reader["dc"].ToString(), Reader["n"].ToString(), Reader["c"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
 
             }
             DBConnect.CloseConn();
-            return c;
+            return m;
 
         }
     }

@@ -24,7 +24,7 @@ namespace ARM
             InitializeComponent();
             LoadingCalendar();
         }
-        List<Item> items = new List<Item>();
+        List<Product> items = new List<Product>();
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             this.Close();

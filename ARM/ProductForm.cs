@@ -24,7 +24,7 @@ namespace ARM
             LoadData();
            
         }
-        List<Item> items = new List<Item>();
+        List<Product> items = new List<Product>();
 
         DataTable t = new DataTable();
         public void LoadData()
@@ -59,7 +59,7 @@ namespace ARM
             Image view = new Bitmap(Properties.Resources.Note_Memo_16);
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
 
-            foreach (Item c in Item.List())
+            foreach (Product c in Product.List())
             {
                 try
                 {

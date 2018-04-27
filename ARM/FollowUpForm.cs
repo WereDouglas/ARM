@@ -84,12 +84,12 @@ namespace ARM
                 string imagePro = "";
 
                 try { imageCus = Customer.Select(c.CustomerID).Image; } catch { }
-                try { imagePro = Item.Select(c.ItemID).Image; } catch { }
+                try { imagePro = Product.Select(c.ItemID).Image; } catch { }
 
                 string prod = "";
                 string cus = "";
                 string phy = "";
-                try { prod = Item.Select(c.ItemID).Name; } catch { }
+                try { prod = Product.Select(c.ItemID).Name; } catch { }
                 try { cus = Customer.Select(c.CustomerID).Name; } catch { }
                 try { phy = Users.Select(c.UserID).Name; } catch { }
                 try

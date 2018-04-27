@@ -60,6 +60,11 @@
             this.genderCbx = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.updateBtn = new System.Windows.Forms.Button();
+            this.imgCapture = new System.Windows.Forms.PictureBox();
+            this.saveBtn = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.metroTabCond = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
             this.dtGridCond = new System.Windows.Forms.DataGridView();
@@ -67,15 +72,16 @@
             this.dtGridCoverage = new System.Windows.Forms.DataGridView();
             this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
             this.dtGridEmerg = new System.Windows.Forms.DataGridView();
-            this.updateBtn = new System.Windows.Forms.Button();
-            this.imgCapture = new System.Windows.Forms.PictureBox();
-            this.saveBtn = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.heightTxt = new System.Windows.Forms.TextBox();
+            this.weightTxt = new System.Windows.Forms.TextBox();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this.metroTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
             this.metroTabCond.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridCond)).BeginInit();
@@ -83,7 +89,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtGridCoverage)).BeginInit();
             this.metroTabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridEmerg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
             this.SuspendLayout();
             // 
             // metroLabel4
@@ -302,6 +307,10 @@
             // 
             // metroTabPage1
             // 
+            this.metroTabPage1.Controls.Add(this.metroLabel13);
+            this.metroTabPage1.Controls.Add(this.metroLabel12);
+            this.metroTabPage1.Controls.Add(this.weightTxt);
+            this.metroTabPage1.Controls.Add(this.heightTxt);
             this.metroTabPage1.Controls.Add(this.metroLabel11);
             this.metroTabPage1.Controls.Add(this.genderCbx);
             this.metroTabPage1.Controls.Add(this.metroLabel4);
@@ -342,6 +351,93 @@
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
             // 
+            // updateBtn
+            // 
+            this.updateBtn.BackColor = System.Drawing.Color.Khaki;
+            this.updateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updateBtn.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.updateBtn.Image = global::ARM.Properties.Resources.Note_04_24;
+            this.updateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.updateBtn.Location = new System.Drawing.Point(160, 557);
+            this.updateBtn.Name = "updateBtn";
+            this.updateBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.updateBtn.Size = new System.Drawing.Size(107, 49);
+            this.updateBtn.TabIndex = 246;
+            this.updateBtn.Text = "Update";
+            this.updateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.updateBtn.UseVisualStyleBackColor = false;
+            this.updateBtn.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // imgCapture
+            // 
+            this.imgCapture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.imgCapture.Image = global::ARM.Properties.Resources.temp1;
+            this.imgCapture.Location = new System.Drawing.Point(27, 22);
+            this.imgCapture.Name = "imgCapture";
+            this.imgCapture.Size = new System.Drawing.Size(128, 128);
+            this.imgCapture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imgCapture.TabIndex = 25;
+            this.imgCapture.TabStop = false;
+            // 
+            // saveBtn
+            // 
+            this.saveBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.saveBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveBtn.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.saveBtn.Image = global::ARM.Properties.Resources.Submit_01_32;
+            this.saveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.saveBtn.Location = new System.Drawing.Point(284, 557);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.saveBtn.Size = new System.Drawing.Size(94, 49);
+            this.saveBtn.TabIndex = 11;
+            this.saveBtn.Text = "Save";
+            this.saveBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.saveBtn.UseVisualStyleBackColor = false;
+            this.saveBtn.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(33, 557);
+            this.button2.Name = "button2";
+            this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button2.Size = new System.Drawing.Size(107, 49);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Cancel";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Image = global::ARM.Properties.Resources.Search_Folder_New_32;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(173, 137);
+            this.button1.Name = "button1";
+            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button1.Size = new System.Drawing.Size(130, 31);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Browse";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // metroTabCond
             // 
             this.metroTabCond.Controls.Add(this.metroTabPage1);
@@ -350,7 +446,7 @@
             this.metroTabCond.Controls.Add(this.metroTabPage4);
             this.metroTabCond.Location = new System.Drawing.Point(23, 74);
             this.metroTabCond.Name = "metroTabCond";
-            this.metroTabCond.SelectedIndex = 1;
+            this.metroTabCond.SelectedIndex = 0;
             this.metroTabCond.Size = new System.Drawing.Size(1320, 654);
             this.metroTabCond.TabIndex = 251;
             this.metroTabCond.UseSelectable = true;
@@ -508,93 +604,6 @@
             this.dtGridEmerg.TabIndex = 51;
             this.dtGridEmerg.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridEmerg_CellClick);
             // 
-            // updateBtn
-            // 
-            this.updateBtn.BackColor = System.Drawing.Color.Khaki;
-            this.updateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.updateBtn.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.updateBtn.Image = global::ARM.Properties.Resources.Note_04_24;
-            this.updateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.updateBtn.Location = new System.Drawing.Point(160, 557);
-            this.updateBtn.Name = "updateBtn";
-            this.updateBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.updateBtn.Size = new System.Drawing.Size(107, 49);
-            this.updateBtn.TabIndex = 246;
-            this.updateBtn.Text = "Update";
-            this.updateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.updateBtn.UseVisualStyleBackColor = false;
-            this.updateBtn.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // imgCapture
-            // 
-            this.imgCapture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.imgCapture.Image = global::ARM.Properties.Resources.temp1;
-            this.imgCapture.Location = new System.Drawing.Point(27, 22);
-            this.imgCapture.Name = "imgCapture";
-            this.imgCapture.Size = new System.Drawing.Size(128, 128);
-            this.imgCapture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imgCapture.TabIndex = 25;
-            this.imgCapture.TabStop = false;
-            // 
-            // saveBtn
-            // 
-            this.saveBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.saveBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveBtn.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.saveBtn.Image = global::ARM.Properties.Resources.Submit_01_32;
-            this.saveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.saveBtn.Location = new System.Drawing.Point(284, 557);
-            this.saveBtn.Name = "saveBtn";
-            this.saveBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.saveBtn.Size = new System.Drawing.Size(94, 49);
-            this.saveBtn.TabIndex = 11;
-            this.saveBtn.Text = "Save";
-            this.saveBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.saveBtn.UseVisualStyleBackColor = false;
-            this.saveBtn.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(33, 557);
-            this.button2.Name = "button2";
-            this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button2.Size = new System.Drawing.Size(107, 49);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Cancel";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Image = global::ARM.Properties.Resources.Search_Folder_New_32;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(173, 137);
-            this.button1.Name = "button1";
-            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button1.Size = new System.Drawing.Size(130, 31);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Browse";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.SystemColors.Info;
@@ -655,11 +664,64 @@
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.SystemColors.Info;
+            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button6.Image = global::ARM.Properties.Resources.Doctor_16;
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(1085, 36);
+            this.button6.Name = "button6";
+            this.button6.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button6.Size = new System.Drawing.Size(116, 32);
+            this.button6.TabIndex = 252;
+            this.button6.Text = "Practitioner";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // heightTxt
+            // 
+            this.heightTxt.Location = new System.Drawing.Point(404, 233);
+            this.heightTxt.Name = "heightTxt";
+            this.heightTxt.Size = new System.Drawing.Size(213, 21);
+            this.heightTxt.TabIndex = 251;
+            // 
+            // weightTxt
+            // 
+            this.weightTxt.Location = new System.Drawing.Point(404, 266);
+            this.weightTxt.Name = "weightTxt";
+            this.weightTxt.Size = new System.Drawing.Size(213, 21);
+            this.weightTxt.TabIndex = 252;
+            // 
+            // metroLabel12
+            // 
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.Location = new System.Drawing.Point(344, 235);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(47, 19);
+            this.metroLabel12.TabIndex = 253;
+            this.metroLabel12.Text = "Height";
+            // 
+            // metroLabel13
+            // 
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.Location = new System.Drawing.Point(344, 268);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(50, 19);
+            this.metroLabel13.TabIndex = 254;
+            this.metroLabel13.Text = "Weight";
+            // 
             // CustomerDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1374, 751);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.metroTabCond);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -672,6 +734,7 @@
             this.Text = "Customers/Clients";
             this.metroTabPage1.ResumeLayout(false);
             this.metroTabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).EndInit();
             this.metroTabCond.ResumeLayout(false);
             this.metroTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtGridCond)).EndInit();
@@ -679,7 +742,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtGridCoverage)).EndInit();
             this.metroTabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtGridEmerg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -725,5 +787,10 @@
         private System.Windows.Forms.DataGridView dtGridCond;
         private System.Windows.Forms.DataGridView dtGridCoverage;
         private System.Windows.Forms.DataGridView dtGridEmerg;
+        private System.Windows.Forms.Button button6;
+        private MetroFramework.Controls.MetroLabel metroLabel13;
+        private MetroFramework.Controls.MetroLabel metroLabel12;
+        private System.Windows.Forms.TextBox weightTxt;
+        private System.Windows.Forms.TextBox heightTxt;
     }
 }

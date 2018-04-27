@@ -98,7 +98,7 @@ namespace ARM
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
            
-            Customer c = new Customer(CustomerID, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), ssnTxt.Text, dobTxt.Text, categoryCbx.Text, false,Helper.CompanyID, fullimage);
+            Customer c = new Customer(CustomerID, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), ssnTxt.Text, dobTxt.Text, categoryCbx.Text,heightTxt.Text,weightTxt.Text, false,Helper.CompanyID, fullimage);
             if (DBConnect.InsertPostgre(c) != "")
             {
                 MessageBox.Show("Information Saved");
@@ -111,7 +111,7 @@ namespace ARM
 
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
-            Customer c = new Customer(customerID, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), ssnTxt.Text, dobTxt.Text, categoryCbx.Text, false, Helper.CompanyID, fullimage);
+            Customer c = new Customer(customerID, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), ssnTxt.Text, dobTxt.Text, categoryCbx.Text, heightTxt.Text, weightTxt.Text, false, Helper.CompanyID, fullimage);
             DBConnect.UpdatePostgre(c, customerID);
 
             MessageBox.Show("Information Updated");
@@ -390,6 +390,18 @@ namespace ARM
 
                 }
                
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            using (PractitionerDialog form = new PractitionerDialog(CustomerID,""))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    LoadCoverage();
+                }
             }
         }
     }

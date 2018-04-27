@@ -47,12 +47,7 @@ namespace ARM
             t.Columns.Add("Category");
             t.Columns.Add("Diagnosis");
             t.Columns.Add("Surgery");
-            t.Columns.Add("Clinical Date");
-            t.Columns.Add("EQ Limits");
-            t.Columns.Add("EQ Heights");
-            t.Columns.Add("EQ Weights");
-            t.Columns.Add("EQ Instructions");
-            t.Columns.Add("EQ Period");
+            t.Columns.Add("Clinical Date");           
             t.Columns.Add("Setup Location");
             t.Columns.Add("Setup Date");
             t.Columns.Add("Discharge location");
@@ -88,15 +83,15 @@ namespace ARM
                 string imagePro = "";
 
                 try { imageCus = Customer.Select(c.CustomerID).Image; } catch { }
-                try { imagePro = Product.Select(c.ItemID).Image; } catch { }
+                
 
                 string prod = "";
                 string cus = "";
-                try { prod = Product.Select(c.ItemID).Name; } catch { }
+               
                 try { cus = Customer.Select(c.CustomerID).Name; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, imageCus as string, b, c.CustomerID, c.UserID, c.ItemID+" "+ prod, imagePro as string, b2, c.OrderDateTime, c.OrderBy, c.DispenseDateTime, c.DispenseBy, c.CustomerType, c.Diagnosis, c.Surgery, c.ClinicalDate, c.EquipmentLimits, c.EquipmentHeights, c.EquipmentWeights, c.EquipmentInstructions, c.EquipmentPeriod, c.SetupLocation, c.SetupDate, c.DischargeLocation, c.DischargeDate, c.Notification, c.NotificationDate, c.Authoriz, c.AuthorizationDate, c.Created, c.Sync, c.Action, c.Other, view, delete });
+                    t.Rows.Add(new object[] { false, c.Id, imageCus as string, b, c.CustomerID, c.UserID, " "+ prod, imagePro as string, b2, c.OrderDateTime, c.OrderBy, c.DispenseDateTime, c.DispenseBy, c.CustomerType, c.Diagnosis, c.Surgery, c.ClinicalDate,  c.SetupLocation, c.SetupDate, c.DischargeLocation, c.DischargeDate, c.Notification, c.NotificationDate, c.Authoriz, c.AuthorizationDate, c.Created, c.Sync, c.Action, c.Other, view, delete });
 
                 }
                 catch (Exception m)

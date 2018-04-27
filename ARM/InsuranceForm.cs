@@ -161,7 +161,7 @@ namespace ARM
             }
             if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
             {
-                using (InsuranceDialog form = new InsuranceDialog(dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
+                using (CoverageDialog form = new CoverageDialog(dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString()))
                 {
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)

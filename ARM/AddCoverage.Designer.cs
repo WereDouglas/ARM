@@ -55,7 +55,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 191F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.30769F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 114F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 158F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 188F));
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.percTxt, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label10, 3, 0);
@@ -80,7 +80,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(415, 2);
+            this.label8.Location = new System.Drawing.Point(385, 2);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(73, 13);
             this.label8.TabIndex = 209;
@@ -91,7 +91,7 @@
             this.percTxt.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.percTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.percTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.percTxt.Location = new System.Drawing.Point(415, 43);
+            this.percTxt.Location = new System.Drawing.Point(385, 43);
             this.percTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.percTxt.Name = "percTxt";
             this.percTxt.Size = new System.Drawing.Size(108, 24);
@@ -104,7 +104,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(531, 2);
+            this.label10.Location = new System.Drawing.Point(501, 2);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(85, 13);
             this.label10.TabIndex = 266;
@@ -115,7 +115,7 @@
             this.amountTxt.BackColor = System.Drawing.SystemColors.ControlDark;
             this.amountTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.amountTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amountTxt.Location = new System.Drawing.Point(531, 43);
+            this.amountTxt.Location = new System.Drawing.Point(501, 43);
             this.amountTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.amountTxt.Name = "amountTxt";
             this.amountTxt.Size = new System.Drawing.Size(137, 24);

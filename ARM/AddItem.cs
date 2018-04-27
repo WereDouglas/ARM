@@ -39,7 +39,7 @@ namespace ARM
             descriptionxt.Text = c.Description;
             costTxt.Text = c.Cost;
             barTxt.Text = c.Barcode;
-            serialTxt.Text = c.SerialNo;
+            serialTxt.Text = c.Serial;
             unitTxt.Text = c.UnitOfMeasure;
             unitDescTxt.Text = c.MeasureDescription;
             manuTxt.Text = c.Manufacturer;
@@ -88,7 +88,7 @@ namespace ARM
             string fullimage = Helper.ImageToBase64(stream);
 
             string id = Guid.NewGuid().ToString();
-            Product c = new Product(id, nameTxt.Text, categoryCbx.Text, typeCbx.Text, descriptionxt.Text, costTxt.Text, batchTxt.Text, serialTxt.Text,barTxt.Text,unitTxt.Text,unitDescTxt.Text,manuTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false,Helper.CompanyID, fullimage);
+            Product c = new Product(id, nameTxt.Text,codeTxt.Text,categoryCbx.Text, typeCbx.Text, descriptionxt.Text, costTxt.Text, batchTxt.Text, serialTxt.Text,barTxt.Text,unitTxt.Text,unitDescTxt.Text,manuTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false,Helper.CompanyID, fullimage);
             if (DBConnect.InsertPostgre(c) != "")
             {
                 MessageBox.Show("Information Saved");
@@ -102,7 +102,7 @@ namespace ARM
 
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
-            Product c = new Product(itemID, nameTxt.Text, categoryCbx.Text, typeCbx.Text, descriptionxt.Text, costTxt.Text, batchTxt.Text, serialTxt.Text, barTxt.Text, unitTxt.Text, unitDescTxt.Text, manuTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, fullimage);
+            Product c = new Product(ItemID, nameTxt.Text, codeTxt.Text, categoryCbx.Text, typeCbx.Text, descriptionxt.Text, costTxt.Text, batchTxt.Text, serialTxt.Text, barTxt.Text, unitTxt.Text, unitDescTxt.Text, manuTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, fullimage);
             DBConnect.UpdatePostgre(c, itemID);
             MessageBox.Show("Information Updated");
             this.DialogResult = DialogResult.OK;

@@ -18,80 +18,156 @@ namespace ARM
     public partial class DeliveryPickupForm : MetroFramework.Forms.MetroForm
     {
         string DeliveryID;
-        public DeliveryPickupForm(string id)
+        string OrderID;
+        string CaseID;
+        string CustomerID;
+        string PractitionerID;
+        private Orders o;
+        public DeliveryPickupForm(string orderID, string deliveryID)
         {
             InitializeComponent();
             AutoCompleteUser();
-            AutoCompleteCustomer();
-           
-            try
+
+            if (!string.IsNullOrEmpty(deliveryID))
             {
-                noTxt.Text = (DBConnect.Max("SELECT MAX(CAST(no AS DOUBLE PRECISION)) FROM delivery") + 1).ToString();
+                DeliveryID = deliveryID;
+                LoadDelivery(deliveryID);
             }
-            catch
-            {
-                noTxt.Text = " 1 ";
-            }
-            GenericCollection.transactions = new List<Transaction>();
-            GenericCollection.deliveries = new List<Deliveries>();
-            if (!string.IsNullOrEmpty(id))
-            {
-                DeliveryID = id;
-                LoadEdit(id);
-            }
+            LoadOrder(orderID);
             printdoc1.PrintPage += new PrintPageEventHandler(printdoc1_PrintPage);
         }
-        private Delivery o;
-        private void LoadEdit(string id)
+        private void LoadOrder(string id)
         {
-            DeliveryID = id;
-            o = new Delivery();//.Select(UsersID);
-            o = Delivery.Select(id);
+            OrderID = id;
+            o = new Orders();//.Select(UsersID);
+            o = Orders.Select(OrderID);
 
             CustomerID = o.CustomerID;
-            customerCbx.Text = CustomerDictionary.First(e => e.Value == o.CustomerID).Key;
-            customerCbx_SelectedIndexChanged(null, null);
+            PractitionerID = o.PractitionerID;
+            CaseID = o.CaseID;
 
             UserID = o.UserID;
             userCbx.Text = UserDictionary.First(e => e.Value == o.UserID).Key;
             userCbx_SelectedIndexChanged(null, null);
 
 
-            LoadTransactions(o.No);
+            try
+            {
+                //CustomerID = CustomerDictionary[customerCbx.Text];
+                c = new Customer();//.Select(ItemID);
+                c = Customer.Select(CustomerID);
+                subscriberInfoTxt.Text = "Name: " + c.Name + "\t DOB: " + c.Dob + " \r\n Address: " + c.Address + "\r\n City/state: " + c.City + " " + c.State + "\t Zip: " + c.Zip + " \r\n  Phone: " + c.Contact + "\t Soc.Sec.#: " + c.Ssn;
+
+                System.Drawing.Image img = Helper.Base64ToImage(c.Image);
+                System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
+                cusPbx.Image = bmp;
+                GraphicsPath gp = new GraphicsPath();
+                gp.AddEllipse(cusPbx.DisplayRectangle);
+                cusPbx.Region = new Region(gp);
+                cusPbx.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch { }
+
+            try
+            {
+                PractitionerID = o.PractitionerID;
+                Practitioner c = new Practitioner();//.Select(ItemID);
+                c = Practitioner.Select(PractitionerID);
+                physicianTxt.Text = "Name: " + c.Name + "\t Speciality" + c.Speciality + " \r\n Address: " + c.Address + "\r\n City/state: " + c.City + " " + c.State + "\t Zip: " + c.Zip + " \r\n  Phone: " + c.Contact + "\t";
+
+                System.Drawing.Image img = Helper.Base64ToImage(c.Image);
+                System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
+                userPbx.Image = bmp;
+                GraphicsPath gp = new GraphicsPath();
+                gp.AddEllipse(cusPbx.DisplayRectangle);
+                userPbx.Region = new Region(gp);
+                userPbx.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch { }
+            string Q = "SELECT * FROM Transaction WHERE caseID = '" + CaseID + "'";
+            GenericCollection.transactions = Transaction.List(Q);
+            LoadTransactions();
+        }
+
+
+        private void LoadDelivery(string id)
+        {
+            DeliveryID = id;
+            Delivery o = new Delivery();//.Select(UsersID);
+            o = Delivery.Select(id);
+
+            CustomerID = o.CustomerID;
+            PractitionerID = o.PractitionerID;
+
+            string Q = "SELECT * FROM Transaction WHERE deliveryID = '" + DeliveryID + "'";
+            GenericCollection.transactions = Transaction.List(Q);
+            LoadTransactions();
             dateTxt.Text = o.Date;
-            noTxt.Text  = o.No;
+          
             //type
             commentTxt.Text = o.Comments;
-            deliveredByTxt.Text = o.DeliveredBy;
+             userCbx.Text = o.DeliveredBy;
             dateDeliveredTxt.Text = o.DateReceived;
             recievedByTxt.Text = o.ReceivedBy;
             signatureTxt.Text = o.Signature;
             totalTxt.Text = o.Total.ToString("N0");
+            
 
+            try
+            {
+                //CustomerID = CustomerDictionary[customerCbx.Text];
+                c = new Customer();//.Select(ItemID);
+                c = Customer.Select(CustomerID);
+                subscriberInfoTxt.Text = "Name: " + c.Name + "\t DOB: " + c.Dob + " \r\n Address: " + c.Address + "\r\n City/state: " + c.City + " " + c.State + "\t Zip: " + c.Zip + " \r\n  Phone: " + c.Contact + "\t Soc.Sec.#: " + c.Ssn;
 
-            UserID = o.UserID;
+                System.Drawing.Image img = Helper.Base64ToImage(c.Image);
+                System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
+                cusPbx.Image = bmp;
+                GraphicsPath gp = new GraphicsPath();
+                gp.AddEllipse(cusPbx.DisplayRectangle);
+                cusPbx.Region = new Region(gp);
+                cusPbx.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch { }
+
+            try
+            {
+                PractitionerID = o.PractitionerID;
+                Practitioner c = new Practitioner();//.Select(ItemID);
+                c = Practitioner.Select(PractitionerID);
+                physicianTxt.Text = "Name: " + c.Name + "\t Speciality" + c.Speciality + " \r\n Address: " + c.Address + "\r\n City/state: " + c.City + " " + c.State + "\t Zip: " + c.Zip + " \r\n  Phone: " + c.Contact + "\t";
+
+                System.Drawing.Image img = Helper.Base64ToImage(c.Image);
+                System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
+                userPbx.Image = bmp;
+                GraphicsPath gp = new GraphicsPath();
+                gp.AddEllipse(cusPbx.DisplayRectangle);
+                userPbx.Region = new Region(gp);
+                userPbx.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch { }
 
 
         }
-        public void LoadTransactions(string no)
+        public void LoadTransactions()
         {
             // create and execute query  
             t = new DataTable();
 
             t.Columns.Add("id");
-            t.Columns.Add("ItemID");
-            t.Columns.Add("Product");
             t.Columns.Add("Qty");
+            t.Columns.Add("ItemID");
+            t.Columns.Add("Product");           
             t.Columns.Add("Cost");
             t.Columns.Add("Total");
-           
 
-            foreach (Deliveries j in Deliveries.ListNo(no))
+
+            foreach (Transaction j in GenericCollection.transactions)
             {
                 try
                 {
                     k = Product.Select(j.ItemID);
-                    t.Rows.Add(new object[] { j.Id, j.ItemID, k.Name, j.Qty, j.Cost.ToString("N0"), j.Total.ToString("N0") });
+                    t.Rows.Add(new object[] { j.Id, j.Qty, j.ItemID, k.Name, j.Cost.ToString("N0"), j.Total.ToString("N0") });
 
                 }
                 catch (Exception m)
@@ -100,7 +176,7 @@ namespace ARM
                     Helper.Exceptions(m.Message + "Viewing Items in Delivery form on load {each transaction list }" + j.ItemID);
                 }
             }
-            Total = Deliveries.ListNo(no).Sum(r => r.Total);
+            Total = GenericCollection.transactions.Sum(r => r.Total);
             totalTxt.Text = Total.ToString("N0");
 
             dtGrid.DataSource = t;
@@ -111,7 +187,7 @@ namespace ARM
 
             dtGrid.Columns["id"].Visible = false;
             dtGrid.Columns["ItemID"].Visible = false;
-            
+
 
 
         }
@@ -127,91 +203,23 @@ namespace ARM
                 {
                     UserDictionary.Add(v.Name, v.Id);
                     userCbx.Items.Add(v.Name);
-                   
+
                 }
             }
 
         }
-        private void AutoCompleteCustomer()
-        {
-            AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
-            CustomerDictionary.Clear();
-            foreach (Customer c in Customer.List())
-            {
-                AutoItem.Add((c.Name));
-
-                if (!CustomerDictionary.ContainsKey(c.Name))
-                {
-                    CustomerDictionary.Add(c.Name, c.Id);
-                    customerCbx.Items.Add(c.Name);
-                }
-            }
-        }
+        
 
         private void metroLabel1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            using (AddPurchase form = new AddPurchase(null,null,null))
-            {
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                    LoadTransactions();
-                }
-            }
-        }
         List<Users> users = new List<Users>();
         Product k = new Product();
         DataTable t = new DataTable();
         double Total = 0;
-        public void LoadTransactions()
-        {
-            // create and execute query  
-            t = new DataTable();
-
-            t.Columns.Add("id");
-            t.Columns.Add("ItemID");
-            t.Columns.Add("Product");
-            t.Columns.Add("Qty");
-            t.Columns.Add("Cost");
-            t.Columns.Add("Total");
-            t.Columns.Add(new DataColumn("Delete", typeof(Image)));
-            Image delete = new Bitmap(Properties.Resources.Cancel_16);
-
-            foreach (Transaction j in GenericCollection.transactions)
-            {
-                try
-                {
-                    k = Product.Select(j.ItemID);
-                    t.Rows.Add(new object[] { j.Id, j.ItemID, k.Name, j.Qty, j.Cost.ToString("N0"), j.Total.ToString("N0"), delete });
-
-                }
-                catch (Exception m)
-                {
-                    MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing users {each transaction list }" + j.ItemID);
-                }
-            }
-            Total = GenericCollection.transactions.Sum(r => r.Total);
-            totalTxt.Text = Total.ToString("N0");
-
-            dtGrid.DataSource = t;
-
-            dtGrid.AllowUserToAddRows = false;
-            // dtGrid.Columns["View"].DefaultCellStyle.BackColor = Color.LightGreen;
-            //  dtGrid.Columns["Delete"].DefaultCellStyle.BackColor = Color.Red;
-
-            dtGrid.Columns["id"].Visible = false;
-            dtGrid.Columns["ItemID"].Visible = false;
-           // ItemCountTxt.Text = GenericCollection.transactions.Count().ToString();
-
-
-        }
-
+      
         private void button2_Click(object sender, EventArgs e)
         {
             Close();
@@ -224,33 +232,13 @@ namespace ARM
         Customer c;
         Users u;
         Coverage ins;
-        string CustomerID;
+
         string UserID;
-        string OrderID;
+
         Dictionary<string, string> UserDictionary = new Dictionary<string, string>();
         Dictionary<string, string> CustomerDictionary = new Dictionary<string, string>();
         Dictionary<string, string> ProductDictionary = new Dictionary<string, string>();
-        private void customerCbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                CustomerID = CustomerDictionary[customerCbx.Text];
-                c = new Customer();//.Select(ItemID);
-                c = Customer.Select(CustomerID);
-                subscriberInfoTxt.Text = "Name: " + c.Name + "\t DOB: " + c.Dob + " \r\n Address: " + c.Address + "\r\n City/state: " + c.City + " " + c.State + "\t Zip: " + c.Zip + " \r\n  Phone: " + c.Contact + "\t Soc.Sec.#: " + c.Ssn;
-                subscriberTypeTxt.Text = c.Category;
-                System.Drawing.Image img = Helper.Base64ToImage(c.Image);
-                System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
-                cusPbx.Image = bmp;
-                GraphicsPath gp = new GraphicsPath();
-                gp.AddEllipse(cusPbx.DisplayRectangle);
-                cusPbx.Region = new Region(gp);
-                cusPbx.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-            catch { }
-           
-        }
-
+      
         private void userCbx_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -284,23 +272,24 @@ namespace ARM
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (GenericCollection.transactions.Count < 1)
-            {
-                MessageBox.Show("No Products Defined !");
-                return;
-            }
-            string type = (pickupChk.Checked) ?  pickupChk.Text :  deliveryChk.Text;
+            string type = "";
+
+             type = (deliveryBtn.Checked) ? deliveryBtn.Text :pickupBtn.Text;
+            type = (pickupBtn.Checked) ? pickupBtn.Text : deliveryBtn.Text;
+            type = (followBtn.Checked) ? followBtn.Text : deliveryBtn.Text;
+
             string id = Guid.NewGuid().ToString();
-            Delivery i = new Delivery(id,Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, type,UserID,CustomerID,commentTxt.Text,deliveredByTxt.Text,Convert.ToDateTime(dateDeliveredTxt.Text).ToString("dd-MM-yyyy"),recievedByTxt.Text,signatureTxt.Text,Convert.ToDouble(totalTxt.Text),DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false,Helper.CompanyID);
+            Delivery i = new Delivery(id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"),CaseID,OrderID, type, PractitionerID, CustomerID, commentTxt.Text, userCbx.Text, Convert.ToDateTime(dateDeliveredTxt.Text).ToString("dd-MM-yyyy"), recievedByTxt.Text, signatureTxt.Text,"",recievedByTxt.Text,Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
             if (DBConnect.InsertPostgre(i) != "")
-            {
-                foreach (Transaction t in GenericCollection.transactions)
-                {
-                     Deliveries c = new Deliveries(t.Id,Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, t.Total, t.Qty, t.Cost, t.Created,false,Helper.CompanyID);
-                    if (DBConnect.InsertPostgre(c) != "")
+            {               
+                    foreach (Transaction t in GenericCollection.transactions)
                     {
+                        Transaction c = new Transaction(t.Id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"),"", t.ItemID, CaseID, "", t.Qty, t.Cost, t.Units, t.Total, "", "", "", "", "", "", t.Created, false, Helper.CompanyID);
+                        if (DBConnect.InsertPostgre(c) != "")
+                        {
+                        }
                     }
-                }
+               
                 MessageBox.Show("Information Saved");
                 this.Close();
             }
@@ -371,12 +360,24 @@ namespace ARM
 
         private void button5_Click(object sender, EventArgs e)
         {
-            using (AddCustomerForm form = new AddCustomerForm(null,"Patient"))
+            using (CustomerDemo form = new CustomerDemo(null, "Patient"))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
                     // LoadingCalendarLite();
+                }
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            using (AddPurchase form = new AddPurchase(CaseID, "", Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), null))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    LoadTransactions();
                 }
             }
         }

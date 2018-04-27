@@ -34,6 +34,7 @@
             this.typeCbx = new MetroFramework.Controls.MetroComboBox();
             this.unitTxt = new MetroFramework.Controls.MetroComboBox();
             this.manuTxt = new MetroFramework.Controls.MetroComboBox();
+            this.codeTxt = new MetroFramework.Controls.MetroTextBox();
             this.barTxt = new MetroFramework.Controls.MetroTextBox();
             this.serialTxt = new MetroFramework.Controls.MetroTextBox();
             this.imgCapture = new System.Windows.Forms.PictureBox();
@@ -45,7 +46,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,6 +130,40 @@
             this.manuTxt.Size = new System.Drawing.Size(265, 29);
             this.manuTxt.TabIndex = 10;
             this.manuTxt.UseSelectable = true;
+            // 
+            // codeTxt
+            // 
+            // 
+            // 
+            // 
+            this.codeTxt.CustomButton.Image = null;
+            this.codeTxt.CustomButton.Location = new System.Drawing.Point(231, 1);
+            this.codeTxt.CustomButton.Name = "";
+            this.codeTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
+            this.codeTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.codeTxt.CustomButton.TabIndex = 1;
+            this.codeTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.codeTxt.CustomButton.UseSelectable = true;
+            this.codeTxt.CustomButton.Visible = false;
+            this.codeTxt.DisplayIcon = true;
+            this.codeTxt.Icon = global::ARM.Properties.Resources.Shape_Cube_24;
+            this.codeTxt.Lines = new string[0];
+            this.codeTxt.Location = new System.Drawing.Point(298, 171);
+            this.codeTxt.MaxLength = 32767;
+            this.codeTxt.Name = "codeTxt";
+            this.codeTxt.PasswordChar = '\0';
+            this.codeTxt.PromptText = "HCPCS CODE";
+            this.codeTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.codeTxt.SelectedText = "";
+            this.codeTxt.SelectionLength = 0;
+            this.codeTxt.SelectionStart = 0;
+            this.codeTxt.ShortcutsEnabled = true;
+            this.codeTxt.Size = new System.Drawing.Size(265, 35);
+            this.codeTxt.TabIndex = 130;
+            this.codeTxt.UseSelectable = true;
+            this.codeTxt.WaterMark = "HCPCS CODE";
+            this.codeTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.codeTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // barTxt
             // 
@@ -319,9 +353,9 @@
             // 
             // 
             this.descriptionxt.CustomButton.Image = null;
-            this.descriptionxt.CustomButton.Location = new System.Drawing.Point(215, 2);
+            this.descriptionxt.CustomButton.Location = new System.Drawing.Point(175, 2);
             this.descriptionxt.CustomButton.Name = "";
-            this.descriptionxt.CustomButton.Size = new System.Drawing.Size(47, 47);
+            this.descriptionxt.CustomButton.Size = new System.Drawing.Size(87, 87);
             this.descriptionxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.descriptionxt.CustomButton.TabIndex = 1;
             this.descriptionxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -439,46 +473,12 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // metroTextBox1
-            // 
-            // 
-            // 
-            // 
-            this.metroTextBox1.CustomButton.Image = null;
-            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(231, 1);
-            this.metroTextBox1.CustomButton.Name = "";
-            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(33, 33);
-            this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox1.CustomButton.TabIndex = 1;
-            this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox1.CustomButton.UseSelectable = true;
-            this.metroTextBox1.CustomButton.Visible = false;
-            this.metroTextBox1.DisplayIcon = true;
-            this.metroTextBox1.Icon = global::ARM.Properties.Resources.Shape_Cube_24;
-            this.metroTextBox1.Lines = new string[0];
-            this.metroTextBox1.Location = new System.Drawing.Point(298, 171);
-            this.metroTextBox1.MaxLength = 32767;
-            this.metroTextBox1.Name = "metroTextBox1";
-            this.metroTextBox1.PasswordChar = '\0';
-            this.metroTextBox1.PromptText = "HCPCS CODE";
-            this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox1.SelectedText = "";
-            this.metroTextBox1.SelectionLength = 0;
-            this.metroTextBox1.SelectionStart = 0;
-            this.metroTextBox1.ShortcutsEnabled = true;
-            this.metroTextBox1.Size = new System.Drawing.Size(265, 35);
-            this.metroTextBox1.TabIndex = 130;
-            this.metroTextBox1.UseSelectable = true;
-            this.metroTextBox1.WaterMark = "HCPCS CODE";
-            this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
             // AddItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(586, 539);
-            this.Controls.Add(this.metroTextBox1);
+            this.Controls.Add(this.codeTxt);
             this.Controls.Add(this.manuTxt);
             this.Controls.Add(this.unitTxt);
             this.Controls.Add(this.barTxt);
@@ -522,6 +522,6 @@
         private MetroFramework.Controls.MetroTextBox unitDescTxt;
         private MetroFramework.Controls.MetroComboBox unitTxt;
         private MetroFramework.Controls.MetroComboBox manuTxt;
-        private MetroFramework.Controls.MetroTextBox metroTextBox1;
+        private MetroFramework.Controls.MetroTextBox codeTxt;
     }
 }

@@ -27,10 +27,10 @@ namespace ARM
             paidLbl.Text = Schedule.List().Where(t => t.Status.Contains("Paid")).Count().ToString();
             pendingLbl.Text = Schedule.List().Where(t => t.Status.Contains("Pending")).Count().ToString();
             customerLbl.Text = Customer.List().Count().ToString();
-            itemLbl.Text = Item.List().Count().ToString();
+            itemLbl.Text = Product.List().Count().ToString();
             LoadData();
         }
-        List<Item> items = new List<Item>();
+        List<Product> items = new List<Product>();
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             this.Close();

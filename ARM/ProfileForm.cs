@@ -58,9 +58,9 @@ namespace ARM
             nameTxt.Text = c.Name;
             contactTxt.Text = c.Contact;
             addressTxt.Text = c.Address;
-            telTxt.Text = c.Tel;
+            telTxt.Text = c.OfficePhone;
             emailTxt.Text = c.Email;
-            faxTxt.Text = c.Fax;
+            faxTxt.Text = c.OfficeFax;
 
             try
             {
@@ -103,7 +103,7 @@ namespace ARM
             string fullimage = Helper.ImageToBase64(stream);
 
 
-            Company c = new Company(CompanyID, nameTxt.Text, addressTxt.Text, contactTxt.Text, emailTxt.Text, faxTxt.Text, telTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, CompanyID, fullimage);
+            Company c = new Company(CompanyID,nameTxt.Text, contactTxt.Text, emailTxt.Text,"","","","","", faxTxt.Text, telTxt.Text, "","","","",DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, CompanyID, fullimage);
             if (DBConnect.InsertPostgre(c) != "")
             {
                 Helper.CompanyID = CompanyID;
@@ -117,7 +117,7 @@ namespace ARM
         {
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
-            Company c = new Company(CompanyID, nameTxt.Text, addressTxt.Text, contactTxt.Text, emailTxt.Text, faxTxt.Text, telTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, CompanyID, fullimage);
+            Company c = new Company(CompanyID, nameTxt.Text, contactTxt.Text, emailTxt.Text, "", "", "", "", "", faxTxt.Text, telTxt.Text, "", "", "", "", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, CompanyID, fullimage);
             DBConnect.UpdatePostgre(c, CompanyID);
 
             MessageBox.Show("Information Updated !");
@@ -151,7 +151,7 @@ namespace ARM
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Exceptions()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Users()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Invoice()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Item()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Product()));
 
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Vendor()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Invoice()));
@@ -167,7 +167,7 @@ namespace ARM
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Orders()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Instruction()));
 
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Deliveries()));
+            
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Delivery()));
 
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new ItemReview()));

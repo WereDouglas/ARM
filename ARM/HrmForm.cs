@@ -53,7 +53,7 @@ namespace ARM
                 Image img = Helper.Base64ToImage(Company.Select().Image);
                 Helper.CompanyAddress = Company.Select().Name;
                 Helper.CompanyContact = Company.Select().Name;
-                Helper.CompanyFax = Company.Select().Fax;
+                Helper.CompanyFax = Company.Select().OfficeFax;
                 System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
                 //Bitmap bps = new Bitmap(bmp, 50, 50);
                 pictureBox1.Image = bmp;
@@ -125,10 +125,10 @@ namespace ARM
                     Downloading.Items();
                     break;
                 case 10:
-                    Uploading.Deliverie();
+                  
                     break;
                 case 11:
-                    Downloading.Deliverie();
+                   
                     break;
                 case 12:
                     Uploading.Deliverys();
@@ -396,7 +396,7 @@ namespace ARM
 
         private void addToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            using (AddCustomerForm form = new AddCustomerForm(null,"Patient"))
+            using (CustomerDemo form = new CustomerDemo(null,"Patient"))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
@@ -696,7 +696,7 @@ namespace ARM
 
         private void toolStripMenuItem3_Click_1(object sender, EventArgs e)
         {
-            using (InsuranceDialog form = new InsuranceDialog(null, null))
+            using (InsuranceDialog form = new InsuranceDialog(null))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
@@ -761,7 +761,7 @@ namespace ARM
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
         {
-            using (AddCustomerForm form = new AddCustomerForm(null, "Patient"))
+            using (CustomerDemo form = new CustomerDemo(null, "Patient"))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)

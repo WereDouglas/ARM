@@ -21,6 +21,7 @@ namespace ARM
     {
         Dictionary<string, string> UserDictionary = new Dictionary<string, string>();
         Dictionary<string, string> CustomerDictionary = new Dictionary<string, string>();
+        Dictionary<string, string> PractitionerDictionary = new Dictionary<string, string>();
         Dictionary<string, string> ProductDictionary = new Dictionary<string, string>();
 
         Dictionary<string, bool> TypeDictionary = new Dictionary<string, bool>();
@@ -29,6 +30,7 @@ namespace ARM
 
         string CustomerID;
         string UserID;
+        string PractitionerID;
         string CaseID;
         string CoverageID;
         public NewCase(string id)
@@ -36,6 +38,7 @@ namespace ARM
             InitializeComponent();
             AutoCompleteUser();
             AutoCompleteCustomer();
+            
             if (!string.IsNullOrEmpty(id))
             {
                 CaseID = id;
@@ -61,13 +64,12 @@ namespace ARM
             customerCbx_SelectedIndexChanged(null, null);
 
             UserID = o.UserID;
-            userCbx.Text = UserDictionary.First(e => e.Value == o.UserID).Key;
-            userCbx_SelectedIndexChanged(null, null);
+           // practitionerCbx.Text = UserDictionary.First(e => e.Value == o.UserID).Key;
+            //userCbx_SelectedIndexChanged(null, null);
 
-            ItemID = o.ItemID;
+          
           //  productCbx.Text = ProductDictionary.First(e => e.Value == o.ItemID).Key;
-            productCbx_SelectedIndexChanged(null, null);
-
+           
            
             //limitTxt.Text = o.EquipmentLimits;
             //heightTxt.Text = o.EquipmentHeights;
@@ -134,7 +136,7 @@ namespace ARM
             {
                 foreach (Transaction t in GenericCollection.transactions)
                 {
-                    Transaction c = new Transaction(t.Id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID,CaseID,t.Qty, t.Cost,t.Units, t.Total, t.Created, false, Helper.CompanyID);
+                    Transaction c = new Transaction(t.Id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID,CaseID,"",t.Qty, t.Cost,t.Units, t.Total,"","","","","","", t.Created, false, Helper.CompanyID);
                     if (DBConnect.InsertPostgre(c) != "")
                     {
                     }
@@ -163,7 +165,7 @@ namespace ARM
                 if (!UserDictionary.ContainsKey(v.Name))
                 {
                     UserDictionary.Add(v.Name, v.Id);
-                    userCbx.Items.Add(v.Name);
+                    practitionerCbx.Items.Add(v.Name);
                     
                 }
             }
@@ -182,6 +184,21 @@ namespace ARM
                 {
                     CustomerDictionary.Add(c.Name, c.Id);
                     customerCbx.Items.Add(c.Name);
+                }
+            }
+        }
+        private void AutoCompletePractitioner(string customerID)
+        {
+            AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
+            CustomerDictionary.Clear();
+            foreach (Practitioner c in Practitioner.List())
+            {
+                AutoItem.Add((c.Name));
+
+                if (!PractitionerDictionary.ContainsKey(c.Name))
+                {
+                    PractitionerDictionary.Add(c.Name, c.Id);
+                    practitionerCbx.Items.Add(c.Name);
                 }
             }
         }
@@ -205,7 +222,8 @@ namespace ARM
                 cusPbx.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch { }
-            
+            AutoCompletePractitioner(CustomerID);
+
         }
         Users u;
 
@@ -213,7 +231,7 @@ namespace ARM
         {
             try
             {
-                UserID = UserDictionary[userCbx.Text];
+                UserID = UserDictionary[practitionerCbx.Text];
                 u = new Users();//.Select(ItemID);
                 u = Users.Select(UserID);
                 System.Drawing.Image img = Helper.Base64ToImage(u.Image);
@@ -413,13 +431,46 @@ namespace ARM
 
         private void button8_Click(object sender, EventArgs e)
         {
-            using (InsuranceDialog form = new InsuranceDialog(CustomerID, noTxt.Text))
+            using (CoverageDialog form = new CoverageDialog(CustomerID))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
                 }
             }
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            using (PractitionerDialog form = new PractitionerDialog(CustomerID, ""))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    AutoCompletePractitioner(CustomerID);
+
+                }
+            }
+        }
+
+        private void practitionerCbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                PractitionerID = PractitionerDictionary[practitionerCbx.Text];
+                Practitioner c = new Practitioner();//.Select(ItemID);
+                c = Practitioner.Select(PractitionerID);
+                physicianTxt.Text = "Name: " + c.Name + "\t Speciality" + c.Speciality + " \r\n Address: " + c.Address + "\r\n City/state: " + c.City + " " + c.State + "\t Zip: " + c.Zip + " \r\n  Phone: " + c.Contact + "\t";
+
+                System.Drawing.Image img = Helper.Base64ToImage(c.Image);
+                System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
+                userPbx.Image = bmp;
+                GraphicsPath gp = new GraphicsPath();
+                gp.AddEllipse(cusPbx.DisplayRectangle);
+                userPbx.Region = new Region(gp);
+                userPbx.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch { }
         }
     }
 }

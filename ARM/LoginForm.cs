@@ -123,7 +123,7 @@ namespace ARM
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Exceptions()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Users()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Invoice()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Item()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Product()));
 
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Vendor()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Invoice()));
@@ -157,7 +157,7 @@ namespace ARM
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Exceptions()));
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Users()));
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Invoice()));
-            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Item()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Product()));
 
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Vendor()));
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Invoice()));

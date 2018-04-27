@@ -44,11 +44,11 @@ namespace ARM.Sync
             {
                 string Query = "DELETE from customer WHERE id ='" + h.Id + "'";
                 DBConnect.QueryPostgre(Query);
-                Customer c = new Customer(h.Id, h.Name, h.Contact, h.Address, h.No, h.City, h.State, h.Zip, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), h.Ssn, h.Dob, h.Category, true,Helper.CompanyID,h.Image);
+                Customer c = new Customer(h.Id, h.Name, h.Contact, h.Address, h.No, h.City, h.State, h.Zip, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), h.Ssn, h.Dob, h.Category, h.Height, h.Weight, true, Helper.CompanyID, h.Image);
                 if (DBConnect.InsertPostgre(c) != "")
                 {
                     MedicalForm._Form1.FeedBack("Downloading ... " + h.Name.ToString());
-                    Customer u = new Customer(h.Id, h.Name, h.Contact, h.Address, h.No, h.City, h.State, h.Zip, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), h.Ssn, h.Dob, h.Category, true,Helper.CompanyID,h.Image);
+                    Customer u = new Customer(h.Id, h.Name, h.Contact, h.Address, h.No, h.City, h.State, h.Zip, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), h.Ssn, h.Dob, h.Category, h.Height, h.Weight, true, Helper.CompanyID, h.Image);
                     DBConnect.UpdateMySql(u, h.Id);
                     MedicalForm._Form1.FeedBack("Updating .. " + h.Name.ToString());
                 }
@@ -75,20 +75,20 @@ namespace ARM.Sync
             }
             MedicalForm._Form1.FeedBack("Downloading Schedule Complete");
         }
-        public static List<Item> i = new List<Item>();
+        public static List<Product> i = new List<Product>();
         public static void Items()
         {
-            i = Item.ListOnline("SELECT * FROM item WHERE sync = 'false'");
+            i = Product.ListOnline("SELECT * FROM item WHERE sync = 'false'");
             MedicalForm._Form1.FeedBack("Downloading products ... " + u.Count);
             foreach (var h in i)
             {
                 string Query = "DELETE from item WHERE id ='" + h.Id + "'";
                 DBConnect.QueryPostgre(Query);
-                Item p = new Item(h.Id, h.Name, h.Category, h.Type, h.Description, h.Cost, h.BatchNo, h.SerialNo, h.Barcode, h.UnitOfMeasure, h.MeasureDescription, h.Manufacturer, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), true,Helper.CompanyID,h.Image);
+                Product p = new Product(h.Id, h.Name, h.Code, h.Category, h.Type, h.Description, h.Cost, h.Batch, h.Serial, h.Barcode, h.UnitOfMeasure, h.MeasureDescription, h.Manufacturer, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), true, Helper.CompanyID, h.Image);
                 if (DBConnect.InsertPostgre(p) != "")
                 {
                     MedicalForm._Form1.FeedBack("Downloading ... " + h.Name.ToString());
-                    Item u = new Item(h.Id, h.Name, h.Category, h.Type, h.Description, h.Cost, h.BatchNo, h.SerialNo, h.Barcode, h.UnitOfMeasure, h.MeasureDescription, h.Manufacturer, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), true,Helper.CompanyID,h.Image);
+                    Product u = new Product(h.Id, h.Name, h.Code, h.Category, h.Type, h.Description, h.Cost, h.Batch, h.Serial, h.Barcode, h.UnitOfMeasure, h.MeasureDescription, h.Manufacturer, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), true, Helper.CompanyID, h.Image);
                     DBConnect.UpdateMySql(u, h.Id);
                     MedicalForm._Form1.FeedBack("Updating .. " + h.Name.ToString());
                 }
@@ -104,37 +104,18 @@ namespace ARM.Sync
             {
                 string Query = "DELETE from delivery WHERE id ='" + h.Id + "'";
                 DBConnect.QueryPostgre(Query);
-                Delivery p = new Delivery(h.Id, h.Date, h.No, h.Type, h.UserID, h.CustomerID, h.Comments, h.DeliveredBy, h.DateReceived, h.ReceivedBy, h.Signature, h.Total, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),true,Helper.CompanyID);
+                Delivery p = new Delivery(h.Id, h.Date, h.CaseID, h.OrderID, h.Type, h.PractitionerID, h.CustomerID, h.Comments, h.DeliveredBy, h.DateReceived, h.ReceivedBy, h.Signature, h.Reason, h.Name, Convert.ToDouble(h.Total), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), true, Helper.CompanyID);
                 if (DBConnect.InsertPostgre(p) != "")
                 {
                     MedicalForm._Form1.FeedBack("Downloading ... " + h.Date.ToString());
-                    Delivery u = new Delivery(h.Id, h.Date, h.No, h.Type, h.UserID, h.CustomerID, h.Comments, h.DeliveredBy, h.DateReceived, h.ReceivedBy, h.Signature, h.Total, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),true,Helper.CompanyID);
+                    Delivery u = new Delivery(h.Id, h.Date, h.CaseID, h.OrderID, h.Type, h.PractitionerID, h.CustomerID, h.Comments, h.DeliveredBy, h.DateReceived, h.ReceivedBy, h.Signature, h.Reason, h.Name, Convert.ToDouble(h.Total), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), true, Helper.CompanyID);
                     DBConnect.UpdateMySql(u, h.Id);
                     MedicalForm._Form1.FeedBack("Updating .. " + h.Date.ToString());
                 }
             }
             MedicalForm._Form1.FeedBack("Downloading delivery Complete");
         }
-        public static List<Deliveries> y = new List<Deliveries>();
-        public static void Deliverie()
-        {
-            y = Deliveries.ListOnline("SELECT * FROM deliveries WHERE sync = 'false'");
-            MedicalForm._Form1.FeedBack("Downloading deliveries ... " + y.Count);
-            foreach (var h in y)
-            {
-                string Query = "DELETE from deliveries WHERE id ='" + h.Id + "'";
-                DBConnect.QueryPostgre(Query);
-                Deliveries p = new Deliveries(h.Id, h.Date, h.No, h.ItemID, h.Total, h.Qty, h.Cost, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),true,Helper.CompanyID);
-                if (DBConnect.InsertPostgre(p) != "")
-                {
-                    MedicalForm._Form1.FeedBack("Downloading ... " + h.Date.ToString());
-                    Deliveries u = new Deliveries(h.Id, h.Date, h.No, h.ItemID, h.Total, h.Qty, h.Cost, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),true,Helper.CompanyID);
-                    DBConnect.UpdateMySql(u, h.Id);
-                    MedicalForm._Form1.FeedBack("Updating .. " + h.Date.ToString());
-                }
-            }
-            MedicalForm._Form1.FeedBack("Downloading deliveries Complete");
-        }
+      
         public static List<Invoice> n = new List<Invoice>();
         public static void Invoices()
         {
@@ -205,11 +186,11 @@ namespace ARM.Sync
             {
                 string Query = "DELETE from orders WHERE id ='" + h.Id + "'";
                 DBConnect.QueryPostgre(Query);
-                Orders p = new Orders(h.Id, h.CustomerID, h.UserID, h.ItemID, h.OrderDateTime, h.OrderBy, h.DispenseDateTime, h.DispenseBy, h.CustomerType, h.Diagnosis, h.Surgery, h.ClinicalDate, h.EquipmentLimits, h.EquipmentHeights, h.EquipmentWeights, h.EquipmentInstructions, h.EquipmentPeriod, h.SetupLocation, h.SetupDate, h.DischargeLocation, h.DischargeDate, h.Notification, h.NotificationDate, h.Authoriz, h.AuthorizationDate, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), true,Helper.CompanyID,h.Action, h.Other);
+                Orders p = new Orders(h.Id, h.CaseID, h.CustomerID, h.UserID, h.OrderDateTime, h.OrderBy, h.DispenseDateTime, h.DispenseBy, h.CustomerType, h.Diagnosis, h.Surgery, h.ClinicalDate, h.SetupLocation, h.SetupDate, h.DischargeLocation, h.DischargeDate, h.Notification, h.NotificationDate, h.Authoriz, h.AuthorizationDate, h.Action, h.Other, h.PractitionerID, h.Safety, h.Appropriate, h.AppropriateSelection, h.SafetyOther, h.Phone, h.EquipmentType, h.EquipmentOther, h.Additional, h.AdditionalNotes, h.FollowUp, h.Signature, h.EmergencyID, h.Reason, h.UserSignature, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), true, Helper.CompanyID);
                 if (DBConnect.InsertPostgre(p) != "")
                 {
                     MedicalForm._Form1.FeedBack("Downloading ... " + h.DispenseBy.ToString());
-                    Orders u = new Orders(h.Id, h.CustomerID, h.UserID, h.ItemID, h.OrderDateTime, h.OrderBy, h.DispenseDateTime, h.DispenseBy, h.CustomerType, h.Diagnosis, h.Surgery, h.ClinicalDate, h.EquipmentLimits, h.EquipmentHeights, h.EquipmentWeights, h.EquipmentInstructions, h.EquipmentPeriod, h.SetupLocation, h.SetupDate, h.DischargeLocation, h.DischargeDate, h.Notification, h.NotificationDate, h.Authoriz, h.AuthorizationDate, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), true,Helper.CompanyID,h.Action, h.Other);
+                    Orders u = new Orders(h.Id, h.CaseID, h.CustomerID, h.UserID, h.OrderDateTime, h.OrderBy, h.DispenseDateTime, h.DispenseBy, h.CustomerType, h.Diagnosis, h.Surgery, h.ClinicalDate, h.SetupLocation, h.SetupDate, h.DischargeLocation, h.DischargeDate, h.Notification, h.NotificationDate, h.Authoriz, h.AuthorizationDate, h.Action, h.Other, h.PractitionerID, h.Safety, h.Appropriate, h.AppropriateSelection, h.SafetyOther, h.Phone, h.EquipmentType, h.EquipmentOther, h.Additional, h.AdditionalNotes, h.FollowUp, h.Signature, h.EmergencyID, h.Reason, h.UserSignature, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), true, Helper.CompanyID);
                     DBConnect.UpdateMySql(u, h.Id);
                     MedicalForm._Form1.FeedBack("Updating .. " + h.DispenseBy.ToString());
                 }
@@ -366,11 +347,11 @@ namespace ARM.Sync
             {
                 string Query = "DELETE from coverage WHERE id ='" + h.Id + "'";
                 DBConnect.QueryPostgre(Query);
-                Coverage p = new Coverage(h.Id, h.CustomerID, h.Name, h.Type, h.No, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),true,Helper.CompanyID);
+                Coverage p = new Coverage(h.Id, h.CustomerID, h.Name, h.Type, h.Category, h.No, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), true, Helper.CompanyID);
                 if (DBConnect.InsertPostgre(p) != "")
                 {
                     MedicalForm._Form1.FeedBack("Downloading ... " + h.Id.ToString());
-                    Coverage u = new Coverage(h.Id, h.CustomerID, h.Name, h.Type, h.No, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), true, Helper.CompanyID);
+                    Coverage u = new Coverage(h.Id, h.CustomerID, h.Name, h.Type, h.Category, h.No, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), true, Helper.CompanyID);
                     DBConnect.UpdateMySql(u, h.Id);
                     MedicalForm._Form1.FeedBack("Updating .. " + h.Id.ToString());
                 }

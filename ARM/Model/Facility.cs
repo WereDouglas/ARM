@@ -40,9 +40,7 @@ namespace ARM.Model
             this.Name = name;
             this.Address = address;
             this.Contact = contact;
-            this.Email = email;
-            this.Fax = fax;
-            this.Tel = tel;
+          
             this.Created = created;
             this.Sync = sync;
             this.FacilityID = companyID;
@@ -55,9 +53,7 @@ namespace ARM.Model
         public string Name { get => name; set => name = value; }
         public string Address { get => address; set => address = value; }
         public string Contact { get => contact; set => contact = value; }
-        public string Email { get => email; set => email = value; }
-        public string Fax { get => fax; set => fax = value; }
-        public string Tel { get => tel; set => tel = value; }
+       
         public string Created { get => created; set => created = value; }
         public bool Sync { get => sync; set => sync = value; }
         public string FacilityID { get => companyID; set => companyID = value; }

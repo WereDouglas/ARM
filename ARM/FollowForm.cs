@@ -116,7 +116,7 @@ namespace ARM
         {
             AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
             ProductDictionary.Clear();
-            foreach (Item v in Item.List())
+            foreach (Product v in Product.List())
             {
                 AutoItem.Add((v.Name));
 
@@ -413,14 +413,14 @@ namespace ARM
             catch { }
         }
         string ItemID;
-        Item i;
+        Product i;
         private void productCbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 ItemID = ProductDictionary[productCbx.Text];
-                i = new Item();//.Select(ItemID);
-                i = Item.Select(ItemID);
+                i = new Product();//.Select(ItemID);
+                i = Product.Select(ItemID);
                 System.Drawing.Image img = Helper.Base64ToImage(i.Image);
                 System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
                 productPbx.Image = bmp;

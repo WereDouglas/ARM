@@ -32,7 +32,7 @@ namespace ARM
         private void button3_Click(object sender, EventArgs e)
         {
             string id = Guid.NewGuid().ToString();
-            Coverage t = new Coverage(id, CustomerID, nameTxt.Text,typeCbx.Text,noTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
+            Coverage t = new Coverage(id,CustomerID, nameTxt.Text,typeCbx.Text,catCbx.Text,noTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
             if (DBConnect.InsertPostgre(t) != "")
             {
                 MessageBox.Show("Information Saved");

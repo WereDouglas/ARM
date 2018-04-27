@@ -147,7 +147,7 @@ namespace ARM
             foreach (Model.Transaction c in Model.Transaction.List())
             {
                 string prod = "";
-                try { prod = Item.Select(c.ItemID).Name; } catch { }
+                try { prod = Product.Select(c.ItemID).Name; } catch { }
                 try
                 {
                     trans.Rows.Add(new object[] { c.No, false, c.Id, c.Date, prod, c.Qty, c.Cost.ToString("N0"), c.Total.ToString("N0"), c.Sync, c.Created, delete });

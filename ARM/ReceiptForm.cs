@@ -119,7 +119,7 @@ namespace ARM
         }
 
         List<Users> users = new List<Users>();
-        Item k = new Item();
+        Product k = new Product();
         DataTable t = new DataTable();
         double Total = 0;
 

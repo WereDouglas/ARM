@@ -238,7 +238,7 @@ namespace ARM
                 Helper.CompanyName = Company.Select().Name;
                 Helper.CompanyAddress= Company.Select().Address;
                 Helper.CompanyContact = Company.Select().Contact;
-                Helper.CompanyFax = Company.Select().Fax;
+                Helper.CompanyFax = Company.Select().OfficeFax;
                 Image img = Helper.Base64ToImage(Company.Select().Image);
                 System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
                 //Bitmap bps = new Bitmap(bmp, 50, 50);
@@ -378,7 +378,7 @@ namespace ARM
 
         private void patientToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (AddCustomerForm form = new AddCustomerForm(null,"Patient"))
+            using (CustomerDemo form = new CustomerDemo(null,"Patient"))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
@@ -390,7 +390,7 @@ namespace ARM
 
         private void addToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            using (AddCustomerForm form = new AddCustomerForm(null, "Patient"))
+            using (CustomerDemo form = new CustomerDemo(null, "Patient"))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
@@ -585,7 +585,7 @@ namespace ARM
 
         private void toolStripMenuItem11_Click(object sender, EventArgs e)
         {
-            DeliveryPickupForm f = new DeliveryPickupForm(null);
+            DeliveryPickupForm f = new DeliveryPickupForm(null,null);
             f.Show();
         }
 
@@ -658,15 +658,6 @@ namespace ARM
             frm.Show();
         }
 
-        private void deliveriesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DeliveriesForm frm = new DeliveriesForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
 
         private void toolStripMenuItem4_Click_1(object sender, EventArgs e)
         {
@@ -784,7 +775,7 @@ namespace ARM
 
         private void addToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            using (AddCustomerForm form = new AddCustomerForm(null, "Patient"))
+            using (CustomerDemo form = new CustomerDemo(null, "Patient"))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
@@ -892,6 +883,22 @@ namespace ARM
             LoginForm r = new LoginForm();
             r.Show();
             this.Close();
+        }
+
+        private void toolStripMenuItem20_Click(object sender, EventArgs e)
+        {
+            NewCase f = new NewCase(null);
+            f.Show();
+        }
+
+        private void toolStripMenuItem21_Click(object sender, EventArgs e)
+        {
+            CaseForm frm = new CaseForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
         }
     }
 }
