@@ -18,7 +18,7 @@ namespace ARM
     {
         string PractitionerID;
         string CustomerID;
-        public PractitionerDialog(string customerID,string id)
+        public PractitionerDialog(string customerID, string id)
         {
             InitializeComponent();
 
@@ -64,18 +64,20 @@ namespace ARM
 
         private void button1_Click(object sender, EventArgs e)
         {
-               
+
         }
 
         private void button3_Click(object sender, EventArgs e)
-        {            
+        {
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
 
             string id = Guid.NewGuid().ToString();
-           Practitioner c = new Practitioner(id, nameTxt.Text,CustomerID, contactTxt.Text,npiTxt.Text, addressTxt.Text,officeTxt.Text,idTxt.Text,tinTxt.Text,officePhoneTxt.Text,faxTxt.Text, cityTxt.Text, zipTxt.Text,stateTxt.Text,specialityTxt.Text,"",genderCbx.Text,"", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, fullimage);
+            Practitioner c = new Practitioner(id, nameTxt.Text, CustomerID, contactTxt.Text, npiTxt.Text, addressTxt.Text, officeTxt.Text, idTxt.Text, tinTxt.Text, officePhoneTxt.Text, faxTxt.Text, cityTxt.Text, zipTxt.Text, stateTxt.Text, specialityTxt.Text, "", genderCbx.Text, "", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, fullimage);
             if (DBConnect.InsertPostgre(c) != "")
             {
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(DBConnect.InsertPostgre(c))), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                DBConnect.InsertPostgre(q);
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;
                 this.Dispose();
@@ -88,13 +90,20 @@ namespace ARM
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
 
-            
-            DBConnect.QueryPostgre(Query);
+
+            Practitioner c = new Practitioner(PractitionerID, nameTxt.Text, CustomerID, contactTxt.Text, npiTxt.Text, addressTxt.Text, officeTxt.Text, idTxt.Text, tinTxt.Text, officePhoneTxt.Text, faxTxt.Text, cityTxt.Text, zipTxt.Text, stateTxt.Text, specialityTxt.Text, "", genderCbx.Text, "", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, fullimage);
+            if (DBConnect.UpdatePostgre(c, PractitionerID) != "")
+            {
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(DBConnect.UpdatePostgre(c, PractitionerID))), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                DBConnect.InsertPostgre(q);
+            }
+
+            //DBConnect.QueryPostgre(Query);
             MessageBox.Show("Information Updated");
             this.DialogResult = DialogResult.OK;
             this.Dispose();
         }
-        
+
 
         private void metroLabel9_Click(object sender, EventArgs e)
         {
@@ -137,11 +146,11 @@ namespace ARM
 
         private void emailTxt_Leave(object sender, EventArgs e)
         {
-            if (!Helper.Email(emailTxt.Text)) {
+            //if (!Helper.Email(emailTxt.Text)) {
 
-                emailTxt.BackColor = Color.Red;
-                MessageBox.Show("Invalid Email !");
-            }
+            emailTxt.BackColor = Color.Red;
+            MessageBox.Show("Invalid Email !");
+            // }
         }
 
         private void imgCapture_Click(object sender, EventArgs e)

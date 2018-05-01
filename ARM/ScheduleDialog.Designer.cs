@@ -47,6 +47,11 @@
             this.detailsTxt = new MetroFramework.Controls.MetroTextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.repeatCbx = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.endDate = new MetroFramework.Controls.MetroDateTime();
+            this.offListBx = new System.Windows.Forms.CheckedListBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.userPbx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).BeginInit();
             this.SuspendLayout();
@@ -62,11 +67,11 @@
             this.categoryCbx.Items.AddRange(new object[] {
             "Shift",
             "Appointment"});
-            this.categoryCbx.Location = new System.Drawing.Point(75, 202);
+            this.categoryCbx.Location = new System.Drawing.Point(123, 202);
             this.categoryCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.categoryCbx.Name = "categoryCbx";
             this.categoryCbx.PromptText = "Shift/Appointment";
-            this.categoryCbx.Size = new System.Drawing.Size(265, 29);
+            this.categoryCbx.Size = new System.Drawing.Size(339, 29);
             this.categoryCbx.TabIndex = 4;
             this.categoryCbx.UseSelectable = true;
             this.categoryCbx.SelectedIndexChanged += new System.EventHandler(this.categoryCbx_SelectedIndexChanged);
@@ -74,21 +79,21 @@
             // openedDate
             // 
             this.openedDate.AllowDrop = true;
-            this.openedDate.Location = new System.Drawing.Point(75, 63);
+            this.openedDate.Location = new System.Drawing.Point(123, 137);
             this.openedDate.MinimumSize = new System.Drawing.Size(0, 29);
             this.openedDate.Name = "openedDate";
-            this.openedDate.Size = new System.Drawing.Size(265, 29);
+            this.openedDate.Size = new System.Drawing.Size(211, 29);
             this.openedDate.TabIndex = 0;
             // 
             // customerCbx
             // 
             this.customerCbx.FormattingEnabled = true;
             this.customerCbx.ItemHeight = 23;
-            this.customerCbx.Location = new System.Drawing.Point(75, 99);
+            this.customerCbx.Location = new System.Drawing.Point(123, 99);
             this.customerCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.customerCbx.Name = "customerCbx";
             this.customerCbx.PromptText = "Patient";
-            this.customerCbx.Size = new System.Drawing.Size(265, 29);
+            this.customerCbx.Size = new System.Drawing.Size(339, 29);
             this.customerCbx.TabIndex = 1;
             this.customerCbx.UseSelectable = true;
             this.customerCbx.SelectedIndexChanged += new System.EventHandler(this.customerCbx_SelectedIndexChanged);
@@ -97,11 +102,11 @@
             // 
             this.userCbx.FormattingEnabled = true;
             this.userCbx.ItemHeight = 23;
-            this.userCbx.Location = new System.Drawing.Point(75, 280);
+            this.userCbx.Location = new System.Drawing.Point(123, 280);
             this.userCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.userCbx.Name = "userCbx";
             this.userCbx.PromptText = "Physician";
-            this.userCbx.Size = new System.Drawing.Size(265, 29);
+            this.userCbx.Size = new System.Drawing.Size(339, 29);
             this.userCbx.TabIndex = 6;
             this.userCbx.UseSelectable = true;
             this.userCbx.SelectedIndexChanged += new System.EventHandler(this.userCbx_SelectedIndexChanged);
@@ -114,11 +119,11 @@
             "Paid",
             "Pending",
             "Cancelled"});
-            this.statusCbx.Location = new System.Drawing.Point(75, 415);
+            this.statusCbx.Location = new System.Drawing.Point(123, 415);
             this.statusCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.statusCbx.Name = "statusCbx";
             this.statusCbx.PromptText = "Status";
-            this.statusCbx.Size = new System.Drawing.Size(265, 29);
+            this.statusCbx.Size = new System.Drawing.Size(339, 29);
             this.statusCbx.TabIndex = 9;
             this.statusCbx.UseSelectable = true;
             // 
@@ -127,10 +132,10 @@
             this.startHrTxt.CalendarFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startHrTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startHrTxt.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.startHrTxt.Location = new System.Drawing.Point(75, 135);
+            this.startHrTxt.Location = new System.Drawing.Point(350, 139);
             this.startHrTxt.Name = "startHrTxt";
             this.startHrTxt.ShowUpDown = true;
-            this.startHrTxt.Size = new System.Drawing.Size(265, 27);
+            this.startHrTxt.Size = new System.Drawing.Size(112, 27);
             this.startHrTxt.TabIndex = 2;
             // 
             // endHrTxt
@@ -138,10 +143,10 @@
             this.endHrTxt.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.endHrTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endHrTxt.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.endHrTxt.Location = new System.Drawing.Point(75, 168);
+            this.endHrTxt.Location = new System.Drawing.Point(350, 172);
             this.endHrTxt.Name = "endHrTxt";
             this.endHrTxt.ShowUpDown = true;
-            this.endHrTxt.Size = new System.Drawing.Size(265, 27);
+            this.endHrTxt.Size = new System.Drawing.Size(112, 27);
             this.endHrTxt.TabIndex = 3;
             // 
             // label1
@@ -149,7 +154,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label1.Location = new System.Drawing.Point(10, 145);
+            this.label1.Location = new System.Drawing.Point(45, 145);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 19);
             this.label1.TabIndex = 186;
@@ -160,7 +165,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Crimson;
-            this.label2.Location = new System.Drawing.Point(12, 171);
+            this.label2.Location = new System.Drawing.Point(45, 175);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 19);
             this.label2.TabIndex = 187;
@@ -172,7 +177,7 @@
             // 
             // 
             this.totalTxt.CustomButton.Image = null;
-            this.totalTxt.CustomButton.Location = new System.Drawing.Point(231, 1);
+            this.totalTxt.CustomButton.Location = new System.Drawing.Point(305, 1);
             this.totalTxt.CustomButton.Name = "";
             this.totalTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
             this.totalTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -183,7 +188,7 @@
             this.totalTxt.DisplayIcon = true;
             this.totalTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
             this.totalTxt.Lines = new string[0];
-            this.totalTxt.Location = new System.Drawing.Point(75, 376);
+            this.totalTxt.Location = new System.Drawing.Point(123, 376);
             this.totalTxt.MaxLength = 32767;
             this.totalTxt.Name = "totalTxt";
             this.totalTxt.PasswordChar = '\0';
@@ -193,7 +198,7 @@
             this.totalTxt.SelectionLength = 0;
             this.totalTxt.SelectionStart = 0;
             this.totalTxt.ShortcutsEnabled = true;
-            this.totalTxt.Size = new System.Drawing.Size(265, 35);
+            this.totalTxt.Size = new System.Drawing.Size(339, 35);
             this.totalTxt.TabIndex = 8;
             this.totalTxt.UseSelectable = true;
             this.totalTxt.WaterMark = "Total Charge";
@@ -207,7 +212,7 @@
             // 
             // 
             this.locationTxt.CustomButton.Image = null;
-            this.locationTxt.CustomButton.Location = new System.Drawing.Point(215, 2);
+            this.locationTxt.CustomButton.Location = new System.Drawing.Point(289, 2);
             this.locationTxt.CustomButton.Name = "";
             this.locationTxt.CustomButton.Size = new System.Drawing.Size(47, 47);
             this.locationTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -218,7 +223,7 @@
             this.locationTxt.DisplayIcon = true;
             this.locationTxt.Icon = global::ARM.Properties.Resources.Map_Location_24;
             this.locationTxt.Lines = new string[0];
-            this.locationTxt.Location = new System.Drawing.Point(75, 497);
+            this.locationTxt.Location = new System.Drawing.Point(123, 497);
             this.locationTxt.MaxLength = 32767;
             this.locationTxt.Multiline = true;
             this.locationTxt.Name = "locationTxt";
@@ -229,7 +234,7 @@
             this.locationTxt.SelectionLength = 0;
             this.locationTxt.SelectionStart = 0;
             this.locationTxt.ShortcutsEnabled = true;
-            this.locationTxt.Size = new System.Drawing.Size(265, 52);
+            this.locationTxt.Size = new System.Drawing.Size(339, 52);
             this.locationTxt.TabIndex = 11;
             this.locationTxt.UseSelectable = true;
             this.locationTxt.WaterMark = "Location";
@@ -242,7 +247,7 @@
             // 
             // 
             this.periodTxt.CustomButton.Image = null;
-            this.periodTxt.CustomButton.Location = new System.Drawing.Point(231, 1);
+            this.periodTxt.CustomButton.Location = new System.Drawing.Point(305, 1);
             this.periodTxt.CustomButton.Name = "";
             this.periodTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
             this.periodTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -253,7 +258,7 @@
             this.periodTxt.DisplayIcon = true;
             this.periodTxt.Icon = global::ARM.Properties.Resources.Clock_01_24;
             this.periodTxt.Lines = new string[0];
-            this.periodTxt.Location = new System.Drawing.Point(75, 238);
+            this.periodTxt.Location = new System.Drawing.Point(123, 238);
             this.periodTxt.MaxLength = 32767;
             this.periodTxt.Name = "periodTxt";
             this.periodTxt.PasswordChar = '\0';
@@ -263,7 +268,7 @@
             this.periodTxt.SelectionLength = 0;
             this.periodTxt.SelectionStart = 0;
             this.periodTxt.ShortcutsEnabled = true;
-            this.periodTxt.Size = new System.Drawing.Size(265, 35);
+            this.periodTxt.Size = new System.Drawing.Size(339, 35);
             this.periodTxt.TabIndex = 5;
             this.periodTxt.UseSelectable = true;
             this.periodTxt.WaterMark = "Period";
@@ -274,7 +279,7 @@
             // userPbx
             // 
             this.userPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
-            this.userPbx.Location = new System.Drawing.Point(1, 280);
+            this.userPbx.Location = new System.Drawing.Point(49, 280);
             this.userPbx.Name = "userPbx";
             this.userPbx.Size = new System.Drawing.Size(68, 40);
             this.userPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -284,7 +289,7 @@
             // cusPbx
             // 
             this.cusPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
-            this.cusPbx.Location = new System.Drawing.Point(1, 82);
+            this.cusPbx.Location = new System.Drawing.Point(49, 96);
             this.cusPbx.Name = "cusPbx";
             this.cusPbx.Size = new System.Drawing.Size(68, 46);
             this.cusPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -297,7 +302,7 @@
             // 
             // 
             this.costTxt.CustomButton.Image = null;
-            this.costTxt.CustomButton.Location = new System.Drawing.Point(231, 1);
+            this.costTxt.CustomButton.Location = new System.Drawing.Point(305, 1);
             this.costTxt.CustomButton.Name = "";
             this.costTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
             this.costTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -308,7 +313,7 @@
             this.costTxt.DisplayIcon = true;
             this.costTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
             this.costTxt.Lines = new string[0];
-            this.costTxt.Location = new System.Drawing.Point(75, 454);
+            this.costTxt.Location = new System.Drawing.Point(123, 454);
             this.costTxt.MaxLength = 32767;
             this.costTxt.Name = "costTxt";
             this.costTxt.PasswordChar = '\0';
@@ -318,7 +323,7 @@
             this.costTxt.SelectionLength = 0;
             this.costTxt.SelectionStart = 0;
             this.costTxt.ShortcutsEnabled = true;
-            this.costTxt.Size = new System.Drawing.Size(265, 35);
+            this.costTxt.Size = new System.Drawing.Size(339, 35);
             this.costTxt.TabIndex = 10;
             this.costTxt.UseSelectable = true;
             this.costTxt.WaterMark = "Rate/Hr";
@@ -332,9 +337,9 @@
             // 
             // 
             this.detailsTxt.CustomButton.Image = null;
-            this.detailsTxt.CustomButton.Location = new System.Drawing.Point(215, 2);
+            this.detailsTxt.CustomButton.Location = new System.Drawing.Point(293, 1);
             this.detailsTxt.CustomButton.Name = "";
-            this.detailsTxt.CustomButton.Size = new System.Drawing.Size(47, 47);
+            this.detailsTxt.CustomButton.Size = new System.Drawing.Size(45, 45);
             this.detailsTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.detailsTxt.CustomButton.TabIndex = 1;
             this.detailsTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -343,7 +348,7 @@
             this.detailsTxt.DisplayIcon = true;
             this.detailsTxt.Icon = global::ARM.Properties.Resources.Receipt_24;
             this.detailsTxt.Lines = new string[0];
-            this.detailsTxt.Location = new System.Drawing.Point(75, 318);
+            this.detailsTxt.Location = new System.Drawing.Point(123, 316);
             this.detailsTxt.MaxLength = 32767;
             this.detailsTxt.Multiline = true;
             this.detailsTxt.Name = "detailsTxt";
@@ -354,7 +359,7 @@
             this.detailsTxt.SelectionLength = 0;
             this.detailsTxt.SelectionStart = 0;
             this.detailsTxt.ShortcutsEnabled = true;
-            this.detailsTxt.Size = new System.Drawing.Size(265, 52);
+            this.detailsTxt.Size = new System.Drawing.Size(339, 47);
             this.detailsTxt.TabIndex = 7;
             this.detailsTxt.UseSelectable = true;
             this.detailsTxt.WaterMark = "Details";
@@ -370,7 +375,7 @@
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button3.Image = global::ARM.Properties.Resources.Submit_01_32;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(232, 553);
+            this.button3.Location = new System.Drawing.Point(350, 589);
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button3.Size = new System.Drawing.Size(108, 49);
@@ -389,7 +394,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(75, 553);
+            this.button2.Location = new System.Drawing.Point(135, 598);
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(108, 49);
@@ -399,11 +404,79 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // repeatCbx
+            // 
+            this.repeatCbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.repeatCbx.FormattingEnabled = true;
+            this.repeatCbx.Items.AddRange(new object[] {
+            "1",
+            "7",
+            "30",
+            "120",
+            "240"});
+            this.repeatCbx.Location = new System.Drawing.Point(123, 555);
+            this.repeatCbx.Name = "repeatCbx";
+            this.repeatCbx.Size = new System.Drawing.Size(339, 28);
+            this.repeatCbx.TabIndex = 189;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label3.Location = new System.Drawing.Point(34, 564);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(80, 19);
+            this.label3.TabIndex = 190;
+            this.label3.Text = "No of Days";
+            // 
+            // endDate
+            // 
+            this.endDate.AllowDrop = true;
+            this.endDate.Location = new System.Drawing.Point(123, 169);
+            this.endDate.MinimumSize = new System.Drawing.Size(0, 29);
+            this.endDate.Name = "endDate";
+            this.endDate.Size = new System.Drawing.Size(211, 29);
+            this.endDate.TabIndex = 191;
+            this.endDate.ValueChanged += new System.EventHandler(this.endDate_ValueChanged);
+            // 
+            // offListBx
+            // 
+            this.offListBx.FormattingEnabled = true;
+            this.offListBx.Items.AddRange(new object[] {
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday ",
+            "Friday",
+            "Saturday",
+            "Sunday"});
+            this.offListBx.Location = new System.Drawing.Point(468, 380);
+            this.offListBx.Name = "offListBx";
+            this.offListBx.Size = new System.Drawing.Size(211, 109);
+            this.offListBx.TabIndex = 192;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label4.Location = new System.Drawing.Point(468, 358);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(103, 19);
+            this.label4.TabIndex = 193;
+            this.label4.Text = "Select off days";
+            // 
             // ScheduleDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(403, 661);
+            this.ClientSize = new System.Drawing.Size(702, 661);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.offListBx);
+            this.Controls.Add(this.endDate);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.repeatCbx);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.endHrTxt);
@@ -453,5 +526,10 @@
         private System.Windows.Forms.DateTimePicker endHrTxt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox repeatCbx;
+        private System.Windows.Forms.Label label3;
+        private MetroFramework.Controls.MetroDateTime endDate;
+        private System.Windows.Forms.CheckedListBox offListBx;
+        private System.Windows.Forms.Label label4;
     }
 }

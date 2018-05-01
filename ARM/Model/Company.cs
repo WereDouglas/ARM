@@ -126,6 +126,7 @@ namespace ARM.Model
         }
         public static Company Select()
         {
+           
             string Q = "SELECT * FROM company LIMIT 1";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);

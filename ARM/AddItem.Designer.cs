@@ -33,7 +33,6 @@
             this.categoryCbx = new MetroFramework.Controls.MetroComboBox();
             this.typeCbx = new MetroFramework.Controls.MetroComboBox();
             this.unitTxt = new MetroFramework.Controls.MetroComboBox();
-            this.manuTxt = new MetroFramework.Controls.MetroComboBox();
             this.codeTxt = new MetroFramework.Controls.MetroTextBox();
             this.barTxt = new MetroFramework.Controls.MetroTextBox();
             this.serialTxt = new MetroFramework.Controls.MetroTextBox();
@@ -45,7 +44,8 @@
             this.nameTxt = new MetroFramework.Controls.MetroTextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.manuTxt = new MetroFramework.Controls.MetroTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +58,7 @@
             this.fileUrlTxtBx.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.fileUrlTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.fileUrlTxtBx.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fileUrlTxtBx.Location = new System.Drawing.Point(17, 469);
+            this.fileUrlTxtBx.Location = new System.Drawing.Point(17, 265);
             this.fileUrlTxtBx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.fileUrlTxtBx.Name = "fileUrlTxtBx";
             this.fileUrlTxtBx.Size = new System.Drawing.Size(265, 14);
@@ -73,12 +73,12 @@
             "Equipment",
             "Merchandise",
             "Other"});
-            this.categoryCbx.Location = new System.Drawing.Point(17, 297);
+            this.categoryCbx.Location = new System.Drawing.Point(17, 327);
             this.categoryCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.categoryCbx.Name = "categoryCbx";
             this.categoryCbx.PromptText = "Category";
             this.categoryCbx.Size = new System.Drawing.Size(265, 29);
-            this.categoryCbx.TabIndex = 1;
+            this.categoryCbx.TabIndex = 3;
             this.categoryCbx.UseSelectable = true;
             // 
             // typeCbx
@@ -91,12 +91,12 @@
             "Wheel",
             "Bed",
             "Other"});
-            this.typeCbx.Location = new System.Drawing.Point(17, 334);
+            this.typeCbx.Location = new System.Drawing.Point(17, 364);
             this.typeCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.typeCbx.Name = "typeCbx";
             this.typeCbx.PromptText = "Type of Product";
             this.typeCbx.Size = new System.Drawing.Size(265, 29);
-            this.typeCbx.TabIndex = 2;
+            this.typeCbx.TabIndex = 4;
             this.typeCbx.UseSelectable = true;
             // 
             // unitTxt
@@ -107,29 +107,13 @@
             "Cm",
             "M",
             "C"});
-            this.unitTxt.Location = new System.Drawing.Point(298, 297);
+            this.unitTxt.Location = new System.Drawing.Point(332, 348);
             this.unitTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.unitTxt.Name = "unitTxt";
             this.unitTxt.PromptText = "Unit Of Measure";
             this.unitTxt.Size = new System.Drawing.Size(265, 29);
-            this.unitTxt.TabIndex = 8;
+            this.unitTxt.TabIndex = 11;
             this.unitTxt.UseSelectable = true;
-            // 
-            // manuTxt
-            // 
-            this.manuTxt.FormattingEnabled = true;
-            this.manuTxt.ItemHeight = 23;
-            this.manuTxt.Items.AddRange(new object[] {
-            "Google",
-            "Action",
-            "Other"});
-            this.manuTxt.Location = new System.Drawing.Point(298, 385);
-            this.manuTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.manuTxt.Name = "manuTxt";
-            this.manuTxt.PromptText = "Manufacturer";
-            this.manuTxt.Size = new System.Drawing.Size(265, 29);
-            this.manuTxt.TabIndex = 10;
-            this.manuTxt.UseSelectable = true;
             // 
             // codeTxt
             // 
@@ -148,7 +132,7 @@
             this.codeTxt.DisplayIcon = true;
             this.codeTxt.Icon = global::ARM.Properties.Resources.Shape_Cube_24;
             this.codeTxt.Lines = new string[0];
-            this.codeTxt.Location = new System.Drawing.Point(298, 171);
+            this.codeTxt.Location = new System.Drawing.Point(17, 225);
             this.codeTxt.MaxLength = 32767;
             this.codeTxt.Name = "codeTxt";
             this.codeTxt.PasswordChar = '\0';
@@ -159,7 +143,7 @@
             this.codeTxt.SelectionStart = 0;
             this.codeTxt.ShortcutsEnabled = true;
             this.codeTxt.Size = new System.Drawing.Size(265, 35);
-            this.codeTxt.TabIndex = 130;
+            this.codeTxt.TabIndex = 8;
             this.codeTxt.UseSelectable = true;
             this.codeTxt.WaterMark = "HCPCS CODE";
             this.codeTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -182,7 +166,7 @@
             this.barTxt.DisplayIcon = true;
             this.barTxt.Icon = global::ARM.Properties.Resources.Barcode_24;
             this.barTxt.Lines = new string[0];
-            this.barTxt.Location = new System.Drawing.Point(298, 255);
+            this.barTxt.Location = new System.Drawing.Point(332, 306);
             this.barTxt.MaxLength = 32767;
             this.barTxt.Name = "barTxt";
             this.barTxt.PasswordChar = '\0';
@@ -193,7 +177,7 @@
             this.barTxt.SelectionStart = 0;
             this.barTxt.ShortcutsEnabled = true;
             this.barTxt.Size = new System.Drawing.Size(265, 35);
-            this.barTxt.TabIndex = 7;
+            this.barTxt.TabIndex = 10;
             this.barTxt.UseSelectable = true;
             this.barTxt.WaterMark = "Barcode";
             this.barTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -216,7 +200,7 @@
             this.serialTxt.DisplayIcon = true;
             this.serialTxt.Icon = global::ARM.Properties.Resources.QR_Code_24;
             this.serialTxt.Lines = new string[0];
-            this.serialTxt.Location = new System.Drawing.Point(298, 214);
+            this.serialTxt.Location = new System.Drawing.Point(332, 265);
             this.serialTxt.MaxLength = 32767;
             this.serialTxt.Name = "serialTxt";
             this.serialTxt.PasswordChar = '\0';
@@ -227,7 +211,7 @@
             this.serialTxt.SelectionStart = 0;
             this.serialTxt.ShortcutsEnabled = true;
             this.serialTxt.Size = new System.Drawing.Size(265, 35);
-            this.serialTxt.TabIndex = 6;
+            this.serialTxt.TabIndex = 9;
             this.serialTxt.UseSelectable = true;
             this.serialTxt.WaterMark = "Serial No.";
             this.serialTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -237,12 +221,13 @@
             // 
             this.imgCapture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.imgCapture.Image = global::ARM.Properties.Resources.Box_02_128__2_;
-            this.imgCapture.Location = new System.Drawing.Point(87, 80);
+            this.imgCapture.Location = new System.Drawing.Point(87, 61);
             this.imgCapture.Name = "imgCapture";
             this.imgCapture.Size = new System.Drawing.Size(128, 128);
             this.imgCapture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.imgCapture.TabIndex = 128;
             this.imgCapture.TabStop = false;
+            this.imgCapture.Click += new System.EventHandler(this.imgCapture_Click);
             // 
             // unitDescTxt
             // 
@@ -261,7 +246,7 @@
             this.unitDescTxt.DisplayIcon = true;
             this.unitDescTxt.Icon = global::ARM.Properties.Resources.Hospital_Lab_24;
             this.unitDescTxt.Lines = new string[0];
-            this.unitDescTxt.Location = new System.Drawing.Point(298, 334);
+            this.unitDescTxt.Location = new System.Drawing.Point(332, 385);
             this.unitDescTxt.MaxLength = 32767;
             this.unitDescTxt.Multiline = true;
             this.unitDescTxt.Name = "unitDescTxt";
@@ -273,7 +258,7 @@
             this.unitDescTxt.SelectionStart = 0;
             this.unitDescTxt.ShortcutsEnabled = true;
             this.unitDescTxt.Size = new System.Drawing.Size(265, 44);
-            this.unitDescTxt.TabIndex = 9;
+            this.unitDescTxt.TabIndex = 12;
             this.unitDescTxt.UseSelectable = true;
             this.unitDescTxt.WaterMark = "Unit Of Measure Description";
             this.unitDescTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -296,7 +281,7 @@
             this.batchTxt.DisplayIcon = true;
             this.batchTxt.Icon = global::ARM.Properties.Resources.Globe_24;
             this.batchTxt.Lines = new string[0];
-            this.batchTxt.Location = new System.Drawing.Point(298, 130);
+            this.batchTxt.Location = new System.Drawing.Point(17, 517);
             this.batchTxt.MaxLength = 32767;
             this.batchTxt.Name = "batchTxt";
             this.batchTxt.PasswordChar = '\0';
@@ -307,7 +292,7 @@
             this.batchTxt.SelectionStart = 0;
             this.batchTxt.ShortcutsEnabled = true;
             this.batchTxt.Size = new System.Drawing.Size(265, 35);
-            this.batchTxt.TabIndex = 5;
+            this.batchTxt.TabIndex = 7;
             this.batchTxt.UseSelectable = true;
             this.batchTxt.WaterMark = "Batch No.";
             this.batchTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -330,7 +315,7 @@
             this.costTxt.DisplayIcon = true;
             this.costTxt.Icon = global::ARM.Properties.Resources.Dollar_Tag_24;
             this.costTxt.Lines = new string[0];
-            this.costTxt.Location = new System.Drawing.Point(298, 80);
+            this.costTxt.Location = new System.Drawing.Point(17, 467);
             this.costTxt.MaxLength = 32767;
             this.costTxt.Name = "costTxt";
             this.costTxt.PasswordChar = '\0';
@@ -341,7 +326,7 @@
             this.costTxt.SelectionStart = 0;
             this.costTxt.ShortcutsEnabled = true;
             this.costTxt.Size = new System.Drawing.Size(265, 35);
-            this.costTxt.TabIndex = 4;
+            this.costTxt.TabIndex = 6;
             this.costTxt.UseSelectable = true;
             this.costTxt.WaterMark = "Cost/Price";
             this.costTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -364,7 +349,7 @@
             this.descriptionxt.DisplayIcon = true;
             this.descriptionxt.Icon = global::ARM.Properties.Resources.Receipt_24;
             this.descriptionxt.Lines = new string[0];
-            this.descriptionxt.Location = new System.Drawing.Point(17, 370);
+            this.descriptionxt.Location = new System.Drawing.Point(17, 400);
             this.descriptionxt.MaxLength = 32767;
             this.descriptionxt.Multiline = true;
             this.descriptionxt.Name = "descriptionxt";
@@ -375,8 +360,8 @@
             this.descriptionxt.SelectionLength = 0;
             this.descriptionxt.SelectionStart = 0;
             this.descriptionxt.ShortcutsEnabled = true;
-            this.descriptionxt.Size = new System.Drawing.Size(265, 92);
-            this.descriptionxt.TabIndex = 3;
+            this.descriptionxt.Size = new System.Drawing.Size(265, 62);
+            this.descriptionxt.TabIndex = 5;
             this.descriptionxt.UseSelectable = true;
             this.descriptionxt.WaterMark = "Description";
             this.descriptionxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -399,7 +384,7 @@
             this.nameTxt.DisplayIcon = true;
             this.nameTxt.Icon = global::ARM.Properties.Resources.Shape_Cube_24;
             this.nameTxt.Lines = new string[0];
-            this.nameTxt.Location = new System.Drawing.Point(17, 255);
+            this.nameTxt.Location = new System.Drawing.Point(17, 285);
             this.nameTxt.MaxLength = 32767;
             this.nameTxt.Name = "nameTxt";
             this.nameTxt.PasswordChar = '\0';
@@ -410,7 +395,7 @@
             this.nameTxt.SelectionStart = 0;
             this.nameTxt.ShortcutsEnabled = true;
             this.nameTxt.Size = new System.Drawing.Size(265, 35);
-            this.nameTxt.TabIndex = 0;
+            this.nameTxt.TabIndex = 1;
             this.nameTxt.UseSelectable = true;
             this.nameTxt.WaterMark = "Name";
             this.nameTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -425,11 +410,11 @@
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button3.Image = global::ARM.Properties.Resources.Submit_01_32;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(455, 434);
+            this.button3.Location = new System.Drawing.Point(489, 485);
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button3.Size = new System.Drawing.Size(108, 49);
-            this.button3.TabIndex = 12;
+            this.button3.TabIndex = 14;
             this.button3.Text = "Submit";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = false;
@@ -444,42 +429,68 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(298, 434);
+            this.button2.Location = new System.Drawing.Point(332, 485);
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(108, 49);
-            this.button2.TabIndex = 13;
+            this.button2.TabIndex = 15;
             this.button2.Text = "Cancel";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // manuTxt
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.Image = global::ARM.Properties.Resources.Search_Folder_New_32;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(87, 214);
-            this.button1.Name = "button1";
-            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button1.Size = new System.Drawing.Size(117, 35);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Browse";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // 
+            // 
+            this.manuTxt.CustomButton.Image = null;
+            this.manuTxt.CustomButton.Location = new System.Drawing.Point(231, 1);
+            this.manuTxt.CustomButton.Name = "";
+            this.manuTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
+            this.manuTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.manuTxt.CustomButton.TabIndex = 1;
+            this.manuTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.manuTxt.CustomButton.UseSelectable = true;
+            this.manuTxt.CustomButton.Visible = false;
+            this.manuTxt.DisplayIcon = true;
+            this.manuTxt.Icon = global::ARM.Properties.Resources.Shape_Cube_24;
+            this.manuTxt.Lines = new string[0];
+            this.manuTxt.Location = new System.Drawing.Point(332, 435);
+            this.manuTxt.MaxLength = 32767;
+            this.manuTxt.Name = "manuTxt";
+            this.manuTxt.PasswordChar = '\0';
+            this.manuTxt.PromptText = "Manufacturer";
+            this.manuTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.manuTxt.SelectedText = "";
+            this.manuTxt.SelectionLength = 0;
+            this.manuTxt.SelectionStart = 0;
+            this.manuTxt.ShortcutsEnabled = true;
+            this.manuTxt.Size = new System.Drawing.Size(265, 35);
+            this.manuTxt.TabIndex = 13;
+            this.manuTxt.UseSelectable = true;
+            this.manuTxt.WaterMark = "Manufacturer";
+            this.manuTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.manuTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Maroon;
+            this.label1.Location = new System.Drawing.Point(95, 209);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(120, 13);
+            this.label1.TabIndex = 257;
+            this.label1.Text = "Double Click to Browse ";
             // 
             // AddItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(586, 539);
-            this.Controls.Add(this.codeTxt);
+            this.ClientSize = new System.Drawing.Size(653, 626);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.manuTxt);
+            this.Controls.Add(this.codeTxt);
             this.Controls.Add(this.unitTxt);
             this.Controls.Add(this.barTxt);
             this.Controls.Add(this.serialTxt);
@@ -494,10 +505,10 @@
             this.Controls.Add(this.categoryCbx);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Name = "AddItem";
             this.Style = MetroFramework.MetroColorStyle.White;
             this.Text = "Add Product";
+            this.Load += new System.EventHandler(this.AddItem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -506,7 +517,6 @@
 
         #endregion
         private MetroFramework.Drawing.Html.HtmlToolTip htmlToolTip1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private MetroFramework.Controls.MetroTextBox batchTxt;
@@ -521,7 +531,8 @@
         private MetroFramework.Controls.MetroTextBox barTxt;
         private MetroFramework.Controls.MetroTextBox unitDescTxt;
         private MetroFramework.Controls.MetroComboBox unitTxt;
-        private MetroFramework.Controls.MetroComboBox manuTxt;
         private MetroFramework.Controls.MetroTextBox codeTxt;
+        private MetroFramework.Controls.MetroTextBox manuTxt;
+        private System.Windows.Forms.Label label1;
     }
 }

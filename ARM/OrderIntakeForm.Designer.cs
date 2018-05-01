@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderIntakeForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -45,9 +45,10 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.totalLbl = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.clinicalDateTxt = new System.Windows.Forms.DateTimePicker();
-            this.dtGridEquip = new System.Windows.Forms.DataGridView();
+            this.dtGrid = new System.Windows.Forms.DataGridView();
             this.label51 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.subscriberInfoTxt = new System.Windows.Forms.TextBox();
@@ -65,7 +66,12 @@
             this.otherTxt = new System.Windows.Forms.TextBox();
             this.setupListBx = new System.Windows.Forms.CheckedListBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.signatureTxt = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.authorizCbx = new System.Windows.Forms.ComboBox();
+            this.notifiedCbx = new System.Windows.Forms.ComboBox();
+            this.emergencyDetails = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.dischargeDate = new System.Windows.Forms.DateTimePicker();
             this.noRadioBtn = new System.Windows.Forms.RadioButton();
@@ -84,11 +90,9 @@
             this.userCbx = new System.Windows.Forms.ComboBox();
             this.kinContactTxt = new System.Windows.Forms.TextBox();
             this.reasonTxt = new System.Windows.Forms.TextBox();
-            this.userSignatureTxt = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.noTxt = new System.Windows.Forms.TextBox();
             this.label53 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.additionNotesTxt = new System.Windows.Forms.TextBox();
@@ -112,18 +116,19 @@
             this.previewdlg = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printdoc1 = new System.Drawing.Printing.PrintDocument();
-            this.emergencyDetails = new System.Windows.Forms.TextBox();
+            this.userSignatureTxt = new System.Windows.Forms.ComboBox();
+            this.signatureTxt = new System.Windows.Forms.ComboBox();
+            this.updateBtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.submitBtn = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.cusPbx = new System.Windows.Forms.PictureBox();
             this.userPbx = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridEquip)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGrid)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPbx)).BeginInit();
@@ -159,7 +164,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label19, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 8);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 2);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 11);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -305,11 +310,11 @@
             // panel2
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.panel2, 4);
+            this.panel2.Controls.Add(this.totalLbl);
             this.panel2.Controls.Add(this.label26);
             this.panel2.Controls.Add(this.clinicalDateTxt);
-            this.panel2.Controls.Add(this.dtGridEquip);
+            this.panel2.Controls.Add(this.dtGrid);
             this.panel2.Controls.Add(this.label51);
-            this.panel2.Controls.Add(this.button7);
             this.panel2.Controls.Add(this.button5);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.cusPbx);
@@ -334,6 +339,16 @@
             this.panel2.Size = new System.Drawing.Size(763, 570);
             this.panel2.TabIndex = 452;
             // 
+            // totalLbl
+            // 
+            this.totalLbl.AutoSize = true;
+            this.totalLbl.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalLbl.Location = new System.Drawing.Point(657, 368);
+            this.totalLbl.Name = "totalLbl";
+            this.totalLbl.Size = new System.Drawing.Size(14, 16);
+            this.totalLbl.TabIndex = 470;
+            this.totalLbl.Text = "#";
+            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -352,41 +367,41 @@
             this.clinicalDateTxt.Size = new System.Drawing.Size(199, 21);
             this.clinicalDateTxt.TabIndex = 468;
             // 
-            // dtGridEquip
+            // dtGrid
             // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtGridEquip.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dtGridEquip.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtGridEquip.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dtGridEquip.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
-            this.dtGridEquip.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtGridEquip.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dtGridEquip.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridEquip.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dtGridEquip.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dtGridEquip.Location = new System.Drawing.Point(24, 258);
-            this.dtGridEquip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtGridEquip.Name = "dtGridEquip";
-            this.dtGridEquip.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridEquip.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dtGridEquip.RowHeadersWidth = 20;
-            this.dtGridEquip.Size = new System.Drawing.Size(729, 76);
-            this.dtGridEquip.TabIndex = 465;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dtGrid.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
+            this.dtGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dtGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dtGrid.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.dtGrid.Location = new System.Drawing.Point(3, 258);
+            this.dtGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtGrid.Name = "dtGrid";
+            this.dtGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dtGrid.RowHeadersWidth = 20;
+            this.dtGrid.Size = new System.Drawing.Size(750, 87);
+            this.dtGrid.TabIndex = 465;
             // 
             // label51
             // 
@@ -423,11 +438,11 @@
             // 
             this.insuranceInfoTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.insuranceInfoTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.insuranceInfoTxt.Location = new System.Drawing.Point(393, 28);
+            this.insuranceInfoTxt.Location = new System.Drawing.Point(388, 28);
             this.insuranceInfoTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.insuranceInfoTxt.Multiline = true;
             this.insuranceInfoTxt.Name = "insuranceInfoTxt";
-            this.insuranceInfoTxt.Size = new System.Drawing.Size(361, 74);
+            this.insuranceInfoTxt.Size = new System.Drawing.Size(366, 74);
             this.insuranceInfoTxt.TabIndex = 5;
             // 
             // surgeryTxt
@@ -496,7 +511,7 @@
             // 
             this.label47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label47.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label47.Location = new System.Drawing.Point(3, 336);
+            this.label47.Location = new System.Drawing.Point(1, 347);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(759, 21);
             this.label47.TabIndex = 303;
@@ -529,7 +544,7 @@
             this.dischargeListBx.Items.AddRange(new object[] {
             "Long term care facility",
             "Physical Therapy/Occupational Therapy Clinic"});
-            this.dischargeListBx.Location = new System.Drawing.Point(402, 407);
+            this.dischargeListBx.Location = new System.Drawing.Point(396, 386);
             this.dischargeListBx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dischargeListBx.Name = "dischargeListBx";
             this.dischargeListBx.Size = new System.Drawing.Size(342, 48);
@@ -567,8 +582,14 @@
             // panel3
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.panel3, 4);
-            this.panel3.Controls.Add(this.emergencyDetails);
             this.panel3.Controls.Add(this.signatureTxt);
+            this.panel3.Controls.Add(this.userSignatureTxt);
+            this.panel3.Controls.Add(this.label29);
+            this.panel3.Controls.Add(this.label28);
+            this.panel3.Controls.Add(this.label11);
+            this.panel3.Controls.Add(this.authorizCbx);
+            this.panel3.Controls.Add(this.notifiedCbx);
+            this.panel3.Controls.Add(this.emergencyDetails);
             this.panel3.Controls.Add(this.label27);
             this.panel3.Controls.Add(this.dischargeDate);
             this.panel3.Controls.Add(this.noRadioBtn);
@@ -587,11 +608,9 @@
             this.panel3.Controls.Add(this.userCbx);
             this.panel3.Controls.Add(this.kinContactTxt);
             this.panel3.Controls.Add(this.reasonTxt);
-            this.panel3.Controls.Add(this.userSignatureTxt);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label56);
             this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.noTxt);
             this.panel3.Controls.Add(this.label53);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.additionNotesTxt);
@@ -620,20 +639,83 @@
             this.panel3.Size = new System.Drawing.Size(763, 1024);
             this.panel3.TabIndex = 468;
             // 
-            // signatureTxt
+            // label29
             // 
-            this.signatureTxt.BackColor = System.Drawing.SystemColors.Info;
-            this.signatureTxt.Location = new System.Drawing.Point(543, 806);
-            this.signatureTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.signatureTxt.Name = "signatureTxt";
-            this.signatureTxt.Size = new System.Drawing.Size(187, 21);
-            this.signatureTxt.TabIndex = 513;
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(16, 962);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(41, 13);
+            this.label29.TabIndex = 518;
+            this.label29.Text = "Details";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(454, 535);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(62, 13);
+            this.label28.TabIndex = 517;
+            this.label28.Text = "Authorised:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(454, 510);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(44, 13);
+            this.label11.TabIndex = 516;
+            this.label11.Text = "Notified";
+            // 
+            // authorizCbx
+            // 
+            this.authorizCbx.AutoCompleteCustomSource.AddRange(new string[] {
+            "Yes",
+            "No"});
+            this.authorizCbx.BackColor = System.Drawing.SystemColors.Info;
+            this.authorizCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.authorizCbx.FormattingEnabled = true;
+            this.authorizCbx.Items.AddRange(new object[] {
+            "Yes",
+            "No"});
+            this.authorizCbx.Location = new System.Drawing.Point(536, 527);
+            this.authorizCbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.authorizCbx.Name = "authorizCbx";
+            this.authorizCbx.Size = new System.Drawing.Size(187, 21);
+            this.authorizCbx.TabIndex = 515;
+            // 
+            // notifiedCbx
+            // 
+            this.notifiedCbx.AutoCompleteCustomSource.AddRange(new string[] {
+            "Yes",
+            "No"});
+            this.notifiedCbx.BackColor = System.Drawing.SystemColors.Info;
+            this.notifiedCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.notifiedCbx.FormattingEnabled = true;
+            this.notifiedCbx.Items.AddRange(new object[] {
+            "Yes",
+            "No"});
+            this.notifiedCbx.Location = new System.Drawing.Point(536, 502);
+            this.notifiedCbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.notifiedCbx.Name = "notifiedCbx";
+            this.notifiedCbx.Size = new System.Drawing.Size(187, 21);
+            this.notifiedCbx.TabIndex = 514;
+            // 
+            // emergencyDetails
+            // 
+            this.emergencyDetails.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.emergencyDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.emergencyDetails.Location = new System.Drawing.Point(153, 959);
+            this.emergencyDetails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.emergencyDetails.Multiline = true;
+            this.emergencyDetails.Name = "emergencyDetails";
+            this.emergencyDetails.Size = new System.Drawing.Size(199, 48);
+            this.emergencyDetails.TabIndex = 470;
             // 
             // label27
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(11, 822);
+            this.label27.Location = new System.Drawing.Point(13, 762);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(79, 13);
             this.label27.TabIndex = 512;
@@ -641,7 +723,7 @@
             // 
             // dischargeDate
             // 
-            this.dischargeDate.Location = new System.Drawing.Point(153, 814);
+            this.dischargeDate.Location = new System.Drawing.Point(161, 762);
             this.dischargeDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dischargeDate.Name = "dischargeDate";
             this.dischargeDate.Size = new System.Drawing.Size(199, 21);
@@ -679,11 +761,11 @@
             this.followUpCbx.FormattingEnabled = true;
             this.followUpCbx.Items.AddRange(new object[] {
             "FOLLOW-UP VISIT RECOMMENDED",
-            "FOLLOW UP BY PHONE && AS NEEDED"});
-            this.followUpCbx.Location = new System.Drawing.Point(365, 759);
+            "FOLLOW UP BY PHONE & AS NEEDED"});
+            this.followUpCbx.Location = new System.Drawing.Point(530, 552);
             this.followUpCbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.followUpCbx.Name = "followUpCbx";
-            this.followUpCbx.Size = new System.Drawing.Size(365, 21);
+            this.followUpCbx.Size = new System.Drawing.Size(194, 21);
             this.followUpCbx.TabIndex = 508;
             // 
             // label25
@@ -725,7 +807,7 @@
             // 
             // dateAuthTxt
             // 
-            this.dateAuthTxt.Location = new System.Drawing.Point(536, 110);
+            this.dateAuthTxt.Location = new System.Drawing.Point(536, 86);
             this.dateAuthTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateAuthTxt.Name = "dateAuthTxt";
             this.dateAuthTxt.Size = new System.Drawing.Size(199, 21);
@@ -749,7 +831,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(377, 865);
+            this.label20.Location = new System.Drawing.Point(524, 814);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(21, 13);
             this.label20.TabIndex = 501;
@@ -776,7 +858,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(373, 841);
+            this.label9.Location = new System.Drawing.Point(381, 789);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(99, 13);
             this.label9.TabIndex = 497;
@@ -790,7 +872,7 @@
             this.userCbx.BackColor = System.Drawing.SystemColors.Info;
             this.userCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.userCbx.FormattingEnabled = true;
-            this.userCbx.Location = new System.Drawing.Point(543, 858);
+            this.userCbx.Location = new System.Drawing.Point(551, 806);
             this.userCbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.userCbx.Name = "userCbx";
             this.userCbx.Size = new System.Drawing.Size(187, 21);
@@ -813,15 +895,6 @@
             this.reasonTxt.Name = "reasonTxt";
             this.reasonTxt.Size = new System.Drawing.Size(180, 21);
             this.reasonTxt.TabIndex = 492;
-            // 
-            // userSignatureTxt
-            // 
-            this.userSignatureTxt.BackColor = System.Drawing.SystemColors.Info;
-            this.userSignatureTxt.Location = new System.Drawing.Point(543, 833);
-            this.userSignatureTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.userSignatureTxt.Name = "userSignatureTxt";
-            this.userSignatureTxt.Size = new System.Drawing.Size(187, 21);
-            this.userSignatureTxt.TabIndex = 491;
             // 
             // label7
             // 
@@ -846,26 +919,17 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(373, 814);
+            this.label6.Location = new System.Drawing.Point(381, 762);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 13);
             this.label6.TabIndex = 486;
             this.label6.Text = "Patient signature";
             // 
-            // noTxt
-            // 
-            this.noTxt.BackColor = System.Drawing.SystemColors.Info;
-            this.noTxt.Location = new System.Drawing.Point(153, 841);
-            this.noTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.noTxt.Name = "noTxt";
-            this.noTxt.Size = new System.Drawing.Size(199, 21);
-            this.noTxt.TabIndex = 485;
-            // 
             // label53
             // 
             this.label53.AutoSize = true;
             this.label53.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(6, 791);
+            this.label53.Location = new System.Drawing.Point(14, 739);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(427, 16);
             this.label53.TabIndex = 484;
@@ -876,9 +940,9 @@
             // 
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(150, 760);
+            this.label4.Location = new System.Drawing.Point(373, 553);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(202, 21);
+            this.label4.Size = new System.Drawing.Size(155, 21);
             this.label4.TabIndex = 483;
             this.label4.Text = "FOLLOW UP /DISCHARGE";
             // 
@@ -886,17 +950,17 @@
             // 
             this.additionNotesTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.additionNotesTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.additionNotesTxt.Location = new System.Drawing.Point(367, 522);
+            this.additionNotesTxt.Location = new System.Drawing.Point(367, 647);
             this.additionNotesTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.additionNotesTxt.Multiline = true;
             this.additionNotesTxt.Name = "additionNotesTxt";
-            this.additionNotesTxt.Size = new System.Drawing.Size(368, 202);
+            this.additionNotesTxt.Size = new System.Drawing.Size(368, 77);
             this.additionNotesTxt.TabIndex = 480;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(385, 498);
+            this.label5.Location = new System.Drawing.Point(369, 591);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 13);
             this.label5.TabIndex = 481;
@@ -1123,16 +1187,58 @@
             // 
             this.printdoc1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printdoc1_PrintPage);
             // 
-            // emergencyDetails
+            // userSignatureTxt
             // 
-            this.emergencyDetails.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.emergencyDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.emergencyDetails.Location = new System.Drawing.Point(153, 959);
-            this.emergencyDetails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.emergencyDetails.Multiline = true;
-            this.emergencyDetails.Name = "emergencyDetails";
-            this.emergencyDetails.Size = new System.Drawing.Size(199, 48);
-            this.emergencyDetails.TabIndex = 470;
+            this.userSignatureTxt.AutoCompleteCustomSource.AddRange(new string[] {
+            "Participating",
+            "Nonparticipating"});
+            this.userSignatureTxt.BackColor = System.Drawing.SystemColors.Info;
+            this.userSignatureTxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.userSignatureTxt.FormattingEnabled = true;
+            this.userSignatureTxt.Items.AddRange(new object[] {
+            "Yes",
+            "No"});
+            this.userSignatureTxt.Location = new System.Drawing.Point(551, 781);
+            this.userSignatureTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.userSignatureTxt.Name = "userSignatureTxt";
+            this.userSignatureTxt.Size = new System.Drawing.Size(187, 21);
+            this.userSignatureTxt.TabIndex = 519;
+            // 
+            // signatureTxt
+            // 
+            this.signatureTxt.AutoCompleteCustomSource.AddRange(new string[] {
+            "Participating",
+            "Nonparticipating"});
+            this.signatureTxt.BackColor = System.Drawing.SystemColors.Info;
+            this.signatureTxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.signatureTxt.FormattingEnabled = true;
+            this.signatureTxt.Items.AddRange(new object[] {
+            "Yes",
+            "No"});
+            this.signatureTxt.Location = new System.Drawing.Point(551, 754);
+            this.signatureTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.signatureTxt.Name = "signatureTxt";
+            this.signatureTxt.Size = new System.Drawing.Size(187, 21);
+            this.signatureTxt.TabIndex = 520;
+            // 
+            // updateBtn
+            // 
+            this.updateBtn.BackColor = System.Drawing.Color.Khaki;
+            this.updateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updateBtn.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.updateBtn.Image = global::ARM.Properties.Resources.Note_04_24;
+            this.updateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.updateBtn.Location = new System.Drawing.Point(470, 822);
+            this.updateBtn.Name = "updateBtn";
+            this.updateBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.updateBtn.Size = new System.Drawing.Size(107, 37);
+            this.updateBtn.TabIndex = 16;
+            this.updateBtn.Text = "Update";
+            this.updateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.updateBtn.UseVisualStyleBackColor = false;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // button1
             // 
@@ -1143,7 +1249,7 @@
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button1.Image = global::ARM.Properties.Resources.Print_24;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(347, 821);
+            this.button1.Location = new System.Drawing.Point(276, 821);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1154,25 +1260,25 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button3
+            // submitBtn
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.Image = global::ARM.Properties.Resources.Submit_01_32;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(687, 821);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button3.Size = new System.Drawing.Size(108, 37);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "Submit";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.submitBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.submitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.submitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.submitBtn.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.submitBtn.Image = global::ARM.Properties.Resources.Submit_01_32;
+            this.submitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.submitBtn.Location = new System.Drawing.Point(663, 822);
+            this.submitBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.submitBtn.Name = "submitBtn";
+            this.submitBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.submitBtn.Size = new System.Drawing.Size(108, 37);
+            this.submitBtn.TabIndex = 0;
+            this.submitBtn.Text = "Submit";
+            this.submitBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.submitBtn.UseVisualStyleBackColor = false;
+            this.submitBtn.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -1193,27 +1299,6 @@
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button7.Image = global::ARM.Properties.Resources.Wheelchair_16;
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(12, 234);
-            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button7.Name = "button7";
-            this.button7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button7.Size = new System.Drawing.Size(164, 20);
-            this.button7.TabIndex = 464;
-            this.button7.Text = "Add Equipment CPT Code(s)";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button5
             // 
@@ -1264,8 +1349,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(894, 894);
+            this.Controls.Add(this.updateBtn);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.submitBtn);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1276,7 +1362,7 @@
             this.tableLayoutPanel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridEquip)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGrid)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cusPbx)).EndInit();
@@ -1315,7 +1401,7 @@
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.CheckedListBox actionListBx;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button submitBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckedListBox setupListBx;
         private System.Windows.Forms.CheckedListBox dischargeListBx;
@@ -1326,8 +1412,7 @@
         private System.Windows.Forms.Button button1;
         private System.Drawing.Printing.PrintDocument printdoc1;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DataGridView dtGridEquip;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.DataGridView dtGrid;
         private System.Windows.Forms.DateTimePicker orderDateTxt;
         private System.Windows.Forms.DateTimePicker clinicalDateTxt;
         private System.Windows.Forms.DateTimePicker dispenseDateTxt;
@@ -1347,13 +1432,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.TextBox noTxt;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox kinContactTxt;
         private System.Windows.Forms.TextBox reasonTxt;
-        private System.Windows.Forms.TextBox userSignatureTxt;
         private System.Windows.Forms.ComboBox userCbx;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label17;
@@ -1373,7 +1456,15 @@
         private System.Windows.Forms.RadioButton yesRadioBtn;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.DateTimePicker dischargeDate;
-        private System.Windows.Forms.TextBox signatureTxt;
         private System.Windows.Forms.TextBox emergencyDetails;
+        private System.Windows.Forms.Label totalLbl;
+        private System.Windows.Forms.ComboBox authorizCbx;
+        private System.Windows.Forms.ComboBox notifiedCbx;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Button updateBtn;
+        private System.Windows.Forms.ComboBox signatureTxt;
+        private System.Windows.Forms.ComboBox userSignatureTxt;
     }
 }

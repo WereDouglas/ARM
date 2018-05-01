@@ -47,7 +47,7 @@
             // 
             this.customerCbx.FormattingEnabled = true;
             this.customerCbx.ItemHeight = 23;
-            this.customerCbx.Location = new System.Drawing.Point(75, 99);
+            this.customerCbx.Location = new System.Drawing.Point(75, 82);
             this.customerCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.customerCbx.Name = "customerCbx";
             this.customerCbx.PromptText = "Patient";

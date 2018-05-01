@@ -25,7 +25,15 @@ namespace ARM
             {
                 CompanyID = Guid.NewGuid().ToString();
                 updateBtn.Visible = false;
-                createPostgreDB();
+                try
+                {
+                    createPostgreDB();
+                }
+                catch(Exception p) {
+
+                    MessageBox.Show("No profile defined " + p.Message);
+
+                }
             }
             else
             {
@@ -103,9 +111,11 @@ namespace ARM
             string fullimage = Helper.ImageToBase64(stream);
 
 
-            Company c = new Company(CompanyID,nameTxt.Text, contactTxt.Text, emailTxt.Text,"","","","","", faxTxt.Text, telTxt.Text, "","","","",DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, CompanyID, fullimage);
+            Company c = new Company(CompanyID,nameTxt.Text, contactTxt.Text, emailTxt.Text,npiTxt.Text,addressTxt.Text,officeTxt.Text,providerNoTxt.Text,tinTxt.Text, faxTxt.Text, telTxt.Text, "","","","",DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, CompanyID, fullimage);
             if (DBConnect.InsertPostgre(c) != "")
             {
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(DBConnect.InsertPostgre(c))), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                DBConnect.InsertPostgre(q);
                 Helper.CompanyID = CompanyID;
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;
@@ -119,6 +129,9 @@ namespace ARM
             string fullimage = Helper.ImageToBase64(stream);
             Company c = new Company(CompanyID, nameTxt.Text, contactTxt.Text, emailTxt.Text, "", "", "", "", "", faxTxt.Text, telTxt.Text, "", "", "", "", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, CompanyID, fullimage);
             DBConnect.UpdatePostgre(c, CompanyID);
+
+            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(DBConnect.UpdatePostgre(c, CompanyID))), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+            DBConnect.InsertPostgre(q);
 
             MessageBox.Show("Information Updated !");
             this.DialogResult = DialogResult.OK;
@@ -176,6 +189,43 @@ namespace ARM
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new ItemStatus()));
 
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Company()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Practitioner()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Care()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Cases()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Condition()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Dosage()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Emergency()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Facility()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new ICD10()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new PatientFollowStatus()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Pharmacy()));
+
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Service()));
+            
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+           
+
+            string Query = "drop schema arm cascade;";
+            DBConnect.QueryPostgre(Query);
+
+            //string Query = "drop schema arm cascade;";
+            //DBConnect.QueryPostgre(Query);
+        }
+
+        private void imgCapture_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                // display image in picture box
+                imgCapture.Image = new Bitmap(open.FileName);
+                imgCapture.SizeMode = PictureBoxSizeMode.StretchImage;
+                fileUrlTxtBx.Text = open.FileName;
+            }
         }
     }
 }

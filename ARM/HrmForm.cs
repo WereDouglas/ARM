@@ -73,7 +73,7 @@ namespace ARM
                 for (int i = 0; i < 30; i++)
                 {
                     FeedBack("PROCESS " + i.ToString());
-                  //  process(i); backgroundWorker.ReportProgress(i);
+                    //  process(i); backgroundWorker.ReportProgress(i);
                     Thread.Sleep(1500);
                 }
             }
@@ -125,10 +125,10 @@ namespace ARM
                     Downloading.Items();
                     break;
                 case 10:
-                  
+
                     break;
                 case 11:
-                   
+
                     break;
                 case 12:
                     Uploading.Deliverys();
@@ -214,11 +214,11 @@ namespace ARM
                 case 39:
                     Downloading.Coverages();
                     break;
-                case 40:                    
-                   
+                case 40:
+
                     break;
                 case 41:
-                   
+
                     if (DBConnect.CloseMySqlConn())
                     {
                         FeedBack("Uploading and Downloading of information complete");
@@ -295,7 +295,7 @@ namespace ARM
 
         private void itemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
@@ -306,7 +306,7 @@ namespace ARM
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    
+
                 }
             }
         }
@@ -379,29 +379,29 @@ namespace ARM
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                   
+
                 }
             }
         }
 
         private void purchaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void patientToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void addToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            using (CustomerDemo form = new CustomerDemo(null,"Patient"))
+            using (CustomerDemo form = new CustomerDemo(null, "Patient"))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                  
+
                 }
             }
         }
@@ -413,7 +413,7 @@ namespace ARM
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                   
+
                 }
             }
         }
@@ -496,7 +496,7 @@ namespace ARM
 
         private void vendorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void toolStripButton4_Click_1(object sender, EventArgs e)
@@ -511,23 +511,23 @@ namespace ARM
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void toolStripButton8_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void toolStripButton9_Click(object sender, EventArgs e)
         {
-           
+
         }
 
 
         private void toolStripButton11_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -553,22 +553,22 @@ namespace ARM
 
         private void rateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void reviewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void toolStripButton5_Click_1(object sender, EventArgs e)
         {
-           
+
         }
 
         private void toolStripButton7_Click_1(object sender, EventArgs e)
         {
-            
+
         }
 
         private void toolStripButton3_Click_1(object sender, EventArgs e)
@@ -583,12 +583,12 @@ namespace ARM
 
         private void toolStripButton2_Click_1(object sender, EventArgs e)
         {
-            
+
         }
 
         private void toolStripButton6_Click_1(object sender, EventArgs e)
         {
-           
+
         }
 
         private void HrmForm_Load(object sender, EventArgs e)
@@ -659,6 +659,7 @@ namespace ARM
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
+                    viewToolStripMenuItem_Click_1(null, null);
                 }
             }
         }
@@ -680,6 +681,7 @@ namespace ARM
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
+                    toolStripMenuItem2_Click_1(null, null);
                 }
             }
         }
@@ -701,6 +703,9 @@ namespace ARM
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
+                    toolStripMenuItem4_Click_1(null, null);
+
+
                 }
             }
         }
@@ -722,7 +727,7 @@ namespace ARM
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-
+                    toolStripMenuItem6_Click_1(null, null);
                 }
             }
         }
@@ -754,7 +759,7 @@ namespace ARM
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-
+                    toolStripMenuItem8_Click(null, null);
                 }
             }
         }
@@ -766,7 +771,7 @@ namespace ARM
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-
+                    toolStripMenuItem10_Click(null, null);
                 }
             }
         }
@@ -798,7 +803,7 @@ namespace ARM
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-
+                    toolStripMenuItem12_Click(null, null);
                 }
             }
         }
@@ -808,6 +813,16 @@ namespace ARM
             LoginForm r = new LoginForm();
             r.Show();
             this.Close();
+        }
+
+        private void queriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QueriesForm frm = new QueriesForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
         }
     }
 }

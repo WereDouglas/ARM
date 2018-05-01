@@ -56,15 +56,19 @@ namespace ARM.Model
         }
         public static List<Coverage> List(string Q)
         {
-            p.Clear();
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
-            while (Reader.Read())
+            try
             {
-                Coverage ps = new Coverage(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
-                p.Add(ps);
+                p.Clear();
+                DBConnect.OpenConn();
+                NpgsqlDataReader Reader = DBConnect.Reading(Q);
+                while (Reader.Read())
+                {
+                    Coverage ps = new Coverage(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                    p.Add(ps);
+                }
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            catch { }
             return p;
         }
         public static List<Coverage> ListOnline(string Q)
@@ -95,19 +99,19 @@ namespace ARM.Model
         public string Created { get => created; set => created = value; }
         public bool Sync { get => sync; set => sync = value; }
         public string CompanyID { get => companyID; set => companyID = value; }
-
-        public static List<Coverage> Select(string id)
+        private static Coverage k = new Coverage();
+        public static Coverage Select(string id)
         {
-            string Q = "SELECT * FROM coverage WHERE customerID = '" + id + "'";
+            string Q = "SELECT * FROM coverage WHERE id = '" + id + "'";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Coverage k = new Coverage(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
-                c.Add(k);
+                k = new Coverage(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+              
             }
             DBConnect.CloseConn();
-            return c;
+            return k;
 
         }
     }

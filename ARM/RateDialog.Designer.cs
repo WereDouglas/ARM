@@ -31,7 +31,6 @@
             this.htmlToolTip1 = new MetroFramework.Drawing.Html.HtmlToolTip();
             this.userCbx = new MetroFramework.Controls.MetroComboBox();
             this.unitCbx = new MetroFramework.Controls.MetroComboBox();
-            this.periodCbx = new MetroFramework.Controls.MetroComboBox();
             this.userPbx = new System.Windows.Forms.PictureBox();
             this.costTxt = new MetroFramework.Controls.MetroTextBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -71,24 +70,6 @@
             this.unitCbx.Size = new System.Drawing.Size(265, 29);
             this.unitCbx.TabIndex = 2;
             this.unitCbx.UseSelectable = true;
-            // 
-            // periodCbx
-            // 
-            this.periodCbx.FormattingEnabled = true;
-            this.periodCbx.ItemHeight = 23;
-            this.periodCbx.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
-            this.periodCbx.Location = new System.Drawing.Point(75, 272);
-            this.periodCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.periodCbx.Name = "periodCbx";
-            this.periodCbx.PromptText = "Period";
-            this.periodCbx.Size = new System.Drawing.Size(265, 29);
-            this.periodCbx.TabIndex = 3;
-            this.periodCbx.UseSelectable = true;
             // 
             // userPbx
             // 
@@ -178,7 +159,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(403, 385);
-            this.Controls.Add(this.periodCbx);
             this.Controls.Add(this.unitCbx);
             this.Controls.Add(this.userPbx);
             this.Controls.Add(this.userCbx);
@@ -202,6 +182,5 @@
         private MetroFramework.Controls.MetroComboBox userCbx;
         private System.Windows.Forms.PictureBox userPbx;
         private MetroFramework.Controls.MetroComboBox unitCbx;
-        private MetroFramework.Controls.MetroComboBox periodCbx;
     }
 }

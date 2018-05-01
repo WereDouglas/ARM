@@ -87,6 +87,8 @@ namespace ARM
             Vendor c = new Vendor(id,nameTxt.Text,emailTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), categoryCbx.Text, false, Helper.CompanyID, fullimage);
             if (DBConnect.InsertPostgre(c) != "")
             {
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(c)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                DBConnect.InsertPostgre(q);
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;
                 this.Dispose();

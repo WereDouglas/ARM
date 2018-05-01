@@ -76,6 +76,8 @@ namespace ARM
             Responsible r = new Responsible(ID,UserID,CustomerID,DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),false,Helper.CompanyID);
             if (DBConnect.InsertPostgre(r) != "")
             {
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(r)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                DBConnect.InsertPostgre(q);
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;
                 this.Dispose();

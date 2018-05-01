@@ -30,7 +30,26 @@ namespace ARM.Model
         private string companyID;
         public Service() { }
 
-      
+        public Service(string id, string caseID, string customerID, string starts, string ends, string type, string place, string information, string created, string procedureCode, string description, string reqStart, string reqEnd, string authStart, string authEnd, bool sync, string companyID)
+        {
+            this.Id = id;
+            this.CaseID = caseID;
+            this.CustomerID = customerID;
+            this.Starts = starts;
+            this.Ends = ends;
+            this.Type = type;
+            this.Place = place;
+            this.Information = information;
+            this.Created = created;
+            this.ProcedureCode = procedureCode;
+            this.Description = description;
+            this.ReqStart = reqStart;
+            this.ReqEnd = reqEnd;
+            this.AuthStart = authStart;
+            this.AuthEnd = authEnd;
+            this.Sync = sync;
+            this.CompanyID = companyID;
+        }
 
         static List<Service> p = new List<Service>();
 
@@ -68,7 +87,23 @@ namespace ARM.Model
         }
         static List<Service> c = new List<Service>();
 
-        
+        public string Id { get => id; set => id = value; }
+        public string CaseID { get => caseID; set => caseID = value; }
+        public string CustomerID { get => customerID; set => customerID = value; }
+        public string Starts { get => starts; set => starts = value; }
+        public string Ends { get => ends; set => ends = value; }
+        public string Type { get => type; set => type = value; }
+        public string Place { get => place; set => place = value; }
+        public string Information { get => information; set => information = value; }
+        public string Created { get => created; set => created = value; }
+        public string ProcedureCode { get => procedureCode; set => procedureCode = value; }
+        public string Description { get => description; set => description = value; }
+        public string ReqStart { get => reqStart; set => reqStart = value; }
+        public string ReqEnd { get => reqEnd; set => reqEnd = value; }
+        public string AuthStart { get => authStart; set => authStart = value; }
+        public string AuthEnd { get => authEnd; set => authEnd = value; }
+        public bool Sync { get => sync; set => sync = value; }
+        public string CompanyID { get => companyID; set => companyID = value; }
 
         public static List<Service> Select(string id)
         {

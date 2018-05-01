@@ -15,18 +15,20 @@ namespace ARM
     public partial class AddPurchase : MetroFramework.Forms.MetroForm
     {
         Dictionary<string, string> ProductDictionary = new Dictionary<string, string>();
+        Dictionary<string, string> CodeDictionary = new Dictionary<string, string>();
         string No;
         string CaseID;
         string Date;
         String CustomerID;
-        public AddPurchase(string caseID,string no, string date,string customerID)
+        public AddPurchase(string caseID, string no, string date, string customerID)
         {
             InitializeComponent();
             AutoCompleteProduct();
+            AutoCompleteCode();
             No = no;
             Date = date;
             CustomerID = customerID;
-           TransactionID = Guid.NewGuid().ToString();
+            TransactionID = Guid.NewGuid().ToString();
             if (!string.IsNullOrEmpty(caseID)) { CaseID = caseID; }
         }
 
@@ -53,23 +55,43 @@ namespace ARM
             //productTxt.AutoCompleteCustomSource = AutoItem;
             GenericCollection.itemCoverage = new List<ItemCoverage>();
         }
+        private void AutoCompleteCode()
+        {
+            AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
+            CodeDictionary.Clear();
+            foreach (Product v in Product.List())
+            {
+                AutoItem.Add((v.Code));
+
+                if (!CodeDictionary.ContainsKey(v.Code))
+                {
+                    CodeDictionary.Add(v.Code, v.Id);
+                   
+                }
+            }
+            codeTxt.AutoCompleteMode = AutoCompleteMode.Suggest;
+            codeTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            codeTxt.AutoCompleteCustomSource = AutoItem;
+            
+        }
         string ItemID;
         Product i;
         private void productTxt_Leave(object sender, EventArgs e)
         {
-            
+
         }
         string TransactionID;
         private void button3_Click(object sender, EventArgs e)
         {
-            if (Convert.ToDouble (qtyTxt.Text)<1) {
+            if (Convert.ToDouble(qtyTxt.Text) < 1)
+            {
 
                 qtyTxt.BackColor = Color.Red;
                 MessageBox.Show("Please input the quantity");
                 return;
-            }           
-         
-            Transaction t = new Transaction(TransactionID, Date, No, ItemID,CaseID, Convert.ToDouble(qtyTxt.Text), Convert.ToDouble(costTxt.Text), measureTxt.Text,Convert.ToDouble(amountTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false,Helper.CompanyID);
+            }
+
+            Transaction t = new Transaction(TransactionID, Date, No, ItemID, CaseID, "", Convert.ToDouble(qtyTxt.Text), Convert.ToDouble(costTxt.Text), measureTxt.Text, Payable, Tax, TotalCoverage, TotalSelf, Payable, "", "", "", "", "", "", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
             GenericCollection.transactions.Add(t);
             this.DialogResult = DialogResult.OK;
             this.Dispose();
@@ -101,13 +123,14 @@ namespace ARM
                 measureDesTxt.Text = i.MeasureDescription;
                 ManufacturerTxt.Text = i.Manufacturer;
                 descriptionTxt.Text = i.Description;
+                codeTxt.Text = i.Code;
             }
             catch { }
         }
 
         private void qtyTxt_KeyUp(object sender, KeyEventArgs e)
         {
-           
+
         }
 
         private void qtyTxt_KeyPress(object sender, KeyPressEventArgs e)
@@ -130,7 +153,7 @@ namespace ARM
         Double VariableTotal = 0;
         private void button5_Click(object sender, EventArgs e)
         {
-            using (AddCoverage form = new AddCoverage(TransactionID, CustomerID, ItemID, VariableTotal))
+            using (AddCoverage form = new AddCoverage(TransactionID, CustomerID, ItemID,Convert.ToDouble(amountTxt.Text)))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
@@ -139,13 +162,16 @@ namespace ARM
                 }
             }
         }
+        Double TotalCoverage = 0;
+        Double TotalSelf = 0;
         public void LoadCoverage()
         {
             // create and execute query  
             t = new DataTable();
             t.Columns.Add("id");
+            t.Columns.Add("Provider");
             t.Columns.Add("%");
-            t.Columns.Add("Amount");            
+            t.Columns.Add("Amount");
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));
             Image delete = new Bitmap(Properties.Resources.Cancel_16);
 
@@ -153,8 +179,10 @@ namespace ARM
             {
                 try
                 {
-                     Product  k = Product.Select(j.ItemID);
-                    t.Rows.Add(new object[] { j.Id, j.Percentage, j.Amount, delete });
+                    string coverage = "";
+                   
+                    coverage = Coverage.Select(j.CoverageID).Name;
+                    t.Rows.Add(new object[] { j.Id,coverage, j.Percentage, j.Amount, delete });
 
                 }
                 catch (Exception m)
@@ -163,9 +191,10 @@ namespace ARM
                     Helper.Exceptions(m.Message + "Viewing Coverage {each coverage item in the coverage list }" + j.ItemID);
                 }
             }
-             VariableTotal  = Convert.ToDouble( amountTxt.Text) - GenericCollection.itemCoverage.Sum(r => r.Amount);
-
-            
+            VariableTotal = Convert.ToDouble(amountTxt.Text) - GenericCollection.itemCoverage.Sum(r => r.Amount);
+            TotalCoverage = GenericCollection.itemCoverage.Sum(r => r.Amount);
+            TotalSelf = Convert.ToDouble(amountTxt.Text) - TotalCoverage;
+            selfTxt.Text = TotalSelf.ToString();
 
             dtGrid.DataSource = t;
 
@@ -174,19 +203,47 @@ namespace ARM
             //  dtGrid.Columns["Delete"].DefaultCellStyle.BackColor = Color.Red;
 
             dtGrid.Columns["id"].Visible = false;
-            dtGrid.Columns["ItemID"].Visible = false;
             
-
-
         }
-
+        double Tax = 0;
+        double Payable = 0;
         private void taxPercTxt_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                totalTxt.Text = ((Convert.ToDouble(taxPercTxt.Text) / 100) * Convert.ToDouble(amountTxt.Text)).ToString();
+                Tax =Math.Round( ((Convert.ToDouble(taxPercTxt.Text) / 100) * Convert.ToDouble(amountTxt.Text)),2);
+                taxTxt.Text = Tax.ToString();
+
             }
             catch { }
+
+
+            try
+            {
+                Payable = Math.Round((Convert.ToDouble(amountTxt.Text) + Tax),2);
+                payableTxt.Text = (Convert.ToDouble(amountTxt.Text) + Tax).ToString();
+            }
+            catch { }
+        }
+
+        private void codeTxt_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                ItemID = CodeDictionary[codeTxt.Text];
+               
+                i = new Product();//.Select(ItemID);
+                i = Product.Select(ItemID);
+                productTxt.Text = i.Name;
+
+              
+            }
+            catch { }
+        }
+
+        private void dtGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

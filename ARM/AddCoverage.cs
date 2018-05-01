@@ -1,4 +1,5 @@
-﻿using ARM.Model;
+﻿using ARM.DB;
+using ARM.Model;
 using ARM.Util;
 using System;
 using System.Collections.Generic;
@@ -21,18 +22,18 @@ namespace ARM
         string TransID;
         string CoverID;
         double Total;
-        public AddCoverage(string transactionID,string customerID,string itemID,double total)
+        public AddCoverage(string transactionID, string customerID, string itemID, double total)
         {
             InitializeComponent();
-                       
-           
+
+
             CustomerID = customerID;
             TransID = transactionID;
             Total = total;
-            ItemID =  itemID;
+            ItemID = itemID;
             try
             {
-               
+
                 i = new Product();//.Select(ItemID);
                 i = Product.Select(ItemID);
                 productLbl.Text = i.Name;
@@ -50,7 +51,8 @@ namespace ARM
         {
             AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
             CoverDictionary.Clear();
-            foreach (Coverage c in Coverage.List(CustomerID))
+            string Q = "SELECT * FROM coverage WHERE customerID = '" + CustomerID + "' ";
+            foreach (Coverage c in Coverage.List(Q))
             {
                 AutoItem.Add((c.Name));
 
@@ -67,19 +69,27 @@ namespace ARM
         }
         string ItemID;
         Product i;
-      
+
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (Convert.ToDouble (percTxt.Text)<0) {
+            if (Convert.ToDouble(percTxt.Text) < 0)
+            {
 
                 percTxt.BackColor = Color.Red;
                 MessageBox.Show("Please input the percentage contribution !");
                 return;
             }
-            string id = Guid.NewGuid().ToString();         
-            ItemCoverage t = new ItemCoverage(id,TransID,ItemID,CoverID,Convert.ToDouble(percTxt.Text), Convert.ToDouble(amountTxt.Text),DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false,Helper.CompanyID);
+            string id = Guid.NewGuid().ToString();
+            ItemCoverage t = new ItemCoverage(id, TransID, ItemID, CoverID, Convert.ToDouble(percTxt.Text), Convert.ToDouble(amountTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
             GenericCollection.itemCoverage.Add(t);
+
+            ItemCoverage c = new ItemCoverage(t.Id, t.TransactionID, t.ItemID, t.CoverageID, t.Percentage, t.Amount, t.Created, false, Helper.CompanyID);
+            if (DBConnect.InsertPostgre(c) != "")
+            {
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(c)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                DBConnect.InsertPostgre(q);
+            }
             this.DialogResult = DialogResult.OK;
             this.Dispose();
 
@@ -88,7 +98,7 @@ namespace ARM
         {
             try
             {
-                amountTxt.Text = (Total * (Convert.ToDouble(percTxt.Text) /100)).ToString();
+                amountTxt.Text = (Total * (Convert.ToDouble(percTxt.Text) / 100)).ToString();
             }
             catch { }
         }
@@ -97,15 +107,15 @@ namespace ARM
         {
             try
             {
-                CoverID = CoverDictionary[CoverageCbx.Text];              
-               
+                CoverID = CoverDictionary[CoverageCbx.Text];
+
             }
             catch { }
         }
 
         private void qtyTxt_KeyUp(object sender, KeyEventArgs e)
         {
-           
+
         }
 
         private void qtyTxt_KeyPress(object sender, KeyPressEventArgs e)
@@ -124,8 +134,8 @@ namespace ARM
                 e.Handled = true;
             }
         }
-       
-      
+
+
 
     }
 }

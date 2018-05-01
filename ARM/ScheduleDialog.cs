@@ -85,10 +85,11 @@ namespace ARM
             this.Close();
         }
 
-
+        Schedule _event;
         private void button3_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(categoryCbx.Text)) {
+            if (string.IsNullOrEmpty(categoryCbx.Text))
+            {
                 categoryCbx.BackColor = Color.Red;
                 MessageBox.Show(" Please select the category ");
                 return;
@@ -105,17 +106,71 @@ namespace ARM
                 MessageBox.Show("Please input the start time and end time for the Schedule ");
                 return;
             }
-            string ID = Guid.NewGuid().ToString();
-            var start = Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd") + "T" + this.startHrTxt.Text;
-            var end = Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd") + "T" + this.endHrTxt.Text;           
 
-            Schedule _event = new Schedule(ID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, start, end, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), categoryCbx.Text, periodTxt.Text, categoryCbx.Text, statusCbx.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),false,Helper.CompanyID);
-            if (DBConnect.InsertPostgre(_event) != "")
+            // var start = Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd") + "T" + this.startHrTxt.Text;
+            //  var end = Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd") + "T" + this.endHrTxt.Text;            
+
+            if (string.IsNullOrEmpty(repeatCbx.Text))
             {
-                MessageBox.Show("Information Saved");
-                this.DialogResult = DialogResult.OK;
-                this.Dispose();
+                string ID = Guid.NewGuid().ToString();
+                var start = Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd") + "T" + this.startHrTxt.Text;
+                var end = Convert.ToDateTime(this.endDate.Text).ToString("yyyy-MM-dd") + "T" + this.endHrTxt.Text;
+                _event = new Schedule(ID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, start, end, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), categoryCbx.Text, periodTxt.Text, categoryCbx.Text, statusCbx.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false, Helper.CompanyID);
+                DBConnect.InsertPostgre(_event);
+
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(_event)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                DBConnect.InsertPostgre(q);
+
+
             }
+            else
+            {
+
+                int count = offListBx.CheckedItems.Count;
+                int loop = Convert.ToInt32(repeatCbx.Text) + count;
+                count = offListBx.CheckedItems.Count;
+                loop = Convert.ToInt32(repeatCbx.Text) + count;
+
+                Dictionary<string, int> skipDays = new Dictionary<string, int>();
+                foreach (var s in offListBx.CheckedItems)
+                {
+                    skipDays.Add(s.ToString(), 1);
+                }
+
+
+                for (int i = 0; i < loop; i++)
+                {
+                    string ID = Guid.NewGuid().ToString();
+                    var start = Convert.ToDateTime(this.openedDate.Text).AddDays(i).ToString("yyyy-MM-dd") + "T" + this.startHrTxt.Text;
+                    var end = Convert.ToDateTime(this.endDate.Text).AddDays(i).ToString("yyyy-MM-dd") + "T" + this.endHrTxt.Text;
+
+                    DateTime starts = Convert.ToDateTime(Convert.ToDateTime(this.openedDate.Text).AddDays(i).ToString("yyyy-MM-dd") + "T" + this.startHrTxt.Text);
+                    DateTime ends = Convert.ToDateTime(Convert.ToDateTime(this.endDate.Text).AddDays(i).ToString("yyyy-MM-dd") + "T" + this.endHrTxt.Text);
+
+                    if (skipDays.ContainsKey(starts.ToString("dddd")))
+                    {
+
+                       // _event = new Schedule(ID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, start, end, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), categoryCbx.Text, periodTxt.Text, categoryCbx.Text, statusCbx.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false, Helper.CompanyID);
+                        // DBConnect.InsertPostgre(_event);
+                       // MessageBox.Show("Am skipping " + starts.ToString("dddd"));
+                    }
+                    else
+                    {
+                        _event = new Schedule(ID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, start, end, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), categoryCbx.Text, periodTxt.Text, categoryCbx.Text, statusCbx.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false, Helper.CompanyID);
+                        DBConnect.InsertPostgre(_event);
+
+
+                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(_event)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        DBConnect.InsertPostgre(q);
+                    }
+
+                }
+
+            }
+
+            MessageBox.Show("Information Saved");
+            this.DialogResult = DialogResult.OK;
+            this.Dispose();
 
         }
         string Query;
@@ -153,7 +208,7 @@ namespace ARM
         Rate r;
         private void userCbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            costTxt.Text = "";
             try
             {
                 UserID = UserDictionary[userCbx.Text];
@@ -170,14 +225,15 @@ namespace ARM
             catch { }
             r = new Rate();
             r = Rate.Select(UserID);
-            costTxt.Text = r.Amount.ToString();
-            totalTxt.Text = (r.Amount * Convert.ToDouble(periodTxt.Text)).ToString();
+            
             try
             {
-                
+                costTxt.Text = r.Amount.ToString();
+                totalTxt.Text = (r.Amount * Convert.ToDouble(periodTxt.Text)).ToString();
             }
             catch
             {
+                MessageBox.Show("The selected persons has no hours defined ");
                 costTxt.Text = "0";
                 totalTxt.Text = "0";
 
@@ -191,11 +247,14 @@ namespace ARM
 
         private void categoryCbx_SelectedIndexChanged(object sender, EventArgs e)
         {
+            DateTime start = Convert.ToDateTime(Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd") + "T" + this.startHrTxt.Text);
+            DateTime end =Convert.ToDateTime( Convert.ToDateTime(this.endDate.Text).ToString("yyyy-MM-dd") + "T" + this.endHrTxt.Text);
+
             System.Diagnostics.Debug.WriteLine(Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy") + " " + startHrTxt.Text);
-           var start = Convert.ToDateTime(Convert.ToDateTime(startHrTxt.Text).ToString("HH:mm:ss"));
-           var end = Convert.ToDateTime(Convert.ToDateTime(endHrTxt.Text).ToString("HH:mm:ss"));
+            //var start = Convert.ToDateTime(Convert.ToDateTime(startHrTxt.Text).ToString("HH:mm:ss"));
+           // var end = Convert.ToDateTime(Convert.ToDateTime(endHrTxt.Text).ToString("HH:mm:ss"));
             var hours = (end - start).TotalHours;
-            periodTxt.Text = hours.ToString();
+            periodTxt.Text =Math.Round(hours).ToString();
         }
 
         private void periodTxt_KeyPress(object sender, KeyPressEventArgs e)
@@ -213,6 +272,11 @@ namespace ARM
             {
                 e.Handled = true;
             }
+        }
+
+        private void endDate_ValueChanged(object sender, EventArgs e)
+        {
+            categoryCbx_SelectedIndexChanged(null,null);
         }
     }
 }

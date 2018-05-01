@@ -173,7 +173,7 @@ namespace ARM
 
         private void button4_Click(object sender, EventArgs e)
         {
-            using (AddPurchase form = new AddPurchase(noTxt.Text, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), null))
+            using (AddPurchase form = new AddPurchase("", noTxt.Text, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), null))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
@@ -322,11 +322,15 @@ namespace ARM
             Invoice i = new Invoice(Iid, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, typeCbx.Text, categoryCbx.Text, VendorID, CustomerID, methodCbx.Text, Total, termsTxt.Text, Convert.ToDouble(taxTxt.Text), Convert.ToDouble(amountTxt.Text), Convert.ToDouble(balanceTxt.Text), Convert.ToDouble(amountTxt.Text), Convert.ToInt32(ItemCountTxt.Text), Helper.UserID, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false,Helper.CompanyID);
             if (DBConnect.InsertPostgre(i) != "")
             {
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(i)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                DBConnect.InsertPostgre(q);
                 foreach (Transaction t in GenericCollection.transactions)
                 {
-                    Transaction c = new Transaction(t.Id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, t.Total, t.Qty, t.Cost, t.Created,false,Helper.CompanyID);
+                    Transaction c = new Transaction(t.Id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID,"","",t.Qty,t.Cost,t.Units,t.Total,t.Tax,t.Coverage,t.Self,t.Payable,t.Limits,t.Setting,t.Period,t.Height,t.Weight,t.Instruction,t.Created,false,Helper.CompanyID);
                     if (DBConnect.InsertPostgre(c) != "")
                     {
+                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(c)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        DBConnect.InsertPostgre(q);
                     }
                 }
 
@@ -334,6 +338,8 @@ namespace ARM
                 Payment p = new Payment(Pid, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, typeCbx.Text, methodCbx.Text, Convert.ToDouble(amountTxt.Text), Convert.ToDouble(balanceTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false,Helper.CompanyID);
                 if (DBConnect.InsertPostgre(p) != "")
                 {
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(p)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    DBConnect.InsertPostgre(q);
                 }               
             }
             using (ReceiptForm form = new ReceiptForm(noTxt.Text))

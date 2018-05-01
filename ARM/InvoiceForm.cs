@@ -110,7 +110,7 @@ namespace ARM
             t.Columns.Add(new DataColumn("View", typeof(Image)));
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));
 
-            Image view = new Bitmap(Properties.Resources.Document_Edit_24__1_);
+            Image view = new Bitmap(Properties.Resources.Note_Memo_16);
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
             Image check = new Bitmap(Properties.Resources.Bill_16);
 
@@ -207,6 +207,8 @@ namespace ARM
                 {
                     string Query = "DELETE from invoice WHERE id ='" + item + "'";
                     DBConnect.QueryPostgre(Query);
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    DBConnect.InsertPostgre(q);
                     //  MessageBox.Show("Information deleted");
                 }
             }
@@ -257,6 +259,8 @@ namespace ARM
                     {
                         string Query = "DELETE from invoice WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
                         DBConnect.QueryPostgre(Query);
+                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        DBConnect.InsertPostgre(q);
                         MessageBox.Show("Information deleted");
                         LoadData();
 

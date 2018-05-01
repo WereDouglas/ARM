@@ -62,15 +62,7 @@ namespace ARM
 
         private void button1_Click(object sender, EventArgs e)
         {
-                OpenFileDialog open = new OpenFileDialog();
-                open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
-                if (open.ShowDialog() == DialogResult.OK)
-                {
-                    // display image in picture box
-                    imgCapture.Image = new Bitmap(open.FileName);
-                    imgCapture.SizeMode = PictureBoxSizeMode.StretchImage;
-                    fileUrlTxtBx.Text = open.FileName;
-                }
+              
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -84,9 +76,12 @@ namespace ARM
             string fullimage = Helper.ImageToBase64(stream);
 
             string id = Guid.NewGuid().ToString();
-            Users c = new Users(id, nameTxt.Text, emailTxt.Text, contactTxt.Text, addressTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, categoryCbx.Text, genderCbx.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, Helper.MD5Hash(passwordTxt.Text), fullimage);
+            Users c = new Users(id, nameTxt.Text, emailTxt.Text, contactTxt.Text, addressTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, categoryCbx.Text,socialTxt.Text,specialityCbx.Text, genderCbx.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, Helper.MD5Hash(passwordTxt.Text), fullimage);
             if (DBConnect.InsertPostgre(c) != "")
             {
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(c)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                DBConnect.InsertPostgre(q);
+
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;
                 this.Dispose();
@@ -109,6 +104,11 @@ namespace ARM
 
             }
             DBConnect.QueryPostgre(Query);
+
+
+            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+            DBConnect.InsertPostgre(q);
+
             MessageBox.Show("Information Updated");
             this.DialogResult = DialogResult.OK;
             this.Dispose();
@@ -162,11 +162,29 @@ namespace ARM
 
         private void emailTxt_Leave(object sender, EventArgs e)
         {
-            if (!Helper.Email(emailTxt.Text)) {
+            //if (!Helper.Email(emailTxt.Text)) {
 
                 emailTxt.BackColor = Color.Red;
                 MessageBox.Show("Invalid Email !");
+            //}
+        }
+
+        private void imgCapture_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                // display image in picture box
+                imgCapture.Image = new Bitmap(open.FileName);
+                imgCapture.SizeMode = PictureBoxSizeMode.StretchImage;
+                fileUrlTxtBx.Text = open.FileName;
             }
+        }
+
+        private void genderCbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

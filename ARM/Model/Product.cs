@@ -52,17 +52,17 @@ namespace ARM.Model
         }
 
         static List<Product> p = new List<Product>();
-
+        private static NpgsqlDataReader Reader;
 
         public static List<Product> List()
         {
             p.Clear();
-            string Q = "SELECT * FROM Item ";
+            string Q = "SELECT * FROM product ";
             DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Product ps = new Product(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["category"].ToString(), Reader["type"].ToString(), Reader["description"].ToString(), Reader["cost"].ToString(), Reader["batchNo"].ToString(), Reader["serialNo"].ToString(), Reader["barcode"].ToString(), Reader["unitOfMeasure"].ToString(), Reader["measureDescription"].ToString(), Reader["manufacturer"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
+                Product ps = new Product(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["category"].ToString(), Reader["type"].ToString(), Reader["description"].ToString(), Reader["cost"].ToString(), Reader["batch"].ToString(), Reader["serial"].ToString(), Reader["barcode"].ToString(), Reader["unitOfMeasure"].ToString(), Reader["measureDescription"].ToString(), Reader["manufacturer"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -71,15 +71,23 @@ namespace ARM.Model
         }
         public static List<Product> List(string Q)
         {
-            p.Clear();
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
-            while (Reader.Read())
+            try
             {
-                Product ps = new Product(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["category"].ToString(), Reader["type"].ToString(), Reader["description"].ToString(), Reader["cost"].ToString(), Reader["batchNo"].ToString(), Reader["serialNo"].ToString(), Reader["barcode"].ToString(), Reader["unitOfMeasure"].ToString(), Reader["measureDescription"].ToString(), Reader["manufacturer"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
-                p.Add(ps);
+                p.Clear();
+                DBConnect.OpenConn();
+                Reader = DBConnect.Reading(Q);
+                while (Reader.Read())
+                {
+                    Product ps = new Product(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["category"].ToString(), Reader["type"].ToString(), Reader["description"].ToString(), Reader["cost"].ToString(), Reader["batch"].ToString(), Reader["serial"].ToString(), Reader["barcode"].ToString(), Reader["unitOfMeasure"].ToString(), Reader["measureDescription"].ToString(), Reader["manufacturer"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
+                    p.Add(ps);
+                }
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            catch (Exception e)
+            {
+
+                System.Diagnostics.Debug.WriteLine("" + e);
+            }
             return p;
         }
         public static List<Product> ListOnline(string Q)
@@ -91,7 +99,7 @@ namespace ARM.Model
                 MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
                 while (Reader.Read())
                 {
-                    Product ps = new Product(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["category"].ToString(), Reader["type"].ToString(), Reader["description"].ToString(), Reader["cost"].ToString(), Reader["batchNo"].ToString(), Reader["serialNo"].ToString(), Reader["barcode"].ToString(), Reader["unitOfMeasure"].ToString(), Reader["measureDescription"].ToString(), Reader["manufacturer"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
+                    Product ps = new Product(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["category"].ToString(), Reader["type"].ToString(), Reader["description"].ToString(), Reader["cost"].ToString(), Reader["batch"].ToString(), Reader["serial"].ToString(), Reader["barcode"].ToString(), Reader["unitOfMeasure"].ToString(), Reader["measureDescription"].ToString(), Reader["manufacturer"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
@@ -121,12 +129,12 @@ namespace ARM.Model
 
         public static Product Select(string ID)
         {
-            string Q = "SELECT * FROM item WHERE id = '" + ID + "'";
+            string Q = "SELECT * FROM product WHERE id = '" + ID + "'";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                c = new Product(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["category"].ToString(), Reader["type"].ToString(), Reader["description"].ToString(), Reader["cost"].ToString(), Reader["batchNo"].ToString(), Reader["serialNo"].ToString(), Reader["barcode"].ToString(), Reader["unitOfMeasure"].ToString(), Reader["measureDescription"].ToString(), Reader["manufacturer"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
+                c = new Product(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["category"].ToString(), Reader["type"].ToString(), Reader["description"].ToString(), Reader["cost"].ToString(), Reader["batch"].ToString(), Reader["serial"].ToString(), Reader["barcode"].ToString(), Reader["unitOfMeasure"].ToString(), Reader["measureDescription"].ToString(), Reader["manufacturer"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
             }
             DBConnect.CloseConn();
             return c;

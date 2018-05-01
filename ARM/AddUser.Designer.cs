@@ -44,10 +44,12 @@
             this.nameTxt = new MetroFramework.Controls.MetroTextBox();
             this.emailTxt = new MetroFramework.Controls.MetroTextBox();
             this.confirmTxt = new MetroFramework.Controls.MetroTextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.imgCapture = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.specialityCbx = new MetroFramework.Controls.MetroComboBox();
+            this.socialTxt = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,13 +65,15 @@
             "Administrator",
             "Physician",
             "Employee",
+            "Nurse",
+            "Aid",
             "Other"});
-            this.categoryCbx.Location = new System.Drawing.Point(285, 256);
+            this.categoryCbx.Location = new System.Drawing.Point(282, 420);
             this.categoryCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.categoryCbx.Name = "categoryCbx";
             this.categoryCbx.PromptText = "Category/type";
-            this.categoryCbx.Size = new System.Drawing.Size(180, 29);
-            this.categoryCbx.TabIndex = 3;
+            this.categoryCbx.Size = new System.Drawing.Size(194, 29);
+            this.categoryCbx.TabIndex = 12;
             this.categoryCbx.UseSelectable = true;
             // 
             // fileUrlTxtBx
@@ -77,17 +81,17 @@
             this.fileUrlTxtBx.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.fileUrlTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.fileUrlTxtBx.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fileUrlTxtBx.Location = new System.Drawing.Point(56, 498);
+            this.fileUrlTxtBx.Location = new System.Drawing.Point(56, 503);
             this.fileUrlTxtBx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.fileUrlTxtBx.Name = "fileUrlTxtBx";
             this.fileUrlTxtBx.Size = new System.Drawing.Size(411, 14);
-            this.fileUrlTxtBx.TabIndex = 15;
+            this.fileUrlTxtBx.TabIndex = 14;
             this.fileUrlTxtBx.Visible = false;
             // 
             // metroLabel9
             // 
             this.metroLabel9.AutoSize = true;
-            this.metroLabel9.Location = new System.Drawing.Point(53, 472);
+            this.metroLabel9.Location = new System.Drawing.Point(287, 356);
             this.metroLabel9.Name = "metroLabel9";
             this.metroLabel9.Size = new System.Drawing.Size(84, 19);
             this.metroLabel9.TabIndex = 110;
@@ -102,22 +106,23 @@
             "Male",
             "Female",
             "Other"});
-            this.genderCbx.Location = new System.Drawing.Point(283, 426);
+            this.genderCbx.Location = new System.Drawing.Point(285, 323);
             this.genderCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.genderCbx.Name = "genderCbx";
             this.genderCbx.PromptText = "Gender";
-            this.genderCbx.Size = new System.Drawing.Size(182, 29);
-            this.genderCbx.TabIndex = 10;
+            this.genderCbx.Size = new System.Drawing.Size(191, 29);
+            this.genderCbx.TabIndex = 8;
             this.genderCbx.UseSelectable = true;
+            this.genderCbx.SelectedIndexChanged += new System.EventHandler(this.genderCbx_SelectedIndexChanged);
             // 
             // dobTxt
             // 
             this.dobTxt.AllowDrop = true;
-            this.dobTxt.Location = new System.Drawing.Point(285, 462);
+            this.dobTxt.Location = new System.Drawing.Point(285, 384);
             this.dobTxt.MinimumSize = new System.Drawing.Size(0, 29);
             this.dobTxt.Name = "dobTxt";
-            this.dobTxt.Size = new System.Drawing.Size(182, 29);
-            this.dobTxt.TabIndex = 11;
+            this.dobTxt.Size = new System.Drawing.Size(191, 29);
+            this.dobTxt.TabIndex = 10;
             // 
             // passwordTxt
             // 
@@ -125,7 +130,7 @@
             // 
             // 
             this.passwordTxt.CustomButton.Image = null;
-            this.passwordTxt.CustomButton.Location = new System.Drawing.Point(195, 2);
+            this.passwordTxt.CustomButton.Location = new System.Drawing.Point(163, 2);
             this.passwordTxt.CustomButton.Name = "";
             this.passwordTxt.CustomButton.Size = new System.Drawing.Size(25, 25);
             this.passwordTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -136,7 +141,7 @@
             this.passwordTxt.DisplayIcon = true;
             this.passwordTxt.Icon = global::ARM.Properties.Resources.Lock_24;
             this.passwordTxt.Lines = new string[0];
-            this.passwordTxt.Location = new System.Drawing.Point(56, 343);
+            this.passwordTxt.Location = new System.Drawing.Point(285, 250);
             this.passwordTxt.MaxLength = 32767;
             this.passwordTxt.Name = "passwordTxt";
             this.passwordTxt.PasswordChar = '●';
@@ -146,8 +151,8 @@
             this.passwordTxt.SelectionLength = 0;
             this.passwordTxt.SelectionStart = 0;
             this.passwordTxt.ShortcutsEnabled = true;
-            this.passwordTxt.Size = new System.Drawing.Size(223, 30);
-            this.passwordTxt.TabIndex = 5;
+            this.passwordTxt.Size = new System.Drawing.Size(191, 30);
+            this.passwordTxt.TabIndex = 4;
             this.passwordTxt.UseSelectable = true;
             this.passwordTxt.UseSystemPasswordChar = true;
             this.passwordTxt.WaterMark = "Password";
@@ -171,7 +176,7 @@
             this.zipTxt.DisplayIcon = true;
             this.zipTxt.Icon = global::ARM.Properties.Resources.Map_24;
             this.zipTxt.Lines = new string[0];
-            this.zipTxt.Location = new System.Drawing.Point(56, 420);
+            this.zipTxt.Location = new System.Drawing.Point(56, 380);
             this.zipTxt.MaxLength = 32767;
             this.zipTxt.Name = "zipTxt";
             this.zipTxt.PasswordChar = '\0';
@@ -195,7 +200,7 @@
             // 
             // 
             this.stateTxt.CustomButton.Image = null;
-            this.stateTxt.CustomButton.Location = new System.Drawing.Point(146, 1);
+            this.stateTxt.CustomButton.Location = new System.Drawing.Point(185, 1);
             this.stateTxt.CustomButton.Name = "";
             this.stateTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
             this.stateTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -206,7 +211,7 @@
             this.stateTxt.DisplayIcon = true;
             this.stateTxt.Icon = global::ARM.Properties.Resources.Globe_24;
             this.stateTxt.Lines = new string[0];
-            this.stateTxt.Location = new System.Drawing.Point(285, 379);
+            this.stateTxt.Location = new System.Drawing.Point(58, 420);
             this.stateTxt.MaxLength = 32767;
             this.stateTxt.Name = "stateTxt";
             this.stateTxt.PasswordChar = '\0';
@@ -216,8 +221,8 @@
             this.stateTxt.SelectionLength = 0;
             this.stateTxt.SelectionStart = 0;
             this.stateTxt.ShortcutsEnabled = true;
-            this.stateTxt.Size = new System.Drawing.Size(180, 35);
-            this.stateTxt.TabIndex = 8;
+            this.stateTxt.Size = new System.Drawing.Size(219, 35);
+            this.stateTxt.TabIndex = 11;
             this.stateTxt.UseSelectable = true;
             this.stateTxt.WaterMark = "State";
             this.stateTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -240,7 +245,7 @@
             this.cityTxt.DisplayIcon = true;
             this.cityTxt.Icon = global::ARM.Properties.Resources.City_24__1_;
             this.cityTxt.Lines = new string[0];
-            this.cityTxt.Location = new System.Drawing.Point(56, 379);
+            this.cityTxt.Location = new System.Drawing.Point(54, 343);
             this.cityTxt.MaxLength = 32767;
             this.cityTxt.Name = "cityTxt";
             this.cityTxt.PasswordChar = '\0';
@@ -263,7 +268,7 @@
             // 
             // 
             this.addressTxt.CustomButton.Image = null;
-            this.addressTxt.CustomButton.Location = new System.Drawing.Point(365, 1);
+            this.addressTxt.CustomButton.Location = new System.Drawing.Point(177, 1);
             this.addressTxt.CustomButton.Name = "";
             this.addressTxt.CustomButton.Size = new System.Drawing.Size(43, 43);
             this.addressTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -285,8 +290,8 @@
             this.addressTxt.SelectionLength = 0;
             this.addressTxt.SelectionStart = 0;
             this.addressTxt.ShortcutsEnabled = true;
-            this.addressTxt.Size = new System.Drawing.Size(409, 45);
-            this.addressTxt.TabIndex = 4;
+            this.addressTxt.Size = new System.Drawing.Size(221, 45);
+            this.addressTxt.TabIndex = 5;
             this.addressTxt.UseSelectable = true;
             this.addressTxt.WaterMark = "Address";
             this.addressTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -298,7 +303,7 @@
             // 
             // 
             this.contactTxt.CustomButton.Image = null;
-            this.contactTxt.CustomButton.Location = new System.Drawing.Point(146, 1);
+            this.contactTxt.CustomButton.Location = new System.Drawing.Point(155, 1);
             this.contactTxt.CustomButton.Name = "";
             this.contactTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
             this.contactTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -319,8 +324,8 @@
             this.contactTxt.SelectionLength = 0;
             this.contactTxt.SelectionStart = 0;
             this.contactTxt.ShortcutsEnabled = true;
-            this.contactTxt.Size = new System.Drawing.Size(180, 35);
-            this.contactTxt.TabIndex = 1;
+            this.contactTxt.Size = new System.Drawing.Size(189, 35);
+            this.contactTxt.TabIndex = 2;
             this.contactTxt.UseSelectable = true;
             this.contactTxt.WaterMark = "Contact/Phone";
             this.contactTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -355,7 +360,7 @@
             this.nameTxt.SelectionStart = 0;
             this.nameTxt.ShortcutsEnabled = true;
             this.nameTxt.Size = new System.Drawing.Size(226, 35);
-            this.nameTxt.TabIndex = 0;
+            this.nameTxt.TabIndex = 1;
             this.nameTxt.UseSelectable = true;
             this.nameTxt.WaterMark = "Full name";
             this.nameTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -389,7 +394,7 @@
             this.emailTxt.SelectionStart = 0;
             this.emailTxt.ShortcutsEnabled = true;
             this.emailTxt.Size = new System.Drawing.Size(226, 35);
-            this.emailTxt.TabIndex = 2;
+            this.emailTxt.TabIndex = 3;
             this.emailTxt.UseSelectable = true;
             this.emailTxt.WaterMark = "Email";
             this.emailTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -402,7 +407,7 @@
             // 
             // 
             this.confirmTxt.CustomButton.Image = null;
-            this.confirmTxt.CustomButton.Location = new System.Drawing.Point(152, 2);
+            this.confirmTxt.CustomButton.Location = new System.Drawing.Point(161, 2);
             this.confirmTxt.CustomButton.Name = "";
             this.confirmTxt.CustomButton.Size = new System.Drawing.Size(25, 25);
             this.confirmTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -413,7 +418,7 @@
             this.confirmTxt.DisplayIcon = true;
             this.confirmTxt.Icon = global::ARM.Properties.Resources.Lock_24;
             this.confirmTxt.Lines = new string[0];
-            this.confirmTxt.Location = new System.Drawing.Point(285, 343);
+            this.confirmTxt.Location = new System.Drawing.Point(287, 286);
             this.confirmTxt.MaxLength = 32767;
             this.confirmTxt.Name = "confirmTxt";
             this.confirmTxt.PasswordChar = '●';
@@ -423,7 +428,7 @@
             this.confirmTxt.SelectionLength = 0;
             this.confirmTxt.SelectionStart = 0;
             this.confirmTxt.ShortcutsEnabled = true;
-            this.confirmTxt.Size = new System.Drawing.Size(180, 30);
+            this.confirmTxt.Size = new System.Drawing.Size(189, 30);
             this.confirmTxt.TabIndex = 6;
             this.confirmTxt.UseSelectable = true;
             this.confirmTxt.UseSystemPasswordChar = true;
@@ -431,25 +436,6 @@
             this.confirmTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.confirmTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.confirmTxt.Leave += new System.EventHandler(this.confirmTxt_Leave);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.Image = global::ARM.Properties.Resources.Search_Folder_New_32;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(207, 173);
-            this.button1.Name = "button1";
-            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button1.Size = new System.Drawing.Size(110, 30);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Browse";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -460,11 +446,11 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(58, 525);
+            this.button2.Location = new System.Drawing.Point(58, 524);
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(107, 49);
-            this.button2.TabIndex = 13;
+            this.button2.TabIndex = 16;
             this.button2.Text = "Cancel";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
@@ -479,11 +465,11 @@
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button3.Image = global::ARM.Properties.Resources.Submit_01_32;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(364, 525);
+            this.button3.Location = new System.Drawing.Point(364, 524);
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button3.Size = new System.Drawing.Size(103, 49);
-            this.button3.TabIndex = 12;
+            this.button3.TabIndex = 15;
             this.button3.Text = "Submit";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = false;
@@ -493,18 +479,83 @@
             // 
             this.imgCapture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.imgCapture.Image = global::ARM.Properties.Resources.temp1;
-            this.imgCapture.Location = new System.Drawing.Point(207, 39);
+            this.imgCapture.Location = new System.Drawing.Point(99, 51);
             this.imgCapture.Name = "imgCapture";
             this.imgCapture.Size = new System.Drawing.Size(128, 128);
             this.imgCapture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.imgCapture.TabIndex = 25;
             this.imgCapture.TabStop = false;
+            this.imgCapture.Click += new System.EventHandler(this.imgCapture_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Maroon;
+            this.label1.Location = new System.Drawing.Point(96, 182);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(120, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Double Click to Browse ";
+            // 
+            // specialityCbx
+            // 
+            this.specialityCbx.FormattingEnabled = true;
+            this.specialityCbx.ItemHeight = 23;
+            this.specialityCbx.Items.AddRange(new object[] {
+            "LPN",
+            "CNA",
+            "RN",
+            "Other"});
+            this.specialityCbx.Location = new System.Drawing.Point(282, 461);
+            this.specialityCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.specialityCbx.Name = "specialityCbx";
+            this.specialityCbx.PromptText = "Speciality";
+            this.specialityCbx.Size = new System.Drawing.Size(194, 29);
+            this.specialityCbx.TabIndex = 14;
+            this.specialityCbx.UseSelectable = true;
+            // 
+            // socialTxt
+            // 
+            // 
+            // 
+            // 
+            this.socialTxt.CustomButton.Image = null;
+            this.socialTxt.CustomButton.Location = new System.Drawing.Point(189, 1);
+            this.socialTxt.CustomButton.Name = "";
+            this.socialTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
+            this.socialTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.socialTxt.CustomButton.TabIndex = 1;
+            this.socialTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.socialTxt.CustomButton.UseSelectable = true;
+            this.socialTxt.CustomButton.Visible = false;
+            this.socialTxt.DisplayIcon = true;
+            this.socialTxt.Icon = global::ARM.Properties.Resources.City_24__1_;
+            this.socialTxt.Lines = new string[0];
+            this.socialTxt.Location = new System.Drawing.Point(56, 461);
+            this.socialTxt.MaxLength = 32767;
+            this.socialTxt.Name = "socialTxt";
+            this.socialTxt.PasswordChar = '\0';
+            this.socialTxt.PromptText = "SSN";
+            this.socialTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.socialTxt.SelectedText = "";
+            this.socialTxt.SelectionLength = 0;
+            this.socialTxt.SelectionStart = 0;
+            this.socialTxt.ShortcutsEnabled = true;
+            this.socialTxt.Size = new System.Drawing.Size(223, 35);
+            this.socialTxt.TabIndex = 13;
+            this.socialTxt.UseSelectable = true;
+            this.socialTxt.WaterMark = "SSN";
+            this.socialTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.socialTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // AddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 597);
+            this.ClientSize = new System.Drawing.Size(520, 605);
+            this.Controls.Add(this.socialTxt);
+            this.Controls.Add(this.specialityCbx);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.passwordTxt);
             this.Controls.Add(this.dobTxt);
             this.Controls.Add(this.zipTxt);
@@ -518,7 +569,6 @@
             this.Controls.Add(this.confirmTxt);
             this.Controls.Add(this.metroLabel9);
             this.Controls.Add(this.fileUrlTxtBx);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.categoryCbx);
@@ -540,7 +590,6 @@
         private MetroFramework.Controls.MetroComboBox categoryCbx;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox fileUrlTxtBx;
         private MetroFramework.Controls.MetroLabel metroLabel9;
         private MetroFramework.Controls.MetroTextBox confirmTxt;
@@ -554,5 +603,8 @@
         private MetroFramework.Controls.MetroTextBox zipTxt;
         private MetroFramework.Controls.MetroDateTime dobTxt;
         private MetroFramework.Controls.MetroTextBox passwordTxt;
+        private System.Windows.Forms.Label label1;
+        private MetroFramework.Controls.MetroComboBox specialityCbx;
+        private MetroFramework.Controls.MetroTextBox socialTxt;
     }
 }

@@ -24,8 +24,6 @@ namespace ARM
         {
             InitializeComponent();
             /// LoadingWindow.ShowSplashScreen();
-
-
             InitializeCulture();
             /// LoadingWindow.CloseForm();
             LoadSettings();
@@ -113,44 +111,6 @@ namespace ARM
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            createPostgreDB();
-        }
-        private void createPostgreDB()
-        {
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Customer()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Exceptions()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Users()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Invoice()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Product()));
-
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Vendor()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Invoice()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Transaction()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Payment()));
-
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Schedule()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Rate()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Account()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Responsible()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Coverage()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new ItemCoverage()));
-
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Orders()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Instruction()));
-
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Deliveries()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Delivery()));
-
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new ItemReview()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new PatientStatus()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Follow()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new ItemStatus()));
-
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Company()));
-        }
-
         private void createMySqlDB()
         {
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Customer()));
@@ -160,7 +120,7 @@ namespace ARM
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Product()));
 
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Vendor()));
-            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Invoice()));
+            
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Transaction()));
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Payment()));
 
@@ -174,7 +134,7 @@ namespace ARM
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Orders()));
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Instruction()));
 
-            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Deliveries()));
+
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Delivery()));
 
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new ItemReview()));
@@ -183,6 +143,23 @@ namespace ARM
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new ItemStatus()));
 
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Company()));
+
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new CaseTransaction()));
+
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Practitioner()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Care()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Cases()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Condition()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Dosage()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Emergency()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Facility()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new ICD10()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new PatientFollowStatus()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Pharmacy()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Service()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new CaseTransaction()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Queries()));
+
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -235,7 +212,7 @@ namespace ARM
             }
             catch (Exception c)
             {
-               // MessageBox.Show(c.Message);
+                // MessageBox.Show(c.Message);
                 using (ProfileForm form = new ProfileForm(""))
                 {
                     DialogResult dr = form.ShowDialog();
@@ -252,32 +229,32 @@ namespace ARM
         }
         private void LoadUsers()
         {
-           
+
             try
             {
                 u = Users.List();
                 if (u.Count() < 1)
-                {                    
+                {
 
                     using (AddUser form = new AddUser(""))
                     {
                         DialogResult dr = form.ShowDialog();
                         if (dr == DialogResult.OK)
                         {
-                            lblStatus.Text = lblStatus.Text + " Server connected you can continue to login";
+                            lblStatus.Text = lblStatus.Text + " Server connected you can continue to login ";
                             lblStatus.ForeColor = Color.Gray;
                             autocomplete();
                         }
                     }
 
-                    return ;
+                    return;
                 }
                 else
                 {
-                    lblStatus.Text = lblStatus.Text + " Server connected you can continue to login";
+                    lblStatus.Text = lblStatus.Text + " Server connected you can continue to login ";
                     lblStatus.ForeColor = Color.Gray;
                     autocomplete();
-                    return ;
+                    return;
                 }
             }
             catch (Exception c)
@@ -287,7 +264,7 @@ namespace ARM
                 MessageBox.Show(c.Message.ToString());
                 lblStatus.Text = ("No users defined");
                 lblStatus.ForeColor = Color.Red;
-                return ;
+                return;
 
             }
 
@@ -349,20 +326,20 @@ namespace ARM
                 {
                     DBConnect.conn = new NpgsqlConnection("Server=" + Helper.serverIP + ";Port=5432;User Id=postgres;Password=Admin;Database=arm;");
 
-                    LoadCompany();                   
+                    LoadCompany();
 
                 }
                 else
                 {
 
-                    lblStatus.Text = ("No server IP defined !");
+                    lblStatus.Text = (" No server IP defined !");
                     lblStatus.ForeColor = Color.Red;
                 }
 
             }
             else
             {
-                MessageBox.Show("Please start the server");
+                MessageBox.Show(" Please start the server");
                 return;
             }
 
@@ -371,7 +348,7 @@ namespace ARM
 
         List<Users> u = new List<Users>();
         Company c = new Company();
-       
+
         private void autocomplete()
 
         {
@@ -399,6 +376,67 @@ namespace ARM
             {
                 loginBtn.PerformClick();
             }
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            createPostgreDB();
+
+        }
+        private void createPostgreDB()
+        {
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Customer()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Exceptions()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Users()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Invoice()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Product()));
+
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Vendor()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Invoice()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Transaction()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Payment()));
+
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Schedule()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Rate()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Account()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Responsible()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Coverage()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new ItemCoverage()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Orders()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Instruction()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Delivery()));
+
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new ItemReview()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new PatientStatus()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Follow()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new ItemStatus()));
+
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Company()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Practitioner()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Care()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Cases()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Condition()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Dosage()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Emergency()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Facility()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new ICD10()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new PatientFollowStatus()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Pharmacy()));
+
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Service()));
+
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new CaseTransaction()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Queries()));
+
+
+            
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AdvancedForm f =new AdvancedForm();
+             f.Show();
         }
     }
 }

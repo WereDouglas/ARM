@@ -16,7 +16,7 @@ namespace ARM.DB
 {
     public static class DBConnect
     {
-       // public static NpgsqlConnection conn = new NpgsqlConnection("Server=10.0.0.251;Port=5432;User Id=postgres;Password=Admin;Database=arm;");
+        // public static NpgsqlConnection conn = new NpgsqlConnection("Server=10.0.0.251;Port=5432;User Id=postgres;Password=Admin;Database=arm;");
 
         public static NpgsqlConnection conn = new NpgsqlConnection("Server=" + Helper.serverIP + ";Port=5432;User Id=postgres;Password=Admin;Database=arm;");
         static NpgsqlDataReader Readers = null;
@@ -99,9 +99,10 @@ namespace ARM.DB
                 DBConnect.OpenConn();
                 cmd = new NpgsqlCommand(query, DBConnect.conn);
                 Readers = cmd.ExecuteReader();
-              
+
             }
-            catch(Exception c) {
+            catch (Exception c)
+            {
 
                 //throw;// (c.Message.ToString());
             }
@@ -116,7 +117,7 @@ namespace ARM.DB
                 DBConnect.OpenMySqlConn();
                 cmdMySql = new MySqlCommand(query, DBConnect.MySqlConn);
                 Readers = cmd.ExecuteReader();
-                
+
             }
             catch { }
             return ReadersMySql;
@@ -127,21 +128,23 @@ namespace ARM.DB
         {
             Int32 rowsaffected = 0;
 
-            //try
-            //{
-            OpenConn();
+            try
+            {
+                OpenConn();
 
-            NpgsqlCommand command = new NpgsqlCommand(query, conn);
-            rowsaffected = command.ExecuteNonQuery();
+                NpgsqlCommand command = new NpgsqlCommand(query, conn);
+                rowsaffected = command.ExecuteNonQuery();
 
-            CloseConn();
-            // return rowsaffected.ToString();
-            //}
-            //catch (Exception c)
-            //{
-            //    Console.WriteLine("Errr on insert!" + c.Message);
-            //    return "";
-            //}
+                CloseConn();
+                return rowsaffected;
+            }
+            catch (Exception c)
+            {
+                CloseConn();
+                //throw;
+                Console.WriteLine("Errr on insert!" + c.Message);
+                return 0;
+            }
 
             return rowsaffected;
         }
@@ -149,21 +152,22 @@ namespace ARM.DB
         {
             Int32 rowsaffected = 0;
 
-            
+
             OpenMySqlConn();
             MySqlCommand command = new MySqlCommand(query, MySqlConn);
             try
             {
                 rowsaffected = command.ExecuteNonQuery();
             }
-            catch(Exception c) {
+            catch (Exception c)
+            {
 
                 Console.WriteLine("Errr on insert!" + c.Message);
-               // throw;
+                // throw;
                 //    return "";
             }
             CloseMySqlConn();
-            
+
 
             return rowsaffected.ToString();
         }
@@ -232,7 +236,7 @@ namespace ARM.DB
             rowsaffected = command.ExecuteNonQuery();
 
             CloseConn();
-            return rowsaffected.ToString();
+            return SQL;
             //}
             //catch (Exception c)
             //{
@@ -293,15 +297,16 @@ namespace ARM.DB
             // Execute command
             OpenMySqlConn();
             MySqlCommand command = new MySqlCommand(SQL, MySqlConn);
-            //try
-            //{
+            try
+            {
                 rowsaffected = command.ExecuteNonQuery();
-            //}
-            //catch(Exception u) {
+            }
+            catch (Exception u)
+            {
 
-            //    System.Diagnostics.Debug.WriteLine(u.Message);
+                System.Diagnostics.Debug.WriteLine(u.Message);
 
-            //}
+            }
 
             CloseMySqlConn();
             return rowsaffected.ToString();
@@ -333,21 +338,28 @@ namespace ARM.DB
             {
                 //object propValue = properties[i].GetValue(objGen, null);
                 string[] typeValue = properties[i].ToString().Split(' ');
-                if (typeValue[1].ToString().IndexOf("image", StringComparison.OrdinalIgnoreCase) <= 0)
-                {
-                    SQL += "" + typeValue[1].ToString() + " varchar(1000),";
-                }
-                else
+                if (typeValue[1].ToString().IndexOf("image", StringComparison.OrdinalIgnoreCase) >= 0)
                 {
                     SQL += "" + typeValue[1].ToString() + " text,";
                 }
-
+                else if (typeValue[1].ToString().IndexOf("strings", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    SQL += "" + typeValue[1].ToString() + " text,";
+                }
+                else
+                {
+                    SQL += "" + typeValue[1].ToString() + " varchar(1000),";
+                }
 
             }
 
             // get last attribute here           
             string[] lastType = properties[properties.Length - 1].ToString().Split(' ');
-            if (lastType[1].ToString().IndexOf("image", StringComparison.OrdinalIgnoreCase) <= 0)
+            if (lastType[1].ToString().IndexOf("image", StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                SQL += "" + lastType[1].ToString() + " text";
+            }
+            else if (lastType[1].ToString().IndexOf("strings", StringComparison.OrdinalIgnoreCase) >= 0)
             {
                 SQL += "" + lastType[1].ToString() + " text";
             }
@@ -355,6 +367,7 @@ namespace ARM.DB
             {
                 SQL += "" + lastType[1].ToString() + " varchar(1000)";
             }
+
 
             // SQL += "" + lastType[1].ToString() + " varchar(1000)";
 
@@ -529,7 +542,7 @@ namespace ARM.DB
             return SQL;
 
         }
-        public static void UpdatePostgre(Object objGen, string idValue)
+        public static string UpdatePostgre(Object objGen, string idValue)
         {
             Int32 rowsaffected = 0;
             //try
@@ -598,9 +611,9 @@ namespace ARM.DB
             OpenConn();
             NpgsqlCommand command = new NpgsqlCommand(SQL, conn);
             rowsaffected = command.ExecuteNonQuery();
-
+            
             CloseConn();
-
+            return SQL;
             //}
             //catch (Exception c)
             //{
@@ -676,19 +689,20 @@ namespace ARM.DB
             //{
             //    Console.WriteLine("Errr on update!");
             //}
+            try
+            {
+                OpenMySqlConn();
+                MySqlCommand command = new MySqlCommand(SQL, MySqlConn);
+                rowsaffected = command.ExecuteNonQuery();
 
-            OpenMySqlConn();
-            MySqlCommand command = new MySqlCommand(SQL, MySqlConn);
-            rowsaffected = command.ExecuteNonQuery();
+                CloseMySqlConn();
 
-            CloseMySqlConn();
+            }
+            catch (Exception c)
+            {
+                Console.WriteLine("Errr on insert!" + c.Message);
 
-            //}
-            //catch (Exception c)
-            //{
-            //    Console.WriteLine("Errr on insert!" + c.Message);
-            //    return "";
-            //}
+            }
 
 
         }

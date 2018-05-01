@@ -64,9 +64,8 @@
             this.categoryCbx.FormattingEnabled = true;
             this.categoryCbx.ItemHeight = 23;
             this.categoryCbx.Items.AddRange(new object[] {
-            "Administrator",
-            "Physician",
-            "Employee",
+            "Doctor",
+            "Nurse",
             "Other"});
             this.categoryCbx.Location = new System.Drawing.Point(294, 256);
             this.categoryCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -74,6 +73,7 @@
             this.categoryCbx.PromptText = "Category/type";
             this.categoryCbx.Size = new System.Drawing.Size(180, 29);
             this.categoryCbx.TabIndex = 3;
+            this.categoryCbx.Theme = MetroFramework.MetroThemeStyle.Light;
             this.categoryCbx.UseSelectable = true;
             // 
             // fileUrlTxtBx
@@ -445,7 +445,7 @@
             this.officeTxt.CustomButton.UseSelectable = true;
             this.officeTxt.CustomButton.Visible = false;
             this.officeTxt.DisplayIcon = true;
-            this.officeTxt.Icon = global::ARM.Properties.Resources.Mail_24;
+            this.officeTxt.Icon = global::ARM.Properties.Resources.Orientation_Portrait_24;
             this.officeTxt.Lines = new string[0];
             this.officeTxt.Location = new System.Drawing.Point(58, 343);
             this.officeTxt.MaxLength = 32767;
@@ -481,7 +481,7 @@
             this.specialityTxt.DisplayIcon = true;
             this.specialityTxt.Icon = ((System.Drawing.Image)(resources.GetObject("specialityTxt.Icon")));
             this.specialityTxt.Lines = new string[0];
-            this.specialityTxt.Location = new System.Drawing.Point(294, 508);
+            this.specialityTxt.Location = new System.Drawing.Point(294, 502);
             this.specialityTxt.MaxLength = 32767;
             this.specialityTxt.Name = "specialityTxt";
             this.specialityTxt.PasswordChar = '\0';
@@ -695,7 +695,7 @@
             this.Name = "PractitionerDialog";
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
             this.Style = MetroFramework.MetroColorStyle.White;
-            this.Text = "Practitioner/Doctor";
+            this.Text = "Doctor";
             ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

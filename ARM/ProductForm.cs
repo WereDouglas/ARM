@@ -63,7 +63,7 @@ namespace ARM
             {
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, c.Image as string, b, c.Name,c.Category, c.Type, c.Description, c.Cost, c.BatchNo,c.SerialNo,c.Barcode,c.UnitOfMeasure,c.Manufacturer, c.Sync, c.Created, view, delete });
+                    t.Rows.Add(new object[] { false, c.Id, c.Image as string, b, c.Name,c.Category, c.Type, c.Description, c.Cost, c.Batch,c.Serial,c.Barcode,c.UnitOfMeasure,c.Manufacturer, c.Sync, c.Created, view, delete });
 
                 }
                 catch (Exception m)
@@ -138,6 +138,8 @@ namespace ARM
                 {
                     string Query = "DELETE from item WHERE id ='" + item + "'";
                     DBConnect.QueryPostgre(Query);
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    DBConnect.InsertPostgre(q);
                     //  MessageBox.Show("Information deleted");
                 }
             }
@@ -181,6 +183,8 @@ namespace ARM
                     {
                         string Query = "DELETE from item WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
                         DBConnect.QueryPostgre(Query);
+                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        DBConnect.InsertPostgre(q);
                         MessageBox.Show("Information deleted");
                         LoadData();
 

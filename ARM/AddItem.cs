@@ -91,6 +91,8 @@ namespace ARM
             Product c = new Product(id, nameTxt.Text,codeTxt.Text,categoryCbx.Text, typeCbx.Text, descriptionxt.Text, costTxt.Text, batchTxt.Text, serialTxt.Text,barTxt.Text,unitTxt.Text,unitDescTxt.Text,manuTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false,Helper.CompanyID, fullimage);
             if (DBConnect.InsertPostgre(c) != "")
             {
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(c)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                DBConnect.InsertPostgre(q);
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;
                 this.Dispose();
@@ -117,6 +119,11 @@ namespace ARM
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            
+        }
+
+        private void imgCapture_Click(object sender, EventArgs e)
+        {
             OpenFileDialog open = new OpenFileDialog();
             open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
             if (open.ShowDialog() == DialogResult.OK)
@@ -126,6 +133,11 @@ namespace ARM
                 imgCapture.SizeMode = PictureBoxSizeMode.StretchImage;
                 fileUrlTxtBx.Text = open.FileName;
             }
+        }
+
+        private void AddItem_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

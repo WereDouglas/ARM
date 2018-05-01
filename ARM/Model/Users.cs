@@ -20,15 +20,17 @@ namespace ARM.Model
         private string state;
         private string zip;
         private string category;
+        private string ssn;
+        private string speciality;
         private string gender;
         private string created;
-       private bool sync;
+        private bool sync;
         private string companyID;
         private string password;
         private string image;
         public Users() { }
 
-        public Users(string id, string name, string email, string contact, string address, string city, string state, string zip, string category, string gender, string created,bool sync,string companyID, string password, string image)
+        public Users(string id, string name, string email, string contact, string address, string city, string state, string zip, string category, string ssn, string speciality, string gender, string created, bool sync, string companyID, string password, string image)
         {
             this.Id = id;
             this.Name = name;
@@ -39,9 +41,12 @@ namespace ARM.Model
             this.State = state;
             this.Zip = zip;
             this.Category = category;
+            this.Ssn = ssn;
+            this.Speciality = speciality;
             this.Gender = gender;
             this.Created = created;
-            this.Sync = sync;this.CompanyID = companyID;
+            this.Sync = sync;
+            this.CompanyID = companyID;
             this.Password = password;
             this.Image = image;
         }
@@ -56,7 +61,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Users ps = new Users(Reader["id"].ToString(), Reader["name"].ToString(), Reader["email"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["category"].ToString(), Reader["gender"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["password"].ToString(), Reader["image"].ToString());
+                Users ps = new Users(Reader["id"].ToString(), Reader["name"].ToString(), Reader["email"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["category"].ToString(), Reader["ssn"].ToString(), Reader["speciality"].ToString(), Reader["gender"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["password"].ToString(), Reader["image"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -70,7 +75,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Users ps = new Users(Reader["id"].ToString(), Reader["name"].ToString(), Reader["email"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["category"].ToString(), Reader["gender"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["password"].ToString(), Reader["image"].ToString());
+                Users ps = new Users(Reader["id"].ToString(), Reader["name"].ToString(), Reader["email"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["category"].ToString(), Reader["ssn"].ToString(), Reader["speciality"].ToString(), Reader["gender"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["password"].ToString(), Reader["image"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -86,7 +91,7 @@ namespace ARM.Model
                 MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
                 while (Reader.Read())
                 {
-                    Users ps = new Users(Reader["id"].ToString(), Reader["name"].ToString(), Reader["email"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["category"].ToString(), Reader["gender"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["password"].ToString(), Reader["image"].ToString());
+                    Users ps = new Users(Reader["id"].ToString(), Reader["name"].ToString(), Reader["email"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["category"].ToString(), Reader["ssn"].ToString(), Reader["speciality"].ToString(), Reader["gender"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["password"].ToString(), Reader["image"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
@@ -107,22 +112,23 @@ namespace ARM.Model
         public string State { get => state; set => state = value; }
         public string Zip { get => zip; set => zip = value; }
         public string Category { get => category; set => category = value; }
+        public string Ssn { get => ssn; set => ssn = value; }
+        public string Speciality { get => speciality; set => speciality = value; }
         public string Gender { get => gender; set => gender = value; }
         public string Created { get => created; set => created = value; }
-        public bool Sync { get => sync; set => sync = value; } public string CompanyID { get => companyID; set => companyID = value; }
+        public bool Sync { get => sync; set => sync = value; }
+        public string CompanyID { get => companyID; set => companyID = value; }
         public string Password { get => password; set => password = value; }
         public string Image { get => image; set => image = value; }
 
         public static Users Select(string userID)
         {
-
             string Q = "SELECT * FROM users WHERE id = '" + userID + "'";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                c = new Users(Reader["id"].ToString(), Reader["name"].ToString(), Reader["email"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["category"].ToString(), Reader["gender"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["password"].ToString(), Reader["image"].ToString());
-
+                c = new Users(Reader["id"].ToString(), Reader["name"].ToString(), Reader["email"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["category"].ToString(), Reader["ssn"].ToString(), Reader["speciality"].ToString(), Reader["gender"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["password"].ToString(), Reader["image"].ToString());
             }
             DBConnect.CloseConn();
             return c;

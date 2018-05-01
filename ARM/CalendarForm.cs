@@ -43,28 +43,36 @@ namespace ARM
                 string user = "";
                 try { user = Users.Select(e.UserID).Name; } catch { }
                 string cus = "";
-                try { cus = Customer.Select(e.UserID).Name; } catch { }
-                try
-                {
+                try { cus = Customer.Select(e.CustomerID).Name; } catch { }
+                //try
+                //{
                     CalendarItem cal = new CalendarItem(calendar1, Convert.ToDateTime(e.Starts), Convert.ToDateTime(e.Ends), cus + " C/O " + user + " " + e.Cost + " " + e.Details);
 
-                    if (e.Category == "Shift")
+                    Image img = Helper.Base64ToImage(Customer.Select(e.CustomerID).Image.Replace('"', ' ').Trim());
+                    System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
+                    Bitmap bps = new Bitmap(bmp, 30, 30);
+                    Image dstImage = Helper.CropToCircle(bps, Color.White);
+
+                    cal.Image = dstImage;
+                    //cal.ImageAlign = CalendarItemImageAlign.East;
+                     cal.Tag = e.Id;
+                    if (e.Status == "Paid")
                     {
                         cal.ApplyColor(Color.LightGreen);
                     }
-                    else
+                    if (e.Status == "Pending")
                     {
-                        cal.ApplyColor(Color.Salmon);
+                        cal.ApplyColor(Color.Orange);
                     }
-                    //if (state == "Medium") { cal.ApplyColor(Color.LightGreen); }
-                    //if (state == "Low") { cal.ApplyColor(Color.CornflowerBlue); }
-                    //if (state == "High") { cal.ApplyColor(Color.Salmon); }
-                    // if (state == "none") { cal.ApplyColor(Color.LightSeaGreen); }
-
+                    if (e.Status == "Cancelled")
+                    {
+                        cal.ApplyColor(Color.LightPink);
+                    }                   
+                   
                     _items.Add(cal);
 
-                }
-                catch { }
+                //}
+                //catch { }
             }
             PlaceItems();
 
@@ -111,6 +119,14 @@ namespace ARM
         private void calendar1_ItemClick(object sender, CalendarItemEventArgs e)
         {
             MessageBox.Show(e.Item.Text);
+            using (StateDialog form = new StateDialog(e.Item.Tag.ToString()))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    LoadingCalendar();
+                }
+            }
         }
 
         private void calendar1_ItemDeleted(object sender, CalendarItemEventArgs e)

@@ -49,7 +49,7 @@ namespace ARM
             t.Columns.Add(new DataColumn("View", typeof(Image)));
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));
 
-            Image view = new Bitmap(Properties.Resources.Document_Edit_24__1_);
+            Image view = new Bitmap(Properties.Resources.Note_Memo_16);
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
 
             foreach (Delivery c in Delivery.List())
@@ -111,6 +111,9 @@ namespace ARM
                 {
                     string Query = "DELETE from delivery WHERE id ='" + item + "'";
                     DBConnect.QueryPostgre(Query);
+
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    DBConnect.InsertPostgre(q);
                     //  MessageBox.Show("Information deleted");
                 }
             }
@@ -133,7 +136,7 @@ namespace ARM
             }
             if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
             {
-                using (DeliveryPickupForm form = new DeliveryPickupForm(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString(),""))
+                using (DeliveryPickupForm form = new DeliveryPickupForm("",dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
                 {
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)
@@ -152,6 +155,10 @@ namespace ARM
                     {
                         string Query = "DELETE from delivery WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
                         DBConnect.QueryPostgre(Query);
+
+
+                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        DBConnect.InsertPostgre(q);
                         MessageBox.Show("Information deleted");
                         LoadData();
 

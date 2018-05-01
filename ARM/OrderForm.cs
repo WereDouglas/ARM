@@ -1,6 +1,7 @@
 ﻿using ARM.DB;
 using ARM.Model;
 using ARM.Util;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,10 +37,7 @@ namespace ARM
             t.Columns.Add("uriCus");
             t.Columns.Add(new DataColumn("ImgCus", typeof(Bitmap)));//1  
             t.Columns.Add("Customer");
-            t.Columns.Add("Physician");
-            t.Columns.Add("Product");
-            t.Columns.Add("uriPro");
-            t.Columns.Add(new DataColumn("imgPro", typeof(Bitmap)));//1  
+            t.Columns.Add("Physician");             
             t.Columns.Add("Date & Time");
             t.Columns.Add("By");
             t.Columns.Add("Dispensed On");
@@ -59,11 +57,12 @@ namespace ARM
             t.Columns.Add("Created");
             t.Columns.Add("Sync");           
             t.Columns.Add("Action");
-            t.Columns.Add("Other");
+            t.Columns.Add("Other");          
+            t.Columns.Add("New delivery");
             t.Columns.Add(new DataColumn("View", typeof(Image)));
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));
 
-            Image view = new Bitmap(Properties.Resources.Document_Edit_24__1_);
+            Image view = new Bitmap(Properties.Resources.Note_Memo_16);
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
 
             Bitmap b = new Bitmap(50, 50);
@@ -80,18 +79,40 @@ namespace ARM
             foreach (Orders c in Orders.List())
             {
                 string imageCus = "";
-                string imagePro = "";
+                string doctor = "";
 
                 try { imageCus = Customer.Select(c.CustomerID).Image; } catch { }
                 
 
-                string prod = "";
+               
                 string cus = "";
                
                 try { cus = Customer.Select(c.CustomerID).Name; } catch { }
+                try { doctor = Practitioner.Select(c.PractitionerID).Name; } catch { }
+
+                Dictionary<string, bool> placeValues = JsonConvert.DeserializeObject<Dictionary<string, bool>>(c.SetupLocation);
+                string place = "";
+                foreach (var t in placeValues)
+                {
+                    place = place + "\n" + t.Key + ":[" + t.Value + "]";
+                }
+                Dictionary<string, bool> typeValues = JsonConvert.DeserializeObject<Dictionary<string, bool>>(c.DischargeLocation);
+                string type = "";
+                foreach (var t in typeValues)
+                {
+                    type = type + "\n" + t.Key + ":[" + t.Value + "]";
+                }
+
+                Dictionary<string, bool> actionValues = JsonConvert.DeserializeObject<Dictionary<string, bool>>(c.Action);
+                string action = "";
+                foreach (var t in actionValues)
+                {
+                    action = action + "\n" + t.Key + ":[" + t.Value +"]";
+                }
+
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, imageCus as string, b, c.CustomerID, c.UserID, " "+ prod, imagePro as string, b2, c.OrderDateTime, c.OrderBy, c.DispenseDateTime, c.DispenseBy, c.CustomerType, c.Diagnosis, c.Surgery, c.ClinicalDate,  c.SetupLocation, c.SetupDate, c.DischargeLocation, c.DischargeDate, c.Notification, c.NotificationDate, c.Authoriz, c.AuthorizationDate, c.Created, c.Sync, c.Action, c.Other, view, delete });
+                    t.Rows.Add(new object[] { false, c.Id, imageCus as string, b, cus, doctor, c.OrderDateTime, c.OrderBy, c.DispenseDateTime, c.DispenseBy, c.CustomerType, c.Diagnosis, c.Surgery, c.ClinicalDate, place, c.SetupDate, type, c.DischargeDate, c.Notification, c.NotificationDate, c.Authoriz, c.AuthorizationDate, c.Created, c.Sync,action, c.Other,"New Delivery", view, delete });
 
                 }
                 catch (Exception m)
@@ -135,16 +156,13 @@ namespace ARM
             });
 
             dtGrid.AllowUserToAddRows = false;
-            dtGrid.Columns["Customer"].DefaultCellStyle.BackColor = Color.LightGreen;
+          //  dtGrid.Columns["Customer"].DefaultCellStyle.BackColor = Color.LightGreen;
             dtGrid.Columns["Physician"].DefaultCellStyle.BackColor = Color.WhiteSmoke;
             dtGrid.Columns["ID"].Visible = false;
-            dtGrid.Columns["ImgCus"].DefaultCellStyle.BackColor = Color.LightGreen;
+          //  dtGrid.Columns["ImgCus"].DefaultCellStyle.BackColor = Color.LightGreen;
             dtGrid.Columns["uriCus"].Visible = false;
 
-            dtGrid.Columns["uriPro"].Visible = false;
-            dtGrid.Columns["imgPro"].DefaultCellStyle.BackColor = Color.Wheat;
-
-
+          
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -179,6 +197,8 @@ namespace ARM
                 {
                     string Query = "DELETE from orders WHERE id ='" + item + "'";
                     DBConnect.QueryPostgre(Query);
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    DBConnect.InsertPostgre(q);
                     //  MessageBox.Show("Information deleted");
                 }
             }
@@ -201,7 +221,18 @@ namespace ARM
             }
             if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
             {
-                using (OrderIntakeForm form = new OrderIntakeForm(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
+                using (OrderIntakeForm form = new OrderIntakeForm("",dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
+                {
+                    DialogResult dr = form.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                        LoadData();
+                    }
+                }
+            }
+            if (e.ColumnIndex == dtGrid.Columns["New delivery"].Index && e.RowIndex >= 0)
+            {
+                using (DeliveryPickupForm form = new DeliveryPickupForm(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString(), ""))
                 {
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)
@@ -220,6 +251,8 @@ namespace ARM
                     {
                         string Query = "DELETE from orders WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
                         DBConnect.QueryPostgre(Query);
+                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        DBConnect.InsertPostgre(q);
                         MessageBox.Show("Information deleted");
                         LoadData();
 
@@ -244,7 +277,7 @@ namespace ARM
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            OrderIntakeForm o = new OrderIntakeForm(null);
+            OrderIntakeForm o = new OrderIntakeForm("","");
             o.Show();
         }
     }

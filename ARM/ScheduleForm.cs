@@ -54,18 +54,14 @@ namespace ARM
             
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));
 
-            Image view = new Bitmap(Properties.Resources.Document_Edit_24__1_);
+            Image view = new Bitmap(Properties.Resources.Note_Memo_16);
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
-
-
-
-
 
             foreach (Schedule c in Schedule.List())
             {
                 string user = "";
                 string cus = "";
-                try { user = Vendor.Select(c.UserID).Name; } catch { }
+                try { user = Users.Select(c.UserID).Name; } catch { }
                 try { cus = Customer.Select(c.CustomerID).Name; } catch { }
                 try
                 {
@@ -83,7 +79,7 @@ namespace ARM
 
             dtGrid.AllowUserToAddRows = false;
             dtGrid.Columns["Start"].DefaultCellStyle.BackColor = Color.LightGreen;
-            dtGrid.Columns["End"].DefaultCellStyle.BackColor = Color.LightCoral;
+            dtGrid.Columns["End"].DefaultCellStyle.BackColor = Color.LightPink;
             dtGrid.Columns["ID"].Visible = false;
             string summary = "";
             foreach (DataGridViewRow row in dtGrid.Rows)
@@ -96,29 +92,16 @@ namespace ARM
                 catch { }
                 if (summary.Contains("Shift"))
                 {
-                    row.DefaultCellStyle.ForeColor = Color.Azure;
+                    row.DefaultCellStyle.ForeColor = Color.Tomato;
                     row.DefaultCellStyle.Font = new Font("Calibri", 9.5F, FontStyle.Bold, GraphicsUnit.Pixel);
                 }
                 else
                 {
-                    row.DefaultCellStyle.ForeColor = Color.Orange;
+                    row.DefaultCellStyle.ForeColor = Color.Pink;
                 }
 
             }
-            DataTable dtConnectorSource = new DataTable();
-
-            dtConnectorSource.Columns.Add("ConnectorName", typeof(int));
-            dtConnectorSource.Columns.Add("ConnectorNameDisplay", typeof(String));
-
-            DataGridViewComboBoxColumn cmb = new DataGridViewComboBoxColumn();
-            cmb.DataSource = dtConnectorSource;
-            cmb.DisplayMember = "ConnectorNameDisplay";
-            cmb.ValueMember = "ConnectorName";
-
-            cmb.DataPropertyName = "ConnectorName";
-
-            dtGrid.Columns.Add(cmb);
-
+          
 
         }
 
@@ -154,7 +137,11 @@ namespace ARM
                 {
                     string Query = "DELETE from schedule WHERE id ='" + item + "'";
                     DBConnect.QueryPostgre(Query);
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    DBConnect.InsertPostgre(q);
                     //  MessageBox.Show("Information deleted");
+
+
                 }
             }
         }
@@ -178,43 +165,40 @@ namespace ARM
             try
             {
 
-                if (e.ColumnIndex == dtGrid.Columns["Delete"].Index && e.RowIndex >= 0)
-                {
-
-                    if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Schedule? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    {
-                        string Query = "DELETE from schedule WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
-                        DBConnect.QueryPostgre(Query);
-                        MessageBox.Show("Information deleted");
-                        LoadData();
-
-                    }
-
-                }
+                
 
             }
             catch { }
 
-            //// Bind grid cell with combobox and than bind combobox with datasource.  
-            //DataGridViewComboBoxCell l_objGridDropbox = new DataGridViewComboBoxCell();
+            if (e.ColumnIndex == dtGrid.Columns["Delete"].Index && e.RowIndex >= 0)
+            {
 
-            //// Check the column  cell, in which it click.  
-            //if (dtGrid.Columns[e.ColumnIndex].Name.Contains("Category"))
-            //{
-            //    // On click of datagridview cell, attched combobox with this click cell of datagridview  
-            //    DataGridViewComboBoxColumn dgvCmb = new DataGridViewComboBoxColumn();
-            //    dgvCmb.HeaderText = "Name";
-            //    dgvCmb.Items.Add("Ghanashyam");
-            //    dgvCmb.Items.Add("Jignesh");
-            //    dgvCmb.Items.Add("Ishver");
-            //    dgvCmb.Items.Add("Anand");
-            //    dgvCmb.Name = "cmbName";
-            //    dtGrid.Columns.Add(dgvCmb);
-            //}
+                if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Schedule? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    string Query = "DELETE from schedule WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
+                    DBConnect.QueryPostgre(Query);
+
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName,Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    DBConnect.InsertPostgre(q);
+
+                    MessageBox.Show("Information deleted");
+                    LoadData();
+
+                }
+
+            }
 
             if (dtGrid.Columns[e.ColumnIndex].Name.Contains("Status"))
             {
-              
+                using (StateDialog form = new StateDialog(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
+                {
+                    DialogResult dr = form.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                     
+                    }
+                }
+
             }
 
 

@@ -36,12 +36,12 @@
             this.payrollChk = new MetroFramework.Controls.MetroRadioButton();
             this.lblStatus = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.passwordTxt = new MetroFramework.Controls.MetroTextBox();
             this.contactTxt = new MetroFramework.Controls.MetroTextBox();
             this.loginBtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -65,10 +65,10 @@
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 12;
-            this.metroPanel1.Location = new System.Drawing.Point(66, 103);
+            this.metroPanel1.Location = new System.Drawing.Point(132, 89);
             this.metroPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(358, 402);
+            this.metroPanel1.Size = new System.Drawing.Size(345, 402);
             this.metroPanel1.TabIndex = 46;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
@@ -98,11 +98,11 @@
             // 
             // lblStatus
             // 
-            this.lblStatus.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(55, 42);
+            this.lblStatus.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(11, 42);
             this.lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(381, 43);
+            this.lblStatus.Size = new System.Drawing.Size(580, 29);
             this.lblStatus.TabIndex = 3;
             this.lblStatus.Text = "  :  ";
             this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -113,32 +113,18 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Image = global::ARM.Properties.Resources.Gear_24;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(281, 514);
+            this.button4.Location = new System.Drawing.Point(11, 517);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(143, 35);
+            this.button4.Size = new System.Drawing.Size(147, 35);
             this.button4.TabIndex = 0;
             this.button4.Text = "Server Settings";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button2
-            // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::ARM.Properties.Resources.Folder_Sharing_16;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(14, 514);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(126, 35);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Setup Remote Database";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
-            // 
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(186, 6);
+            this.pictureBox2.Location = new System.Drawing.Point(265, 6);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(111, 32);
@@ -260,14 +246,28 @@
             this.loginBtn.UseVisualStyleBackColor = false;
             this.loginBtn.Click += new System.EventHandler(this.button3_Click);
             // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::ARM.Properties.Resources.Command_Refresh_16;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(485, 517);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 35);
+            this.button1.TabIndex = 51;
+            this.button1.Text = "Advanced settings";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 561);
+            this.ClientSize = new System.Drawing.Size(602, 561);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.metroPanel1);
             this.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -298,8 +298,8 @@
         private MetroFramework.Controls.MetroRadioButton medicalChk;
         private MetroFramework.Controls.MetroRadioButton payrollChk;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Button button1;
     }
 }

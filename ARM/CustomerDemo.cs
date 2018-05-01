@@ -33,6 +33,7 @@ namespace ARM
             }
             if (!string.IsNullOrEmpty(customerID))
             {
+                CustomerID = customerID;
                 Profile(customerID);
                 saveBtn.Visible = false;
             }
@@ -59,6 +60,9 @@ namespace ARM
             ssnTxt.Text = c.Ssn;
             dobTxt.Text = c.Dob;
             categoryCbx.Text = c.Category;
+            heightTxt.Text = c.Height;
+            weightTxt.Text = c.Weight;
+            genderCbx.Text = c.Gender;
             try
             {
                 Image img = Helper.Base64ToImage(c.Image.ToString());
@@ -73,6 +77,10 @@ namespace ARM
                 Helper.Exceptions(t.Message + "view load image for window ");
 
             }
+            LoadCondition();
+            LoadCoverage();
+            LoadEmergency();
+            LoadPractitioner();
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -81,15 +89,7 @@ namespace ARM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
-            if (open.ShowDialog() == DialogResult.OK)
-            {
-                // display image in picture box
-                imgCapture.Image = new Bitmap(open.FileName);
-                imgCapture.SizeMode = PictureBoxSizeMode.StretchImage;
-                fileUrlTxtBx.Text = open.FileName;
-            }
+           
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -98,9 +98,11 @@ namespace ARM
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
            
-            Customer c = new Customer(CustomerID, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), ssnTxt.Text, dobTxt.Text, categoryCbx.Text,heightTxt.Text,weightTxt.Text, false,Helper.CompanyID, fullimage);
+            Customer c = new Customer(CustomerID, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), ssnTxt.Text, dobTxt.Text, categoryCbx.Text,Helper.CleanString(heightTxt.Text),weightTxt.Text,genderCbx.Text, false,Helper.CompanyID, fullimage);
             if (DBConnect.InsertPostgre(c) != "")
             {
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(c)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                DBConnect.InsertPostgre(q);
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;
                 this.Dispose();
@@ -111,9 +113,11 @@ namespace ARM
 
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
-            Customer c = new Customer(customerID, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), ssnTxt.Text, dobTxt.Text, categoryCbx.Text, heightTxt.Text, weightTxt.Text, false, Helper.CompanyID, fullimage);
+            Customer c = new Customer(customerID, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), ssnTxt.Text, dobTxt.Text, categoryCbx.Text, heightTxt.Text, weightTxt.Text, genderCbx.Text, false, Helper.CompanyID, fullimage);
             DBConnect.UpdatePostgre(c, customerID);
 
+            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(DBConnect.UpdatePostgre(c, customerID))), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+            DBConnect.InsertPostgre(q);
             MessageBox.Show("Information Updated");
             this.DialogResult = DialogResult.OK;
             this.Dispose();
@@ -260,7 +264,7 @@ namespace ARM
             {
                 g.DrawString("Loading...", this.Font, new SolidBrush(Color.Black), 0f, 0f);
             }
-            Image view = new Bitmap(Properties.Resources.Document_Edit_24__1_);
+            Image view = new Bitmap(Properties.Resources.Note_Memo_16);
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
             string Q = "SELECT * FROM emergency WHERE customerID = '" + CustomerID + "' ";
             foreach (Emergency c in Emergency.List(Q))
@@ -306,6 +310,84 @@ namespace ARM
             dtGridEmerg.RowTemplate.Height = 60;
             dtGridEmerg.Columns["uri"].Visible = false;
             dtGridEmerg.Columns["id"].Visible = false;
+            // dtGrid.Columns["select"].Width = 30;
+
+        }
+
+        public void LoadPractitioner()
+        {
+            // create and execute query  
+            t = new DataTable();
+
+            t.Columns.Add("id");
+            t.Columns.Add("uri");
+            t.Columns.Add(new DataColumn("Img", typeof(Bitmap)));//1
+            
+            t.Columns.Add("Name");
+            t.Columns.Add("Contact");
+            t.Columns.Add("Address");
+            t.Columns.Add("City");
+            t.Columns.Add("State");
+            t.Columns.Add("Zip");
+            t.Columns.Add("Gender");
+          
+            t.Columns.Add("Sync");
+            t.Columns.Add("Created");
+
+            t.Columns.Add(new DataColumn("Delete", typeof(Image)));//1
+
+
+            Bitmap b = new Bitmap(50, 50);
+            using (Graphics g = Graphics.FromImage(b))
+            {
+                g.DrawString("Loading...", this.Font, new SolidBrush(Color.Black), 0f, 0f);
+            }
+            Image view = new Bitmap(Properties.Resources.Note_Memo_16);
+            Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
+            string Q = "SELECT * FROM practitioner WHERE customerID = '" + CustomerID + "' ";
+            foreach (Practitioner c in Practitioner.List(Q))
+            {
+                try
+                {
+                    t.Rows.Add(new object[] { c.Id, c.Image as string, b, c.Name, c.Contact, c.Address, c.City, c.State, c.Zip, c.Gender, c.Sync, c.Created, delete });
+
+                }
+                catch (Exception m)
+                {
+                    MessageBox.Show("" + m.Message);
+                    Helper.Exceptions(m.Message + "Viewing customer {each customer list }" + c.Name);
+                }
+            }
+
+            dtGridMed.DataSource = t;
+
+            ThreadPool.QueueUserWorkItem(delegate
+            {
+                foreach (DataRow row in t.Rows)
+                {
+                    try
+                    {
+
+                        Image img = Helper.Base64ToImage(row["uri"].ToString().Replace('"', ' ').Trim());
+                        System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
+                        Bitmap bps = new Bitmap(bmp, 50, 50);
+                        Image dstImage = Helper.CropToCircle(bps, Color.White);
+                        row["Img"] = dstImage;
+
+                    }
+                    catch
+                    {
+
+                    }
+                }
+            });
+
+            dtGridMed.AllowUserToAddRows = false;
+            // dtGrid.Columns["View"].DefaultCellStyle.BackColor = Color.LightGreen;
+            //  dtGrid.Columns["Delete"].DefaultCellStyle.BackColor = Color.Red;
+            dtGridMed.RowTemplate.Height = 60;
+            dtGridMed.Columns["uri"].Visible = false;
+            dtGridMed.Columns["id"].Visible = false;
             // dtGrid.Columns["select"].Width = 30;
 
         }
@@ -371,7 +453,7 @@ namespace ARM
             // dtGrid.Columns["View"].DefaultCellStyle.BackColor = Color.LightGreen;
             //  dtGrid.Columns["Delete"].DefaultCellStyle.BackColor = Color.Red;
             dtGridCond.RowTemplate.Height = 60;
-            dtGridCond.Columns["uri"].Visible = false;
+           
             dtGridCond.Columns["id"].Visible = false;
             
 
@@ -400,8 +482,37 @@ namespace ARM
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    LoadCoverage();
+                    LoadPractitioner();
                 }
+            }
+        }
+
+        private void imgCapture_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                // display image in picture box
+                imgCapture.Image = new Bitmap(open.FileName);
+                imgCapture.SizeMode = PictureBoxSizeMode.StretchImage;
+                fileUrlTxtBx.Text = open.FileName;
+            }
+        }
+
+        private void dtGridMed_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dtGridMed.Columns["Delete"].Index && e.RowIndex >= 0)
+            {
+                if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Practitioner? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    string Query = "DELETE from practitioner WHERE id ='" + dtGridMed.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
+                    DBConnect.QueryPostgre(Query);
+                    MessageBox.Show("Information deleted");
+                    LoadCondition();
+
+                }
+
             }
         }
     }

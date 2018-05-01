@@ -21,14 +21,16 @@ namespace ARM.Model
         private double cost;
         private string units;       
         private double total;
-        private string limit;
+        private double tax;
+        private double coverage;
+        private double self;
+        private double payable;
+        private string limits;
         private string setting;
         private string period;
         private string height;
         private string weight;
-        private string instruction;
-        private string tax;
-        private string coverage;
+        private string instruction;        
         private string created;
         private bool sync;
         private string companyID;
@@ -46,9 +48,14 @@ namespace ARM.Model
         public double Cost { get => cost; set => cost = value; }
         public string Units { get => units; set => units = value; }
         public double Total { get => total; set => total = value; }
-        public string Limit { get => limit; set => limit = value; }
+        public double Tax { get => tax; set => tax = value; }
+        public double Coverage { get => coverage; set => coverage = value; }
+        public double Self { get => self; set => self = value; }
+        public double Payable { get => payable; set => payable = value; }
+        public string Limits { get => limits; set => limits = value; }
         public string Setting { get => setting; set => setting = value; }
-        public string Period { get => period; set => period = value; }        public string Height { get => height; set => height = value; }
+        public string Period { get => period; set => period = value; }
+        public string Height { get => height; set => height = value; }
         public string Weight { get => weight; set => weight = value; }
         public string Instruction { get => instruction; set => instruction = value; }
         public string Created { get => created; set => created = value; }
@@ -57,9 +64,7 @@ namespace ARM.Model
 
         public Transaction() { }
 
-       
-
-        public Transaction(string id, string date, string no, string itemID, string caseID, string deliveryID, double qty, double cost, string units, double total, string limit, string setting, string period, string height, string weight, string instruction, string created, bool sync, string companyID)
+        public Transaction(string id, string date, string no, string itemID, string caseID, string deliveryID, double qty, double cost, string units, double total, double tax, double coverage, double self, double payable, string limits, string setting, string period, string height, string weight, string instruction, string created, bool sync, string companyID)
         {
             this.Id = id;
             this.Date = date;
@@ -71,7 +76,11 @@ namespace ARM.Model
             this.Cost = cost;
             this.Units = units;
             this.Total = total;
-            this.Limit = limit;
+            this.Tax = tax;
+            this.Coverage = coverage;
+            this.Self = self;
+            this.Payable = payable;
+            this.Limits = limits;
             this.Setting = setting;
             this.Period = period;
             this.Height = height;
@@ -90,7 +99,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Transaction ps = new Transaction(Reader["id"].ToString(), Reader["date"].ToString(),Reader["no"].ToString(), Reader["itemID"].ToString(), Reader["caseID"].ToString(), Reader["deliveryID"].ToString(), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]),Reader["units"].ToString(), Convert.ToDouble(Reader["total"]), Reader["limit"].ToString(),Reader["setting"].ToString(), Reader["period"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["instruction"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Transaction ps = new Transaction(Reader["id"].ToString(), Reader["date"].ToString(),Reader["no"].ToString(), Reader["itemID"].ToString(), Reader["caseID"].ToString(), Reader["deliveryID"].ToString(), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]),Reader["units"].ToString(), Convert.ToDouble(Reader["total"]), Convert.ToDouble(Reader["tax"]), Convert.ToDouble(Reader["coverage"]), Convert.ToDouble(Reader["self"]), Convert.ToDouble(Reader["payable"]), Reader["limits"].ToString(),Reader["setting"].ToString(), Reader["period"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["instruction"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -104,7 +113,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Transaction ps = new Transaction(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Reader["caseID"].ToString(), Reader["deliveryID"].ToString(), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["units"].ToString(), Convert.ToDouble(Reader["total"]), Reader["limit"].ToString(), Reader["setting"].ToString(), Reader["period"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["instruction"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Transaction ps = new Transaction(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Reader["caseID"].ToString(), Reader["deliveryID"].ToString(), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["units"].ToString(), Convert.ToDouble(Reader["total"]), Convert.ToDouble(Reader["tax"]), Convert.ToDouble(Reader["coverage"]), Convert.ToDouble(Reader["self"]), Convert.ToDouble(Reader["payable"]), Reader["limits"].ToString(), Reader["setting"].ToString(), Reader["period"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["instruction"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -117,7 +126,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Transaction ps = new Transaction(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Reader["caseID"].ToString(), Reader["deliveryID"].ToString(), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["units"].ToString(), Convert.ToDouble(Reader["total"]), Reader["limit"].ToString(), Reader["setting"].ToString(), Reader["period"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["instruction"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Transaction ps = new Transaction(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Reader["caseID"].ToString(), Reader["deliveryID"].ToString(), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["units"].ToString(), Convert.ToDouble(Reader["total"]), Convert.ToDouble(Reader["tax"]), Convert.ToDouble(Reader["coverage"]), Convert.ToDouble(Reader["self"]), Convert.ToDouble(Reader["payable"]), Reader["limits"].ToString(), Reader["setting"].ToString(), Reader["period"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["instruction"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -132,7 +141,7 @@ namespace ARM.Model
                 MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
                 while (Reader.Read())
                 {
-                    Transaction ps = new Transaction(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Reader["caseID"].ToString(), Reader["deliveryID"].ToString(), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["units"].ToString(), Convert.ToDouble(Reader["total"]), Reader["limit"].ToString(), Reader["setting"].ToString(), Reader["period"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["instruction"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                    Transaction ps = new Transaction(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Reader["caseID"].ToString(), Reader["deliveryID"].ToString(), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["units"].ToString(), Convert.ToDouble(Reader["total"]), Convert.ToDouble(Reader["tax"]), Convert.ToDouble(Reader["coverage"]), Convert.ToDouble(Reader["self"]), Convert.ToDouble(Reader["payable"]), Reader["limits"].ToString(), Reader["setting"].ToString(), Reader["period"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["instruction"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();

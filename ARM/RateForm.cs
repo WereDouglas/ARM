@@ -61,7 +61,7 @@ namespace ARM
             dtGrid.DataSource = t;
             dtGrid.AllowUserToAddRows = false;
             dtGrid.Columns["Amount"].DefaultCellStyle.BackColor = Color.LightGreen;
-            dtGrid.Columns["Unit"].DefaultCellStyle.BackColor = Color.Red;
+            dtGrid.Columns["Unit"].DefaultCellStyle.BackColor = Color.LightGray;
             dtGrid.Columns["ID"].Visible = false;
            
 
@@ -99,6 +99,8 @@ namespace ARM
                 {
                     string Query = "DELETE from rate WHERE id ='" + item + "'";
                     DBConnect.QueryPostgre(Query);
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    DBConnect.InsertPostgre(q);
                     //  MessageBox.Show("Information deleted");
                 }
             }
@@ -132,6 +134,8 @@ namespace ARM
                     {
                         string Query = "DELETE from rate WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
                         DBConnect.QueryPostgre(Query);
+                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        DBConnect.InsertPostgre(q);
                         MessageBox.Show("Information deleted");
                         LoadData();
 

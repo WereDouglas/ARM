@@ -35,9 +35,9 @@
             this.percTxt = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.amountTxt = new System.Windows.Forms.TextBox();
-            this.CoverageCbx = new MetroFramework.Controls.MetroComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.productLbl = new System.Windows.Forms.Label();
+            this.CoverageCbx = new MetroFramework.Controls.MetroComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
@@ -51,18 +51,16 @@
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 191F));
+            this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.30769F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 114F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 188F));
-            this.tableLayoutPanel1.Controls.Add(this.label8, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.percTxt, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label10, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.amountTxt, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.CoverageCbx, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.productLbl, 1, 1);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.Controls.Add(this.label8, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.percTxt, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label10, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.amountTxt, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.productLbl, 0, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(21, 100);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
@@ -80,7 +78,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(385, 2);
+            this.label8.Location = new System.Drawing.Point(373, 2);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(73, 13);
             this.label8.TabIndex = 209;
@@ -91,7 +89,7 @@
             this.percTxt.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.percTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.percTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.percTxt.Location = new System.Drawing.Point(385, 43);
+            this.percTxt.Location = new System.Drawing.Point(373, 43);
             this.percTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.percTxt.Name = "percTxt";
             this.percTxt.Size = new System.Drawing.Size(108, 24);
@@ -104,7 +102,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(501, 2);
+            this.label10.Location = new System.Drawing.Point(489, 2);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(85, 13);
             this.label10.TabIndex = 266;
@@ -115,30 +113,17 @@
             this.amountTxt.BackColor = System.Drawing.SystemColors.ControlDark;
             this.amountTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.amountTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amountTxt.Location = new System.Drawing.Point(501, 43);
+            this.amountTxt.Location = new System.Drawing.Point(489, 43);
             this.amountTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.amountTxt.Name = "amountTxt";
             this.amountTxt.Size = new System.Drawing.Size(137, 24);
             this.amountTxt.TabIndex = 3;
             this.amountTxt.Text = "0";
             // 
-            // CoverageCbx
-            // 
-            this.CoverageCbx.FormattingEnabled = true;
-            this.CoverageCbx.ItemHeight = 23;
-            this.CoverageCbx.Location = new System.Drawing.Point(5, 42);
-            this.CoverageCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.CoverageCbx.Name = "CoverageCbx";
-            this.CoverageCbx.PromptText = "Coverage";
-            this.CoverageCbx.Size = new System.Drawing.Size(185, 29);
-            this.CoverageCbx.TabIndex = 0;
-            this.CoverageCbx.UseSelectable = true;
-            this.CoverageCbx.SelectedIndexChanged += new System.EventHandler(this.productTxt_SelectedIndexChanged);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(198, 2);
+            this.label3.Location = new System.Drawing.Point(5, 2);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 267;
@@ -148,11 +133,24 @@
             // 
             this.productLbl.AutoSize = true;
             this.productLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productLbl.Location = new System.Drawing.Point(198, 38);
+            this.productLbl.Location = new System.Drawing.Point(5, 38);
             this.productLbl.Name = "productLbl";
             this.productLbl.Size = new System.Drawing.Size(24, 25);
             this.productLbl.TabIndex = 268;
             this.productLbl.Text = "#";
+            // 
+            // CoverageCbx
+            // 
+            this.CoverageCbx.FormattingEnabled = true;
+            this.CoverageCbx.ItemHeight = 23;
+            this.CoverageCbx.Location = new System.Drawing.Point(21, 64);
+            this.CoverageCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CoverageCbx.Name = "CoverageCbx";
+            this.CoverageCbx.PromptText = "Coverage";
+            this.CoverageCbx.Size = new System.Drawing.Size(378, 29);
+            this.CoverageCbx.TabIndex = 0;
+            this.CoverageCbx.UseSelectable = true;
+            this.CoverageCbx.SelectedIndexChanged += new System.EventHandler(this.productTxt_SelectedIndexChanged);
             // 
             // button3
             // 
@@ -200,6 +198,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
+            this.Controls.Add(this.CoverageCbx);
             this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddCoverage";

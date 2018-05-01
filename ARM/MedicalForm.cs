@@ -2,6 +2,7 @@
 using ARM.Model;
 using ARM.Sync;
 using ARM.Util;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -71,7 +72,7 @@ namespace ARM
             switch (val)
             {
                 case 1:
-                    
+                    Uploading.Querying();
                     Uploading.User();
                     break;
                 case 2:
@@ -84,10 +85,10 @@ namespace ARM
                     Downloading.Customers();
                     break;
                 case 5:
-                    Uploading.Schedules();
+                   // Uploading.Schedules();
                     break;
                 case 6:
-                    Downloading.Schedules();
+                  //  Downloading.Schedules();
                     break;
                 case 7:
                     Uploading.Companys();
@@ -99,10 +100,10 @@ namespace ARM
                     Downloading.Items();
                     break;
                 case 10:
-                    Uploading.Deliverie();
+                  
                     break;
                 case 11:
-                    Downloading.Deliverie();
+                  
                     break;
                 case 12:
                     Uploading.Deliverys();
@@ -189,7 +190,7 @@ namespace ARM
                     Downloading.Coverages();
                     break;
                 case 40:
-
+                   
                     break;
                 case 41:
 
@@ -591,7 +592,7 @@ namespace ARM
 
         private void toolStripMenuItem12_Click(object sender, EventArgs e)
         {
-            OrderIntakeForm o = new OrderIntakeForm(null);
+            OrderIntakeForm o = new OrderIntakeForm("","");
             o.Show();
         }
 
@@ -780,7 +781,7 @@ namespace ARM
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    // LoadingCalendarLite();
+                    viewToolStripMenuItem_Click_1(null, null);
                 }
             }
         }
@@ -807,7 +808,7 @@ namespace ARM
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    // LoadingCalendarLite();
+                    toolStripMenuItem6_Click_1(null, null);
                 }
             }
         }
@@ -829,7 +830,7 @@ namespace ARM
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    // LoadingCalendarLite();
+                    toolStripMenuItem16_Click(null, null);
                 }
             }
         }
@@ -856,7 +857,7 @@ namespace ARM
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    // LoadingCalendarLite();
+                    toolStripMenuItem18_Click(null, null);
                 }
             }
         }
@@ -889,6 +890,8 @@ namespace ARM
         {
             NewCase f = new NewCase(null);
             f.Show();
+
+            toolStripMenuItem21_Click(null, null);
         }
 
         private void toolStripMenuItem21_Click(object sender, EventArgs e)
@@ -899,6 +902,46 @@ namespace ARM
             frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
             frm.Show();
+        }
+
+        private void queriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QueriesForm frm = new QueriesForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void resetForUploadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<string> tables = new List<string>();
+            DBConnect.OpenConn();
+
+
+            string query = "SELECT table_name  FROM information_schema.tables WHERE table_schema = 'public'  AND table_type = 'BASE TABLE'";
+            NpgsqlCommand cmd = new NpgsqlCommand(query, DBConnect.conn);
+            NpgsqlDataReader Reader;
+            Reader = cmd.ExecuteReader();
+
+            while (Reader.Read())
+            {
+
+
+                tables.Add(Reader["table_name"].ToString());
+            }
+            DBConnect.CloseConn();
+
+            foreach (var p in tables)
+            {
+
+                string Query = "UPDATE " + p + " SET sync ='false'";
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(query), false, DateTime.Now.Date.ToString("dd-MM-yyyy"), Helper.CompanyName);
+
+                DBConnect.InsertPostgre(q);
+                //  DBConnect.QueryPostgre(Query);
+            }
         }
     }
 }

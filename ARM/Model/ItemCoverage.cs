@@ -62,6 +62,20 @@ namespace ARM.Model
             return p;
 
         }
+        public static List<ItemCoverage> List(string Q)
+        {
+            p.Clear();           
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                ItemCoverage ps = new ItemCoverage(Reader["id"].ToString(), Reader["transactionID"].ToString(), Reader["itemID"].ToString(), Reader["coverage"].ToString(), Convert.ToDouble(Reader["percentage"]), Convert.ToDouble(Reader["amount"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                p.Add(ps);
+            }
+            DBConnect.CloseConn();
+            return p;
+
+        }
         public static List<ItemCoverage> ListOnline(string Q)
         {
             try

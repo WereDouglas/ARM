@@ -86,11 +86,7 @@ namespace ARM
                 Microsoft.Reporting.WinForms.ReportParameter rp2Contact = new Microsoft.Reporting.WinForms.ReportParameter("companyContact", y.Contact);
                 this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp2Contact });
 
-            }
-
-            
-            
-          
+            }          
 
 
             /**total tax balance**/
@@ -101,7 +97,7 @@ namespace ARM
             Microsoft.Reporting.WinForms.ReportParameter rp3Bal = new Microsoft.Reporting.WinForms.ReportParameter("balance", v.Balance.ToString("n0"));
             this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp3Bal });
 
-            Npgsql.NpgsqlDataAdapter da = new Npgsql.NpgsqlDataAdapter("SELECT item.name AS itemID ,transaction.cost,transaction.date as date,transaction.no as no,transaction.total as total,transaction.qty as qty,transaction.cost,transaction.created,transaction.sync FROM transaction LEFT join item ON transaction.itemID = item.id  WHERE transaction.no='" + No + "'", DBConnect.conn);
+            Npgsql.NpgsqlDataAdapter da = new Npgsql.NpgsqlDataAdapter("SELECT product.name AS itemID ,transaction.cost,transaction.date as date,transaction.no as no,transaction.total as total,transaction.qty as qty,transaction.cost,transaction.created,transaction.sync FROM transaction LEFT join product ON transaction.itemID = product.id  WHERE transaction.no='" + No + "'", DBConnect.conn);
             DataSet ds = new DataSet();
             da.Fill(ds);
             Npgsql.NpgsqlDataAdapter da2 = new Npgsql.NpgsqlDataAdapter("SELECT * FROM invoice WHERE no='" + No + "'", DBConnect.conn);

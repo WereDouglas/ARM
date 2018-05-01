@@ -12,6 +12,7 @@ namespace ARM.Model
     public class Delivery
     {
         private string id;
+        private string no;
         private string date;
         private string caseID;
         private string orderID;
@@ -27,14 +28,15 @@ namespace ARM.Model
         private string name;       
         private double total;
         private string created;
-       private bool sync;
+        private bool sync;
         private string companyID;
 
         public Delivery() { }
 
-        public Delivery(string id, string date, string caseID, string orderID, string type, string practitionerID, string customerID, string comments, string deliveredBy, string dateReceived, string receivedBy, string signature, string reason, string name, double total, string created, bool sync, string companyID)
+        public Delivery(string id, string no, string date, string caseID, string orderID, string type, string practitionerID, string customerID, string comments, string deliveredBy, string dateReceived, string receivedBy, string signature, string reason, string name, double total, string created, bool sync, string companyID)
         {
             this.Id = id;
+            this.No = no;
             this.Date = date;
             this.CaseID = caseID;
             this.OrderID = orderID;
@@ -63,7 +65,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Delivery ps = new Delivery(Reader["id"].ToString(), Reader["date"].ToString(), Reader["caseID"].ToString(), Reader["orderID"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Delivery ps = new Delivery(Reader["id"].ToString(), Reader["no"].ToString(), Reader["date"].ToString(), Reader["caseID"].ToString(), Reader["orderID"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -76,7 +78,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Delivery ps = new Delivery(Reader["id"].ToString(), Reader["date"].ToString(), Reader["caseID"].ToString(), Reader["orderID"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Delivery ps = new Delivery(Reader["id"].ToString(), Reader["no"].ToString(), Reader["date"].ToString(), Reader["caseID"].ToString(), Reader["orderID"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -91,7 +93,7 @@ namespace ARM.Model
                 MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
                 while (Reader.Read())
                 {
-                    Delivery ps = new Delivery(Reader["id"].ToString(), Reader["date"].ToString(), Reader["caseID"].ToString(), Reader["orderID"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                    Delivery ps = new Delivery(Reader["id"].ToString(), Reader["no"].ToString(), Reader["date"].ToString(), Reader["caseID"].ToString(), Reader["orderID"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
@@ -102,6 +104,7 @@ namespace ARM.Model
         private static Delivery c = new Delivery();
 
         public string Id { get => id; set => id = value; }
+        public string No { get => no; set => no = value; }
         public string Date { get => date; set => date = value; }
         public string CaseID { get => caseID; set => caseID = value; }
         public string OrderID { get => orderID; set => orderID = value; }
@@ -128,7 +131,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                c = new Delivery(Reader["id"].ToString(), Reader["date"].ToString(), Reader["caseID"].ToString(), Reader["orderID"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                c = new Delivery(Reader["id"].ToString(), Reader["no"].ToString(), Reader["date"].ToString(), Reader["caseID"].ToString(), Reader["orderID"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
             }
             DBConnect.CloseConn();
             return c;

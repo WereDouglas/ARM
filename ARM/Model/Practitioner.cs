@@ -67,17 +67,26 @@ namespace ARM.Model
 
         public static List<Practitioner> List()
         {
-            p.Clear();
-            string Q = "SELECT * FROM practitioner ";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
-            while (Reader.Read())
+            try
             {
-                Practitioner ps = new Practitioner(Reader["id"].ToString(), Reader["name"].ToString(), Reader["customerID"].ToString(), Reader["contact"].ToString(), Reader["npi"].ToString(), Reader["address"].ToString(), Reader["office"].ToString(), Reader["providerID"].ToString(), Reader["tin"].ToString(), Reader["officePhone"].ToString(),Reader["officeFax"].ToString(), Reader["city"].ToString(), Reader["zip"].ToString(), Reader["state"].ToString(), Reader["speciality"].ToString(), Reader["sub"].ToString(), Reader["gender"].ToString(), Reader["type"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
-                p.Add(ps);
+                p.Clear();
+                string Q = "SELECT * FROM practitioner ";
+                DBConnect.OpenConn();
+                NpgsqlDataReader Reader = DBConnect.Reading(Q);
+                while (Reader.Read())
+                {
+                    Practitioner ps = new Practitioner(Reader["id"].ToString(), Reader["name"].ToString(), Reader["customerID"].ToString(), Reader["contact"].ToString(), Reader["npi"].ToString(), Reader["address"].ToString(), Reader["office"].ToString(), Reader["providerID"].ToString(), Reader["tin"].ToString(), Reader["officePhone"].ToString(), Reader["officeFax"].ToString(), Reader["city"].ToString(), Reader["zip"].ToString(), Reader["state"].ToString(), Reader["speciality"].ToString(), Reader["sub"].ToString(), Reader["gender"].ToString(), Reader["type"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
+                    p.Add(ps);
+                }
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            catch (Exception e)
+            {
+
+                System.Diagnostics.Debug.WriteLine("" + e);
+            }
             return p;
+
 
         }
         public static List<Practitioner> List(string Q)

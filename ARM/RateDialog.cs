@@ -62,9 +62,11 @@ namespace ARM
         private void button3_Click(object sender, EventArgs e)
         { 
             string ID = Guid.NewGuid().ToString();
-            Rate r = new Rate(ID,UserID,Convert.ToDouble(costTxt.Text), Convert.ToDouble(periodCbx.Text),unitCbx.Text,DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),false,Helper.CompanyID);
+            Rate r = new Rate(ID,UserID,Convert.ToDouble(costTxt.Text), 1,unitCbx.Text,DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),false,Helper.CompanyID);
             if (DBConnect.InsertPostgre(r) != "")
             {
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(DBConnect.InsertPostgre(r))), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                DBConnect.InsertPostgre(q);
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;
                 this.Dispose();

@@ -179,8 +179,8 @@
             this.catCbx.FormattingEnabled = true;
             this.catCbx.ItemHeight = 23;
             this.catCbx.Items.AddRange(new object[] {
-            "Primary",
-            "Secondary"});
+            "State",
+            "Federal"});
             this.catCbx.Location = new System.Drawing.Point(75, 219);
             this.catCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.catCbx.Name = "catCbx";

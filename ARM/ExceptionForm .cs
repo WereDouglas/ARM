@@ -47,7 +47,7 @@ namespace ARM
             t.Columns.Add("Created");      
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));//1
 
-            Image delete = new Bitmap(Properties.Resources.Garbage_Closed_24);
+            Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
             foreach (Exceptions c in Exceptions.List(start,end))
             {
                 try
@@ -109,6 +109,9 @@ namespace ARM
 
             string Query = "DELETE from exceptions WHERE (created::date >= '" + start + "'::date AND  created::date <= '" + end + "'::date)  ";
             DBConnect.QueryPostgre(Query);
+            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+            DBConnect.InsertPostgre(q);
+
             //Helper.Log(Helper.userID, Helper.username, "Exception DELETION");
         }
 

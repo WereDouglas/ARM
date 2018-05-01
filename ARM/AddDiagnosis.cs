@@ -24,13 +24,8 @@ namespace ARM
         public AddDiagnosis(string caseID, string customerID)
         {
             InitializeComponent();
-
-
             CustomerID = customerID;
             CaseID = caseID;
-
-
-
 
         }
 

@@ -64,7 +64,7 @@ namespace ARM
             t.Columns.Add(new DataColumn("View", typeof(Image)));
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));
 
-            Image view = new Bitmap(Properties.Resources.Document_Edit_24__1_);
+            Image view = new Bitmap(Properties.Resources.Note_Memo_16);
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
 
             Bitmap b = new Bitmap(50, 50);

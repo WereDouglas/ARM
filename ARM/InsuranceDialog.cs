@@ -66,6 +66,9 @@ namespace ARM
             Coverage _e = new Coverage(ID,CustomerID,nameTxt.Text,typeCbx.Text,catCbx.Text,noTxt.Text, DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),false,Helper.CompanyID);
             if (DBConnect.InsertPostgre(_e) != "")
             {
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(_e)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                DBConnect.InsertPostgre(q);
+
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;
                 this.Dispose();

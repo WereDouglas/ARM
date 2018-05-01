@@ -63,7 +63,7 @@
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button3.Image = global::ARM.Properties.Resources.Submit_01_32;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(235, 352);
+            this.button3.Location = new System.Drawing.Point(235, 268);
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button3.Size = new System.Drawing.Size(87, 53);
@@ -82,7 +82,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(91, 352);
+            this.button2.Location = new System.Drawing.Point(91, 268);
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(107, 53);
@@ -133,6 +133,9 @@
             // 
             this.typeCbx.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.typeCbx.FormattingEnabled = true;
+            this.typeCbx.Items.AddRange(new object[] {
+            "Allergy",
+            "Other"});
             this.typeCbx.Location = new System.Drawing.Point(91, 123);
             this.typeCbx.Name = "typeCbx";
             this.typeCbx.Size = new System.Drawing.Size(231, 31);
@@ -142,7 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(399, 430);
+            this.ClientSize = new System.Drawing.Size(399, 365);
             this.Controls.Add(this.typeCbx);
             this.Controls.Add(this.detailsTxt);
             this.Controls.Add(this.label4);

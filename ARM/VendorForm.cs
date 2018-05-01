@@ -54,8 +54,8 @@ namespace ARM
             {
                 g.DrawString("Loading...", this.Font, new SolidBrush(Color.Black), 0f, 0f);
             }
-            Image view = new Bitmap(Properties.Resources.Document_Edit_24__1_);
-            Image delete = new Bitmap(Properties.Resources.Garbage_Closed_24);
+            Image view = new Bitmap(Properties.Resources.Note_Memo_16);
+            Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
 
             foreach (Vendor c in Vendor.List())
             {
@@ -136,6 +136,8 @@ namespace ARM
                 {
                     string Query = "DELETE from vendor WHERE id ='" + item + "'";
                     DBConnect.QueryPostgre(Query);
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    DBConnect.InsertPostgre(q);
                     //  MessageBox.Show("Information deleted");
                 }
             }
@@ -179,6 +181,9 @@ namespace ARM
                     {
                         string Query = "DELETE from vendor WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
                         DBConnect.QueryPostgre(Query);
+
+                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        DBConnect.InsertPostgre(q);
                         MessageBox.Show("Information deleted");
                         LoadData();
 

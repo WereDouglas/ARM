@@ -44,6 +44,9 @@ namespace ARM
             t.Columns.Add("Zip");
             t.Columns.Add("SOC-SEC#");
             t.Columns.Add("Date Of Birth");
+            t.Columns.Add("Gender");
+            t.Columns.Add("Height");
+            t.Columns.Add("Weight");
             t.Columns.Add("Category");
             t.Columns.Add("Sync");
             t.Columns.Add("Created");
@@ -56,14 +59,14 @@ namespace ARM
             {
                 g.DrawString("Loading...", this.Font, new SolidBrush(Color.Black), 0f, 0f);
             }
-            Image view = new Bitmap(Properties.Resources.Document_Edit_24__1_);
+            Image view = new Bitmap(Properties.Resources.Note_Memo_16);
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
 
             foreach (Customer c in Customer.List())
             {
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, c.Image as string, b, c.No, c.Name, c.Contact, c.Address, c.City, c.State, c.Zip, c.Ssn, c.Dob, c.Category, c.Sync, c.Created, view, delete });
+                    t.Rows.Add(new object[] { false, c.Id, c.Image as string, b, c.No, c.Name, c.Contact, c.Address, c.City, c.State, c.Zip, c.Ssn, c.Dob,c.Gender,c.Height,c.Weight, c.Category, c.Sync, c.Created, view, delete });
 
                 }
                 catch (Exception m)
@@ -136,7 +139,8 @@ namespace ARM
                 {
                     string Query = "DELETE from customer WHERE id ='" + item + "'";
                     DBConnect.QueryPostgre(Query);
-                    //  MessageBox.Show("Information deleted");
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    DBConnect.InsertPostgre(q);
                 }
             }
         }
@@ -177,6 +181,8 @@ namespace ARM
                     {
                         string Query = "DELETE from customer WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString() + "'";
                         DBConnect.QueryPostgre(Query);
+                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        DBConnect.InsertPostgre(q);
                         MessageBox.Show("Information deleted");
                         LoadData();
 
@@ -212,8 +218,10 @@ namespace ARM
                 return;
             }
             string ID = dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString();
-            Customer _c = new Customer(ID, dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["contact"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["address"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["city"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["state"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["zip"].Value.ToString(),DateTime.Now.ToString("dd-MM-yyyy"),dtGrid.Rows[e.RowIndex].Cells["SOC-SEC#"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Date Of Birth"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString(),"","", false,Helper.CompanyID, dtGrid.Rows[e.RowIndex].Cells["uri"].Value.ToString());
+            Customer _c = new Customer(ID, dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["contact"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["address"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["city"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["state"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["zip"].Value.ToString(),DateTime.Now.ToString("dd-MM-yyyy"),dtGrid.Rows[e.RowIndex].Cells["SOC-SEC#"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Date Of Birth"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["height"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["weight"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["gender"].Value.ToString(), false,Helper.CompanyID, dtGrid.Rows[e.RowIndex].Cells["uri"].Value.ToString());
             DBConnect.UpdatePostgre(_c, ID);
+            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.UpdatePostgre(_c, ID)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+            DBConnect.InsertPostgre(q);
 
         }
 
@@ -233,6 +241,11 @@ namespace ARM
                     // LoadingCalendarLite();
                 }
             }
+        }
+
+        private void dtGrid_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -41,10 +41,10 @@ namespace ARM.Model
         public bool Sync { get => sync; set => sync = value; }
         public string CompanyID { get => companyID; set => companyID = value; }
 
-        public static List<ICD10> List(string caseID)
+        public static List<ICD10> List(string Q)
         {
             p.Clear();
-            string Q = "SELECT * FROM ICD10 WHERE caseID = '"+caseID+"' ";
+          //  string Q = "SELECT * FROM ICD10 WHERE caseID = '"+caseID+"' ";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
