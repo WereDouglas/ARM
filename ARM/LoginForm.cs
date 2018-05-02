@@ -14,6 +14,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using AutoUpdaterDotNET;
 
 namespace ARM
 {
@@ -149,7 +150,7 @@ namespace ARM
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Practitioner()));
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Care()));
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Cases()));
-            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Condition()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Conditions()));
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Dosage()));
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Emergency()));
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Facility()));
@@ -183,6 +184,29 @@ namespace ARM
         private void LoginForm_Load(object sender, EventArgs e)
         {
 
+            AutoUpdater.Start("http://arm.novariss.com/file/update.xml");
+
+            //AutoUpdater.Start(Helper.fileUrl + "update.xml");
+           // AutoUpdater.Start("http://rbsoft.org/updates/AutoUpdaterTest.xml");
+            AutoUpdater.ShowSkipButton = false;
+            AutoUpdater.ShowRemindLaterButton = false;
+            AutoUpdater.Mandatory = true;
+            AutoUpdater.ReportErrors = true;
+            // AutoUpdater.OpenDownloadPage = true;
+            // AutoUpdater.DownloadPath = Environment.CurrentDirectory;
+
+
+            //System.Timers.Timer timer = new System.Timers.Timer
+            //{
+            //    Interval = 2 * 60 * 1000,
+            //    SynchronizingObject = this
+            //};
+            //timer.Elapsed += delegate
+            //{
+            //    AutoUpdater.Start("http://rbsoft.org/updates/AutoUpdaterTest.xml");
+            //};
+            //timer.Start();
+            //http://caseprofessional.pro/file/
         }
         private void LoadCompany()
         {
@@ -415,7 +439,7 @@ namespace ARM
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Practitioner()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Care()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Cases()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Condition()));
+          
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Dosage()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Emergency()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Facility()));
@@ -428,8 +452,8 @@ namespace ARM
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new CaseTransaction()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Queries()));
 
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Conditions()));
 
-            
 
         }
 

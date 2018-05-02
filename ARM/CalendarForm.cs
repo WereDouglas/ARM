@@ -22,6 +22,9 @@ namespace ARM
         public CalendarForm()
         {
             InitializeComponent();
+
+            fromDate = DateTime.Now.AddMonths(-2).ToString("dd-MM-yyyy");
+            toDate = DateTime.Now.AddMonths(2).ToString("dd-MM-yyyy");
             LoadingCalendar();
         }
         List<Product> items = new List<Product>();
@@ -29,14 +32,17 @@ namespace ARM
         {
             this.Close();
         }
+        string toDate;
+        string fromDate;
         private void LoadingCalendar()
         {
 
             _items.Clear();
             List<ItemInfo> lst = new List<ItemInfo>();
             string state = "";
+            string Q = "SELECT * FROM schedule  WHERE (date::date >= '" + fromDate + "'::date AND  date::date <= '" + toDate + "'::date)";
 
-            List<Schedule> events = Schedule.List();
+            List<Schedule> events = Schedule.List(Q);
 
             foreach (Schedule e in events)
             {
@@ -46,30 +52,30 @@ namespace ARM
                 try { cus = Customer.Select(e.CustomerID).Name; } catch { }
                 //try
                 //{
-                    CalendarItem cal = new CalendarItem(calendar1, Convert.ToDateTime(e.Starts), Convert.ToDateTime(e.Ends), cus + " C/O " + user + " " + e.Cost + " " + e.Details);
+                CalendarItem cal = new CalendarItem(calendar1, Convert.ToDateTime(e.Starts), Convert.ToDateTime(e.Ends), cus + " C/O " + user + " " + e.Cost + " " + e.Details);
 
-                    Image img = Helper.Base64ToImage(Customer.Select(e.CustomerID).Image.Replace('"', ' ').Trim());
-                    System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
-                    Bitmap bps = new Bitmap(bmp, 30, 30);
-                    Image dstImage = Helper.CropToCircle(bps, Color.White);
+                Image img = Helper.Base64ToImage(Customer.Select(e.CustomerID).Image.Replace('"', ' ').Trim());
+                System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
+                Bitmap bps = new Bitmap(bmp, 30, 30);
+                Image dstImage = Helper.CropToCircle(bps, Color.White);
 
-                    cal.Image = dstImage;
-                    //cal.ImageAlign = CalendarItemImageAlign.East;
-                     cal.Tag = e.Id;
-                    if (e.Status == "Paid")
-                    {
-                        cal.ApplyColor(Color.LightGreen);
-                    }
-                    if (e.Status == "Pending")
-                    {
-                        cal.ApplyColor(Color.Orange);
-                    }
-                    if (e.Status == "Cancelled")
-                    {
-                        cal.ApplyColor(Color.LightPink);
-                    }                   
-                   
-                    _items.Add(cal);
+                cal.Image = dstImage;
+                //cal.ImageAlign = CalendarItemImageAlign.East;
+                cal.Tag = e.Id;
+                if (e.Status == "Paid")
+                {
+                    cal.ApplyColor(Color.LightGreen);
+                }
+                if (e.Status == "Pending")
+                {
+                    cal.ApplyColor(Color.Orange);
+                }
+                if (e.Status == "Cancelled")
+                {
+                    cal.ApplyColor(Color.LightPink);
+                }
+
+                _items.Add(cal);
 
                 //}
                 //catch { }
@@ -98,11 +104,10 @@ namespace ARM
 
             using (ScheduleDialog form = new ScheduleDialog(start, end, e.Item.Date.ToString()))
             {
-                // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-
+                    LoadingCalendar();
                 }
             }
         }
@@ -118,7 +123,7 @@ namespace ARM
 
         private void calendar1_ItemClick(object sender, CalendarItemEventArgs e)
         {
-            MessageBox.Show(e.Item.Text);
+            //MessageBox.Show(e.Item.Text);
             using (StateDialog form = new StateDialog(e.Item.Tag.ToString()))
             {
                 DialogResult dr = form.ShowDialog();
@@ -233,5 +238,16 @@ namespace ARM
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            fromDate = Convert.ToDateTime(fromDateTxt.Text).ToString("dd-MM-yyyy");
+            toDate = Convert.ToDateTime(toDateTxt.Text).ToString("dd-MM-yyyy");
+            LoadingWindow.ShowSplashScreen();
+            LoadingCalendar();
+            LoadingWindow.CloseForm();
+        }
+
+
     }
 }

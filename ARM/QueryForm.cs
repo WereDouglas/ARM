@@ -45,13 +45,13 @@ namespace ARM
                 
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id,c.Strings,c.Executed,c.By,c.Created, delete });
+                    t.Rows.Add(new object[] { false, c.Id,c.Querying,c.Executed,c.Users,c.Created, delete });
 
                 }
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Loading queries " + c.Strings);
+                    Helper.Exceptions(m.Message + "Loading queries " + c.Querying);
                 }
             }
 

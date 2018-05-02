@@ -75,6 +75,8 @@ namespace ARM
             }
 
             dtGrid.DataSource = t;
+            dtGrid.Columns["uri"].Visible = false;
+
 
             ThreadPool.QueueUserWorkItem(delegate
             {

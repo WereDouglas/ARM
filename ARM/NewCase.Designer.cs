@@ -80,10 +80,10 @@
             this.previewdlg = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printdoc1 = new System.Drawing.Printing.PrintDocument();
+            this.updateBtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.updateBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -128,7 +128,7 @@
             this.panel4.Controls.Add(this.label30);
             this.panel4.Location = new System.Drawing.Point(635, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(550, 593);
+            this.panel4.Size = new System.Drawing.Size(564, 593);
             this.panel4.TabIndex = 9;
             // 
             // label8
@@ -775,6 +775,25 @@
             // 
             this.printdoc1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printdoc1_PrintPage);
             // 
+            // updateBtn
+            // 
+            this.updateBtn.BackColor = System.Drawing.Color.Khaki;
+            this.updateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updateBtn.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.updateBtn.Image = global::ARM.Properties.Resources.Note_04_24;
+            this.updateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.updateBtn.Location = new System.Drawing.Point(808, 672);
+            this.updateBtn.Name = "updateBtn";
+            this.updateBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.updateBtn.Size = new System.Drawing.Size(107, 37);
+            this.updateBtn.TabIndex = 15;
+            this.updateBtn.Text = "Update";
+            this.updateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.updateBtn.UseVisualStyleBackColor = false;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.LightBlue;
@@ -835,25 +854,6 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // updateBtn
-            // 
-            this.updateBtn.BackColor = System.Drawing.Color.Khaki;
-            this.updateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.updateBtn.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.updateBtn.Image = global::ARM.Properties.Resources.Note_04_24;
-            this.updateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.updateBtn.Location = new System.Drawing.Point(808, 672);
-            this.updateBtn.Name = "updateBtn";
-            this.updateBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.updateBtn.Size = new System.Drawing.Size(107, 37);
-            this.updateBtn.TabIndex = 15;
-            this.updateBtn.Text = "Update";
-            this.updateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.updateBtn.UseVisualStyleBackColor = false;
-            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
-            // 
             // NewCase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -866,6 +866,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewCase";
             this.Style = MetroFramework.MetroColorStyle.White;
             this.Text = "Case";

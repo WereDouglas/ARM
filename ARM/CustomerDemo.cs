@@ -18,9 +18,9 @@ namespace ARM
     public partial class CustomerDemo : MetroFramework.Forms.MetroForm
     {
         string CustomerID;
-        public CustomerDemo(string customerID,string category)
+        public CustomerDemo(string customerID, string category)
         {
-            
+
             InitializeComponent();
             this.Text = category;
             try
@@ -37,7 +37,8 @@ namespace ARM
                 Profile(customerID);
                 saveBtn.Visible = false;
             }
-            else {
+            else
+            {
 
                 CustomerID = Guid.NewGuid().ToString();
                 updateBtn.Visible = false;
@@ -89,19 +90,20 @@ namespace ARM
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-           
+
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
-           
-            Customer c = new Customer(CustomerID, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), ssnTxt.Text, dobTxt.Text, categoryCbx.Text,Helper.CleanString(heightTxt.Text),weightTxt.Text,genderCbx.Text, false,Helper.CompanyID, fullimage);
-            if (DBConnect.InsertPostgre(c) != "")
+
+            Customer c = new Customer(CustomerID, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), ssnTxt.Text, dobTxt.Text, categoryCbx.Text, Helper.CleanString(heightTxt.Text), weightTxt.Text, genderCbx.Text, false, Helper.CompanyID, fullimage);
+            string saves = DBConnect.InsertPostgre(c);
+            if (saves != "")
             {
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(c)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(saves), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                 DBConnect.InsertPostgre(q);
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;
@@ -162,17 +164,17 @@ namespace ARM
             t.Columns.Add("Name");
             t.Columns.Add("Type");
             t.Columns.Add("Category");
-            t.Columns.Add("No.");           
+            t.Columns.Add("No.");
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));
 
             Image delete = new Bitmap(Properties.Resources.Cancel_16);
-            string Q = "SELECT * FROM coverage WHERE customerID = '"+CustomerID +"' ";
+            string Q = "SELECT * FROM coverage WHERE customerID = '" + CustomerID + "' ";
             foreach (Coverage j in Coverage.List(Q))
             {
                 try
                 {
-                 
-                    t.Rows.Add(new object[] { j.Id,j.Name,j.Type,j.Category,j.No, delete });
+
+                    t.Rows.Add(new object[] { j.Id, j.Name, j.Type, j.Category, j.No, delete });
 
                 }
                 catch (Exception m)
@@ -185,7 +187,7 @@ namespace ARM
             dtGridCoverage.DataSource = t;
             dtGridCoverage.AllowUserToAddRows = false;
             dtGridCoverage.Columns["id"].Visible = false;
-           
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -240,7 +242,7 @@ namespace ARM
         {
             // create and execute query  
             t = new DataTable();
-          
+
             t.Columns.Add("id");
             t.Columns.Add("uri");
             t.Columns.Add(new DataColumn("Img", typeof(Bitmap)));//1
@@ -252,10 +254,10 @@ namespace ARM
             t.Columns.Add("State");
             t.Columns.Add("Zip");
             t.Columns.Add("Gender");
-            t.Columns.Add("Relationship");            
+            t.Columns.Add("Relationship");
             t.Columns.Add("Sync");
             t.Columns.Add("Created");
-            
+
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));//1
 
 
@@ -271,7 +273,7 @@ namespace ARM
             {
                 try
                 {
-                    t.Rows.Add(new object[] {c.Id, c.Image as string, b, c.No, c.Name, c.Contact, c.Address, c.City, c.State, c.Zip, c.Gender, c.Relationship, c.Sync, c.Created, delete });
+                    t.Rows.Add(new object[] { c.Id, c.Image as string, b, c.No, c.Name, c.Contact, c.Address, c.City, c.State, c.Zip, c.Gender, c.Relationship, c.Sync, c.Created, delete });
 
                 }
                 catch (Exception m)
@@ -322,7 +324,7 @@ namespace ARM
             t.Columns.Add("id");
             t.Columns.Add("uri");
             t.Columns.Add(new DataColumn("Img", typeof(Bitmap)));//1
-            
+
             t.Columns.Add("Name");
             t.Columns.Add("Contact");
             t.Columns.Add("Address");
@@ -330,7 +332,7 @@ namespace ARM
             t.Columns.Add("State");
             t.Columns.Add("Zip");
             t.Columns.Add("Gender");
-          
+
             t.Columns.Add("Sync");
             t.Columns.Add("Created");
 
@@ -404,7 +406,7 @@ namespace ARM
                     LoadEmergency();
 
                 }
-                
+
             }
         }
 
@@ -423,22 +425,22 @@ namespace ARM
         {
             // create and execute query  
             t = new DataTable();
-           
+
             t.Columns.Add("id");
             t.Columns.Add("Name");
             t.Columns.Add("Type");
-            t.Columns.Add("Details");           
+            t.Columns.Add("Details");
             t.Columns.Add("Sync");
             t.Columns.Add("Created");
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));
-            
+
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
             string Q = "SELECT * FROM condition WHERE customerID = '" + CustomerID + "' ";
-            foreach (Condition c in Condition.List(Q))
+            foreach (Conditions c in Conditions.List(Q))
             {
                 try
                 {
-                    t.Rows.Add(new object[] {  c.Id,c.Name, c.Type, c.Details,c.Sync, c.Created, delete });
+                    t.Rows.Add(new object[] { c.Id, c.Name, c.Type, c.Details, c.Sync, c.Created, delete });
 
                 }
                 catch (Exception m)
@@ -453,9 +455,9 @@ namespace ARM
             // dtGrid.Columns["View"].DefaultCellStyle.BackColor = Color.LightGreen;
             //  dtGrid.Columns["Delete"].DefaultCellStyle.BackColor = Color.Red;
             dtGridCond.RowTemplate.Height = 60;
-           
+
             dtGridCond.Columns["id"].Visible = false;
-            
+
 
         }
 
@@ -471,13 +473,13 @@ namespace ARM
                     LoadCondition();
 
                 }
-               
+
             }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            using (PractitionerDialog form = new PractitionerDialog(CustomerID,""))
+            using (PractitionerDialog form = new PractitionerDialog(CustomerID, ""))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ARM.Model
 {
-    public class Condition
+    public class Conditions
     {
         private string id;        
         private string customerID;
@@ -20,9 +20,9 @@ namespace ARM.Model
         private bool sync;
         private string companyID;        
 
-        public Condition() { }
+        public Conditions() { }
 
-        public Condition(string id, string customerID, string name, string type, string details, string created, bool sync, string companyID)
+        public Conditions(string id, string customerID, string name, string type, string details, string created, bool sync, string companyID)
         {
             this.Id = id;
             this.CustomerID = customerID;
@@ -34,10 +34,10 @@ namespace ARM.Model
             this.CompanyID = companyID;
         }
 
-        static List<Condition> p = new List<Condition>();
+        static List<Conditions> p = new List<Conditions>();
 
        
-        public static List<Condition> List()
+        public static List<Conditions> List()
         {
             p.Clear();
             string Q = "SELECT * FROM condition ";
@@ -45,28 +45,28 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Condition ps = new Condition(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]),Reader["companyID"].ToString());
+                Conditions ps = new Conditions(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]),Reader["companyID"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
             return p;
 
         }
-        public static List<Condition> List(string Q)
+        public static List<Conditions> List(string Q)
         {
             p.Clear();
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Condition ps = new Condition(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Conditions ps = new Conditions(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
             return p;
 
         }
-        public static List<Condition> ListOnline(string Q)
+        public static List<Conditions> ListOnline(string Q)
         {
             try
             {
@@ -75,7 +75,7 @@ namespace ARM.Model
                 MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
                 while (Reader.Read())
                 {
-                    Condition ps = new Condition(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                    Conditions ps = new Conditions(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
@@ -84,7 +84,7 @@ namespace ARM.Model
             return p;
 
         }
-        private static Condition c = new Condition();
+        private static Conditions c = new Conditions();
 
         public string Id { get => id; set => id = value; }
         public string CustomerID { get => customerID; set => customerID = value; }
@@ -95,14 +95,14 @@ namespace ARM.Model
         public bool Sync { get => sync; set => sync = value; }
         public string CompanyID { get => companyID; set => companyID = value; }
 
-        public static Condition Select(string customerID)
+        public static Conditions Select(string customerID)
         {
             string Q = "SELECT * FROM condition WHERE id = '" + customerID + "'";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                c = new Condition(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                c = new Conditions(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
 
             }
             DBConnect.CloseConn();

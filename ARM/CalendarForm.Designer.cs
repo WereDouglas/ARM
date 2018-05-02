@@ -74,6 +74,9 @@
             this.westToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.editItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
+            this.toDateTxt = new System.Windows.Forms.DateTimePicker();
+            this.fromDateTxt = new System.Windows.Forms.DateTimePicker();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -459,6 +462,37 @@
             this.editItemToolStripMenuItem.Text = "Edit item\'s text";
             this.editItemToolStripMenuItem.Click += new System.EventHandler(this.editItemToolStripMenuItem_Click);
             // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::ARM.Properties.Resources.Submit_02_161;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.Location = new System.Drawing.Point(1094, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(38, 30);
+            this.button1.TabIndex = 54;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // toDateTxt
+            // 
+            this.toDateTxt.CalendarFont = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toDateTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toDateTxt.Location = new System.Drawing.Point(783, 11);
+            this.toDateTxt.Name = "toDateTxt";
+            this.toDateTxt.Size = new System.Drawing.Size(305, 26);
+            this.toDateTxt.TabIndex = 53;
+            // 
+            // fromDateTxt
+            // 
+            this.fromDateTxt.CalendarFont = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fromDateTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fromDateTxt.Location = new System.Drawing.Point(429, 12);
+            this.fromDateTxt.Name = "fromDateTxt";
+            this.fromDateTxt.Size = new System.Drawing.Size(335, 26);
+            this.fromDateTxt.TabIndex = 52;
+            // 
             // CalendarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
@@ -466,6 +500,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1200, 539);
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.toDateTxt);
+            this.Controls.Add(this.fromDateTxt);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -526,5 +563,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem editItemToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker toDateTxt;
+        private System.Windows.Forms.DateTimePicker fromDateTxt;
     }
 }

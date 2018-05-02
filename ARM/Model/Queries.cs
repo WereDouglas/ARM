@@ -12,18 +12,18 @@ namespace ARM.Model
     public class Queries
     {
         private string id;
-        private string by;
-        private string strings;
+        private string users;
+        private string querying;
         private bool executed;        
         private string created;        
         private string companyID;
         public Queries() { }
 
-        public Queries(string id, string by, string strings, bool executed, string created, string companyID)
+        public Queries(string id, string users, string querying, bool executed, string created, string companyID)
         {
             this.Id = id;
-            this.By = by;
-            this.Strings = strings;
+            this.Users = users;
+            this.Querying = querying;
             this.Executed = executed;
             this.Created = created;
             this.CompanyID = companyID;
@@ -32,31 +32,39 @@ namespace ARM.Model
         static List<Queries> p = new List<Queries>();  
         public static List<Queries> List()
         {
-            p.Clear();
-            string Q = "SELECT * FROM Queries ";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
-            while (Reader.Read())
+            try
             {
-                Queries ps = new Queries(Reader["id"].ToString(), Reader["by"].ToString(), Reader["strings"].ToString(),Convert.ToBoolean(Reader["executed"]),Reader["created"].ToString(), Reader["companyID"].ToString());
-                p.Add(ps);
+                p.Clear();
+                string Q = "SELECT * FROM Queries ";
+                DBConnect.OpenConn();
+                NpgsqlDataReader Reader = DBConnect.Reading(Q);
+                while (Reader.Read())
+                {
+                    Queries ps = new Queries(Reader["id"].ToString(), Reader["users"].ToString(), Reader["querying"].ToString(), Convert.ToBoolean(Reader["executed"]), Reader["created"].ToString(), Reader["companyID"].ToString());
+                    p.Add(ps);
+                }
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            catch { }
             return p;
 
         }
         public static List<Queries> List(string Q)
         {
-            p.Clear();
+            try
+            {
+                p.Clear();
 
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Queries ps = new Queries(Reader["id"].ToString(), Reader["by"].ToString(), Reader["strings"].ToString(), Convert.ToBoolean(Reader["executed"]), Reader["created"].ToString(), Reader["companyID"].ToString());
+                Queries ps = new Queries(Reader["id"].ToString(), Reader["users"].ToString(), Reader["querying"].ToString(), Convert.ToBoolean(Reader["executed"]), Reader["created"].ToString(), Reader["companyID"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
+            }
+            catch { }
             return p;
 
         }
@@ -69,7 +77,7 @@ namespace ARM.Model
                 MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
                 while (Reader.Read())
                 {
-                    Queries ps = new Queries(Reader["id"].ToString(), Reader["by"].ToString(), Reader["strings"].ToString(), Convert.ToBoolean(Reader["executed"]), Reader["created"].ToString(), Reader["companyID"].ToString());
+                    Queries ps = new Queries(Reader["id"].ToString(), Reader["users"].ToString(), Reader["querying"].ToString(), Convert.ToBoolean(Reader["executed"]), Reader["created"].ToString(), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
@@ -81,8 +89,8 @@ namespace ARM.Model
         static Queries c;
 
         public string Id { get => id; set => id = value; }
-        public string By { get => by; set => by = value; }
-        public string Strings { get => strings; set => strings = value; }
+        public string Users { get => users; set => users = value; }
+        public string Querying { get => querying; set => querying = value; }
         public bool Executed { get => executed; set => executed = value; }
         public string Created { get => created; set => created = value; }
         public string CompanyID { get => companyID; set => companyID = value; }
@@ -94,7 +102,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                c = new Queries(Reader["id"].ToString(), Reader["by"].ToString(), Reader["strings"].ToString(), Convert.ToBoolean(Reader["executed"]), Reader["created"].ToString(), Reader["companyID"].ToString());
+                c = new Queries(Reader["id"].ToString(), Reader["users"].ToString(), Reader["querying"].ToString(), Convert.ToBoolean(Reader["executed"]), Reader["created"].ToString(), Reader["companyID"].ToString());
             }
             DBConnect.CloseConn();
             return c;

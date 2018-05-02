@@ -35,7 +35,8 @@ namespace ARM
             t.Columns.Add("ID");
             t.Columns.Add("Physician");
             t.Columns.Add("Bank");
-            t.Columns.Add("Account No.");           
+            t.Columns.Add("Account No.");
+            t.Columns.Add("Routing");
             t.Columns.Add("Sync");
             t.Columns.Add("Created");           
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));           
@@ -47,7 +48,7 @@ namespace ARM
                 try { user = Users.Select(c.UserID).Name; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id,user,c.Bank,c.AccountNo, c.Sync, c.Created, delete });
+                    t.Rows.Add(new object[] { false, c.Id,user,c.Bank,c.AccountNo,c.Routing ,c.Sync, c.Created, delete });
 
                 }
                 catch (Exception m)
@@ -59,8 +60,8 @@ namespace ARM
 
             dtGrid.DataSource = t;
             dtGrid.AllowUserToAddRows = false;
-            dtGrid.Columns["Bank"].DefaultCellStyle.BackColor = Color.LightGreen;
-            dtGrid.Columns["Account No."].DefaultCellStyle.BackColor = Color.Pink;
+           // dtGrid.Columns["Bank"].DefaultCellStyle.BackColor = Color.LightGreen;
+           // dtGrid.Columns["Account No."].DefaultCellStyle.BackColor = Color.Pink;
             dtGrid.Columns["ID"].Visible = false;
            
 

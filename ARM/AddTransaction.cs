@@ -320,26 +320,29 @@ namespace ARM
           
             string Iid = Guid.NewGuid().ToString();
             Invoice i = new Invoice(Iid, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, typeCbx.Text, categoryCbx.Text, VendorID, CustomerID, methodCbx.Text, Total, termsTxt.Text, Convert.ToDouble(taxTxt.Text), Convert.ToDouble(amountTxt.Text), Convert.ToDouble(balanceTxt.Text), Convert.ToDouble(amountTxt.Text), Convert.ToInt32(ItemCountTxt.Text), Helper.UserID, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false,Helper.CompanyID);
-            if (DBConnect.InsertPostgre(i) != "")
+            string save = DBConnect.InsertPostgre(i);
+            if (save != "")
             {
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(i)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                 DBConnect.InsertPostgre(q);
                 foreach (Transaction t in GenericCollection.transactions)
                 {
                     Transaction c = new Transaction(t.Id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID,"","",t.Qty,t.Cost,t.Units,t.Total,t.Tax,t.Coverage,t.Self,t.Payable,t.Limits,t.Setting,t.Period,t.Height,t.Weight,t.Instruction,t.Created,false,Helper.CompanyID);
-                    if (DBConnect.InsertPostgre(c) != "")
+                    string saves = DBConnect.InsertPostgre(c);
+                    if (saves != "")
                     {
-                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(c)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                        DBConnect.InsertPostgre(q);
+                        Queries qe = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(saves), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        DBConnect.InsertPostgre(qe);
                     }
                 }
 
                 string Pid = Guid.NewGuid().ToString();
                 Payment p = new Payment(Pid, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, typeCbx.Text, methodCbx.Text, Convert.ToDouble(amountTxt.Text), Convert.ToDouble(balanceTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false,Helper.CompanyID);
-                if (DBConnect.InsertPostgre(p) != "")
+                string saved = DBConnect.InsertPostgre(p);
+                if (saved != "")
                 {
-                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(p)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                    DBConnect.InsertPostgre(q);
+                    Queries qr = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(saved), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    DBConnect.InsertPostgre(qr);
                 }               
             }
             using (ReceiptForm form = new ReceiptForm(noTxt.Text))

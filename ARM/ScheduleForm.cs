@@ -18,9 +18,13 @@ namespace ARM
 {
     public partial class ScheduleForm : Form
     {
+        string toDate;
+        string fromDate;
         public ScheduleForm()
         {
             InitializeComponent();
+            fromDate = DateTime.Now.ToString("dd-MM-yyyy");
+            toDate = DateTime.Now.ToString("dd-MM-yyyy");
 
             LoadData();
 
@@ -30,6 +34,7 @@ namespace ARM
         DataTable t = new DataTable();
         public void LoadData()
         {
+           
             // create and execute query  
             t = new DataTable();
             t.Columns.Add(new DataColumn("Select", typeof(bool)));
@@ -56,8 +61,9 @@ namespace ARM
 
             Image view = new Bitmap(Properties.Resources.Note_Memo_16);
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
+            string Q = "SELECT * FROM schedule  WHERE (date::date >= '" + fromDate + "'::date AND  date::date <= '" + toDate + "'::date)";
 
-            foreach (Schedule c in Schedule.List())
+            foreach (Schedule c in Schedule.List(Q))
             {
                 string user = "";
                 string cus = "";
@@ -249,6 +255,13 @@ namespace ARM
                 {
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            fromDate = Convert.ToDateTime(fromDateTxt.Text).ToString("dd-MM-yyyy");
+            toDate = Convert.ToDateTime(toDateTxt.Text).ToString("dd-MM-yyyy");
+            LoadData();
         }
     }
 }

@@ -128,10 +128,10 @@ namespace ARM
             
 
             dtGrid.AllowUserToAddRows = false;
-            dtGrid.Columns["Customer"].DefaultCellStyle.BackColor = Color.LightGreen;
-            dtGrid.Columns["Physician"].DefaultCellStyle.BackColor = Color.WhiteSmoke;
+           // dtGrid.Columns["Customer"].DefaultCellStyle.BackColor = Color.LightGreen;
+           // dtGrid.Columns["Physician"].DefaultCellStyle.BackColor = Color.WhiteSmoke;
             dtGrid.Columns["ID"].Visible = false;
-            dtGrid.Columns["ImgCus"].DefaultCellStyle.BackColor = Color.LightGreen;
+           // dtGrid.Columns["ImgCus"].DefaultCellStyle.BackColor = Color.LightGreen;
             dtGrid.Columns["uriCus"].Visible = false;
 
         }

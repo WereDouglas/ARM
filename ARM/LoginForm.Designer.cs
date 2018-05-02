@@ -35,13 +35,13 @@
             this.medicalChk = new MetroFramework.Controls.MetroRadioButton();
             this.payrollChk = new MetroFramework.Controls.MetroRadioButton();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.passwordTxt = new MetroFramework.Controls.MetroTextBox();
             this.contactTxt = new MetroFramework.Controls.MetroTextBox();
             this.loginBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -106,6 +106,20 @@
             this.lblStatus.TabIndex = 3;
             this.lblStatus.Text = "  :  ";
             this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::ARM.Properties.Resources.Command_Refresh_16;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(485, 517);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 35);
+            this.button1.TabIndex = 51;
+            this.button1.Text = "Advanced settings";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button4
             // 
@@ -245,20 +259,6 @@
             this.loginBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.loginBtn.UseVisualStyleBackColor = false;
             this.loginBtn.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::ARM.Properties.Resources.Command_Refresh_16;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(485, 517);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 35);
-            this.button1.TabIndex = 51;
-            this.button1.Text = "Advanced settings";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // LoginForm
             // 

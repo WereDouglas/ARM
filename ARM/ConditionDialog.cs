@@ -32,10 +32,11 @@ namespace ARM
         private void button3_Click(object sender, EventArgs e)
         {
             string id = Guid.NewGuid().ToString();
-            Condition t = new Condition(id, CustomerID, nameTxt.Text,typeCbx.Text,detailsTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
-            if (DBConnect.InsertPostgre(t) != "")
+            Conditions t = new Conditions(id, CustomerID, nameTxt.Text,typeCbx.Text,detailsTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
+            string saves = DBConnect.InsertPostgre(t);
+            if (saves != "")
             {
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(t)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(saves), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                 DBConnect.InsertPostgre(q);
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;

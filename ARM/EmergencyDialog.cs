@@ -50,9 +50,11 @@ namespace ARM
             string fullimage = Helper.ImageToBase64(stream);
 
             Emergency c = new Emergency(Guid.NewGuid().ToString(),CustomerID, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text,genderCbx.Text,relationshipCbx.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false, Helper.CompanyID, fullimage);
-            if (DBConnect.InsertPostgre(c) != "")
+
+            string save = DBConnect.InsertPostgre(c);
+            if ( save!= "")
             {
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(DBConnect.InsertPostgre(c))), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                 DBConnect.InsertPostgre(q);
 
                 MessageBox.Show("Information Saved");

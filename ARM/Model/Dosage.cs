@@ -18,7 +18,7 @@ namespace ARM.Model
         private string amount;
         private string route;
         private string freq;
-        private string starting;
+        private string starts;
         private string dc;       
         private string details;
         private string created; 
@@ -28,7 +28,7 @@ namespace ARM.Model
 
         public Dosage() { }
 
-        public Dosage(string id, string serviceID, string customerID, string medication, string amount, string route, string freq, string starting, string dc, string details, string created, bool sync, string companyID)
+        public Dosage(string id, string serviceID, string customerID, string medication, string amount, string route, string freq, string starts, string dc, string details, string created, bool sync, string companyID)
         {
             this.Id = id;
             this.ServiceID = serviceID;
@@ -37,7 +37,7 @@ namespace ARM.Model
             this.Amount = amount;
             this.Route = route;
             this.Freq = freq;
-            this.Starting = starting;
+            this.Starts = starts;
             this.Dc = dc;
             this.Details = details;
             this.Created = created;
@@ -56,7 +56,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Dosage ps = new Dosage(Reader["id"].ToString(), Reader["serviceID"].ToString(), Reader["customerID"].ToString(), Reader["medication"].ToString(), Reader["dosage"].ToString(), Reader["route"].ToString(), Reader["freq"].ToString(), Reader["starting"].ToString(), Reader["dc"].ToString(),Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Dosage ps = new Dosage(Reader["id"].ToString(), Reader["serviceID"].ToString(), Reader["customerID"].ToString(), Reader["medication"].ToString(), Reader["dosage"].ToString(), Reader["route"].ToString(), Reader["freq"].ToString(), Reader["starts"].ToString(), Reader["dc"].ToString(),Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -70,7 +70,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Dosage ps = new Dosage(Reader["id"].ToString(), Reader["serviceID"].ToString(), Reader["customerID"].ToString(), Reader["medication"].ToString(), Reader["amount"].ToString(), Reader["route"].ToString(), Reader["freq"].ToString(), Reader["starting"].ToString(), Reader["dc"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Dosage ps = new Dosage(Reader["id"].ToString(), Reader["serviceID"].ToString(), Reader["customerID"].ToString(), Reader["medication"].ToString(), Reader["amount"].ToString(), Reader["route"].ToString(), Reader["freq"].ToString(), Reader["starts"].ToString(), Reader["dc"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -86,7 +86,7 @@ namespace ARM.Model
                 MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
                 while (Reader.Read())
                 {
-                    Dosage ps = new Dosage(Reader["id"].ToString(), Reader["serviceID"].ToString(), Reader["customerID"].ToString(), Reader["medication"].ToString(), Reader["amount"].ToString(), Reader["route"].ToString(), Reader["freq"].ToString(), Reader["starting"].ToString(), Reader["dc"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                    Dosage ps = new Dosage(Reader["id"].ToString(), Reader["serviceID"].ToString(), Reader["customerID"].ToString(), Reader["medication"].ToString(), Reader["amount"].ToString(), Reader["route"].ToString(), Reader["freq"].ToString(), Reader["starts"].ToString(), Reader["dc"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
@@ -104,7 +104,7 @@ namespace ARM.Model
         public string Amount { get => amount; set => amount = value; }
         public string Route { get => route; set => route = value; }
         public string Freq { get => freq; set => freq = value; }
-        public string Starting { get => starting; set => starting = value; }
+        public string Starts { get => starts; set => starts = value; }
         public string Dc { get => dc; set => dc = value; }
         public string Details { get => details; set => details = value; }
         public string Created { get => created; set => created = value; }
@@ -118,7 +118,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                m = new Dosage(Reader["id"].ToString(), Reader["serviceID"].ToString(), Reader["customerID"].ToString(), Reader["medication"].ToString(), Reader["amount"].ToString(), Reader["route"].ToString(), Reader["freq"].ToString(), Reader["starting"].ToString(), Reader["dc"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                m = new Dosage(Reader["id"].ToString(), Reader["serviceID"].ToString(), Reader["customerID"].ToString(), Reader["medication"].ToString(), Reader["amount"].ToString(), Reader["route"].ToString(), Reader["freq"].ToString(), Reader["starts"].ToString(), Reader["dc"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
             }
             DBConnect.CloseConn();
             return m;

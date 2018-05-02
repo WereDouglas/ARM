@@ -265,214 +265,7 @@ namespace ARM
                 backgroundWorker.RunWorkerAsync();
             }
         }
-        private void button10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button14_Click(object sender, EventArgs e)
-        {
-            FollowForm f = new FollowForm(null);
-            f.Show();
-        }
-
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void itemToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void addToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            using (AddItem form = new AddItem(null))
-            {
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-
-                }
-            }
-        }
-
-        private void addToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            AddItem it = new AddItem(null);
-            it.Show();
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void deliveryPickupTicketToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void orderIntakeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dMEInstructionDeliveryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void followUpPlanOfCareToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            using (PurchaseForm form = new PurchaseForm())
-            {
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-
-                }
-            }
-        }
-
-        private void purchaseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void patientToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void addToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            using (CustomerDemo form = new CustomerDemo(null, "Patient"))
-            {
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-
-                }
-            }
-        }
-
-        private void addToolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-            using (AddSupplierForm form = new AddSupplierForm())
-            {
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-
-                }
-            }
-        }
-
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void unitsOfMeasureToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void viewToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem6_Click(object sender, EventArgs e)
-        {
-            PhysiciansForm frm = new PhysiciansForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
-
-        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void exceptionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -484,92 +277,12 @@ namespace ARM
             frm.Show();
         }
 
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void vendorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton4_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void toolStripButton11_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void toolStripMenuItem14_Click(object sender, EventArgs e)
-        {
-            FollowForm f = new FollowForm(null);
-            f.Show();
-        }
-
-        private void toolStripButton7_Click(object sender, EventArgs e)
-        {
-            AddTransaction frm = new AddTransaction(null);
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
-
-        private void rateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void reviewToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton5_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton7_Click_1(object sender, EventArgs e)
-        {
-
-        }
 
         private void toolStripButton3_Click_1(object sender, EventArgs e)
         {
@@ -814,10 +527,41 @@ namespace ARM
             r.Show();
             this.Close();
         }
-
         private void queriesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             QueriesForm frm = new QueriesForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (DeductionDialog form = new DeductionDialog(null))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    viewToolStripMenuItem1_Click(null, null);
+                }
+            }
+        }
+
+        private void viewToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+           DeductionForm frm = new DeductionForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PayrollForm frm = new PayrollForm();
             frm.TopLevel = false;
             panel1.Controls.Add(frm);
             frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

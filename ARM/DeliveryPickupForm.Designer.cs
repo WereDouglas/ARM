@@ -51,6 +51,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.userCbx = new System.Windows.Forms.ComboBox();
+            this.signatureTxt = new System.Windows.Forms.ComboBox();
             this.commentTxt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -69,7 +70,6 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.previewdlg = new System.Windows.Forms.PrintPreviewDialog();
             this.printdoc1 = new System.Drawing.Printing.PrintDocument();
-            this.signatureTxt = new System.Windows.Forms.ComboBox();
             this.updateBtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
@@ -362,6 +362,23 @@
             this.userCbx.TabIndex = 248;
             this.userCbx.SelectedIndexChanged += new System.EventHandler(this.userCbx_SelectedIndexChanged);
             // 
+            // signatureTxt
+            // 
+            this.signatureTxt.AutoCompleteCustomSource.AddRange(new string[] {
+            "Participating",
+            "Nonparticipating"});
+            this.signatureTxt.BackColor = System.Drawing.SystemColors.Info;
+            this.signatureTxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.signatureTxt.FormattingEnabled = true;
+            this.signatureTxt.Items.AddRange(new object[] {
+            "Yes",
+            "No"});
+            this.signatureTxt.Location = new System.Drawing.Point(204, 94);
+            this.signatureTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.signatureTxt.Name = "signatureTxt";
+            this.signatureTxt.Size = new System.Drawing.Size(187, 24);
+            this.signatureTxt.TabIndex = 521;
+            // 
             // commentTxt
             // 
             this.commentTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
@@ -388,7 +405,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.70166F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.29834F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 256F));
             this.tableLayoutPanel2.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel3, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(36, 239);
@@ -416,7 +433,7 @@
             this.tableLayoutPanel2.SetColumnSpan(this.panel3, 3);
             this.panel3.Controls.Add(this.physicianTxt);
             this.panel3.Controls.Add(this.userPbx);
-            this.panel3.Location = new System.Drawing.Point(122, 3);
+            this.panel3.Location = new System.Drawing.Point(120, 3);
             this.panel3.Name = "panel3";
             this.tableLayoutPanel2.SetRowSpan(this.panel3, 3);
             this.panel3.Size = new System.Drawing.Size(577, 74);
@@ -451,7 +468,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 134F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
             this.tableLayoutPanel1.Controls.Add(this.label12, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(35, 130);
@@ -481,7 +498,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.panel2, 5);
             this.panel2.Controls.Add(this.subscriberInfoTxt);
             this.panel2.Controls.Add(this.cusPbx);
-            this.panel2.Location = new System.Drawing.Point(122, 3);
+            this.panel2.Location = new System.Drawing.Point(117, 3);
             this.panel2.Name = "panel2";
             this.tableLayoutPanel1.SetRowSpan(this.panel2, 4);
             this.panel2.Size = new System.Drawing.Size(576, 84);
@@ -545,23 +562,6 @@
             this.previewdlg.Name = "previewdlg";
             this.previewdlg.Visible = false;
             // 
-            // signatureTxt
-            // 
-            this.signatureTxt.AutoCompleteCustomSource.AddRange(new string[] {
-            "Participating",
-            "Nonparticipating"});
-            this.signatureTxt.BackColor = System.Drawing.SystemColors.Info;
-            this.signatureTxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.signatureTxt.FormattingEnabled = true;
-            this.signatureTxt.Items.AddRange(new object[] {
-            "Yes",
-            "No"});
-            this.signatureTxt.Location = new System.Drawing.Point(204, 94);
-            this.signatureTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.signatureTxt.Name = "signatureTxt";
-            this.signatureTxt.Size = new System.Drawing.Size(187, 24);
-            this.signatureTxt.TabIndex = 521;
-            // 
             // updateBtn
             // 
             this.updateBtn.BackColor = System.Drawing.Color.Khaki;
@@ -571,7 +571,7 @@
             this.updateBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.updateBtn.Image = global::ARM.Properties.Resources.Note_04_24;
             this.updateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.updateBtn.Location = new System.Drawing.Point(511, 810);
+            this.updateBtn.Location = new System.Drawing.Point(455, 810);
             this.updateBtn.Name = "updateBtn";
             this.updateBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.updateBtn.Size = new System.Drawing.Size(107, 42);
@@ -590,10 +590,10 @@
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button1.Image = global::ARM.Properties.Resources.Print_24;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(278, 807);
+            this.button1.Location = new System.Drawing.Point(263, 807);
             this.button1.Name = "button1";
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button1.Size = new System.Drawing.Size(85, 45);
+            this.button1.Size = new System.Drawing.Size(100, 45);
             this.button1.TabIndex = 1;
             this.button1.Text = "Print";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

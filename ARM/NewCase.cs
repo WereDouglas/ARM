@@ -96,9 +96,17 @@ namespace ARM
             CustomerID = o.CustomerID;
             customerCbx.Text = CustomerDictionary.First(e => e.Value == o.CustomerID).Key;
             customerCbx_SelectedIndexChanged(null, null);
+            try
+            {
+                practitionerCbx.Text = PractitionerDictionary.First(e => e.Value == o.PractitionerID).Key;
+                practitionerCbx_SelectedIndexChanged(null, null);
+            }
+            catch (Exception r)
+            {
 
-            practitionerCbx.Text = PractitionerDictionary.First(e => e.Value == o.PractitionerID).Key;
-            practitionerCbx_SelectedIndexChanged(null, null);
+                Helper.Exceptions(r.Message, "No practitioner is defined  on loading existing case " + CaseID);
+
+            }
             reqStart.Text = Convert.ToDateTime(o.ReqStart).ToString();
             practictionerTypeCbx.Text = o.PractitionerType;
             reqEnd.Text = Convert.ToDateTime(o.ReqEnd).ToString();
@@ -175,24 +183,30 @@ namespace ARM
                 var PlaceJson = JsonConvert.SerializeObject(PlaceDictionary);
 
                 Cases i = new Cases(CaseID, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, providerNoTxt.Text, coverageID, CustomerID, PractitionerID, practictionerTypeCbx.Text, roleTypeCbx.Text, TypeJson, PlaceJson, informationTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Convert.ToDateTime(reqStart.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(reqEnd.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(reqStart.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(reqEnd.Text).ToString("dd-MM-yyyy"), false, Helper.CompanyID);
-                if (DBConnect.InsertPostgre(i) != "")
+                string save = DBConnect.InsertPostgre(i);
+
+                if (save != "")
                 {
+                    Queries qi = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    DBConnect.InsertPostgre(qi);
                     foreach (Transaction t in GenericCollection.transactions)
                     {
                         CaseTransaction c = new CaseTransaction(t.Id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, CaseID, "", t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
-                        if (DBConnect.InsertPostgre(c) != "")
+                        string saving = DBConnect.InsertPostgre(c);
+                        if (saving != "")
                         {
-                            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(c)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(saving), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                             DBConnect.InsertPostgre(q);
                         }
                     }
                     foreach (ICD10 t in GenericCollection.icd10)
                     {
                         ICD10 c = new ICD10(t.Id, CaseID, t.Code, t.Name, t.Created, false, Helper.CompanyID);
-                        if (DBConnect.InsertPostgre(c) != "")
+                        string doing = DBConnect.InsertPostgre(c);
+                        if (doing != "")
                         {
 
-                            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(c)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(doing), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                             DBConnect.InsertPostgre(q);
                         }
                     }
@@ -201,6 +215,13 @@ namespace ARM
 
                     foreach (ItemCoverage t in GenericCollection.itemCoverage)
                     {
+                        ItemCoverage c = new ItemCoverage(t.Id,t.TransactionID,t.ItemID,t.CoverageID,t.Percentage,t.Amount,t.Created, false, Helper.CompanyID);
+                        string mg = DBConnect.InsertPostgre(c);
+                        if (mg != "")
+                        {
+                            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(mg), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                            DBConnect.InsertPostgre(q);
+                        }
 
                     }
                     MessageBox.Show("Information Saved");
@@ -523,13 +544,14 @@ namespace ARM
                     string Query = "DELETE from caseTransaction WHERE caseID ='" + CaseID + "'";
                     DBConnect.QueryPostgre(Query);
                     Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                    DBConnect.InsertPostgre(q);
+                     DBConnect.InsertPostgre(q);
+                      
                     foreach (Transaction t in GenericCollection.transactions)
                     {
                         CaseTransaction c = new CaseTransaction(t.Id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, CaseID, "", t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
 
-                        DBConnect.UpdatePostgre(c, t.Id);
-                        Queries qh = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.UpdatePostgre(c, t.Id)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        string sv = DBConnect.UpdatePostgre(c, t.Id);
+                        Queries qh = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(sv), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                         DBConnect.InsertPostgre(qh);
                     }
                 }
@@ -537,13 +559,15 @@ namespace ARM
                 {
                     string Query = "DELETE from icd10 WHERE caseID ='" + CaseID + "'";
                     DBConnect.QueryPostgre(Query);
+
                     Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                     DBConnect.InsertPostgre(q);
                     foreach (ICD10 t in GenericCollection.icd10)
                     {
                         ICD10 c = new ICD10(t.Id, CaseID, t.Code, t.Name, t.Created, false, Helper.CompanyID);
-                        DBConnect.UpdatePostgre(c, t.Id);
-                        Queries qy = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.UpdatePostgre(c, t.Id)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        string sv = DBConnect.UpdatePostgre(c, t.Id);
+
+                        Queries qy = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(sv), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                         DBConnect.InsertPostgre(qy);
                     }
                 }

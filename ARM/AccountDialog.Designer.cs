@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountDialog));
             this.htmlToolTip1 = new MetroFramework.Drawing.Html.HtmlToolTip();
             this.userCbx = new MetroFramework.Controls.MetroComboBox();
+            this.routingTxt = new MetroFramework.Controls.MetroTextBox();
             this.bankTxt = new MetroFramework.Controls.MetroTextBox();
             this.userPbx = new System.Windows.Forms.PictureBox();
             this.accountTxt = new MetroFramework.Controls.MetroTextBox();
@@ -55,6 +56,40 @@
             this.userCbx.TabIndex = 1;
             this.userCbx.UseSelectable = true;
             this.userCbx.SelectedIndexChanged += new System.EventHandler(this.userCbx_SelectedIndexChanged);
+            // 
+            // routingTxt
+            // 
+            // 
+            // 
+            // 
+            this.routingTxt.CustomButton.Image = null;
+            this.routingTxt.CustomButton.Location = new System.Drawing.Point(231, 1);
+            this.routingTxt.CustomButton.Name = "";
+            this.routingTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
+            this.routingTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.routingTxt.CustomButton.TabIndex = 1;
+            this.routingTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.routingTxt.CustomButton.UseSelectable = true;
+            this.routingTxt.CustomButton.Visible = false;
+            this.routingTxt.DisplayIcon = true;
+            this.routingTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
+            this.routingTxt.Lines = new string[0];
+            this.routingTxt.Location = new System.Drawing.Point(75, 217);
+            this.routingTxt.MaxLength = 32767;
+            this.routingTxt.Name = "routingTxt";
+            this.routingTxt.PasswordChar = '\0';
+            this.routingTxt.PromptText = "Routing No.";
+            this.routingTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.routingTxt.SelectedText = "";
+            this.routingTxt.SelectionLength = 0;
+            this.routingTxt.SelectionStart = 0;
+            this.routingTxt.ShortcutsEnabled = true;
+            this.routingTxt.Size = new System.Drawing.Size(265, 35);
+            this.routingTxt.TabIndex = 180;
+            this.routingTxt.UseSelectable = true;
+            this.routingTxt.WaterMark = "Routing No.";
+            this.routingTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.routingTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // bankTxt
             // 
@@ -145,7 +180,7 @@
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button3.Image = global::ARM.Properties.Resources.Submit_01_32;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(232, 217);
+            this.button3.Location = new System.Drawing.Point(232, 330);
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button3.Size = new System.Drawing.Size(108, 49);
@@ -164,7 +199,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(75, 217);
+            this.button2.Location = new System.Drawing.Point(75, 330);
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(108, 49);
@@ -178,7 +213,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(403, 295);
+            this.ClientSize = new System.Drawing.Size(403, 402);
+            this.Controls.Add(this.routingTxt);
             this.Controls.Add(this.bankTxt);
             this.Controls.Add(this.userPbx);
             this.Controls.Add(this.userCbx);
@@ -203,5 +239,6 @@
         private MetroFramework.Controls.MetroComboBox userCbx;
         private System.Windows.Forms.PictureBox userPbx;
         private MetroFramework.Controls.MetroTextBox bankTxt;
+        private MetroFramework.Controls.MetroTextBox routingTxt;
     }
 }

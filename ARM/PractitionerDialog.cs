@@ -74,9 +74,11 @@ namespace ARM
 
             string id = Guid.NewGuid().ToString();
             Practitioner c = new Practitioner(id, nameTxt.Text, CustomerID, contactTxt.Text, npiTxt.Text, addressTxt.Text, officeTxt.Text, idTxt.Text, tinTxt.Text, officePhoneTxt.Text, faxTxt.Text, cityTxt.Text, zipTxt.Text, stateTxt.Text, specialityTxt.Text, "", genderCbx.Text, "", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, fullimage);
-            if (DBConnect.InsertPostgre(c) != "")
+
+            string sv = DBConnect.InsertPostgre(c);
+            if (sv != "")
             {
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(DBConnect.InsertPostgre(c))), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(sv), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                 DBConnect.InsertPostgre(q);
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;
@@ -92,11 +94,11 @@ namespace ARM
 
 
             Practitioner c = new Practitioner(PractitionerID, nameTxt.Text, CustomerID, contactTxt.Text, npiTxt.Text, addressTxt.Text, officeTxt.Text, idTxt.Text, tinTxt.Text, officePhoneTxt.Text, faxTxt.Text, cityTxt.Text, zipTxt.Text, stateTxt.Text, specialityTxt.Text, "", genderCbx.Text, "", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, fullimage);
-            if (DBConnect.UpdatePostgre(c, PractitionerID) != "")
-            {
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(DBConnect.UpdatePostgre(c, PractitionerID))), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+            string sv = DBConnect.UpdatePostgre(c, PractitionerID);
+            
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(sv), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                 DBConnect.InsertPostgre(q);
-            }
+         
 
             //DBConnect.QueryPostgre(Query);
             MessageBox.Show("Information Updated");

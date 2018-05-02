@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FollowForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -143,7 +143,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.71429F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.28571F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 94F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 189F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 193F));
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 13);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.userCbx, 3, 1);
@@ -243,7 +243,7 @@
             this.panel4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel4.Name = "panel4";
             this.tableLayoutPanel1.SetRowSpan(this.panel4, 2);
-            this.panel4.Size = new System.Drawing.Size(317, 107);
+            this.panel4.Size = new System.Drawing.Size(313, 107);
             this.panel4.TabIndex = 456;
             // 
             // label7
@@ -334,7 +334,7 @@
             this.panel2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel2.Name = "panel2";
             this.tableLayoutPanel1.SetRowSpan(this.panel2, 3);
-            this.panel2.Size = new System.Drawing.Size(317, 65);
+            this.panel2.Size = new System.Drawing.Size(313, 65);
             this.panel2.TabIndex = 454;
             // 
             // cusPbx
@@ -374,7 +374,7 @@
             // 
             this.userCbx.FormattingEnabled = true;
             this.userCbx.ItemHeight = 23;
-            this.userCbx.Location = new System.Drawing.Point(417, 38);
+            this.userCbx.Location = new System.Drawing.Point(413, 38);
             this.userCbx.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.userCbx.Name = "userCbx";
             this.userCbx.PromptText = "Physician";
@@ -392,28 +392,28 @@
             this.dtGridPatientStatus.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dtGridPatientStatus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableLayoutPanel1.SetColumnSpan(this.dtGridPatientStatus, 2);
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridPatientStatus.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle25.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridPatientStatus.DefaultCellStyle = dataGridViewCellStyle25;
             this.dtGridPatientStatus.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dtGridPatientStatus.Location = new System.Drawing.Point(323, 246);
+            this.dtGridPatientStatus.Location = new System.Drawing.Point(319, 246);
             this.dtGridPatientStatus.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dtGridPatientStatus.Name = "dtGridPatientStatus";
             this.dtGridPatientStatus.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridPatientStatus.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridPatientStatus.RowHeadersDefaultCellStyle = dataGridViewCellStyle26;
             this.dtGridPatientStatus.RowHeadersVisible = false;
             this.dtGridPatientStatus.RowHeadersWidth = 20;
             this.tableLayoutPanel1.SetRowSpan(this.dtGridPatientStatus, 2);
@@ -430,32 +430,32 @@
             this.dtGridReview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dtGridReview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableLayoutPanel1.SetColumnSpan(this.dtGridReview, 2);
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridReview.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle27.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridReview.DefaultCellStyle = dataGridViewCellStyle27;
             this.dtGridReview.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dtGridReview.Location = new System.Drawing.Point(2, 246);
             this.dtGridReview.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dtGridReview.Name = "dtGridReview";
             this.dtGridReview.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridReview.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridReview.RowHeadersDefaultCellStyle = dataGridViewCellStyle28;
             this.dtGridReview.RowHeadersVisible = false;
             this.dtGridReview.RowHeadersWidth = 20;
             this.tableLayoutPanel1.SetRowSpan(this.dtGridReview, 2);
-            this.dtGridReview.Size = new System.Drawing.Size(317, 71);
+            this.dtGridReview.Size = new System.Drawing.Size(313, 71);
             this.dtGridReview.TabIndex = 3;
             this.dtGridReview.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridReview_CellClick);
             // 
@@ -466,7 +466,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(323, 0);
+            this.label17.Location = new System.Drawing.Point(319, 0);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(90, 34);
@@ -477,9 +477,9 @@
             // metroDateTime1
             // 
             this.metroDateTime1.AllowDrop = true;
-            this.metroDateTime1.Location = new System.Drawing.Point(417, 3);
+            this.metroDateTime1.Location = new System.Drawing.Point(413, 3);
             this.metroDateTime1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTime1.MinimumSize = new System.Drawing.Size(4, 29);
             this.metroDateTime1.Name = "metroDateTime1";
             this.metroDateTime1.Size = new System.Drawing.Size(166, 29);
             this.metroDateTime1.TabIndex = 0;
@@ -500,7 +500,7 @@
             this.hospitalTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.hospitalTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableLayoutPanel1.SetColumnSpan(this.hospitalTxt, 3);
-            this.hospitalTxt.Location = new System.Drawing.Point(136, 335);
+            this.hospitalTxt.Location = new System.Drawing.Point(134, 335);
             this.hospitalTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.hospitalTxt.Multiline = true;
             this.hospitalTxt.Name = "hospitalTxt";
@@ -523,7 +523,7 @@
             this.sourceTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.sourceTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableLayoutPanel1.SetColumnSpan(this.sourceTxt, 3);
-            this.sourceTxt.Location = new System.Drawing.Point(136, 360);
+            this.sourceTxt.Location = new System.Drawing.Point(134, 360);
             this.sourceTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.sourceTxt.Multiline = true;
             this.sourceTxt.Name = "sourceTxt";
@@ -546,7 +546,7 @@
             // 
             this.customerCbx.FormattingEnabled = true;
             this.customerCbx.ItemHeight = 23;
-            this.customerCbx.Location = new System.Drawing.Point(136, 38);
+            this.customerCbx.Location = new System.Drawing.Point(134, 38);
             this.customerCbx.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.customerCbx.Name = "customerCbx";
             this.customerCbx.PromptText = "Name";
@@ -566,7 +566,7 @@
             this.label3.Location = new System.Drawing.Point(2, 34);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(130, 36);
+            this.label3.Size = new System.Drawing.Size(128, 36);
             this.label3.TabIndex = 267;
             this.label3.Text = "PATIENT NAME:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -578,7 +578,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(323, 34);
+            this.label4.Location = new System.Drawing.Point(319, 34);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 36);
@@ -591,7 +591,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.panel3, 2);
             this.panel3.Controls.Add(this.userPbx);
             this.panel3.Controls.Add(this.physicianTxt);
-            this.panel3.Location = new System.Drawing.Point(323, 73);
+            this.panel3.Location = new System.Drawing.Point(319, 73);
             this.panel3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel3.Name = "panel3";
             this.tableLayoutPanel1.SetRowSpan(this.panel3, 3);
@@ -696,7 +696,7 @@
             this.label1.Location = new System.Drawing.Point(2, 226);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(317, 17);
+            this.label1.Size = new System.Drawing.Size(313, 17);
             this.label1.TabIndex = 340;
             this.label1.Text = "ALL ITEMS REVIEWED AND UNCHANGED BOX ONLY IF CHANGED && NOTE CHANGE ";
             // 
@@ -709,28 +709,28 @@
             this.dtGridItemStatus.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dtGridItemStatus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableLayoutPanel1.SetColumnSpan(this.dtGridItemStatus, 2);
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridItemStatus.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle29.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridItemStatus.DefaultCellStyle = dataGridViewCellStyle29;
             this.dtGridItemStatus.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dtGridItemStatus.Location = new System.Drawing.Point(323, 401);
+            this.dtGridItemStatus.Location = new System.Drawing.Point(319, 401);
             this.dtGridItemStatus.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dtGridItemStatus.Name = "dtGridItemStatus";
             this.dtGridItemStatus.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridItemStatus.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Trebuchet MS", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridItemStatus.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
             this.dtGridItemStatus.RowHeadersVisible = false;
             this.dtGridItemStatus.RowHeadersWidth = 20;
             this.tableLayoutPanel1.SetRowSpan(this.dtGridItemStatus, 2);
@@ -743,7 +743,7 @@
             this.lengthTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.lengthTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableLayoutPanel1.SetColumnSpan(this.lengthTxt, 3);
-            this.lengthTxt.Location = new System.Drawing.Point(136, 514);
+            this.lengthTxt.Location = new System.Drawing.Point(134, 514);
             this.lengthTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.lengthTxt.Multiline = true;
             this.lengthTxt.Name = "lengthTxt";
@@ -759,7 +759,7 @@
             this.label12.Location = new System.Drawing.Point(2, 558);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(130, 16);
+            this.label12.Size = new System.Drawing.Size(128, 16);
             this.label12.TabIndex = 375;
             this.label12.Text = "NEED";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -768,11 +768,11 @@
             // 
             this.needTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.needTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.needTxt.Location = new System.Drawing.Point(136, 561);
+            this.needTxt.Location = new System.Drawing.Point(134, 561);
             this.needTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.needTxt.Multiline = true;
             this.needTxt.Name = "needTxt";
-            this.needTxt.Size = new System.Drawing.Size(183, 21);
+            this.needTxt.Size = new System.Drawing.Size(181, 21);
             this.needTxt.TabIndex = 9;
             // 
             // label13
@@ -781,7 +781,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(323, 558);
+            this.label13.Location = new System.Drawing.Point(319, 558);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(90, 16);
@@ -793,7 +793,7 @@
             // 
             this.goalTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.goalTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.goalTxt.Location = new System.Drawing.Point(417, 561);
+            this.goalTxt.Location = new System.Drawing.Point(413, 561);
             this.goalTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.goalTxt.Multiline = true;
             this.goalTxt.Name = "goalTxt";
@@ -810,7 +810,7 @@
             this.label10.Location = new System.Drawing.Point(2, 585);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(130, 16);
+            this.label10.Size = new System.Drawing.Size(128, 16);
             this.label10.TabIndex = 374;
             this.label10.Text = "RESULTS";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -819,18 +819,18 @@
             // 
             this.resultTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.resultTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.resultTxt.Location = new System.Drawing.Point(136, 588);
+            this.resultTxt.Location = new System.Drawing.Point(134, 588);
             this.resultTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.resultTxt.Multiline = true;
             this.resultTxt.Name = "resultTxt";
-            this.resultTxt.Size = new System.Drawing.Size(183, 16);
+            this.resultTxt.Size = new System.Drawing.Size(181, 16);
             this.resultTxt.TabIndex = 10;
             // 
             // visitChk
             // 
             this.visitChk.AutoSize = true;
             this.visitChk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.visitChk.Location = new System.Drawing.Point(323, 610);
+            this.visitChk.Location = new System.Drawing.Point(319, 610);
             this.visitChk.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.visitChk.Name = "visitChk";
             this.visitChk.Size = new System.Drawing.Size(90, 16);
@@ -842,7 +842,7 @@
             // 
             this.phoneChk.AutoSize = true;
             this.phoneChk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.phoneChk.Location = new System.Drawing.Point(417, 610);
+            this.phoneChk.Location = new System.Drawing.Point(413, 610);
             this.phoneChk.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.phoneChk.Name = "phoneChk";
             this.phoneChk.Size = new System.Drawing.Size(176, 16);
@@ -864,18 +864,18 @@
             // nextTxt
             // 
             this.nextTxt.AllowDrop = true;
-            this.nextTxt.Location = new System.Drawing.Point(136, 632);
+            this.nextTxt.Location = new System.Drawing.Point(134, 632);
             this.nextTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.nextTxt.MinimumSize = new System.Drawing.Size(0, 29);
+            this.nextTxt.MinimumSize = new System.Drawing.Size(4, 29);
             this.nextTxt.Name = "nextTxt";
-            this.nextTxt.Size = new System.Drawing.Size(183, 29);
+            this.nextTxt.Size = new System.Drawing.Size(181, 29);
             this.nextTxt.TabIndex = 12;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(323, 629);
+            this.label16.Location = new System.Drawing.Point(319, 629);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(73, 32);
@@ -886,7 +886,7 @@
             // 
             this.puTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.puTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.puTxt.Location = new System.Drawing.Point(417, 632);
+            this.puTxt.Location = new System.Drawing.Point(413, 632);
             this.puTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.puTxt.Multiline = true;
             this.puTxt.Name = "puTxt";
@@ -932,18 +932,18 @@
             // 
             this.authSignatureTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.authSignatureTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.authSignatureTxt.Location = new System.Drawing.Point(136, 705);
+            this.authSignatureTxt.Location = new System.Drawing.Point(134, 705);
             this.authSignatureTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.authSignatureTxt.Multiline = true;
             this.authSignatureTxt.Name = "authSignatureTxt";
-            this.authSignatureTxt.Size = new System.Drawing.Size(183, 24);
+            this.authSignatureTxt.Size = new System.Drawing.Size(181, 24);
             this.authSignatureTxt.TabIndex = 14;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(323, 702);
+            this.label19.Location = new System.Drawing.Point(319, 702);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(66, 32);
@@ -954,7 +954,7 @@
             // 
             this.authoriserTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.authoriserTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.authoriserTxt.Location = new System.Drawing.Point(417, 705);
+            this.authoriserTxt.Location = new System.Drawing.Point(413, 705);
             this.authoriserTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.authoriserTxt.Multiline = true;
             this.authoriserTxt.Name = "authoriserTxt";
@@ -976,18 +976,18 @@
             // 
             this.textBox21.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox21.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox21.Location = new System.Drawing.Point(136, 737);
+            this.textBox21.Location = new System.Drawing.Point(134, 737);
             this.textBox21.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBox21.Multiline = true;
             this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(183, 18);
+            this.textBox21.Size = new System.Drawing.Size(181, 18);
             this.textBox21.TabIndex = 15;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(323, 734);
+            this.label22.Location = new System.Drawing.Point(319, 734);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(68, 16);
@@ -998,7 +998,7 @@
             // 
             this.relationTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.relationTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.relationTxt.Location = new System.Drawing.Point(417, 737);
+            this.relationTxt.Location = new System.Drawing.Point(413, 737);
             this.relationTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.relationTxt.Multiline = true;
             this.relationTxt.Name = "relationTxt";
@@ -1020,18 +1020,18 @@
             // 
             this.employeeTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.employeeTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.employeeTxt.Location = new System.Drawing.Point(136, 761);
+            this.employeeTxt.Location = new System.Drawing.Point(134, 761);
             this.employeeTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.employeeTxt.Multiline = true;
             this.employeeTxt.Name = "employeeTxt";
-            this.employeeTxt.Size = new System.Drawing.Size(183, 24);
+            this.employeeTxt.Size = new System.Drawing.Size(181, 24);
             this.employeeTxt.TabIndex = 16;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(323, 758);
+            this.label23.Location = new System.Drawing.Point(319, 758);
             this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(85, 32);
@@ -1042,7 +1042,7 @@
             // 
             this.reasonTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.reasonTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.reasonTxt.Location = new System.Drawing.Point(417, 761);
+            this.reasonTxt.Location = new System.Drawing.Point(413, 761);
             this.reasonTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.reasonTxt.Multiline = true;
             this.reasonTxt.Name = "reasonTxt";
@@ -1069,7 +1069,7 @@
             this.label15.Location = new System.Drawing.Point(2, 607);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(317, 17);
+            this.label15.Size = new System.Drawing.Size(313, 17);
             this.label15.TabIndex = 252;
             this.label15.Text = "FOLLOW-UP/DISCHARGE";
             // 
@@ -1078,7 +1078,7 @@
             this.label31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.tableLayoutPanel1.SetColumnSpan(this.label31, 2);
             this.label31.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(323, 226);
+            this.label31.Location = new System.Drawing.Point(319, 226);
             this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(266, 17);

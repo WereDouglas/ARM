@@ -186,7 +186,7 @@
             // 
             // 
             this.signatureTxt.CustomButton.Image = null;
-            this.signatureTxt.CustomButton.Location = new System.Drawing.Point(161, 1);
+            this.signatureTxt.CustomButton.Location = new System.Drawing.Point(160, 1);
             this.signatureTxt.CustomButton.Name = "";
             this.signatureTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
             this.signatureTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -197,7 +197,7 @@
             this.signatureTxt.DisplayIcon = true;
             this.signatureTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
             this.signatureTxt.Lines = new string[0];
-            this.signatureTxt.Location = new System.Drawing.Point(193, 700);
+            this.signatureTxt.Location = new System.Drawing.Point(192, 700);
             this.signatureTxt.MaxLength = 32767;
             this.signatureTxt.Name = "signatureTxt";
             this.signatureTxt.PasswordChar = '\0';
@@ -207,7 +207,7 @@
             this.signatureTxt.SelectionLength = 0;
             this.signatureTxt.SelectionStart = 0;
             this.signatureTxt.ShortcutsEnabled = true;
-            this.signatureTxt.Size = new System.Drawing.Size(195, 35);
+            this.signatureTxt.Size = new System.Drawing.Size(194, 35);
             this.signatureTxt.TabIndex = 15;
             this.signatureTxt.UseSelectable = true;
             this.signatureTxt.WaterMark = "Patient signature";
@@ -224,7 +224,7 @@
             this.followUpCbx.Items.AddRange(new object[] {
             "FOLLOW-UP VISIT RECOMMENDED",
             "FOLLOW UP BY PHONE && AS NEEDED"});
-            this.followUpCbx.Location = new System.Drawing.Point(394, 641);
+            this.followUpCbx.Location = new System.Drawing.Point(392, 641);
             this.followUpCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.followUpCbx.Name = "followUpCbx";
             this.followUpCbx.PromptText = "Follow up /Discharge";
@@ -237,10 +237,10 @@
             this.additionNotesTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.additionNotesTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableLayoutPanel1.SetColumnSpan(this.additionNotesTxt, 3);
-            this.additionNotesTxt.Location = new System.Drawing.Point(193, 605);
+            this.additionNotesTxt.Location = new System.Drawing.Point(192, 605);
             this.additionNotesTxt.Multiline = true;
             this.additionNotesTxt.Name = "additionNotesTxt";
-            this.additionNotesTxt.Size = new System.Drawing.Size(566, 29);
+            this.additionNotesTxt.Size = new System.Drawing.Size(565, 29);
             this.additionNotesTxt.TabIndex = 13;
             // 
             // label15
@@ -251,7 +251,7 @@
             this.label15.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(8, 150);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(751, 21);
+            this.label15.Size = new System.Drawing.Size(749, 21);
             this.label15.TabIndex = 462;
             this.label15.Text = "HOME ENVIRONMENT/SAFETY ASSESSMENT";
             // 
@@ -264,7 +264,7 @@
             this.customerCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.customerCbx.Name = "customerCbx";
             this.customerCbx.PromptText = "Name";
-            this.customerCbx.Size = new System.Drawing.Size(380, 29);
+            this.customerCbx.Size = new System.Drawing.Size(378, 29);
             this.customerCbx.TabIndex = 0;
             this.customerCbx.UseSelectable = true;
             this.customerCbx.SelectedIndexChanged += new System.EventHandler(this.customerCbx_SelectedIndexChanged);
@@ -279,7 +279,7 @@
             this.panel2.Location = new System.Drawing.Point(8, 45);
             this.panel2.Name = "panel2";
             this.tableLayoutPanel1.SetRowSpan(this.panel2, 3);
-            this.panel2.Size = new System.Drawing.Size(380, 99);
+            this.panel2.Size = new System.Drawing.Size(378, 99);
             this.panel2.TabIndex = 452;
             // 
             // altContactTxt
@@ -330,7 +330,7 @@
             this.typeListBx.Items.AddRange(new object[] {
             "Long term care facility",
             "Physical Therapy/Occupational Therapy Clinic"});
-            this.typeListBx.Location = new System.Drawing.Point(394, 45);
+            this.typeListBx.Location = new System.Drawing.Point(392, 45);
             this.typeListBx.Name = "typeListBx";
             this.tableLayoutPanel1.SetRowSpan(this.typeListBx, 2);
             this.typeListBx.Size = new System.Drawing.Size(365, 60);
@@ -340,7 +340,7 @@
             // 
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(394, 117);
+            this.label37.Location = new System.Drawing.Point(392, 117);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(115, 16);
             this.label37.TabIndex = 457;
@@ -352,7 +352,7 @@
             this.appropriateCbx.Items.AddRange(new object[] {
             "Yes",
             "No"});
-            this.appropriateCbx.Location = new System.Drawing.Point(530, 120);
+            this.appropriateCbx.Location = new System.Drawing.Point(528, 120);
             this.appropriateCbx.Name = "appropriateCbx";
             this.appropriateCbx.Size = new System.Drawing.Size(229, 24);
             this.appropriateCbx.TabIndex = 3;
@@ -388,7 +388,7 @@
             this.safetyListBx.Location = new System.Drawing.Point(8, 195);
             this.safetyListBx.Name = "safetyListBx";
             this.tableLayoutPanel1.SetRowSpan(this.safetyListBx, 4);
-            this.safetyListBx.Size = new System.Drawing.Size(380, 75);
+            this.safetyListBx.Size = new System.Drawing.Size(378, 75);
             this.safetyListBx.TabIndex = 8;
             // 
             // label51
@@ -405,10 +405,10 @@
             // 
             this.safetyOtherTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.safetyOtherTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.safetyOtherTxt.Location = new System.Drawing.Point(193, 281);
+            this.safetyOtherTxt.Location = new System.Drawing.Point(192, 281);
             this.safetyOtherTxt.Multiline = true;
             this.safetyOtherTxt.Name = "safetyOtherTxt";
-            this.safetyOtherTxt.Size = new System.Drawing.Size(195, 16);
+            this.safetyOtherTxt.Size = new System.Drawing.Size(194, 16);
             this.safetyOtherTxt.TabIndex = 411;
             // 
             // label47
@@ -418,7 +418,7 @@
             this.label47.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label47.Location = new System.Drawing.Point(8, 461);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(751, 22);
+            this.label47.Size = new System.Drawing.Size(749, 22);
             this.label47.TabIndex = 303;
             this.label47.Text = "ADDITIONAL INSTRUCTIONS";
             // 
@@ -436,7 +436,7 @@
             this.panel4.Location = new System.Drawing.Point(8, 338);
             this.panel4.Name = "panel4";
             this.tableLayoutPanel1.SetRowSpan(this.panel4, 4);
-            this.panel4.Size = new System.Drawing.Size(751, 120);
+            this.panel4.Size = new System.Drawing.Size(749, 120);
             this.panel4.TabIndex = 455;
             // 
             // label2
@@ -554,7 +554,7 @@
             // 
             // clinicalDateTxt
             // 
-            this.clinicalDateTxt.Location = new System.Drawing.Point(530, 8);
+            this.clinicalDateTxt.Location = new System.Drawing.Point(528, 8);
             this.clinicalDateTxt.MinimumSize = new System.Drawing.Size(4, 29);
             this.clinicalDateTxt.Name = "clinicalDateTxt";
             this.clinicalDateTxt.Size = new System.Drawing.Size(229, 29);
@@ -572,7 +572,7 @@
             this.panel3.Location = new System.Drawing.Point(8, 774);
             this.panel3.Name = "panel3";
             this.tableLayoutPanel1.SetRowSpan(this.panel3, 4);
-            this.panel3.Size = new System.Drawing.Size(751, 95);
+            this.panel3.Size = new System.Drawing.Size(749, 95);
             this.panel3.TabIndex = 471;
             // 
             // kinContactTxt
@@ -788,7 +788,7 @@
             this.label52.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label52.Location = new System.Drawing.Point(8, 637);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(380, 33);
+            this.label52.Size = new System.Drawing.Size(378, 33);
             this.label52.TabIndex = 466;
             this.label52.Text = "FOLLOW UP /DISCHARGE";
             // 
@@ -829,7 +829,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(394, 278);
+            this.label1.Location = new System.Drawing.Point(392, 278);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 16);
             this.label1.TabIndex = 472;
@@ -839,7 +839,7 @@
             // 
             this.phoneTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.phoneTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.phoneTxt.Location = new System.Drawing.Point(530, 281);
+            this.phoneTxt.Location = new System.Drawing.Point(528, 281);
             this.phoneTxt.Multiline = true;
             this.phoneTxt.Name = "phoneTxt";
             this.phoneTxt.Size = new System.Drawing.Size(227, 14);
@@ -863,7 +863,7 @@
             "Alert understand INSTRUCTIONS",
             "Returns demonstration by patient",
             "Confused/caregiver instructed Personal/physical limit"});
-            this.appropListBx.Location = new System.Drawing.Point(394, 195);
+            this.appropListBx.Location = new System.Drawing.Point(392, 195);
             this.appropListBx.Name = "appropListBx";
             this.tableLayoutPanel1.SetRowSpan(this.appropListBx, 4);
             this.appropListBx.Size = new System.Drawing.Size(363, 75);

@@ -326,30 +326,34 @@ namespace ARM
 
             string ids = Guid.NewGuid().ToString();
             Invoice iw = new Invoice(ids, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, "Credit", "Sale", Helper.CompanyName, CustomerID, method, amount, noTxt.Text, tax, amount, amount, amount, ItemCount, userCbx.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
-            if (DBConnect.InsertPostgre(iw) != "")
+
+            string save = DBConnect.InsertPostgre(iw);
+            if ( save!= "")
             {
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                DBConnect.InsertPostgre(q);
             }
             Dictionary<string, string> transDic = new Dictionary<string, string>();
             string id = Guid.NewGuid().ToString();
             Delivery i = new Delivery(id, noTxt.Text, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), CaseID, OrderID, type, PractitionerID, CustomerID, commentTxt.Text, userCbx.Text, Convert.ToDateTime(dateDeliveredTxt.Text).ToString("dd-MM-yyyy"), recievedByTxt.Text, signatureTxt.Text, "", recievedByTxt.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
-            if (DBConnect.InsertPostgre(i) != "")
+
+            string savef = DBConnect.InsertPostgre(i);
+            if ( savef!= "")
             {
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(i)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                save = DBConnect.InsertPostgre(i);
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(savef), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                 DBConnect.InsertPostgre(q);
                 foreach (Transaction t in GenericCollection.transactions)
                 {
-
                     string it = Guid.NewGuid().ToString();
-
                     if (!transDic.ContainsKey(it))
                     {
                         transDic.Add(it, t.Date);
-
                         Transaction c = new Transaction(it, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, CaseID, id, t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
-                        DBConnect.InsertPostgre(c);
-
-                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(p)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                        DBConnect.InsertPostgre(q);
+                       
+                        save = DBConnect.InsertPostgre(c);
+                        Queries qe = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(save)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        DBConnect.InsertPostgre(qe);
 
                     }
 
@@ -496,6 +500,7 @@ namespace ARM
         private void updateBtn_Click(object sender, EventArgs e)
         {
             string type = "";
+            string save = "";
 
             type = (deliveryBtn.Checked) ? deliveryBtn.Text : pickupBtn.Text;
             type = (pickupBtn.Checked) ? pickupBtn.Text : deliveryBtn.Text;
@@ -510,30 +515,31 @@ namespace ARM
             {
                 string Query = "DELETE from invoice WHERE no ='" + noTxt.Text + "'";
                 DBConnect.QueryPostgre(Query);
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                DBConnect.InsertPostgre(q);
+                Queries qe = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                DBConnect.InsertPostgre(qe);
 
                 string ids = Guid.NewGuid().ToString();
                 Invoice iw = new Invoice(ids, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, "Credit", "Sale", Helper.CompanyName, CustomerID, method, amount, noTxt.Text, tax, amount, amount, amount, ItemCount, userCbx.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
-                DBConnect.InsertPostgre(iw);
-                Queries qq = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(iw)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                 save = DBConnect.InsertPostgre(iw);               
+
+                Queries qq = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                 DBConnect.InsertPostgre(qq);
             }
 
             Dictionary<string, string> transDic = new Dictionary<string, string>();
 
             Delivery i = new Delivery(DeliveryID, noTxt.Text, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), CaseID, OrderID, type, PractitionerID, CustomerID, commentTxt.Text, userCbx.Text, Convert.ToDateTime(dateDeliveredTxt.Text).ToString("dd-MM-yyyy"), recievedByTxt.Text, signatureTxt.Text, "", recievedByTxt.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
-            DBConnect.UpdatePostgre(i, DeliveryID);
-
-            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.UpdatePostgre(i, DeliveryID)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+          
+            save = DBConnect.UpdatePostgre(i, DeliveryID);
+            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
             DBConnect.InsertPostgre(q);
             if (MessageBox.Show("YES or NO?", "Would you like to add these products to your invoice ?  ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                string Query = "DELETE from transaction WHERE no ='" + noTxt.Text + "'";
-                Queries qs = new Queries(Guid.NewGuid().ToString(),Helper.UserName, Query, false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),Helper.CompanyID);
-                DBConnect.InsertPostgre(qs);
-                
+                string Query = "DELETE from transaction WHERE no ='" + noTxt.Text + "'";               
                 DBConnect.QueryPostgre(Query);
+
+                Queries qs = new Queries(Guid.NewGuid().ToString(), Helper.UserName,Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                DBConnect.InsertPostgre(qs);
                 foreach (Transaction t in GenericCollection.transactions)
                 {
                     string it = Guid.NewGuid().ToString();
@@ -542,9 +548,9 @@ namespace ARM
                         transDic.Add(it, t.Date);
 
                         Transaction c = new Transaction(it, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, CaseID, DeliveryID, t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
-                        DBConnect.InsertPostgre(c);
+                        save = DBConnect.InsertPostgre(c);
 
-                        Queries qp = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(c)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        Queries qp = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                         DBConnect.InsertPostgre(qp);
 
                     }

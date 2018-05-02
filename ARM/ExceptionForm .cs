@@ -24,11 +24,11 @@ namespace ARM
         public ExceptionForm()
         {
             InitializeComponent();
-            
-            From = DateTime.Now.ToString("dd-MM-yyyy");
-            To = DateTime.Now.ToString("dd-MM-yyyy");
-           
-            LoadData(From, To);
+
+            fromDate = DateTime.Now.ToString("dd-MM-yyyy");
+            toDate = DateTime.Now.ToString("dd-MM-yyyy");
+
+            LoadData(fromDate, toDate);
            
         }
        
@@ -48,7 +48,9 @@ namespace ARM
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));//1
 
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
-            foreach (Exceptions c in Exceptions.List(start,end))
+
+            string SQL = "SELECT * FROM exceptions WHERE  (created::date >= '" + start + "'::date AND  created::date <= '" + end + "'::date) ;";
+            foreach (Exceptions c in Exceptions.List(SQL))
             {
                 try
                 {
@@ -117,6 +119,18 @@ namespace ARM
 
         private void dtGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+        string toDate;
+        string fromDate;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            fromDate = Convert.ToDateTime(fromDateTxt.Text).ToString("dd-MM-yyyy");
+            toDate = Convert.ToDateTime(toDateTxt.Text).ToString("dd-MM-yyyy");
+            LoadingWindow.ShowSplashScreen();
+            LoadData(fromDate, toDate);
+            LoadingWindow.CloseForm();
 
         }
     }

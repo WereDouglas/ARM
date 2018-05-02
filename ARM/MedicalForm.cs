@@ -44,7 +44,7 @@ namespace ARM
 
             if (DBConnect.CloseMySqlConn())
             {
-                for (int i = 0; i < 42; i++)
+                for (int i = 0; i < 4; i++)
                 {
                     FeedBack("PROCESS " + i.ToString());
                     process(i); backgroundWorker.ReportProgress(i);
@@ -72,127 +72,9 @@ namespace ARM
             switch (val)
             {
                 case 1:
-                    Uploading.Querying();
-                    Uploading.User();
+                    Synchronisation.Querying();
                     break;
                 case 2:
-                    Downloading.User();
-                    break;
-                case 3:
-                    Uploading.Customers();
-                    break;
-                case 4:
-                    Downloading.Customers();
-                    break;
-                case 5:
-                   // Uploading.Schedules();
-                    break;
-                case 6:
-                  //  Downloading.Schedules();
-                    break;
-                case 7:
-                    Uploading.Companys();
-                    break;
-                case 8:
-                    Uploading.Items();
-                    break;
-                case 9:
-                    Downloading.Items();
-                    break;
-                case 10:
-                  
-                    break;
-                case 11:
-                  
-                    break;
-                case 12:
-                    Uploading.Deliverys();
-                    break;
-                case 13:
-                    Downloading.Deliverys();
-                    break;
-                case 14:
-                    Uploading.Invoices();
-                    break;
-                case 15:
-                    Downloading.Invoices();
-                    break;
-                case 16:
-                    Uploading.Transactions();
-                    break;
-                case 17:
-                    Downloading.Transactions();
-                    break;
-                case 18:
-                    Uploading.Payments();
-                    break;
-                case 19:
-                    Downloading.Payments();
-                    break;
-                case 20:
-                    Uploading.Order();
-                    break;
-                case 21:
-                    Downloading.Order();
-                    break;
-                case 22:
-                    Uploading.Instructions();
-                    break;
-                case 23:
-                    Downloading.Instructions();
-                    break;
-                case 24:
-                    Uploading.Follows();
-                    break;
-                case 25:
-                    Downloading.Follows();//.SendEmail();
-                    break;
-                case 26:
-                    Uploading.ItemReviews();
-                    break;
-                case 27:
-                    Downloading.ItemReviews();
-                    break;
-                case 28:
-                    Uploading.Vendors();
-                    break;
-                case 29:
-                    Downloading.Vendors();
-                    break;
-                case 30:
-                    Uploading.ItemStatuses();
-                    break;
-                case 31:
-                    Downloading.ItemStatuses();
-                    break;
-                case 32:
-                    Uploading.Rates();
-                    break;
-                case 33:
-                    Downloading.Rates();
-                    break;
-                case 34:
-                    Uploading.Accounts();
-                    break;
-                case 35:
-                    Downloading.Accounts();
-                    break;
-                case 36:
-                    Uploading.Repsonsibles();
-                    break;
-                case 37:
-                    Downloading.Repsonsibles();
-                    break;
-                case 38:
-                    Uploading.Insurances();
-                    break;
-                case 39:
-                    Downloading.Coverages();
-                    break;
-                case 40:
-                   
-                    break;
-                case 41:
 
                     if (DBConnect.CloseMySqlConn())
                     {
@@ -205,7 +87,7 @@ namespace ARM
                         FeedBack("No valid connection ");
                     }
                     break;
-                case 42:
+                case 3:
 
                     break;
                 default:
@@ -216,9 +98,19 @@ namespace ARM
         }
         void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            if (!backgroundWorker.IsBusy)
+            List<Queries> u = Queries.List("SELECT * FROM queries WHERE executed = 'false'");
+           // toolStripProgressBar1.Maximum = u.Count;
+            MedicalForm._Form1.FeedBack("Running Queries ... " + u.Count);
+            if (u.Count > 0)
             {
-                backgroundWorker.RunWorkerAsync();
+                if (!backgroundWorker.IsBusy)
+                {
+                    backgroundWorker.RunWorkerAsync();
+                }
+            }
+            else {
+                MedicalForm._Form1.FeedBack("No pending queries to run ... " + u.Count);
+
             }
         }
         private void LoadProfile()
@@ -252,222 +144,7 @@ namespace ARM
             }
 
         }
-        private void button10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void itemToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void addToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            using (AddItem form = new AddItem(null))
-            {
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                    // LoadingCalendarLite();
-                }
-            }
-        }
-
-        private void addToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            AddItem it = new AddItem(null);
-            it.Show();
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void deliveryPickupTicketToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void orderIntakeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dMEInstructionDeliveryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void followUpPlanOfCareToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            using (PurchaseForm form = new PurchaseForm())
-            {
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                    // LoadingCalendarLite();
-                }
-            }
-        }
-
-        private void purchaseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            using (PurchaseForm form = new PurchaseForm())
-            {
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                    // LoadingCalendarLite();
-                }
-            }
-        }
-
-        private void patientToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            using (CustomerDemo form = new CustomerDemo(null,"Patient"))
-            {
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                    // LoadingCalendarLite();
-                }
-            }
-        }
-
-        private void addToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            using (CustomerDemo form = new CustomerDemo(null, "Patient"))
-            {
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                    // LoadingCalendarLite();
-                }
-            }
-        }
-
-        private void addToolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-            using (AddSupplierForm form = new AddSupplierForm())
-            {
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                    // LoadingCalendarLite();
-                }
-            }
-        }
-
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void unitsOfMeasureToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void viewToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem6_Click(object sender, EventArgs e)
-        {
-            PhysiciansForm frm = new PhysiciansForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
-
-        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void exceptionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -479,60 +156,7 @@ namespace ARM
             frm.Show();
         }
 
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void toolStripButton4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void vendorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void toolStripButton4_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void toolStripButton6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void salesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void purchasesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rentToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton8_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
         {
@@ -544,25 +168,6 @@ namespace ARM
             frm.Show();
         }
 
-        private void toolStripButton9_Click(object sender, EventArgs e)
-        {
-            CustomerForm frm = new CustomerForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
-
-        private void toolStripButton10_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void toolStripButton11_Click(object sender, EventArgs e)
-        {
-           
-        }
 
         private void toolStripMenuItem8_Click(object sender, EventArgs e)
         {
@@ -584,50 +189,12 @@ namespace ARM
             frm.Show();
         }
 
-        private void toolStripMenuItem11_Click(object sender, EventArgs e)
-        {
-            DeliveryPickupForm f = new DeliveryPickupForm(null,null);
-            f.Show();
-        }
-
-        private void toolStripMenuItem12_Click(object sender, EventArgs e)
-        {
-            OrderIntakeForm o = new OrderIntakeForm("","");
-            o.Show();
-        }
-
-        private void toolStripMenuItem13_Click(object sender, EventArgs e)
-        {
-            AddInstructionDelivery d = new AddInstructionDelivery(null);
-            d.Show();
-        }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void toolStripMenuItem14_Click(object sender, EventArgs e)
-        {
-            FollowForm f = new FollowForm(null);
-            f.Show();
-        }
-
-        private void toolStripButton7_Click(object sender, EventArgs e)
-        {
-
-            //using (AddTransaction form = new AddTransaction(null))
-            //{
-            //    DialogResult dr = form.ShowDialog();
-            //    if (dr == DialogResult.OK)
-            //    {
-            //        // LoadingCalendarLite();
-            //    }
-            //}
-
-            NewCase f = new NewCase(null);
-            f.Show();
-        }
 
         private void toolStripMenuItem2_Click_1(object sender, EventArgs e)
         {
@@ -660,15 +227,6 @@ namespace ARM
         }
 
 
-        private void toolStripMenuItem4_Click_1(object sender, EventArgs e)
-        {
-            FollowUpForm frm = new FollowUpForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
 
         private void toolStripMenuItem15_Click(object sender, EventArgs e)
         {
@@ -694,22 +252,6 @@ namespace ARM
             }
         }
 
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripSplitButton3_ButtonClick(object sender, EventArgs e)
-        {
-            if (processLbl.Visible == true)
-            {
-                processLbl.Visible = false;
-            }
-            else
-            {
-                processLbl.Visible = true;
-            }
-        }
 
         public void FeedBack(string text)
         {
@@ -941,6 +483,18 @@ namespace ARM
 
                 DBConnect.InsertPostgre(q);
                 //  DBConnect.QueryPostgre(Query);
+            }
+        }
+
+        private void purchaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (AddTransaction form = new AddTransaction(null))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    toolStripMenuItem16_Click(null, null);
+                }
             }
         }
     }

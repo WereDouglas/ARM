@@ -116,9 +116,9 @@ namespace ARM
                 var start = Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd") + "T" + this.startHrTxt.Text;
                 var end = Convert.ToDateTime(this.endDate.Text).ToString("yyyy-MM-dd") + "T" + this.endHrTxt.Text;
                 _event = new Schedule(ID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, start, end, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), categoryCbx.Text, periodTxt.Text, categoryCbx.Text, statusCbx.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false, Helper.CompanyID);
-                DBConnect.InsertPostgre(_event);
+               string save =  DBConnect.InsertPostgre(_event);
 
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(_event)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                 DBConnect.InsertPostgre(q);
 
 
@@ -147,23 +147,15 @@ namespace ARM
                     DateTime starts = Convert.ToDateTime(Convert.ToDateTime(this.openedDate.Text).AddDays(i).ToString("yyyy-MM-dd") + "T" + this.startHrTxt.Text);
                     DateTime ends = Convert.ToDateTime(Convert.ToDateTime(this.endDate.Text).AddDays(i).ToString("yyyy-MM-dd") + "T" + this.endHrTxt.Text);
 
-                    if (skipDays.ContainsKey(starts.ToString("dddd")))
-                    {
-
-                       // _event = new Schedule(ID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, start, end, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), categoryCbx.Text, periodTxt.Text, categoryCbx.Text, statusCbx.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false, Helper.CompanyID);
-                        // DBConnect.InsertPostgre(_event);
-                       // MessageBox.Show("Am skipping " + starts.ToString("dddd"));
-                    }
-                    else
+                    if (!skipDays.ContainsKey(starts.ToString("dddd")))
                     {
                         _event = new Schedule(ID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, start, end, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), categoryCbx.Text, periodTxt.Text, categoryCbx.Text, statusCbx.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false, Helper.CompanyID);
-                        DBConnect.InsertPostgre(_event);
-
-
-                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(_event)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        string save = DBConnect.InsertPostgre(_event);
+                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                         DBConnect.InsertPostgre(q);
                     }
-
+                    
+                   
                 }
 
             }

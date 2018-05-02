@@ -36,31 +36,42 @@ namespace ARM.Model
 
         public static List<Exceptions> List(string start,string end)
         {
-            p.Clear();
-            string Q = "SELECT * FROM exceptions WHERE  (created::date >= '" + start + "'::date AND  created::date <= '" + end + "'::date) ;";
-           // string Q = "SELECT * FROM Exceptions ";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
-            while (Reader.Read())
+            try
             {
-                Exceptions ps = new Exceptions(Reader["id"].ToString(), Reader["message"].ToString(), Reader["created"].ToString(),Reader["process"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
-                p.Add(ps);
+                p.Clear();
+                string Q = "SELECT * FROM exceptions WHERE  (created::date >= '" + start + "'::date AND  created::date <= '" + end + "'::date) ;";
+                // string Q = "SELECT * FROM Exceptions ";
+                DBConnect.OpenConn();
+                NpgsqlDataReader Reader = DBConnect.Reading(Q);
+                while (Reader.Read())
+                {
+                    Exceptions ps = new Exceptions(Reader["id"].ToString(), Reader["message"].ToString(), Reader["created"].ToString(), Reader["process"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                    p.Add(ps);
+                }
+                DBConnect.CloseConn();
+               
             }
-            DBConnect.CloseConn();
+            catch { }
             return p;
 
         }
         public static List<Exceptions> List(string Q)
         {
-            p.Clear();           
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
-            while (Reader.Read())
+            try
             {
-                Exceptions ps = new Exceptions(Reader["id"].ToString(), Reader["message"].ToString(), Reader["created"].ToString(), Reader["process"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
-                p.Add(ps);
+                p.Clear();
+                DBConnect.OpenConn();
+                NpgsqlDataReader Reader = DBConnect.Reading(Q);
+                while (Reader.Read())
+                {
+                    Exceptions ps = new Exceptions(Reader["id"].ToString(), Reader["message"].ToString(), Reader["created"].ToString(), Reader["process"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                    p.Add(ps);
+                }
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            catch {
+
+            }
             return p;
 
         }

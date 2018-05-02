@@ -112,9 +112,10 @@ namespace ARM
 
 
             Company c = new Company(CompanyID,nameTxt.Text, contactTxt.Text, emailTxt.Text,npiTxt.Text,addressTxt.Text,officeTxt.Text,providerNoTxt.Text,tinTxt.Text, faxTxt.Text, telTxt.Text, "","","","",DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, CompanyID, fullimage);
-            if (DBConnect.InsertPostgre(c) != "")
+            string save = DBConnect.InsertPostgre(c);
+            if (save != "")
             {
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(DBConnect.InsertPostgre(c))), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                 DBConnect.InsertPostgre(q);
                 Helper.CompanyID = CompanyID;
                 MessageBox.Show("Information Saved");
@@ -128,9 +129,9 @@ namespace ARM
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
             Company c = new Company(CompanyID, nameTxt.Text, contactTxt.Text, emailTxt.Text, "", "", "", "", "", faxTxt.Text, telTxt.Text, "", "", "", "", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, CompanyID, fullimage);
-            DBConnect.UpdatePostgre(c, CompanyID);
+            string save = DBConnect.UpdatePostgre(c, CompanyID);
 
-            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(DBConnect.UpdatePostgre(c, CompanyID))), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
             DBConnect.InsertPostgre(q);
 
             MessageBox.Show("Information Updated !");
@@ -192,7 +193,7 @@ namespace ARM
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Practitioner()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Care()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Cases()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Condition()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Conditions()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Dosage()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Emergency()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Facility()));

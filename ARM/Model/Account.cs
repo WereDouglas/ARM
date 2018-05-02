@@ -15,17 +15,19 @@ namespace ARM.Model
         private string userID;
         private string bank;
         private string accountNo;
+        private string routing;
         private string created;
         private bool sync;
         private string companyID;
         public Account() { }
 
-        public Account(string id, string userID, string bank, string accountNo, string created, bool sync,string companyID)
+        public Account(string id, string userID, string bank, string accountNo, string routing, string created, bool sync,string companyID)
         {
             this.Id = id;
             this.UserID = userID;
             this.Bank = bank;
             this.AccountNo = accountNo;
+            this.Routing = routing;
             this.Created = created;
             this.Sync = sync;
             this.CompanyID = companyID;
@@ -37,6 +39,7 @@ namespace ARM.Model
         public string UserID { get => userID; set => userID = value; }
         public string Bank { get => bank; set => bank = value; }
         public string AccountNo { get => accountNo; set => accountNo = value; }
+        public string Routing { get => routing; set => routing = value; }
         public string Created { get => created; set => created = value; }
         public bool Sync { get => sync; set => sync = value; } public string CompanyID { get => companyID; set => companyID = value; }
 
@@ -48,7 +51,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Account ps = new Account(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["bank"].ToString(), Reader["accountNo"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Account ps = new Account(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["bank"].ToString(), Reader["accountNo"].ToString(),Reader["routing"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -62,7 +65,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Account ps = new Account(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["bank"].ToString(), Reader["accountNo"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Account ps = new Account(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["bank"].ToString(), Reader["accountNo"].ToString(), Reader["routing"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -78,7 +81,7 @@ namespace ARM.Model
                 MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
                 while (Reader.Read())
                 {
-                    Account ps = new Account(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["bank"].ToString(), Reader["accountNo"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                    Account ps = new Account(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["bank"].ToString(), Reader["accountNo"].ToString(), Reader["routing"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();

@@ -85,9 +85,10 @@ namespace ARM
             GenericCollection.itemCoverage.Add(t);
 
             ItemCoverage c = new ItemCoverage(t.Id, t.TransactionID, t.ItemID, t.CoverageID, t.Percentage, t.Amount, t.Created, false, Helper.CompanyID);
-            if (DBConnect.InsertPostgre(c) != "")
+            string save = DBConnect.InsertPostgre(c);
+            if (save  != "")
             {
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(c)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                 DBConnect.InsertPostgre(q);
             }
             this.DialogResult = DialogResult.OK;

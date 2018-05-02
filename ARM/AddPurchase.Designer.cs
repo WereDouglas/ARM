@@ -54,6 +54,8 @@
             this.amountTxt = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.selfTxt = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.taxPercTxt = new System.Windows.Forms.TextBox();
@@ -61,15 +63,13 @@
             this.label12 = new System.Windows.Forms.Label();
             this.payableTxt = new System.Windows.Forms.TextBox();
             this.dtGrid = new System.Windows.Forms.DataGridView();
-            this.button5 = new System.Windows.Forms.Button();
-            this.productPbx = new System.Windows.Forms.PictureBox();
             this.label14 = new System.Windows.Forms.Label();
             this.productTxt = new System.Windows.Forms.ComboBox();
             this.codeTxt = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.selfTxt = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.productPbx = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrid)).BeginInit();
@@ -94,7 +94,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 161F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 173F));
             this.tableLayoutPanel1.Controls.Add(this.textBox7, 7, 1);
             this.tableLayoutPanel1.Controls.Add(this.ManufacturerTxt, 8, 1);
             this.tableLayoutPanel1.Controls.Add(this.measureTxt, 4, 1);
@@ -129,7 +129,7 @@
             this.textBox7.BackColor = System.Drawing.SystemColors.HighlightText;
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(777, 47);
+            this.textBox7.Location = new System.Drawing.Point(765, 47);
             this.textBox7.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(37, 20);
@@ -141,7 +141,7 @@
             this.ManufacturerTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.ManufacturerTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ManufacturerTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ManufacturerTxt.Location = new System.Drawing.Point(829, 47);
+            this.ManufacturerTxt.Location = new System.Drawing.Point(817, 47);
             this.ManufacturerTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.ManufacturerTxt.Multiline = true;
             this.ManufacturerTxt.Name = "ManufacturerTxt";
@@ -153,7 +153,7 @@
             this.measureTxt.BackColor = System.Drawing.SystemColors.HighlightText;
             this.measureTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.measureTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.measureTxt.Location = new System.Drawing.Point(540, 47);
+            this.measureTxt.Location = new System.Drawing.Point(528, 47);
             this.measureTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.measureTxt.Name = "measureTxt";
             this.measureTxt.Size = new System.Drawing.Size(57, 14);
@@ -176,7 +176,7 @@
             this.qtyTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.qtyTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.qtyTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.qtyTxt.Location = new System.Drawing.Point(169, 47);
+            this.qtyTxt.Location = new System.Drawing.Point(157, 47);
             this.qtyTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.qtyTxt.Name = "qtyTxt";
             this.qtyTxt.Size = new System.Drawing.Size(138, 20);
@@ -191,7 +191,7 @@
             this.costTxt.BackColor = System.Drawing.SystemColors.HighlightText;
             this.costTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.costTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.costTxt.Location = new System.Drawing.Point(59, 47);
+            this.costTxt.Location = new System.Drawing.Point(47, 47);
             this.costTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.costTxt.Name = "costTxt";
             this.costTxt.Size = new System.Drawing.Size(102, 20);
@@ -201,7 +201,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(59, 2);
+            this.label8.Location = new System.Drawing.Point(47, 2);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(49, 13);
             this.label8.TabIndex = 209;
@@ -212,7 +212,7 @@
             this.measureDesTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.measureDesTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.measureDesTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.measureDesTxt.Location = new System.Drawing.Point(605, 47);
+            this.measureDesTxt.Location = new System.Drawing.Point(593, 47);
             this.measureDesTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.measureDesTxt.Multiline = true;
             this.measureDesTxt.Name = "measureDesTxt";
@@ -231,7 +231,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(921, 2);
+            this.label7.Location = new System.Drawing.Point(909, 2);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(61, 13);
             this.label7.TabIndex = 258;
@@ -241,7 +241,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(829, 2);
+            this.label6.Location = new System.Drawing.Point(817, 2);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(72, 13);
             this.label6.TabIndex = 257;
@@ -251,7 +251,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(777, 2);
+            this.label4.Location = new System.Drawing.Point(765, 2);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 234;
@@ -261,7 +261,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(722, 2);
+            this.label5.Location = new System.Drawing.Point(710, 2);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 26);
             this.label5.TabIndex = 208;
@@ -271,7 +271,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(605, 2);
+            this.label2.Location = new System.Drawing.Point(593, 2);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 26);
             this.label2.TabIndex = 232;
@@ -281,7 +281,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(540, 2);
+            this.label1.Location = new System.Drawing.Point(528, 2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 26);
             this.label1.TabIndex = 231;
@@ -291,7 +291,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(169, 2);
+            this.label9.Location = new System.Drawing.Point(157, 2);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(64, 13);
             this.label9.TabIndex = 259;
@@ -303,7 +303,7 @@
             this.shippedTxt.BackColor = System.Drawing.SystemColors.HighlightText;
             this.shippedTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.shippedTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shippedTxt.Location = new System.Drawing.Point(722, 47);
+            this.shippedTxt.Location = new System.Drawing.Point(710, 47);
             this.shippedTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.shippedTxt.Name = "shippedTxt";
             this.shippedTxt.Size = new System.Drawing.Size(47, 20);
@@ -315,7 +315,7 @@
             this.descriptionTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.descriptionTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.descriptionTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionTxt.Location = new System.Drawing.Point(921, 47);
+            this.descriptionTxt.Location = new System.Drawing.Point(909, 47);
             this.descriptionTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.descriptionTxt.Multiline = true;
             this.descriptionTxt.Name = "descriptionTxt";
@@ -327,7 +327,7 @@
             this.amountTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.amountTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.amountTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amountTxt.Location = new System.Drawing.Point(389, 47);
+            this.amountTxt.Location = new System.Drawing.Point(377, 47);
             this.amountTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.amountTxt.Name = "amountTxt";
             this.amountTxt.Size = new System.Drawing.Size(135, 20);
@@ -337,7 +337,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(389, 2);
+            this.label10.Location = new System.Drawing.Point(377, 2);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(44, 13);
             this.label10.TabIndex = 266;
@@ -360,6 +360,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1076, 167);
             this.panel1.TabIndex = 282;
+            // 
+            // selfTxt
+            // 
+            this.selfTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.selfTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.selfTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selfTxt.Location = new System.Drawing.Point(839, 18);
+            this.selfTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.selfTxt.Name = "selfTxt";
+            this.selfTxt.Size = new System.Drawing.Size(159, 20);
+            this.selfTxt.TabIndex = 282;
+            this.selfTxt.Text = "0";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(763, 23);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(24, 13);
+            this.label15.TabIndex = 281;
+            this.label15.Text = "Self";
             // 
             // label11
             // 
@@ -461,34 +482,6 @@
             this.dtGrid.TabIndex = 4;
             this.dtGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellClick);
             // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button5.Image = global::ARM.Properties.Resources.Add_Shield_16;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(189, 3);
-            this.button5.Name = "button5";
-            this.button5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button5.Size = new System.Drawing.Size(117, 29);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "Add Coverage";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // productPbx
-            // 
-            this.productPbx.Location = new System.Drawing.Point(13, 33);
-            this.productPbx.Name = "productPbx";
-            this.productPbx.Size = new System.Drawing.Size(178, 124);
-            this.productPbx.TabIndex = 264;
-            this.productPbx.TabStop = false;
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -557,26 +550,33 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label15
+            // button5
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(763, 23);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(24, 13);
-            this.label15.TabIndex = 281;
-            this.label15.Text = "Self";
+            this.button5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button5.Image = global::ARM.Properties.Resources.Add_Shield_16;
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(189, 3);
+            this.button5.Name = "button5";
+            this.button5.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button5.Size = new System.Drawing.Size(117, 29);
+            this.button5.TabIndex = 3;
+            this.button5.Text = "Add Coverage";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // selfTxt
+            // productPbx
             // 
-            this.selfTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.selfTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.selfTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selfTxt.Location = new System.Drawing.Point(839, 18);
-            this.selfTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.selfTxt.Name = "selfTxt";
-            this.selfTxt.Size = new System.Drawing.Size(159, 20);
-            this.selfTxt.TabIndex = 282;
-            this.selfTxt.Text = "0";
+            this.productPbx.Location = new System.Drawing.Point(13, 33);
+            this.productPbx.Name = "productPbx";
+            this.productPbx.Size = new System.Drawing.Size(178, 124);
+            this.productPbx.TabIndex = 264;
+            this.productPbx.TabStop = false;
             // 
             // AddPurchase
             // 

@@ -31,13 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HrmForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.processLbl = new System.Windows.Forms.TextBox();
+            this.usernameLbl = new System.Windows.Forms.Label();
+            this.userPbx = new System.Windows.Forms.PictureBox();
+            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripDropDownButton12 = new System.Windows.Forms.ToolStripDropDownButton();
             this.exceptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.queriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton8 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -58,21 +63,22 @@
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deductionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.processLbl = new System.Windows.Forms.TextBox();
-            this.usernameLbl = new System.Windows.Forms.Label();
-            this.userPbx = new System.Windows.Forms.PictureBox();
-            this.queriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPbx)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -112,32 +118,11 @@
             this.statusStrip1.TabIndex = 10;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // lblStatus
-            // 
-            this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Image = global::ARM.Properties.Resources.Globe_24;
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(44, 10);
-            this.lblStatus.Text = "info";
-            this.lblStatus.Click += new System.EventHandler(this.lblStatus_Click);
-            // 
             // toolStripProgressBar1
             // 
             this.toolStripProgressBar1.Maximum = 29;
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             this.toolStripProgressBar1.Size = new System.Drawing.Size(400, 9);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 9);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(10);
-            this.pictureBox1.Size = new System.Drawing.Size(176, 49);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
             // 
             // toolStrip1
             // 
@@ -168,6 +153,78 @@
             this.toolStrip1.Stretch = true;
             this.toolStrip1.TabIndex = 8;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
+            this.panel1.Controls.Add(this.processLbl);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(8, 65);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(50);
+            this.panel1.Size = new System.Drawing.Size(1423, 571);
+            this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // processLbl
+            // 
+            this.processLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.processLbl.BackColor = System.Drawing.SystemColors.ControlText;
+            this.processLbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.processLbl.ForeColor = System.Drawing.SystemColors.Info;
+            this.processLbl.Location = new System.Drawing.Point(4, 84);
+            this.processLbl.Multiline = true;
+            this.processLbl.Name = "processLbl";
+            this.processLbl.Size = new System.Drawing.Size(444, 487);
+            this.processLbl.TabIndex = 8;
+            this.processLbl.Visible = false;
+            this.processLbl.TextChanged += new System.EventHandler(this.processLbl_TextChanged);
+            // 
+            // usernameLbl
+            // 
+            this.usernameLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.usernameLbl.AutoSize = true;
+            this.usernameLbl.Location = new System.Drawing.Point(1152, 43);
+            this.usernameLbl.Name = "usernameLbl";
+            this.usernameLbl.Size = new System.Drawing.Size(14, 13);
+            this.usernameLbl.TabIndex = 10;
+            this.usernameLbl.Text = "#";
+            // 
+            // userPbx
+            // 
+            this.userPbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.userPbx.BackgroundImage = global::ARM.Properties.Resources.User_Profile_128;
+            this.userPbx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.userPbx.Location = new System.Drawing.Point(1301, 25);
+            this.userPbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.userPbx.Name = "userPbx";
+            this.userPbx.Padding = new System.Windows.Forms.Padding(10);
+            this.userPbx.Size = new System.Drawing.Size(43, 31);
+            this.userPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.userPbx.TabIndex = 9;
+            this.userPbx.TabStop = false;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Image = global::ARM.Properties.Resources.Globe_24;
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(44, 10);
+            this.lblStatus.Text = "info";
+            this.lblStatus.Click += new System.EventHandler(this.lblStatus_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(8, 9);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(10);
+            this.pictureBox1.Size = new System.Drawing.Size(176, 49);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // toolStripButton1
             // 
@@ -201,6 +258,13 @@
             this.exceptionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exceptionsToolStripMenuItem.Text = "Exceptions";
             this.exceptionsToolStripMenuItem.Click += new System.EventHandler(this.exceptionsToolStripMenuItem_Click);
+            // 
+            // queriesToolStripMenuItem
+            // 
+            this.queriesToolStripMenuItem.Name = "queriesToolStripMenuItem";
+            this.queriesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.queriesToolStripMenuItem.Text = "Queries";
+            this.queriesToolStripMenuItem.Click += new System.EventHandler(this.queriesToolStripMenuItem_Click);
             // 
             // toolStripDropDownButton1
             // 
@@ -385,7 +449,11 @@
             this.toolStripDropDownButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
-            this.toolStripMenuItem2});
+            this.toolStripMenuItem2,
+            this.deductionsToolStripMenuItem,
+            this.reportsToolStripMenuItem,
+            this.historyToolStripMenuItem,
+            this.statementToolStripMenuItem});
             this.toolStripDropDownButton2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripDropDownButton2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.toolStripDropDownButton2.Image = global::ARM.Properties.Resources.Safety_Box_02_24;
@@ -393,23 +461,65 @@
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
             this.toolStripDropDownButton2.Padding = new System.Windows.Forms.Padding(5);
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(125, 48);
-            this.toolStripDropDownButton2.Text = "Payment rates";
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(76, 48);
+            this.toolStripDropDownButton2.Text = "Payroll";
             this.toolStripDropDownButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(110, 24);
-            this.toolStripMenuItem1.Text = "Add";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(183, 24);
+            this.toolStripMenuItem1.Text = "Add Hourly Rate";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click_1);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(110, 24);
-            this.toolStripMenuItem2.Text = "View";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(183, 24);
+            this.toolStripMenuItem2.Text = "View Rates";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click_1);
+            // 
+            // reportsToolStripMenuItem
+            // 
+            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(183, 24);
+            this.reportsToolStripMenuItem.Text = "Reports";
+            this.reportsToolStripMenuItem.Click += new System.EventHandler(this.reportsToolStripMenuItem_Click);
+            // 
+            // deductionsToolStripMenuItem
+            // 
+            this.deductionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
+            this.viewToolStripMenuItem1});
+            this.deductionsToolStripMenuItem.Name = "deductionsToolStripMenuItem";
+            this.deductionsToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.deductionsToolStripMenuItem.Text = "Deductions";
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // viewToolStripMenuItem1
+            // 
+            this.viewToolStripMenuItem1.Name = "viewToolStripMenuItem1";
+            this.viewToolStripMenuItem1.Size = new System.Drawing.Size(180, 24);
+            this.viewToolStripMenuItem1.Text = "View";
+            this.viewToolStripMenuItem1.Click += new System.EventHandler(this.viewToolStripMenuItem1_Click);
+            // 
+            // historyToolStripMenuItem
+            // 
+            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
+            this.historyToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.historyToolStripMenuItem.Text = "History";
+            // 
+            // statementToolStripMenuItem
+            // 
+            this.statementToolStripMenuItem.Name = "statementToolStripMenuItem";
+            this.statementToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.statementToolStripMenuItem.Text = "Statement";
             // 
             // toolStripButton3
             // 
@@ -446,74 +556,16 @@
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.addToolStripMenuItem.Text = "Add Shift";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click_1);
             // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.viewToolStripMenuItem.Text = "View";
             this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click_1);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
-            this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
-            this.panel1.Controls.Add(this.processLbl);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(8, 65);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(50);
-            this.panel1.Size = new System.Drawing.Size(1423, 571);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // processLbl
-            // 
-            this.processLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.processLbl.BackColor = System.Drawing.SystemColors.ControlText;
-            this.processLbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.processLbl.ForeColor = System.Drawing.SystemColors.Info;
-            this.processLbl.Location = new System.Drawing.Point(4, 84);
-            this.processLbl.Multiline = true;
-            this.processLbl.Name = "processLbl";
-            this.processLbl.Size = new System.Drawing.Size(444, 487);
-            this.processLbl.TabIndex = 8;
-            this.processLbl.Visible = false;
-            this.processLbl.TextChanged += new System.EventHandler(this.processLbl_TextChanged);
-            // 
-            // usernameLbl
-            // 
-            this.usernameLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.usernameLbl.AutoSize = true;
-            this.usernameLbl.Location = new System.Drawing.Point(1152, 43);
-            this.usernameLbl.Name = "usernameLbl";
-            this.usernameLbl.Size = new System.Drawing.Size(14, 13);
-            this.usernameLbl.TabIndex = 10;
-            this.usernameLbl.Text = "#";
-            // 
-            // userPbx
-            // 
-            this.userPbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.userPbx.BackgroundImage = global::ARM.Properties.Resources.User_Profile_128;
-            this.userPbx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.userPbx.Location = new System.Drawing.Point(1301, 25);
-            this.userPbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.userPbx.Name = "userPbx";
-            this.userPbx.Padding = new System.Windows.Forms.Padding(10);
-            this.userPbx.Size = new System.Drawing.Size(43, 31);
-            this.userPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.userPbx.TabIndex = 9;
-            this.userPbx.TabStop = false;
-            // 
-            // queriesToolStripMenuItem
-            // 
-            this.queriesToolStripMenuItem.Name = "queriesToolStripMenuItem";
-            this.queriesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.queriesToolStripMenuItem.Text = "Queries";
-            this.queriesToolStripMenuItem.Click += new System.EventHandler(this.queriesToolStripMenuItem_Click);
             // 
             // HrmForm
             // 
@@ -533,12 +585,12 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPbx)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -584,5 +636,11 @@
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem19;
         private System.Windows.Forms.ToolStripMenuItem queriesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deductionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem historyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem statementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem1;
     }
 }

@@ -358,9 +358,10 @@ namespace ARM
             if (MessageBox.Show("YES or NO?", "Submit Order? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 Orders i = new Orders(id, CaseID, CustomerID, Helper.UserID, Convert.ToDateTime(orderDateTxt.Text).ToString("dd-MM-yyyy"), recievedCbx.Text, Convert.ToDateTime(dispenseDateTxt.Text).ToString("dd-MM-yyyy"), dispensedCbx.Text, recievedCbx.Text, diagnosisTxt.Text, surgeryTxt.Text, Convert.ToDateTime(clinicalDateTxt.Text).ToString("dd-MM-yyyy"), SetupJson, Convert.ToDateTime(setupDate.Text).ToString("dd-MM-yyyy"), DischargeJson, Convert.ToDateTime(dischargeDate.Text).ToString("dd-MM-yyyy"), notifiedCbx.Text, Convert.ToDateTime(dateNotifiedTxt.Text).ToString("dd-MM-yyyy"), authorizCbx.Text, Convert.ToDateTime(dateAuthTxt.Text).ToString("dd-MM-yyyy"), ActionJson, otherTxt.Text, PractitionerID, SafetyJson, appropriate, AppropriateJson, otherTxt.Text, kinCbx.Text, EquipmentJson, otherTxt.Text, AdditionalJson, additionNotesTxt.Text, followUpCbx.Text, signatureTxt.Text, kinCbx.Text, reasonTxt.Text, userSignatureTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
-                if (DBConnect.InsertPostgre(i) != "")
+                string save = DBConnect.InsertPostgre(i);
+                if (save != "")
                 {
-                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(DBConnect.InsertPostgre(i))), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                     DBConnect.InsertPostgre(q);
                     MessageBox.Show("Information Saved");
                     this.Close();
@@ -630,8 +631,8 @@ namespace ARM
             if (MessageBox.Show("YES or NO?", "Update this Order? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 Orders i = new Orders(OrderID, CaseID, CustomerID, Helper.UserID, Convert.ToDateTime(orderDateTxt.Text).ToString("dd-MM-yyyy"), recievedCbx.Text, Convert.ToDateTime(dispenseDateTxt.Text).ToString("dd-MM-yyyy"), dispensedCbx.Text, recievedCbx.Text, diagnosisTxt.Text, surgeryTxt.Text, Convert.ToDateTime(clinicalDateTxt.Text).ToString("dd-MM-yyyy"), SetupJson, Convert.ToDateTime(setupDate.Text).ToString("dd-MM-yyyy"), DischargeJson, Convert.ToDateTime(dischargeDate.Text).ToString("dd-MM-yyyy"), notifiedCbx.Text, Convert.ToDateTime(dateNotifiedTxt.Text).ToString("dd-MM-yyyy"), authorizCbx.Text, Convert.ToDateTime(dateAuthTxt.Text).ToString("dd-MM-yyyy"), ActionJson, otherTxt.Text, PractitionerID, SafetyJson, appropriate, AppropriateJson, otherTxt.Text, kinCbx.Text, EquipmentJson, otherTxt.Text, AdditionalJson, additionNotesTxt.Text, followUpCbx.Text, signatureTxt.Text, kinCbx.Text, reasonTxt.Text, userSignatureTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
-                DBConnect.UpdatePostgre(i, OrderID);
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.UpdatePostgre(i, OrderID)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                string save = DBConnect.UpdatePostgre(i, OrderID);
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                 DBConnect.InsertPostgre(q);
 
                 MessageBox.Show("Information Updated ! ");

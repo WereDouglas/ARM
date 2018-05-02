@@ -127,7 +127,7 @@
             // 
             // dtGrid
             // 
-            this.dtGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dtGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dtGrid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dtGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;

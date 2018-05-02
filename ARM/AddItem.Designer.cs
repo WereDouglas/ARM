@@ -30,8 +30,6 @@
         {
             this.htmlToolTip1 = new MetroFramework.Drawing.Html.HtmlToolTip();
             this.fileUrlTxtBx = new System.Windows.Forms.TextBox();
-            this.categoryCbx = new MetroFramework.Controls.MetroComboBox();
-            this.typeCbx = new MetroFramework.Controls.MetroComboBox();
             this.unitTxt = new MetroFramework.Controls.MetroComboBox();
             this.codeTxt = new MetroFramework.Controls.MetroTextBox();
             this.barTxt = new MetroFramework.Controls.MetroTextBox();
@@ -46,6 +44,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.manuTxt = new MetroFramework.Controls.MetroTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.typeCbx = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.categoryCbx = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,46 +60,12 @@
             this.fileUrlTxtBx.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.fileUrlTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.fileUrlTxtBx.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fileUrlTxtBx.Location = new System.Drawing.Point(17, 265);
+            this.fileUrlTxtBx.Location = new System.Drawing.Point(23, 131);
             this.fileUrlTxtBx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.fileUrlTxtBx.Name = "fileUrlTxtBx";
             this.fileUrlTxtBx.Size = new System.Drawing.Size(265, 14);
             this.fileUrlTxtBx.TabIndex = 129;
             this.fileUrlTxtBx.Visible = false;
-            // 
-            // categoryCbx
-            // 
-            this.categoryCbx.FormattingEnabled = true;
-            this.categoryCbx.ItemHeight = 23;
-            this.categoryCbx.Items.AddRange(new object[] {
-            "Equipment",
-            "Merchandise",
-            "Other"});
-            this.categoryCbx.Location = new System.Drawing.Point(17, 327);
-            this.categoryCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.categoryCbx.Name = "categoryCbx";
-            this.categoryCbx.PromptText = "Category";
-            this.categoryCbx.Size = new System.Drawing.Size(265, 29);
-            this.categoryCbx.TabIndex = 3;
-            this.categoryCbx.UseSelectable = true;
-            // 
-            // typeCbx
-            // 
-            this.typeCbx.FormattingEnabled = true;
-            this.typeCbx.ItemHeight = 23;
-            this.typeCbx.Items.AddRange(new object[] {
-            "Ambulatory",
-            "Bath Power",
-            "Wheel",
-            "Bed",
-            "Other"});
-            this.typeCbx.Location = new System.Drawing.Point(17, 364);
-            this.typeCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.typeCbx.Name = "typeCbx";
-            this.typeCbx.PromptText = "Type of Product";
-            this.typeCbx.Size = new System.Drawing.Size(265, 29);
-            this.typeCbx.TabIndex = 4;
-            this.typeCbx.UseSelectable = true;
             // 
             // unitTxt
             // 
@@ -132,7 +100,7 @@
             this.codeTxt.DisplayIcon = true;
             this.codeTxt.Icon = global::ARM.Properties.Resources.Shape_Cube_24;
             this.codeTxt.Lines = new string[0];
-            this.codeTxt.Location = new System.Drawing.Point(17, 225);
+            this.codeTxt.Location = new System.Drawing.Point(23, 91);
             this.codeTxt.MaxLength = 32767;
             this.codeTxt.Name = "codeTxt";
             this.codeTxt.PasswordChar = '\0';
@@ -221,7 +189,7 @@
             // 
             this.imgCapture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.imgCapture.Image = global::ARM.Properties.Resources.Box_02_128__2_;
-            this.imgCapture.Location = new System.Drawing.Point(87, 61);
+            this.imgCapture.Location = new System.Drawing.Point(392, 91);
             this.imgCapture.Name = "imgCapture";
             this.imgCapture.Size = new System.Drawing.Size(128, 128);
             this.imgCapture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -281,7 +249,7 @@
             this.batchTxt.DisplayIcon = true;
             this.batchTxt.Icon = global::ARM.Properties.Resources.Globe_24;
             this.batchTxt.Lines = new string[0];
-            this.batchTxt.Location = new System.Drawing.Point(17, 517);
+            this.batchTxt.Location = new System.Drawing.Point(23, 442);
             this.batchTxt.MaxLength = 32767;
             this.batchTxt.Name = "batchTxt";
             this.batchTxt.PasswordChar = '\0';
@@ -315,7 +283,7 @@
             this.costTxt.DisplayIcon = true;
             this.costTxt.Icon = global::ARM.Properties.Resources.Dollar_Tag_24;
             this.costTxt.Lines = new string[0];
-            this.costTxt.Location = new System.Drawing.Point(17, 467);
+            this.costTxt.Location = new System.Drawing.Point(23, 401);
             this.costTxt.MaxLength = 32767;
             this.costTxt.Name = "costTxt";
             this.costTxt.PasswordChar = '\0';
@@ -338,9 +306,9 @@
             // 
             // 
             this.descriptionxt.CustomButton.Image = null;
-            this.descriptionxt.CustomButton.Location = new System.Drawing.Point(175, 2);
+            this.descriptionxt.CustomButton.Location = new System.Drawing.Point(225, 1);
             this.descriptionxt.CustomButton.Name = "";
-            this.descriptionxt.CustomButton.Size = new System.Drawing.Size(87, 87);
+            this.descriptionxt.CustomButton.Size = new System.Drawing.Size(39, 39);
             this.descriptionxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.descriptionxt.CustomButton.TabIndex = 1;
             this.descriptionxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -349,7 +317,7 @@
             this.descriptionxt.DisplayIcon = true;
             this.descriptionxt.Icon = global::ARM.Properties.Resources.Receipt_24;
             this.descriptionxt.Lines = new string[0];
-            this.descriptionxt.Location = new System.Drawing.Point(17, 400);
+            this.descriptionxt.Location = new System.Drawing.Point(23, 325);
             this.descriptionxt.MaxLength = 32767;
             this.descriptionxt.Multiline = true;
             this.descriptionxt.Name = "descriptionxt";
@@ -360,7 +328,7 @@
             this.descriptionxt.SelectionLength = 0;
             this.descriptionxt.SelectionStart = 0;
             this.descriptionxt.ShortcutsEnabled = true;
-            this.descriptionxt.Size = new System.Drawing.Size(265, 62);
+            this.descriptionxt.Size = new System.Drawing.Size(265, 61);
             this.descriptionxt.TabIndex = 5;
             this.descriptionxt.UseSelectable = true;
             this.descriptionxt.WaterMark = "Description";
@@ -384,7 +352,7 @@
             this.nameTxt.DisplayIcon = true;
             this.nameTxt.Icon = global::ARM.Properties.Resources.Shape_Cube_24;
             this.nameTxt.Lines = new string[0];
-            this.nameTxt.Location = new System.Drawing.Point(17, 285);
+            this.nameTxt.Location = new System.Drawing.Point(23, 151);
             this.nameTxt.MaxLength = 32767;
             this.nameTxt.Name = "nameTxt";
             this.nameTxt.PasswordChar = '\0';
@@ -410,7 +378,7 @@
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button3.Image = global::ARM.Properties.Resources.Submit_01_32;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(489, 485);
+            this.button3.Location = new System.Drawing.Point(489, 501);
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button3.Size = new System.Drawing.Size(108, 49);
@@ -429,7 +397,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(332, 485);
+            this.button2.Location = new System.Drawing.Point(23, 501);
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(108, 49);
@@ -477,24 +445,75 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Maroon;
-            this.label1.Location = new System.Drawing.Point(95, 209);
+            this.label1.Location = new System.Drawing.Point(389, 237);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 13);
             this.label1.TabIndex = 257;
             this.label1.Text = "Double Click to Browse ";
             // 
+            // typeCbx
+            // 
+            this.typeCbx.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.typeCbx.FormattingEnabled = true;
+            this.typeCbx.Items.AddRange(new object[] {
+            "Equipment",
+            "Merchandise",
+            "Other"});
+            this.typeCbx.Location = new System.Drawing.Point(23, 276);
+            this.typeCbx.Name = "typeCbx";
+            this.typeCbx.Size = new System.Drawing.Size(265, 31);
+            this.typeCbx.TabIndex = 258;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Maroon;
+            this.label2.Location = new System.Drawing.Point(29, 198);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.TabIndex = 259;
+            this.label2.Text = "Category";
+            // 
+            // categoryCbx
+            // 
+            this.categoryCbx.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryCbx.FormattingEnabled = true;
+            this.categoryCbx.Items.AddRange(new object[] {
+            "WHEEL CHAIR",
+            "BEDS",
+            "CANES & CRUTCHES",
+            "COMMODES ",
+            "OTHER"});
+            this.categoryCbx.Location = new System.Drawing.Point(23, 214);
+            this.categoryCbx.Name = "categoryCbx";
+            this.categoryCbx.Size = new System.Drawing.Size(265, 31);
+            this.categoryCbx.TabIndex = 260;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Maroon;
+            this.label3.Location = new System.Drawing.Point(23, 260);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(31, 13);
+            this.label3.TabIndex = 261;
+            this.label3.Text = "Type";
+            // 
             // AddItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 626);
+            this.ClientSize = new System.Drawing.Size(653, 577);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.categoryCbx);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.typeCbx);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.manuTxt);
             this.Controls.Add(this.codeTxt);
             this.Controls.Add(this.unitTxt);
             this.Controls.Add(this.barTxt);
             this.Controls.Add(this.serialTxt);
-            this.Controls.Add(this.typeCbx);
             this.Controls.Add(this.imgCapture);
             this.Controls.Add(this.unitDescTxt);
             this.Controls.Add(this.batchTxt);
@@ -502,7 +521,6 @@
             this.Controls.Add(this.descriptionxt);
             this.Controls.Add(this.nameTxt);
             this.Controls.Add(this.fileUrlTxtBx);
-            this.Controls.Add(this.categoryCbx);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Name = "AddItem";
@@ -524,9 +542,7 @@
         private MetroFramework.Controls.MetroTextBox descriptionxt;
         private MetroFramework.Controls.MetroTextBox nameTxt;
         private System.Windows.Forms.TextBox fileUrlTxtBx;
-        private MetroFramework.Controls.MetroComboBox categoryCbx;
         private System.Windows.Forms.PictureBox imgCapture;
-        private MetroFramework.Controls.MetroComboBox typeCbx;
         private MetroFramework.Controls.MetroTextBox serialTxt;
         private MetroFramework.Controls.MetroTextBox barTxt;
         private MetroFramework.Controls.MetroTextBox unitDescTxt;
@@ -534,5 +550,9 @@
         private MetroFramework.Controls.MetroTextBox codeTxt;
         private MetroFramework.Controls.MetroTextBox manuTxt;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox typeCbx;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox categoryCbx;
+        private System.Windows.Forms.Label label3;
     }
 }
