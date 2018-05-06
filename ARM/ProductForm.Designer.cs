@@ -161,6 +161,7 @@
             this.dtGrid.Size = new System.Drawing.Size(1200, 497);
             this.dtGrid.TabIndex = 49;
             this.dtGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellClick);
+            this.dtGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellEndEdit);
             // 
             // ProductForm
             // 

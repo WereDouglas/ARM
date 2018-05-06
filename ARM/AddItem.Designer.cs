@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddItem));
             this.htmlToolTip1 = new MetroFramework.Drawing.Html.HtmlToolTip();
             this.fileUrlTxtBx = new System.Windows.Forms.TextBox();
-            this.unitTxt = new MetroFramework.Controls.MetroComboBox();
             this.codeTxt = new MetroFramework.Controls.MetroTextBox();
             this.barTxt = new MetroFramework.Controls.MetroTextBox();
             this.serialTxt = new MetroFramework.Controls.MetroTextBox();
@@ -48,6 +48,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.categoryCbx = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.unitTxt = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,22 +68,6 @@
             this.fileUrlTxtBx.Size = new System.Drawing.Size(265, 14);
             this.fileUrlTxtBx.TabIndex = 129;
             this.fileUrlTxtBx.Visible = false;
-            // 
-            // unitTxt
-            // 
-            this.unitTxt.FormattingEnabled = true;
-            this.unitTxt.ItemHeight = 23;
-            this.unitTxt.Items.AddRange(new object[] {
-            "Cm",
-            "M",
-            "C"});
-            this.unitTxt.Location = new System.Drawing.Point(332, 348);
-            this.unitTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.unitTxt.Name = "unitTxt";
-            this.unitTxt.PromptText = "Unit Of Measure";
-            this.unitTxt.Size = new System.Drawing.Size(265, 29);
-            this.unitTxt.TabIndex = 11;
-            this.unitTxt.UseSelectable = true;
             // 
             // codeTxt
             // 
@@ -306,9 +292,9 @@
             // 
             // 
             this.descriptionxt.CustomButton.Image = null;
-            this.descriptionxt.CustomButton.Location = new System.Drawing.Point(225, 1);
+            this.descriptionxt.CustomButton.Location = new System.Drawing.Point(205, 1);
             this.descriptionxt.CustomButton.Name = "";
-            this.descriptionxt.CustomButton.Size = new System.Drawing.Size(39, 39);
+            this.descriptionxt.CustomButton.Size = new System.Drawing.Size(59, 59);
             this.descriptionxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.descriptionxt.CustomButton.TabIndex = 1;
             this.descriptionxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -445,11 +431,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Maroon;
-            this.label1.Location = new System.Drawing.Point(389, 237);
+            this.label1.Location = new System.Drawing.Point(353, 232);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 13);
+            this.label1.Size = new System.Drawing.Size(222, 13);
             this.label1.TabIndex = 257;
-            this.label1.Text = "Double Click to Browse ";
+            this.label1.Text = "Double Click to Browse Image size (300X300)";
             // 
             // typeCbx
             // 
@@ -479,11 +465,11 @@
             this.categoryCbx.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryCbx.FormattingEnabled = true;
             this.categoryCbx.Items.AddRange(new object[] {
-            "WHEEL CHAIR",
-            "BEDS",
-            "CANES & CRUTCHES",
-            "COMMODES ",
-            "OTHER"});
+            "Wheel Chairs",
+            "Beds",
+            "Canes & Crutches",
+            "Commodes",
+            "Other"});
             this.categoryCbx.Location = new System.Drawing.Point(23, 214);
             this.categoryCbx.Name = "categoryCbx";
             this.categoryCbx.Size = new System.Drawing.Size(265, 31);
@@ -499,11 +485,32 @@
             this.label3.TabIndex = 261;
             this.label3.Text = "Type";
             // 
+            // unitTxt
+            // 
+            this.unitTxt.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.unitTxt.FormattingEnabled = true;
+            this.unitTxt.Location = new System.Drawing.Point(489, 348);
+            this.unitTxt.Name = "unitTxt";
+            this.unitTxt.Size = new System.Drawing.Size(108, 31);
+            this.unitTxt.TabIndex = 262;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Maroon;
+            this.label4.Location = new System.Drawing.Point(329, 358);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(82, 13);
+            this.label4.TabIndex = 263;
+            this.label4.Text = "Unit of Measure";
+            // 
             // AddItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 577);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.unitTxt);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.categoryCbx);
             this.Controls.Add(this.label2);
@@ -511,7 +518,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.manuTxt);
             this.Controls.Add(this.codeTxt);
-            this.Controls.Add(this.unitTxt);
             this.Controls.Add(this.barTxt);
             this.Controls.Add(this.serialTxt);
             this.Controls.Add(this.imgCapture);
@@ -523,6 +529,7 @@
             this.Controls.Add(this.fileUrlTxtBx);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddItem";
             this.Style = MetroFramework.MetroColorStyle.White;
             this.Text = "Add Product";
@@ -546,7 +553,6 @@
         private MetroFramework.Controls.MetroTextBox serialTxt;
         private MetroFramework.Controls.MetroTextBox barTxt;
         private MetroFramework.Controls.MetroTextBox unitDescTxt;
-        private MetroFramework.Controls.MetroComboBox unitTxt;
         private MetroFramework.Controls.MetroTextBox codeTxt;
         private MetroFramework.Controls.MetroTextBox manuTxt;
         private System.Windows.Forms.Label label1;
@@ -554,5 +560,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox categoryCbx;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox unitTxt;
+        private System.Windows.Forms.Label label4;
     }
 }

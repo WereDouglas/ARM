@@ -137,7 +137,7 @@ namespace ARM
                 {
                     string Query = "DELETE from users WHERE id ='" + item + "'";
                     DBConnect.QueryPostgre(Query);
-                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                     DBConnect.InsertPostgre(q);
                     //  MessageBox.Show("Information deleted");
                 }
@@ -189,8 +189,7 @@ namespace ARM
                         LoadData();
 
                     }
-                    Console.WriteLine("DELETE on row {0} clicked", e.RowIndex + dtGrid.Rows[e.RowIndex].Cells[0].Value.ToString() + dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString());
-
+                    
                 }
 
             }

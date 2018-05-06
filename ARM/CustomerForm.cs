@@ -139,7 +139,7 @@ namespace ARM
                 {
                     string Query = "DELETE from customer WHERE id ='" + item + "'";
                     DBConnect.QueryPostgre(Query);
-                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                     DBConnect.InsertPostgre(q);
                 }
             }
@@ -153,13 +153,13 @@ namespace ARM
                 if (selectedIDs.Contains(dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString()))
                 {
                     selectedIDs.Remove(dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString());
-                    Console.WriteLine("REMOVED this id " + dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString());
+                   
 
                 }
                 else
                 {
                     selectedIDs.Add(dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString());
-                    Console.WriteLine("ADDED ITEM " + dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString());
+                    
                 }
             }
             if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
@@ -180,15 +180,14 @@ namespace ARM
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Customer? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         string Query = "DELETE from customer WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString() + "'";
-                        DBConnect.QueryPostgre(Query);
-                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                            DBConnect.QueryPostgre(Query);
+                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                         DBConnect.InsertPostgre(q);
                         MessageBox.Show("Information deleted");
                         LoadData();
 
                     }
-                    Console.WriteLine("DELETE on row {0} clicked", e.RowIndex + dtGrid.Rows[e.RowIndex].Cells[0].Value.ToString() + dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString());
-
+                   
                 }
 
             }
@@ -219,8 +218,8 @@ namespace ARM
             }
             string ID = dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString();
             Customer _c = new Customer(ID, dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["contact"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["address"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["city"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["state"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["zip"].Value.ToString(),DateTime.Now.ToString("dd-MM-yyyy"),dtGrid.Rows[e.RowIndex].Cells["SOC-SEC#"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Date Of Birth"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["height"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["weight"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["gender"].Value.ToString(), false,Helper.CompanyID, dtGrid.Rows[e.RowIndex].Cells["uri"].Value.ToString());
-            DBConnect.UpdatePostgre(_c, ID);
-            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.UpdatePostgre(_c, ID)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+            string save = DBConnect.UpdatePostgre(_c, ID);
+            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
             DBConnect.InsertPostgre(q);
 
         }

@@ -94,7 +94,7 @@ namespace ARM
 
                 foreach (var item in selectedIDs)
                 {
-                    string Query = "DELETE from query WHERE id ='" + item + "'";
+                    string Query = "DELETE from queries WHERE id ='" + item + "'";
                     DBConnect.QueryPostgre(Query);
                     //  MessageBox.Show("Information deleted");
                 }

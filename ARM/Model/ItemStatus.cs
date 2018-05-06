@@ -13,14 +13,14 @@ namespace ARM.Model
     {
         private string id;
         private string followID;
-        private string title;     
+        private string title;
         private string status;
-        private string details;           
-        private string created;      
-       private bool sync; private string companyID;
+        private string details;
+        private string created;
+        private bool sync; private string companyID;
         public ItemStatus() { }
 
-        public ItemStatus(string id, string followID, string title, string status, string details, string created, bool sync,string companyID)
+        public ItemStatus(string id, string followID, string title, string status, string details, string created, bool sync, string companyID)
         {
             this.Id = id;
             this.FollowID = followID;
@@ -28,7 +28,7 @@ namespace ARM.Model
             this.Status = status;
             this.Details = details;
             this.Created = created;
-            this.Sync = sync;this.CompanyID = companyID;
+            this.Sync = sync; this.CompanyID = companyID;
         }
 
         public string Id { get => id; set => id = value; }
@@ -37,7 +37,8 @@ namespace ARM.Model
         public string Status { get => status; set => status = value; }
         public string Details { get => details; set => details = value; }
         public string Created { get => created; set => created = value; }
-        public bool Sync { get => sync; set => sync = value; } public string CompanyID { get => companyID; set => companyID = value; }
+        public bool Sync { get => sync; set => sync = value; }
+        public string CompanyID { get => companyID; set => companyID = value; }
         private static List<ItemStatus> p = new List<ItemStatus>();
         public static List<ItemStatus> List(string followID)
         {
@@ -47,7 +48,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                ItemStatus ps = new ItemStatus(Reader["id"].ToString(), Reader["followID"].ToString(), Reader["title"].ToString(), Reader["status"].ToString(), Reader["details"].ToString(),Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                ItemStatus ps = new ItemStatus(Reader["id"].ToString(), Reader["followID"].ToString(), Reader["title"].ToString(), Reader["status"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -56,15 +57,19 @@ namespace ARM.Model
         }
         public static List<ItemStatus> ListUpload(string Q)
         {
-            p.Clear();           
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
-            while (Reader.Read())
+            try
             {
-                ItemStatus ps = new ItemStatus(Reader["id"].ToString(), Reader["followID"].ToString(), Reader["title"].ToString(), Reader["status"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
-                p.Add(ps);
+                p.Clear();
+                DBConnect.OpenConn();
+                NpgsqlDataReader Reader = DBConnect.Reading(Q);
+                while (Reader.Read())
+                {
+                    ItemStatus ps = new ItemStatus(Reader["id"].ToString(), Reader["followID"].ToString(), Reader["title"].ToString(), Reader["status"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                    p.Add(ps);
+                }
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            catch { }
             return p;
 
         }

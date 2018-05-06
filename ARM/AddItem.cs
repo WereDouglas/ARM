@@ -43,6 +43,7 @@ namespace ARM
             unitTxt.Text = c.UnitOfMeasure;
             unitDescTxt.Text = c.MeasureDescription;
             manuTxt.Text = c.Manufacturer;
+            codeTxt.Text = c.Code;
 
             try
             {
@@ -102,7 +103,7 @@ namespace ARM
             string fullimage = Helper.ImageToBase64(stream);
 
             string id = Guid.NewGuid().ToString();
-            Product c = new Product(id, nameTxt.Text, codeTxt.Text, categoryCbx.Text, typeCbx.Text, descriptionxt.Text, costTxt.Text, batchTxt.Text, serialTxt.Text, barTxt.Text, unitTxt.Text, unitDescTxt.Text, manuTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, fullimage);
+            Product c = new Product(id, nameTxt.Text, codeTxt.Text, categoryCbx.Text, typeCbx.Text,Helper.CleanString(descriptionxt.Text), costTxt.Text, batchTxt.Text, serialTxt.Text, barTxt.Text, unitTxt.Text,Helper.CleanString(unitDescTxt.Text), manuTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, fullimage);
 
             string save = DBConnect.InsertPostgre(c);
             if (save != "")
@@ -159,6 +160,8 @@ namespace ARM
             open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp;*.png)|*.jpg; *.jpeg; *.gif; *.bmp;*.png";
             if (open.ShowDialog() == DialogResult.OK)
             {
+                FileInfo fi = new FileInfo(open.FileName);
+                var fileSize = fi.Length;
                 ext = Path.GetExtension(open.FileName);
                 // display image in picture box
                 imgCapture.Image = new Bitmap(open.FileName);

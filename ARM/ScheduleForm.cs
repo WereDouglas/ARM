@@ -143,7 +143,7 @@ namespace ARM
                 {
                     string Query = "DELETE from schedule WHERE id ='" + item + "'";
                     DBConnect.QueryPostgre(Query);
-                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                     DBConnect.InsertPostgre(q);
                     //  MessageBox.Show("Information deleted");
 
@@ -209,25 +209,7 @@ namespace ARM
 
 
         }
-        private DataGridViewComboBoxColumn CreateComboBox()
-        {
-            DataGridViewComboBoxColumn combo = new DataGridViewComboBoxColumn();
-            {
-                combo.Name = "comboColumn";
-                combo.HeaderText = "Grade";
-                ArrayList drl = new ArrayList();
-                drl.Add("GS1");
-                drl.Add("GS2");
-                drl.Add("WG1");
-                drl.Add("WG2");
-                combo.Items.AddRange(drl.ToArray());
-                combo.DataSource = drl;
-                //combo.ValueMember = "EmployeeID";
-                //combo.DisplayMember = "Grade";
-                //combo.DataPropertyName = "Grade";
-            }
-            return combo;
-        }
+        
 
 
         private void dtGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)

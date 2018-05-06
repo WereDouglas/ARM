@@ -36,14 +36,16 @@ namespace ARM
             t.Columns.Add("uri");
             t.Columns.Add(new DataColumn("Img", typeof(Bitmap)));//1          
             t.Columns.Add("Name");
+            t.Columns.Add("Code");
             t.Columns.Add("Category");
             t.Columns.Add("Type");
             t.Columns.Add("Description");
             t.Columns.Add("Cost");
-            t.Columns.Add("Batch No.");
-            t.Columns.Add("Serial No.");           
+            t.Columns.Add("Batch No");
+            t.Columns.Add("Serial No");           
             t.Columns.Add("Barcode");
             t.Columns.Add("Unit Of Measure");
+            t.Columns.Add("Measure description");
             t.Columns.Add("Manufacturer");
             t.Columns.Add("Sync");
             t.Columns.Add("Created");
@@ -63,7 +65,7 @@ namespace ARM
             {
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, c.Image as string, b, c.Name,c.Category, c.Type, c.Description, c.Cost, c.Batch,c.Serial,c.Barcode,c.UnitOfMeasure,c.Manufacturer, c.Sync, c.Created, view, delete });
+                    t.Rows.Add(new object[] { false, c.Id, c.Image as string, b, c.Name,c.Code,c.Category, c.Type, c.Description, c.Cost, c.Batch,c.Serial,c.Barcode,c.UnitOfMeasure,c.MeasureDescription,c.Manufacturer, c.Sync, c.Created, view, delete });
 
                 }
                 catch (Exception m)
@@ -138,7 +140,7 @@ namespace ARM
                 {
                     string Query = "DELETE from item WHERE id ='" + item + "'";
                     DBConnect.QueryPostgre(Query);
-                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                     DBConnect.InsertPostgre(q);
                     //  MessageBox.Show("Information deleted");
                 }
@@ -183,7 +185,7 @@ namespace ARM
                     {
                         string Query = "DELETE from item WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
                         DBConnect.QueryPostgre(Query);
-                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                         DBConnect.InsertPostgre(q);
                         MessageBox.Show("Information deleted");
                         LoadData();
@@ -227,6 +229,20 @@ namespace ARM
                     // LoadingCalendarLite();
                 }
             }
+        }
+
+        private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (String.IsNullOrEmpty(dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString()))
+            {
+                MessageBox.Show("Please input a name ");
+                return;
+            }
+            string ID = dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString();
+            Product _c = new Product(ID, dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["code"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["type"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["description"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["cost"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["batch no"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["serial no"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["barcode"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["unit of measure"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Measure description"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Manufacturer"].Value.ToString(),DateTime.Now.ToString("dd-MM-yyyy"), false, Helper.CompanyID, dtGrid.Rows[e.RowIndex].Cells["uri"].Value.ToString());
+            string save = DBConnect.UpdatePostgre(_c, ID);
+            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+            DBConnect.InsertPostgre(q);
         }
     }
 }
