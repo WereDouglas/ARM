@@ -51,6 +51,7 @@
             this.officePhoneTxt = new MetroFramework.Controls.MetroTextBox();
             this.officeFaxTxt = new MetroFramework.Controls.MetroTextBox();
             this.specialityTxt = new MetroFramework.Controls.MetroTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -629,11 +630,26 @@
             this.specialityTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.specialityTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::ARM.Properties.Resources.Gear_24;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(11, 534);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(147, 35);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "Server Settings";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(697, 577);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.specialityTxt);
             this.Controls.Add(this.officeFaxTxt);
             this.Controls.Add(this.officePhoneTxt);
@@ -690,5 +706,6 @@
         private MetroFramework.Controls.MetroTextBox officePhoneTxt;
         private MetroFramework.Controls.MetroTextBox officeFaxTxt;
         private MetroFramework.Controls.MetroTextBox specialityTxt;
+        private System.Windows.Forms.Button button1;
     }
 }

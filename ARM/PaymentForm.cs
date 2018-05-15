@@ -60,8 +60,8 @@ namespace ARM
 
             dtGrid.DataSource = t;
             dtGrid.AllowUserToAddRows = false;
-            dtGrid.Columns["Amount"].DefaultCellStyle.BackColor = Color.LightGreen;
-            dtGrid.Columns["Balance"].DefaultCellStyle.BackColor = Color.Red;
+           // dtGrid.Columns["Amount"].DefaultCellStyle.BackColor = Color.LightGreen;
+           // dtGrid.Columns["Balance"].DefaultCellStyle.BackColor = Color.Red;
             dtGrid.Columns["ID"].Visible = false;
          
 

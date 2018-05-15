@@ -34,18 +34,18 @@
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.medicalChk = new MetroFramework.Controls.MetroRadioButton();
             this.payrollChk = new MetroFramework.Controls.MetroRadioButton();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.passwordTxt = new MetroFramework.Controls.MetroTextBox();
             this.contactTxt = new MetroFramework.Controls.MetroTextBox();
             this.loginBtn = new System.Windows.Forms.Button();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.metroPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // metroStyleManager1
@@ -69,7 +69,7 @@
             this.metroPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.metroPanel1.Name = "metroPanel1";
             this.metroPanel1.Size = new System.Drawing.Size(345, 402);
-            this.metroPanel1.TabIndex = 46;
+            this.metroPanel1.TabIndex = 0;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
@@ -95,6 +95,121 @@
             this.payrollChk.TabIndex = 0;
             this.payrollChk.Text = "HRM Payroll";
             this.payrollChk.UseSelectable = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::ARM.Properties.Resources.User_Profile_128;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(127, 17);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(111, 139);
+            this.pictureBox1.TabIndex = 46;
+            this.pictureBox1.TabStop = false;
+            // 
+            // passwordTxt
+            // 
+            this.passwordTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(207)))), ((int)(((byte)(164)))));
+            // 
+            // 
+            // 
+            this.passwordTxt.CustomButton.FlatAppearance.BorderSize = 0;
+            this.passwordTxt.CustomButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.passwordTxt.CustomButton.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordTxt.CustomButton.Image = null;
+            this.passwordTxt.CustomButton.Location = new System.Drawing.Point(249, 2);
+            this.passwordTxt.CustomButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.passwordTxt.CustomButton.Name = "";
+            this.passwordTxt.CustomButton.Size = new System.Drawing.Size(35, 35);
+            this.passwordTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.passwordTxt.CustomButton.TabIndex = 1;
+            this.passwordTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.passwordTxt.CustomButton.UseSelectable = true;
+            this.passwordTxt.CustomButton.Visible = false;
+            this.passwordTxt.DisplayIcon = true;
+            this.passwordTxt.Icon = global::ARM.Properties.Resources.Lock_24;
+            this.passwordTxt.Lines = new string[0];
+            this.passwordTxt.Location = new System.Drawing.Point(30, 276);
+            this.passwordTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.passwordTxt.MaxLength = 32767;
+            this.passwordTxt.Name = "passwordTxt";
+            this.passwordTxt.PasswordChar = '●';
+            this.passwordTxt.PromptText = "Password";
+            this.passwordTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.passwordTxt.SelectedText = "";
+            this.passwordTxt.SelectionLength = 0;
+            this.passwordTxt.SelectionStart = 0;
+            this.passwordTxt.ShortcutsEnabled = true;
+            this.passwordTxt.Size = new System.Drawing.Size(287, 40);
+            this.passwordTxt.TabIndex = 3;
+            this.passwordTxt.UseCustomBackColor = true;
+            this.passwordTxt.UseSelectable = true;
+            this.passwordTxt.UseSystemPasswordChar = true;
+            this.passwordTxt.WaterMark = "Password";
+            this.passwordTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.passwordTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordTxt_KeyDown);
+            // 
+            // contactTxt
+            // 
+            this.contactTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(207)))), ((int)(((byte)(164)))));
+            // 
+            // 
+            // 
+            this.contactTxt.CustomButton.FlatAppearance.BorderSize = 0;
+            this.contactTxt.CustomButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.contactTxt.CustomButton.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactTxt.CustomButton.Image = null;
+            this.contactTxt.CustomButton.Location = new System.Drawing.Point(249, 2);
+            this.contactTxt.CustomButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.contactTxt.CustomButton.Name = "";
+            this.contactTxt.CustomButton.Size = new System.Drawing.Size(35, 35);
+            this.contactTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.contactTxt.CustomButton.TabIndex = 1;
+            this.contactTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.contactTxt.CustomButton.UseSelectable = true;
+            this.contactTxt.CustomButton.Visible = false;
+            this.contactTxt.DisplayIcon = true;
+            this.contactTxt.Icon = global::ARM.Properties.Resources.Contact_24;
+            this.contactTxt.Lines = new string[0];
+            this.contactTxt.Location = new System.Drawing.Point(30, 222);
+            this.contactTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.contactTxt.MaxLength = 32767;
+            this.contactTxt.Name = "contactTxt";
+            this.contactTxt.PasswordChar = '\0';
+            this.contactTxt.PromptText = "Contact";
+            this.contactTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.contactTxt.SelectedText = "";
+            this.contactTxt.SelectionLength = 0;
+            this.contactTxt.SelectionStart = 0;
+            this.contactTxt.ShortcutsEnabled = true;
+            this.contactTxt.Size = new System.Drawing.Size(287, 40);
+            this.contactTxt.TabIndex = 2;
+            this.contactTxt.UseCustomBackColor = true;
+            this.contactTxt.UseSelectable = true;
+            this.contactTxt.WaterMark = "Contact";
+            this.contactTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.contactTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // loginBtn
+            // 
+            this.loginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(255)))));
+            this.loginBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.loginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loginBtn.Font = new System.Drawing.Font("Trebuchet MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.loginBtn.Image = global::ARM.Properties.Resources.Submit_01_32;
+            this.loginBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.loginBtn.Location = new System.Drawing.Point(30, 321);
+            this.loginBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.loginBtn.Name = "loginBtn";
+            this.loginBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.loginBtn.Size = new System.Drawing.Size(287, 65);
+            this.loginBtn.TabIndex = 4;
+            this.loginBtn.Text = "Login";
+            this.loginBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.loginBtn.UseVisualStyleBackColor = false;
+            this.loginBtn.Click += new System.EventHandler(this.button3_Click);
             // 
             // lblStatus
             // 
@@ -145,126 +260,11 @@
             this.pictureBox2.TabIndex = 49;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::ARM.Properties.Resources.User_Profile_128;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(119, 17);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(111, 139);
-            this.pictureBox1.TabIndex = 46;
-            this.pictureBox1.TabStop = false;
-            // 
-            // passwordTxt
-            // 
-            this.passwordTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(207)))), ((int)(((byte)(164)))));
-            // 
-            // 
-            // 
-            this.passwordTxt.CustomButton.FlatAppearance.BorderSize = 0;
-            this.passwordTxt.CustomButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.passwordTxt.CustomButton.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordTxt.CustomButton.Image = null;
-            this.passwordTxt.CustomButton.Location = new System.Drawing.Point(249, 2);
-            this.passwordTxt.CustomButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.passwordTxt.CustomButton.Name = "";
-            this.passwordTxt.CustomButton.Size = new System.Drawing.Size(35, 35);
-            this.passwordTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.passwordTxt.CustomButton.TabIndex = 1;
-            this.passwordTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.passwordTxt.CustomButton.UseSelectable = true;
-            this.passwordTxt.CustomButton.Visible = false;
-            this.passwordTxt.DisplayIcon = true;
-            this.passwordTxt.Icon = global::ARM.Properties.Resources.Lock_24;
-            this.passwordTxt.Lines = new string[0];
-            this.passwordTxt.Location = new System.Drawing.Point(30, 276);
-            this.passwordTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.passwordTxt.MaxLength = 32767;
-            this.passwordTxt.Name = "passwordTxt";
-            this.passwordTxt.PasswordChar = '●';
-            this.passwordTxt.PromptText = "Password";
-            this.passwordTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.passwordTxt.SelectedText = "";
-            this.passwordTxt.SelectionLength = 0;
-            this.passwordTxt.SelectionStart = 0;
-            this.passwordTxt.ShortcutsEnabled = true;
-            this.passwordTxt.Size = new System.Drawing.Size(287, 40);
-            this.passwordTxt.TabIndex = 3;
-            this.passwordTxt.UseCustomBackColor = true;
-            this.passwordTxt.UseSelectable = true;
-            this.passwordTxt.UseSystemPasswordChar = true;
-            this.passwordTxt.WaterMark = "Password";
-            this.passwordTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.passwordTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordTxt_KeyDown);
-            // 
-            // contactTxt
-            // 
-            this.contactTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(207)))), ((int)(((byte)(164)))));
-            // 
-            // 
-            // 
-            this.contactTxt.CustomButton.FlatAppearance.BorderSize = 0;
-            this.contactTxt.CustomButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.contactTxt.CustomButton.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactTxt.CustomButton.Image = null;
-            this.contactTxt.CustomButton.Location = new System.Drawing.Point(249, 2);
-            this.contactTxt.CustomButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.contactTxt.CustomButton.Name = "";
-            this.contactTxt.CustomButton.Size = new System.Drawing.Size(35, 35);
-            this.contactTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.contactTxt.CustomButton.TabIndex = 1;
-            this.contactTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.contactTxt.CustomButton.UseSelectable = true;
-            this.contactTxt.CustomButton.Visible = false;
-            this.contactTxt.DisplayIcon = true;
-            this.contactTxt.Icon = global::ARM.Properties.Resources.Contact_24;
-            this.contactTxt.Lines = new string[0];
-            this.contactTxt.Location = new System.Drawing.Point(30, 222);
-            this.contactTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.contactTxt.MaxLength = 32767;
-            this.contactTxt.Name = "contactTxt";
-            this.contactTxt.PasswordChar = '\0';
-            this.contactTxt.PromptText = "Contact";
-            this.contactTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.contactTxt.SelectedText = "";
-            this.contactTxt.SelectionLength = 0;
-            this.contactTxt.SelectionStart = 0;
-            this.contactTxt.ShortcutsEnabled = true;
-            this.contactTxt.Size = new System.Drawing.Size(287, 40);
-            this.contactTxt.TabIndex = 2;
-            this.contactTxt.UseCustomBackColor = true;
-            this.contactTxt.UseSelectable = true;
-            this.contactTxt.WaterMark = "Contact";
-            this.contactTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.contactTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // loginBtn
-            // 
-            this.loginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(255)))));
-            this.loginBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.loginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.loginBtn.Font = new System.Drawing.Font("Trebuchet MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.loginBtn.Image = global::ARM.Properties.Resources.Submit_01_32;
-            this.loginBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.loginBtn.Location = new System.Drawing.Point(30, 321);
-            this.loginBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.loginBtn.Name = "loginBtn";
-            this.loginBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.loginBtn.Size = new System.Drawing.Size(287, 65);
-            this.loginBtn.TabIndex = 4;
-            this.loginBtn.Text = "Login";
-            this.loginBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.loginBtn.UseVisualStyleBackColor = false;
-            this.loginBtn.Click += new System.EventHandler(this.button3_Click);
-            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(602, 561);
+            this.ClientSize = new System.Drawing.Size(602, 579);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.button4);
@@ -282,8 +282,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }

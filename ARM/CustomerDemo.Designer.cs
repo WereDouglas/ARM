@@ -45,7 +45,6 @@
             this.contactTxt = new System.Windows.Forms.TextBox();
             this.htmlToolTip1 = new MetroFramework.Drawing.Html.HtmlToolTip();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.categoryCbx = new MetroFramework.Controls.MetroComboBox();
             this.noTxt = new System.Windows.Forms.TextBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.fileUrlTxtBx = new System.Windows.Forms.TextBox();
@@ -59,7 +58,6 @@
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.ssnTxt = new System.Windows.Forms.TextBox();
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
-            this.genderCbx = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
             this.label1 = new System.Windows.Forms.Label();
@@ -78,12 +76,17 @@
             this.dtGridCoverage = new System.Windows.Forms.DataGridView();
             this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
             this.dtGridEmerg = new System.Windows.Forms.DataGridView();
+            this.metroTabPage5 = new MetroFramework.Controls.MetroTabPage();
+            this.dtGridMed = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.metroTabPage5 = new MetroFramework.Controls.MetroTabPage();
-            this.dtGridMed = new System.Windows.Forms.DataGridView();
+            this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
+            this.genderCbx = new System.Windows.Forms.ComboBox();
+            this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
+            this.categoryCbx = new System.Windows.Forms.ComboBox();
+            this.emailTxt = new System.Windows.Forms.TextBox();
             this.metroTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
             this.metroTabCond.SuspendLayout();
@@ -159,21 +162,6 @@
             this.metroLabel3.Size = new System.Drawing.Size(64, 19);
             this.metroLabel3.TabIndex = 28;
             this.metroLabel3.Text = "Category";
-            // 
-            // categoryCbx
-            // 
-            this.categoryCbx.FormattingEnabled = true;
-            this.categoryCbx.ItemHeight = 23;
-            this.categoryCbx.Items.AddRange(new object[] {
-            "Client",
-            "Patient",
-            "Facility"});
-            this.categoryCbx.Location = new System.Drawing.Point(123, 258);
-            this.categoryCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.categoryCbx.Name = "categoryCbx";
-            this.categoryCbx.Size = new System.Drawing.Size(213, 29);
-            this.categoryCbx.TabIndex = 3;
-            this.categoryCbx.UseSelectable = true;
             // 
             // noTxt
             // 
@@ -286,22 +274,6 @@
             this.metroLabel10.TabIndex = 111;
             this.metroLabel10.Text = "SOC-SEC#";
             // 
-            // genderCbx
-            // 
-            this.genderCbx.FormattingEnabled = true;
-            this.genderCbx.ItemHeight = 23;
-            this.genderCbx.Items.AddRange(new object[] {
-            "Male",
-            "Female",
-            "Other"});
-            this.genderCbx.Location = new System.Drawing.Point(436, 306);
-            this.genderCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.genderCbx.Name = "genderCbx";
-            this.genderCbx.PromptText = "Gender";
-            this.genderCbx.Size = new System.Drawing.Size(213, 29);
-            this.genderCbx.TabIndex = 10;
-            this.genderCbx.UseSelectable = true;
-            // 
             // metroLabel11
             // 
             this.metroLabel11.AutoSize = true;
@@ -313,13 +285,17 @@
             // 
             // metroTabPage1
             // 
+            this.metroTabPage1.Controls.Add(this.emailTxt);
+            this.metroTabPage1.Controls.Add(this.categoryCbx);
+            this.metroTabPage1.Controls.Add(this.metroLabel15);
+            this.metroTabPage1.Controls.Add(this.genderCbx);
+            this.metroTabPage1.Controls.Add(this.metroLabel14);
             this.metroTabPage1.Controls.Add(this.label1);
             this.metroTabPage1.Controls.Add(this.metroLabel13);
             this.metroTabPage1.Controls.Add(this.metroLabel12);
             this.metroTabPage1.Controls.Add(this.weightTxt);
             this.metroTabPage1.Controls.Add(this.heightTxt);
             this.metroTabPage1.Controls.Add(this.metroLabel11);
-            this.metroTabPage1.Controls.Add(this.genderCbx);
             this.metroTabPage1.Controls.Add(this.metroLabel4);
             this.metroTabPage1.Controls.Add(this.metroLabel1);
             this.metroTabPage1.Controls.Add(this.updateBtn);
@@ -332,7 +308,6 @@
             this.metroTabPage1.Controls.Add(this.metroLabel9);
             this.metroTabPage1.Controls.Add(this.imgCapture);
             this.metroTabPage1.Controls.Add(this.dobTxt);
-            this.metroTabPage1.Controls.Add(this.categoryCbx);
             this.metroTabPage1.Controls.Add(this.zipTxt);
             this.metroTabPage1.Controls.Add(this.metroLabel3);
             this.metroTabPage1.Controls.Add(this.metroLabel8);
@@ -635,6 +610,57 @@
             this.dtGridEmerg.TabIndex = 51;
             this.dtGridEmerg.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridEmerg_CellClick);
             // 
+            // metroTabPage5
+            // 
+            this.metroTabPage5.Controls.Add(this.dtGridMed);
+            this.metroTabPage5.HorizontalScrollbarBarColor = true;
+            this.metroTabPage5.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroTabPage5.HorizontalScrollbarSize = 10;
+            this.metroTabPage5.Location = new System.Drawing.Point(4, 38);
+            this.metroTabPage5.Name = "metroTabPage5";
+            this.metroTabPage5.Size = new System.Drawing.Size(1312, 612);
+            this.metroTabPage5.TabIndex = 8;
+            this.metroTabPage5.Text = "Practitioner";
+            this.metroTabPage5.VerticalScrollbarBarColor = true;
+            this.metroTabPage5.VerticalScrollbarHighlightOnWheel = false;
+            this.metroTabPage5.VerticalScrollbarSize = 10;
+            // 
+            // dtGridMed
+            // 
+            this.dtGridMed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtGridMed.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtGridMed.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dtGridMed.BackgroundColor = System.Drawing.SystemColors.Info;
+            this.dtGridMed.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtGridMed.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dtGridMed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridMed.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dtGridMed.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.dtGridMed.Location = new System.Drawing.Point(0, 3);
+            this.dtGridMed.Name = "dtGridMed";
+            this.dtGridMed.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridMed.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dtGridMed.RowHeadersWidth = 20;
+            this.dtGridMed.Size = new System.Drawing.Size(1306, 620);
+            this.dtGridMed.TabIndex = 52;
+            this.dtGridMed.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridMed_CellClick);
+            // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.SystemColors.Info;
@@ -715,56 +741,56 @@
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // metroTabPage5
+            // metroLabel14
             // 
-            this.metroTabPage5.Controls.Add(this.dtGridMed);
-            this.metroTabPage5.HorizontalScrollbarBarColor = true;
-            this.metroTabPage5.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage5.HorizontalScrollbarSize = 10;
-            this.metroTabPage5.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage5.Name = "metroTabPage5";
-            this.metroTabPage5.Size = new System.Drawing.Size(1312, 612);
-            this.metroTabPage5.TabIndex = 8;
-            this.metroTabPage5.Text = "Practitioner";
-            this.metroTabPage5.VerticalScrollbarBarColor = true;
-            this.metroTabPage5.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage5.VerticalScrollbarSize = 10;
+            this.metroLabel14.AutoSize = true;
+            this.metroLabel14.Location = new System.Drawing.Point(350, 360);
+            this.metroLabel14.Name = "metroLabel14";
+            this.metroLabel14.Size = new System.Drawing.Size(47, 19);
+            this.metroLabel14.TabIndex = 256;
+            this.metroLabel14.Text = "E-mail";
             // 
-            // dtGridMed
+            // genderCbx
             // 
-            this.dtGridMed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtGridMed.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtGridMed.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dtGridMed.BackgroundColor = System.Drawing.SystemColors.Info;
-            this.dtGridMed.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtGridMed.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dtGridMed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridMed.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dtGridMed.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dtGridMed.Location = new System.Drawing.Point(0, 3);
-            this.dtGridMed.Name = "dtGridMed";
-            this.dtGridMed.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridMed.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dtGridMed.RowHeadersWidth = 20;
-            this.dtGridMed.Size = new System.Drawing.Size(1306, 620);
-            this.dtGridMed.TabIndex = 52;
-            this.dtGridMed.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridMed_CellClick);
+            this.genderCbx.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.genderCbx.FormattingEnabled = true;
+            this.genderCbx.Items.AddRange(new object[] {
+            "Male",
+            "Female",
+            "Other"});
+            this.genderCbx.Location = new System.Drawing.Point(436, 305);
+            this.genderCbx.Name = "genderCbx";
+            this.genderCbx.Size = new System.Drawing.Size(213, 31);
+            this.genderCbx.TabIndex = 266;
+            // 
+            // metroLabel15
+            // 
+            this.metroLabel15.AutoSize = true;
+            this.metroLabel15.Location = new System.Drawing.Point(346, 312);
+            this.metroLabel15.Name = "metroLabel15";
+            this.metroLabel15.Size = new System.Drawing.Size(52, 19);
+            this.metroLabel15.TabIndex = 267;
+            this.metroLabel15.Text = "Gender";
+            // 
+            // categoryCbx
+            // 
+            this.categoryCbx.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryCbx.FormattingEnabled = true;
+            this.categoryCbx.Items.AddRange(new object[] {
+            "Client",
+            "Patient",
+            "Facility"});
+            this.categoryCbx.Location = new System.Drawing.Point(124, 258);
+            this.categoryCbx.Name = "categoryCbx";
+            this.categoryCbx.Size = new System.Drawing.Size(213, 31);
+            this.categoryCbx.TabIndex = 268;
+            // 
+            // emailTxt
+            // 
+            this.emailTxt.Location = new System.Drawing.Point(436, 358);
+            this.emailTxt.Name = "emailTxt";
+            this.emailTxt.Size = new System.Drawing.Size(213, 21);
+            this.emailTxt.TabIndex = 269;
             // 
             // CustomerDemo
             // 
@@ -808,7 +834,6 @@
         private MetroFramework.Drawing.Html.HtmlToolTip htmlToolTip1;
         private System.Windows.Forms.PictureBox imgCapture;
         private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroComboBox categoryCbx;
         private System.Windows.Forms.TextBox noTxt;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private System.Windows.Forms.Button button2;
@@ -828,7 +853,6 @@
         private System.Windows.Forms.Button updateBtn;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private MetroFramework.Controls.MetroComboBox genderCbx;
         private MetroFramework.Controls.MetroLabel metroLabel11;
         private MetroFramework.Controls.MetroTabPage metroTabPage1;
         private MetroFramework.Controls.MetroTabControl metroTabCond;
@@ -846,5 +870,10 @@
         private System.Windows.Forms.Label label1;
         private MetroFramework.Controls.MetroTabPage metroTabPage5;
         private System.Windows.Forms.DataGridView dtGridMed;
+        private MetroFramework.Controls.MetroLabel metroLabel14;
+        private System.Windows.Forms.ComboBox genderCbx;
+        private MetroFramework.Controls.MetroLabel metroLabel15;
+        private System.Windows.Forms.TextBox emailTxt;
+        private System.Windows.Forms.ComboBox categoryCbx;
     }
 }

@@ -100,6 +100,17 @@ namespace ARM
                 MessageBox.Show(" Please select the status ");
                 return;
             }
+            if (categoryCbx.Text == "Overtime")
+            {
+              
+                if (costTxt.Text == "0") {
+                    costTxt.BackColor = Color.Red;
+                    MessageBox.Show(" Please input the overtime rate ! ");
+                    return;
+                }
+
+            }
+
 
             if (startHrTxt.Text == "" || endHrTxt.Text == "")
             {
@@ -112,14 +123,16 @@ namespace ARM
 
             if (string.IsNullOrEmpty(repeatCbx.Text))
             {
+                Week = Helper.GetIso8601WeekOfYear(Convert.ToDateTime(this.openedDate.Text));
                 string ID = Guid.NewGuid().ToString();
                 var start = Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd") + "T" + this.startHrTxt.Text;
                 var end = Convert.ToDateTime(this.endDate.Text).ToString("yyyy-MM-dd") + "T" + this.endHrTxt.Text;
-                _event = new Schedule(ID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, start, end, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), categoryCbx.Text, periodTxt.Text, categoryCbx.Text, statusCbx.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false, Helper.CompanyID);
-               string save =  DBConnect.InsertPostgre(_event);
-
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                DBConnect.InsertPostgre(q);
+                _event = new Schedule(ID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, start, end, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), categoryCbx.Text, periodTxt.Text, categoryCbx.Text, statusCbx.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false, Helper.CompanyID, Week);
+                string save =  DBConnect.InsertPostgre(_event);
+                if (!string.IsNullOrEmpty(save)) {
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    DBConnect.InsertPostgre(q);
+                }
 
 
             }
@@ -142,6 +155,8 @@ namespace ARM
                 {
                     string ID = Guid.NewGuid().ToString();
                     var start = Convert.ToDateTime(this.openedDate.Text).AddDays(i).ToString("yyyy-MM-dd") + "T" + this.startHrTxt.Text;
+                    Week = Helper.GetIso8601WeekOfYear(Convert.ToDateTime(this.openedDate.Text).AddDays(i));
+
                     var end = Convert.ToDateTime(this.endDate.Text).AddDays(i).ToString("yyyy-MM-dd") + "T" + this.endHrTxt.Text;
 
                     DateTime starts = Convert.ToDateTime(Convert.ToDateTime(this.openedDate.Text).AddDays(i).ToString("yyyy-MM-dd") + "T" + this.startHrTxt.Text);
@@ -149,10 +164,18 @@ namespace ARM
 
                     if (!skipDays.ContainsKey(starts.ToString("dddd")))
                     {
-                        _event = new Schedule(ID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, start, end, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), categoryCbx.Text, periodTxt.Text, categoryCbx.Text, statusCbx.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false, Helper.CompanyID);
+                        _event = new Schedule(ID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, start, end, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), categoryCbx.Text, periodTxt.Text, categoryCbx.Text, statusCbx.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false, Helper.CompanyID, Week);
                         string save = DBConnect.InsertPostgre(_event);
-                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                        DBConnect.InsertPostgre(q);
+
+                       
+                        if (!string.IsNullOrEmpty(save))
+                        {
+                            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                            DBConnect.InsertPostgre(q);
+                        }
+
+                      //  Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                       // DBConnect.InsertPostgre(q);
                     }
                     
                    
@@ -217,7 +240,7 @@ namespace ARM
             catch { }
             r = new Rate();
             r = Rate.Select(UserID);
-            
+           // costTxt_TextChanged(object sender, EventArgs e)
             try
             {
                 costTxt.Text = r.Amount.ToString();
@@ -247,6 +270,12 @@ namespace ARM
            // var end = Convert.ToDateTime(Convert.ToDateTime(endHrTxt.Text).ToString("HH:mm:ss"));
             var hours = (end - start).TotalHours;
             periodTxt.Text =Math.Round(hours).ToString();
+            
+            if (categoryCbx.Text=="Overtime") {
+                costTxt.Text = "0";
+                totalTxt.Text = "0";
+            }
+
         }
 
         private void periodTxt_KeyPress(object sender, KeyPressEventArgs e)
@@ -269,6 +298,51 @@ namespace ARM
         private void endDate_ValueChanged(object sender, EventArgs e)
         {
             categoryCbx_SelectedIndexChanged(null,null);
+        }
+
+        private void offListBx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void costTxt_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                totalTxt.Text = (Convert.ToDouble(costTxt.Text) * Convert.ToDouble(periodTxt.Text)).ToString();
+            }
+            catch
+            {
+               // MessageBox.Show("The selected persons has no hours defined ");
+              //  costTxt.Text = "0";
+               // totalTxt.Text = "0";
+
+            }
+        }
+
+        private void endHrTxt_Leave(object sender, EventArgs e)
+        {
+            categoryCbx_SelectedIndexChanged(null, null);
+
+            fillUp(Convert.ToDateTime(openedDate.Text));
+        }
+        string month;
+        int Week;
+        private void fillUp(DateTime d)
+        {
+            month = d.ToString("MMMM");
+            int year = Convert.ToInt32(d.ToString("yyyy"));
+            Week = Helper.GetIso8601WeekOfYear(d);
+            //  weekLbl.Text = week.ToString();
+            //  startLbl.Text = Helper.FirstDateOfWeek(year, week).Date.ToString("dd-MM-yyyy");
+            // endLbl.Text = Convert.ToDateTime(startLbl.Text).AddDays(+6).Date.ToString("dd-MM-yyyy");
+            weekTxt.Text = Week.ToString();
+        }
+
+        private void openedDate_ValueChanged(object sender, EventArgs e)
+        {
+            fillUp(Convert.ToDateTime(openedDate.Text));
         }
     }
 }

@@ -18,6 +18,8 @@ namespace ARM
 {
     public partial class CalendarForm : Form
     {
+        Dictionary<string, string> UserDictionary = new Dictionary<string, string>();
+        string UserID;
         private List<CalendarItem> _items = new List<CalendarItem>();
         public CalendarForm()
         {
@@ -25,7 +27,8 @@ namespace ARM
 
             fromDate = DateTime.Now.AddMonths(-2).ToString("dd-MM-yyyy");
             toDate = DateTime.Now.AddMonths(2).ToString("dd-MM-yyyy");
-            LoadingCalendar();
+            LoadingCalendar("Status");
+            AutoCompleteUser();
         }
         List<Product> items = new List<Product>();
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -34,13 +37,23 @@ namespace ARM
         }
         string toDate;
         string fromDate;
-        private void LoadingCalendar()
+        private void LoadingCalendar(string type)
         {
 
             _items.Clear();
             List<ItemInfo> lst = new List<ItemInfo>();
             string state = "";
-            string Q = "SELECT * FROM schedule  WHERE (date::date >= '" + fromDate + "'::date AND  date::date <= '" + toDate + "'::date)";
+            string Q = "";
+            if (string.IsNullOrEmpty(UserID))
+            {
+
+                Q = "SELECT * FROM schedule  WHERE (date::date >= '" + fromDate + "'::date AND  date::date <= '" + toDate + "'::date)";
+            }
+            else
+            {
+               Q = "SELECT * FROM schedule  WHERE (date::date >= '" + fromDate + "'::date AND  date::date <= '" + toDate + "'::date) AND userID = '"+UserID+"'";
+
+            }
 
             List<Schedule> events = Schedule.List(Q);
 
@@ -62,17 +75,52 @@ namespace ARM
                 cal.Image = dstImage;
                 //cal.ImageAlign = CalendarItemImageAlign.East;
                 cal.Tag = e.Id;
-                if (e.Status == "Paid")
+                if (type == "Status")
                 {
-                    cal.ApplyColor(Color.LightGreen);
+                    if (e.Status == "Paid")
+                    {
+                        cal.ApplyColor(Color.LightGreen);
+                    }
+                    if (e.Status == "Pending")
+                    {
+                        cal.ApplyColor(Color.Orange);
+                    }
+                    if (e.Status == "Cancelled")
+                    {
+                        cal.ApplyColor(Color.IndianRed);
+                    }
                 }
-                if (e.Status == "Pending")
+                else if (type == "Category")
                 {
-                    cal.ApplyColor(Color.Orange);
+                    if (e.Category == "Overtime")
+                    {
+                        cal.ApplyColor(Color.Khaki);
+                    }
+                    else if (e.Category == "Shift")
+                    {
+                        cal.ApplyColor(Color.LightBlue);
+                    }
+                    else
+                    {
+                        cal.ApplyColor(Color.DimGray);
+                    }
                 }
-                if (e.Status == "Cancelled")
+                else
                 {
-                    cal.ApplyColor(Color.LightPink);
+
+                    if (e.Status == "Paid")
+                    {
+                        cal.ApplyColor(Color.LightGreen);
+                    }
+                    if (e.Status == "Pending")
+                    {
+                        cal.ApplyColor(Color.Orange);
+                    }
+                    if (e.Status == "Cancelled")
+                    {
+                        cal.ApplyColor(Color.IndianRed);
+                    }
+
                 }
 
                 _items.Add(cal);
@@ -81,7 +129,7 @@ namespace ARM
                 //catch { }
             }
             PlaceItems();
-
+            UserID = "";
         }
         private void PlaceItems()
         {
@@ -107,7 +155,7 @@ namespace ARM
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    LoadingCalendar();
+                    LoadingCalendar("Status");
                 }
             }
         }
@@ -129,7 +177,7 @@ namespace ARM
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    LoadingCalendar();
+
                 }
             }
         }
@@ -244,10 +292,56 @@ namespace ARM
             fromDate = Convert.ToDateTime(fromDateTxt.Text).ToString("dd-MM-yyyy");
             toDate = Convert.ToDateTime(toDateTxt.Text).ToString("dd-MM-yyyy");
             LoadingWindow.ShowSplashScreen();
-            LoadingCalendar();
+            LoadingCalendar("Status");
             LoadingWindow.CloseForm();
         }
 
+        private void typeCbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (typeCbx.Text == "Category") { LoadingCalendar("Category"); } else { LoadingCalendar("Status"); }
+        }
+        Users u;
+        private void AutoCompleteUser()
+        {
 
+            AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
+            UserDictionary.Clear();
+            foreach (Users v in Users.List())
+            {
+                AutoItem.Add((v.Name));
+
+                if (!UserDictionary.ContainsKey(v.Name))
+                {
+                    UserDictionary.Add(v.Name, v.Id);
+                    userCbx.Items.Add(v.Name);
+                }
+            }
+
+        }
+        private void userCbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                UserID = UserDictionary[userCbx.Text];
+                u = new Users();//.Select(ItemID);
+                u = Users.Select(UserID);
+               
+                Image img = Helper.Base64ToImage(u.Image);
+                System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
+                userPbx.Image = bmp;
+                GraphicsPath gp = new GraphicsPath();
+                gp.AddEllipse(userPbx.DisplayRectangle);
+                userPbx.Region = new Region(gp);
+                userPbx.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch { }
+            try
+            {
+                LoadingCalendar("");
+            }
+            catch {
+                MessageBox.Show("No values for the selected period  ");
+            }
+        }
     }
 }

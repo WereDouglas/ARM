@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUser));
             this.htmlToolTip1 = new MetroFramework.Drawing.Html.HtmlToolTip();
-            this.categoryCbx = new MetroFramework.Controls.MetroComboBox();
             this.fileUrlTxtBx = new System.Windows.Forms.TextBox();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
-            this.genderCbx = new MetroFramework.Controls.MetroComboBox();
             this.dobTxt = new MetroFramework.Controls.MetroDateTime();
+            this.label1 = new System.Windows.Forms.Label();
+            this.socialTxt = new MetroFramework.Controls.MetroTextBox();
             this.passwordTxt = new MetroFramework.Controls.MetroTextBox();
             this.zipTxt = new MetroFramework.Controls.MetroTextBox();
             this.stateTxt = new MetroFramework.Controls.MetroTextBox();
@@ -47,34 +47,18 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.imgCapture = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.specialityCbx = new MetroFramework.Controls.MetroComboBox();
-            this.socialTxt = new MetroFramework.Controls.MetroTextBox();
+            this.categoryCbx = new System.Windows.Forms.ComboBox();
+            this.specialityCbx = new System.Windows.Forms.ComboBox();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.genderCbx = new System.Windows.Forms.ComboBox();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
             this.SuspendLayout();
             // 
             // htmlToolTip1
             // 
             this.htmlToolTip1.OwnerDraw = true;
-            // 
-            // categoryCbx
-            // 
-            this.categoryCbx.FormattingEnabled = true;
-            this.categoryCbx.ItemHeight = 23;
-            this.categoryCbx.Items.AddRange(new object[] {
-            "Administrator",
-            "Physician",
-            "Employee",
-            "Nurse",
-            "Aid",
-            "Other"});
-            this.categoryCbx.Location = new System.Drawing.Point(312, 369);
-            this.categoryCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.categoryCbx.Name = "categoryCbx";
-            this.categoryCbx.PromptText = "Category/type";
-            this.categoryCbx.Size = new System.Drawing.Size(194, 29);
-            this.categoryCbx.TabIndex = 13;
-            this.categoryCbx.UseSelectable = true;
             // 
             // fileUrlTxtBx
             // 
@@ -98,23 +82,6 @@
             this.metroLabel9.Text = "Date of birth";
             this.metroLabel9.Click += new System.EventHandler(this.metroLabel9_Click);
             // 
-            // genderCbx
-            // 
-            this.genderCbx.FormattingEnabled = true;
-            this.genderCbx.ItemHeight = 23;
-            this.genderCbx.Items.AddRange(new object[] {
-            "Male",
-            "Female",
-            "Other"});
-            this.genderCbx.Location = new System.Drawing.Point(53, 418);
-            this.genderCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.genderCbx.Name = "genderCbx";
-            this.genderCbx.PromptText = "Gender";
-            this.genderCbx.Size = new System.Drawing.Size(223, 29);
-            this.genderCbx.TabIndex = 8;
-            this.genderCbx.UseSelectable = true;
-            this.genderCbx.SelectedIndexChanged += new System.EventHandler(this.genderCbx_SelectedIndexChanged);
-            // 
             // dobTxt
             // 
             this.dobTxt.AllowDrop = true;
@@ -123,6 +90,50 @@
             this.dobTxt.Name = "dobTxt";
             this.dobTxt.Size = new System.Drawing.Size(194, 29);
             this.dobTxt.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Maroon;
+            this.label1.Location = new System.Drawing.Point(325, 183);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(120, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Double Click to Browse ";
+            // 
+            // socialTxt
+            // 
+            // 
+            // 
+            // 
+            this.socialTxt.CustomButton.Image = null;
+            this.socialTxt.CustomButton.Location = new System.Drawing.Point(189, 1);
+            this.socialTxt.CustomButton.Name = "";
+            this.socialTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
+            this.socialTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.socialTxt.CustomButton.TabIndex = 1;
+            this.socialTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.socialTxt.CustomButton.UseSelectable = true;
+            this.socialTxt.CustomButton.Visible = false;
+            this.socialTxt.DisplayIcon = true;
+            this.socialTxt.Icon = global::ARM.Properties.Resources.City_24__1_;
+            this.socialTxt.Lines = new string[0];
+            this.socialTxt.Location = new System.Drawing.Point(53, 376);
+            this.socialTxt.MaxLength = 32767;
+            this.socialTxt.Name = "socialTxt";
+            this.socialTxt.PasswordChar = '\0';
+            this.socialTxt.PromptText = "SSN";
+            this.socialTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.socialTxt.SelectedText = "";
+            this.socialTxt.SelectionLength = 0;
+            this.socialTxt.SelectionStart = 0;
+            this.socialTxt.ShortcutsEnabled = true;
+            this.socialTxt.Size = new System.Drawing.Size(223, 35);
+            this.socialTxt.TabIndex = 7;
+            this.socialTxt.UseSelectable = true;
+            this.socialTxt.WaterMark = "SSN";
+            this.socialTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.socialTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // passwordTxt
             // 
@@ -446,7 +457,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(53, 476);
+            this.button2.Location = new System.Drawing.Point(53, 492);
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(107, 49);
@@ -465,7 +476,7 @@
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button3.Image = global::ARM.Properties.Resources.Submit_01_32;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(394, 476);
+            this.button3.Location = new System.Drawing.Point(394, 492);
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button3.Size = new System.Drawing.Size(103, 49);
@@ -487,74 +498,88 @@
             this.imgCapture.TabStop = false;
             this.imgCapture.Click += new System.EventHandler(this.imgCapture_Click);
             // 
-            // label1
+            // categoryCbx
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Maroon;
-            this.label1.Location = new System.Drawing.Point(325, 183);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Double Click to Browse ";
+            this.categoryCbx.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryCbx.FormattingEnabled = true;
+            this.categoryCbx.Items.AddRange(new object[] {
+            "Administrator",
+            "Physician",
+            "Employee",
+            "Nurse",
+            "Aid",
+            "Other"});
+            this.categoryCbx.Location = new System.Drawing.Point(312, 387);
+            this.categoryCbx.Name = "categoryCbx";
+            this.categoryCbx.Size = new System.Drawing.Size(194, 31);
+            this.categoryCbx.TabIndex = 261;
             // 
             // specialityCbx
             // 
+            this.specialityCbx.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.specialityCbx.FormattingEnabled = true;
-            this.specialityCbx.ItemHeight = 23;
             this.specialityCbx.Items.AddRange(new object[] {
             "LPN",
             "CNA",
             "RN",
             "Other"});
-            this.specialityCbx.Location = new System.Drawing.Point(312, 410);
-            this.specialityCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.specialityCbx.Location = new System.Drawing.Point(312, 443);
             this.specialityCbx.Name = "specialityCbx";
-            this.specialityCbx.PromptText = "Speciality";
-            this.specialityCbx.Size = new System.Drawing.Size(194, 29);
-            this.specialityCbx.TabIndex = 14;
-            this.specialityCbx.UseSelectable = true;
+            this.specialityCbx.Size = new System.Drawing.Size(194, 31);
+            this.specialityCbx.TabIndex = 262;
             // 
-            // socialTxt
+            // metroLabel1
             // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(312, 421);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(63, 19);
+            this.metroLabel1.TabIndex = 263;
+            this.metroLabel1.Text = "Speciality";
             // 
+            // metroLabel2
             // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(312, 365);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(94, 19);
+            this.metroLabel2.TabIndex = 264;
+            this.metroLabel2.Text = "Category/type";
             // 
-            this.socialTxt.CustomButton.Image = null;
-            this.socialTxt.CustomButton.Location = new System.Drawing.Point(189, 1);
-            this.socialTxt.CustomButton.Name = "";
-            this.socialTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
-            this.socialTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.socialTxt.CustomButton.TabIndex = 1;
-            this.socialTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.socialTxt.CustomButton.UseSelectable = true;
-            this.socialTxt.CustomButton.Visible = false;
-            this.socialTxt.DisplayIcon = true;
-            this.socialTxt.Icon = global::ARM.Properties.Resources.City_24__1_;
-            this.socialTxt.Lines = new string[0];
-            this.socialTxt.Location = new System.Drawing.Point(53, 376);
-            this.socialTxt.MaxLength = 32767;
-            this.socialTxt.Name = "socialTxt";
-            this.socialTxt.PasswordChar = '\0';
-            this.socialTxt.PromptText = "SSN";
-            this.socialTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.socialTxt.SelectedText = "";
-            this.socialTxt.SelectionLength = 0;
-            this.socialTxt.SelectionStart = 0;
-            this.socialTxt.ShortcutsEnabled = true;
-            this.socialTxt.Size = new System.Drawing.Size(223, 35);
-            this.socialTxt.TabIndex = 7;
-            this.socialTxt.UseSelectable = true;
-            this.socialTxt.WaterMark = "SSN";
-            this.socialTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.socialTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // genderCbx
+            // 
+            this.genderCbx.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.genderCbx.FormattingEnabled = true;
+            this.genderCbx.Items.AddRange(new object[] {
+            "Male",
+            "Female",
+            "Other"});
+            this.genderCbx.Location = new System.Drawing.Point(111, 417);
+            this.genderCbx.Name = "genderCbx";
+            this.genderCbx.Size = new System.Drawing.Size(165, 31);
+            this.genderCbx.TabIndex = 265;
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(53, 421);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(52, 19);
+            this.metroLabel3.TabIndex = 266;
+            this.metroLabel3.Text = "Gender";
             // 
             // AddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(520, 564);
-            this.Controls.Add(this.socialTxt);
+            this.Controls.Add(this.metroLabel3);
+            this.Controls.Add(this.genderCbx);
+            this.Controls.Add(this.metroLabel2);
+            this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.specialityCbx);
+            this.Controls.Add(this.categoryCbx);
+            this.Controls.Add(this.socialTxt);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.passwordTxt);
             this.Controls.Add(this.dobTxt);
@@ -565,13 +590,11 @@
             this.Controls.Add(this.contactTxt);
             this.Controls.Add(this.nameTxt);
             this.Controls.Add(this.emailTxt);
-            this.Controls.Add(this.genderCbx);
             this.Controls.Add(this.confirmTxt);
             this.Controls.Add(this.metroLabel9);
             this.Controls.Add(this.fileUrlTxtBx);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.categoryCbx);
             this.Controls.Add(this.imgCapture);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddUser";
@@ -587,13 +610,11 @@
         #endregion
         private MetroFramework.Drawing.Html.HtmlToolTip htmlToolTip1;
         private System.Windows.Forms.PictureBox imgCapture;
-        private MetroFramework.Controls.MetroComboBox categoryCbx;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox fileUrlTxtBx;
         private MetroFramework.Controls.MetroLabel metroLabel9;
         private MetroFramework.Controls.MetroTextBox confirmTxt;
-        private MetroFramework.Controls.MetroComboBox genderCbx;
         private MetroFramework.Controls.MetroTextBox emailTxt;
         private MetroFramework.Controls.MetroTextBox nameTxt;
         private MetroFramework.Controls.MetroTextBox contactTxt;
@@ -604,7 +625,12 @@
         private MetroFramework.Controls.MetroDateTime dobTxt;
         private MetroFramework.Controls.MetroTextBox passwordTxt;
         private System.Windows.Forms.Label label1;
-        private MetroFramework.Controls.MetroComboBox specialityCbx;
         private MetroFramework.Controls.MetroTextBox socialTxt;
+        private System.Windows.Forms.ComboBox categoryCbx;
+        private System.Windows.Forms.ComboBox specialityCbx;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private System.Windows.Forms.ComboBox genderCbx;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
     }
 }

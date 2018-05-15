@@ -35,6 +35,11 @@
             this.costTxt = new MetroFramework.Controls.MetroTextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.weeklyTxt = new MetroFramework.Controls.MetroTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.userPbx)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,11 +51,11 @@
             // 
             this.userCbx.FormattingEnabled = true;
             this.userCbx.ItemHeight = 23;
-            this.userCbx.Location = new System.Drawing.Point(75, 99);
+            this.userCbx.Location = new System.Drawing.Point(86, 99);
             this.userCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.userCbx.Name = "userCbx";
             this.userCbx.PromptText = "Physician";
-            this.userCbx.Size = new System.Drawing.Size(265, 29);
+            this.userCbx.Size = new System.Drawing.Size(254, 29);
             this.userCbx.TabIndex = 0;
             this.userCbx.UseSelectable = true;
             this.userCbx.SelectedIndexChanged += new System.EventHandler(this.userCbx_SelectedIndexChanged);
@@ -63,20 +68,20 @@
             "Hour",
             "Day",
             "Month"});
-            this.unitCbx.Location = new System.Drawing.Point(75, 235);
+            this.unitCbx.Location = new System.Drawing.Point(86, 177);
             this.unitCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.unitCbx.Name = "unitCbx";
             this.unitCbx.PromptText = "Units";
-            this.unitCbx.Size = new System.Drawing.Size(265, 29);
+            this.unitCbx.Size = new System.Drawing.Size(254, 29);
             this.unitCbx.TabIndex = 2;
             this.unitCbx.UseSelectable = true;
             // 
             // userPbx
             // 
             this.userPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
-            this.userPbx.Location = new System.Drawing.Point(75, 135);
+            this.userPbx.Location = new System.Drawing.Point(346, 99);
             this.userPbx.Name = "userPbx";
-            this.userPbx.Size = new System.Drawing.Size(68, 40);
+            this.userPbx.Size = new System.Drawing.Size(74, 79);
             this.userPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.userPbx.TabIndex = 179;
             this.userPbx.TabStop = false;
@@ -98,7 +103,7 @@
             this.costTxt.DisplayIcon = true;
             this.costTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
             this.costTxt.Lines = new string[0];
-            this.costTxt.Location = new System.Drawing.Point(75, 193);
+            this.costTxt.Location = new System.Drawing.Point(86, 135);
             this.costTxt.MaxLength = 32767;
             this.costTxt.Name = "costTxt";
             this.costTxt.PasswordChar = '\0';
@@ -108,7 +113,7 @@
             this.costTxt.SelectionLength = 0;
             this.costTxt.SelectionStart = 0;
             this.costTxt.ShortcutsEnabled = true;
-            this.costTxt.Size = new System.Drawing.Size(265, 35);
+            this.costTxt.Size = new System.Drawing.Size(254, 35);
             this.costTxt.TabIndex = 1;
             this.costTxt.UseSelectable = true;
             this.costTxt.WaterMark = "Rate/Hr";
@@ -125,7 +130,7 @@
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button3.Image = global::ARM.Properties.Resources.Submit_01_32;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(232, 327);
+            this.button3.Location = new System.Drawing.Point(232, 267);
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button3.Size = new System.Drawing.Size(108, 49);
@@ -144,7 +149,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(75, 327);
+            this.button2.Location = new System.Drawing.Point(86, 267);
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(108, 49);
@@ -154,11 +159,86 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // weeklyTxt
+            // 
+            // 
+            // 
+            // 
+            this.weeklyTxt.CustomButton.Image = null;
+            this.weeklyTxt.CustomButton.Location = new System.Drawing.Point(188, 1);
+            this.weeklyTxt.CustomButton.Name = "";
+            this.weeklyTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
+            this.weeklyTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.weeklyTxt.CustomButton.TabIndex = 1;
+            this.weeklyTxt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.weeklyTxt.CustomButton.UseSelectable = true;
+            this.weeklyTxt.CustomButton.Visible = false;
+            this.weeklyTxt.DisplayIcon = true;
+            this.weeklyTxt.Icon = global::ARM.Properties.Resources.Layers_01_16;
+            this.weeklyTxt.Lines = new string[0];
+            this.weeklyTxt.Location = new System.Drawing.Point(86, 213);
+            this.weeklyTxt.MaxLength = 32767;
+            this.weeklyTxt.Name = "weeklyTxt";
+            this.weeklyTxt.PasswordChar = '\0';
+            this.weeklyTxt.PromptText = "Max week Hours";
+            this.weeklyTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.weeklyTxt.SelectedText = "";
+            this.weeklyTxt.SelectionLength = 0;
+            this.weeklyTxt.SelectionStart = 0;
+            this.weeklyTxt.ShortcutsEnabled = true;
+            this.weeklyTxt.Size = new System.Drawing.Size(254, 35);
+            this.weeklyTxt.TabIndex = 180;
+            this.weeklyTxt.UseSelectable = true;
+            this.weeklyTxt.WaterMark = "Max week Hours";
+            this.weeklyTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.weeklyTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 223);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 13);
+            this.label1.TabIndex = 181;
+            this.label1.Text = "Max Hrs/Week";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 180);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.TabIndex = 182;
+            this.label2.Text = "Per/Units";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 145);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 13);
+            this.label3.TabIndex = 183;
+            this.label3.Text = "Payment @Hr";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 102);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 13);
+            this.label4.TabIndex = 184;
+            this.label4.Text = "Employee";
+            // 
             // RateDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(403, 385);
+            this.ClientSize = new System.Drawing.Size(437, 343);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.weeklyTxt);
             this.Controls.Add(this.unitCbx);
             this.Controls.Add(this.userPbx);
             this.Controls.Add(this.userCbx);
@@ -171,6 +251,7 @@
             this.Load += new System.EventHandler(this.RateDialog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.userPbx)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -182,5 +263,10 @@
         private MetroFramework.Controls.MetroComboBox userCbx;
         private System.Windows.Forms.PictureBox userPbx;
         private MetroFramework.Controls.MetroComboBox unitCbx;
+        private MetroFramework.Controls.MetroTextBox weeklyTxt;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

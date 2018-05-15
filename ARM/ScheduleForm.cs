@@ -26,13 +26,13 @@ namespace ARM
             fromDate = DateTime.Now.ToString("dd-MM-yyyy");
             toDate = DateTime.Now.ToString("dd-MM-yyyy");
 
-            LoadData();
+            LoadData(fromDate,toDate);
 
         }
         List<Schedule> invoices = new List<Schedule>();
 
         DataTable t = new DataTable();
-        public void LoadData()
+        public void LoadData(string fromDate,string toDate)
         {
            
             // create and execute query  
@@ -48,20 +48,18 @@ namespace ARM
             t.Columns.Add("Address");
             t.Columns.Add("Details");
             t.Columns.Add("Indicator");
-            t.Columns.Add("Period");
-          
-           // t.Columns.Add(new DataColumn("Category", typeof(DataGridViewComboBoxColumn)));
+            t.Columns.Add("Period");  
             t.Columns.Add("Category");
             t.Columns.Add("Status");
             t.Columns.Add("Cost");
             t.Columns.Add("Sync");
             t.Columns.Add("Created");
-            
+            t.Columns.Add("Week");
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));
 
             Image view = new Bitmap(Properties.Resources.Note_Memo_16);
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
-            string Q = "SELECT * FROM schedule  WHERE (date::date >= '" + fromDate + "'::date AND  date::date <= '" + toDate + "'::date)";
+            string Q = "SELECT * FROM schedule WHERE (date::date >= '" + fromDate + "'::date AND  date::date <= '" + toDate + "'::date)";
 
             foreach (Schedule c in Schedule.List(Q))
             {
@@ -69,16 +67,16 @@ namespace ARM
                 string cus = "";
                 try { user = Users.Select(c.UserID).Name; } catch { }
                 try { cus = Customer.Select(c.CustomerID).Name; } catch { }
-                try
-                {
-                    t.Rows.Add(new object[] { false, c.Id, c.Date, cus, user, c.Starts, c.Ends, c.Location, c.Address, c.Details, c.Indicator, c.Period, c.Category, c.Status, c.Cost, c.Sync, c.Created,  delete });
+               // try
+               // {
+                    t.Rows.Add(new object[] { false, c.Id, c.Date, cus, user, c.Starts, c.Ends, c.Location, c.Address, c.Details, c.Indicator, c.Period, c.Category, c.Status, c.Cost, c.Sync, c.Created,c.Week,  delete });
 
-                }
-                catch (Exception m)
-                {
-                    MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing customer {each schedule list }" + cus);
-                }
+               // }
+               // catch (Exception m)
+               // {
+                 //   MessageBox.Show("" + m.Message);
+                    //Helper.Exceptions(m.Message + "Viewing customer {each schedule list }" + cus);
+                //}
             }
 
             dtGrid.DataSource = t;
@@ -188,7 +186,7 @@ namespace ARM
                     DBConnect.InsertPostgre(q);
 
                     MessageBox.Show("Information deleted");
-                    LoadData();
+                    LoadData(fromDate,toDate);
 
                 }
 
@@ -225,6 +223,16 @@ namespace ARM
 
         private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            if (!Helper.validateInt(dtGrid.Rows[e.RowIndex].Cells["week"].Value.ToString()))
+            {
+                MessageBox.Show("The week must be an integer");
+                return;
+            }
+            
+                string Query = "Update schedule SET week = '"+ dtGrid.Rows[e.RowIndex].Cells["week"].Value.ToString() + "' WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
+                DBConnect.QueryPostgre(Query);
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                DBConnect.InsertPostgre(q);
 
         }
 
@@ -243,7 +251,11 @@ namespace ARM
         {
             fromDate = Convert.ToDateTime(fromDateTxt.Text).ToString("dd-MM-yyyy");
             toDate = Convert.ToDateTime(toDateTxt.Text).ToString("dd-MM-yyyy");
-            LoadData();
+
+            LoadingWindow.ShowSplashScreen();
+            LoadData(fromDate, toDate);
+            LoadingWindow.CloseForm();
+            //LoadData();
         }
     }
 }

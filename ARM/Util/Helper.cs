@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Sockets;
 using System.Net.Mail;
+using System.Globalization;
 
 namespace ARM.Util
 {
@@ -37,8 +38,12 @@ namespace ARM.Util
         public static string UserName;
         public static string UserImage;
         public static string serverName;
+        public static string defaultConfig;
+        public static string remoteConfig;
         public static string serverIP;
-        public static string  contact;
+        // public static string port="5432";
+        public static string port = "11425";
+        public static string contact;
         public static string genUrl = "http://caseprofessional.pro/index.php/";
         // public static string genUrl = "http://localhost/caseprofessionals/index.php/";
         public static string fileUrl = "http://caseprofessional.pro/file/";
@@ -49,7 +54,6 @@ namespace ARM.Util
 
         public static void SaveImageCapture(System.Drawing.Image image)
         {
-
             SaveFileDialog s = new SaveFileDialog();
             s.FileName = "Image";// Default file name
             s.DefaultExt = ".Jpg";// Default file extension
@@ -66,8 +70,23 @@ namespace ARM.Util
                 fstream.Close();
 
             }
-
         }
+        public static DateTime FirstDateOfWeek(int year, int weekOfYear)
+        {
+            DateTime jan1 = new DateTime(year, 1, 1);
+            int daysOffset = (int)CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek - (int)jan1.DayOfWeek;
+            DateTime firstWeekDay = jan1.AddDays(daysOffset);
+            int firstWeek = CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(jan1, CultureInfo.CurrentCulture.DateTimeFormat.CalendarWeekRule, CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek);
+            if ((firstWeek <= 1 || firstWeek >= 52) && daysOffset >= -3)
+            {
+                weekOfYear -= 1;
+            }
+            return firstWeekDay.AddDays(weekOfYear * 7);
+
+
+            // var firstDayWeek = ci.Calendar.GetWeekOfYear( d, CalendarWeekRule.FirstDay,   DayOfWeek.Monday);
+        }
+
         public static String IPAddressCheck(string HostName)
         {
             //var ip = System.Net.Dns.GetHostEntry("JacksLaptop");
@@ -85,6 +104,21 @@ namespace ARM.Util
             }
             // Helper.serverIP = ipString.ToString();
             return ipString.ToString();
+        }
+        public static int GetIso8601WeekOfYear(DateTime time)
+        {
+            DateTimeFormatInfo dfi = DateTimeFormatInfo.CurrentInfo;
+            Calendar cal = dfi.Calendar;
+
+            return cal.GetWeekOfYear(time, dfi.CalendarWeekRule, dfi.FirstDayOfWeek);
+
+            /***  DayOfWeek day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(time);
+             if (day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday)
+              {
+                  time = time.AddDays(3);
+              }
+
+              return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(time, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday); **/
         }
         public static void Exceptions(string message, string process)
         {
@@ -176,7 +210,7 @@ namespace ARM.Util
             byte[] imageBytes = Convert.FromBase64String(bases);
             MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
             ms.Write(imageBytes, 0, imageBytes.Length);
-            System.Drawing.Image image = System.Drawing.Image.FromStream(ms,true);
+            System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
             return image;
         }
         public static System.Drawing.Image Base64ToImageCropped(string bases)
@@ -184,7 +218,7 @@ namespace ARM.Util
             byte[] imageBytes = Convert.FromBase64String(bases);
             MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
             ms.Write(imageBytes, 0, imageBytes.Length);
-            System.Drawing.Image image = System.Drawing.Image.FromStream(ms,true);
+            System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
 
             System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(image);
             Bitmap bps = new Bitmap(bmp, 50, 50);

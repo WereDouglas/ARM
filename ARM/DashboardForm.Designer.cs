@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.InvoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtGrid = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
@@ -56,7 +55,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pendingLbl = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.InvoiceBindingSource)).BeginInit();
+            this.InvoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtGrid)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -65,11 +64,8 @@
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.InvoiceBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // InvoiceBindingSource
-            // 
-            this.InvoiceBindingSource.DataSource = typeof(ARM.Model.Invoice);
             // 
             // dtGrid
             // 
@@ -93,7 +89,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtGrid.DefaultCellStyle = dataGridViewCellStyle1;
             this.dtGrid.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dtGrid.Location = new System.Drawing.Point(623, 445);
+            this.dtGrid.Location = new System.Drawing.Point(621, 445);
             this.dtGrid.Name = "dtGrid";
             this.dtGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -105,7 +101,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtGrid.RowHeadersWidth = 20;
-            this.dtGrid.Size = new System.Drawing.Size(738, 184);
+            this.dtGrid.Size = new System.Drawing.Size(740, 184);
             this.dtGrid.TabIndex = 49;
             // 
             // tableLayoutPanel1
@@ -114,7 +110,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.95498F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.04501F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 331F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 412F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 414F));
             this.tableLayoutPanel1.Controls.Add(this.reportViewer1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel6, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dtGrid, 2, 2);
@@ -147,7 +143,7 @@
             this.tableLayoutPanel1.SetRowSpan(this.reportViewer1, 3);
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.ShowToolBar = false;
-            this.reportViewer1.Size = new System.Drawing.Size(466, 626);
+            this.reportViewer1.Size = new System.Drawing.Size(464, 626);
             this.reportViewer1.TabIndex = 51;
             // 
             // panel6
@@ -193,10 +189,10 @@
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(623, 3);
+            this.panel1.Location = new System.Drawing.Point(621, 3);
             this.panel1.Name = "panel1";
             this.tableLayoutPanel1.SetRowSpan(this.panel1, 2);
-            this.panel1.Size = new System.Drawing.Size(738, 436);
+            this.panel1.Size = new System.Drawing.Size(740, 436);
             this.panel1.TabIndex = 50;
             // 
             // panel4
@@ -392,6 +388,10 @@
             this.pendingLbl.Text = "5";
             this.pendingLbl.UseMnemonic = false;
             // 
+            // InvoiceBindingSource
+            // 
+            this.InvoiceBindingSource.DataSource = typeof(ARM.Model.Invoice);
+            // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
@@ -409,7 +409,6 @@
             this.Text = "DashboardForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.DashboardForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.InvoiceBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrid)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -423,6 +422,7 @@
             this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.InvoiceBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

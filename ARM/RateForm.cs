@@ -33,12 +33,13 @@ namespace ARM
             t.Columns.Add("Physician");
             t.Columns.Add("Amount");
             t.Columns.Add("Unit");
-            t.Columns.Add("Period");
+            t.Columns.Add("Max");
             t.Columns.Add("Sync");
             t.Columns.Add("Created");
-           
-            t.Columns.Add(new DataColumn("Delete", typeof(Image)));
+            t.Columns.Add(new DataColumn("Delete", typeof(Image)));//1
+            t.Columns.Add("userID");
 
+          //  t.Columns.Add(new DataColumn("Delete", typeof(Image)));
          
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
 
@@ -48,7 +49,7 @@ namespace ARM
                 try { user = Users.Select(c.UserID).Name; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id,user,c.Amount,c.Units,c.Period, c.Sync, c.Created, delete });
+                    t.Rows.Add(new object[] { false, c.Id,user,c.Amount,c.Units,c.Period, c.Sync, c.Created, delete ,c.UserID});
 
                 }
                 catch (Exception m)
@@ -63,6 +64,7 @@ namespace ARM
             dtGrid.Columns["Amount"].DefaultCellStyle.BackColor = Color.LightGreen;
             dtGrid.Columns["Unit"].DefaultCellStyle.BackColor = Color.LightGray;
             dtGrid.Columns["ID"].Visible = false;
+            dtGrid.Columns["userID"].Visible = false;
            
 
         }
@@ -156,6 +158,16 @@ namespace ARM
         {
             string Query = "UPDATE rate SET sync ='false'";
             DBConnect.QueryPostgre(Query);
+        }
+
+        private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            string ID = dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString();
+            double max = Convert.ToDouble(dtGrid.Rows[e.RowIndex].Cells["max"].Value);
+            Rate _c = new Rate(ID, dtGrid.Rows[e.RowIndex].Cells["userID"].Value.ToString(),Convert.ToDouble(dtGrid.Rows[e.RowIndex].Cells["amount"].Value), max, dtGrid.Rows[e.RowIndex].Cells["unit"].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy"),false, Helper.CompanyID);
+            string save = DBConnect.UpdatePostgre(_c, ID);
+            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+            DBConnect.InsertPostgre(q);
         }
     }
 }

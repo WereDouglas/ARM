@@ -34,12 +34,12 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.searchTxt = new System.Windows.Forms.ToolStripTextBox();
             this.dtGrid = new System.Windows.Forms.DataGridView();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.button1 = new System.Windows.Forms.Button();
             this.toDateTxt = new System.Windows.Forms.DateTimePicker();
             this.fromDateTxt = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrid)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +54,7 @@
             this.toolStripButton1,
             this.searchTxt,
             this.toolStripButton3,
-            this.toolStripButton2});
+            this.toolStripButton5});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(10);
@@ -114,6 +114,35 @@
             this.dtGrid.TabIndex = 49;
             this.dtGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellClick);
             // 
+            // toDateTxt
+            // 
+            this.toDateTxt.CalendarFont = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toDateTxt.Location = new System.Drawing.Point(812, 22);
+            this.toDateTxt.Name = "toDateTxt";
+            this.toDateTxt.Size = new System.Drawing.Size(236, 20);
+            this.toDateTxt.TabIndex = 53;
+            // 
+            // fromDateTxt
+            // 
+            this.fromDateTxt.CalendarFont = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fromDateTxt.Location = new System.Drawing.Point(552, 23);
+            this.fromDateTxt.Name = "fromDateTxt";
+            this.fromDateTxt.Size = new System.Drawing.Size(241, 20);
+            this.fromDateTxt.TabIndex = 52;
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::ARM.Properties.Resources.Submit_02_161;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.Location = new System.Drawing.Point(1054, 20);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(38, 23);
+            this.button1.TabIndex = 54;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // toolStripButton1
             // 
             this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -138,44 +167,14 @@
             this.toolStripButton3.Text = "toolStripButton3";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
-            // toolStripButton2
+            // toolStripButton5
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = global::ARM.Properties.Resources.Filter_Edit_24;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 34);
-            this.toolStripButton2.Text = "Filter";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::ARM.Properties.Resources.Submit_02_161;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(1054, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(38, 23);
-            this.button1.TabIndex = 54;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // toDateTxt
-            // 
-            this.toDateTxt.CalendarFont = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toDateTxt.Location = new System.Drawing.Point(812, 22);
-            this.toDateTxt.Name = "toDateTxt";
-            this.toDateTxt.Size = new System.Drawing.Size(236, 20);
-            this.toDateTxt.TabIndex = 53;
-            // 
-            // fromDateTxt
-            // 
-            this.fromDateTxt.CalendarFont = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fromDateTxt.Location = new System.Drawing.Point(552, 23);
-            this.fromDateTxt.Name = "fromDateTxt";
-            this.fromDateTxt.Size = new System.Drawing.Size(241, 20);
-            this.fromDateTxt.TabIndex = 52;
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton5.Image = global::ARM.Properties.Resources.Search_Find_16;
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(23, 34);
+            this.toolStripButton5.Text = "toolStripButton5";
             // 
             // ExceptionForm
             // 
@@ -209,10 +208,10 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripTextBox searchTxt;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.DataGridView dtGrid;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker toDateTxt;
         private System.Windows.Forms.DateTimePicker fromDateTxt;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
     }
 }

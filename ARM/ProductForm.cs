@@ -86,7 +86,7 @@ namespace ARM
 
                         Image img = Helper.Base64ToImage(row["uri"].ToString().Replace('"', ' ').Trim());
                         System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
-                        Bitmap bps = new Bitmap(bmp, 50, 50);
+                        Bitmap bps = new Bitmap(bmp, 150, 150);
                         Image dstImage = Helper.CropToCircle(bps, Color.White);
                         row["Img"] = dstImage;
 
@@ -105,6 +105,7 @@ namespace ARM
             dtGrid.Columns["uri"].Visible = false;
             dtGrid.Columns["ID"].Visible = false;
            // dtGrid.Columns["select"].Width = 30;
+
 
         }
 

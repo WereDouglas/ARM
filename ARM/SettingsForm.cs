@@ -39,8 +39,9 @@ namespace ARM
                               select new
                               {
                                   Name = person.Element("Name").Value,
-                                  Ip = person.Element("Ip").Value
-                                  
+                                  Remote = person.Element("Remote").Value,
+                                  Default = person.Element("Default").Value,
+                                  Port = person.Element("Port").Value
                               };
 
 
@@ -48,12 +49,13 @@ namespace ARM
                 {
                     localNameTxt.Text = server.Name;
                     Helper.serverName = server.Name;
-                    ipTxt.Text = server.Ip;
+                    remoteTxt.Text = server.Remote;
+                    defaultTxt.Text = server.Default;
+                    portTxt.Text = server.Port;
 
                 }
             }
-            catch(Exception p ) { MessageBox.Show(p.Message); }
-
+            catch (Exception p) { MessageBox.Show(p.Message); }
 
         }
 
@@ -66,11 +68,18 @@ namespace ARM
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(defaultTxt.Text))
+            {
+                MessageBox.Show("Please select Yes or No for default settings ");
+                defaultTxt.BackColor = Color.Red;
+                return;
+            }
             XElement xml = new XElement("Servers",
-           new XElement("Server",
-           new XElement("Name", localNameTxt.Text),
-           new XElement("Ip", ipTxt.Text)
-
+            new XElement("Server",
+            new XElement("Name", localNameTxt.Text),
+            new XElement("Remote", remoteTxt.Text),
+            new XElement("Default", defaultTxt.Text),
+            new XElement("Port", portTxt.Text)
            )
            );
 
@@ -100,10 +109,65 @@ namespace ARM
         {
             try
             {
+
                 Helper.serverIP = Helper.IPAddressCheck(localNameTxt.Text);
                 ipTxt.Text = Helper.serverIP;
+
             }
-            catch(Exception c) {
+            catch (Exception c)
+            {
+                MessageBox.Show(c.Message + "");
+
+
+            }
+        }
+
+        private void defaultTxt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (defaultTxt.Text == "Default")
+                {
+
+                    Helper.serverIP = Helper.IPAddressCheck(localNameTxt.Text);
+                    ipTxt.Text = Helper.serverIP;
+                }
+                else if (defaultTxt.Text == "Remote")
+                {
+                    if (string.IsNullOrEmpty(remoteTxt.Text))
+                    {
+
+                        MessageBox.Show("Please input the remote url ");
+                        return;
+
+                    }
+                    Helper.serverIP = Helper.IPAddressCheck(remoteNameTxt.Text);
+                   
+
+                   // Helper.serverIP = (remoteTxt.Text);
+                }
+
+            }
+            catch (Exception c)
+            {
+                MessageBox.Show(c.Message + "");
+
+
+            }
+
+        }
+
+        private void remoteNameTxt_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+
+                Helper.serverIP = Helper.IPAddressCheck(remoteNameTxt.Text);
+               
+                remoteTxt.Text = Helper.serverIP;
+            }
+            catch (Exception c)
+            {
                 MessageBox.Show(c.Message + "");
 
 

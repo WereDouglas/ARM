@@ -228,5 +228,17 @@ namespace ARM
                 fileUrlTxtBx.Text = open.FileName;
             }
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            using (SettingsForm form = new SettingsForm())
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    this.Close();
+                }
+            }
+        }
     }
 }

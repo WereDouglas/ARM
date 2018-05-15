@@ -121,7 +121,7 @@ namespace ARM
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Product()));
 
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Vendor()));
-            
+
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Transaction()));
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Payment()));
 
@@ -184,29 +184,29 @@ namespace ARM
         private void LoginForm_Load(object sender, EventArgs e)
         {
 
-            AutoUpdater.Start("http://arm.novariss.com/file/update.xml");
+            //AutoUpdater.Start("http://arm.novariss.com/file/update.xml");
 
-            //AutoUpdater.Start(Helper.fileUrl + "update.xml");
-           // AutoUpdater.Start("http://rbsoft.org/updates/AutoUpdaterTest.xml");
-            AutoUpdater.ShowSkipButton = false;
-            AutoUpdater.ShowRemindLaterButton = false;
-            AutoUpdater.Mandatory = true;
-            AutoUpdater.ReportErrors = true;
-            // AutoUpdater.OpenDownloadPage = true;
-            // AutoUpdater.DownloadPath = Environment.CurrentDirectory;
+            ////AutoUpdater.Start(Helper.fileUrl + "update.xml");
+            //// AutoUpdater.Start("http://rbsoft.org/updates/AutoUpdaterTest.xml");
+            //AutoUpdater.ShowSkipButton = false;
+            //AutoUpdater.ShowRemindLaterButton = false;
+            //AutoUpdater.Mandatory = true;
+            //AutoUpdater.ReportErrors = true;
+            //// AutoUpdater.OpenDownloadPage = true;
+            //// AutoUpdater.DownloadPath = Environment.CurrentDirectory;
 
 
-            //System.Timers.Timer timer = new System.Timers.Timer
-            //{
-            //    Interval = 2 * 60 * 1000,
-            //    SynchronizingObject = this
-            //};
-            //timer.Elapsed += delegate
-            //{
-            //    AutoUpdater.Start("http://rbsoft.org/updates/AutoUpdaterTest.xml");
-            //};
-            //timer.Start();
-            //http://caseprofessional.pro/file/
+            ////System.Timers.Timer timer = new System.Timers.Timer
+            ////{
+            ////    Interval = 2 * 60 * 1000,
+            ////    SynchronizingObject = this
+            ////};
+            ////timer.Elapsed += delegate
+            ////{
+            ////    AutoUpdater.Start("http://rbsoft.org/updates/AutoUpdaterTest.xml");
+            ////};
+            ////timer.Start();
+            ////http://caseprofessional.pro/file/
         }
         private void LoadCompany()
         {
@@ -320,52 +320,79 @@ namespace ARM
 
                           select new
                           {
-                              Name = person.Element("Name").Value,
-                              Ip = person.Element("Ip").Value
+                              Name = person.Element("Name").Value,                             
+                              Remote = person.Element("Remote").Value,
+                              Default = person.Element("Default").Value,
+                              Port = person.Element("Port").Value
 
                           };
             foreach (var server in servers)
             {
-
-                Helper.serverName = server.Name;
-                Helper.serverIP = server.Ip;
-
+                Helper.serverName = server.Name;               
+                Helper.remoteConfig = server.Remote;
+                Helper.defaultConfig = server.Default;
+                Helper.port = server.Port;
             }
-
-            if (!string.IsNullOrEmpty(Helper.serverName))
+            if (Helper.defaultConfig == "Remote")
             {
-                try
-                {
-                    Helper.serverIP = Helper.IPAddressCheck(Helper.serverName);
-                }
-                catch (Exception c)
-                {
-
-                    MessageBox.Show(" " + c.Message);
-                    return;
-
-                }
+                Helper.serverIP = Helper.remoteConfig;
                 lblStatus.Text += Helper.serverIP + ": " + Helper.serverName;
                 if (!string.IsNullOrEmpty(Helper.serverIP))
-                {
-                    DBConnect.conn = new NpgsqlConnection("Server=" + Helper.serverIP + ";Port=5432;User Id=postgres;Password=Admin;Database=arm;");
-
+                {                     
+                    DBConnect.conn = new NpgsqlConnection("Server=" + Helper.serverIP + ";Port=" + Helper.port + ";User Id=postgres;Password=Admin;Database=arm;");
                     LoadCompany();
+                }
+                else
+                {
+                    lblStatus.Text = (" No server  defined !");
+                    lblStatus.ForeColor = Color.Red;
+                }
+            }
+            else if (Helper.defaultConfig == "Default")
+            {
+
+                if (!string.IsNullOrEmpty(Helper.serverName))
+                {
+                    try
+                    {
+                        Helper.serverIP = Helper.IPAddressCheck(Helper.serverName);
+                    }
+                    catch (Exception c)
+                    {
+
+                        MessageBox.Show(" " + c.Message);
+                        return;
+
+                    }
+
+                    lblStatus.Text += Helper.serverIP + ": " + Helper.serverName;
+                    if (!string.IsNullOrEmpty(Helper.serverIP))
+                    {
+                        DBConnect.conn = new NpgsqlConnection("Server=" + Helper.serverIP + ";Port=" + Helper.port + ";User Id=postgres;Password=Admin;Database=arm;");
+                        LoadCompany();
+
+                    }
+                    else
+                    {
+
+                        lblStatus.Text = (" No server IP defined !");
+                        lblStatus.ForeColor = Color.Red;
+                    }
 
                 }
                 else
                 {
-
-                    lblStatus.Text = (" No server IP defined !");
-                    lblStatus.ForeColor = Color.Red;
+                    MessageBox.Show(" Please start the server");
+                    return;
                 }
 
             }
-            else
-            {
-                MessageBox.Show(" Please start the server");
+            else {
+                MessageBox.Show(" No settings defined  ");
                 return;
             }
+
+
 
         }
 
@@ -439,7 +466,7 @@ namespace ARM
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Practitioner()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Care()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Cases()));
-          
+
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Dosage()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Emergency()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Facility()));
@@ -459,8 +486,8 @@ namespace ARM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AdvancedForm f =new AdvancedForm();
-             f.Show();
+            AdvancedForm f = new AdvancedForm();
+            f.Show();
         }
     }
 }

@@ -88,11 +88,11 @@ namespace ARM.Sync
                 string Query = "DELETE from schedule WHERE id ='" + h.Id + "'";
                 DBConnect.QueryMySql(Query);
 
-                Schedule c = new Schedule(h.Id, h.Date, h.CustomerID, h.UserID, h.Starts, h.Ends, h.Location, h.Address, h.Details, h.Indicator, h.Period, h.Category, h.Status, h.Cost, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),true,Helper.CompanyID);
+                Schedule c = new Schedule(h.Id, h.Date, h.CustomerID, h.UserID, h.Starts, h.Ends, h.Location, h.Address, h.Details, h.Indicator, h.Period, h.Category, h.Status, h.Cost, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),true,Helper.CompanyID,h.Week);
                 if (DBConnect.InsertMySQL(c) != "")
                 {
                     AdvancedForm._Form1.FeedBack("Uploading ... " + h.Starts.ToString());
-                    Schedule u = new Schedule(h.Id, h.Date, h.CustomerID, h.UserID, h.Starts, h.Ends, h.Location, h.Address, h.Details, h.Indicator, h.Period, h.Category, h.Status, h.Cost, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),true,Helper.CompanyID);
+                    Schedule u = new Schedule(h.Id, h.Date, h.CustomerID, h.UserID, h.Starts, h.Ends, h.Location, h.Address, h.Details, h.Indicator, h.Period, h.Category, h.Status, h.Cost, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),true,Helper.CompanyID,h.Week);
                     DBConnect.UpdatePostgre(u, h.Id);
                     AdvancedForm._Form1.FeedBack("Updating .. " + h.Starts.ToString());
                 }

@@ -536,7 +536,9 @@
     <EmbeddedResource Include="PayrollForm.resx">
       <DependentUpon>PayrollForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportPayroll.rdlc" />
+    <EmbeddedResource Include="ReportPayroll.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="StateDialog.resx">
       <DependentUpon>StateDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -981,6 +983,7 @@
     <None Include="Resources\Wheelchair-16.png" />
     <None Include="Resources\Submit-02-16.png" />
     <None Include="Resources\Submit-02-161.png" />
+    <None Include="Resources\Search-Find-16.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

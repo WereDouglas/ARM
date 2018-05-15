@@ -16,13 +16,16 @@ namespace ARM.DB
 {
     public static class DBConnect
     {
-        // public static NpgsqlConnection conn = new NpgsqlConnection("Server=10.0.0.251;Port=5432;User Id=postgres;Password=Admin;Database=arm;");
+        //public static NpgsqlConnection conn = new NpgsqlConnection("Server=http://4bea510b.ngork.io;Port=5432;User Id=postgres;Password=Admin;Database=arm;");
 
-        public static NpgsqlConnection conn = new NpgsqlConnection("Server=" + Helper.serverIP + ";Port=5432;User Id=postgres;Password=Admin;Database=arm;");
+        //http://4bea510b.ngork.io
+        //  public static NpgsqlConnection conn = new NpgsqlConnection("Server=10.0.0.3;Port=5432;User Id=postgres;Password=Admin;Database=arm;");
+      //  public static string port 
+        public static NpgsqlConnection conn = new NpgsqlConnection("Server=" + Helper.serverIP + ";Port=" + Helper.port + ";User Id=postgres;Password=Admin;Database=arm;");
         static NpgsqlDataReader Readers = null;
         static NpgsqlCommand cmd = null;
-        //public static MySqlConnection MySqlConn = new MySqlConnection("Server=10.0.0.251;Database=arm;UID=admin;Password=Admin");
-         public static MySqlConnection MySqlConn = new MySqlConnection("Server=novariss.com;Database=novaris2_arm;UID=novaris2_arm;;Password=Arm.2018");
+        public static MySqlConnection MySqlConn = new MySqlConnection("Server=10.0.0.251;Database=arm;UID=admin;Password=Admin");
+        // public static MySqlConnection MySqlConn = new MySqlConnection("Server=novariss.com;Database=novaris2_arm;UID=novaris2_arm;;Password=Arm.2018");
         static MySqlDataReader ReadersMySql = null;
         static MySqlCommand cmdMySql = null;
 

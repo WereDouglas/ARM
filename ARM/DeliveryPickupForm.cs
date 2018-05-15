@@ -74,6 +74,7 @@ namespace ARM
 
             UserID = o.UserID;
             userCbx.Text = UserDictionary.First(e => e.Value == o.UserID).Key;
+            reasonTxt.Text = o.Reason;
 
 
             try
@@ -335,7 +336,7 @@ namespace ARM
             }
             Dictionary<string, string> transDic = new Dictionary<string, string>();
             string id = Guid.NewGuid().ToString();
-            Delivery i = new Delivery(id, noTxt.Text, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), CaseID, OrderID, type, PractitionerID, CustomerID, commentTxt.Text, userCbx.Text, Convert.ToDateTime(dateDeliveredTxt.Text).ToString("dd-MM-yyyy"), recievedByTxt.Text, signatureTxt.Text, "", recievedByTxt.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
+            Delivery i = new Delivery(id, noTxt.Text, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), CaseID, OrderID, type, PractitionerID, CustomerID, commentTxt.Text, userCbx.Text, Convert.ToDateTime(dateDeliveredTxt.Text).ToString("dd-MM-yyyy"), recievedByTxt.Text, signatureTxt.Text, reasonTxt.Text, recievedByTxt.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
 
             string savef = DBConnect.InsertPostgre(i);
             if ( savef!= "")
@@ -528,7 +529,7 @@ namespace ARM
 
             Dictionary<string, string> transDic = new Dictionary<string, string>();
 
-            Delivery i = new Delivery(DeliveryID, noTxt.Text, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), CaseID, OrderID, type, PractitionerID, CustomerID, commentTxt.Text, userCbx.Text, Convert.ToDateTime(dateDeliveredTxt.Text).ToString("dd-MM-yyyy"), recievedByTxt.Text, signatureTxt.Text, "", recievedByTxt.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
+            Delivery i = new Delivery(DeliveryID, noTxt.Text, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), CaseID, OrderID, type, PractitionerID, CustomerID, commentTxt.Text, userCbx.Text, Convert.ToDateTime(dateDeliveredTxt.Text).ToString("dd-MM-yyyy"), recievedByTxt.Text, signatureTxt.Text,reasonTxt.Text, recievedByTxt.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
           
             save = DBConnect.UpdatePostgre(i, DeliveryID);
             Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);

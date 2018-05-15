@@ -39,6 +39,7 @@ namespace ARM
         {
             //string SQL = "SELECT * FROM exceptions WHERE  (created::date >= '" + start + "'::date AND  created::date <= '" + end + "'::date) ;";
             // create and execute query  
+            t = new DataTable();
             t.Columns.Add(new DataColumn("Select", typeof(bool)));
             t.Columns.Add("Id");           
             t.Columns.Add("Message");

@@ -60,9 +60,16 @@ namespace ARM
 
 
         private void button3_Click(object sender, EventArgs e)
-        { 
+        {
+
+            string Q = "select * from rate WHERE userID = '" + UserID + "'";
+            if (Rate.List(Q).Count() > 0) {
+                MessageBox.Show("User rate defined !");
+                return;
+            }
+
             string ID = Guid.NewGuid().ToString();
-            Rate r = new Rate(ID,UserID,Convert.ToDouble(costTxt.Text), 1,unitCbx.Text,DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),false,Helper.CompanyID);
+            Rate r = new Rate(ID,UserID,Convert.ToDouble(costTxt.Text), Convert.ToDouble(weeklyTxt.Text),unitCbx.Text,DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),false,Helper.CompanyID);
             string save = DBConnect.InsertPostgre(r);
 
             if (save != "")
