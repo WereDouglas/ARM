@@ -500,8 +500,10 @@ namespace ARM
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Deduction()));
 
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Conditions()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Pay()));
+			DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Certificate()));
 
-        }
+		}
 
         private void button2_Click_1(object sender, EventArgs e)
         {
@@ -579,11 +581,13 @@ namespace ARM
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new CaseTransaction()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Queries()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Deduction()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Pay()));
+			DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Certificate()));
 
 
 
 
-        }
+		}
         private string action;
         private void button1_Click(object sender, EventArgs e)
         {

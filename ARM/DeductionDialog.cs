@@ -22,29 +22,21 @@ namespace ARM
         Dictionary<string, string> CustomerDictionary = new Dictionary<string, string>();
         string CustomerID;
         string UserID;
-        public DeductionDialog(string id)
+        public DeductionDialog(string id,string userID)
         {
             InitializeComponent();           
-            AutoCompleteUser();
-        }
-        private void AutoCompleteUser()
-        {
+           
+            if (!string.IsNullOrEmpty(id)) {
 
-            AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
-            UserDictionary.Clear();
-            foreach (Users v in Users.List())
-            {
-                AutoItem.Add((v.Name));
-
-                if (!UserDictionary.ContainsKey(v.Name))
-                {
-                    UserDictionary.Add(v.Name, v.Id);
-                    userCbx.Items.Add(v.Name);
-                }
+                noLbl.Text = id;
             }
+            if (!string.IsNullOrEmpty(userID))
+            {
 
+                UserID = userID;
+            }
         }
-       
+            
 
 
         private void button2_Click(object sender, EventArgs e)
@@ -56,7 +48,7 @@ namespace ARM
         private void button3_Click(object sender, EventArgs e)
         {
             string ID = Guid.NewGuid().ToString();
-            Deduction r = new Deduction(ID,Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"),UserID,categoryCbx.Text,detailsTxt.Text,Convert.ToDouble(amountTxt.Text),paidCbx.Text,DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),false,Helper.CompanyID);
+            Deduction r = new Deduction(ID,Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"),noLbl.Text,UserID,categoryCbx.Text,detailsTxt.Text,Convert.ToDouble(amountTxt.Text),paidCbx.Text,DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),false,Helper.CompanyID);
             string saves = DBConnect.InsertPostgre(r);
             if (saves != "")
             {
@@ -83,25 +75,7 @@ namespace ARM
         
         Users u;
         Rate r;
-        private void userCbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            try
-            {
-                UserID = UserDictionary[userCbx.Text];
-                u = new Users();//.Select(ItemID);
-                u = Users.Select(UserID);
-                Image img = Helper.Base64ToImage(u.Image);
-                System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
-                userPbx.Image = bmp;
-                GraphicsPath gp = new GraphicsPath();
-                gp.AddEllipse(userPbx.DisplayRectangle);
-                userPbx.Region = new Region(gp);
-                userPbx.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-            catch { }
-           
-        }
+     
 
         private void DeductionDialog_Load(object sender, EventArgs e)
         {

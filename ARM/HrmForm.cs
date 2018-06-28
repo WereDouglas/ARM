@@ -539,7 +539,7 @@ namespace ARM
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (DeductionDialog form = new DeductionDialog(null))
+            using (DeductionDialog form = new DeductionDialog(null,null))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
@@ -551,7 +551,7 @@ namespace ARM
 
         private void viewToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-           DeductionForm frm = new DeductionForm();
+            DeductionForm frm = new DeductionForm();
             frm.TopLevel = false;
             panel1.Controls.Add(frm);
             frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -562,6 +562,28 @@ namespace ARM
         private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PayrollForm frm = new PayrollForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void generatePayRollToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (PayForm form = new PayForm(null))
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    paymentToolStripMenuItem_Click(null, null);
+                }
+            }
+        }
+
+        private void paymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SlipPayForm frm = new SlipPayForm();
             frm.TopLevel = false;
             panel1.Controls.Add(frm);
             frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

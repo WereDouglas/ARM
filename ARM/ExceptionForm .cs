@@ -37,8 +37,6 @@ namespace ARM
         DataTable t = new DataTable();
         public void LoadData(string start, string end)
         {
-            //string SQL = "SELECT * FROM exceptions WHERE  (created::date >= '" + start + "'::date AND  created::date <= '" + end + "'::date) ;";
-            // create and execute query  
             t = new DataTable();
             t.Columns.Add(new DataColumn("Select", typeof(bool)));
             t.Columns.Add("Id");           
@@ -61,7 +59,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show(""+ m.Message);
-                    Helper.Exceptions(m.Message + "Viewing customer {Exception list opening }");
+                   
                 }
             }
 

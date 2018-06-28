@@ -37,15 +37,13 @@ namespace ARM
             t.Columns.Add("Customer");
             t.Columns.Add("Company");
             t.Columns.Add("Type");
-            t.Columns.Add("No");
-            
+            t.Columns.Add("No");            
             t.Columns.Add("Sync");
-            t.Columns.Add("Created");
-            t.Columns.Add(new DataColumn("View", typeof(Image)));
+            t.Columns.Add("Created");          
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));
             t.Columns.Add("customerID");
 
-            Image view = new Bitmap(Properties.Resources.Note_Memo_16);
+           
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
 
             Bitmap b = new Bitmap(50, 50);
@@ -65,7 +63,7 @@ namespace ARM
                 try { imageCus = Customer.Select(c.CustomerID).Image; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, imageCus as string, b, cus, c.Name,c.Type,c.No, c.Sync, c.Created, view, delete ,c.CustomerID});
+                    t.Rows.Add(new object[] { false, c.Id, imageCus as string, b, cus, c.Name,c.Type,c.No, c.Sync, c.Created, delete ,c.CustomerID});
 
                 }
                 catch (Exception m)
@@ -161,26 +159,16 @@ namespace ARM
                     selectedIDs.Add(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString());
                 }
             }
-            if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
-            {
-                using (CoverageDialog form = new CoverageDialog(dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString()))
-                {
-                    DialogResult dr = form.ShowDialog();
-                    if (dr == DialogResult.OK)
-                    {
-                        LoadData();
-                    }
-                }
-            }
+           
             try
             {
 
                 if (e.ColumnIndex == dtGrid.Columns["Delete"].Index && e.RowIndex >= 0)
                 {
 
-                    if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Insurance? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Information? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
-                        string Query = "DELETE from insurance WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
+                        string Query = "DELETE from coverage WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
                         DBConnect.QueryPostgre(Query);
                         Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                         DBConnect.InsertPostgre(q);
@@ -206,5 +194,23 @@ namespace ARM
             DBConnect.QueryPostgre(Query);
         }
 
-    }
+		private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+		{
+			string columnName = dtGrid.Columns[e.ColumnIndex].HeaderText;
+			try
+			{
+				String Query = "UPDATE coverage SET " + columnName + " ='" + dtGrid.Rows[e.RowIndex].Cells[columnName].Value.ToString() + "' WHERE Id = '" + dtGrid.Rows[e.RowIndex].Cells["Id"].Value.ToString() + "'";
+				DBConnect.QueryPostgre(Query);
+
+				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+				DBConnect.InsertPostgre(q);
+			}
+			catch (Exception c)
+			{
+				MessageBox.Show(c.Message.ToString());
+				//Helper.Exceptions(c.Message, "Editing Sales grid");
+				MessageBox.Show("You have an invalid entry !");
+			}
+		}
+	}
 }

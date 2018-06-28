@@ -85,19 +85,29 @@ namespace ARM
                 Update(ItemID);
                 return;
             }
+            MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg); ;
+            if (!string.IsNullOrEmpty(ext))
+            {
 
-            MemoryStream stream = null;
-            if (ext.Contains("png"))
-            {
-                stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Png);
+                if (ext.Contains("png"))
+                {
+                    stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Png);
+                }
+                else if (ext.Contains("Jpeg"))
+                {
+                    stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
+                }
+                else if (ext.Contains("jpg"))
+                {
+                    stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
+                }
+
             }
-            else if (ext.Contains("Jpeg"))
+
+            else
             {
                 stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
-            }
-            else if (ext.Contains("jpg"))
-            {
-                stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
+
             }
              //stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);

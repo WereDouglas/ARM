@@ -26,8 +26,22 @@ namespace ARM
 
                 Profile(UsersID);
             }
-        }
-        private Users c;
+			AutoCompleteState();
+
+		}
+		private void AutoCompleteState()
+		{
+			AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();			
+			foreach (String v in States.Abbreviations())
+			{
+				AutoItem.Add((v));					
+				stateTxt.Items.Add(v);			
+			}
+			stateTxt.AutoCompleteMode = AutoCompleteMode.Suggest;
+			stateTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
+			stateTxt.AutoCompleteCustomSource = AutoItem;
+		}
+		private Users c;
         private void Profile(string usersID)
         {
             UsersID = usersID;
@@ -40,6 +54,11 @@ namespace ARM
             stateTxt.Text = c.State;
             zipTxt.Text = c.Zip;
             categoryCbx.Text = c.Category;
+			genderCbx.Text = c.Gender;
+			socialTxt.Text = c.Ssn;
+			specialityCbx.Text = c.Speciality;
+			emailTxt.Text = c.Email;
+			
             try
             {
                 Image img = Helper.Base64ToImage(c.Image.ToString());
@@ -67,7 +86,12 @@ namespace ARM
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(UsersID))
+			if (!complete) {
+
+				MessageBox.Show("Incomplete Fields");
+			}
+
+			if (!string.IsNullOrEmpty(UsersID))
             {
                 Update(UsersID);
                 return;
@@ -98,15 +122,14 @@ namespace ARM
 
             if (passwordTxt.Text != "")
             {
-                Query = "UPDATE users SET name='" + this.nameTxt.Text + "',address='" + addressTxt.Text + "',city='" + cityTxt.Text + "',state='" + stateTxt.Text + "',zip='" + zipTxt.Text + "',password='" + Helper.MD5Hash(this.passwordTxt.Text) + "',email='" + this.emailTxt.Text + "',image='" + fullimage + "',contact='" + contactTxt.Text + "',address='" + addressTxt.Text + "',city='" + cityTxt.Text + "',state='" + stateTxt.Text + "',zip='" + zipTxt.Text + "',category='" + categoryCbx.Text + "',sync='false' WHERE Id = '" + UsersID + "'";
+                Query = "UPDATE users SET name='" + this.nameTxt.Text + "',address='" + addressTxt.Text + "',city='" + cityTxt.Text + "',state='" + stateTxt.Text + "',zip='" + zipTxt.Text + "',password='" + Helper.MD5Hash(this.passwordTxt.Text) + "',email='" + this.emailTxt.Text + "',image='" + fullimage + "',contact='" + contactTxt.Text + "',speciality='" + specialityCbx.Text + "',category='" + categoryCbx.Text + "',sync='false' WHERE Id = '" + UsersID + "'";
             }
             else
             {
-                Query = "UPDATE users SET name='" + this.nameTxt.Text + "',address='" + addressTxt.Text + "',city='" + cityTxt.Text + "',state='" + stateTxt.Text + "',zip='" + zipTxt.Text + "',email='" + this.emailTxt.Text + "',image='" + fullimage + "',contact='" + contactTxt.Text + "',address='" + addressTxt.Text + "',city='" + cityTxt.Text + "',state='" + stateTxt.Text + "',zip='" + zipTxt.Text + "',category='" + categoryCbx.Text + "',sync='false' WHERE Id = '" + UsersID + "'";
+                Query = "UPDATE users SET name='" + this.nameTxt.Text + "',address='" + addressTxt.Text + "',city='" + cityTxt.Text + "',state='" + stateTxt.Text + "',zip='" + zipTxt.Text + "',email='" + this.emailTxt.Text + "',image='" + fullimage + "',contact='" + contactTxt.Text + "',category='" + categoryCbx.Text + "',speciality='"+specialityCbx.Text+"',sync='false' WHERE Id = '" + UsersID + "'";
 
             }
             DBConnect.QueryPostgre(Query);
-
 
             Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
             DBConnect.InsertPostgre(q);
@@ -161,15 +184,30 @@ namespace ARM
                 e.Handled = true;
             }
         }
-
+		bool complete = true;
         private void emailTxt_Leave(object sender, EventArgs e)
         {
-            //if (!Helper.Email(emailTxt.Text)) {
+			if (!String.IsNullOrEmpty(emailTxt.Text))
+			{
+				if (!Helper.IsValidEmail(emailTxt.Text))
+				{
 
-                emailTxt.BackColor = Color.Red;
-                MessageBox.Show("Invalid Email !");
-            //}
-        }
+					emailTxt.BackColor = Color.Red;
+					MessageBox.Show("Invalid Email !");
+					complete = false;
+				}
+				else
+				{
+					complete = true;
+					
+				}
+			}
+			else {
+				emailTxt.BackColor = Color.Red;			
+
+			}
+
+		}
 
         private void imgCapture_Click(object sender, EventArgs e)
         {
@@ -188,5 +226,18 @@ namespace ARM
         {
 
         }
-    }
+
+		private void updateBtn_Click(object sender, EventArgs e)
+		{
+			if (!complete)
+			{
+				MessageBox.Show("Incomplete Fields");
+			}
+			if (!string.IsNullOrEmpty(UsersID))
+			{
+				Update(UsersID);
+				return;
+			}
+		}
+	}
 }

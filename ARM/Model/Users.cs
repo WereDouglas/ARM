@@ -55,7 +55,10 @@ namespace ARM.Model
 
         public static List<Users> List()
         {
-            p.Clear();
+
+			try
+			{
+				p.Clear();
             string Q = "SELECT * FROM users";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
@@ -65,9 +68,12 @@ namespace ARM.Model
                 p.Add(ps);
             }
             DBConnect.CloseConn();
-            return p;
+          
+			}
+			catch { }
+			return p;
 
-        }
+		}
         public static List<Users> List(string Q)
         {
             p.Clear();

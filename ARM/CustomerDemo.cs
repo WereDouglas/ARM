@@ -44,8 +44,21 @@ namespace ARM
                 updateBtn.Visible = false;
             }
             categoryCbx.Text = category;
-        }
-        private Customer c;
+			AutoCompleteState();
+		}
+		private void AutoCompleteState()
+		{
+			AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
+			foreach (String v in States.Abbreviations())
+			{
+				AutoItem.Add((v));
+				stateTxt.Items.Add(v);
+			}
+			stateTxt.AutoCompleteMode = AutoCompleteMode.Suggest;
+			stateTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
+			stateTxt.AutoCompleteCustomSource = AutoItem;
+		}
+		private Customer c;
         private void Profile(string customerID)
         {
             CustomerID = customerID;
@@ -98,8 +111,18 @@ namespace ARM
 
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
+			if (string.IsNullOrEmpty(categoryCbx.Text)) {
 
-            Customer c = new Customer(CustomerID, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), ssnTxt.Text, dobTxt.Text, categoryCbx.Text, Helper.CleanString(heightTxt.Text), weightTxt.Text, genderCbx.Text, false, Helper.CompanyID, fullimage);
+				MessageBox.Show("Please select the category !");
+				return;
+			}
+			if (Convert.ToDateTime(dobTxt.Text).ToString("dd-MM-yyyy") == DateTime.Now.ToString("dd-MM-yyyy"))
+			{
+				MessageBox.Show("Date of birth of is invalid  !");
+				return;
+			}
+
+			Customer c = new Customer(CustomerID, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), ssnTxt.Text, dobTxt.Text, categoryCbx.Text, Helper.CleanString(heightTxt.Text), weightTxt.Text, genderCbx.Text, false, Helper.CompanyID, fullimage);
             string saves = DBConnect.InsertPostgre(c);
             if (saves != "")
             {
@@ -116,9 +139,8 @@ namespace ARM
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
             Customer c = new Customer(customerID, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), ssnTxt.Text, dobTxt.Text, categoryCbx.Text, heightTxt.Text, weightTxt.Text, genderCbx.Text, false, Helper.CompanyID, fullimage);
-            DBConnect.UpdatePostgre(c, customerID);
-
-            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(DBConnect.UpdatePostgre(c, customerID))), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+            string save = DBConnect.UpdatePostgre(c, customerID);
+            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
             DBConnect.InsertPostgre(q);
             MessageBox.Show("Information Updated");
             this.DialogResult = DialogResult.OK;
@@ -236,7 +258,9 @@ namespace ARM
                 }
 
             }
-            catch { }
+            catch(Exception c) {
+				MessageBox.Show(c.Message.ToString()+ "");
+			}
         }
         public void LoadEmergency()
         {
@@ -332,10 +356,8 @@ namespace ARM
             t.Columns.Add("State");
             t.Columns.Add("Zip");
             t.Columns.Add("Gender");
-
             t.Columns.Add("Sync");
             t.Columns.Add("Created");
-
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));//1
 
 
@@ -469,6 +491,7 @@ namespace ARM
                 {
                     string Query = "DELETE from customer WHERE id ='" + dtGridCond.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
                     DBConnect.QueryPostgre(Query);
+
                     MessageBox.Show("Information deleted");
                     LoadCondition();
 
@@ -509,7 +532,11 @@ namespace ARM
                 if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Practitioner? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     string Query = "DELETE from practitioner WHERE id ='" + dtGridMed.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
-                    DBConnect.QueryPostgre(Query);
+
+					DBConnect.QueryPostgre(Query);
+
+
+
                     MessageBox.Show("Information deleted");
                     LoadCondition();
 
@@ -517,5 +544,50 @@ namespace ARM
 
             }
         }
-    }
+
+		private void dtGridEmerg_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+		{
+			
+			string columnName = dtGridEmerg.Columns[e.ColumnIndex].HeaderText;
+			try
+			{
+				String Query = "UPDATE emergency SET " + columnName + " ='" + dtGridEmerg.Rows[e.RowIndex].Cells[columnName].Value.ToString() + "' WHERE Id = '" + dtGridEmerg.Rows[e.RowIndex].Cells["Id"].Value.ToString() + "'";
+				DBConnect.QueryPostgre(Query);
+
+				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+				DBConnect.InsertPostgre(q);
+			}
+			catch (Exception c)
+			{
+				MessageBox.Show(c.Message.ToString());
+				Helper.Exceptions(c.Message, "Editing Sales grid");
+				MessageBox.Show("You have an invalid entry !");
+			}		
+	    
+		}
+		bool complete = true;
+		private void emailTxt_Leave(object sender, EventArgs e)
+		{
+			if (!String.IsNullOrEmpty(emailTxt.Text))
+			{
+				if (!Helper.IsValidEmail(emailTxt.Text))
+				{
+
+					emailTxt.BackColor = Color.Red;
+					MessageBox.Show("Invalid Email !");
+					complete = false;
+				}
+				else
+				{
+					complete = true;
+					
+				}
+			}
+			else
+			{
+				emailTxt.BackColor = Color.Red;
+
+			}
+		}
+	}
 }

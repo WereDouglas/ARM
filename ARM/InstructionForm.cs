@@ -35,27 +35,18 @@ namespace ARM
             t.Columns.Add("uriCus");
             t.Columns.Add(new DataColumn("ImgCus", typeof(Bitmap)));//1  
             t.Columns.Add("Customer");            
-            t.Columns.Add("Product");
-            t.Columns.Add("uriPro");
-            t.Columns.Add(new DataColumn("imgPro", typeof(Bitmap)));//1  
-            t.Columns.Add("Date & Time");
-            t.Columns.Add("By");
-            t.Columns.Add("Alternate Contact");
-            t.Columns.Add("Safety");
-            t.Columns.Add("Appropriate ");
-            t.Columns.Add("Appropriate selection");
-            t.Columns.Add("Safety Other");
-            t.Columns.Add("Equipment Type");
-            t.Columns.Add("Equipment Other");
-            t.Columns.Add("Additional");
-            t.Columns.Add("Additional Notes");
-            t.Columns.Add("Follow up");
-            t.Columns.Add("Signature");
+            t.Columns.Add("No");
+            t.Columns.Add("Alt Contact");			
+			t.Columns.Add("Date & Time");			
+			t.Columns.Add("Type");
+			t.Columns.Add("Delivered");
+			t.Columns.Add("Follow up visit recommended");
+            t.Columns.Add("Follow up by phone as needed");
+            t.Columns.Add("Patient signed");
+			t.Columns.Add("Employee");
+			t.Columns.Add("Employee signed");
             t.Columns.Add("Kin name");
-            t.Columns.Add("Kin contact");
-            t.Columns.Add("Kin Address");
-            t.Columns.Add("Reason");
-            t.Columns.Add("User Signature");            
+            t.Columns.Add("Kin contact");                               
             t.Columns.Add("Created");
             t.Columns.Add("Sync"); 
             t.Columns.Add(new DataColumn("View", typeof(Image)));
@@ -77,19 +68,14 @@ namespace ARM
 
             foreach (Instruction c in Instruction.List())
             {
-                string imageCus = "";
-                string imagePro = "";
-
-                try { imageCus = Customer.Select(c.CustomerID).Image; } catch { }
-                try { imagePro = Product.Select(c.ItemID).Image; } catch { }
-
-                string prod = "";
+                string imageCus = "";  
+                try { imageCus = Customer.Select(c.CustomerID).Image; } catch { }               
                 string cus = "";
-                try { prod = Product.Select(c.ItemID).Name; } catch { }
+              
                 try { cus = Customer.Select(c.CustomerID).Name; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, imageCus as string, b, c.CustomerID +" "+cus, c.ItemID+" "+ prod, imagePro as string, b2, c.Date, c.UserID, c.AltContact, c.Safety, c.Appropriate, c.AppropriateSelection, c.SafetyOther, c.EquipmentOther, c.EquipmentType, c.Additional, c.AdditionalNotes, c.FollowUp, c.Signature, c.KinName, c.KinContact, c.KinAddress, c.Reason, c.UserSignature,c.Created, c.Sync,view, delete });
+                    t.Rows.Add(new object[] { false, c.Id, imageCus as string, b, c.CustomerID +" "+cus,c.No,c.AltContact,c.Date,c.Type,c.Delivered,c.Visit,c.Phone,c.PatientSign,c.Employee,c.EmployeeSign,c.KinName,c.KinContact,c.Created, c.Sync,view, delete });
 
                 }
                 catch (Exception m)
@@ -115,33 +101,13 @@ namespace ARM
                     }
                 }
             });
-            ThreadPool.QueueUserWorkItem(delegate
-            {
-                foreach (DataRow row in t.Rows)
-                {
-                    try
-                    {
-
-                        Image img = Helper.Base64ToImageCropped(row["uriPro"].ToString().Replace('"', ' ').Trim());                       
-                        row["imgPro"] = img;
-                    }
-                    catch
-                    {
-
-                    }
-                }
-            });
+            
 
             dtGrid.AllowUserToAddRows = false;
-            dtGrid.Columns["Customer"].DefaultCellStyle.BackColor = Color.LightGreen;
-            dtGrid.Columns["Product"].DefaultCellStyle.BackColor = Color.WhiteSmoke;
+            dtGrid.Columns["Customer"].DefaultCellStyle.BackColor = Color.LightGreen;            
             dtGrid.Columns["ID"].Visible = false;
             dtGrid.Columns["ImgCus"].DefaultCellStyle.BackColor = Color.LightGreen;
-            dtGrid.Columns["uriCus"].Visible = false;
-
-            dtGrid.Columns["uriPro"].Visible = false;
-            dtGrid.Columns["imgPro"].DefaultCellStyle.BackColor = Color.Wheat;
-
+            dtGrid.Columns["uriCus"].Visible = false;          
 
         }
 
@@ -201,7 +167,7 @@ namespace ARM
             }
             if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
             {
-                using (AddInstructionDelivery form = new AddInstructionDelivery(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
+                using (InstructionDeliveryForm form = new InstructionDeliveryForm(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString(),null))
                 {
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)
@@ -247,7 +213,7 @@ namespace ARM
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            AddInstructionDelivery d = new AddInstructionDelivery(null);
+			InstructionDeliveryForm d = new InstructionDeliveryForm(null,null);
             d.Show();
         }
     }

@@ -221,7 +221,6 @@ namespace ARM
             string save = DBConnect.UpdatePostgre(_c, ID);
             Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
             DBConnect.InsertPostgre(q);
-
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)

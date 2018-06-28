@@ -17,65 +17,53 @@ namespace ARM
 {
     public partial class DeliveryPickupForm : MetroFramework.Forms.MetroForm
     {
-        string DeliveryID;
-        string OrderID;
+        string ID;
+        string No;
         string CaseID;
         string CustomerID;
         string PractitionerID;
 
-        public DeliveryPickupForm(string orderID, string deliveryID)
+        public DeliveryPickupForm(string id, string no)
         {
             InitializeComponent();
             AutoCompleteUser();
 
-            if (!string.IsNullOrEmpty(deliveryID))
+            if (!string.IsNullOrEmpty(id))
             {
-                DeliveryID = deliveryID;
-                LoadDelivery(deliveryID);
+                ID = id;
+                LoadDelivery(id);
+
             }
-            if (!string.IsNullOrEmpty(orderID))
+            if (!string.IsNullOrEmpty(no))
             {
 
-                LoadOrder(orderID);
+                LoadOrder(no);
             }
             else
             {
 
-
             }
 
-            printdoc1.PrintPage += new PrintPageEventHandler(printdoc1_PrintPage);
-            try
-            {
-                noTxt.Text = (DBConnect.Max("SELECT MAX(CAST(no AS DOUBLE PRECISION)) FROM delivery") + 1).ToString();
-            }
-            catch
-            {
-                noTxt.Text = " 1 ";
-            }
+            printdoc1.PrintPage += new PrintPageEventHandler(printdoc1_PrintPage);          
             addressLbl.Text = Helper.CompanyAddress;
             faxLbl.Text = Helper.CompanyFax;
             telLbl.Text = Helper.CompanyContact;
 
         }
-        private void LoadOrder(string id)
+        private void LoadOrder(string no)
         {
             updateBtn.Visible = false;
             Orders o;
             GenericCollection.transactions = new List<Transaction>();
-
-            OrderID = id;
-            o = new Orders();//.Select(UsersID);
-            o = Orders.Select(OrderID);
-
+            No = no;
+		    noTxt.Text = no;			
+			o = new Orders();//.Select(UsersID);
+            o = Orders.SelectNo(no);
             CustomerID = o.CustomerID;
             PractitionerID = o.PractitionerID;
-            CaseID = o.CaseID;
-
+            No = o.No;
             UserID = o.UserID;
-            userCbx.Text = UserDictionary.First(e => e.Value == o.UserID).Key;
-            reasonTxt.Text = o.Reason;
-
+            userCbx.Text = UserDictionary.First(e => e.Value == o.UserID).Key; 
 
             try
             {
@@ -110,7 +98,7 @@ namespace ARM
                 userPbx.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch { }
-            string Q = "SELECT * FROM casetransaction WHERE caseID = '" + CaseID + "'";
+            string Q = "SELECT * FROM casetransaction WHERE caseID = '" + noTxt.Text + "'";
             foreach (CaseTransaction j in CaseTransaction.List(Q))
             {
                 //try
@@ -130,14 +118,14 @@ namespace ARM
         {
             btnSubmit.Visible = false;
             GenericCollection.transactions = new List<Transaction>();
-            DeliveryID = id;
+            ID = id;
             Delivery o = new Delivery();//.Select(UsersID);
             o = Delivery.Select(id);
 
             CustomerID = o.CustomerID;
             PractitionerID = o.PractitionerID;
 
-            string Q = "SELECT * FROM transaction WHERE deliveryID = '" + DeliveryID + "'";
+            string Q = "SELECT * FROM transaction WHERE no = '" + noTxt.Text + "'";
             GenericCollection.transactions = Transaction.List(Q);
             LoadTransactions();
             dateTxt.Text = o.Date;
@@ -149,12 +137,13 @@ namespace ARM
             recievedByTxt.Text = o.ReceivedBy;
             signatureTxt.Text = o.Signature;
             totalTxt.Text = o.Total.ToString("N0");
-
-            if (o.Type == deliveryBtn.Text) { deliveryBtn.Checked = true; }
-            if (o.Type == pickupBtn.Text) { pickupBtn.Checked = true; }
-            if (o.Type == followBtn.Text) { followBtn.Checked = true; }
-
-            try
+			reasonTxt.Text = o.Reason;
+			if (o.Deliveries == "Yes") { deliveryChk.Checked = true; }
+			if (o.Followup == "Yes") { followupChk.Checked = true; }
+            if (o.Pickup == "Yes") { pickupChk.Checked = true; }
+           
+			LoadOrder(o.No);
+			try
             {
                 //CustomerID = CustomerDictionary[customerCbx.Text];
                 c = new Customer();//.Select(ItemID);
@@ -187,16 +176,11 @@ namespace ARM
                 userPbx.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch { }
-
-
-
-
         }
         public void LoadTransactions()
         {
             // create and execute query  
             t = new DataTable();
-
             t.Columns.Add("id");
             t.Columns.Add("Qty");
             t.Columns.Add("ItemID");
@@ -204,9 +188,7 @@ namespace ARM
             t.Columns.Add("Cost");
             t.Columns.Add("Total");
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));
-
             Image delete = new Bitmap(Properties.Resources.Cancel_16);
-
             foreach (Transaction j in GenericCollection.transactions)
             {
                 try
@@ -223,18 +205,13 @@ namespace ARM
             }
             Total = GenericCollection.transactions.Sum(r => r.Total);
             totalTxt.Text = Total.ToString("N0");
-
             dtGrid.DataSource = t;
-
             //dtGrid.AllowUserToAddRows = false;
-            // dtGrid.Columns["View"].DefaultCellStyle.BackColor = Color.LightGreen;
-            //  dtGrid.Columns["Delete"].DefaultCellStyle.BackColor = Color.Red;
+            //dtGrid.Columns["View"].DefaultCellStyle.BackColor = Color.LightGreen;
+            //dtGrid.Columns["Delete"].DefaultCellStyle.BackColor = Color.Red;
 
             dtGrid.Columns["id"].Visible = false;
             dtGrid.Columns["ItemID"].Visible = false;
-
-
-
         }
         private void AutoCompleteUser()
         {
@@ -251,10 +228,7 @@ namespace ARM
 
                 }
             }
-
         }
-
-
         private void metroLabel1_Click(object sender, EventArgs e)
         {
 
@@ -314,13 +288,17 @@ namespace ARM
                 return;
 
             }
-            string type = "";
+			string type = "";
 
-            type = (deliveryBtn.Checked) ? deliveryBtn.Text : pickupBtn.Text;
-            type = (pickupBtn.Checked) ? pickupBtn.Text : deliveryBtn.Text;
-            type = (followBtn.Checked) ? followBtn.Text : deliveryBtn.Text;
+			string deliver = deliveryChk.Checked ? "Yes" : "No";
+			string followup = followupChk.Checked ? "Yes" : "No";
+			string pickup = pickupChk.Checked ? "Yes" : "No";
+			 if( deliveryChk.Checked) type = "Delivery" ;
+			if (followupChk.Checked) type = "Follow up";
+			if (pickupChk.Checked) type = "Pickup";
+			
 
-            double tax = GenericCollection.transactions.Sum(x => x.Tax);
+			double tax = GenericCollection.transactions.Sum(x => x.Tax);
             double amount = GenericCollection.transactions.Sum(x => x.Payable);
             string method = "Invoice";
             int ItemCount = GenericCollection.transactions.Count();
@@ -336,7 +314,7 @@ namespace ARM
             }
             Dictionary<string, string> transDic = new Dictionary<string, string>();
             string id = Guid.NewGuid().ToString();
-            Delivery i = new Delivery(id, noTxt.Text, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), CaseID, OrderID, type, PractitionerID, CustomerID, commentTxt.Text, userCbx.Text, Convert.ToDateTime(dateDeliveredTxt.Text).ToString("dd-MM-yyyy"), recievedByTxt.Text, signatureTxt.Text, reasonTxt.Text, recievedByTxt.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
+            Delivery i = new Delivery(id, noTxt.Text, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"),deliver,followup,pickup, type, PractitionerID, CustomerID, commentTxt.Text, userCbx.Text, Convert.ToDateTime(dateDeliveredTxt.Text).ToString("dd-MM-yyyy"), recievedByTxt.Text, signatureTxt.Text, reasonTxt.Text, recievedByTxt.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
 
             string savef = DBConnect.InsertPostgre(i);
             if ( savef!= "")
@@ -394,8 +372,10 @@ namespace ARM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Print(panel1);
-        }
+			// Print(panel1);
+			DeliveryReport form = new DeliveryReport(noTxt.Text);//Print(panel1);
+			form.Show();
+		}
         public void Print(System.Windows.Forms.Panel pnl)
         {
             panel1 = pnl;
@@ -503,11 +483,15 @@ namespace ARM
             string type = "";
             string save = "";
 
-            type = (deliveryBtn.Checked) ? deliveryBtn.Text : pickupBtn.Text;
-            type = (pickupBtn.Checked) ? pickupBtn.Text : deliveryBtn.Text;
-            type = (followBtn.Checked) ? followBtn.Text : deliveryBtn.Text;
 
-            double tax = GenericCollection.transactions.Sum(x => x.Tax);
+			string deliver = deliveryChk.Checked ? "Yes" : "No";
+			string followup = followupChk.Checked ? "Yes" : "No";
+			string pickup = pickupChk.Checked ? "Yes" : "No";
+			if (deliveryChk.Checked) type = "Delivery";
+			if (followupChk.Checked) type = "Follow up";
+			if (pickupChk.Checked) type = "Pickup";
+
+			double tax = GenericCollection.transactions.Sum(x => x.Tax);
             double amount = GenericCollection.transactions.Sum(x => x.Payable);
             string method = "Invoice";
             int ItemCount = GenericCollection.transactions.Count();
@@ -529,9 +513,9 @@ namespace ARM
 
             Dictionary<string, string> transDic = new Dictionary<string, string>();
 
-            Delivery i = new Delivery(DeliveryID, noTxt.Text, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), CaseID, OrderID, type, PractitionerID, CustomerID, commentTxt.Text, userCbx.Text, Convert.ToDateTime(dateDeliveredTxt.Text).ToString("dd-MM-yyyy"), recievedByTxt.Text, signatureTxt.Text,reasonTxt.Text, recievedByTxt.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
-          
-            save = DBConnect.UpdatePostgre(i, DeliveryID);
+            Delivery i = new Delivery(ID, noTxt.Text, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), deliver, followup, pickup, type, PractitionerID, CustomerID, commentTxt.Text, userCbx.Text, Convert.ToDateTime(dateDeliveredTxt.Text).ToString("dd-MM-yyyy"), recievedByTxt.Text, signatureTxt.Text, reasonTxt.Text, recievedByTxt.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
+
+			save = DBConnect.UpdatePostgre(i, ID);
             Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
             DBConnect.InsertPostgre(q);
             if (MessageBox.Show("YES or NO?", "Would you like to add these products to your invoice ?  ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -548,7 +532,7 @@ namespace ARM
                     {
                         transDic.Add(it, t.Date);
 
-                        Transaction c = new Transaction(it, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, CaseID, DeliveryID, t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
+                        Transaction c = new Transaction(it, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, noTxt.Text,ID, t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
                         save = DBConnect.InsertPostgre(c);
 
                         Queries qp = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);

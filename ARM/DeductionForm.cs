@@ -35,6 +35,7 @@ namespace ARM
             t.Columns.Add("uriUs");
             t.Columns.Add(new DataColumn("ImgUs", typeof(Bitmap)));
             t.Columns.Add("userID");
+            t.Columns.Add("No");
             t.Columns.Add("Employee");
             t.Columns.Add("Category");
             t.Columns.Add("Details");
@@ -61,7 +62,7 @@ namespace ARM
                 try { imageUs = Users.Select(c.UserID).Image; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, imageUs as string, b2,c.UserID ,user, c.Category, c.Details, c.Amount, c.Paid, c.Sync, c.Created, view, delete });
+                    t.Rows.Add(new object[] { false, c.Id, imageUs as string, b2,c.UserID ,c.No,user, c.Category, c.Details, c.Amount, c.Paid, c.Sync, c.Created, view, delete });
 
                 }
                 catch (Exception m)
@@ -157,7 +158,7 @@ namespace ARM
             }
             if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
             {
-                using (DeductionDialog form = new DeductionDialog(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
+                using (DeductionDialog form = new DeductionDialog(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["userID"].Value.ToString()))
                 {
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)
@@ -198,17 +199,7 @@ namespace ARM
             DBConnect.QueryPostgre(Query);
         }
 
-        private void toolStripButton4_Click(object sender, EventArgs e)
-        {
-            using (DeductionDialog form = new DeductionDialog(null))
-            {
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-
-                }
-            }
-        }
+        
 
         private void dtGrid_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
@@ -223,9 +214,9 @@ namespace ARM
             }
             try
             {
-                Deduction _c = new Deduction(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["date"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["userID"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["details"].Value.ToString(), Convert.ToDouble(dtGrid.Rows[e.RowIndex].Cells["amount"].Value), dtGrid.Rows[e.RowIndex].Cells["paid"].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
-                DBConnect.UpdatePostgre(_c, dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(DBConnect.UpdatePostgre(_c, dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString()))), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                Deduction _c = new Deduction(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["date"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["userID"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["details"].Value.ToString(), Convert.ToDouble(dtGrid.Rows[e.RowIndex].Cells["amount"].Value), dtGrid.Rows[e.RowIndex].Cells["paid"].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
+               string save =  DBConnect.UpdatePostgre(_c, dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                 DBConnect.InsertPostgre(q);
 
             }

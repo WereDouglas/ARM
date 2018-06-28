@@ -62,7 +62,7 @@ namespace ARM.Model
             try
             {
                 p.Clear();
-                string Q = "SELECT * FROM customer ";
+                string Q = "SELECT * FROM customer ORDER by no ASC ";
                 DBConnect.OpenConn();
                 NpgsqlDataReader Reader = DBConnect.Reading(Q);
                 while (Reader.Read())

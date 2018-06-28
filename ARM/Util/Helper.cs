@@ -34,7 +34,8 @@ namespace ARM.Util
         public static string CompanyName;
         public static string CompanyAddress;
         public static string CompanyContact;
-        public static string CompanyFax;
+		public static string NPI;
+		public static string CompanyFax;
         public static string UserName;
         public static string UserImage;
         public static string serverName;
@@ -151,7 +152,19 @@ namespace ARM.Util
             }
 
         }
-        public static bool validateInt(string t)
+		public static bool IsValidEmail(string email)
+		{
+			try
+			{
+				var addr = new System.Net.Mail.MailAddress(email);
+				return addr.Address == email;
+			}
+			catch
+			{
+				return false;
+			}
+		}
+		public static bool validateInt(string t)
         {
 
             int p;

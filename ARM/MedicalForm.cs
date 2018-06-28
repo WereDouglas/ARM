@@ -430,15 +430,15 @@ namespace ARM
 
         private void toolStripMenuItem20_Click(object sender, EventArgs e)
         {
-            NewCase f = new NewCase(null);
-            f.Show();
+            //NewCase f = new NewCase(null);
+            //f.Show();
 
-            toolStripMenuItem21_Click(null, null);
+           
         }
 
         private void toolStripMenuItem21_Click(object sender, EventArgs e)
         {
-            CaseForm frm = new CaseForm();
+            OrderForm frm = new OrderForm();
             frm.TopLevel = false;
             panel1.Controls.Add(frm);
             frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -497,5 +497,22 @@ namespace ARM
                 }
             }
         }
-    }
+
+		private void orderIntakeToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			
+		}
+
+		private void instructionDeliveryToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			InstructionDeliveryForm f = new InstructionDeliveryForm(null,null);
+			f.Show();
+		}
+
+		private void toolStripButton3_Click(object sender, EventArgs e)
+		{
+			OrderIntakeForm f = new OrderIntakeForm(null);
+			f.Show();
+		}
+	}
 }

@@ -85,13 +85,22 @@ namespace ARM
         {
             if (Convert.ToDouble(qtyTxt.Text) < 1)
             {
-
                 qtyTxt.BackColor = Color.Red;
                 MessageBox.Show("Please input the quantity");
                 return;
             }
+			try
+			{
+				double val = Convert.ToDouble(costTxt.Text);
+			}
+			catch {
 
-            Transaction t = new Transaction(TransactionID, Date, No, ItemID, CaseID, "", Convert.ToDouble(qtyTxt.Text), Convert.ToDouble(costTxt.Text), measureTxt.Text, Payable, Tax, TotalCoverage, TotalSelf, Payable, "", "", "", "", "", "", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
+				MessageBox.Show("Product has invalid cost value ");
+				return;
+
+			}
+
+			Transaction t = new Transaction(TransactionID, Date, No, ItemID, CaseID, "", Convert.ToDouble(qtyTxt.Text), Convert.ToDouble(costTxt.Text), measureTxt.Text, Payable, Tax, TotalCoverage, TotalSelf, Payable, "", "", "", "", "", "", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
             GenericCollection.transactions.Add(t);
             this.DialogResult = DialogResult.OK;
             this.Dispose();

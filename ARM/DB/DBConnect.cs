@@ -24,8 +24,8 @@ namespace ARM.DB
         public static NpgsqlConnection conn = new NpgsqlConnection("Server=" + Helper.serverIP + ";Port=" + Helper.port + ";User Id=postgres;Password=Admin;Database=arm;");
         static NpgsqlDataReader Readers = null;
         static NpgsqlCommand cmd = null;
-        public static MySqlConnection MySqlConn = new MySqlConnection("Server=10.0.0.251;Database=arm;UID=admin;Password=Admin");
-        // public static MySqlConnection MySqlConn = new MySqlConnection("Server=novariss.com;Database=novaris2_arm;UID=novaris2_arm;;Password=Arm.2018");
+        //public static MySqlConnection MySqlConn = new MySqlConnection("Server=10.0.0.251;Database=arm;UID=admin;Password=Admin");
+         public static MySqlConnection MySqlConn = new MySqlConnection("Server=novariss.com;Database=novaris2_arm;UID=novaris2_arm;;Password=Arm.2018");
         static MySqlDataReader ReadersMySql = null;
         static MySqlCommand cmdMySql = null;
 

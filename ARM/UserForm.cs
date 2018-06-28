@@ -32,7 +32,7 @@ namespace ARM
             // create and execute query  
             t = new DataTable();
             t.Columns.Add(new DataColumn("Select", typeof(bool)));
-            t.Columns.Add("usersID");
+            t.Columns.Add("id");
             t.Columns.Add("uri");
             t.Columns.Add(new DataColumn("Img", typeof(Bitmap)));          
             t.Columns.Add("Name");
@@ -43,7 +43,8 @@ namespace ARM
             t.Columns.Add("State");
             t.Columns.Add("Zip");           
             t.Columns.Add("Category");
-            t.Columns.Add("Gender");
+			t.Columns.Add("Speciality");
+			t.Columns.Add("Gender");
             t.Columns.Add("Sync");
             t.Columns.Add("Created");
             t.Columns.Add(new DataColumn("View", typeof(Image)));
@@ -62,7 +63,7 @@ namespace ARM
             {
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, c.Image as string, b, c.Name,c.Email,c.Contact, c.Address, c.City, c.State, c.Zip,c.Category,c.Gender, c.Sync, c.Created, view, delete });
+                    t.Rows.Add(new object[] { false, c.Id, c.Image as string, b, c.Name,c.Email,c.Contact, c.Address, c.City, c.State, c.Zip,c.Category,c.Speciality,c.Gender, c.Sync, c.Created, view, delete });
 
                 }
                 catch (Exception m)
@@ -100,7 +101,7 @@ namespace ARM
             //  dtGrid.Columns["Delete"].DefaultCellStyle.BackColor = Color.Red;
             dtGrid.RowTemplate.Height = 60;
             dtGrid.Columns["uri"].Visible = false;
-            dtGrid.Columns["usersID"].Visible = false;
+            dtGrid.Columns["id"].Visible = false;
            // dtGrid.Columns["select"].Width = 30;
 
         }
@@ -149,21 +150,21 @@ namespace ARM
             var senderGrid = (DataGridView)sender;
             if (e.ColumnIndex == dtGrid.Columns["Select"].Index && e.RowIndex >= 0)
             {
-                if (selectedIDs.Contains(dtGrid.Rows[e.RowIndex].Cells["usersID"].Value.ToString()))
+                if (selectedIDs.Contains(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString()))
                 {
-                    selectedIDs.Remove(dtGrid.Rows[e.RowIndex].Cells["usersID"].Value.ToString());
-                    Console.WriteLine("REMOVED this id " + dtGrid.Rows[e.RowIndex].Cells["usersID"].Value.ToString());
+                    selectedIDs.Remove(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                   
 
                 }
                 else
                 {
-                    selectedIDs.Add(dtGrid.Rows[e.RowIndex].Cells["usersID"].Value.ToString());
-                    Console.WriteLine("ADDED ITEM " + dtGrid.Rows[e.RowIndex].Cells["usersID"].Value.ToString());
+                    selectedIDs.Add(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                    
                 }
             }
             if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
             {
-                using (AddUser form = new AddUser(dtGrid.Rows[e.RowIndex].Cells["usersID"].Value.ToString()))
+                using (AddUser form = new AddUser(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString()))
                 {
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)
@@ -180,7 +181,7 @@ namespace ARM
 
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this User? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
-                        string Query = "DELETE from users WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["usersID"].Value.ToString() + "'";
+                        string Query = "DELETE from users WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
                         DBConnect.QueryPostgre(Query);
 
                         Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
@@ -200,7 +201,7 @@ namespace ARM
         {
             if (e.ColumnIndex == 1)
             {
-                using (AddUser form = new AddUser(dtGrid.Rows[e.RowIndex].Cells["usersID"].Value.ToString()))
+                using (AddUser form = new AddUser(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString()))
                 {
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)
@@ -231,7 +232,21 @@ namespace ARM
 
         private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-
-        }
+			string columnName = dtGrid.Columns[e.ColumnIndex].HeaderText;	
+			try
+			{
+				String Query = "UPDATE users SET " + columnName + " ='" + dtGrid.Rows[e.RowIndex].Cells[columnName].Value.ToString() + "' WHERE Id = '" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
+				DBConnect.QueryPostgre(Query);
+				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+				DBConnect.InsertPostgre(q);
+			}
+			catch (Exception c)
+			{
+				MessageBox.Show(c.Message.ToString());
+				Helper.Exceptions(c.Message, "Editing User cell content grid");
+				MessageBox.Show("You have an invalid entry !");
+			}
+			
+		}
     }
 }

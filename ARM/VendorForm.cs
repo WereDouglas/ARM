@@ -34,8 +34,9 @@ namespace ARM
             t.Columns.Add(new DataColumn("Select", typeof(bool)));
             t.Columns.Add("ID");
             t.Columns.Add("uri");
-            t.Columns.Add(new DataColumn("Img", typeof(Bitmap)));//1          
-            t.Columns.Add("Name");
+            t.Columns.Add(new DataColumn("Img", typeof(Bitmap)));//1  
+			t.Columns.Add("No");
+			t.Columns.Add("Name");
             t.Columns.Add("Email");
             t.Columns.Add("Contact");
             t.Columns.Add("Address");
@@ -61,7 +62,7 @@ namespace ARM
             {
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, c.Image as string, b, c.Name,c.Email,c.Contact, c.Address, c.City, c.State, c.Zip,c.Category, c.Sync, c.Created, view, delete });
+                    t.Rows.Add(new object[] { false, c.Id, c.Image as string, b,c.No, c.Name,c.Email,c.Contact, c.Address, c.City, c.State, c.Zip,c.Category, c.Sync, c.Created, view, delete });
 
                 }
                 catch (Exception m)
@@ -227,5 +228,24 @@ namespace ARM
                 }
             }
         }
-    }
+
+		private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+		{
+			string columnName = dtGrid.Columns[e.ColumnIndex].HeaderText;
+			try
+			{
+				String Query = "UPDATE vendor SET " + columnName + " ='" + dtGrid.Rows[e.RowIndex].Cells[columnName].Value.ToString() + "' WHERE Id = '" + dtGrid.Rows[e.RowIndex].Cells["Id"].Value.ToString() + "'";
+				DBConnect.QueryPostgre(Query);
+
+				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+				DBConnect.InsertPostgre(q);
+			}
+			catch (Exception c)
+			{
+				MessageBox.Show(c.Message.ToString());
+				Helper.Exceptions(c.Message, "Editing Sales grid");
+				MessageBox.Show("You have an invalid entry !");
+			}
+		}
+	}
 }

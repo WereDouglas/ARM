@@ -14,9 +14,10 @@ namespace ARM.Model
         private string id;
         private string no;
         private string date;
-        private string caseID;
-        private string orderID;
-        private string type;
+		private string deliveries;
+		private string followup;
+		private string pickup;
+		private string type;
         private string practitionerID;
         private string customerID;
         private string comments;
@@ -33,30 +34,31 @@ namespace ARM.Model
 
         public Delivery() { }
 
-        public Delivery(string id, string no, string date, string caseID, string orderID, string type, string practitionerID, string customerID, string comments, string deliveredBy, string dateReceived, string receivedBy, string signature, string reason, string name, double total, string created, bool sync, string companyID)
-        {
-            this.Id = id;
-            this.No = no;
-            this.Date = date;
-            this.CaseID = caseID;
-            this.OrderID = orderID;
-            this.Type = type;
-            this.PractitionerID = practitionerID;
-            this.CustomerID = customerID;
-            this.Comments = comments;
-            this.DeliveredBy = deliveredBy;
-            this.DateReceived = dateReceived;
-            this.ReceivedBy = receivedBy;
-            this.Signature = signature;
-            this.Reason = reason;
-            this.Name = name;
-            this.Total = total;
-            this.Created = created;
-            this.Sync = sync;
-            this.CompanyID = companyID;
-        }
+		public Delivery(string id, string no, string date, string deliveries, string followup, string pickup, string type, string practitionerID, string customerID, string comments, string deliveredBy, string dateReceived, string receivedBy, string signature, string reason, string name, double total, string created, bool sync, string companyID)
+		{
+			this.Id = id;
+			this.No = no;
+			this.Date = date;
+			this.Deliveries = deliveries;
+			this.Followup = followup;
+			this.Pickup = pickup;
+			this.Type = type;
+			this.PractitionerID = practitionerID;
+			this.CustomerID = customerID;
+			this.Comments = comments;
+			this.DeliveredBy = deliveredBy;
+			this.DateReceived = dateReceived;
+			this.ReceivedBy = receivedBy;
+			this.Signature = signature;
+			this.Reason = reason;
+			this.Name = name;
+			this.Total = total;
+			this.Created = created;
+			this.Sync = sync;
+			this.CompanyID = companyID;
+		}
 
-        static List<Delivery> p = new List<Delivery>();
+		static List<Delivery> p = new List<Delivery>();
         public static List<Delivery> List()
         {
             p.Clear();
@@ -65,7 +67,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Delivery ps = new Delivery(Reader["id"].ToString(), Reader["no"].ToString(), Reader["date"].ToString(), Reader["caseID"].ToString(), Reader["orderID"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Delivery ps = new Delivery(Reader["id"].ToString(), Reader["no"].ToString(), Reader["date"].ToString(), Reader["deliveries"].ToString(), Reader["followup"].ToString(), Reader["pickup"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
                 p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -78,8 +80,8 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Delivery ps = new Delivery(Reader["id"].ToString(), Reader["no"].ToString(), Reader["date"].ToString(), Reader["caseID"].ToString(), Reader["orderID"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
-                p.Add(ps);
+                Delivery ps = new Delivery(Reader["id"].ToString(), Reader["no"].ToString(), Reader["date"].ToString(), Reader["deliveries"].ToString(), Reader["followup"].ToString(), Reader["pickup"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+				p.Add(ps);
             }
             DBConnect.CloseConn();
             return p;
@@ -93,8 +95,8 @@ namespace ARM.Model
                 MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
                 while (Reader.Read())
                 {
-                    Delivery ps = new Delivery(Reader["id"].ToString(), Reader["no"].ToString(), Reader["date"].ToString(), Reader["caseID"].ToString(), Reader["orderID"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
-                    p.Add(ps);
+                    Delivery ps = new Delivery(Reader["id"].ToString(), Reader["no"].ToString(), Reader["date"].ToString(), Reader["deliveries"].ToString(), Reader["followup"].ToString(), Reader["pickup"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+					p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
             }
@@ -103,27 +105,28 @@ namespace ARM.Model
         }
         private static Delivery c = new Delivery();
 
-        public string Id { get => id; set => id = value; }
-        public string No { get => no; set => no = value; }
-        public string Date { get => date; set => date = value; }
-        public string CaseID { get => caseID; set => caseID = value; }
-        public string OrderID { get => orderID; set => orderID = value; }
-        public string Type { get => type; set => type = value; }
-        public string PractitionerID { get => practitionerID; set => practitionerID = value; }
-        public string CustomerID { get => customerID; set => customerID = value; }
-        public string Comments { get => comments; set => comments = value; }
-        public string DeliveredBy { get => deliveredBy; set => deliveredBy = value; }
-        public string DateReceived { get => dateReceived; set => dateReceived = value; }
-        public string ReceivedBy { get => receivedBy; set => receivedBy = value; }
-        public string Signature { get => signature; set => signature = value; }
-        public string Reason { get => reason; set => reason = value; }
-        public string Name { get => name; set => name = value; }
-        public double Total { get => total; set => total = value; }
-        public string Created { get => created; set => created = value; }
-        public bool Sync { get => sync; set => sync = value; }
-        public string CompanyID { get => companyID; set => companyID = value; }
+		public string Id { get => id; set => id = value; }
+		public string No { get => no; set => no = value; }
+		public string Date { get => date; set => date = value; }
+		public string Deliveries { get => deliveries; set => deliveries = value; }
+		public string Followup { get => followup; set => followup = value; }
+		public string Pickup { get => pickup; set => pickup = value; }
+		public string Type { get => type; set => type = value; }
+		public string PractitionerID { get => practitionerID; set => practitionerID = value; }
+		public string CustomerID { get => customerID; set => customerID = value; }
+		public string Comments { get => comments; set => comments = value; }
+		public string DeliveredBy { get => deliveredBy; set => deliveredBy = value; }
+		public string DateReceived { get => dateReceived; set => dateReceived = value; }
+		public string ReceivedBy { get => receivedBy; set => receivedBy = value; }
+		public string Signature { get => signature; set => signature = value; }
+		public string Reason { get => reason; set => reason = value; }
+		public string Name { get => name; set => name = value; }
+		public double Total { get => total; set => total = value; }
+		public string Created { get => created; set => created = value; }
+		public bool Sync { get => sync; set => sync = value; }
+		public string CompanyID { get => companyID; set => companyID = value; }
 
-        public static Delivery Select(string ID)
+		public static Delivery Select(string ID)
         {
 
             string Q = "SELECT * FROM delivery WHERE id = '" + ID + "'";
@@ -131,9 +134,9 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                c = new Delivery(Reader["id"].ToString(), Reader["no"].ToString(), Reader["date"].ToString(), Reader["caseID"].ToString(), Reader["orderID"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
-            }
-            DBConnect.CloseConn();
+                c = new Delivery(Reader["id"].ToString(), Reader["no"].ToString(), Reader["date"].ToString(), Reader["deliveries"].ToString(), Reader["followup"].ToString(), Reader["pickup"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+			}
+			DBConnect.CloseConn();
             return c;
 
         }

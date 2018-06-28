@@ -70,8 +70,6 @@ namespace ARM
             }
             try
             {
-
-
                 Helper.contact = u.Where(g => g.Contact.Contains(contactTxt.Text) && g.Password.Equals(Helper.MD5Hash(passwordTxt.Text))).First().Contact;
             }
             catch
@@ -95,7 +93,8 @@ namespace ARM
 
                 //  Helper.Log(Helper.UserName, "Log in ");
                 Helper.CompanyID = Company.List().First().Id;
-                if (medicalChk.Checked)
+				Helper.NPI = Company.List().First().Npi;
+				if (medicalChk.Checked)
                 {
 
                     MedicalForm frm = new MedicalForm();
@@ -314,7 +313,6 @@ namespace ARM
                 }
 
             }
-
             xmlDoc = XDocument.Load(Helper.XMLFile());
             var servers = from person in xmlDoc.Descendants("Server")
 

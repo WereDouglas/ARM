@@ -69,6 +69,13 @@ namespace ARM
             telTxt.Text = c.OfficePhone;
             emailTxt.Text = c.Email;
             faxTxt.Text = c.OfficeFax;
+			specialityTxt.Text = c.Speciality;
+			npiTxt.Text = c.Npi;
+			tinTxt.Text = c.Tin;
+			officeTxt.Text = c.Office;
+			providerNoTxt.Text = c.ProviderID;
+			officePhoneTxt.Text = c.OfficePhone;
+			officeFaxTxt.Text = c.OfficeFax;
 
             try
             {
@@ -128,7 +135,7 @@ namespace ARM
         {
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
-            Company c = new Company(CompanyID, nameTxt.Text, contactTxt.Text, emailTxt.Text, "", "", "", "", "", faxTxt.Text, telTxt.Text, "", "", "", "", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, CompanyID, fullimage);
+            Company c = new Company(CompanyID, nameTxt.Text, contactTxt.Text, emailTxt.Text, npiTxt.Text,addressTxt.Text,officePhoneTxt.Text, providerNoTxt.Text, tinTxt.Text, officePhoneTxt.Text,officeFaxTxt.Text,"", "", "", specialityTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, CompanyID, fullimage);
             string save = DBConnect.UpdatePostgre(c, CompanyID);
 
             Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
@@ -157,7 +164,8 @@ namespace ARM
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            createPostgreDB();
+            AdvancedForm f = new AdvancedForm();
+            f.Show();
         }
         private void createPostgreDB()
         {

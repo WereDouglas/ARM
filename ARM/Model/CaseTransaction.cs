@@ -35,10 +35,36 @@ namespace ARM.Model
         private bool sync;
         private string companyID;
 
+		public CaseTransaction() { }
+		static List<CaseTransaction> p = new List<CaseTransaction>();
 
-        static List<CaseTransaction> p = new List<CaseTransaction>();
-
-        public string Id { get => id; set => id = value; }
+		public CaseTransaction(string id, string date, string no, string itemID, string caseID, string deliveryID, double qty, double cost, string units, double total, double tax, double coverage, double self, double payable, string limits, string setting, string period, string height, string weight, string instruction, string created, bool sync, string companyID)
+		{
+			this.Id = id;
+			this.Date = date;
+			this.No = no;
+			this.ItemID = itemID;
+			this.CaseID = caseID;
+			this.DeliveryID = deliveryID;
+			this.Qty = qty;
+			this.Cost = cost;
+			this.Units = units;
+			this.Total = total;
+			this.Tax = tax;
+			this.Coverage = coverage;
+			this.Self = self;
+			this.Payable = payable;
+			this.Limits = limits;
+			this.Setting = setting;
+			this.Period = period;
+			this.Height = height;
+			this.Weight = weight;
+			this.Instruction = instruction;
+			this.Created = created;
+			this.Sync = sync;
+			this.CompanyID = companyID;
+		}
+		public string Id { get => id; set => id = value; }
         public string Date { get => date; set => date = value; }
         public string No { get => no; set => no = value; }
         public string ItemID { get => itemID; set => itemID = value; }
@@ -62,36 +88,8 @@ namespace ARM.Model
         public bool Sync { get => sync; set => sync = value; }
         public string CompanyID { get => companyID; set => companyID = value; }
 
-        public CaseTransaction() { }
-
-        public CaseTransaction(string id, string date, string no, string itemID, string caseID, string deliveryID, double qty, double cost, string units, double total, double tax, double coverage, double self, double payable, string limits, string setting, string period, string height, string weight, string instruction, string created, bool sync, string companyID)
-        {
-            this.Id = id;
-            this.Date = date;
-            this.No = no;
-            this.ItemID = itemID;
-            this.CaseID = caseID;
-            this.DeliveryID = deliveryID;
-            this.Qty = qty;
-            this.Cost = cost;
-            this.Units = units;
-            this.Total = total;
-            this.Tax = tax;
-            this.Coverage = coverage;
-            this.Self = self;
-            this.Payable = payable;
-            this.Limits = limits;
-            this.Setting = setting;
-            this.Period = period;
-            this.Height = height;
-            this.Weight = weight;
-            this.Instruction = instruction;
-            this.Created = created;
-            this.Sync = sync;
-            this.CompanyID = companyID;
-        }
-
-        public static List<CaseTransaction> List()
+      
+  public static List<CaseTransaction> List()
         {
             p.Clear();
             string Q = "SELECT * FROM CaseTransaction ";

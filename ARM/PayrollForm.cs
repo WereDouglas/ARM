@@ -27,23 +27,14 @@ namespace ARM
             fromDate = DateTime.Now.ToString("dd-MM-yyyy");
             toDate = DateTime.Now.ToString("dd-MM-yyyy");
 
-
         }
         List<Schedule> invoices = new List<Schedule>();
 
         DataTable t = new DataTable();
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("YES or No?", "Are you sure you want to delete these Schedules? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -90,7 +81,7 @@ namespace ARM
         private void button1_Click(object sender, EventArgs e)
         {
 
-            
+
             double total = 0;
             double hrs = 0;
             double payOver = 0;
@@ -108,65 +99,69 @@ namespace ARM
             List<OnDays> oD = new List<OnDays>();
             while (Reader1.Read())
             {
-
                 l = new OnDays(Convert.ToDateTime(Reader1["starts"]).ToString("ddd"), Reader1["period"].ToString(), Reader1["userID"].ToString(), Reader1["customerID"].ToString());
                 oD.Add(l);
-              
             }
             DBConnect.CloseConn();
 
 
             Payroll r = new Payroll();
-            string Q = "SELECT users.name,rate.period AS maxs ,customer.name AS client,customer.id AS customerID,rate.amount,account.bank,account.routing,SUM(cast(schedule.period AS float)) AS totalhours,SUM(cast(schedule.cost AS float)) AS cost,schedule.userID AS userID FROM schedule LEFT JOIN users ON schedule.userID = users.id LEFT JOIN customer ON schedule.customerID = customer.id LEFT JOIN rate ON users.id = rate.userID LEFT JOIN account ON users.id = account.userid  WHERE (schedule.date::date >= '" + fromDate + "'::date AND  schedule.date::date <= '" + toDate + "'::date) GROUP BY schedule.userID,users.name,customer.name,users.name,account.bank,account.routing,rate.amount,rate.period,customer.id";
+            string Q = "SELECT users.name,rate.period AS maxs ,customer.name AS client,customer.id AS customerID,rate.amount,account.bank,account.routing,SUM(cast(schedule.period AS float)) AS totalhours,SUM(cast(schedule.cost AS float)) AS cost,schedule.userID AS userID FROM schedule LEFT JOIN users ON schedule.userID = users.id LEFT JOIN customer ON schedule.customerID = customer.id LEFT JOIN rate ON users.id = rate.userID LEFT JOIN account ON users.id = account.userid LEFT JOIN deduction ON users.id = deduction.userID  WHERE (schedule.date::date >= '" + fromDate + "'::date AND  schedule.date::date <= '" + toDate + "'::date) GROUP BY schedule.userID,users.name,customer.name,users.name,account.bank,account.routing,rate.amount,rate.period,customer.id";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             int ct = 0;
             double ded = 0;
-            double rate = 0;
+
             double totalHrs = 0;
             double maxs = 0;
-            while (Reader.Read())
+			double amount = 0;
+			while (Reader.Read())
             {
-               
-                if (ct == 0)
+
+                if (ct == 1)
                 {
                     ded = deductionDictionary.Where(u => u.Key.Contains(Reader["userID"].ToString())).Sum(k => k.Value);
                 }
                 else
                 {
-
                     ded = 0;
-                }          
-                
+                }
+
                 totalHrs = Convert.ToDouble(Reader["totalhours"]);
-                maxs = Convert.ToDouble(Reader["maxs"]);
-                total = Convert.ToDouble(Reader["cost"]);
+				try
+				{
+					maxs = Convert.ToDouble(Reader["maxs"]);
+				}
+				catch {
+				}
+				try
+				{
+					amount = Convert.ToDouble(Reader["amount"]);
+				}
+				catch
+				{
+				}
+				total = Convert.ToDouble(Reader["cost"]);
                 double overtime = 0;
                 if (totalHrs > maxs)
                 {
-
                     overtime = totalHrs - maxs;
                 }
-                else {
-
+                else
+                {
                     overtime = 0;
-                }               
-                double half = Convert.ToDouble(Reader["amount"]) / 2;
-                double timeHalf = Convert.ToDouble(Reader["amount"]) + half;
+                }
+                double half = amount / 2;
+                double timeHalf = amount + half;
                 double overtimePay = timeHalf * overtime;
                 double pay = (total + overtimePay) - ded;
                 string daying = "";
 
-                foreach (OnDays u in oD.Where(y=>y.UserID.Contains(Reader["userID"].ToString()) && y.ClientID.Contains(Reader["customerID"].ToString()))) {
-
-                    daying = daying +  "\r\n" + u.Day + "\t " + u.Hrs; 
-
+                foreach (OnDays u in oD.Where(y => y.UserID.Contains(Reader["userID"].ToString()) && y.ClientID.Contains(Reader["customerID"].ToString())))
+                {
+                    daying = daying + "\n" + u.Day + "\t\t" + u.Hrs;
                 }
-
-                r = new Payroll(Reader["name"].ToString(), Reader["client"].ToString(), Reader["bank"].ToString() + "  " + Reader["routing"].ToString(), daying, days, "", Convert.ToDouble(Reader["totalhours"]), Convert.ToDouble(Reader["amount"]), Convert.ToDouble(Reader["cost"]), ded, pay, overtime,overtimePay);
-
-              
-
+                r = new Payroll(Reader["name"].ToString(), Reader["client"].ToString(), Reader["bank"].ToString() + "  " + Reader["routing"].ToString(), daying, days, "", Convert.ToDouble(Reader["totalhours"]), amount, Convert.ToDouble(Reader["cost"]), ded, pay, overtime, overtimePay);
 
                 reports.Add(r);
                 ct++;
@@ -231,8 +226,10 @@ namespace ARM
             startLbl.Text = Helper.FirstDateOfWeek(year, week).Date.ToString("dd-MM-yyyy");
             endLbl.Text = Convert.ToDateTime(startLbl.Text).AddDays(+6).Date.ToString("dd-MM-yyyy");
         }
-    }
-    public class OnDays {
+    
+}
+    public class OnDays
+    {
 
         string day;
         string hrs;

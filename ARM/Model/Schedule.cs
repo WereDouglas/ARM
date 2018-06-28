@@ -151,6 +151,30 @@ namespace ARM.Model
             return c;
 
         }
+        public static bool Exists(string start, string end, string userID)
+        {
+
+            p.Clear();
+            string Q = "SELECT * FROM schedule WHERE starts = '" + start + "' AND ends ='" + end + "' AND userID = '" + userID + "' ";
+            DBConnect.OpenConn();
+            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            while (Reader.Read())
+            {
+                int week = 0;
+                try { week = Convert.ToInt32(Reader["week"]); }
+                catch { }
+                Schedule ps = new Schedule(Reader["id"].ToString(), Reader["date"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["starts"].ToString(), Reader["ends"].ToString(), Reader["location"].ToString(), Reader["address"].ToString(), Reader["details"].ToString(), Reader["indicator"].ToString(), Reader["period"].ToString(), Reader["category"].ToString(), Reader["status"].ToString(), Convert.ToDouble(Reader["cost"].ToString()), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), week);
+                p.Add(ps);
+            }
+            DBConnect.CloseConn();
+            if (p.Count > 0)
+            {
+                return true;
+
+            }
+            else { return false; }
+
+        }
 
     }
 }

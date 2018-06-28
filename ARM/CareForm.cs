@@ -33,19 +33,15 @@ namespace ARM
             t.Columns.Add(new DataColumn("Select", typeof(bool)));
             t.Columns.Add("ID");
             t.Columns.Add("uriCus");
-            t.Columns.Add(new DataColumn("ImgCus", typeof(Bitmap)));//1  
+            t.Columns.Add(new DataColumn("ImgCus", typeof(Bitmap))); 
             t.Columns.Add("Customer");
             t.Columns.Add("uriUs");
-            t.Columns.Add(new DataColumn("ImgUs", typeof(Bitmap)));//1  
+            t.Columns.Add(new DataColumn("ImgUs", typeof(Bitmap)));
             t.Columns.Add("User");           
             t.Columns.Add("Sync");
-            t.Columns.Add("Created");
-            t.Columns.Add(new DataColumn("View", typeof(Image)));
-            t.Columns.Add(new DataColumn("Delete", typeof(Image)));
-
-            Image view = new Bitmap(Properties.Resources.Note_Memo_16);
+            t.Columns.Add("Created");           
+            t.Columns.Add(new DataColumn("Delete", typeof(Image)));          
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
-
             Bitmap b = new Bitmap(50, 50);
             using (Graphics g = Graphics.FromImage(b))
             {
@@ -56,7 +52,6 @@ namespace ARM
             {
                 g.DrawString("Loading...", this.Font, new SolidBrush(Color.Black), 0f, 0f);
             }
-
             foreach (Responsible c in Responsible.List())
             {
                 string user = "";
@@ -65,12 +60,11 @@ namespace ARM
                 string imageUs = "";
                 try { user = Users.Select(c.UserID).Name; } catch { }
                 try { imageUs = Users.Select(c.UserID).Image; } catch { }
-
                 try { cus = Customer.Select(c.CustomerID).Name; } catch { }
                 try { imageCus = Customer.Select(c.CustomerID).Image; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, imageCus as string, b, cus, imageUs as string, b2, user, c.Sync, c.Created, view, delete });
+                    t.Rows.Add(new object[] { false, c.Id, imageCus as string, b, cus, imageUs as string, b2, user, c.Sync, c.Created, delete });
 
                 }
                 catch (Exception m)
@@ -122,8 +116,6 @@ namespace ARM
                 }
             });
             dtGrid.AllowUserToAddRows = false;
-           
-
             dtGrid.Columns["ID"].Visible = false;
             dtGrid.Columns["uriCus"].Visible = false;
             dtGrid.Columns["uriUs"].Visible = false;
@@ -155,7 +147,7 @@ namespace ARM
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("YES or No?", "Are you sure you want to delete these Responsibles? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MessageBox.Show("YES or No?", "Are you sure you want to delete this information ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
                 foreach (var item in selectedIDs)
@@ -183,24 +175,14 @@ namespace ARM
                     selectedIDs.Add(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString());
                 }
             }
-            if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
-            {
-                using (CareDialog form = new CareDialog(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
-                {
-                    DialogResult dr = form.ShowDialog();
-                    if (dr == DialogResult.OK)
-                    {
-                        LoadData();
-                    }
-                }
-            }
+           
             try
             {
 
                 if (e.ColumnIndex == dtGrid.Columns["Delete"].Index && e.RowIndex >= 0)
                 {
 
-                    if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Responsible? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MessageBox.Show("YES or No?", "Are you sure you want to delete this information ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         string Query = "DELETE from responsible WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
                         DBConnect.QueryPostgre(Query);

@@ -202,7 +202,7 @@ namespace ARM
             }
             if (e.ColumnIndex == dtGrid.Columns["Order Intake"].Index && e.RowIndex >= 0)
             {
-                using (OrderIntakeForm form = new OrderIntakeForm(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString(),""))
+                using (OrderIntakeForm form = new OrderIntakeForm(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
                 {
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)

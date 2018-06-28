@@ -47,9 +47,12 @@ namespace ARM
                     userCbx.Items.Add(v.Name);
                 }
             }
-            
+			userCbx.AutoCompleteMode = AutoCompleteMode.Suggest;
+			userCbx.AutoCompleteSource = AutoCompleteSource.CustomSource;
+			userCbx.AutoCompleteCustomSource = AutoItem;
 
-        }
+
+		}
      
        
 
@@ -61,8 +64,16 @@ namespace ARM
 
         private void button3_Click(object sender, EventArgs e)
         {
-
-            string Q = "select * from rate WHERE userID = '" + UserID + "'";
+			if (string.IsNullOrEmpty(weeklyTxt.Text)) {
+				MessageBox.Show("Input the maximum working hours  per week " +"!");
+				return;
+			}
+			if (string.IsNullOrEmpty(costTxt.Text))
+			{
+				MessageBox.Show("Input Amount !");
+				return;
+			}
+			string Q = "select * from rate WHERE userID = '" + UserID + "'";
             if (Rate.List(Q).Count() > 0) {
                 MessageBox.Show("User rate defined !");
                 return;

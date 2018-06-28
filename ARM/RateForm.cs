@@ -30,7 +30,7 @@ namespace ARM
             t = new DataTable();
             t.Columns.Add(new DataColumn("Select", typeof(bool)));
             t.Columns.Add("ID");
-            t.Columns.Add("Physician");
+            t.Columns.Add("Employee");
             t.Columns.Add("Amount");
             t.Columns.Add("Unit");
             t.Columns.Add("Max");
@@ -61,8 +61,8 @@ namespace ARM
 
             dtGrid.DataSource = t;
             dtGrid.AllowUserToAddRows = false;
-            dtGrid.Columns["Amount"].DefaultCellStyle.BackColor = Color.LightGreen;
-            dtGrid.Columns["Unit"].DefaultCellStyle.BackColor = Color.LightGray;
+           // dtGrid.Columns["Amount"].DefaultCellStyle.BackColor = Color.LightGreen;
+           // dtGrid.Columns["Unit"].DefaultCellStyle.BackColor = Color.LightGray;
             dtGrid.Columns["ID"].Visible = false;
             dtGrid.Columns["userID"].Visible = false;
            

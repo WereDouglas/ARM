@@ -26,8 +26,21 @@ namespace ARM
 
                 Profile(vendorID);
             }
-        }
-        private Vendor c;
+			AutoCompleteState();
+		}
+		private void AutoCompleteState()
+		{
+			AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
+			foreach (String v in States.Abbreviations())
+			{
+				AutoItem.Add((v));
+				stateTxt.Items.Add(v);
+			}
+			stateTxt.AutoCompleteMode = AutoCompleteMode.Suggest;
+			stateTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
+			stateTxt.AutoCompleteCustomSource = AutoItem;
+		}
+		private Vendor c;
         private void Profile(string vendorID)
         {
             VendorID = vendorID;
@@ -80,6 +93,11 @@ namespace ARM
                 Update(VendorID);
                 return;
             }
+			if (string.IsNullOrEmpty(nameTxt.Text)) {
+
+				MessageBox.Show("Information Saved !");
+				return;
+			}
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
 
@@ -134,14 +152,29 @@ namespace ARM
                 e.Handled = true;
             }
         }
-
+		bool complete = true;
         private void emailTxt_Leave(object sender, EventArgs e)
         {
-            if (!Helper.Email(emailTxt.Text))
-            {
-                emailTxt.BackColor = Color.Red;
-                MessageBox.Show("Invalid Email !");
-            }
-        }
+			if (!String.IsNullOrEmpty(emailTxt.Text))
+			{
+				if (!Helper.IsValidEmail(emailTxt.Text))
+				{
+
+					emailTxt.BackColor = Color.Red;
+					MessageBox.Show("Invalid Email !");
+					complete = false;
+				}
+				else
+				{
+					complete = true;
+
+				}
+			}
+			else
+			{
+				emailTxt.BackColor = Color.Red;
+
+			}
+		}
     }
 }

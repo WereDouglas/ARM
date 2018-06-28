@@ -27,8 +27,21 @@ namespace ARM
                 Profile(PractitionerID);
             }
             CustomerID = customerID;
-        }
-        private Practitioner c;
+			AutoCompleteState();
+		}
+		private void AutoCompleteState()
+		{
+			AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
+			foreach (String v in States.Abbreviations())
+			{
+				AutoItem.Add((v));
+				stateTxt.Items.Add(v);
+			}
+			stateTxt.AutoCompleteMode = AutoCompleteMode.Suggest;
+			stateTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
+			stateTxt.AutoCompleteCustomSource = AutoItem;
+		}
+		private Practitioner c;
         private void Profile(string practitionerID)
         {
             PractitionerID = practitionerID;

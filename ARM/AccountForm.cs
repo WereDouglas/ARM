@@ -165,7 +165,25 @@ namespace ARM
                 }
             }
         }
-    }
+
+		private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+		{
+			string columnName = dtGrid.Columns[e.ColumnIndex].HeaderText;
+			try
+			{
+				String Query = "UPDATE account SET " + columnName + " ='" + dtGrid.Rows[e.RowIndex].Cells[columnName].Value.ToString() + "' WHERE Id = '" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
+				DBConnect.QueryPostgre(Query);
+				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+				DBConnect.InsertPostgre(q);
+			}
+			catch (Exception c)
+			{
+				MessageBox.Show(c.Message.ToString());
+				Helper.Exceptions(c.Message, "Editing User cell content grid");
+				MessageBox.Show("You have an invalid entry !");
+			}
+		}
+	}
     
     
 }

@@ -61,8 +61,11 @@ namespace ARM
                     userCbx.Items.Add(v.Name);
                 }
             }
+			userCbx.AutoCompleteMode = AutoCompleteMode.Suggest;
+			userCbx.AutoCompleteSource = AutoCompleteSource.CustomSource;
+			userCbx.AutoCompleteCustomSource = AutoItem;
 
-        }
+		}
         private void AutoCompleteCustomer()
         {
             AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
@@ -77,7 +80,10 @@ namespace ARM
                     customerCbx.Items.Add(c.Name);
                 }
             }
-        }
+			customerCbx.AutoCompleteMode = AutoCompleteMode.Suggest;
+			customerCbx.AutoCompleteSource = AutoCompleteSource.CustomSource;
+			customerCbx.AutoCompleteCustomSource = AutoItem;
+		}
 
 
         private void button2_Click(object sender, EventArgs e)
@@ -88,6 +94,7 @@ namespace ARM
         Schedule _event;
         private void button3_Click(object sender, EventArgs e)
         {
+            
             if (string.IsNullOrEmpty(categoryCbx.Text))
             {
                 categoryCbx.BackColor = Color.Red;
@@ -127,6 +134,12 @@ namespace ARM
                 string ID = Guid.NewGuid().ToString();
                 var start = Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd") + "T" + this.startHrTxt.Text;
                 var end = Convert.ToDateTime(this.endDate.Text).ToString("yyyy-MM-dd") + "T" + this.endHrTxt.Text;
+                if (Schedule.Exists(start, end, UserID))
+                {
+                    MessageBox.Show("Schedule Exists !", "Exists", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 _event = new Schedule(ID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, start, end, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), categoryCbx.Text, periodTxt.Text, categoryCbx.Text, statusCbx.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false, Helper.CompanyID, Week);
                 string save =  DBConnect.InsertPostgre(_event);
                 if (!string.IsNullOrEmpty(save)) {
@@ -164,21 +177,24 @@ namespace ARM
 
                     if (!skipDays.ContainsKey(starts.ToString("dddd")))
                     {
-                        _event = new Schedule(ID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, start, end, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), categoryCbx.Text, periodTxt.Text, categoryCbx.Text, statusCbx.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false, Helper.CompanyID, Week);
-                        string save = DBConnect.InsertPostgre(_event);
-
-                       
-                        if (!string.IsNullOrEmpty(save))
+                        if (Schedule.Exists(start, end, UserID))
                         {
-                            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                            DBConnect.InsertPostgre(q);
+                            MessageBox.Show("Shift exists will not  be saved  !", "Exists", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                           
                         }
+                        else {
+                            _event = new Schedule(ID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, start, end, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), categoryCbx.Text, periodTxt.Text, categoryCbx.Text, statusCbx.Text, Convert.ToDouble(totalTxt.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false, Helper.CompanyID, Week);
+                            string save = DBConnect.InsertPostgre(_event);
 
-                      //  Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                       // DBConnect.InsertPostgre(q);
-                    }
-                    
-                   
+
+                            if (!string.IsNullOrEmpty(save))
+                            {
+                                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                                DBConnect.InsertPostgre(q);
+                            }
+                        }                      
+
+                    }  
                 }
 
             }
@@ -342,7 +358,11 @@ namespace ARM
 
         private void openedDate_ValueChanged(object sender, EventArgs e)
         {
-            fillUp(Convert.ToDateTime(openedDate.Text));
+            try
+            {
+                fillUp(Convert.ToDateTime(openedDate.Text));
+            }
+            catch { }
         }
     }
 }

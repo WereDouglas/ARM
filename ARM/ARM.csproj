@@ -136,6 +136,50 @@
     <Compile Include="AdvancedForm.Designer.cs">
       <DependentUpon>AdvancedForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CertificateInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CertificateInputForm.Designer.cs">
+      <DependentUpon>CertificateInputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InstructionReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InstructionReport.Designer.cs">
+      <DependentUpon>InstructionReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeliveryReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeliveryReport.Designer.cs">
+      <DependentUpon>DeliveryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderReport.Designer.cs">
+      <DependentUpon>OrderReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Certificate.cs" />
+    <Compile Include="Model\States.cs" />
+    <Compile Include="InstructionDeliveryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InstructionDeliveryForm.Designer.cs">
+      <DependentUpon>InstructionDeliveryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CertificateReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CertificateReport.Designer.cs">
+      <DependentUpon>CertificateReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SlipPayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SlipPayForm.Designer.cs">
+      <DependentUpon>SlipPayForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DeductionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,9 +192,22 @@
     <Compile Include="DeductionDialog.Designer.cs">
       <DependentUpon>DeductionDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Pay.cs" />
     <Compile Include="Model\Payroll.cs" />
     <Compile Include="Model\Deduction.cs" />
     <Compile Include="Model\Queries.cs" />
+    <Compile Include="PayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PayForm.Designer.cs">
+      <DependentUpon>PayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SlipForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SlipForm.Designer.cs">
+      <DependentUpon>SlipForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="QueryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -312,12 +369,6 @@
       <DependentUpon>OrderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Orders.cs" />
-    <Compile Include="AddInstructionDelivery.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddInstructionDelivery.Designer.cs">
-      <DependentUpon>AddInstructionDelivery.cs</DependentUpon>
-    </Compile>
     <Compile Include="ScheduleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -524,11 +575,42 @@
     <EmbeddedResource Include="AdvancedForm.resx">
       <DependentUpon>AdvancedForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CertificateInputForm.resx">
+      <DependentUpon>CertificateInputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InstructionReport.resx">
+      <DependentUpon>InstructionReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeliveryReport.resx">
+      <DependentUpon>DeliveryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderReport.resx">
+      <DependentUpon>OrderReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InstructionDeliveryForm.resx">
+      <DependentUpon>InstructionDeliveryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CertificateReport.resx">
+      <DependentUpon>CertificateReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CertificateReport.rdlc" />
+    <EmbeddedResource Include="Reports\DeliveryReport.rdlc" />
+    <EmbeddedResource Include="Reports\InstructionReport.rdlc" />
+    <EmbeddedResource Include="Reports\OrderIntakeReport.rdlc" />
+    <EmbeddedResource Include="SlipPayForm.resx">
+      <DependentUpon>SlipPayForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeductionForm.resx">
       <DependentUpon>DeductionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeductionDialog.resx">
       <DependentUpon>DeductionDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PayForm.resx">
+      <DependentUpon>PayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SlipForm.resx">
+      <DependentUpon>SlipForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QueryForm.resx">
       <DependentUpon>QueryForm.cs</DependentUpon>
@@ -605,9 +687,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OrderForm.resx">
       <DependentUpon>OrderForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddInstructionDelivery.resx">
-      <DependentUpon>AddInstructionDelivery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScheduleForm.resx">
       <DependentUpon>ScheduleForm.cs</DependentUpon>
@@ -700,9 +779,18 @@
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\ARM.Model.CaseTransaction.datasource" />
+    <None Include="Properties\DataSources\ARM.Model.Certificate.datasource" />
+    <None Include="Properties\DataSources\ARM.Model.Coverage.datasource" />
+    <None Include="Properties\DataSources\ARM.Model.Customer.datasource" />
+    <None Include="Properties\DataSources\ARM.Model.Delivery.datasource" />
+    <None Include="Properties\DataSources\ARM.Model.ICD10.datasource" />
+    <None Include="Properties\DataSources\ARM.Model.Instruction.datasource" />
     <None Include="Properties\DataSources\ARM.Model.Invoice.datasource" />
+    <None Include="Properties\DataSources\ARM.Model.Orders.datasource" />
     <None Include="Properties\DataSources\ARM.Model.Payment.datasource" />
     <None Include="Properties\DataSources\ARM.Model.Payroll.datasource" />
+    <None Include="Properties\DataSources\ARM.Model.Practitioner.datasource" />
     <None Include="Properties\DataSources\ARM.Model.Transaction.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -984,6 +1072,8 @@
     <None Include="Resources\Submit-02-16.png" />
     <None Include="Resources\Submit-02-161.png" />
     <None Include="Resources\Search-Find-16.png" />
+    <None Include="Resources\certificatecmn.png" />
+    <None Include="Resources\First-Aid-Kit-02-24.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

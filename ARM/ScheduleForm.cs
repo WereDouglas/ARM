@@ -51,9 +51,9 @@ namespace ARM
             t.Columns.Add("Period");  
             t.Columns.Add("Category");
             t.Columns.Add("Status");
+            t.Columns.Add("Rate");
             t.Columns.Add("Cost");
-            t.Columns.Add("Sync");
-            t.Columns.Add("Created");
+           
             t.Columns.Add("Week");
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));
 
@@ -67,9 +67,10 @@ namespace ARM
                 string cus = "";
                 try { user = Users.Select(c.UserID).Name; } catch { }
                 try { cus = Customer.Select(c.CustomerID).Name; } catch { }
-               // try
-               // {
-                    t.Rows.Add(new object[] { false, c.Id, c.Date, cus, user, c.Starts, c.Ends, c.Location, c.Address, c.Details, c.Indicator, c.Period, c.Category, c.Status, c.Cost, c.Sync, c.Created,c.Week,  delete });
+                // try
+                // {
+                double rate = Convert.ToDouble(c.Cost) / Convert.ToDouble(c.Period);
+                t.Rows.Add(new object[] { false, c.Id, c.Date, cus, user, c.Starts, c.Ends, c.Location, c.Address, c.Details, c.Indicator, c.Period, c.Category, c.Status,rate, c.Cost,c.Week,  delete });
 
                // }
                // catch (Exception m)
@@ -91,17 +92,21 @@ namespace ARM
 
                 try
                 {
-                    summary = row.Cells["Category"].Value.ToString();
+                    summary = row.Cells["Status"].Value.ToString();
                 }
                 catch { }
-                if (summary.Contains("Shift"))
+                if (summary.Contains("Paid"))
                 {
-                    row.DefaultCellStyle.ForeColor = Color.Tomato;
+                    row.DefaultCellStyle.ForeColor = Color.Green;
                     row.DefaultCellStyle.Font = new Font("Calibri", 9.5F, FontStyle.Bold, GraphicsUnit.Pixel);
                 }
-                else
+                else if (summary.Contains("Pending"))
                 {
-                    row.DefaultCellStyle.ForeColor = Color.Pink;
+                    row.DefaultCellStyle.ForeColor = Color.Black;
+                }
+                else {
+
+                    row.DefaultCellStyle.ForeColor = Color.Black;
                 }
 
             }
@@ -169,9 +174,20 @@ namespace ARM
             try
             {
 
-                
+				if (dtGrid.Columns[e.ColumnIndex].Name.Contains("Status"))
+				{
+					using (StateDialog form = new StateDialog(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
+					{
+						DialogResult dr = form.ShowDialog();
+						if (dr == DialogResult.OK)
+						{
 
-            }
+						}
+					}
+
+				}
+
+			}
             catch { }
 
             if (e.ColumnIndex == dtGrid.Columns["Delete"].Index && e.RowIndex >= 0)
@@ -192,18 +208,7 @@ namespace ARM
 
             }
 
-            if (dtGrid.Columns[e.ColumnIndex].Name.Contains("Status"))
-            {
-                using (StateDialog form = new StateDialog(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
-                {
-                    DialogResult dr = form.ShowDialog();
-                    if (dr == DialogResult.OK)
-                    {
-                     
-                    }
-                }
-
-            }
+            
 
 
         }

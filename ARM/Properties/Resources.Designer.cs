@@ -243,6 +243,16 @@ namespace ARM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap certificatecmn {
+            get {
+                object obj = ResourceManager.GetObject("certificatecmn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cheque_24 {
             get {
                 object obj = ResourceManager.GetObject("Cheque-24", resourceCulture);
@@ -486,6 +496,16 @@ namespace ARM.Properties {
         internal static System.Drawing.Bitmap Filter_Edit_24 {
             get {
                 object obj = ResourceManager.GetObject("Filter-Edit-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap First_Aid_Kit_02_24 {
+            get {
+                object obj = ResourceManager.GetObject("First-Aid-Kit-02-24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

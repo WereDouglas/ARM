@@ -246,7 +246,10 @@ namespace ARM
 
                 }
             }
-        }
+			//practitionerCbx.AutoCompleteMode = AutoCompleteMode.Suggest;
+			//practitionerCbx.AutoCompleteSource = AutoCompleteSource.CustomSource;
+			//practitionerCbx.AutoCompleteCustomSource = AutoItem;
+		}
 
         private void AutoCompleteCustomer()
         {
@@ -261,7 +264,10 @@ namespace ARM
                     customerCbx.Items.Add(c.Name);
                 }
             }
-        }
+			customerCbx.AutoCompleteMode = AutoCompleteMode.Suggest;
+			customerCbx.AutoCompleteSource = AutoCompleteSource.CustomSource;
+			customerCbx.AutoCompleteCustomSource = AutoItem;
+		}
         private void AutoCompletePractitioner(string customerID)
         {
             AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();

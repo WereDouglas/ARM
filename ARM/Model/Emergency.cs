@@ -47,15 +47,19 @@ namespace ARM.Model
         }
         public static List<Emergency> List(string Q)
         {
-            p.Clear();
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
-            while (Reader.Read())
-            {
-                Emergency ps = new Emergency(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["gender"].ToString(), Reader["relationship"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
-                p.Add(ps);
-            }
-            DBConnect.CloseConn();
+			try
+			{
+				p.Clear();
+				DBConnect.OpenConn();
+				NpgsqlDataReader Reader = DBConnect.Reading(Q);
+				while (Reader.Read())
+				{
+					Emergency ps = new Emergency(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["gender"].ToString(), Reader["relationship"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
+					p.Add(ps);
+				}
+				DBConnect.CloseConn();
+			}
+			catch { }
             return p;
 
         }

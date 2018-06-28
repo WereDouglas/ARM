@@ -23,9 +23,22 @@ namespace ARM
         {
             InitializeComponent();
             CustomerID = customerID;
-        }
+			AutoCompleteState();
+		}
+		private void AutoCompleteState()
+		{
+			AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
+			foreach (String v in States.Abbreviations())
+			{
+				AutoItem.Add((v));
+				stateTxt.Items.Add(v);
+			}
+			stateTxt.AutoCompleteMode = AutoCompleteMode.Suggest;
+			stateTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
+			stateTxt.AutoCompleteCustomSource = AutoItem;
+		}
 
-        private void button2_Click(object sender, EventArgs e)
+		private void button2_Click(object sender, EventArgs e)
         {
             Close();
         }
@@ -48,7 +61,6 @@ namespace ARM
         {
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
-
             Emergency c = new Emergency(Guid.NewGuid().ToString(),CustomerID, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text,genderCbx.Text,relationshipCbx.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false, Helper.CompanyID, fullimage);
 
             string save = DBConnect.InsertPostgre(c);
