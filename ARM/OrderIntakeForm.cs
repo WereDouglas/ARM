@@ -58,15 +58,14 @@ namespace ARM
 			if (!string.IsNullOrEmpty(orderID))
 			{
 				OrderID = orderID;
-				LoadEdit(OrderID);
-				
+				LoadEdit(OrderID);				
 				try
 				{
 
 				}
 				catch (Exception m)
 				{
-					Helper.Exceptions(m.Message + "Loading order intake form for editing ");
+					Helper.Exceptions(m.Message , "Loading order intake form for editing ");
 
 				}
 
@@ -87,70 +86,7 @@ namespace ARM
 			
 			printdoc1.PrintPage += new PrintPageEventHandler(printdoc1_PrintPage);
 		}
-		private void LoadCase(string id)
-		{
-			
-
-			
-
-			try
-			{
-				//CustomerID = CustomerDictionary[customerCbx.Text];
-				c = new Customer();//.Select(ItemID);
-				c = Customer.Select(CustomerID);
-				subscriberInfoTxt.Text = "Name: " + c.Name + "\t DOB: " + c.Dob + " \r\n Address: " + c.Address + "\r\n City/state: " + c.City + " " + c.State + "\t Zip: " + c.Zip + " \r\n  Phone: " + c.Contact + "\t Soc.Sec.#: " + c.Ssn;
-
-				System.Drawing.Image img = Helper.Base64ToImage(c.Image);
-				System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
-				cusPbx.Image = bmp;
-				GraphicsPath gp = new GraphicsPath();
-				gp.AddEllipse(cusPbx.DisplayRectangle);
-				cusPbx.Region = new Region(gp);
-				cusPbx.SizeMode = PictureBoxSizeMode.StretchImage;
-			}
-			catch { }
-			//try
-			//{
-			string Q = "SELECT * FROM coverage WHERE customerID='" + CustomerID + "' ";
-			foreach (Coverage c in Coverage.List(Q))
-			{
-				insuranceInfoTxt.Text = insuranceInfoTxt.Text + "\r\n " + c.Type + "\r\n" + "Name: " + c.Name + "\t ID# : " + c.No + " \r\n  " + " \r\n  Type: " + c.Type;
-			}
-
-			//}
-			//catch { }
-
-			try
-			{
-				
-				Practitioner c = new Practitioner();//.Select(ItemID);
-				c = Practitioner.Select(PractitionerID);
-				userTxt.Text = "Name: " + c.Name + "\t Speciality" + c.Speciality + " \r\n Address: " + c.Address + "\r\n City/state: " + c.City + " " + c.State + "\t Zip: " + c.Zip + " \r\n  Phone: " + c.Contact + "\t";
-
-				System.Drawing.Image img = Helper.Base64ToImage(c.Image);
-				System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
-				userPbx.Image = bmp;
-				GraphicsPath gp = new GraphicsPath();
-				gp.AddEllipse(cusPbx.DisplayRectangle);
-				userPbx.Region = new Region(gp);
-				userPbx.SizeMode = PictureBoxSizeMode.StretchImage;
-			}
-			catch { }
-			string Qs = "SELECT * FROM casetransaction WHERE caseID = '" + noTxt.Text + "'";
-			foreach (CaseTransaction j in CaseTransaction.List(Qs))
-			{
-				//try
-				//{
-
-				Transaction t = new Transaction(j.Id, j.Date, j.No, j.ItemID, j.CaseID, j.DeliveryID, j.Qty, j.Cost, j.Units, j.Total, j.Tax, j.Coverage, j.Self, j.Payable, j.Limits, j.Setting, j.Period, j.Height, j.Weight, j.Instruction, j.Created, false, Helper.CompanyID);
-				GenericCollection.transactions.Add(t);
-				//}
-				//catch { }
-
-			}
-			LoadTransactions();
-		}
-
+	
 
 		private void LoadEdit(string id)
 		{
@@ -171,8 +107,7 @@ namespace ARM
 			recievedCbx.Text = o.OrderBy;
 			diagnosisTxt.Text = o.Diagnosis;
 			surgeryTxt.Text = o.Surgery;
-			LoadCase(o.No);
-			
+		    typeCbx.Text = o.CustomerType;
 			setupDate.Text = Convert.ToDateTime(o.SetupDate).ToString("dd-MM-yyyy");			
 			
 			neededDateTxt.Text = Convert.ToDateTime(o.DateNeeded).ToString("dd-MM-yyyy");
@@ -245,9 +180,70 @@ namespace ARM
 
 			}
 			catch { }
-			LoadTransactions();
+			LoadCase(o.No);
 
 		}
+		private void LoadCase(string id)
+		{
+			try
+			{
+				//CustomerID = CustomerDictionary[customerCbx.Text];
+				c = new Customer();//.Select(ItemID);
+				c = Customer.Select(CustomerID);
+				subscriberInfoTxt.Text = "Name: " + c.Name + "\t DOB: " + c.Dob + " \r\n Address: " + c.Address + "\r\n City/state: " + c.City + " " + c.State + "\t Zip: " + c.Zip + " \r\n  Phone: " + c.Contact + "\t Soc.Sec.#: " + c.Ssn;
+
+				System.Drawing.Image img = Helper.Base64ToImage(c.Image);
+				System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
+				cusPbx.Image = bmp;
+				GraphicsPath gp = new GraphicsPath();
+				gp.AddEllipse(cusPbx.DisplayRectangle);
+				cusPbx.Region = new Region(gp);
+				cusPbx.SizeMode = PictureBoxSizeMode.StretchImage;
+			}
+			catch { }
+			//try
+			//{
+			string Q = "SELECT * FROM coverage WHERE customerID='" + CustomerID + "' ";
+			foreach (Coverage c in Coverage.List(Q))
+			{
+				insuranceInfoTxt.Text = insuranceInfoTxt.Text + "\r\n " + c.Type + "\r\n" + "Name: " + c.Name + "\t ID# : " + c.No + " \r\n  " + " \r\n  Type: " + c.Type;
+			}
+
+			//}
+			//catch { }
+
+			try
+			{
+
+				Practitioner c = new Practitioner();//.Select(ItemID);
+				c = Practitioner.Select(PractitionerID);
+				userTxt.Text = "Name: " + c.Name + "\t Speciality" + c.Speciality + " \r\n Address: " + c.Address + "\r\n City/state: " + c.City + " " + c.State + "\t Zip: " + c.Zip + " \r\n  Phone: " + c.Contact + "\t";
+
+				System.Drawing.Image img = Helper.Base64ToImage(c.Image);
+				System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
+				userPbx.Image = bmp;
+				GraphicsPath gp = new GraphicsPath();
+				gp.AddEllipse(cusPbx.DisplayRectangle);
+				userPbx.Region = new Region(gp);
+				userPbx.SizeMode = PictureBoxSizeMode.StretchImage;
+			}
+			catch { }
+			GenericCollection.transactions.Clear();
+			string Qs = "SELECT * FROM casetransaction WHERE caseID = '" + noTxt.Text + "'";
+			foreach (CaseTransaction j in CaseTransaction.List(Qs))
+			{
+				//try
+				//{
+
+				Transaction t = new Transaction(j.Id, j.Date, j.No, j.ItemID, j.CaseID, j.DeliveryID, j.Qty, j.Cost, j.Units, j.Total, j.Tax, j.Coverage, j.Self, j.Payable, j.Limits, j.Setting, j.Period, j.Height, j.Weight, j.Instruction, j.Created, false, Helper.CompanyID);
+				GenericCollection.transactions.Add(t);
+				//}
+				//catch { }
+
+			}
+			LoadTransactions();
+		}
+
 		private void metroLabel1_Click(object sender, EventArgs e)
 		{
 
@@ -290,7 +286,7 @@ namespace ARM
 			{
 				foreach (Transaction t in GenericCollection.transactions)
 				{
-					CaseTransaction c = new CaseTransaction(t.Id, Convert.ToDateTime(orderDateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, noTxt.Text, "", t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
+					CaseTransaction c = new CaseTransaction(t.Id, Convert.ToDateTime(orderDateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, noTxt.Text,"", t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
 					string saving = DBConnect.InsertPostgre(c);
 					if (saving != "")
 					{
@@ -462,9 +458,9 @@ namespace ARM
 			t.Columns.Add("ItemID");
 			t.Columns.Add("Product");
 			t.Columns.Add("Qty");
-			t.Columns.Add("Cost");
+			t.Columns.Add("Unit Cost");
 			t.Columns.Add("Total");
-			t.Columns.Add("Limit");
+			t.Columns.Add("Limits");
 			t.Columns.Add("Setting");
 			t.Columns.Add("Period");
 			t.Columns.Add("Height");
@@ -479,13 +475,13 @@ namespace ARM
 				try
 				{
 					k = Product.Select(j.ItemID);
-					t.Rows.Add(new object[] { j.Id, j.ItemID, k.Name, j.Qty, j.Cost.ToString("N0"), j.Total.ToString("N0"), j.Limits, j.Setting, j.Period, j.Height, j.Weight, j.Instruction, delete });
+					t.Rows.Add(new object[] { j.Id, j.ItemID, k.Name, j.Qty, Convert.ToDouble(k.Cost).ToString("N0"), j.Total.ToString("N0"), j.Limits, j.Setting, j.Period, j.Height, j.Weight, j.Instruction, delete });
 
 				}
 				catch (Exception m)
 				{
 					MessageBox.Show("" + m.Message);
-					Helper.Exceptions(m.Message + "Viewing users {each transaction list }" + j.ItemID);
+					Helper.Exceptions(m.Message , "Viewing users {each transaction list }" + j.ItemID);
 				}
 			}
 			Total = Transaction.List(Q).Sum(r => r.Total);
@@ -500,20 +496,6 @@ namespace ARM
 			dtGrid.Columns["id"].Visible = false;
 			dtGrid.Columns["ItemID"].Visible = false;
 		}
-
-		private void kinCbx_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			try
-			{
-				// EmergencyID = kinDictionary[kinCbx.Text];
-				Emergency c = new Emergency();//.Select(ItemID);
-				c = Emergency.Select(EmergencyID);
-				// emergencyDetails.Text = "Name: " + c.Name + "\t \r\n Address: " + c.Address + "\r\n City/state: " + c.City + " " + c.State + "\t Zip: " + c.Zip + " \r\n  Phone: " + c.Contact + "\t Relationship" + c.Relationship + "\t ";
-
-			}
-			catch { }
-		}
-
 		private void updateBtn_Click(object sender, EventArgs e)
 		{
 			string hospital = hospitalChk.Checked ? "Yes" : "No";
@@ -529,15 +511,10 @@ namespace ARM
 			string contacted = contactedChk.Checked ? "Yes" : "No";
 			string sent = cmnSentChk.Checked ? "Yes" : "No";
 			string returned = cmnReturnedChk.Checked ? "Yes" : "No";
-
-
-			var DischargeJson = JsonConvert.SerializeObject(DischargeDictionary);
-			var ActionJson = JsonConvert.SerializeObject(ActionDictionary);
-			var SetupJson = JsonConvert.SerializeObject(SetupDictionary);
+			
 			string id = Guid.NewGuid().ToString();
 			if (MessageBox.Show("YES or NO?", "Update this Order? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
 			{
-
 				Orders i = new Orders(OrderID, noTxt.Text, CustomerID, Helper.UserID, Convert.ToDateTime(orderDateTxt.Text).ToString("dd-MM-yyyy"), recievedCbx.Text, Convert.ToDateTime(dispenseDateTxt.Text).ToString("dd-MM-yyyy"), dispensedCbx.Text, typeCbx.Text, diagnosisTxt.Text, surgeryTxt.Text, Convert.ToDateTime(clinicalDateTxt.Text).ToString("dd-MM-yyyy"), specificTxt.Text, hospital, home, preopRm, preopHome, postopRm, roomTxt.Text, Convert.ToDateTime(setupDate.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(neededDateTxt.Text).ToString("dd-MM-yyyy"), facility, clinic, otherTxt.Text, notified, authorisation, insurance, contacted, sent, returned, Convert.ToDateTime(dateSentTxt.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(dateReturnedTxt.Text).ToString("dd-MM-yyyy"), PractitionerID, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
 				string save = DBConnect.UpdatePostgre(i, OrderID);
 				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
@@ -545,8 +522,6 @@ namespace ARM
 
 				MessageBox.Show("Information Updated ! ");
 				this.Close();
-
-
 			}
 		}
 
@@ -689,15 +664,30 @@ namespace ARM
 				{
 					if (MessageBox.Show("YES or No?", "Are you sure you want to remove this product ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
 					{
+						Helper.Log(Helper.UserName, "Deleting of transactions on order intake " + noTxt.Text + "");
+
+						string Query = "DELETE from casetransaction WHERE itemid ='" + dtGrid.Rows[e.RowIndex].Cells["ItemID"].Value.ToString() + "' and no = '"+noTxt.Text+"'";
+						DBConnect.QueryPostgre(Query);
+						Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+						DBConnect.InsertPostgre(q);
+						MessageBox.Show("Information deleted");
+
+
 						var itemToRemove = GenericCollection.transactions.Single(r => r.ItemID == dtGrid.Rows[e.RowIndex].Cells["ItemID"].Value.ToString());
 						GenericCollection.transactions.Remove(itemToRemove);
+
 						LoadTransactions();
-						//Helper.Log(Helper.userID, Helper.username, "Updated rent values " + updateID + "- " + dtGrid.Rows[e.RowIndex].Cells["date"].Value.ToString());
+						
 					}
 				}
 
 			}
-			catch { }
+			catch(Exception c) {
+
+
+				Helper.Exceptions(c.Message, "Deleting on order intake Grid data ");
+
+			}
 		}
 
 		private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -718,13 +708,13 @@ namespace ARM
 			//	MessageBox.Show("You have an invalid entry !");
 			//}
 
-			Update("coverage", dtGrid.Columns[e.ColumnIndex].HeaderText, dtGrid.Rows[e.RowIndex].Cells[columnName].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+			Update("casetransaction", dtGrid.Columns[e.ColumnIndex].HeaderText, dtGrid.Rows[e.RowIndex].Cells[columnName].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Id"].Value.ToString());
 		}
 		private void Update(string table, string column, string value, string id)
 		{
 			try
 			{
-				String Query = "UPDATE " + table + " SET " + column + " ='" + value + "' WHERE Id = '" + id + "'";
+				String Query = "UPDATE " + table + " SET " + column.ToLower() + " ='" + value + "' WHERE id = '" + id + "'";
 				DBConnect.QueryPostgre(Query);
 				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
 				DBConnect.InsertPostgre(q);

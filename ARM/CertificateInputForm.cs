@@ -39,6 +39,8 @@ namespace ARM
 			AutoCompleteUser();
 			AutoCompleteCustomer();
 			AutoCompleteEmergency();
+			GenericCollection.icd10 = new List<ICD10>();
+			GenericCollection.transactions = new List<Transaction>();
 			if (!string.IsNullOrEmpty(id))
 			{
 				LoadEdit(id);
@@ -48,19 +50,21 @@ namespace ARM
 				}
 				catch (Exception m)
 				{
-					Helper.Exceptions(m.Message + "Loading order intake form for editing ");
+					Helper.Exceptions(m.Message, "Loading order intake form for editing ");
 
 				}
 			}
-			if (!string.IsNullOrEmpty(no))
+			else
 			{
-				noTxt.Text = no;
-				updateBtn.Visible = false;
+				
+				if (!string.IsNullOrEmpty(no))
+				{
+					LoadOrder(no);
+					noTxt.Text = no;
+					updateBtn.Visible = false;
 
-			}
-			if (!string.IsNullOrEmpty(no))
-			{
-				LoadOrder(no);
+				}
+				
 			}
 			printdoc1.PrintPage += new PrintPageEventHandler(printdoc1_PrintPage);
 		}
@@ -141,30 +145,64 @@ namespace ARM
 			LoadTransactions();
 			dateTxt.Text= Convert.ToDateTime(DateTime.Now).ToString("MM/dd/yyyy");
 			dayTxt.Text = Convert.ToDateTime(DateTime.Now).ToString("MM/dd/yyyy");
+			LoadDiagnosis();
 		}
 
 		double Total = 0;
 
-		private Instruction i;
+		private Certificate i;
 
 		private void LoadEdit(string id)
 		{
 			submitBtn.Visible = false;
 			ID = id;
-			i = new Instruction();//.Select(UsersID);
-			i = Instruction.Select(id);
+			i = new Certificate();//.Select(UsersID);
+			try
+			{
+				i = Certificate.Select(id);
+			}
+			catch
+			{
 
-			CustomerID = i.CustomerID;
-			noTxt.Text = i.No;					
+				MessageBox.Show("Certificate information not yet saved");
 
-			Dictionary<string, bool> safetyValues = JsonConvert.DeserializeObject<Dictionary<string, bool>>(i.Safety);
-			
+			}			
+			noTxt.Text = i.No;
+			idTxt.Text = i.CusID;
+			patientNameTxt.Text = i.CusName;
+			dobTxt.Text = i.CusDob;
+			contactTxt.Text = i.CusPhone;
+
+			providerIDTxt.Text = i.PracID;
+			providerNameTxt.Text = i.ProvName;
+			providerUserTxt.Text = i.PracName;
+			providerPhoneTxt.Text = i.ProvPhone;
+			additionalTxt.Text = i.Additional;
+			if (i.Mobility == true) { mobYesBn.Checked = true; }if (i.Mobility == false) { mobNoBn.Checked = true; }
+			if (i.Endurance == true) { enduranceBn.Checked = true; }if (i.Endurance == false) { enduranceNoBn.Checked = true; }
+			if (i.Activity == true) { activityBn.Checked = true; } if (i.Activity == false) { activityNoBn.Checked = true; }
+			if (i.Skin == true) { skinBn.Checked = true; }if (i.Skin == false) { skinNoBn.Checked = true; }
+			if (i.Respiration == true) { respirationBn.Checked = true; }	if (i.Respiration == false) { respirationNoBn.Checked = true; }
+			if (i.Adl == true) { adlBn.Checked = true; }if (i.Adl == false) { adlNoBn.Checked = true; }
+			if (i.Speech == true) { speechBn.Checked = true; }if (i.Speech == false) { speechNoBn.Checked = true; }
+			if (i.Nutritional == true) { nutritionBn.Checked = true; }if (i.Nutritional == false) { nutritionNoBn.Checked = true; }
+			if (i.Source=="sole") { sourceSoleBn.Checked = true; } else if(i.Source == "primary") { primarySourceBn.Checked = true; }
+			heightTxt.Text = i.Height.ToString();
+			weightTxt.Text = i.Weight.ToString();
+			dateTxt.Text = i.Date;
+			if (i.Suitable == true) {suitableBn.Checked = true; }if (i.Suitable == false) { suitableNoBn.Checked = true; }
+
+			practitionerTxt.Text = i.PracName;
+			pracIDTxt.Text = i.PracID;
+			signatureTxt.Text = i.PracSign;
+			dateTxt.Text = i.SignDate;
+			phoneTxt.Text = i.PracPhone;
 
 			try
 			{
 				//CustomerID = CustomerDictionary[customerCbx.Text];
 				c = new Customer();//.Select(ItemID);
-				c = Customer.Select(i.CustomerID);
+				c = Customer.Select(i.CusID);				
 				subscriberInfoTxt.Text = "Name: " + c.Name + "\t DOB: " + c.Dob + " \r\n Address: " + c.Address + "\r\n City/state: " + c.City + " " + c.State + "\t Zip: " + c.Zip + " \r\n  Phone: " + c.Contact + "\t Soc.Sec.#: " + c.Ssn;
 
 				System.Drawing.Image img = Helper.Base64ToImage(c.Image);
@@ -178,8 +216,8 @@ namespace ARM
 			catch { }
 			try
 			{
-				string Q = "SELECT * FROM coverage WHERE customerID = '" + i.CustomerID + "' ";
-				foreach (Coverage c in Coverage.List(Q))
+				string Qw = "SELECT * FROM coverage WHERE customerID = '" + i.CusID + "' ";
+				foreach (Coverage c in Coverage.List(Qw))
 				{
 					// insuranceInfoTxt.Text = insuranceInfoTxt.Text + "\r\n" + "Name: " + c.Name + "\t ID# : " + c.No + " \r\n  " + " \r\n  Type: " + c.Type;
 				}
@@ -187,7 +225,10 @@ namespace ARM
 			}
 			catch { }
 
-			LoadTransactions();
+			GenericCollection.transactions.Clear();
+			GenericCollection.icd10.Clear();
+			LoadOrder(id);
+			
 
 		}
 		private void metroLabel1_Click(object sender, EventArgs e)
@@ -228,17 +269,32 @@ namespace ARM
 			string id = Guid.NewGuid().ToString();
 			if (MessageBox.Show("YES or NO?", "Submit Order? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
 			{
-				Certificate i = new Certificate(id, noTxt.Text,idTxt.Text,patientNameTxt.Text,dobTxt.Text,phoneTxt.Text,providerIDTxt.Text,providerNameTxt.Text,providerPhoneTxt.Text,mobility,endurance,activity,skin,respiration,adl,speech,nutritional,source,Convert.ToDouble(weightTxt.Text), Convert.ToDouble(heightTxt.Text),suitable,dayTxt.Text,practitionerTxt.Text,signatureTxt.Text,dateTxt.Text,pracIDTxt.Text,phoneTxt.Text,DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID,poTxt.Text,saturationTxt.Text);
+				Certificate i = new Certificate(id, noTxt.Text,idTxt.Text,patientNameTxt.Text,dobTxt.Text,phoneTxt.Text,providerIDTxt.Text,providerNameTxt.Text,providerPhoneTxt.Text,mobility,endurance,activity,skin,respiration,adl,speech,nutritional,source,Convert.ToDouble(weightTxt.Text), Convert.ToDouble(heightTxt.Text),suitable,dayTxt.Text,practitionerTxt.Text,signatureTxt.Text,dateTxt.Text,pracIDTxt.Text,phoneTxt.Text,DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID,poTxt.Text,saturationTxt.Text,additionalTxt.Text);
 				string save =  DBConnect.InsertPostgre(i);
 				if (save != "")
 				{
 					Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
 					DBConnect.InsertPostgre(q);
+
+
+					foreach (ICD10 t in GenericCollection.icd10)
+					{
+						ICD10 c = new ICD10(t.Id, noTxt.Text, t.Code, t.Name, t.Diagnosis, t.Less6, t.Greater6, t.Onset, t.Created, false, Helper.CompanyID);
+						string doing = DBConnect.InsertPostgre(c);
+						if (doing != "")
+						{
+							Queries qs = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(doing), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+							DBConnect.InsertPostgre(qs);
+						}
+					}
+					
+
 					MessageBox.Show("Information Saved");
 					this.Close();
 				}
 
 			}
+			
 		}
 		private void AutoCompleteUser()
 		{
@@ -385,19 +441,19 @@ namespace ARM
 				catch (Exception m)
 				{
 					MessageBox.Show("" + m.Message);
-					Helper.Exceptions(m.Message + "Viewing  Certificate inputs {each transaction list }" + j.ItemID);
+					Helper.Exceptions(m.Message , "Viewing  Certificate inputs {each transaction list }" + j.ItemID);
 				}
 			}
 			//Total = Transaction.List(Q).Sum(r => r.Total);
 			// totalLbl.Text = Total.ToString("N0");
 
-			dtGrid.DataSource = t;
-		
+			dtGridEquip.DataSource = t;
+
 			// dtGrid.Columns["View"].DefaultCellStyle.BackColor = Color.LightGreen;
 			//  dtGrid.Columns["Delete"].DefaultCellStyle.BackColor = Color.Red;
 
-			dtGrid.Columns["id"].Visible = false;
-			dtGrid.Columns["ItemID"].Visible = false;
+			dtGridEquip.Columns["id"].Visible = false;
+			dtGridEquip.Columns["ItemID"].Visible = false;
 		}
 
 		private void kinCbx_SelectedIndexChanged(object sender, EventArgs e)
@@ -470,6 +526,116 @@ namespace ARM
 		private void textBox9_TextChanged(object sender, EventArgs e)
 		{
 
+		}
+
+		private void button6_Click(object sender, EventArgs e)
+		{
+			if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Certificate ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+			{
+				string Query = "DELETE from certificate WHERE no ='" + noTxt.Text + "'";
+				DBConnect.QueryPostgre(Query);
+				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+				DBConnect.InsertPostgre(q);
+				MessageBox.Show("Information deleted");
+				Helper.Log(Helper.UserName, "Deleted Certificate " + noTxt.Text +" TIME:" + DateTime.Now);
+
+			}
+		}
+
+		private void button9_Click(object sender, EventArgs e)
+		{
+			using (CertificateInputForm form = new CertificateInputForm(noTxt.Text, ""))
+			{
+				DialogResult dr = form.ShowDialog();
+				if (dr == DialogResult.OK)
+				{
+					//LoadData();
+				}
+			}
+
+			//LoadEdit(noTxt.Text);
+			
+
+		}
+
+		private void button10_Click(object sender, EventArgs e)
+		{
+			using (AddDiagnosis form = new AddDiagnosis(noTxt.Text, CustomerID))
+			{
+				DialogResult dr = form.ShowDialog();
+				if (dr == DialogResult.OK)
+				{
+					LoadDiagnosis();
+				}
+			}
+		}
+		public void LoadDiagnosis()
+		{
+			string Qs = "SELECT * FROM icd10 WHERE no = '" + noTxt.Text + "'";
+			GenericCollection.icd10 = ICD10.List(Qs);
+
+
+			// create and execute query  
+			t = new DataTable();
+
+			t.Columns.Add("id");
+			t.Columns.Add("Code");
+			t.Columns.Add("Name");
+			t.Columns.Add("Diagnosis");
+			t.Columns.Add("Less than 6 months");
+			t.Columns.Add("Greater than 6 months");
+			t.Columns.Add("Date of onset");
+			t.Columns.Add(new DataColumn("Delete", typeof(Image)));
+
+			Image delete = new Bitmap(Properties.Resources.Cancel_16);
+
+			foreach (ICD10 j in GenericCollection.icd10)
+			{
+				try
+				{
+
+					t.Rows.Add(new object[] { j.Id, j.Code, j.Name,j.Diagnosis,j.Less6,j.Greater6,j.Onset, delete });
+
+				}
+				catch (Exception m)
+				{
+					MessageBox.Show("" + m.Message);
+					Helper.Exceptions(m.Message, "Viewing users {each transaction list }" + j.Name);
+				}
+			}
+
+			dtGrid.DataSource = t;
+			dtGrid.AllowUserToAddRows = false;
+			// dtGrid.Columns["View"].DefaultCellStyle.BackColor = Color.LightGreen;
+			//  dtGrid.Columns["Delete"].DefaultCellStyle.BackColor = Color.Red;
+
+			dtGrid.Columns["id"].Visible = false;
+		}
+
+		private void dtGridEquip_CellClick(object sender, DataGridViewCellEventArgs e)
+		{
+			try
+			{
+				if (e.ColumnIndex == dtGrid.Columns["Delete"].Index && e.RowIndex >= 0)
+				{
+					if (MessageBox.Show("YES or No?", "Are you sure you want to remove this information ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+					{
+						Helper.Log(Helper.UserName, "Deleting of ICD10 list on CMN " + noTxt.Text + "");
+						string Query = "DELETE from icd10 WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
+						DBConnect.QueryPostgre(Query);
+						Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+						DBConnect.InsertPostgre(q);
+						MessageBox.Show("Information deleted");
+						GenericCollection.transactions.Clear();
+						string Q = "SELECT * FROM casetransaction WHERE no = '" + noTxt.Text + "'";
+						LoadDiagnosis();
+					}
+				}
+			}
+			catch (Exception c)
+			{
+				Helper.Exceptions(c.Message, "Deleting on order intake Grid data ");
+			}
 		}
 	}
 }

@@ -58,7 +58,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing customer {each customer list }" + c.No);
+                    Helper.Exceptions(m.Message , "Viewing customer {each customer list }" + c.No);
                 }
             }
 
@@ -84,7 +84,7 @@ namespace ARM
             }
             catch (Exception c)
             {
-                Helper.Exceptions(c.ToString() + "Searching users by selection");
+                Helper.Exceptions(c.Message , "Searching users by selection");
 
             }
         }

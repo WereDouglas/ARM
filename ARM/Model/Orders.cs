@@ -175,17 +175,17 @@ namespace ARM.Model
 		public string CompanyID { get => companyID; set => companyID = value; }
 
 		public static Orders Select(string ID)
-        {
-            string Q = "SELECT * FROM orders WHERE  id = '" + ID + "'";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
-            while (Reader.Read())
-            {
-                c = new Orders(Reader["id"].ToString(), Reader["no"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["orderDateTime"].ToString(), Reader["orderBy"].ToString(), Reader["dispenseDateTime"].ToString(), Reader["dispenseBy"].ToString(), Reader["customerType"].ToString(), Reader["diagnosis"].ToString(), Reader["surgery"].ToString(), Reader["clinicalDate"].ToString(), Reader["instructions"].ToString(), Reader["hospital"].ToString(), Reader["home"].ToString(), Reader["preopRm"].ToString(), Reader["preopHome"].ToString(), Reader["postopRm"].ToString(), Reader["roomNo"].ToString(), Reader["setupDate"].ToString(), Reader["dateNeeded"].ToString(), Reader["facility"].ToString(), Reader["clinic"].ToString(), Reader["other"].ToString(), Reader["notified"].ToString(), Reader["authorised"].ToString(), Reader["insurance"].ToString(), Reader["contacted"].ToString(), Reader["sent"].ToString(), Reader["returned"].ToString(), Reader["dateSent"].ToString(), Reader["dateReturned"].ToString(), Reader["practitionerID"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+		{
+			string Q = "SELECT * FROM orders WHERE  id = '" + ID + "'";
+			DBConnect.OpenConn();
+			NpgsqlDataReader Reader = DBConnect.Reading(Q);
+			while (Reader.Read())
+			{
+				c = new Orders(Reader["id"].ToString(), Reader["no"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["orderDateTime"].ToString(), Reader["orderBy"].ToString(), Reader["dispenseDateTime"].ToString(), Reader["dispenseBy"].ToString(), Reader["customerType"].ToString(), Reader["diagnosis"].ToString(), Reader["surgery"].ToString(), Reader["clinicalDate"].ToString(), Reader["instructions"].ToString(), Reader["hospital"].ToString(), Reader["home"].ToString(), Reader["preopRm"].ToString(), Reader["preopHome"].ToString(), Reader["postopRm"].ToString(), Reader["roomNo"].ToString(), Reader["setupDate"].ToString(), Reader["dateNeeded"].ToString(), Reader["facility"].ToString(), Reader["clinic"].ToString(), Reader["other"].ToString(), Reader["notified"].ToString(), Reader["authorised"].ToString(), Reader["insurance"].ToString(), Reader["contacted"].ToString(), Reader["sent"].ToString(), Reader["returned"].ToString(), Reader["dateSent"].ToString(), Reader["dateReturned"].ToString(), Reader["practitionerID"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
 			}
 			DBConnect.CloseConn();
-            return c;
-
+			return c;
+		
         }
 		public static Orders SelectNo(string no)
 		{

@@ -199,17 +199,17 @@ namespace ARM
                             DBConnect.InsertPostgre(q);
                         }
                     }
-                    foreach (ICD10 t in GenericCollection.icd10)
-                    {
-                        ICD10 c = new ICD10(t.Id, CaseID, t.Code, t.Name, t.Created, false, Helper.CompanyID);
-                        string doing = DBConnect.InsertPostgre(c);
-                        if (doing != "")
-                        {
+                    //foreach (ICD10 t in GenericCollection.icd10)
+                    //{
+                    //    ICD10 c = new ICD10(t.Id, CaseID, t.Code, t.Name, t.Created, false, Helper.CompanyID);
+                    //    string doing = DBConnect.InsertPostgre(c);
+                    //    if (doing != "")
+                    //    {
 
-                            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(doing), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                            DBConnect.InsertPostgre(q);
-                        }
-                    }
+                    //        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(doing), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    //        DBConnect.InsertPostgre(q);
+                    //    }
+                    //}
                     // ItemCoverage t = new ItemCoverage(id,TransID,ItemID,CoverID,Convert.ToDouble(percTxt.Text), Convert.ToDouble(amountTxt.Text),DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false,Helper.CompanyID);
 
 
@@ -422,7 +422,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing users {each transaction list }" + j.ItemID);
+                    Helper.Exceptions(m.Message , "Viewing users {each transaction list }" + j.ItemID);
                 }
             }
             Total = GenericCollection.transactions.Sum(r => r.Total);
@@ -460,7 +460,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing users {each transaction list }" + j.Name);
+                    Helper.Exceptions(m.Message , "Viewing users {each transaction list }" + j.Name);
                 }
             }
 
@@ -563,19 +563,19 @@ namespace ARM
                 }
                 if (MessageBox.Show("YES or NO?", "Would you like to add these products to your case list ?  ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    string Query = "DELETE from icd10 WHERE caseID ='" + CaseID + "'";
-                    DBConnect.QueryPostgre(Query);
+                    //string Query = "DELETE from icd10 WHERE caseID ='" + CaseID + "'";
+                    //DBConnect.QueryPostgre(Query);
 
-                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                    DBConnect.InsertPostgre(q);
-                    foreach (ICD10 t in GenericCollection.icd10)
-                    {
-                        ICD10 c = new ICD10(t.Id, CaseID, t.Code, t.Name, t.Created, false, Helper.CompanyID);
-                        string sv = DBConnect.UpdatePostgre(c, t.Id);
+                    //Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    //DBConnect.InsertPostgre(q);
+                    //foreach (ICD10 t in GenericCollection.icd10)
+                    //{
+                    //    ICD10 c = new ICD10(t.Id, CaseID, t.Code, t.Name, t.Created, false, Helper.CompanyID);
+                    //    string sv = DBConnect.UpdatePostgre(c, t.Id);
 
-                        Queries qy = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(sv), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                        DBConnect.InsertPostgre(qy);
-                    }
+                    //    Queries qy = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(sv), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    //    DBConnect.InsertPostgre(qy);
+                    //}
                 }
 
                 // foreach (ItemCoverage t in GenericCollection.itemCoverage)

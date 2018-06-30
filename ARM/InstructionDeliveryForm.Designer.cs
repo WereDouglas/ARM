@@ -28,9 +28,9 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InstructionDeliveryForm));
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -144,9 +144,10 @@
 			// 
 			// panel1
 			// 
+			this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.panel1.AutoScroll = true;
 			this.panel1.Controls.Add(this.tableLayoutPanel1);
-			this.panel1.Location = new System.Drawing.Point(8, 63);
+			this.panel1.Location = new System.Drawing.Point(10, 63);
 			this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(1139, 830);
@@ -1019,36 +1020,36 @@
 			// 
 			// dtGrid
 			// 
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dtGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dtGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
 			this.dtGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dtGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
 			this.dtGrid.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
 			this.dtGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dtGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 			this.dtGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGrid.DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGrid.DefaultCellStyle = dataGridViewCellStyle8;
 			this.dtGrid.GridColor = System.Drawing.SystemColors.ButtonFace;
 			this.dtGrid.Location = new System.Drawing.Point(11, 312);
 			this.dtGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.dtGrid.Name = "dtGrid";
 			this.dtGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
 			this.dtGrid.RowHeadersVisible = false;
 			this.dtGrid.RowHeadersWidth = 20;
 			this.dtGrid.Size = new System.Drawing.Size(448, 207);
@@ -1414,15 +1415,17 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
-			this.ClientSize = new System.Drawing.Size(1170, 970);
+			this.ClientSize = new System.Drawing.Size(1175, 970);
 			this.Controls.Add(this.updateBtn);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.submitBtn);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.panel1);
 			this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "InstructionDeliveryForm";
 			this.Text = "DME Instruction Delivery";
+			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.panel1.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.panel4.ResumeLayout(false);

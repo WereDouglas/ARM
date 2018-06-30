@@ -48,7 +48,7 @@ namespace ARM
 			DataSet ds3 = new DataSet();
 			da3.Fill(ds3);
 
-			Npgsql.NpgsqlDataAdapter da2 = new Npgsql.NpgsqlDataAdapter("SELECT product.name AS itemID ,product.code AS self,product.description AS tax,transaction.cost,transaction.date as date,transaction.no as no,transaction.total as total,transaction.qty as qty,transaction.cost,transaction.created,transaction.sync FROM transaction LEFT join product ON transaction.itemID = product.id  WHERE transaction.no='" + No + "'", DBConnect.conn);
+			Npgsql.NpgsqlDataAdapter da2 = new Npgsql.NpgsqlDataAdapter("SELECT product.name AS itemID ,product.code AS self,product.description AS tax,casetransaction.cost,casetransaction.date as date,casetransaction.no as no,casetransaction.total as total,casetransaction.qty as qty,casetransaction.cost,casetransaction.created,casetransaction.sync,casetransaction.height,casetransaction.limits,casetransaction.weight,casetransaction.setting,casetransaction.instruction,casetransaction.period FROM casetransaction LEFT join product ON casetransaction.itemID = product.id  WHERE casetransaction.no='" + No + "'", DBConnect.conn);
 			DataSet ds2 = new DataSet();
 			da2.Fill(ds2);
 			

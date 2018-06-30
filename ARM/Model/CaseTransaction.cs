@@ -119,7 +119,9 @@ namespace ARM.Model
         }
         public static List<CaseTransaction> List(string Q)
         {
-            p.Clear();
+			try
+			{
+				p.Clear();
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
@@ -128,7 +130,9 @@ namespace ARM.Model
                 p.Add(ps);
             }
             DBConnect.CloseConn();
-            return p;
+			}
+			catch { }
+			return p;
         }
         public static List<CaseTransaction> ListOnline(string Q)
         {

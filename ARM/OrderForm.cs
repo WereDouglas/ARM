@@ -100,7 +100,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing customer {each customer list } Setup date" + c.ClinicalDate);
+                    Helper.Exceptions(m.Message , "Viewing customer {each customer list } Setup date" + c.ClinicalDate);
                 }
             }
             dtGrid.DataSource = t;
@@ -156,7 +156,7 @@ namespace ARM
             }
             catch (Exception c)
             {
-                Helper.Exceptions(c.ToString() + "Searching users by selection");
+                Helper.Exceptions(c.Message , "Searching users by selection");
 
             }
         }

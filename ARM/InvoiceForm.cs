@@ -128,7 +128,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message + "Viewing Invoice {each Invoice list }" + c.No);
-                    Helper.Exceptions(m.Message + "Viewing Invoice {each Invoice list }" + c.No);
+                    Helper.Exceptions(m.Message ,"Viewing Invoice {each Invoice list }" + c.No);
                 } 
             }
             DataTable trans = new DataTable();
@@ -156,7 +156,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message + "Viewing Transaction {each Transaction list }" + c.No);
-                    Helper.Exceptions(m.Message + "Viewing Transaction {each Transaction list }" + c.No);
+                    Helper.Exceptions(m.Message , "Viewing Invoice form loading list {each Transaction list }" + c.No);
                 }
             }
             //DataSet dsDataset = new DataSet();
@@ -188,7 +188,7 @@ namespace ARM
             }
             catch (Exception c)
             {
-                Helper.Exceptions(c.ToString() + "Searching users by selection");
+                Helper.Exceptions(c.ToString() , "Invoice search filters ");
 
             }
         }

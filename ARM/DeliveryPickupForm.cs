@@ -28,12 +28,13 @@ namespace ARM
             InitializeComponent();
             AutoCompleteUser();
 
-            if (!string.IsNullOrEmpty(id))
-            {
-                ID = id;
-                LoadDelivery(id);
+			if (!string.IsNullOrEmpty(id))
+			{
+				ID = id;
+				LoadDelivery(id);
 
-            }
+			}
+			else { updateBtn.Visible = false; }
             if (!string.IsNullOrEmpty(no))
             {
 
@@ -52,7 +53,7 @@ namespace ARM
         }
         private void LoadOrder(string no)
         {
-            updateBtn.Visible = false;
+           
             Orders o;
             GenericCollection.transactions = new List<Transaction>();
             No = no;
@@ -63,9 +64,10 @@ namespace ARM
             PractitionerID = o.PractitionerID;
             No = o.No;
             UserID = o.UserID;
-            userCbx.Text = UserDictionary.First(e => e.Value == o.UserID).Key; 
+            userCbx.Text = UserDictionary.First(e => e.Value == o.UserID).Key;
+			CaseID = o.No;
 
-            try
+			try
             {
                 //CustomerID = CustomerDictionary[customerCbx.Text];
                 c = new Customer();//.Select(ItemID);
@@ -104,30 +106,36 @@ namespace ARM
                 //try
                 //{
 
-                Transaction t = new Transaction(j.Id, j.Date, j.No, j.ItemID, j.CaseID, j.DeliveryID, j.Qty, j.Cost, j.Units, j.Total, j.Tax, j.Coverage, j.Self, j.Payable, j.Limits, j.Setting, j.Period, j.Height, j.Weight, j.Instruction, j.Created, false, Helper.CompanyID);
+                Transaction t = new Transaction(j.Id, j.Date, j.No, j.ItemID, noTxt.Text, j.DeliveryID, j.Qty, j.Cost, j.Units, j.Total, j.Tax, j.Coverage, j.Self, j.Payable, j.Limits, j.Setting, j.Period, j.Height, j.Weight, j.Instruction, j.Created, false, Helper.CompanyID);
                 GenericCollection.transactions.Add(t);
                 //}
                 //catch { }
 
             }
+
+
             LoadTransactions();
-        }
+			//string Q = "SELECT * FROM transaction WHERE no = '" + noTxt.Text + "'";
+			//GenericCollection.transactions = Transaction.List(Q);
+			//LoadTransactions();
+		}
 
 
         private void LoadDelivery(string id)
         {
             btnSubmit.Visible = false;
-            GenericCollection.transactions = new List<Transaction>();
+			updateBtn.Visible = true;
+			GenericCollection.transactions = new List<Transaction>();
             ID = id;
             Delivery o = new Delivery();//.Select(UsersID);
             o = Delivery.Select(id);
-
-            CustomerID = o.CustomerID;
+			if (o.Deliveries == "Yes") { deliveryChk.Checked = true; }
+			if (o.Followup == "Yes") { followupChk.Checked = true; }
+			if (o.Pickup == "Yes") { pickupChk.Checked = true; }
+			CustomerID = o.CustomerID;
             PractitionerID = o.PractitionerID;
 
-            string Q = "SELECT * FROM transaction WHERE no = '" + noTxt.Text + "'";
-            GenericCollection.transactions = Transaction.List(Q);
-            LoadTransactions();
+           
             dateTxt.Text = o.Date;
 
             //type
@@ -200,7 +208,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing Items in Delivery form on load {each transaction list }" + j.ItemID);
+                    Helper.Exceptions(m.Message , "Viewing Items in Delivery form on load {each transaction list }" + j.ItemID);
                 }
             }
             Total = GenericCollection.transactions.Sum(r => r.Total);
@@ -296,8 +304,12 @@ namespace ARM
 			 if( deliveryChk.Checked) type = "Delivery" ;
 			if (followupChk.Checked) type = "Follow up";
 			if (pickupChk.Checked) type = "Pickup";
-			
 
+			if (string.IsNullOrEmpty(type)) {
+
+				MessageBox.Show("Delivery /follow up / pick up ? ");
+				return;
+			}
 			double tax = GenericCollection.transactions.Sum(x => x.Tax);
             double amount = GenericCollection.transactions.Sum(x => x.Payable);
             string method = "Invoice";
@@ -318,20 +330,20 @@ namespace ARM
 
             string savef = DBConnect.InsertPostgre(i);
             if ( savef!= "")
-            {
-                save = DBConnect.InsertPostgre(i);
+            {  
                 Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(savef), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                 DBConnect.InsertPostgre(q);
+
                 foreach (Transaction t in GenericCollection.transactions)
                 {
                     string it = Guid.NewGuid().ToString();
                     if (!transDic.ContainsKey(it))
                     {
                         transDic.Add(it, t.Date);
-                        Transaction c = new Transaction(it, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, CaseID, id, t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
+                        Transaction c = new Transaction(it, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, noTxt.Text, id, t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
                        
                         save = DBConnect.InsertPostgre(c);
-                        Queries qe = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(save)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        Queries qe = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                         DBConnect.InsertPostgre(qe);
 
                     }
@@ -350,14 +362,11 @@ namespace ARM
 
                 if (e.ColumnIndex == dtGrid.Columns["Delete"].Index && e.RowIndex >= 0)
                 {
-
                     if (MessageBox.Show("YES or No?", "Are you sure you want to remove this product ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    {
-                      
+                    {                      
                         var itemToRemove = GenericCollection.transactions.Single(r => r.ItemID == dtGrid.Rows[e.RowIndex].Cells["ItemID"].Value.ToString());
                         GenericCollection.transactions.Remove(itemToRemove);
                         LoadTransactions();
-
                     }
                 }
 
@@ -490,6 +499,12 @@ namespace ARM
 			if (deliveryChk.Checked) type = "Delivery";
 			if (followupChk.Checked) type = "Follow up";
 			if (pickupChk.Checked) type = "Pickup";
+			if (string.IsNullOrEmpty(type))
+			{
+
+				MessageBox.Show("Delivery /follow up / pick up ? ");
+				return;
+			}
 
 			double tax = GenericCollection.transactions.Sum(x => x.Tax);
             double amount = GenericCollection.transactions.Sum(x => x.Payable);

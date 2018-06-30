@@ -56,7 +56,7 @@ namespace ARM
             catch (Exception t)
             {
                 MessageBox.Show(t.Message);
-                Helper.Exceptions(t.Message + "view load image for Item  ");
+                Helper.Exceptions(t.Message , "view load image for Item  ");
 
             }
         }

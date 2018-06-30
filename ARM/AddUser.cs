@@ -70,7 +70,7 @@ namespace ARM
             catch (Exception t)
             {
                 MessageBox.Show(t.Message);
-                Helper.Exceptions(t.Message + "view load image for window ");
+                Helper.Exceptions(t.Message , "view load image for window ");
 
             }
         }

@@ -104,6 +104,9 @@ C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\bin\Debug\
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.AccountDialog.resources
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.AdvancedForm.resources
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.CertificateInputForm.resources
+C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.LogsForm.resources
+C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.InstructionReport.resources
+C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.DeliveryReport.resources
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.OrderReport.resources
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.InstructionDeliveryForm.resources
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.CertificateReport.resources
@@ -171,5 +174,3 @@ C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.exe
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.pdb
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.csprojResolveAssemblyReference.cache
-C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.InstructionReport.resources
-C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.DeliveryReport.resources

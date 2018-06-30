@@ -70,7 +70,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing customer {each schedule list }" + cus);
+                    Helper.Exceptions(m.Message , "Viewing customer {each schedule list }" + cus);
                 }
             }
 
@@ -135,7 +135,7 @@ namespace ARM
             }
             catch (Exception c)
             {
-                Helper.Exceptions(c.ToString() + "Searching Care of patients by selection");
+                Helper.Exceptions(c.Message , "Searching Care of patients by selection");
 
             }
         }

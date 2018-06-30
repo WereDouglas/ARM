@@ -23,7 +23,8 @@ namespace ARM.Model
             this.Message = message;
             this.Created = created;
             this.Process = process;
-            this.Sync = sync;this.CompanyID = companyID;
+            this.Sync = sync;
+			this.CompanyID = companyID;
         }
 
         static List<Exceptions> p = new List<Exceptions>();

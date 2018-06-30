@@ -101,9 +101,18 @@ namespace ARM
 			}
 
 			Transaction t = new Transaction(TransactionID, Date, No, ItemID, CaseID, "", Convert.ToDouble(qtyTxt.Text), Convert.ToDouble(costTxt.Text), measureTxt.Text, Payable, Tax, TotalCoverage, TotalSelf, Payable, "", "", "", "", "", "", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
-            GenericCollection.transactions.Add(t);
-            this.DialogResult = DialogResult.OK;
-            this.Dispose();
+
+			if (!GenericCollection.transactions.Any(item => item.ItemID == ItemID))
+			{
+				GenericCollection.transactions.Add(t);
+				this.DialogResult = DialogResult.OK;
+				this.Dispose();
+			}
+			else {
+				MessageBox.Show("Item exist in the select items");
+				return;
+
+			}
 
         }
 
@@ -114,7 +123,13 @@ namespace ARM
                 amountTxt.Text = (Convert.ToDouble(costTxt.Text) * Convert.ToDouble(qtyTxt.Text)).ToString();
             }
             catch { }
-        }
+			try
+			{
+				Payable = Math.Round((Convert.ToDouble(amountTxt.Text) + Tax), 2);
+				payableTxt.Text = (Convert.ToDouble(amountTxt.Text) + Tax).ToString();
+			}
+			catch { }
+		}
 
         private void productTxt_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -197,7 +212,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing Coverage {each coverage item in the coverage list }" + j.ItemID);
+                    Helper.Exceptions(m.Message , "Viewing Coverage {each coverage item in the coverage list }" + j.ItemID);
                 }
             }
             VariableTotal = Convert.ToDouble(amountTxt.Text) - GenericCollection.itemCoverage.Sum(r => r.Amount);

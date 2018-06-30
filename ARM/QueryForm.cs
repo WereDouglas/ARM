@@ -51,7 +51,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Loading queries " + c.Querying);
+                    Helper.Exceptions(m.Message , "Loading queries " + c.Querying);
                 }
             }
 
@@ -77,7 +77,7 @@ namespace ARM
             }
             catch (Exception c)
             {
-                Helper.Exceptions(c.ToString() + "Searching by selection on queries");
+                Helper.Exceptions(c.Message , "Searching by selection on queries");
 
             }
         }

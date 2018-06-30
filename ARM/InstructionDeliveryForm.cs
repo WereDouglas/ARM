@@ -48,7 +48,7 @@ namespace ARM
 				}
 				catch (Exception m)
 				{
-					Helper.Exceptions(m.Message + "Loading order intake form for editing ");
+					Helper.Exceptions(m.Message , "Loading order intake form for editing ");
 
 				}
 			}
@@ -274,10 +274,7 @@ namespace ARM
 
 			string type = initialChk.Checked ? "Initial Delivery" : "Follow-up";			
 			appropriate = yesRadioBtn.Checked ? "Yes" : "No";
-			appropriate = noRadioBtn.Checked ? "No" : "Yes";
-			
-			
-			safetyOtherTxt.Text = i.SafetyOther;
+			appropriate = noRadioBtn.Checked ? "No" : "Yes";			
 
 			
 			string id = Guid.NewGuid().ToString();
@@ -443,7 +440,7 @@ namespace ARM
 				catch (Exception m)
 				{
 					MessageBox.Show("" + m.Message);
-					Helper.Exceptions(m.Message + "Viewing users {each transaction list }" + j.ItemID);
+					Helper.Exceptions(m.Message , "Viewing users {each transaction list }" + j.ItemID);
 				}
 			}
 			Total = Transaction.List(Q).Sum(r => r.Total);

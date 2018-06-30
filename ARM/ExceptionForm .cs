@@ -58,14 +58,14 @@ namespace ARM
                 }
                 catch (Exception m)
                 {
-                    MessageBox.Show(""+ m.Message);
+                    MessageBox.Show(" "+ m.Message);
                    
                 }
             }
 
             dtGrid.DataSource = t; 
             dtGrid.AllowUserToAddRows = false;            
-            dtGrid.Columns["Delete"].DefaultCellStyle.BackColor = Color.Red;           
+           // dtGrid.Columns["Delete"].DefaultCellStyle.BackColor = Color.Red;           
             dtGrid.Columns["Id"].Visible = false;   
 
         }
@@ -93,7 +93,7 @@ namespace ARM
             }
             catch (Exception c)
             {
-                Helper.Exceptions(c.ToString() + "Searching Exceptions by filter Field");
+                Helper.Exceptions(c.Message , "Searching Exceptions by filter Field");
 
             }
         }
@@ -105,10 +105,10 @@ namespace ARM
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            string start = Convert.ToDateTime(dateFrom.Text).ToString("yyyy-MM-dd");
-            string end = Convert.ToDateTime(dateTo.Text).ToString("yyyy-MM-dd");
+            string start = Convert.ToDateTime(dateFrom.Text).ToString("dd-MM-yyyy");
+			string end = Convert.ToDateTime(dateTo.Text).ToString("dd-MM-yyyy");
 
-            string Query = "DELETE from exceptions WHERE (created::date >= '" + start + "'::date AND  created::date <= '" + end + "'::date)  ";
+			string Query = "DELETE from exceptions WHERE (created::date >= '" + start + "'::date AND  created::date <= '" + end + "'::date)  ";
             DBConnect.QueryPostgre(Query);
             Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
             DBConnect.InsertPostgre(q);
@@ -118,8 +118,34 @@ namespace ARM
 
         private void dtGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+			try
+			{
 
-        }
+				if (e.ColumnIndex == dtGrid.Columns["Delete"].Index && e.RowIndex >= 0)
+				{
+					if (MessageBox.Show("YES or No?", "Are you sure you want to Delete ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+					{
+						
+						string Query = "DELETE from exceptions WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
+						DBConnect.QueryPostgre(Query);
+						
+						MessageBox.Show("Information deleted");
+
+
+						button1_Click(null, null);
+
+					}
+				}
+
+			}
+			catch (Exception c)
+			{
+
+
+				Helper.Exceptions(c.Message, "Deleting on order intake Grid data ");
+
+			}
+		}
         string toDate;
         string fromDate;
 

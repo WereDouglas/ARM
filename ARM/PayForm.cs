@@ -451,7 +451,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing deductions on slip {each Pay list }" + c.No);
+                    Helper.Exceptions(m.Message , "Viewing deductions on slip {each Pay list }" + c.No);
                 }
             }
             dtSlip.DataSource = t;

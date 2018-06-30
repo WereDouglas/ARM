@@ -56,17 +56,20 @@ namespace ARM
             {
                 string user = "";
                 string cus = "";
-               
-                try { cus = Customer.Select(c.CustomerID).Name; } catch { }
-                try
+				string prac = "";
+
+				try { cus = Customer.Select(c.CustomerID).Name; } catch { }
+				try { prac = Practitioner.Select(c.PractitionerID).Name; } catch { }
+
+				try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, "", c.Date, c.Type,  cus,user,c.Comments, c.DeliveredBy,c.DateReceived,c.ReceivedBy,c.Signature,c.Total.ToString("n0"),c.Created,c.Sync, view, delete });
+                    t.Rows.Add(new object[] { false, c.Id, c.No, c.Date, c.Type,  cus,prac,c.Comments, c.DeliveredBy,c.DateReceived,c.ReceivedBy,c.Signature,c.Total.ToString("n0"),c.Created,c.Sync, view, delete });
 
                 }
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing customer {each customer list }" + c.Date);
+                    Helper.Exceptions(m.Message , "Viewing customer {each customer list }" + c.Date);
                 }
             }
 
@@ -92,7 +95,7 @@ namespace ARM
             }
             catch (Exception c)
             {
-                Helper.Exceptions(c.ToString() + "Searching users by selection");
+                Helper.Exceptions(c.Message , "Searching users by selection");
 
             }
         }
@@ -136,7 +139,7 @@ namespace ARM
             }
             if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
             {
-                using (DeliveryPickupForm form = new DeliveryPickupForm("",dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
+                using (DeliveryPickupForm form = new DeliveryPickupForm(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString(), ""))
                 {
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)

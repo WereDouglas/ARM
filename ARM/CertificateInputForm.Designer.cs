@@ -150,6 +150,9 @@
 			this.button1 = new System.Windows.Forms.Button();
 			this.submitBtn = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
+			this.button6 = new System.Windows.Forms.Button();
+			this.button9 = new System.Windows.Forms.Button();
+			this.button10 = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.panel4.SuspendLayout();
@@ -172,6 +175,7 @@
 			// 
 			// panel1
 			// 
+			this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.panel1.AutoScroll = true;
 			this.panel1.Controls.Add(this.tableLayoutPanel1);
 			this.panel1.Location = new System.Drawing.Point(8, 63);
@@ -218,6 +222,7 @@
 			// 
 			// panel4
 			// 
+			this.panel4.Controls.Add(this.button10);
 			this.panel4.Controls.Add(this.label43);
 			this.panel4.Controls.Add(this.userCbx);
 			this.panel4.Controls.Add(this.physicianTxt);
@@ -1325,6 +1330,7 @@
 			this.dtGridEquip.RowHeadersWidth = 20;
 			this.dtGridEquip.Size = new System.Drawing.Size(865, 76);
 			this.dtGridEquip.TabIndex = 541;
+			this.dtGridEquip.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridEquip_CellClick);
 			// 
 			// label12
 			// 
@@ -1573,6 +1579,65 @@
 			this.button2.UseVisualStyleBackColor = false;
 			this.button2.Click += new System.EventHandler(this.button2_Click);
 			// 
+			// button6
+			// 
+			this.button6.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button6.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button6.Location = new System.Drawing.Point(500, 1028);
+			this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.button6.Name = "button6";
+			this.button6.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.button6.Size = new System.Drawing.Size(90, 37);
+			this.button6.TabIndex = 17;
+			this.button6.Text = "Delete";
+			this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.button6.UseVisualStyleBackColor = false;
+			this.button6.Click += new System.EventHandler(this.button6_Click);
+			// 
+			// button9
+			// 
+			this.button9.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.button9.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button9.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button9.Location = new System.Drawing.Point(389, 1028);
+			this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.button9.Name = "button9";
+			this.button9.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.button9.Size = new System.Drawing.Size(90, 37);
+			this.button9.TabIndex = 18;
+			this.button9.Text = "Load";
+			this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.button9.UseVisualStyleBackColor = false;
+			this.button9.Click += new System.EventHandler(this.button9_Click);
+			// 
+			// button10
+			// 
+			this.button10.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.button10.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.button10.FlatAppearance.BorderSize = 0;
+			this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button10.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.button10.Image = global::ARM.Properties.Resources.Stethoscope_03_16;
+			this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button10.Location = new System.Drawing.Point(12, 671);
+			this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.button10.Name = "button10";
+			this.button10.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.button10.Size = new System.Drawing.Size(190, 60);
+			this.button10.TabIndex = 508;
+			this.button10.Text = "Add Diagnosis (CD10 Code)";
+			this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.button10.UseVisualStyleBackColor = false;
+			this.button10.Click += new System.EventHandler(this.button10_Click);
+			// 
 			// CertificateInputForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1581,6 +1646,8 @@
 			this.AutoSize = true;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.ClientSize = new System.Drawing.Size(1170, 1097);
+			this.Controls.Add(this.button9);
+			this.Controls.Add(this.button6);
 			this.Controls.Add(this.updateBtn);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.submitBtn);
@@ -1741,5 +1808,8 @@
 		private System.Windows.Forms.RadioButton sourceSoleBn;
 		private System.Windows.Forms.RadioButton suitableNoBn;
 		private System.Windows.Forms.RadioButton suitableBn;
+		private System.Windows.Forms.Button button6;
+		private System.Windows.Forms.Button button9;
+		private System.Windows.Forms.Button button10;
 	}
 }

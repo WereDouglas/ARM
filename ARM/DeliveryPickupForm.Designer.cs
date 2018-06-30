@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeliveryPickupForm));
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.pickupChk = new System.Windows.Forms.CheckBox();
@@ -92,8 +92,13 @@
 			// panel1
 			// 
 			this.panel1.AutoScroll = true;
+			this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.panel1.Controls.Add(this.button2);
+			this.panel1.Controls.Add(this.button1);
+			this.panel1.Controls.Add(this.updateBtn);
 			this.panel1.Controls.Add(this.pickupChk);
 			this.panel1.Controls.Add(this.followupChk);
+			this.panel1.Controls.Add(this.btnSubmit);
 			this.panel1.Controls.Add(this.deliveryChk);
 			this.panel1.Controls.Add(this.noTxt);
 			this.panel1.Controls.Add(this.metroLabel5);
@@ -112,15 +117,16 @@
 			this.panel1.Controls.Add(this.faxLbl);
 			this.panel1.Controls.Add(this.telLbl);
 			this.panel1.Controls.Add(this.addressLbl);
-			this.panel1.Location = new System.Drawing.Point(23, 67);
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel1.Location = new System.Drawing.Point(20, 74);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(754, 734);
+			this.panel1.Size = new System.Drawing.Size(918, 819);
 			this.panel1.TabIndex = 0;
 			// 
 			// pickupChk
 			// 
 			this.pickupChk.AutoSize = true;
-			this.pickupChk.Location = new System.Drawing.Point(295, 95);
+			this.pickupChk.Location = new System.Drawing.Point(365, 89);
 			this.pickupChk.Name = "pickupChk";
 			this.pickupChk.Size = new System.Drawing.Size(66, 20);
 			this.pickupChk.TabIndex = 508;
@@ -130,7 +136,7 @@
 			// followupChk
 			// 
 			this.followupChk.AutoSize = true;
-			this.followupChk.Location = new System.Drawing.Point(171, 95);
+			this.followupChk.Location = new System.Drawing.Point(241, 89);
 			this.followupChk.Name = "followupChk";
 			this.followupChk.Size = new System.Drawing.Size(46, 20);
 			this.followupChk.TabIndex = 507;
@@ -140,7 +146,7 @@
 			// deliveryChk
 			// 
 			this.deliveryChk.AutoSize = true;
-			this.deliveryChk.Location = new System.Drawing.Point(48, 95);
+			this.deliveryChk.Location = new System.Drawing.Point(118, 89);
 			this.deliveryChk.Name = "deliveryChk";
 			this.deliveryChk.Size = new System.Drawing.Size(75, 20);
 			this.deliveryChk.TabIndex = 506;
@@ -149,7 +155,7 @@
 			// 
 			// noTxt
 			// 
-			this.noTxt.Location = new System.Drawing.Point(537, 66);
+			this.noTxt.Location = new System.Drawing.Point(607, 60);
 			this.noTxt.Name = "noTxt";
 			this.noTxt.Size = new System.Drawing.Size(194, 20);
 			this.noTxt.TabIndex = 472;
@@ -157,7 +163,7 @@
 			// metroLabel5
 			// 
 			this.metroLabel5.AutoSize = true;
-			this.metroLabel5.Location = new System.Drawing.Point(488, 66);
+			this.metroLabel5.Location = new System.Drawing.Point(558, 60);
 			this.metroLabel5.Name = "metroLabel5";
 			this.metroLabel5.Size = new System.Drawing.Size(30, 19);
 			this.metroLabel5.TabIndex = 473;
@@ -165,7 +171,7 @@
 			// 
 			// dateTxt
 			// 
-			this.dateTxt.Location = new System.Drawing.Point(537, 91);
+			this.dateTxt.Location = new System.Drawing.Point(607, 85);
 			this.dateTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.dateTxt.Name = "dateTxt";
 			this.dateTxt.Size = new System.Drawing.Size(191, 20);
@@ -173,38 +179,39 @@
 			// 
 			// dtGrid
 			// 
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dtGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle16.Font = new System.Drawing.Font("Calibri", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dtGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
 			this.dtGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dtGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
 			this.dtGrid.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
 			this.dtGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dtGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 			this.dtGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGrid.DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle17.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			dataGridViewCellStyle17.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGrid.DefaultCellStyle = dataGridViewCellStyle17;
 			this.dtGrid.GridColor = System.Drawing.SystemColors.ButtonFace;
-			this.dtGrid.Location = new System.Drawing.Point(35, 392);
+			this.dtGrid.Location = new System.Drawing.Point(105, 400);
 			this.dtGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.dtGrid.Name = "dtGrid";
 			this.dtGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			dataGridViewCellStyle18.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+			this.dtGrid.RowHeadersVisible = false;
 			this.dtGrid.RowHeadersWidth = 20;
-			this.dtGrid.Size = new System.Drawing.Size(369, 300);
+			this.dtGrid.Size = new System.Drawing.Size(355, 286);
 			this.dtGrid.TabIndex = 467;
 			this.dtGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellClick);
 			// 
@@ -217,7 +224,7 @@
 			this.button7.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button7.Location = new System.Drawing.Point(36, 368);
+			this.button7.Location = new System.Drawing.Point(106, 373);
 			this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.button7.Name = "button7";
 			this.button7.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -230,15 +237,13 @@
 			// 
 			// totalTxt
 			// 
-			this.totalTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
 			// 
 			// 
 			// 
 			this.totalTxt.CustomButton.FlatAppearance.BorderSize = 0;
 			this.totalTxt.CustomButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.totalTxt.CustomButton.Image = null;
-			this.totalTxt.CustomButton.Location = new System.Drawing.Point(157, 1);
+			this.totalTxt.CustomButton.Location = new System.Drawing.Point(101, 1);
 			this.totalTxt.CustomButton.Name = "";
 			this.totalTxt.CustomButton.Size = new System.Drawing.Size(21, 21);
 			this.totalTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -247,7 +252,7 @@
 			this.totalTxt.CustomButton.UseSelectable = true;
 			this.totalTxt.CustomButton.Visible = false;
 			this.totalTxt.Lines = new string[0];
-			this.totalTxt.Location = new System.Drawing.Point(228, 697);
+			this.totalTxt.Location = new System.Drawing.Point(318, 691);
 			this.totalTxt.MaxLength = 32767;
 			this.totalTxt.Name = "totalTxt";
 			this.totalTxt.PasswordChar = '\0';
@@ -257,7 +262,7 @@
 			this.totalTxt.SelectionLength = 0;
 			this.totalTxt.SelectionStart = 0;
 			this.totalTxt.ShortcutsEnabled = true;
-			this.totalTxt.Size = new System.Drawing.Size(179, 23);
+			this.totalTxt.Size = new System.Drawing.Size(129, 23);
 			this.totalTxt.Style = MetroFramework.MetroColorStyle.White;
 			this.totalTxt.TabIndex = 397;
 			this.totalTxt.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -270,7 +275,7 @@
 			// 
 			// metroLabel4
 			// 
-			this.metroLabel4.Location = new System.Drawing.Point(415, 377);
+			this.metroLabel4.Location = new System.Drawing.Point(484, 383);
 			this.metroLabel4.Name = "metroLabel4";
 			this.metroLabel4.Size = new System.Drawing.Size(323, 134);
 			this.metroLabel4.TabIndex = 243;
@@ -293,22 +298,22 @@
 			this.tableLayoutPanel3.Controls.Add(this.userCbx, 1, 0);
 			this.tableLayoutPanel3.Controls.Add(this.signatureTxt, 1, 3);
 			this.tableLayoutPanel3.Controls.Add(this.reasonTxt, 1, 4);
-			this.tableLayoutPanel3.Location = new System.Drawing.Point(408, 526);
+			this.tableLayoutPanel3.Location = new System.Drawing.Point(478, 520);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
 			this.tableLayoutPanel3.RowCount = 5;
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(333, 194);
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 69F));
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(333, 219);
 			this.tableLayoutPanel3.TabIndex = 9;
 			// 
 			// label9
 			// 
 			this.label9.AutoSize = true;
 			this.label9.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label9.Location = new System.Drawing.Point(3, 162);
+			this.label9.Location = new System.Drawing.Point(3, 150);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(43, 16);
 			this.label9.TabIndex = 523;
@@ -327,7 +332,7 @@
 			// 
 			this.recievedByTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
 			this.recievedByTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.recievedByTxt.Location = new System.Drawing.Point(87, 85);
+			this.recievedByTxt.Location = new System.Drawing.Point(87, 69);
 			this.recievedByTxt.Multiline = true;
 			this.recievedByTxt.Name = "recievedByTxt";
 			this.recievedByTxt.Size = new System.Drawing.Size(243, 26);
@@ -357,7 +362,7 @@
 			// 
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(3, 82);
+			this.label6.Location = new System.Drawing.Point(3, 66);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(72, 16);
 			this.label6.TabIndex = 246;
@@ -367,7 +372,7 @@
 			// 
 			this.label7.AutoSize = true;
 			this.label7.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label7.Location = new System.Drawing.Point(3, 136);
+			this.label7.Location = new System.Drawing.Point(3, 104);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(60, 16);
 			this.label7.TabIndex = 247;
@@ -393,7 +398,7 @@
 			this.signatureTxt.Items.AddRange(new object[] {
             "Yes",
             "No"});
-			this.signatureTxt.Location = new System.Drawing.Point(87, 138);
+			this.signatureTxt.Location = new System.Drawing.Point(87, 106);
 			this.signatureTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.signatureTxt.Name = "signatureTxt";
 			this.signatureTxt.Size = new System.Drawing.Size(243, 24);
@@ -403,17 +408,17 @@
 			// 
 			this.reasonTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
 			this.reasonTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.reasonTxt.Location = new System.Drawing.Point(87, 165);
+			this.reasonTxt.Location = new System.Drawing.Point(87, 153);
 			this.reasonTxt.Multiline = true;
 			this.reasonTxt.Name = "reasonTxt";
-			this.reasonTxt.Size = new System.Drawing.Size(243, 25);
+			this.reasonTxt.Size = new System.Drawing.Size(243, 63);
 			this.reasonTxt.TabIndex = 522;
 			// 
 			// commentTxt
 			// 
 			this.commentTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
 			this.commentTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.commentTxt.Location = new System.Drawing.Point(41, 342);
+			this.commentTxt.Location = new System.Drawing.Point(111, 336);
 			this.commentTxt.Multiline = true;
 			this.commentTxt.Name = "commentTxt";
 			this.commentTxt.Size = new System.Drawing.Size(699, 32);
@@ -423,7 +428,7 @@
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(292, 323);
+			this.label3.Location = new System.Drawing.Point(362, 317);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(63, 16);
 			this.label3.TabIndex = 9;
@@ -435,10 +440,10 @@
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.70166F));
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.29834F));
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 269F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
 			this.tableLayoutPanel2.Controls.Add(this.label8, 0, 0);
 			this.tableLayoutPanel2.Controls.Add(this.panel3, 1, 0);
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(36, 239);
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(106, 233);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
 			this.tableLayoutPanel2.RowCount = 3;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
@@ -493,7 +498,7 @@
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(292, 220);
+			this.label2.Location = new System.Drawing.Point(362, 214);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(128, 16);
 			this.label2.TabIndex = 2;
@@ -507,10 +512,10 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 134F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 162F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 163F));
 			this.tableLayoutPanel1.Controls.Add(this.label12, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(35, 130);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(105, 124);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 4;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
@@ -537,7 +542,7 @@
 			this.tableLayoutPanel1.SetColumnSpan(this.panel2, 5);
 			this.panel2.Controls.Add(this.subscriberInfoTxt);
 			this.panel2.Controls.Add(this.cusPbx);
-			this.panel2.Location = new System.Drawing.Point(109, 3);
+			this.panel2.Location = new System.Drawing.Point(108, 3);
 			this.panel2.Name = "panel2";
 			this.tableLayoutPanel1.SetRowSpan(this.panel2, 4);
 			this.panel2.Size = new System.Drawing.Size(576, 84);
@@ -566,7 +571,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(482, 95);
+			this.label1.Location = new System.Drawing.Point(552, 89);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(36, 16);
 			this.label1.TabIndex = 5;
@@ -574,7 +579,7 @@
 			// 
 			// faxLbl
 			// 
-			this.faxLbl.Location = new System.Drawing.Point(523, 17);
+			this.faxLbl.Location = new System.Drawing.Point(593, 11);
 			this.faxLbl.Name = "faxLbl";
 			this.faxLbl.Size = new System.Drawing.Size(217, 40);
 			this.faxLbl.TabIndex = 4;
@@ -583,7 +588,7 @@
 			// 
 			// telLbl
 			// 
-			this.telLbl.Location = new System.Drawing.Point(357, 17);
+			this.telLbl.Location = new System.Drawing.Point(427, 11);
 			this.telLbl.Name = "telLbl";
 			this.telLbl.Size = new System.Drawing.Size(138, 40);
 			this.telLbl.TabIndex = 3;
@@ -592,7 +597,7 @@
 			// 
 			// addressLbl
 			// 
-			this.addressLbl.Location = new System.Drawing.Point(35, 17);
+			this.addressLbl.Location = new System.Drawing.Point(105, 11);
 			this.addressLbl.Name = "addressLbl";
 			this.addressLbl.Size = new System.Drawing.Size(203, 40);
 			this.addressLbl.TabIndex = 2;
@@ -618,7 +623,7 @@
 			this.updateBtn.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.updateBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.updateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.updateBtn.Location = new System.Drawing.Point(455, 810);
+			this.updateBtn.Location = new System.Drawing.Point(492, 765);
 			this.updateBtn.Name = "updateBtn";
 			this.updateBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.updateBtn.Size = new System.Drawing.Size(107, 42);
@@ -636,7 +641,7 @@
 			this.button1.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button1.Location = new System.Drawing.Point(263, 807);
+			this.button1.Location = new System.Drawing.Point(299, 762);
 			this.button1.Name = "button1";
 			this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.button1.Size = new System.Drawing.Size(100, 45);
@@ -654,7 +659,7 @@
 			this.btnSubmit.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnSubmit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.btnSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnSubmit.Location = new System.Drawing.Point(655, 807);
+			this.btnSubmit.Location = new System.Drawing.Point(707, 762);
 			this.btnSubmit.Name = "btnSubmit";
 			this.btnSubmit.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.btnSubmit.Size = new System.Drawing.Size(108, 45);
@@ -672,7 +677,7 @@
 			this.button2.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button2.Location = new System.Drawing.Point(23, 814);
+			this.button2.Location = new System.Drawing.Point(101, 762);
 			this.button2.Name = "button2";
 			this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.button2.Size = new System.Drawing.Size(108, 38);
@@ -687,11 +692,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
-			this.ClientSize = new System.Drawing.Size(958, 891);
-			this.Controls.Add(this.updateBtn);
-			this.Controls.Add(this.button1);
-			this.Controls.Add(this.btnSubmit);
-			this.Controls.Add(this.button2);
+			this.ClientSize = new System.Drawing.Size(958, 918);
 			this.Controls.Add(this.panel1);
 			this.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

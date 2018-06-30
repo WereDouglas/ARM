@@ -88,7 +88,7 @@ namespace ARM
             catch (Exception t)
             {
                 MessageBox.Show(t.Message);
-                Helper.Exceptions(t.Message + "view load image for window ");
+                Helper.Exceptions(t.Message , "view load image for window ");
 
             }
             LoadCondition();
@@ -202,7 +202,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing users {each transaction list }" + j.Name);
+                    Helper.Exceptions(m.Message , "Viewing users {each transaction list }" + j.Name);
                 }
             }
 
@@ -303,7 +303,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing customer {each customer list }" + c.Name);
+                    Helper.Exceptions(m.Message , "Viewing customer {each customer list }" + c.Name);
                 }
             }
 
@@ -379,7 +379,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing customer {each customer list }" + c.Name);
+                    Helper.Exceptions(m.Message , "Viewing customer {each customer list }" + c.Name);
                 }
             }
 
@@ -468,7 +468,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing customer {each customer list }" + c.Name);
+                    Helper.Exceptions(m.Message , "Viewing customer {each customer list }" + c.Name);
                 }
             }
 

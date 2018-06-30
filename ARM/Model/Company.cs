@@ -126,8 +126,9 @@ namespace ARM.Model
         }
         public static Company Select()
         {
-           
-            string Q = "SELECT * FROM company LIMIT 1";
+			try
+			{
+				string Q = "SELECT * FROM company LIMIT 1";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
@@ -135,7 +136,9 @@ namespace ARM.Model
                 c = new Company(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["email"].ToString(), Reader["npi"].ToString(), Reader["address"].ToString(), Reader["office"].ToString(), Reader["providerID"].ToString(), Reader["tin"].ToString(), Reader["officePhone"].ToString(), Reader["officeFax"].ToString(), Reader["city"].ToString(), Reader["zip"].ToString(), Reader["state"].ToString(), Reader["speciality"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
             }
             DBConnect.CloseConn();
-            return c;
+			}
+			catch { }
+			return c;
 
         }
     }

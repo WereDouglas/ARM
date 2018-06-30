@@ -100,7 +100,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing users {each transaction list }" + j.ItemID);
+                    Helper.Exceptions(m.Message , "Viewing users {each transaction list }" + j.ItemID);
                 }
             }
             Total = GenericCollection.transactions.Sum(r => r.Total);

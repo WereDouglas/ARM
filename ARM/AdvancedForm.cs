@@ -502,6 +502,7 @@ namespace ARM
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Conditions()));
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Pay()));
 			DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Certificate()));
+			DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Logs()));
 
 		}
 
@@ -583,6 +584,7 @@ namespace ARM
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Deduction()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Pay()));
 			DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Certificate()));
+			DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Logs()));
 
 
 

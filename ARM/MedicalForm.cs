@@ -514,5 +514,25 @@ namespace ARM
 			OrderIntakeForm f = new OrderIntakeForm(null);
 			f.Show();
 		}
+
+		private void logsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			LogsForm frm = new LogsForm();
+			frm.TopLevel = false;
+			panel1.Controls.Add(frm);
+			frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			frm.Dock = DockStyle.Fill;
+			frm.Show();
+		}
+
+		private void instructionDeliveryToolStripMenuItem1_Click(object sender, EventArgs e)
+		{
+			InstructionForm frm = new InstructionForm();
+			frm.TopLevel = false;
+			panel1.Controls.Add(frm);
+			frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			frm.Dock = DockStyle.Fill;
+			frm.Show();
+		}
 	}
 }

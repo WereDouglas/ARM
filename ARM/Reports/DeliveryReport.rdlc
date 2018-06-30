@@ -491,10 +491,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox420</rd:DefaultName>
-            <Top>2.68972in</Top>
-            <Left>2.66146in</Left>
+            <Top>2.7175in</Top>
+            <Left>3.44271in</Left>
             <Height>0.25049in</Height>
-            <Width>4.35416in</Width>
+            <Width>2.82688in</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -526,10 +526,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox420</rd:DefaultName>
-            <Top>4.30132in</Top>
-            <Left>2.66146in</Left>
+            <Top>4.28743in</Top>
+            <Left>3.96297in</Left>
             <Height>0.25049in</Height>
-            <Width>4.35416in</Width>
+            <Width>1.99355in</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -1703,7 +1703,7 @@
             <Top>1.64806in</Top>
             <Left>0.45708in</Left>
             <Height>1in</Height>
-            <Width>8.1875in</Width>
+            <Width>8.18751in</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -1780,9 +1780,10 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=IIF(First(Fields!Hospital.Value, "DataSet1")  = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
+                    <Value>=IIF(First(Fields!Pickup.Value, "DataSet1")  = "Yes",ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                     <Style>
-                      <FontSize>12pt</FontSize>
+                      <FontFamily>Arial Unicode MS</FontFamily>
+                      <FontSize>16pt</FontSize>
                       <FontWeight>ExtraBold</FontWeight>
                     </Style>
                   </TextRun>
@@ -1791,7 +1792,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Hospital</rd:DefaultName>
-            <Top>1.2175in</Top>
+            <Top>1.0925in</Top>
             <Left>5.40681in</Left>
             <Height>0.25in</Height>
             <Width>0.54971in</Width>
@@ -1813,9 +1814,10 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=IIF(First(Fields!Hospital.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                    <Value>=IIF(First(Fields!Followup.Value, "DataSet1") = "Yes",ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                     <Style>
-                      <FontSize>12pt</FontSize>
+                      <FontFamily>Arial Unicode MS</FontFamily>
+                      <FontSize>16pt</FontSize>
                       <FontWeight>ExtraBold</FontWeight>
                     </Style>
                   </TextRun>
@@ -1824,7 +1826,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Hospital</rd:DefaultName>
-            <Top>1.2175in</Top>
+            <Top>1.0925in</Top>
             <Left>2.92735in</Left>
             <Height>0.25in</Height>
             <Width>0.54971in</Width>
@@ -1846,9 +1848,10 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=IIF(First(Fields!Deliveries.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                    <Value>=IIF(First(Fields!Deliveries.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                     <Style>
-                      <FontSize>12pt</FontSize>
+                      <FontFamily>Arial Unicode MS</FontFamily>
+                      <FontSize>16pt</FontSize>
                       <FontWeight>ExtraBold</FontWeight>
                     </Style>
                   </TextRun>
@@ -1857,7 +1860,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Hospital</rd:DefaultName>
-            <Top>1.2175in</Top>
+            <Top>1.0925in</Top>
             <Left>1.42735in</Left>
             <Height>0.25in</Height>
             <Width>0.54971in</Width>
@@ -2341,13 +2344,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.32986in</Width>
+                  <Width>2.15625in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.32986in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1.32986in</Width>
+                  <Width>1.83333in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -2401,36 +2401,6 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>DeliveredBy</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox70">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox70</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -2509,36 +2479,6 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox75">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox75</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
@@ -2591,36 +2531,6 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Name2</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox78">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox78</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -2699,40 +2609,10 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox94">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox94</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.59638in</Height>
+                  <Height>0.74221in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -2762,10 +2642,8 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <ColSpan>2</ColSpan>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell />
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Reason">
@@ -2804,7 +2682,6 @@
               <TablixMembers>
                 <TablixMember />
                 <TablixMember />
-                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -2829,7 +2706,7 @@
             <DataSetName>DataSet1</DataSetName>
             <Top>6.01612in</Top>
             <Left>4.655in</Left>
-            <Height>2.04638in</Height>
+            <Height>2.19221in</Height>
             <Width>3.98958in</Width>
             <ZIndex>17</ZIndex>
             <Style>
@@ -2842,7 +2719,7 @@
         <Height>8.375in</Height>
         <Style />
       </Body>
-      <Width>8.98833in</Width>
+      <Width>9.16541in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>

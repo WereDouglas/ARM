@@ -105,9 +105,9 @@ namespace ARM.DB
             }
             catch (Exception c)
             {
-
-                //throw;// (c.Message.ToString());
-            }
+				DBConnect.CloseConn();
+				//throw;// (c.Message.ToString());
+			}
             return Readers;
 
         }
@@ -130,24 +130,28 @@ namespace ARM.DB
         {
             Int32 rowsaffected = 0;
 
-            try
-            {
-                OpenConn();
+			try
+			{
+				OpenConn();
+			}
+			catch
+			{
+			}		 			
 
-                NpgsqlCommand command = new NpgsqlCommand(query, conn);
+				NpgsqlCommand command = new NpgsqlCommand(query, conn);
                 rowsaffected = command.ExecuteNonQuery();
-
-                CloseConn();
-                return rowsaffected;
-            }
-            catch (Exception c)
-            {
-                CloseConn();
-                //throw;
-                Console.WriteLine("Errr on insert!" + c.Message);
-                return 0;
-            }
-
+			try
+			{
+				CloseConn();
+			}
+			catch (Exception c)
+			{
+				CloseConn();
+				//throw;
+				Console.WriteLine("ERROR EXECUTING QUERY!" + c.Message);
+				//Helper.Exceptions(c.Message, " ERROR EXECUTING QUERY! DBCONNECT QueryPostgre() ");
+				return 0;
+			}
             return rowsaffected;
         }
         public static string QueryMySql(string query)

@@ -68,7 +68,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing customer {each schedule list }" + user);
+                    Helper.Exceptions(m.Message , "Viewing customer {each schedule list }" + user);
                 }
             }
 
@@ -116,7 +116,7 @@ namespace ARM
             }
             catch (Exception c)
             {
-                Helper.Exceptions(c.ToString() + "Searching Deduction of patients by selection");
+                Helper.Exceptions(c.Message , "Searching Deduction of patients by selection");
 
             }
         }

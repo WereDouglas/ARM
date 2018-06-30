@@ -65,7 +65,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing customer {each customer list }" + c.Name);
+                    Helper.Exceptions(m.Message , "Viewing customer {each customer list }" + c.Name);
                 }
             }
 

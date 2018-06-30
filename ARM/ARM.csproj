@@ -142,6 +142,12 @@
     <Compile Include="CertificateInputForm.Designer.cs">
       <DependentUpon>CertificateInputForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogsForm.Designer.cs">
+      <DependentUpon>LogsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InstructionReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,7 @@
     <Compile Include="DeliveryReport.Designer.cs">
       <DependentUpon>DeliveryReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Logs.cs" />
     <Compile Include="OrderReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -577,6 +584,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CertificateInputForm.resx">
       <DependentUpon>CertificateInputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogsForm.resx">
+      <DependentUpon>LogsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InstructionReport.resx">
       <DependentUpon>InstructionReport.cs</DependentUpon>

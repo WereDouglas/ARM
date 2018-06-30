@@ -169,7 +169,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show(" " + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing itemReviews {each item Review list }" + j.Title);
+                    Helper.Exceptions(m.Message , "Viewing itemReviews {each item Review list }" + j.Title);
                 }
             }
             dtGridReview.DataSource = t;
@@ -198,7 +198,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show(" " + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing Patient Status {each item Review list }" + j.Title);
+                    Helper.Exceptions(m.Message , "Viewing Patient Status {each item Review list }" + j.Title);
                 }
             }
             dtGridPatientStatus.DataSource = t;
@@ -227,7 +227,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show(" " + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing Item Status {each item Review list }" + j.Title);
+                    Helper.Exceptions(m.Message , "Viewing Item Status {each item Review list }" + j.Title);
                 }
             }
             dtGridItemStatus.DataSource = t;

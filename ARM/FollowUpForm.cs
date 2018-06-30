@@ -100,7 +100,7 @@ namespace ARM
                 catch (Exception m)
                 {
                     MessageBox.Show("" + m.Message);
-                    Helper.Exceptions(m.Message + "Viewing Follow Up {each follow list } Setup date" + c.UserID);
+                    Helper.Exceptions(m.Message , "Viewing Follow Up {each follow list } Setup date" + c.UserID);
                 }
             }
 
@@ -163,7 +163,7 @@ namespace ARM
             }
             catch (Exception c)
             {
-                Helper.Exceptions(c.ToString() + "Searching users by selection");
+                Helper.Exceptions(c.Message , "Searching users by selection");
 
             }
         }

@@ -100,13 +100,15 @@ namespace ARM
                     MedicalForm frm = new MedicalForm();
                     frm.Show();
                     this.Hide();
-                }
+					Helper.Log(Helper.UserName, "Logging in to DME" + DateTime.Now);
+				}
                 if (payrollChk.Checked)
                 {
                     HrmForm f = new HrmForm();
                     f.Show();
                     this.Hide();
-                }
+					Helper.Log(Helper.UserName, "Logging in to Pay roll and Human Resource" + DateTime.Now);
+				}
                 loginBtn.Visible = true;
             }
         }
