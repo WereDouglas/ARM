@@ -65,7 +65,7 @@ namespace ARM
 		{
 			updateBtn.Visible = false;
 			Orders o;
-			GenericCollection.transactions = new List<Transaction>();
+			GenericCollection.caseTransactions = new List<CaseTransaction>();
 			No = no;
 			noTxt.Text = no;
 			o = new Orders();//.Select(UsersID);
@@ -100,13 +100,13 @@ namespace ARM
 				//try
 				//{
 
-				Transaction t = new Transaction(j.Id, j.Date, j.No, j.ItemID, j.CaseID, j.DeliveryID, j.Qty, j.Cost, j.Units, j.Total, j.Tax, j.Coverage, j.Self, j.Payable, j.Limits, j.Setting, j.Period, j.Height, j.Weight, j.Instruction, j.Created, false, Helper.CompanyID);
-				GenericCollection.transactions.Add(t);
+				CaseTransaction t = new CaseTransaction(j.Id, j.Date, j.No, j.ItemID, j.CaseID, j.DeliveryID, j.Qty, j.Cost, j.Units, j.Total, j.Tax, j.Coverage, j.Self, j.Payable, j.Limits, j.Setting, j.Period, j.Height, j.Weight, j.Instruction, j.Created, false, Helper.CompanyID);
+				GenericCollection.caseTransactions.Add(t);
 				//}
 				//catch { }
 
 			}
-			LoadTransactions();
+			LoadCaseTransactions();
 		}
 
 		double Total = 0;
@@ -135,7 +135,7 @@ namespace ARM
 			if (i.Cord == "Yes") { cordChk.Checked = true; } else { cordChk.Checked = false; }
 			if (i.Issues == "Yes") { issuesChk.Checked = true; } else { issuesChk.Checked = false; }
 			if (i.Electrical == "Yes") { electricalChk.Checked = true; } else { electricalChk.Checked = false; }
-			if (i.Inout == "Yes") { inoutChk.Checked = true; } else { inoutChk.Checked = false; }
+			if (i.Inouts == "Yes") { inoutChk.Checked = true; } else { inoutChk.Checked = false; }
 
 			if (i.Understand == "Yes") { understandChk.Checked = true; } else { understandChk.Checked = false; }
 			if (i.Demonstration == "Yes") { demonChk.Checked = true; } else { demonChk.Checked = false; }
@@ -211,7 +211,7 @@ namespace ARM
 			}
 			catch { }
 
-			LoadTransactions();
+			LoadCaseTransactions();
 
 		}
 		private void metroLabel1_Click(object sender, EventArgs e)
@@ -234,43 +234,43 @@ namespace ARM
 		{
 
 			string initial = initialChk.Checked ? "Yes" : "No";
-			string followup = initialChk.Checked ? "Yes" : "No";
-			string delivered = initialChk.Checked ? "Yes" : "No";
-			string safety = initialChk.Checked ? "Yes" : "No";
-			string path = initialChk.Checked ? "Yes" : "No";
-			string operation = initialChk.Checked ? "Yes" : "No";
-			string environment = initialChk.Checked ? "Yes" : "No";
-			string rugs = initialChk.Checked ? "Yes" : "No";
-			string fire = initialChk.Checked ? "Yes" : "No";
-			string cord = initialChk.Checked ? "Yes" : "No";
-			string issues = initialChk.Checked ? "Yes" : "No";
-			string electricals = initialChk.Checked ? "Yes" : "No";
-			string inout = initialChk.Checked ? "Yes" : "No";
-			string appropriate = initialChk.Checked ? "Yes" : "No";
-			string understand = initialChk.Checked ? "Yes" : "No";
-			string returns = initialChk.Checked ? "Yes" : "No";
-			string caregiver = initialChk.Checked ? "Yes" : "No";
-			string amb = initialChk.Checked ? "Yes" : "No";
-			string bath = initialChk.Checked ? "Yes" : "No";
-			string beds = initialChk.Checked ? "Yes" : "No";
-			string seat = initialChk.Checked ? "Yes" : "No";
-			string scooter = initialChk.Checked ? "Yes" : "No";
-			string manual = initialChk.Checked ? "Yes" : "No";
-			string power = initialChk.Checked ? "Yes" : "No";
-			string handling = initialChk.Checked ? "Yes" : "No";
-			string rights= initialChk.Checked ? "Yes" : "No";
-			string avail = initialChk.Checked ? "Yes" : "No";
-			string priv = initialChk.Checked ? "Yes" : "No";
-			string standards = initialChk.Checked ? "Yes" : "No";
-			string demons = initialChk.Checked ? "Yes" : "No";
-			string clean = initialChk.Checked ? "Yes" : "No";
-			string letter = initialChk.Checked ? "Yes" : "No";
-			string complaint = initialChk.Checked ? "Yes" : "No";
-			string warranty = initialChk.Checked ? "Yes" : "No";
-			string instruct = initialChk.Checked ? "Yes" : "No";
-			string aob = initialChk.Checked ? "Yes" : "No";
-			string visit = initialChk.Checked ? "Yes" : "No";
-			string phone = initialChk.Checked ? "Yes" : "No";
+			string followup = followChk.Checked ? "Yes" : "No";
+			string delivered = deliveredChk.Checked ? "Yes" : "No";
+			string safety = safetyChk.Checked ? "Yes" : "No";
+			string path = pathChk.Checked ? "Yes" : "No";
+			string operation = operationChk.Checked ? "Yes" : "No";
+			string environment = environmentChk.Checked ? "Yes" : "No";
+			string rugs = rugsChk.Checked ? "Yes" : "No";
+			string fire = fireChk.Checked ? "Yes" : "No";
+			string cord = cordChk.Checked ? "Yes" : "No";
+			string issues = issuesChk.Checked ? "Yes" : "No";
+			string electricals = electricalChk.Checked ? "Yes" : "No";
+			string inout = inoutChk.Checked ? "Yes" : "No";
+			string appropriate = "";
+			string understand = understandChk.Checked ? "Yes" : "No";
+			string returns = returnChk.Checked ? "Yes" : "No";
+			string caregiver = caregiverChk.Checked ? "Yes" : "No";
+			string amb = ambChk.Checked ? "Yes" : "No";
+			string bath = bathChk.Checked ? "Yes" : "No";
+			string beds = bedChk.Checked ? "Yes" : "No";
+			string seat = seatChk.Checked ? "Yes" : "No";
+			string scooter = scootChk.Checked ? "Yes" : "No";
+			string manual = manualChk.Checked ? "Yes" : "No";
+			string power = powerChk.Checked ? "Yes" : "No";
+			string handling = handlingChk.Checked ? "Yes" : "No";
+			string rights= rightsChk.Checked ? "Yes" : "No";
+			string avail = availChk.Checked ? "Yes" : "No";
+			string priv = privacyChk.Checked ? "Yes" : "No";
+			string standards = standardChk.Checked ? "Yes" : "No";
+			string demons = demonChk.Checked ? "Yes" : "No";
+			string clean = cleanChk.Checked ? "Yes" : "No";
+			string letter = letterChk.Checked ? "Yes" : "No";
+			string complaint =complaintChk.Checked ? "Yes" : "No";
+			string warranty = warrantyChk.Checked ? "Yes" : "No";
+			string instruct =instructionChk.Checked ? "Yes" : "No";
+			string aob = aobChk.Checked ? "Yes" : "No";
+			string visit = visitChk.Checked ? "Yes" : "No";
+			string phone = phoneChk.Checked ? "Yes" : "No";
 
 			string type = initialChk.Checked ? "Initial Delivery" : "Follow-up";			
 			appropriate = yesRadioBtn.Checked ? "Yes" : "No";
@@ -416,7 +416,7 @@ namespace ARM
 		Product k = new Product();
 		DataTable t = new DataTable();
 
-		public void LoadTransactions()
+		public void LoadCaseTransactions()
 		{
 			// create and execute query  
 			t = new DataTable();
@@ -443,7 +443,7 @@ namespace ARM
 					Helper.Exceptions(m.Message , "Viewing users {each transaction list }" + j.ItemID);
 				}
 			}
-			Total = Transaction.List(Q).Sum(r => r.Total);
+			Total = CaseTransaction.List(Q).Sum(r => r.Total);
 			// totalLbl.Text = Total.ToString("N0");
 
 			dtGrid.DataSource = t;

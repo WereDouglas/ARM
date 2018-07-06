@@ -28,16 +28,17 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CertificateInputForm));
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.panel4 = new System.Windows.Forms.Panel();
+			this.button10 = new System.Windows.Forms.Button();
 			this.label43 = new System.Windows.Forms.Label();
 			this.userCbx = new System.Windows.Forms.ComboBox();
 			this.physicianTxt = new System.Windows.Forms.TextBox();
@@ -54,6 +55,12 @@
 			this.cusPbx = new System.Windows.Forms.PictureBox();
 			this.subscriberInfoTxt = new System.Windows.Forms.TextBox();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.completedTxt = new System.Windows.Forms.TextBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.groupBox10 = new System.Windows.Forms.GroupBox();
+			this.faceYesBn = new System.Windows.Forms.RadioButton();
+			this.faceNaBn = new System.Windows.Forms.RadioButton();
+			this.faceNoBn = new System.Windows.Forms.RadioButton();
 			this.suitableNoBn = new System.Windows.Forms.RadioButton();
 			this.suitableBn = new System.Windows.Forms.RadioButton();
 			this.groupBox9 = new System.Windows.Forms.GroupBox();
@@ -152,13 +159,13 @@
 			this.button2 = new System.Windows.Forms.Button();
 			this.button6 = new System.Windows.Forms.Button();
 			this.button9 = new System.Windows.Forms.Button();
-			this.button10 = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.panel4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.userPbx)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.cusPbx)).BeginInit();
 			this.panel2.SuspendLayout();
+			this.groupBox10.SuspendLayout();
 			this.groupBox9.SuspendLayout();
 			this.groupBox8.SuspendLayout();
 			this.groupBox7.SuspendLayout();
@@ -178,10 +185,10 @@
 			this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.panel1.AutoScroll = true;
 			this.panel1.Controls.Add(this.tableLayoutPanel1);
-			this.panel1.Location = new System.Drawing.Point(8, 63);
+			this.panel1.Location = new System.Drawing.Point(127, 63);
 			this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1139, 959);
+			this.panel1.Size = new System.Drawing.Size(1236, 959);
 			this.panel1.TabIndex = 0;
 			// 
 			// tableLayoutPanel1
@@ -217,7 +224,7 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(1134, 946);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(1228, 946);
 			this.tableLayoutPanel1.TabIndex = 7;
 			// 
 			// panel4
@@ -245,12 +252,33 @@
 			this.panel4.Size = new System.Drawing.Size(205, 938);
 			this.panel4.TabIndex = 505;
 			// 
+			// button10
+			// 
+			this.button10.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.button10.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.button10.FlatAppearance.BorderSize = 0;
+			this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button10.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.button10.Image = global::ARM.Properties.Resources.Stethoscope_03_16;
+			this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button10.Location = new System.Drawing.Point(19, 607);
+			this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.button10.Name = "button10";
+			this.button10.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.button10.Size = new System.Drawing.Size(190, 60);
+			this.button10.TabIndex = 508;
+			this.button10.Text = "Add Diagnosis (CD10 Code)";
+			this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.button10.UseVisualStyleBackColor = false;
+			this.button10.Click += new System.EventHandler(this.button10_Click);
+			// 
 			// label43
 			// 
 			this.label43.BackColor = System.Drawing.Color.MistyRose;
 			this.label43.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label43.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.label43.Location = new System.Drawing.Point(16, 615);
+			this.label43.Location = new System.Drawing.Point(9, 771);
 			this.label43.Name = "label43";
 			this.label43.Size = new System.Drawing.Size(172, 17);
 			this.label43.TabIndex = 507;
@@ -264,7 +292,7 @@
 			this.userCbx.BackColor = System.Drawing.SystemColors.Info;
 			this.userCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.userCbx.FormattingEnabled = true;
-			this.userCbx.Location = new System.Drawing.Point(16, 635);
+			this.userCbx.Location = new System.Drawing.Point(9, 791);
 			this.userCbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.userCbx.Name = "userCbx";
 			this.userCbx.Size = new System.Drawing.Size(169, 23);
@@ -449,6 +477,9 @@
 			// panel2
 			// 
 			this.tableLayoutPanel1.SetColumnSpan(this.panel2, 4);
+			this.panel2.Controls.Add(this.completedTxt);
+			this.panel2.Controls.Add(this.label1);
+			this.panel2.Controls.Add(this.groupBox10);
 			this.panel2.Controls.Add(this.suitableNoBn);
 			this.panel2.Controls.Add(this.suitableBn);
 			this.panel2.Controls.Add(this.groupBox9);
@@ -522,9 +553,73 @@
 			this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.panel2.Name = "panel2";
 			this.tableLayoutPanel1.SetRowSpan(this.panel2, 12);
-			this.panel2.Size = new System.Drawing.Size(906, 940);
+			this.panel2.Size = new System.Drawing.Size(1000, 940);
 			this.panel2.TabIndex = 452;
 			this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+			// 
+			// completedTxt
+			// 
+			this.completedTxt.BackColor = System.Drawing.SystemColors.Info;
+			this.completedTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.completedTxt.Font = new System.Drawing.Font("Calibri", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.completedTxt.ForeColor = System.Drawing.Color.Red;
+			this.completedTxt.Location = new System.Drawing.Point(463, 487);
+			this.completedTxt.Name = "completedTxt";
+			this.completedTxt.Size = new System.Drawing.Size(414, 14);
+			this.completedTxt.TabIndex = 607;
+			// 
+			// label1
+			// 
+			this.label1.Location = new System.Drawing.Point(461, 471);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(302, 13);
+			this.label1.TabIndex = 606;
+			this.label1.Text = "NAME/TITLE AND DATE OF PRACTITIONER WHO COMPLETED FACE-TO-FACE";
+			// 
+			// groupBox10
+			// 
+			this.groupBox10.Controls.Add(this.faceYesBn);
+			this.groupBox10.Controls.Add(this.faceNaBn);
+			this.groupBox10.Controls.Add(this.faceNoBn);
+			this.groupBox10.Location = new System.Drawing.Point(463, 434);
+			this.groupBox10.Name = "groupBox10";
+			this.groupBox10.Size = new System.Drawing.Size(415, 30);
+			this.groupBox10.TabIndex = 600;
+			this.groupBox10.TabStop = false;
+			this.groupBox10.Text = "FACE-TO-FACE COMPLETED";
+			// 
+			// faceYesBn
+			// 
+			this.faceYesBn.AutoSize = true;
+			this.faceYesBn.Location = new System.Drawing.Point(260, 9);
+			this.faceYesBn.Name = "faceYesBn";
+			this.faceYesBn.Size = new System.Drawing.Size(40, 17);
+			this.faceYesBn.TabIndex = 2;
+			this.faceYesBn.TabStop = true;
+			this.faceYesBn.Text = "YES";
+			this.faceYesBn.UseVisualStyleBackColor = true;
+			// 
+			// faceNaBn
+			// 
+			this.faceNaBn.AutoSize = true;
+			this.faceNaBn.Location = new System.Drawing.Point(356, 9);
+			this.faceNaBn.Name = "faceNaBn";
+			this.faceNaBn.Size = new System.Drawing.Size(42, 17);
+			this.faceNaBn.TabIndex = 1;
+			this.faceNaBn.TabStop = true;
+			this.faceNaBn.Text = "N/A";
+			this.faceNaBn.UseVisualStyleBackColor = true;
+			// 
+			// faceNoBn
+			// 
+			this.faceNoBn.AutoSize = true;
+			this.faceNoBn.Location = new System.Drawing.Point(310, 9);
+			this.faceNoBn.Name = "faceNoBn";
+			this.faceNoBn.Size = new System.Drawing.Size(39, 17);
+			this.faceNoBn.TabIndex = 0;
+			this.faceNoBn.TabStop = true;
+			this.faceNoBn.Text = "NO";
+			this.faceNoBn.UseVisualStyleBackColor = true;
 			// 
 			// suitableNoBn
 			// 
@@ -1295,40 +1390,40 @@
 			// 
 			// dtGridEquip
 			// 
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
-			this.dtGridEquip.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Red;
+			this.dtGridEquip.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
 			this.dtGridEquip.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dtGridEquip.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
 			this.dtGridEquip.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
 			this.dtGridEquip.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dtGridEquip.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 			this.dtGridEquip.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGridEquip.DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGridEquip.DefaultCellStyle = dataGridViewCellStyle8;
 			this.dtGridEquip.GridColor = System.Drawing.SystemColors.ButtonFace;
 			this.dtGridEquip.Location = new System.Drawing.Point(23, 713);
 			this.dtGridEquip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.dtGridEquip.Name = "dtGridEquip";
 			this.dtGridEquip.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGridEquip.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGridEquip.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
 			this.dtGridEquip.RowHeadersVisible = false;
 			this.dtGridEquip.RowHeadersWidth = 20;
-			this.dtGridEquip.Size = new System.Drawing.Size(865, 76);
+			this.dtGridEquip.Size = new System.Drawing.Size(974, 76);
 			this.dtGridEquip.TabIndex = 541;
 			this.dtGridEquip.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridEquip_CellClick);
 			// 
@@ -1412,43 +1507,43 @@
 			this.additionalTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.additionalTxt.Multiline = true;
 			this.additionalTxt.Name = "additionalTxt";
-			this.additionalTxt.Size = new System.Drawing.Size(414, 238);
+			this.additionalTxt.Size = new System.Drawing.Size(414, 186);
 			this.additionalTxt.TabIndex = 531;
 			// 
 			// dtGrid
 			// 
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dtGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle10.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dtGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
 			this.dtGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dtGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
 			this.dtGrid.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
 			this.dtGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dtGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 			this.dtGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
-			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGrid.DefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle11.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGrid.DefaultCellStyle = dataGridViewCellStyle11;
 			this.dtGrid.GridColor = System.Drawing.SystemColors.ButtonFace;
 			this.dtGrid.Location = new System.Drawing.Point(27, 608);
 			this.dtGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.dtGrid.Name = "dtGrid";
 			this.dtGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			dataGridViewCellStyle12.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
 			this.dtGrid.RowHeadersWidth = 20;
-			this.dtGrid.Size = new System.Drawing.Size(859, 88);
+			this.dtGrid.Size = new System.Drawing.Size(970, 88);
 			this.dtGrid.TabIndex = 465;
 			this.dtGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellContentClick);
 			// 
@@ -1617,27 +1712,6 @@
 			this.button9.UseVisualStyleBackColor = false;
 			this.button9.Click += new System.EventHandler(this.button9_Click);
 			// 
-			// button10
-			// 
-			this.button10.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.button10.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.button10.FlatAppearance.BorderSize = 0;
-			this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button10.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.button10.Image = global::ARM.Properties.Resources.Stethoscope_03_16;
-			this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button10.Location = new System.Drawing.Point(12, 671);
-			this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.button10.Name = "button10";
-			this.button10.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.button10.Size = new System.Drawing.Size(190, 60);
-			this.button10.TabIndex = 508;
-			this.button10.Text = "Add Diagnosis (CD10 Code)";
-			this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.button10.UseVisualStyleBackColor = false;
-			this.button10.Click += new System.EventHandler(this.button10_Click);
-			// 
 			// CertificateInputForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1645,7 +1719,7 @@
 			this.AutoScroll = true;
 			this.AutoSize = true;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.ClientSize = new System.Drawing.Size(1170, 1097);
+			this.ClientSize = new System.Drawing.Size(1408, 1097);
 			this.Controls.Add(this.button9);
 			this.Controls.Add(this.button6);
 			this.Controls.Add(this.updateBtn);
@@ -1666,6 +1740,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.cusPbx)).EndInit();
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
+			this.groupBox10.ResumeLayout(false);
+			this.groupBox10.PerformLayout();
 			this.groupBox9.ResumeLayout(false);
 			this.groupBox9.PerformLayout();
 			this.groupBox8.ResumeLayout(false);
@@ -1811,5 +1887,11 @@
 		private System.Windows.Forms.Button button6;
 		private System.Windows.Forms.Button button9;
 		private System.Windows.Forms.Button button10;
+		private System.Windows.Forms.GroupBox groupBox10;
+		private System.Windows.Forms.RadioButton faceYesBn;
+		private System.Windows.Forms.RadioButton faceNaBn;
+		private System.Windows.Forms.RadioButton faceNoBn;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.TextBox completedTxt;
 	}
 }

@@ -169,7 +169,8 @@ namespace ARM
                     DBConnect.QueryPostgre(Query);
                     Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                     DBConnect.InsertPostgre(q);
-                }
+					Helper.Log(Helper.UserName, "Deleted payment information " + item + "  " + DateTime.Now);
+				}
             }
         }
         List<string> selectedIDs = new List<string>();
@@ -178,18 +179,17 @@ namespace ARM
             var senderGrid = (DataGridView)sender;
             if (e.ColumnIndex == dtGrid.Columns["Select"].Index && e.RowIndex >= 0)
             {
-                if (selectedIDs.Contains(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString()))
-                {
-                    selectedIDs.Remove(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
-                   
-
-                }
-                else
-                {
-                    selectedIDs.Add(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
-                    
-                }
-            }
+				dtGrid.CurrentCell.Value = dtGrid.CurrentCell.FormattedValue.ToString() == "True" ? false : true;
+				dtGrid.RefreshEdit();
+				if (selectedIDs.Contains(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString()))
+				{
+					selectedIDs.Remove(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+				}
+				else
+				{
+					selectedIDs.Add(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+				}
+			}
             if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
             {
                 using (PayForm form = new PayForm(dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString()))
@@ -251,5 +251,27 @@ namespace ARM
             LoadData(fromDate, toDate);
             LoadingWindow.CloseForm();
         }
-    }
+
+		private void toolStripButton4_Click(object sender, EventArgs e)
+		{
+			foreach (DataGridViewRow row in dtGrid.Rows)
+			{
+				row.Cells["select"].Value = true;
+				if (!selectedIDs.Contains(row.Cells["id"].Value.ToString()))
+				{
+					selectedIDs.Add(row.Cells["id"].Value.ToString());
+				}
+			}
+		}
+
+		private void toolStripButton6_Click(object sender, EventArgs e)
+		{
+			List<DataGridViewRow> rows_with_checked_column = new List<DataGridViewRow>();
+			foreach (DataGridViewRow row in dtGrid.Rows)
+			{
+				row.Cells["select"].Value = false;
+				selectedIDs.Remove(row.Cells["id"].Value.ToString());
+			}
+		}
+	}
 }

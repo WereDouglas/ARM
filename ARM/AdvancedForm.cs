@@ -126,7 +126,7 @@ namespace ARM
                     
                     break;
                 case 16:
-                    Uploading.Transactions();
+                    Uploading.CaseTransactions();
                     break;
                 case 17:
                    
@@ -277,7 +277,7 @@ namespace ARM
                   
                     break;
                 case 17:
-                    Downloading.Transactions();
+                    Downloading.CaseTransactions();
                     break;
                 case 18:
                     
@@ -460,10 +460,8 @@ namespace ARM
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Users()));
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Invoice()));
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Product()));
-
-            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Vendor()));
-            
-            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Transaction()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Vendor()));           
+           
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Payment()));
 
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Schedule()));
@@ -547,7 +545,7 @@ namespace ARM
 
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Vendor()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Invoice()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Transaction()));
+         
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Payment()));
 
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Schedule()));

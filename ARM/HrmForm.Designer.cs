@@ -39,6 +39,9 @@
 			this.toolStripDropDownButton12 = new System.Windows.Forms.ToolStripDropDownButton();
 			this.exceptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.queriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripDropDownButton8 = new System.Windows.Forms.ToolStripDropDownButton();
+			this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
+			this.myProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.Session = new System.Windows.Forms.ToolStripDropDownButton();
 			this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
 			this.Users = new System.Windows.Forms.ToolStripDropDownButton();
@@ -67,7 +70,6 @@
 			this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.Shifts = new System.Windows.Forms.ToolStripButton();
 			this.Calendar = new System.Windows.Forms.ToolStripDropDownButton();
 			this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,6 +77,7 @@
 			this.processLbl = new System.Windows.Forms.TextBox();
 			this.usernameLbl = new System.Windows.Forms.Label();
 			this.userPbx = new System.Windows.Forms.PictureBox();
+			this.viewShitsSchedulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -159,6 +162,7 @@
 			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripDropDownButton12,
+            this.toolStripDropDownButton8,
             this.Session,
             this.Users,
             this.Patients,
@@ -166,7 +170,6 @@
             this.DirectDeposit,
             this.Coverage,
             this.Payroll,
-            this.Shifts,
             this.Calendar});
 			this.toolStrip1.Location = new System.Drawing.Point(187, 5);
 			this.toolStrip1.Name = "toolStrip1";
@@ -206,16 +209,47 @@
 			// exceptionsToolStripMenuItem
 			// 
 			this.exceptionsToolStripMenuItem.Name = "exceptionsToolStripMenuItem";
-			this.exceptionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.exceptionsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
 			this.exceptionsToolStripMenuItem.Text = "Exceptions";
 			this.exceptionsToolStripMenuItem.Click += new System.EventHandler(this.exceptionsToolStripMenuItem_Click);
 			// 
 			// queriesToolStripMenuItem
 			// 
 			this.queriesToolStripMenuItem.Name = "queriesToolStripMenuItem";
-			this.queriesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.queriesToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
 			this.queriesToolStripMenuItem.Text = "Queries";
 			this.queriesToolStripMenuItem.Click += new System.EventHandler(this.queriesToolStripMenuItem_Click);
+			// 
+			// toolStripDropDownButton8
+			// 
+			this.toolStripDropDownButton8.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.toolStripDropDownButton8.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem15,
+            this.myProfileToolStripMenuItem});
+			this.toolStripDropDownButton8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.toolStripDropDownButton8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			this.toolStripDropDownButton8.Image = global::ARM.Properties.Resources.Document_Settings_01_24__1_;
+			this.toolStripDropDownButton8.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+			this.toolStripDropDownButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripDropDownButton8.Name = "toolStripDropDownButton8";
+			this.toolStripDropDownButton8.Padding = new System.Windows.Forms.Padding(5);
+			this.toolStripDropDownButton8.Size = new System.Drawing.Size(68, 48);
+			this.toolStripDropDownButton8.Text = "Setup";
+			this.toolStripDropDownButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			// 
+			// toolStripMenuItem15
+			// 
+			this.toolStripMenuItem15.Name = "toolStripMenuItem15";
+			this.toolStripMenuItem15.Size = new System.Drawing.Size(183, 24);
+			this.toolStripMenuItem15.Text = "Company Profile";
+			this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
+			// 
+			// myProfileToolStripMenuItem
+			// 
+			this.myProfileToolStripMenuItem.Name = "myProfileToolStripMenuItem";
+			this.myProfileToolStripMenuItem.Size = new System.Drawing.Size(183, 24);
+			this.myProfileToolStripMenuItem.Text = "My Profile";
+			this.myProfileToolStripMenuItem.Click += new System.EventHandler(this.myProfileToolStripMenuItem_Click);
 			// 
 			// Session
 			// 
@@ -236,7 +270,7 @@
 			// toolStripMenuItem19
 			// 
 			this.toolStripMenuItem19.Name = "toolStripMenuItem19";
-			this.toolStripMenuItem19.Size = new System.Drawing.Size(180, 24);
+			this.toolStripMenuItem19.Size = new System.Drawing.Size(102, 24);
 			this.toolStripMenuItem19.Text = "Exit";
 			this.toolStripMenuItem19.Click += new System.EventHandler(this.toolStripMenuItem19_Click);
 			// 
@@ -260,14 +294,14 @@
 			// toolStripMenuItem11
 			// 
 			this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-			this.toolStripMenuItem11.Size = new System.Drawing.Size(180, 24);
+			this.toolStripMenuItem11.Size = new System.Drawing.Size(110, 24);
 			this.toolStripMenuItem11.Text = "Add";
 			this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
 			// 
 			// toolStripMenuItem12
 			// 
 			this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-			this.toolStripMenuItem12.Size = new System.Drawing.Size(180, 24);
+			this.toolStripMenuItem12.Size = new System.Drawing.Size(110, 24);
 			this.toolStripMenuItem12.Text = "View";
 			this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
 			// 
@@ -291,14 +325,14 @@
 			// toolStripMenuItem9
 			// 
 			this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-			this.toolStripMenuItem9.Size = new System.Drawing.Size(180, 24);
+			this.toolStripMenuItem9.Size = new System.Drawing.Size(110, 24);
 			this.toolStripMenuItem9.Text = "Add";
 			this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
 			// 
 			// toolStripMenuItem10
 			// 
 			this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-			this.toolStripMenuItem10.Size = new System.Drawing.Size(180, 24);
+			this.toolStripMenuItem10.Size = new System.Drawing.Size(110, 24);
 			this.toolStripMenuItem10.Text = "View";
 			this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
 			// 
@@ -322,14 +356,14 @@
 			// toolStripMenuItem7
 			// 
 			this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-			this.toolStripMenuItem7.Size = new System.Drawing.Size(180, 24);
+			this.toolStripMenuItem7.Size = new System.Drawing.Size(110, 24);
 			this.toolStripMenuItem7.Text = "Add";
 			this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
 			// 
 			// toolStripMenuItem8
 			// 
 			this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-			this.toolStripMenuItem8.Size = new System.Drawing.Size(180, 24);
+			this.toolStripMenuItem8.Size = new System.Drawing.Size(110, 24);
 			this.toolStripMenuItem8.Text = "View";
 			this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
 			// 
@@ -353,14 +387,14 @@
 			// toolStripMenuItem5
 			// 
 			this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-			this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 24);
+			this.toolStripMenuItem5.Size = new System.Drawing.Size(110, 24);
 			this.toolStripMenuItem5.Text = "Add";
 			this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click_1);
 			// 
 			// toolStripMenuItem6
 			// 
 			this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-			this.toolStripMenuItem6.Size = new System.Drawing.Size(180, 24);
+			this.toolStripMenuItem6.Size = new System.Drawing.Size(110, 24);
 			this.toolStripMenuItem6.Text = "View";
 			this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click_1);
 			// 
@@ -384,14 +418,14 @@
 			// toolStripMenuItem3
 			// 
 			this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-			this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 24);
+			this.toolStripMenuItem3.Size = new System.Drawing.Size(110, 24);
 			this.toolStripMenuItem3.Text = "Add";
 			this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click_1);
 			// 
 			// toolStripMenuItem4
 			// 
 			this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-			this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 24);
+			this.toolStripMenuItem4.Size = new System.Drawing.Size(110, 24);
 			this.toolStripMenuItem4.Text = "View";
 			this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click_1);
 			// 
@@ -488,27 +522,13 @@
 			this.statementToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
 			this.statementToolStripMenuItem.Text = "Statement";
 			// 
-			// Shifts
-			// 
-			this.Shifts.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-			this.Shifts.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Shifts.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.Shifts.Image = global::ARM.Properties.Resources.Clock_01_24;
-			this.Shifts.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			this.Shifts.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.Shifts.Name = "Shifts";
-			this.Shifts.Padding = new System.Windows.Forms.Padding(5);
-			this.Shifts.Size = new System.Drawing.Size(143, 48);
-			this.Shifts.Text = "Shifts && Schedules";
-			this.Shifts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-			this.Shifts.Click += new System.EventHandler(this.toolStripButton3_Click_1);
-			// 
 			// Calendar
 			// 
 			this.Calendar.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
 			this.Calendar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripMenuItem,
-            this.viewToolStripMenuItem});
+            this.viewToolStripMenuItem,
+            this.viewShitsSchedulesToolStripMenuItem});
 			this.Calendar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Calendar.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
 			this.Calendar.Image = global::ARM.Properties.Resources.Calendar_24;
@@ -530,8 +550,8 @@
 			// viewToolStripMenuItem
 			// 
 			this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-			this.viewToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-			this.viewToolStripMenuItem.Text = "View";
+			this.viewToolStripMenuItem.Size = new System.Drawing.Size(218, 24);
+			this.viewToolStripMenuItem.Text = "View Calender";
 			this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click_1);
 			// 
 			// panel1
@@ -585,6 +605,13 @@
 			this.userPbx.TabIndex = 9;
 			this.userPbx.TabStop = false;
 			// 
+			// viewShitsSchedulesToolStripMenuItem
+			// 
+			this.viewShitsSchedulesToolStripMenuItem.Name = "viewShitsSchedulesToolStripMenuItem";
+			this.viewShitsSchedulesToolStripMenuItem.Size = new System.Drawing.Size(229, 24);
+			this.viewShitsSchedulesToolStripMenuItem.Text = "View Shits && Schedules";
+			this.viewShitsSchedulesToolStripMenuItem.Click += new System.EventHandler(this.viewShitsSchedulesToolStripMenuItem_Click);
+			// 
 			// HrmForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -595,7 +622,7 @@
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "HrmForm";
-			this.Text = "HHA Payroll";
+			this.Text = "Payroll";
 			this.TransparencyKey = System.Drawing.Color.Empty;
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HrmForm_FormClosed);
@@ -625,7 +652,6 @@
         private System.Windows.Forms.ToolStripMenuItem exceptionsToolStripMenuItem;
         private System.Windows.Forms.PictureBox userPbx;
         private System.Windows.Forms.Label usernameLbl;
-        private System.Windows.Forms.ToolStripButton Shifts;
         private System.Windows.Forms.TextBox processLbl;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblStatus;
@@ -662,5 +688,9 @@
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem generatePayRollToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem paymentToolStripMenuItem;
-    }
+		private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton8;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem15;
+		private System.Windows.Forms.ToolStripMenuItem myProfileToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem viewShitsSchedulesToolStripMenuItem;
+	}
 }

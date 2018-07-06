@@ -107,9 +107,25 @@ namespace ARM
         }
 
         private void button3_Click(object sender, EventArgs e)
-        {
+		{
+			string exists = "";
+			try
+			{
+				exists = DBConnect.value("Customer", "no", "no", noTxt.Text);
+			}
+			catch {
 
-            MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+			}
+			 //.value(string table, string value, string column, string variable)
+			if (!string.IsNullOrEmpty(exists)){
+
+				int no = Convert.ToInt32(exists);
+				noTxt.Text = (no + 1).ToString();
+				MessageBox.Show("The patient number "+ noTxt.Text + " is already in use.New Patient number assigned " + noTxt.Text);
+			}
+
+			MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
 			if (string.IsNullOrEmpty(categoryCbx.Text)) {
 
@@ -122,14 +138,16 @@ namespace ARM
 				return;
 			}
 
-			Customer c = new Customer(CustomerID, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), ssnTxt.Text, dobTxt.Text, categoryCbx.Text, Helper.CleanString(heightTxt.Text), weightTxt.Text, genderCbx.Text, false, Helper.CompanyID, fullimage);
+			Customer c = new Customer(CustomerID, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), ssnTxt.Text, dobTxt.Text, categoryCbx.Text, Helper.CleanString(heightTxt.Text), weightTxt.Text, genderCbx.Text, false, Helper.CompanyID, fullimage,raceCbx.Text);
             string saves = DBConnect.InsertPostgre(c);
             if (saves != "")
             {
                 Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(saves), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                 DBConnect.InsertPostgre(q);
                 MessageBox.Show("Information Saved");
-                this.DialogResult = DialogResult.OK;
+				Helper.CurrentCustomer = nameTxt.Text;
+				Helper.Log(Helper.UserName, "Created new customer " + nameTxt.Text);
+				this.DialogResult = DialogResult.OK;
                 this.Dispose();
             }
         }
@@ -138,12 +156,13 @@ namespace ARM
 
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
-            Customer c = new Customer(customerID, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), ssnTxt.Text, dobTxt.Text, categoryCbx.Text, heightTxt.Text, weightTxt.Text, genderCbx.Text, false, Helper.CompanyID, fullimage);
+            Customer c = new Customer(customerID, nameTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), ssnTxt.Text, dobTxt.Text, categoryCbx.Text, heightTxt.Text, weightTxt.Text, genderCbx.Text, false, Helper.CompanyID, fullimage,raceCbx.Text);
             string save = DBConnect.UpdatePostgre(c, customerID);
             Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
             DBConnect.InsertPostgre(q);
             MessageBox.Show("Information Updated");
-            this.DialogResult = DialogResult.OK;
+			Helper.Log(Helper.UserName, " Updated Customer details  " + nameTxt.Text);
+			this.DialogResult = DialogResult.OK;
             this.Dispose();
 
         }
@@ -588,6 +607,16 @@ namespace ARM
 				emailTxt.BackColor = Color.Red;
 
 			}
+		}
+
+		private void contactTxt_TextChanged(object sender, EventArgs e)
+		{
+			contactTxt.Text = Helper.PhoneFormat(contactTxt.Text);
+		}
+
+		private void dtGridMed_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+		{
+
 		}
 	}
 }

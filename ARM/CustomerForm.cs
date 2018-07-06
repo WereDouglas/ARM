@@ -32,7 +32,7 @@ namespace ARM
             // create and execute query  
             t = new DataTable();
             t.Columns.Add(new DataColumn("Select", typeof(bool)));
-            t.Columns.Add("customerID");
+            t.Columns.Add("id");
             t.Columns.Add("uri");
             t.Columns.Add(new DataColumn("Img", typeof(Bitmap)));//1
             t.Columns.Add("No");
@@ -47,13 +47,12 @@ namespace ARM
             t.Columns.Add("Gender");
             t.Columns.Add("Height");
             t.Columns.Add("Weight");
-            t.Columns.Add("Category");
-            t.Columns.Add("Sync");
+			t.Columns.Add("Race");
+			t.Columns.Add("Category");
             t.Columns.Add("Created");
             t.Columns.Add(new DataColumn("View", typeof(Image)));
-            t.Columns.Add(new DataColumn("Delete", typeof(Image)));//1
-
-
+            t.Columns.Add(new DataColumn("Delete", typeof(Image)));
+			
             Bitmap b = new Bitmap(50, 50);
             using (Graphics g = Graphics.FromImage(b))
             {
@@ -66,7 +65,7 @@ namespace ARM
             {
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, c.Image as string, b, c.No, c.Name, c.Contact, c.Address, c.City, c.State, c.Zip, c.Ssn, c.Dob,c.Gender,c.Height,c.Weight, c.Category, c.Sync, c.Created, view, delete });
+                    t.Rows.Add(new object[] { false, c.Id, c.Image as string, b, c.No, c.Name, c.Contact, c.Address, c.City, c.State, c.Zip, c.Ssn, c.Dob,c.Gender,c.Height,c.Weight,c.Race, c.Category,c.Created, view, delete });
 
                 }
                 catch (Exception m)
@@ -98,15 +97,13 @@ namespace ARM
                     }
                 }
             });
-
             dtGrid.AllowUserToAddRows = false;
             // dtGrid.Columns["View"].DefaultCellStyle.BackColor = Color.LightGreen;
             //  dtGrid.Columns["Delete"].DefaultCellStyle.BackColor = Color.Red;
             dtGrid.RowTemplate.Height = 60;
             dtGrid.Columns["uri"].Visible = false;
-            dtGrid.Columns["customerID"].Visible = false;
+            dtGrid.Columns["id"].Visible = false;
            // dtGrid.Columns["select"].Width = 30;
-
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -141,8 +138,11 @@ namespace ARM
                     DBConnect.QueryPostgre(Query);
                     Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                     DBConnect.InsertPostgre(q);
-                }
-            }
+					Helper.Log(Helper.UserName, "Deleted patient information  " + item + "  " + DateTime.Now);
+
+
+				}
+			}
         }
         List<string> selectedIDs = new List<string>();
         private void dtGrid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -150,21 +150,20 @@ namespace ARM
             var senderGrid = (DataGridView)sender;
             if (e.ColumnIndex == dtGrid.Columns["Select"].Index && e.RowIndex >= 0)
             {
-                if (selectedIDs.Contains(dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString()))
-                {
-                    selectedIDs.Remove(dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString());
-                   
-
-                }
-                else
-                {
-                    selectedIDs.Add(dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString());
-                    
-                }
-            }
+				dtGrid.CurrentCell.Value = dtGrid.CurrentCell.FormattedValue.ToString() == "True" ? false : true;
+				dtGrid.RefreshEdit();
+				if (selectedIDs.Contains(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString()))
+				{
+					selectedIDs.Remove(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+				}
+				else
+				{
+					selectedIDs.Add(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+				}
+			}
             if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
             {
-                using (CustomerDemo form = new CustomerDemo(dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString()))
+                using (CustomerDemo form = new CustomerDemo(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString()))
                 {
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)
@@ -179,16 +178,18 @@ namespace ARM
                 {
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Customer? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
-                        string Query = "DELETE from customer WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString() + "'";
+                        string Query = "DELETE from customer WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
                             DBConnect.QueryPostgre(Query);
                         Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                         DBConnect.InsertPostgre(q);
                         MessageBox.Show("Information deleted");
                         LoadData();
+						Helper.Log(Helper.UserName, "Deleted patient information " + dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + "  " + DateTime.Now);
 
-                    }
-                   
-                }
+
+					}
+
+				}
 
             }
             catch { }
@@ -198,7 +199,7 @@ namespace ARM
         {
             if (e.ColumnIndex == 1)
             {
-                using (CustomerDemo form = new CustomerDemo(dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString()))
+                using (CustomerDemo form = new CustomerDemo(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString()))
                 {
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)
@@ -216,14 +217,16 @@ namespace ARM
                 MessageBox.Show("Please input a name ");
                 return;
             }
-            string ID = dtGrid.Rows[e.RowIndex].Cells["customerID"].Value.ToString();
-            Customer _c = new Customer(ID, dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["contact"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["address"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["city"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["state"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["zip"].Value.ToString(),DateTime.Now.ToString("dd-MM-yyyy"),dtGrid.Rows[e.RowIndex].Cells["SOC-SEC#"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Date Of Birth"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["height"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["weight"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["gender"].Value.ToString(), false,Helper.CompanyID, dtGrid.Rows[e.RowIndex].Cells["uri"].Value.ToString());
+            string ID = dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString();
+            Customer _c = new Customer(ID, dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["contact"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["address"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["city"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["state"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["zip"].Value.ToString(),DateTime.Now.ToString("dd-MM-yyyy"),dtGrid.Rows[e.RowIndex].Cells["SOC-SEC#"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Date Of Birth"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["height"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["weight"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["gender"].Value.ToString(), false,Helper.CompanyID, dtGrid.Rows[e.RowIndex].Cells["uri"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["race"].Value.ToString());
             string save = DBConnect.UpdatePostgre(_c, ID);
             Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
             DBConnect.InsertPostgre(q);
-        }
+			Helper.Log(Helper.UserName, "Updated customer information " + dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + "  " + DateTime.Now);
 
-        private void toolStripButton4_Click(object sender, EventArgs e)
+		}
+
+		private void toolStripButton4_Click(object sender, EventArgs e)
         {
             string Query = "UPDATE customer SET sync ='false'";
             DBConnect.QueryPostgre(Query);
@@ -245,5 +248,27 @@ namespace ARM
         {
 
         }
-    }
+
+		private void toolStripButton6_Click(object sender, EventArgs e)
+		{
+			foreach (DataGridViewRow row in dtGrid.Rows)
+			{
+				row.Cells["select"].Value = true;
+				if (!selectedIDs.Contains(row.Cells["id"].Value.ToString()))
+				{
+					selectedIDs.Add(row.Cells["id"].Value.ToString());
+				}
+			}
+		}
+
+		private void toolStripButton4_Click_1(object sender, EventArgs e)
+		{
+			List<DataGridViewRow> rows_with_checked_column = new List<DataGridViewRow>();
+			foreach (DataGridViewRow row in dtGrid.Rows)
+			{
+				row.Cells["select"].Value = false;
+				selectedIDs.Remove(row.Cells["id"].Value.ToString());
+			}
+		}
+	}
 }

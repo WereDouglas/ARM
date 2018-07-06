@@ -20,10 +20,11 @@ namespace ARM.Model
         private string created;
         private bool sync;
         private string companyID;
-        public Coverage() { }
+		private string expires;
+		public Coverage() { }
 
-        public Coverage(string id, string customerID, string name, string type, string category, string no, string created, bool sync, string companyID)
-        {
+        public Coverage(string id, string customerID, string name, string type, string category, string no, string created, bool sync, string companyID, string expires)
+		{
             this.Id = id;
             this.CustomerID = customerID;
             this.Name = name;
@@ -33,7 +34,8 @@ namespace ARM.Model
             this.Created = created;
             this.Sync = sync;
             this.CompanyID = companyID;
-        }
+			this.Expires = expires;
+		}
 
         static List<Coverage> p = new List<Coverage>();
 
@@ -47,8 +49,8 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Coverage ps = new Coverage(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
-                p.Add(ps);
+                Coverage ps = new Coverage(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["expires"].ToString());
+				p.Add(ps);
             }
             DBConnect.CloseConn();
             return p;
@@ -63,8 +65,8 @@ namespace ARM.Model
                 NpgsqlDataReader Reader = DBConnect.Reading(Q);
                 while (Reader.Read())
                 {
-                    Coverage ps = new Coverage(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
-                    p.Add(ps);
+                    Coverage ps = new Coverage(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["expires"].ToString());
+					p.Add(ps);
                 }
                 DBConnect.CloseConn();
             }
@@ -80,8 +82,8 @@ namespace ARM.Model
                 MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
                 while (Reader.Read())
                 {
-                    Coverage ps = new Coverage(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
-                    p.Add(ps);
+                    Coverage ps = new Coverage(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["expires"].ToString());
+					p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
             }
@@ -99,7 +101,9 @@ namespace ARM.Model
         public string Created { get => created; set => created = value; }
         public bool Sync { get => sync; set => sync = value; }
         public string CompanyID { get => companyID; set => companyID = value; }
-        private static Coverage k = new Coverage();
+		public string Expires { get => expires; set => expires = value; }
+
+		private static Coverage k = new Coverage();
         public static Coverage Select(string id)
         {
             string Q = "SELECT * FROM coverage WHERE id = '" + id + "'";
@@ -107,10 +111,9 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                k = new Coverage(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
-              
-            }
-            DBConnect.CloseConn();
+                k = new Coverage(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["expires"].ToString());
+			}
+			DBConnect.CloseConn();
             return k;
 
         }

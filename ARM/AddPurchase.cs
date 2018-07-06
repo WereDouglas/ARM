@@ -28,7 +28,7 @@ namespace ARM
             No = no;
             Date = date;
             CustomerID = customerID;
-            TransactionID = Guid.NewGuid().ToString();
+            CaseTransactionID = Guid.NewGuid().ToString();
             if (!string.IsNullOrEmpty(caseID)) { CaseID = caseID; }
         }
 
@@ -80,7 +80,7 @@ namespace ARM
         {
 
         }
-        string TransactionID;
+        string CaseTransactionID;
         private void button3_Click(object sender, EventArgs e)
         {
             if (Convert.ToDouble(qtyTxt.Text) < 1)
@@ -100,11 +100,11 @@ namespace ARM
 
 			}
 
-			Transaction t = new Transaction(TransactionID, Date, No, ItemID, CaseID, "", Convert.ToDouble(qtyTxt.Text), Convert.ToDouble(costTxt.Text), measureTxt.Text, Payable, Tax, TotalCoverage, TotalSelf, Payable, "", "", "", "", "", "", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
+			CaseTransaction t = new CaseTransaction(CaseTransactionID, Date, No, ItemID, CaseID, "", Convert.ToDouble(qtyTxt.Text), Convert.ToDouble(costTxt.Text), measureTxt.Text, Payable, Tax, TotalCoverage, TotalSelf, Payable, "", "", "", "", "", "", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
 
-			if (!GenericCollection.transactions.Any(item => item.ItemID == ItemID))
+			if (!GenericCollection.caseTransactions.Any(item => item.ItemID == ItemID))
 			{
-				GenericCollection.transactions.Add(t);
+				GenericCollection.caseTransactions.Add(t);
 				this.DialogResult = DialogResult.OK;
 				this.Dispose();
 			}
@@ -177,7 +177,7 @@ namespace ARM
         Double VariableTotal = 0;
         private void button5_Click(object sender, EventArgs e)
         {
-            using (AddCoverage form = new AddCoverage(TransactionID, CustomerID, ItemID,Convert.ToDouble(amountTxt.Text)))
+            using (AddCoverage form = new AddCoverage(CaseTransactionID, CustomerID, ItemID,Convert.ToDouble(amountTxt.Text)))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)

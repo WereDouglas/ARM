@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderIntakeForm));
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.orderTimeTxt = new System.Windows.Forms.DateTimePicker();
 			this.recievedCbx = new System.Windows.Forms.ComboBox();
 			this.orderDateTxt = new System.Windows.Forms.DateTimePicker();
 			this.dispensedCbx = new System.Windows.Forms.ComboBox();
@@ -69,9 +70,11 @@
 			this.totalLbl = new System.Windows.Forms.Label();
 			this.label26 = new System.Windows.Forms.Label();
 			this.clinicalDateTxt = new System.Windows.Forms.DateTimePicker();
+			this.button7 = new System.Windows.Forms.Button();
 			this.dtGrid = new System.Windows.Forms.DataGridView();
 			this.label51 = new System.Windows.Forms.Label();
 			this.label15 = new System.Windows.Forms.Label();
+			this.cusPbx = new System.Windows.Forms.PictureBox();
 			this.subscriberInfoTxt = new System.Windows.Forms.TextBox();
 			this.insuranceInfoTxt = new System.Windows.Forms.TextBox();
 			this.surgeryTxt = new System.Windows.Forms.TextBox();
@@ -93,15 +96,21 @@
 			this.label54 = new System.Windows.Forms.Label();
 			this.label57 = new System.Windows.Forms.Label();
 			this.userTxt = new System.Windows.Forms.TextBox();
+			this.userPbx = new System.Windows.Forms.PictureBox();
 			this.panel4 = new System.Windows.Forms.Panel();
-			this.label3 = new System.Windows.Forms.Label();
-			this.userCbx = new System.Windows.Forms.ComboBox();
 			this.practitionerCbx = new System.Windows.Forms.ComboBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label33 = new System.Windows.Forms.Label();
 			this.label31 = new System.Windows.Forms.Label();
 			this.customerCbx = new System.Windows.Forms.ComboBox();
 			this.noTxt = new System.Windows.Forms.TextBox();
+			this.button5 = new System.Windows.Forms.Button();
+			this.button4 = new System.Windows.Forms.Button();
+			this.button8 = new System.Windows.Forms.Button();
+			this.button3 = new System.Windows.Forms.Button();
+			this.label6 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
+			this.dispensedTimeTxt = new System.Windows.Forms.DateTimePicker();
 			this.previewdlg = new System.Windows.Forms.PrintPreviewDialog();
 			this.printDocument1 = new System.Drawing.Printing.PrintDocument();
 			this.printdoc1 = new System.Drawing.Printing.PrintDocument();
@@ -109,21 +118,15 @@
 			this.button1 = new System.Windows.Forms.Button();
 			this.submitBtn = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
-			this.button7 = new System.Windows.Forms.Button();
-			this.cusPbx = new System.Windows.Forms.PictureBox();
-			this.userPbx = new System.Windows.Forms.PictureBox();
-			this.button5 = new System.Windows.Forms.Button();
-			this.button4 = new System.Windows.Forms.Button();
-			this.button8 = new System.Windows.Forms.Button();
-			this.button3 = new System.Windows.Forms.Button();
 			this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+			this.button6 = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dtGrid)).BeginInit();
-			this.panel4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.cusPbx)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.userPbx)).BeginInit();
+			this.panel4.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// panel1
@@ -134,11 +137,12 @@
 			this.panel1.Location = new System.Drawing.Point(8, 63);
 			this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1173, 847);
+			this.panel1.Size = new System.Drawing.Size(1173, 885);
 			this.panel1.TabIndex = 0;
 			// 
 			// tableLayoutPanel1
 			// 
+			this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
 			this.tableLayoutPanel1.ColumnCount = 6;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 243F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.59831F));
@@ -146,30 +150,35 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 296F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel1.Controls.Add(this.recievedCbx, 2, 2);
+			this.tableLayoutPanel1.Controls.Add(this.orderTimeTxt, 2, 2);
+			this.tableLayoutPanel1.Controls.Add(this.recievedCbx, 2, 3);
 			this.tableLayoutPanel1.Controls.Add(this.orderDateTxt, 2, 1);
-			this.tableLayoutPanel1.Controls.Add(this.dispensedCbx, 4, 2);
+			this.tableLayoutPanel1.Controls.Add(this.dispensedCbx, 4, 3);
 			this.tableLayoutPanel1.Controls.Add(this.dispenseDateTxt, 4, 1);
 			this.tableLayoutPanel1.Controls.Add(this.label12, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.label13, 1, 1);
-			this.tableLayoutPanel1.Controls.Add(this.label14, 1, 2);
+			this.tableLayoutPanel1.Controls.Add(this.label14, 1, 3);
 			this.tableLayoutPanel1.Controls.Add(this.label16, 3, 0);
 			this.tableLayoutPanel1.Controls.Add(this.label18, 3, 1);
-			this.tableLayoutPanel1.Controls.Add(this.label19, 3, 2);
-			this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 3);
+			this.tableLayoutPanel1.Controls.Add(this.label19, 3, 3);
+			this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 4);
 			this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.label6, 1, 2);
+			this.tableLayoutPanel1.Controls.Add(this.label7, 3, 2);
+			this.tableLayoutPanel1.Controls.Add(this.dispensedTimeTxt, 4, 2);
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(15, 9);
 			this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-			this.tableLayoutPanel1.RowCount = 23;
+			this.tableLayoutPanel1.RowCount = 24;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 6F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
@@ -188,8 +197,20 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(1155, 826);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(1155, 872);
 			this.tableLayoutPanel1.TabIndex = 7;
+			this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+			// 
+			// orderTimeTxt
+			// 
+			this.orderTimeTxt.CalendarFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.orderTimeTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.orderTimeTxt.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+			this.orderTimeTxt.Location = new System.Drawing.Point(392, 58);
+			this.orderTimeTxt.Name = "orderTimeTxt";
+			this.orderTimeTxt.ShowUpDown = true;
+			this.orderTimeTxt.Size = new System.Drawing.Size(112, 27);
+			this.orderTimeTxt.TabIndex = 523;
 			// 
 			// recievedCbx
 			// 
@@ -199,7 +220,7 @@
 			this.recievedCbx.BackColor = System.Drawing.SystemColors.Info;
 			this.recievedCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.recievedCbx.FormattingEnabled = true;
-			this.recievedCbx.Location = new System.Drawing.Point(391, 54);
+			this.recievedCbx.Location = new System.Drawing.Point(392, 92);
 			this.recievedCbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.recievedCbx.Name = "recievedCbx";
 			this.recievedCbx.Size = new System.Drawing.Size(263, 21);
@@ -207,10 +228,10 @@
 			// 
 			// orderDateTxt
 			// 
-			this.orderDateTxt.Location = new System.Drawing.Point(391, 26);
+			this.orderDateTxt.Location = new System.Drawing.Point(392, 28);
 			this.orderDateTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.orderDateTxt.Name = "orderDateTxt";
-			this.orderDateTxt.Size = new System.Drawing.Size(263, 21);
+			this.orderDateTxt.Size = new System.Drawing.Size(210, 21);
 			this.orderDateTxt.TabIndex = 466;
 			// 
 			// dispensedCbx
@@ -221,7 +242,7 @@
 			this.dispensedCbx.BackColor = System.Drawing.SystemColors.Info;
 			this.dispensedCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.dispensedCbx.FormattingEnabled = true;
-			this.dispensedCbx.Location = new System.Drawing.Point(856, 54);
+			this.dispensedCbx.Location = new System.Drawing.Point(854, 92);
 			this.dispensedCbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.dispensedCbx.Name = "dispensedCbx";
 			this.dispensedCbx.Size = new System.Drawing.Size(290, 21);
@@ -229,7 +250,7 @@
 			// 
 			// dispenseDateTxt
 			// 
-			this.dispenseDateTxt.Location = new System.Drawing.Point(856, 26);
+			this.dispenseDateTxt.Location = new System.Drawing.Point(854, 28);
 			this.dispenseDateTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.dispenseDateTxt.Name = "dispenseDateTxt";
 			this.dispenseDateTxt.Size = new System.Drawing.Size(290, 21);
@@ -240,9 +261,9 @@
 			this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
 			this.tableLayoutPanel1.SetColumnSpan(this.label12, 2);
 			this.label12.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label12.Location = new System.Drawing.Point(251, 4);
+			this.label12.Location = new System.Drawing.Point(253, 5);
 			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(467, 20);
+			this.label12.Size = new System.Drawing.Size(461, 20);
 			this.label12.TabIndex = 249;
 			this.label12.Text = "Order Recieved";
 			// 
@@ -250,7 +271,7 @@
 			// 
 			this.label13.AutoSize = true;
 			this.label13.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label13.Location = new System.Drawing.Point(251, 24);
+			this.label13.Location = new System.Drawing.Point(253, 26);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(57, 16);
 			this.label13.TabIndex = 250;
@@ -260,7 +281,7 @@
 			// 
 			this.label14.AutoSize = true;
 			this.label14.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label14.Location = new System.Drawing.Point(251, 52);
+			this.label14.Location = new System.Drawing.Point(253, 90);
 			this.label14.Name = "label14";
 			this.label14.Size = new System.Drawing.Size(24, 16);
 			this.label14.TabIndex = 251;
@@ -271,7 +292,7 @@
 			this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
 			this.tableLayoutPanel1.SetColumnSpan(this.label16, 2);
 			this.label16.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label16.Location = new System.Drawing.Point(724, 4);
+			this.label16.Location = new System.Drawing.Point(721, 5);
 			this.label16.Name = "label16";
 			this.label16.Size = new System.Drawing.Size(422, 20);
 			this.label16.TabIndex = 253;
@@ -281,7 +302,7 @@
 			// 
 			this.label18.AutoSize = true;
 			this.label18.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label18.Location = new System.Drawing.Point(724, 24);
+			this.label18.Location = new System.Drawing.Point(721, 26);
 			this.label18.Name = "label18";
 			this.label18.Size = new System.Drawing.Size(32, 16);
 			this.label18.TabIndex = 255;
@@ -291,7 +312,7 @@
 			// 
 			this.label19.AutoSize = true;
 			this.label19.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label19.Location = new System.Drawing.Point(724, 52);
+			this.label19.Location = new System.Drawing.Point(721, 90);
 			this.label19.Name = "label19";
 			this.label19.Size = new System.Drawing.Size(30, 16);
 			this.label19.TabIndex = 256;
@@ -351,11 +372,11 @@
 			this.panel2.Controls.Add(this.label57);
 			this.panel2.Controls.Add(this.userTxt);
 			this.panel2.Controls.Add(this.userPbx);
-			this.panel2.Location = new System.Drawing.Point(251, 85);
+			this.panel2.Location = new System.Drawing.Point(253, 122);
 			this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.panel2.Name = "panel2";
 			this.tableLayoutPanel1.SetRowSpan(this.panel2, 5);
-			this.panel2.Size = new System.Drawing.Size(895, 741);
+			this.panel2.Size = new System.Drawing.Size(891, 741);
 			this.panel2.TabIndex = 452;
 			// 
 			// typeCbx
@@ -470,7 +491,7 @@
 			this.label5.BackColor = System.Drawing.Color.White;
 			this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.label5.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(600, 431);
+			this.label5.Location = new System.Drawing.Point(596, 431);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(79, 22);
 			this.label5.TabIndex = 512;
@@ -561,12 +582,12 @@
 			// specificTxt
 			// 
 			this.specificTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-			this.specificTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.specificTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.specificTxt.Location = new System.Drawing.Point(134, 341);
 			this.specificTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.specificTxt.Multiline = true;
 			this.specificTxt.Name = "specificTxt";
-			this.specificTxt.Size = new System.Drawing.Size(757, 28);
+			this.specificTxt.Size = new System.Drawing.Size(754, 28);
 			this.specificTxt.TabIndex = 472;
 			// 
 			// label34
@@ -607,38 +628,59 @@
 			this.clinicalDateTxt.Size = new System.Drawing.Size(210, 21);
 			this.clinicalDateTxt.TabIndex = 468;
 			// 
+			// button7
+			// 
+			this.button7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.button7.FlatAppearance.BorderSize = 0;
+			this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button7.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.button7.Image = global::ARM.Properties.Resources.Wheelchair_16;
+			this.button7.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.button7.Location = new System.Drawing.Point(8, 208);
+			this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.button7.Name = "button7";
+			this.button7.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.button7.Size = new System.Drawing.Size(112, 39);
+			this.button7.TabIndex = 468;
+			this.button7.Text = "+ Add Equipment";
+			this.button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.button7.UseVisualStyleBackColor = false;
+			this.button7.Click += new System.EventHandler(this.button7_Click_1);
+			// 
 			// dtGrid
 			// 
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dtGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle43.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dtGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle43;
 			this.dtGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dtGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
 			this.dtGrid.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
 			this.dtGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dtGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 			this.dtGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
-			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGrid.DefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle44.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle44.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle44.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			dataGridViewCellStyle44.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle44.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			dataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGrid.DefaultCellStyle = dataGridViewCellStyle44;
 			this.dtGrid.GridColor = System.Drawing.SystemColors.ButtonFace;
 			this.dtGrid.Location = new System.Drawing.Point(134, 193);
 			this.dtGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.dtGrid.Name = "dtGrid";
 			this.dtGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle45.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			dataGridViewCellStyle45.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle45.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle45.SelectionBackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle45.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle45;
 			this.dtGrid.RowHeadersVisible = false;
 			this.dtGrid.RowHeadersWidth = 20;
 			this.dtGrid.Size = new System.Drawing.Size(757, 144);
@@ -666,10 +708,21 @@
 			this.label15.TabIndex = 252;
 			this.label15.Text = "Subscriber /Patient Information";
 			// 
+			// cusPbx
+			// 
+			this.cusPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
+			this.cusPbx.Location = new System.Drawing.Point(5, 29);
+			this.cusPbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.cusPbx.Name = "cusPbx";
+			this.cusPbx.Size = new System.Drawing.Size(77, 68);
+			this.cusPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.cusPbx.TabIndex = 179;
+			this.cusPbx.TabStop = false;
+			// 
 			// subscriberInfoTxt
 			// 
 			this.subscriberInfoTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-			this.subscriberInfoTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.subscriberInfoTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.subscriberInfoTxt.Location = new System.Drawing.Point(134, 28);
 			this.subscriberInfoTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.subscriberInfoTxt.Multiline = true;
@@ -680,7 +733,7 @@
 			// insuranceInfoTxt
 			// 
 			this.insuranceInfoTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-			this.insuranceInfoTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.insuranceInfoTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.insuranceInfoTxt.Location = new System.Drawing.Point(473, 28);
 			this.insuranceInfoTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.insuranceInfoTxt.Multiline = true;
@@ -691,7 +744,7 @@
 			// surgeryTxt
 			// 
 			this.surgeryTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-			this.surgeryTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.surgeryTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.surgeryTxt.Location = new System.Drawing.Point(532, 134);
 			this.surgeryTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.surgeryTxt.Multiline = true;
@@ -712,7 +765,7 @@
 			// diagnosisTxt
 			// 
 			this.diagnosisTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-			this.diagnosisTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.diagnosisTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.diagnosisTxt.Location = new System.Drawing.Point(134, 134);
 			this.diagnosisTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.diagnosisTxt.Multiline = true;
@@ -799,12 +852,12 @@
 			// otherTxt
 			// 
 			this.otherTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-			this.otherTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.otherTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.otherTxt.Location = new System.Drawing.Point(134, 478);
 			this.otherTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.otherTxt.Multiline = true;
 			this.otherTxt.Name = "otherTxt";
-			this.otherTxt.Size = new System.Drawing.Size(757, 28);
+			this.otherTxt.Size = new System.Drawing.Size(747, 28);
 			this.otherTxt.TabIndex = 16;
 			// 
 			// label52
@@ -824,7 +877,7 @@
 			this.label50.BackColor = System.Drawing.Color.White;
 			this.label50.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.label50.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label50.Location = new System.Drawing.Point(302, 429);
+			this.label50.Location = new System.Drawing.Point(298, 429);
 			this.label50.Name = "label50";
 			this.label50.Size = new System.Drawing.Size(48, 22);
 			this.label50.TabIndex = 316;
@@ -872,7 +925,7 @@
 			// userTxt
 			// 
 			this.userTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-			this.userTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.userTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.userTxt.Location = new System.Drawing.Point(134, 646);
 			this.userTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.userTxt.Multiline = true;
@@ -880,10 +933,20 @@
 			this.userTxt.Size = new System.Drawing.Size(757, 75);
 			this.userTxt.TabIndex = 470;
 			// 
+			// userPbx
+			// 
+			this.userPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
+			this.userPbx.Location = new System.Drawing.Point(3, 646);
+			this.userPbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.userPbx.Name = "userPbx";
+			this.userPbx.Size = new System.Drawing.Size(79, 75);
+			this.userPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.userPbx.TabIndex = 471;
+			this.userPbx.TabStop = false;
+			// 
 			// panel4
 			// 
-			this.panel4.Controls.Add(this.label3);
-			this.panel4.Controls.Add(this.userCbx);
+			this.panel4.Controls.Add(this.button6);
 			this.panel4.Controls.Add(this.practitionerCbx);
 			this.panel4.Controls.Add(this.label2);
 			this.panel4.Controls.Add(this.label33);
@@ -895,37 +958,11 @@
 			this.panel4.Controls.Add(this.button8);
 			this.panel4.Controls.Add(this.button3);
 			this.panel4.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.panel4.Location = new System.Drawing.Point(8, 7);
+			this.panel4.Location = new System.Drawing.Point(9, 8);
 			this.panel4.Name = "panel4";
-			this.tableLayoutPanel1.SetRowSpan(this.panel4, 12);
-			this.panel4.Size = new System.Drawing.Size(237, 797);
+			this.tableLayoutPanel1.SetRowSpan(this.panel4, 15);
+			this.panel4.Size = new System.Drawing.Size(237, 855);
 			this.panel4.TabIndex = 505;
-			// 
-			// label3
-			// 
-			this.label3.BackColor = System.Drawing.Color.MistyRose;
-			this.label3.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.label3.Location = new System.Drawing.Point(6, 605);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(231, 17);
-			this.label3.TabIndex = 505;
-			this.label3.Text = "Physician";
-			// 
-			// userCbx
-			// 
-			this.userCbx.AutoCompleteCustomSource.AddRange(new string[] {
-            "Participating",
-            "Nonparticipating"});
-			this.userCbx.BackColor = System.Drawing.SystemColors.Info;
-			this.userCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.userCbx.FormattingEnabled = true;
-			this.userCbx.Location = new System.Drawing.Point(9, 624);
-			this.userCbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.userCbx.Name = "userCbx";
-			this.userCbx.Size = new System.Drawing.Size(225, 23);
-			this.userCbx.TabIndex = 504;
-			this.userCbx.SelectedIndexChanged += new System.EventHandler(this.userCbx_SelectedIndexChanged_1);
 			// 
 			// practitionerCbx
 			// 
@@ -935,7 +972,7 @@
 			this.practitionerCbx.BackColor = System.Drawing.SystemColors.Info;
 			this.practitionerCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.practitionerCbx.FormattingEnabled = true;
-			this.practitionerCbx.Location = new System.Drawing.Point(6, 351);
+			this.practitionerCbx.Location = new System.Drawing.Point(9, 755);
 			this.practitionerCbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.practitionerCbx.Name = "practitionerCbx";
 			this.practitionerCbx.Size = new System.Drawing.Size(228, 23);
@@ -947,11 +984,11 @@
 			this.label2.BackColor = System.Drawing.Color.MistyRose;
 			this.label2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.label2.Location = new System.Drawing.Point(3, 325);
+			this.label2.Location = new System.Drawing.Point(6, 729);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(231, 17);
 			this.label2.TabIndex = 473;
-			this.label2.Text = "Referring provider";
+			this.label2.Text = "Physician";
 			// 
 			// label33
 			// 
@@ -996,142 +1033,6 @@
 			this.noTxt.Size = new System.Drawing.Size(228, 23);
 			this.noTxt.TabIndex = 469;
 			// 
-			// previewdlg
-			// 
-			this.previewdlg.AutoScrollMargin = new System.Drawing.Size(0, 0);
-			this.previewdlg.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-			this.previewdlg.ClientSize = new System.Drawing.Size(400, 300);
-			this.previewdlg.Enabled = true;
-			this.previewdlg.Icon = ((System.Drawing.Icon)(resources.GetObject("previewdlg.Icon")));
-			this.previewdlg.Name = "previewdlg";
-			this.previewdlg.Visible = false;
-			// 
-			// printdoc1
-			// 
-			this.printdoc1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printdoc1_PrintPage);
-			// 
-			// updateBtn
-			// 
-			this.updateBtn.BackColor = System.Drawing.Color.Khaki;
-			this.updateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.updateBtn.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.updateBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.updateBtn.Image = global::ARM.Properties.Resources.Note_04_24;
-			this.updateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.updateBtn.Location = new System.Drawing.Point(870, 931);
-			this.updateBtn.Name = "updateBtn";
-			this.updateBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.updateBtn.Size = new System.Drawing.Size(107, 37);
-			this.updateBtn.TabIndex = 16;
-			this.updateBtn.Text = "Update";
-			this.updateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.updateBtn.UseVisualStyleBackColor = false;
-			this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
-			// 
-			// button1
-			// 
-			this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button1.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.button1.Image = global::ARM.Properties.Resources.Print_24;
-			this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button1.Location = new System.Drawing.Point(741, 932);
-			this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.button1.Name = "button1";
-			this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.button1.Size = new System.Drawing.Size(90, 37);
-			this.button1.TabIndex = 1;
-			this.button1.Text = "Print";
-			this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.button1.UseVisualStyleBackColor = false;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
-			// 
-			// submitBtn
-			// 
-			this.submitBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			this.submitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.submitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.submitBtn.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.submitBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.submitBtn.Image = global::ARM.Properties.Resources.Submit_01_32;
-			this.submitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.submitBtn.Location = new System.Drawing.Point(1015, 931);
-			this.submitBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.submitBtn.Name = "submitBtn";
-			this.submitBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.submitBtn.Size = new System.Drawing.Size(169, 37);
-			this.submitBtn.TabIndex = 0;
-			this.submitBtn.Text = "Generate Report";
-			this.submitBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.submitBtn.UseVisualStyleBackColor = false;
-			this.submitBtn.Click += new System.EventHandler(this.button3_Click);
-			// 
-			// button2
-			// 
-			this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-			this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button2.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
-			this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button2.Location = new System.Drawing.Point(26, 930);
-			this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.button2.Name = "button2";
-			this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.button2.Size = new System.Drawing.Size(108, 37);
-			this.button2.TabIndex = 2;
-			this.button2.Text = "Cancel";
-			this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.button2.UseVisualStyleBackColor = false;
-			this.button2.Click += new System.EventHandler(this.button2_Click);
-			// 
-			// button7
-			// 
-			this.button7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.button7.FlatAppearance.BorderSize = 0;
-			this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button7.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.button7.Image = global::ARM.Properties.Resources.Wheelchair_16;
-			this.button7.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.button7.Location = new System.Drawing.Point(8, 208);
-			this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.button7.Name = "button7";
-			this.button7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.button7.Size = new System.Drawing.Size(112, 39);
-			this.button7.TabIndex = 468;
-			this.button7.Text = "+ Add Equipment";
-			this.button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-			this.button7.UseVisualStyleBackColor = false;
-			this.button7.Click += new System.EventHandler(this.button7_Click_1);
-			// 
-			// cusPbx
-			// 
-			this.cusPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
-			this.cusPbx.Location = new System.Drawing.Point(5, 29);
-			this.cusPbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.cusPbx.Name = "cusPbx";
-			this.cusPbx.Size = new System.Drawing.Size(77, 68);
-			this.cusPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.cusPbx.TabIndex = 179;
-			this.cusPbx.TabStop = false;
-			// 
-			// userPbx
-			// 
-			this.userPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
-			this.userPbx.Location = new System.Drawing.Point(3, 646);
-			this.userPbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.userPbx.Name = "userPbx";
-			this.userPbx.Size = new System.Drawing.Size(79, 75);
-			this.userPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.userPbx.TabIndex = 471;
-			this.userPbx.TabStop = false;
-			// 
 			// button5
 			// 
 			this.button5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -1163,13 +1064,13 @@
 			this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.button4.Image = global::ARM.Properties.Resources.Doctor_16;
 			this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button4.Location = new System.Drawing.Point(6, 378);
+			this.button4.Location = new System.Drawing.Point(9, 782);
 			this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.button4.Name = "button4";
 			this.button4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.button4.Size = new System.Drawing.Size(147, 49);
+			this.button4.Size = new System.Drawing.Size(119, 49);
 			this.button4.TabIndex = 467;
-			this.button4.Text = "New practitioner";
+			this.button4.Text = "New Physician";
 			this.button4.UseVisualStyleBackColor = false;
 			this.button4.Click += new System.EventHandler(this.button4_Click_1);
 			// 
@@ -1213,6 +1114,150 @@
 			this.button3.UseVisualStyleBackColor = false;
 			this.button3.Click += new System.EventHandler(this.button3_Click_1);
 			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label6.Location = new System.Drawing.Point(253, 55);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(31, 16);
+			this.label6.TabIndex = 524;
+			this.label6.Text = "Time";
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label7.Location = new System.Drawing.Point(721, 55);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(31, 16);
+			this.label7.TabIndex = 525;
+			this.label7.Text = "Time";
+			// 
+			// dispensedTimeTxt
+			// 
+			this.dispensedTimeTxt.CalendarFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dispensedTimeTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dispensedTimeTxt.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+			this.dispensedTimeTxt.Location = new System.Drawing.Point(854, 58);
+			this.dispensedTimeTxt.Name = "dispensedTimeTxt";
+			this.dispensedTimeTxt.ShowUpDown = true;
+			this.dispensedTimeTxt.Size = new System.Drawing.Size(112, 27);
+			this.dispensedTimeTxt.TabIndex = 527;
+			// 
+			// previewdlg
+			// 
+			this.previewdlg.AutoScrollMargin = new System.Drawing.Size(0, 0);
+			this.previewdlg.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+			this.previewdlg.ClientSize = new System.Drawing.Size(400, 300);
+			this.previewdlg.Enabled = true;
+			this.previewdlg.Icon = ((System.Drawing.Icon)(resources.GetObject("previewdlg.Icon")));
+			this.previewdlg.Name = "previewdlg";
+			this.previewdlg.Visible = false;
+			// 
+			// printdoc1
+			// 
+			this.printdoc1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printdoc1_PrintPage);
+			// 
+			// updateBtn
+			// 
+			this.updateBtn.BackColor = System.Drawing.Color.Khaki;
+			this.updateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.updateBtn.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.updateBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.updateBtn.Image = global::ARM.Properties.Resources.Note_04_24;
+			this.updateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.updateBtn.Location = new System.Drawing.Point(870, 958);
+			this.updateBtn.Name = "updateBtn";
+			this.updateBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.updateBtn.Size = new System.Drawing.Size(107, 37);
+			this.updateBtn.TabIndex = 16;
+			this.updateBtn.Text = "Update";
+			this.updateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.updateBtn.UseVisualStyleBackColor = false;
+			this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
+			// 
+			// button1
+			// 
+			this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button1.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.button1.Image = global::ARM.Properties.Resources.Print_24;
+			this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button1.Location = new System.Drawing.Point(741, 959);
+			this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.button1.Name = "button1";
+			this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.button1.Size = new System.Drawing.Size(90, 37);
+			this.button1.TabIndex = 1;
+			this.button1.Text = "Print";
+			this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.button1.UseVisualStyleBackColor = false;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// submitBtn
+			// 
+			this.submitBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.submitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.submitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.submitBtn.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.submitBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.submitBtn.Image = global::ARM.Properties.Resources.Submit_01_32;
+			this.submitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.submitBtn.Location = new System.Drawing.Point(1015, 958);
+			this.submitBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.submitBtn.Name = "submitBtn";
+			this.submitBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.submitBtn.Size = new System.Drawing.Size(169, 37);
+			this.submitBtn.TabIndex = 0;
+			this.submitBtn.Text = "Generate Report";
+			this.submitBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.submitBtn.UseVisualStyleBackColor = false;
+			this.submitBtn.Click += new System.EventHandler(this.button3_Click);
+			// 
+			// button2
+			// 
+			this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+			this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button2.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
+			this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button2.Location = new System.Drawing.Point(26, 957);
+			this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.button2.Name = "button2";
+			this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.button2.Size = new System.Drawing.Size(108, 37);
+			this.button2.TabIndex = 2;
+			this.button2.Text = "Cancel";
+			this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.button2.UseVisualStyleBackColor = false;
+			this.button2.Click += new System.EventHandler(this.button2_Click);
+			// 
+			// button6
+			// 
+			this.button6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.button6.FlatAppearance.BorderSize = 0;
+			this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button6.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.button6.Image = global::ARM.Properties.Resources.Box_02_24;
+			this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button6.Location = new System.Drawing.Point(7, 248);
+			this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.button6.Name = "button6";
+			this.button6.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.button6.Size = new System.Drawing.Size(136, 47);
+			this.button6.TabIndex = 506;
+			this.button6.Text = "Add Product";
+			this.button6.UseVisualStyleBackColor = false;
+			this.button6.Click += new System.EventHandler(this.button6_Click);
+			// 
 			// OrderIntakeForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1235,10 +1280,10 @@
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dtGrid)).EndInit();
-			this.panel4.ResumeLayout(false);
-			this.panel4.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.cusPbx)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.userPbx)).EndInit();
+			this.panel4.ResumeLayout(false);
+			this.panel4.PerformLayout();
 			this.ResumeLayout(false);
 
         }
@@ -1309,8 +1354,6 @@
 		private System.Windows.Forms.TextBox specificTxt;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.ComboBox practitionerCbx;
-		private System.Windows.Forms.ComboBox userCbx;
-		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.CheckBox hospitalChk;
 		private System.Windows.Forms.CheckBox homeChk;
 		private System.Windows.Forms.TextBox roomTxt;
@@ -1330,5 +1373,10 @@
 		private System.Windows.Forms.CheckBox notifiedChk;
 		private System.Windows.Forms.ComboBox typeCbx;
 		private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+		private System.Windows.Forms.DateTimePicker orderTimeTxt;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.DateTimePicker dispensedTimeTxt;
+		private System.Windows.Forms.Button button6;
 	}
 }

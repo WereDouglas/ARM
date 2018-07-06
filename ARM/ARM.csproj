@@ -130,6 +130,12 @@
     <Compile Include="AccountDialog.Designer.cs">
       <DependentUpon>AccountDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdministrationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministrationForm.Designer.cs">
+      <DependentUpon>AdministrationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdvancedForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -517,7 +523,6 @@
     <Compile Include="Model\Exceptions.cs" />
     <Compile Include="Model\Responsible.cs" />
     <Compile Include="Model\Rate.cs" />
-    <Compile Include="Model\Transaction.cs" />
     <Compile Include="Model\Invoice.cs" />
     <Compile Include="Model\Coverage.cs" />
     <Compile Include="Model\Vendor.cs" />
@@ -578,6 +583,9 @@
     <Compile Include="Util\Helper.cs" />
     <EmbeddedResource Include="AccountDialog.resx">
       <DependentUpon>AccountDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdministrationForm.resx">
+      <DependentUpon>AdministrationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdvancedForm.resx">
       <DependentUpon>AdvancedForm.cs</DependentUpon>
@@ -1084,6 +1092,11 @@
     <None Include="Resources\Search-Find-16.png" />
     <None Include="Resources\certificatecmn.png" />
     <None Include="Resources\First-Aid-Kit-02-24.png" />
+    <None Include="Resources\Task-01-24.png" />
+    <None Include="Resources\Task-01-24 %282%29.png" />
+    <None Include="Resources\Report-Delete-24.png" />
+    <None Include="Resources\Photovoltaic-Panel-24.png" />
+    <None Include="Resources\Photovoltaic-Panel-32.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

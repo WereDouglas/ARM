@@ -803,6 +803,26 @@ namespace ARM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Photovoltaic_Panel_24 {
+            get {
+                object obj = ResourceManager.GetObject("Photovoltaic-Panel-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Photovoltaic_Panel_32 {
+            get {
+                object obj = ResourceManager.GetObject("Photovoltaic-Panel-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Place {
             get {
                 object obj = ResourceManager.GetObject("Place", resourceCulture);
@@ -856,6 +876,16 @@ namespace ARM.Properties {
         internal static System.Drawing.Bitmap Reminder_Window_48 {
             get {
                 object obj = ResourceManager.GetObject("Reminder-Window-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Report_Delete_24 {
+            get {
+                object obj = ResourceManager.GetObject("Report-Delete-24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1046,6 +1076,26 @@ namespace ARM.Properties {
         internal static System.Drawing.Bitmap Submit_02_161 {
             get {
                 object obj = ResourceManager.GetObject("Submit-02-161", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Task_01_24 {
+            get {
+                object obj = ResourceManager.GetObject("Task-01-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Task_01_24__2_ {
+            get {
+                object obj = ResourceManager.GetObject("Task-01-24 (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

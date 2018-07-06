@@ -124,18 +124,19 @@ namespace ARM
                     string Query = "";
                     if (paidCbx.Text == "Yes")
                     {
-                        Query = "Update schedule SET status = 'Paid' WHERE WHERE (date::date >= '" + fromDate + "'::date AND  date::date <= '" + toDate + "'::date) AND UserID ='" + UserID + "'";
+                        Query = "Update schedule SET status = 'Paid' WHERE  (date::date >= '" + fromDate + "'::date AND  date::date <= '" + toDate + "'::date) AND UserID ='" + UserID + "'";
                     }
                     else
                     {
-                        Query = "Update schedule SET status = 'Pending' WHERE WHERE (date::date >= '" + fromDate + "'::date AND  date::date <= '" + toDate + "'::date) AND UserID ='" + UserID + "'";
+                        Query = "Update schedule SET status = 'Pending' WHERE (date::date >= '" + fromDate + "'::date AND  date::date <= '" + toDate + "'::date) AND UserID ='" + UserID + "'";
                     }
                     DBConnect.QueryPostgre(Query);
                     Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                     DBConnect.InsertPostgre(q);
 
                     MessageBox.Show("Information Saved");
-                    this.Close();
+					Helper.Log(Helper.UserName, "Created pay Slip " + userCbx.Text + "  " + DateTime.Now);
+					this.Close();
                 }
 
 
@@ -307,7 +308,7 @@ namespace ARM
             // create and execute query  
             t = new DataTable();
 
-            t.Columns.Add("ID");
+            t.Columns.Add("id");
             t.Columns.Add("Date");
             t.Columns.Add("Customer");
             t.Columns.Add("Start");
@@ -348,7 +349,7 @@ namespace ARM
             dtGrid.AllowUserToAddRows = false;
             dtGrid.Columns["Start"].DefaultCellStyle.BackColor = Color.LightGreen;
             dtGrid.Columns["End"].DefaultCellStyle.BackColor = Color.LightPink;
-            dtGrid.Columns["ID"].Visible = false;
+            dtGrid.Columns["id"].Visible = false;
             string summary = "";
             foreach (DataGridViewRow row in dtGrid.Rows)
             {
@@ -374,7 +375,16 @@ namespace ARM
         }
         private void dateTxt_ValueChanged(object sender, EventArgs e)
         {
-			fillUp(Convert.ToDateTime(dateTxt.Text));
+			try
+			{
+				fillUp(Convert.ToDateTime(dateTxt.Text));
+			}
+			catch
+			{
+				fillUp(Convert.ToDateTime(DateTime.Now.ToString("dd-MM-yyyy")));
+
+
+			}
 			userCbx_SelectedIndexChanged(null, null);
 		}
         string month;
@@ -397,13 +407,14 @@ namespace ARM
             {
                 if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Deduction? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    string Query = "DELETE from deduction WHERE id ='" + dtSlip.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
+                    string Query = "DELETE from deduction WHERE id ='" + dtSlip.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
                     DBConnect.QueryPostgre(Query);
 
-                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                     DBConnect.InsertPostgre(q);
                     MessageBox.Show("Information deleted");
-                    LoadDed(noLbl.Text);
+					Helper.Log(Helper.UserName, "Deleted deduction " + userCbx.Text + "  " + DateTime.Now);
+					LoadDed(noLbl.Text);
 
                 }
             }
@@ -430,7 +441,7 @@ namespace ARM
             // create and execute query  
             t = new DataTable();
 
-            t.Columns.Add("ID");
+            t.Columns.Add("id");
             t.Columns.Add("No");
             t.Columns.Add("Category");
             t.Columns.Add("Details");
@@ -456,7 +467,7 @@ namespace ARM
             }
             dtSlip.DataSource = t;
             dtSlip.AllowUserToAddRows = false;
-            dtSlip.Columns["ID"].Visible = false;
+            dtSlip.Columns["id"].Visible = false;
             deduction = deductionDictionary.Sum(o => o.Value);
             totalDeductionTxt.Text = deduction.ToString("N0");
             totalPayTxt.Text = (cost - deduction).ToString("N0");
@@ -489,21 +500,37 @@ namespace ARM
 
         private void dtGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dtGrid.Columns["Delete"].Index && e.RowIndex >= 0)
+			try
+			{
+				if (Convert.ToInt32(Helper.Level) < 3)
+				{
+					MessageBox.Show("Access Denied !");
+					return;
+				}
+			}
+			catch (Exception c)
+			{
+				//MessageBox.Show(c.Message.ToString());
+				Helper.Exceptions(c.Message, "Access level error ");
+				//MessageBox.Show("You have an invalid entry !");
+				return;
+			}
+			if (e.ColumnIndex == dtGrid.Columns["Delete"].Index && e.RowIndex >= 0)
             {
                 if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Schedule? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    string Query = "DELETE from schedule WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
+                    string Query = "DELETE from schedule WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
                     DBConnect.QueryPostgre(Query);
                     Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                     DBConnect.InsertPostgre(q);
                     MessageBox.Show("Information deleted");
-                    LoadData(fromDate, toDate, UserID);
+					Helper.Log(Helper.UserName, "Deleted Schedule for  " + userCbx.Text + "  " + DateTime.Now);
+					LoadData(fromDate, toDate, UserID);
                 }
 			}
             if (dtGrid.Columns[e.ColumnIndex].Name.Contains("Status"))
             {
-                using (StateDialog form = new StateDialog(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
+                using (StateDialog form = new StateDialog(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString()))
                 {
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)

@@ -161,12 +161,28 @@ namespace ARM
 
         private void emailTxt_Leave(object sender, EventArgs e)
         {
-            //if (!Helper.Email(emailTxt.Text)) {
+		
+			if (!String.IsNullOrEmpty(emailTxt.Text))
+			{
+				if (!Helper.IsValidEmail(emailTxt.Text))
+				{
 
-            emailTxt.BackColor = Color.Red;
-            MessageBox.Show("Invalid Email !");
-            // }
-        }
+					emailTxt.BackColor = Color.Red;
+					MessageBox.Show("Invalid Email !");
+					
+				}
+				else
+				{
+					
+
+				}
+			}
+			else
+			{
+				emailTxt.BackColor = Color.Red;
+
+			}
+		}
 
         private void imgCapture_Click(object sender, EventArgs e)
         {

@@ -29,10 +29,7 @@
         private void InitializeComponent()
         {
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-			this.dtGrid = new System.Windows.Forms.DataGridView();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
 			this.panel6 = new System.Windows.Forms.Panel();
@@ -56,7 +53,6 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.pendingLbl = new System.Windows.Forms.Label();
 			this.InvoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			((System.ComponentModel.ISupportInitialize)(this.dtGrid)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.panel6.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -67,63 +63,27 @@
 			((System.ComponentModel.ISupportInitialize)(this.InvoiceBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// dtGrid
-			// 
-			this.dtGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.dtGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.dtGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-			this.dtGrid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.dtGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.dtGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-			this.dtGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			this.dtGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.tableLayoutPanel1.SetColumnSpan(this.dtGrid, 2);
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGrid.DefaultCellStyle = dataGridViewCellStyle1;
-			this.dtGrid.GridColor = System.Drawing.SystemColors.ButtonFace;
-			this.dtGrid.Location = new System.Drawing.Point(587, 445);
-			this.dtGrid.Name = "dtGrid";
-			this.dtGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-			this.dtGrid.RowHeadersVisible = false;
-			this.dtGrid.RowHeadersWidth = 20;
-			this.dtGrid.Size = new System.Drawing.Size(774, 184);
-			this.dtGrid.TabIndex = 49;
-			// 
 			// tableLayoutPanel1
 			// 
+			this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.tableLayoutPanel1.ColumnCount = 4;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.95498F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.04501F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 331F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 448F));
-			this.tableLayoutPanel1.Controls.Add(this.reportViewer1, 1, 0);
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.37931F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.62069F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 566F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 451F));
 			this.tableLayoutPanel1.Controls.Add(this.panel6, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.dtGrid, 2, 2);
-			this.tableLayoutPanel1.Controls.Add(this.panel1, 2, 0);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel1.Controls.Add(this.reportViewer1, 1, 2);
+			this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 4;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.90282F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.09718F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 190F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 412F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(1364, 641);
 			this.tableLayoutPanel1.TabIndex = 1;
@@ -135,17 +95,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.reportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.tableLayoutPanel1.SetColumnSpan(this.reportViewer1, 3);
 			this.reportViewer1.DocumentMapWidth = 35;
 			reportDataSource1.Name = "DataSetInvoice";
 			reportDataSource1.Value = this.InvoiceBindingSource;
 			this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
 			this.reportViewer1.LocalReport.ReportEmbeddedResource = "ARM.DashboardReport.rdlc";
-			this.reportViewer1.Location = new System.Drawing.Point(143, 3);
+			this.reportViewer1.Location = new System.Drawing.Point(146, 223);
 			this.reportViewer1.Name = "reportViewer1";
-			this.tableLayoutPanel1.SetRowSpan(this.reportViewer1, 3);
 			this.reportViewer1.ServerReport.BearerToken = null;
 			this.reportViewer1.ShowToolBar = false;
-			this.reportViewer1.Size = new System.Drawing.Size(438, 626);
+			this.reportViewer1.Size = new System.Drawing.Size(1215, 406);
 			this.reportViewer1.TabIndex = 51;
 			// 
 			// panel6
@@ -185,16 +145,17 @@
 			// 
 			// panel1
 			// 
-			this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
+			this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tableLayoutPanel1.SetColumnSpan(this.panel1, 3);
 			this.panel1.Controls.Add(this.panel4);
 			this.panel1.Controls.Add(this.panel3);
 			this.panel1.Controls.Add(this.panel5);
 			this.panel1.Controls.Add(this.panel2);
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel1.Location = new System.Drawing.Point(587, 3);
+			this.panel1.Location = new System.Drawing.Point(146, 3);
 			this.panel1.Name = "panel1";
 			this.tableLayoutPanel1.SetRowSpan(this.panel1, 2);
-			this.panel1.Size = new System.Drawing.Size(774, 436);
+			this.panel1.Size = new System.Drawing.Size(1215, 214);
 			this.panel1.TabIndex = 50;
 			// 
 			// panel4
@@ -204,9 +165,9 @@
 			this.panel4.Controls.Add(this.label7);
 			this.panel4.Controls.Add(this.label8);
 			this.panel4.Controls.Add(this.customerLbl);
-			this.panel4.Location = new System.Drawing.Point(44, 11);
+			this.panel4.Location = new System.Drawing.Point(3, 9);
 			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(297, 186);
+			this.panel4.Size = new System.Drawing.Size(271, 199);
 			this.panel4.TabIndex = 4;
 			// 
 			// label7
@@ -215,7 +176,7 @@
 			this.label7.BackColor = System.Drawing.Color.Transparent;
 			this.label7.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label7.Location = new System.Drawing.Point(249, 146);
+			this.label7.Location = new System.Drawing.Point(217, 104);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(27, 18);
 			this.label7.TabIndex = 2;
@@ -252,9 +213,9 @@
 			this.panel3.Controls.Add(this.label4);
 			this.panel3.Controls.Add(this.label5);
 			this.panel3.Controls.Add(this.paidLbl);
-			this.panel3.Location = new System.Drawing.Point(398, 11);
+			this.panel3.Location = new System.Drawing.Point(306, 9);
 			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(308, 188);
+			this.panel3.Size = new System.Drawing.Size(271, 199);
 			this.panel3.TabIndex = 3;
 			// 
 			// label4
@@ -263,7 +224,7 @@
 			this.label4.BackColor = System.Drawing.Color.Transparent;
 			this.label4.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label4.Location = new System.Drawing.Point(249, 146);
+			this.label4.Location = new System.Drawing.Point(217, 114);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(27, 18);
 			this.label4.TabIndex = 2;
@@ -300,9 +261,9 @@
 			this.panel5.Controls.Add(this.label10);
 			this.panel5.Controls.Add(this.label11);
 			this.panel5.Controls.Add(this.itemLbl);
-			this.panel5.Location = new System.Drawing.Point(398, 215);
+			this.panel5.Location = new System.Drawing.Point(620, 9);
 			this.panel5.Name = "panel5";
-			this.panel5.Size = new System.Drawing.Size(308, 189);
+			this.panel5.Size = new System.Drawing.Size(271, 199);
 			this.panel5.TabIndex = 4;
 			this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
 			// 
@@ -312,7 +273,7 @@
 			this.label10.BackColor = System.Drawing.Color.Transparent;
 			this.label10.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label10.Location = new System.Drawing.Point(249, 146);
+			this.label10.Location = new System.Drawing.Point(208, 114);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(27, 18);
 			this.label10.TabIndex = 2;
@@ -324,7 +285,7 @@
 			this.label11.BackColor = System.Drawing.Color.Transparent;
 			this.label11.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label11.Location = new System.Drawing.Point(3, 18);
+			this.label11.Location = new System.Drawing.Point(23, 18);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(212, 24);
 			this.label11.TabIndex = 1;
@@ -349,9 +310,9 @@
 			this.panel2.Controls.Add(this.label3);
 			this.panel2.Controls.Add(this.label2);
 			this.panel2.Controls.Add(this.pendingLbl);
-			this.panel2.Location = new System.Drawing.Point(44, 215);
+			this.panel2.Location = new System.Drawing.Point(934, 9);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(297, 189);
+			this.panel2.Size = new System.Drawing.Size(271, 199);
 			this.panel2.TabIndex = 2;
 			// 
 			// label3
@@ -360,7 +321,7 @@
 			this.label3.BackColor = System.Drawing.Color.Transparent;
 			this.label3.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label3.Location = new System.Drawing.Point(249, 146);
+			this.label3.Location = new System.Drawing.Point(205, 122);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(27, 18);
 			this.label3.TabIndex = 2;
@@ -411,7 +372,6 @@
 			this.Text = "DashboardForm";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.Load += new System.EventHandler(this.DashboardForm_Load);
-			((System.ComponentModel.ISupportInitialize)(this.dtGrid)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.panel6.ResumeLayout(false);
 			this.panel6.PerformLayout();
@@ -450,7 +410,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label invoiceLbl;
         private System.Windows.Forms.BindingSource InvoiceBindingSource;
-        private System.Windows.Forms.DataGridView dtGrid;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;

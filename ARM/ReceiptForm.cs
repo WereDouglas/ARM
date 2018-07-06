@@ -97,7 +97,7 @@ namespace ARM
             Microsoft.Reporting.WinForms.ReportParameter rp3Bal = new Microsoft.Reporting.WinForms.ReportParameter("balance", v.Balance.ToString("n0"));
             this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp3Bal });
 
-            Npgsql.NpgsqlDataAdapter da = new Npgsql.NpgsqlDataAdapter("SELECT product.name AS itemID ,transaction.cost,transaction.date as date,transaction.no as no,transaction.total as total,transaction.qty as qty,transaction.cost,transaction.created,transaction.sync FROM transaction LEFT join product ON transaction.itemID = product.id  WHERE transaction.no='" + No + "'", DBConnect.conn);
+            Npgsql.NpgsqlDataAdapter da = new Npgsql.NpgsqlDataAdapter("SELECT product.name AS itemID ,casetransaction.cost,casetransaction.date as date,casetransaction.no as no,casetransaction.total as total,casetransaction.qty as qty,casetransaction.cost,casetransaction.created,casetransaction.sync FROM casetransaction LEFT join product ON casetransaction.itemID = product.id  WHERE casetransaction.no='" + No + "'", DBConnect.conn);
             DataSet ds = new DataSet();
             da.Fill(ds);
             Npgsql.NpgsqlDataAdapter da2 = new Npgsql.NpgsqlDataAdapter("SELECT * FROM invoice WHERE no='" + No + "'", DBConnect.conn);
@@ -144,7 +144,7 @@ namespace ARM
 
         }
 
-        private void TransactionBingSource_CurrentChanged(object sender, EventArgs e)
+        private void CaseTransactionBingSource_CurrentChanged(object sender, EventArgs e)
         {
 
         }

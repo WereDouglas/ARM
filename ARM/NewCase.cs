@@ -39,7 +39,7 @@ namespace ARM
             InitializeComponent();
             AutoCompleteUser();
             AutoCompleteCustomer();
-            GenericCollection.transactions = new List<Transaction>();
+            GenericCollection.caseTransactions = new List<CaseTransaction>();
             GenericCollection.icd10 = new List<ICD10>();
 
             if (!string.IsNullOrEmpty(id))
@@ -144,16 +144,16 @@ namespace ARM
 
             string Q = "SELECT * FROM ICD10 WHERE caseID = '" + o.Id + "' ";
             GenericCollection.icd10 = ICD10.List(Q);
-            string Q2 = "SELECT * FROM caseTransaction WHERE caseID = '" + o.Id + "' ";
+            string Q2 = "SELECT * FROM casetransaction WHERE caseID = '" + o.Id + "' ";
 
             foreach (CaseTransaction j in CaseTransaction.List(Q2))
             {
-                Transaction t = new Transaction(j.Id, j.Date, j.No, j.ItemID, j.CaseID, "", Convert.ToDouble(j.Qty), Convert.ToDouble(j.Cost), j.Units, j.Total, j.Tax, j.Coverage, j.Self, j.Payable, j.Limits, j.Setting, j.Period, j.Height, j.Weight, j.Instruction, j.Created, j.Sync, Helper.CompanyID);
-                GenericCollection.transactions.Add(t);
+                CaseTransaction t = new CaseTransaction(j.Id, j.Date, j.No, j.ItemID, j.CaseID, "", Convert.ToDouble(j.Qty), Convert.ToDouble(j.Cost), j.Units, j.Total, j.Tax, j.Coverage, j.Self, j.Payable, j.Limits, j.Setting, j.Period, j.Height, j.Weight, j.Instruction, j.Created, j.Sync, Helper.CompanyID);
+                GenericCollection.caseTransactions.Add(t);
             }
 
             LoadDiagnosis();
-            LoadTransactions();
+            LoadCaseTransactions();
         }
         private void metroLabel1_Click(object sender, EventArgs e)
         {
@@ -189,7 +189,7 @@ namespace ARM
                 {
                     Queries qi = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                     DBConnect.InsertPostgre(qi);
-                    foreach (Transaction t in GenericCollection.transactions)
+                    foreach (CaseTransaction t in GenericCollection.caseTransactions)
                     {
                         CaseTransaction c = new CaseTransaction(t.Id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, CaseID, "", t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
                         string saving = DBConnect.InsertPostgre(c);
@@ -215,7 +215,7 @@ namespace ARM
 
                     foreach (ItemCoverage t in GenericCollection.itemCoverage)
                     {
-                        ItemCoverage c = new ItemCoverage(t.Id,t.TransactionID,t.ItemID,t.CoverageID,t.Percentage,t.Amount,t.Created, false, Helper.CompanyID);
+                        ItemCoverage c = new ItemCoverage(t.Id,t.CaseTransactionID,t.ItemID,t.CoverageID,t.Percentage,t.Amount,t.Created, false, Helper.CompanyID);
                         string mg = DBConnect.InsertPostgre(c);
                         if (mg != "")
                         {
@@ -390,14 +390,14 @@ namespace ARM
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    LoadTransactions();
+                    LoadCaseTransactions();
                 }
             }
         }
         Product k = new Product();
         DataTable t = new DataTable();
         double Total = 0;
-        public void LoadTransactions()
+        public void LoadCaseTransactions()
         {
             // create and execute query  
             t = new DataTable();
@@ -411,7 +411,7 @@ namespace ARM
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));
             Image delete = new Bitmap(Properties.Resources.Cancel_16);
 
-            foreach (Transaction j in GenericCollection.transactions)
+            foreach (CaseTransaction j in GenericCollection.caseTransactions)
             {
                 try
                 {
@@ -425,7 +425,7 @@ namespace ARM
                     Helper.Exceptions(m.Message , "Viewing users {each transaction list }" + j.ItemID);
                 }
             }
-            Total = GenericCollection.transactions.Sum(r => r.Total);
+            Total = GenericCollection.caseTransactions.Sum(r => r.Total);
             //   totalTxt.Text = Total.ToString("N0");
 
             dtGridEquip.DataSource = t;
@@ -547,12 +547,12 @@ namespace ARM
                 DBConnect.UpdatePostgre(i, CaseID);
                 if (MessageBox.Show("YES or NO?", "Would you like to add these products to your case list ?  ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    string Query = "DELETE from caseTransaction WHERE caseID ='" + CaseID + "'";
+                    string Query = "DELETE from caseCaseTransaction WHERE caseID ='" + CaseID + "'";
                     DBConnect.QueryPostgre(Query);
                     Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                      DBConnect.InsertPostgre(q);
                       
-                    foreach (Transaction t in GenericCollection.transactions)
+                    foreach (CaseTransaction t in GenericCollection.caseTransactions)
                     {
                         CaseTransaction c = new CaseTransaction(t.Id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, CaseID, "", t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
 

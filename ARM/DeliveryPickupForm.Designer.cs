@@ -28,13 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeliveryPickupForm));
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.button2 = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
+			this.updateBtn = new System.Windows.Forms.Button();
 			this.pickupChk = new System.Windows.Forms.CheckBox();
 			this.followupChk = new System.Windows.Forms.CheckBox();
+			this.btnSubmit = new System.Windows.Forms.Button();
 			this.deliveryChk = new System.Windows.Forms.CheckBox();
 			this.noTxt = new System.Windows.Forms.TextBox();
 			this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
@@ -74,10 +78,6 @@
 			this.printDocument1 = new System.Drawing.Printing.PrintDocument();
 			this.previewdlg = new System.Windows.Forms.PrintPreviewDialog();
 			this.printdoc1 = new System.Drawing.Printing.PrintDocument();
-			this.updateBtn = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
-			this.btnSubmit = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dtGrid)).BeginInit();
 			this.tableLayoutPanel3.SuspendLayout();
@@ -123,6 +123,60 @@
 			this.panel1.Size = new System.Drawing.Size(918, 819);
 			this.panel1.TabIndex = 0;
 			// 
+			// button2
+			// 
+			this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+			this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button2.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button2.Location = new System.Drawing.Point(101, 762);
+			this.button2.Name = "button2";
+			this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.button2.Size = new System.Drawing.Size(108, 38);
+			this.button2.TabIndex = 2;
+			this.button2.Text = "Cancel";
+			this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.button2.UseVisualStyleBackColor = false;
+			this.button2.Click += new System.EventHandler(this.button2_Click);
+			// 
+			// button1
+			// 
+			this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button1.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button1.Location = new System.Drawing.Point(299, 762);
+			this.button1.Name = "button1";
+			this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.button1.Size = new System.Drawing.Size(100, 45);
+			this.button1.TabIndex = 1;
+			this.button1.Text = "Print";
+			this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.button1.UseVisualStyleBackColor = false;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// updateBtn
+			// 
+			this.updateBtn.BackColor = System.Drawing.Color.Khaki;
+			this.updateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.updateBtn.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.updateBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.updateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.updateBtn.Location = new System.Drawing.Point(492, 765);
+			this.updateBtn.Name = "updateBtn";
+			this.updateBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.updateBtn.Size = new System.Drawing.Size(107, 42);
+			this.updateBtn.TabIndex = 17;
+			this.updateBtn.Text = "Update";
+			this.updateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.updateBtn.UseVisualStyleBackColor = false;
+			this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
+			// 
 			// pickupChk
 			// 
 			this.pickupChk.AutoSize = true;
@@ -142,6 +196,24 @@
 			this.followupChk.TabIndex = 507;
 			this.followupChk.Text = "F/U";
 			this.followupChk.UseVisualStyleBackColor = true;
+			// 
+			// btnSubmit
+			// 
+			this.btnSubmit.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.btnSubmit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnSubmit.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnSubmit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.btnSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnSubmit.Location = new System.Drawing.Point(707, 762);
+			this.btnSubmit.Name = "btnSubmit";
+			this.btnSubmit.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.btnSubmit.Size = new System.Drawing.Size(108, 45);
+			this.btnSubmit.TabIndex = 0;
+			this.btnSubmit.Text = "Submit";
+			this.btnSubmit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnSubmit.UseVisualStyleBackColor = false;
+			this.btnSubmit.Click += new System.EventHandler(this.button3_Click);
 			// 
 			// deliveryChk
 			// 
@@ -179,36 +251,36 @@
 			// 
 			// dtGrid
 			// 
-			dataGridViewCellStyle16.Font = new System.Drawing.Font("Calibri", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dtGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dtGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.dtGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dtGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
 			this.dtGrid.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
 			this.dtGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dtGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 			this.dtGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle17.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			dataGridViewCellStyle17.Padding = new System.Windows.Forms.Padding(5);
-			dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGrid.DefaultCellStyle = dataGridViewCellStyle17;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGrid.DefaultCellStyle = dataGridViewCellStyle2;
 			this.dtGrid.GridColor = System.Drawing.SystemColors.ButtonFace;
 			this.dtGrid.Location = new System.Drawing.Point(105, 400);
 			this.dtGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.dtGrid.Name = "dtGrid";
 			this.dtGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			dataGridViewCellStyle18.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
 			this.dtGrid.RowHeadersVisible = false;
 			this.dtGrid.RowHeadersWidth = 20;
 			this.dtGrid.Size = new System.Drawing.Size(355, 286);
@@ -243,7 +315,7 @@
 			this.totalTxt.CustomButton.FlatAppearance.BorderSize = 0;
 			this.totalTxt.CustomButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.totalTxt.CustomButton.Image = null;
-			this.totalTxt.CustomButton.Location = new System.Drawing.Point(101, 1);
+			this.totalTxt.CustomButton.Location = new System.Drawing.Point(107, 1);
 			this.totalTxt.CustomButton.Name = "";
 			this.totalTxt.CustomButton.Size = new System.Drawing.Size(21, 21);
 			this.totalTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -440,7 +512,7 @@
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.70166F));
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.29834F));
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 273F));
 			this.tableLayoutPanel2.Controls.Add(this.label8, 0, 0);
 			this.tableLayoutPanel2.Controls.Add(this.panel3, 1, 0);
 			this.tableLayoutPanel2.Location = new System.Drawing.Point(106, 233);
@@ -468,7 +540,7 @@
 			this.tableLayoutPanel2.SetColumnSpan(this.panel3, 3);
 			this.panel3.Controls.Add(this.physicianTxt);
 			this.panel3.Controls.Add(this.userPbx);
-			this.panel3.Location = new System.Drawing.Point(115, 3);
+			this.panel3.Location = new System.Drawing.Point(114, 3);
 			this.panel3.Name = "panel3";
 			this.tableLayoutPanel2.SetRowSpan(this.panel3, 3);
 			this.panel3.Size = new System.Drawing.Size(577, 74);
@@ -512,7 +584,7 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 134F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 163F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 166F));
 			this.tableLayoutPanel1.Controls.Add(this.label12, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(105, 124);
@@ -542,7 +614,7 @@
 			this.tableLayoutPanel1.SetColumnSpan(this.panel2, 5);
 			this.panel2.Controls.Add(this.subscriberInfoTxt);
 			this.panel2.Controls.Add(this.cusPbx);
-			this.panel2.Location = new System.Drawing.Point(108, 3);
+			this.panel2.Location = new System.Drawing.Point(106, 3);
 			this.panel2.Name = "panel2";
 			this.tableLayoutPanel1.SetRowSpan(this.panel2, 4);
 			this.panel2.Size = new System.Drawing.Size(576, 84);
@@ -614,78 +686,6 @@
 			this.previewdlg.Icon = ((System.Drawing.Icon)(resources.GetObject("previewdlg.Icon")));
 			this.previewdlg.Name = "previewdlg";
 			this.previewdlg.Visible = false;
-			// 
-			// updateBtn
-			// 
-			this.updateBtn.BackColor = System.Drawing.Color.Khaki;
-			this.updateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.updateBtn.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.updateBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.updateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.updateBtn.Location = new System.Drawing.Point(492, 765);
-			this.updateBtn.Name = "updateBtn";
-			this.updateBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.updateBtn.Size = new System.Drawing.Size(107, 42);
-			this.updateBtn.TabIndex = 17;
-			this.updateBtn.Text = "Update";
-			this.updateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.updateBtn.UseVisualStyleBackColor = false;
-			this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
-			// 
-			// button1
-			// 
-			this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button1.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button1.Location = new System.Drawing.Point(299, 762);
-			this.button1.Name = "button1";
-			this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.button1.Size = new System.Drawing.Size(100, 45);
-			this.button1.TabIndex = 1;
-			this.button1.Text = "Print";
-			this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.button1.UseVisualStyleBackColor = false;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
-			// 
-			// btnSubmit
-			// 
-			this.btnSubmit.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			this.btnSubmit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnSubmit.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnSubmit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.btnSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnSubmit.Location = new System.Drawing.Point(707, 762);
-			this.btnSubmit.Name = "btnSubmit";
-			this.btnSubmit.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.btnSubmit.Size = new System.Drawing.Size(108, 45);
-			this.btnSubmit.TabIndex = 0;
-			this.btnSubmit.Text = "Submit";
-			this.btnSubmit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnSubmit.UseVisualStyleBackColor = false;
-			this.btnSubmit.Click += new System.EventHandler(this.button3_Click);
-			// 
-			// button2
-			// 
-			this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-			this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button2.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button2.Location = new System.Drawing.Point(101, 762);
-			this.button2.Name = "button2";
-			this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.button2.Size = new System.Drawing.Size(108, 38);
-			this.button2.TabIndex = 2;
-			this.button2.Text = "Cancel";
-			this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.button2.UseVisualStyleBackColor = false;
-			this.button2.Click += new System.EventHandler(this.button2_Click);
 			// 
 			// DeliveryPickupForm
 			// 

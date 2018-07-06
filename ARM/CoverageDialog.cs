@@ -14,10 +14,8 @@ using System.Windows.Forms;
 namespace ARM
 {
     public partial class CoverageDialog : MetroFramework.Forms.MetroForm
-    {  
-       
-        string CustomerID;
-        
+    {         
+        string CustomerID;        
         public CoverageDialog(string customerID)
         {
             InitializeComponent();
@@ -32,8 +30,8 @@ namespace ARM
         private void button3_Click(object sender, EventArgs e)
         {
             string id = Guid.NewGuid().ToString();
-            Coverage t = new Coverage(id,CustomerID, nameTxt.Text,typeCbx.Text,catCbx.Text,noTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
-            string saves = DBConnect.InsertPostgre(t);
+            Coverage t = new Coverage(id,CustomerID, nameTxt.Text,typeCbx.Text,catCbx.Text,noTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"));
+			string saves = DBConnect.InsertPostgre(t);
             if (saves != "")
             {
                 Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(saves), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);

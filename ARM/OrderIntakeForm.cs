@@ -54,7 +54,7 @@ namespace ARM
 			AutoCompleteCustomer();
 			AutoCompleteEmergency();
 
-			GenericCollection.transactions = new List<Transaction>();
+			GenericCollection.caseTransactions = new List<CaseTransaction>();
 			if (!string.IsNullOrEmpty(orderID))
 			{
 				OrderID = orderID;
@@ -80,7 +80,7 @@ namespace ARM
 				}
 				catch
 				{
-					noTxt.Text = " 1 ";
+					noTxt.Text = "1";
 				}
 			}
 			
@@ -100,9 +100,11 @@ namespace ARM
 			PractitionerID = o.PractitionerID;
 		
 			noTxt.Text = o.No;
-			orderDateTxt.Text = Convert.ToDateTime(o.OrderDateTime).ToString("dd-MM-yyyy");
+			orderDateTxt.Text = Convert.ToDateTime(o.OrderDate).ToString("dd-MM-yyyy");
+			orderTimeTxt.Text = Convert.ToDateTime(o.OrderTime).ToString("dd-MM-yyyy");
 			recievedCbx.Text = o.OrderBy;
-			dispenseDateTxt.Text = Convert.ToDateTime(o.DispenseDateTime).ToString("dd-MM-yyyy");
+			dispenseDateTxt.Text = Convert.ToDateTime(o.DispenseDate).ToString("dd-MM-yyyy");
+			dispensedTimeTxt.Text = Convert.ToDateTime(o.DispenseTime).ToString("dd-MM-yyyy");
 			dispensedCbx.Text = o.DispenseBy;
 			recievedCbx.Text = o.OrderBy;
 			diagnosisTxt.Text = o.Diagnosis;
@@ -148,7 +150,7 @@ namespace ARM
 			otherTxt.Text = o.Other;
 			recievedCbx.Text = o.OrderBy;
 			dispensedCbx.Text = o.DispenseBy;
-			dispenseDateTxt.Text = Convert.ToDateTime(o.DispenseDateTime).ToString();
+			dispenseDateTxt.Text = Convert.ToDateTime(o.DispenseDate).ToString();
 			diagnosisTxt.Text = o.Diagnosis;
 			surgeryTxt.Text = o.Surgery;
 			otherTxt.Text = o.Other;
@@ -228,20 +230,20 @@ namespace ARM
 				userPbx.SizeMode = PictureBoxSizeMode.StretchImage;
 			}
 			catch { }
-			GenericCollection.transactions.Clear();
+			GenericCollection.caseTransactions.Clear();
 			string Qs = "SELECT * FROM casetransaction WHERE caseID = '" + noTxt.Text + "'";
 			foreach (CaseTransaction j in CaseTransaction.List(Qs))
 			{
 				//try
 				//{
 
-				Transaction t = new Transaction(j.Id, j.Date, j.No, j.ItemID, j.CaseID, j.DeliveryID, j.Qty, j.Cost, j.Units, j.Total, j.Tax, j.Coverage, j.Self, j.Payable, j.Limits, j.Setting, j.Period, j.Height, j.Weight, j.Instruction, j.Created, false, Helper.CompanyID);
-				GenericCollection.transactions.Add(t);
+				CaseTransaction t = new CaseTransaction(j.Id, j.Date, j.No, j.ItemID, j.CaseID, j.DeliveryID, j.Qty, j.Cost, j.Units, j.Total, j.Tax, j.Coverage, j.Self, j.Payable, j.Limits, j.Setting, j.Period, j.Height, j.Weight, j.Instruction, j.Created, false, Helper.CompanyID);
+				GenericCollection.caseTransactions.Add(t);
 				//}
 				//catch { }
 
 			}
-			LoadTransactions();
+			LoadCaseTransactions();
 		}
 
 		private void metroLabel1_Click(object sender, EventArgs e)
@@ -262,6 +264,22 @@ namespace ARM
 
 		private void button3_Click(object sender, EventArgs e)
 		{
+			string exists = "";
+			try
+			{
+			    exists = DBConnect.value("orders", "no", "no", noTxt.Text);
+			}
+			catch
+			{
+
+			}
+			//.value(string table, string value, string column, string variable)
+			if (!string.IsNullOrEmpty(exists))
+			{
+				int no = Convert.ToInt32(exists);
+				noTxt.Text = (no + 1).ToString();
+				MessageBox.Show("The order number " + noTxt.Text + " is already in use.New order number assigned:" + noTxt.Text);
+			}
 
 			if (string.IsNullOrEmpty(PractitionerID))
 			{
@@ -284,7 +302,7 @@ namespace ARM
 			string id = Guid.NewGuid().ToString();
 			if (MessageBox.Show("YES or NO?", "Save information ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
 			{
-				foreach (Transaction t in GenericCollection.transactions)
+				foreach (CaseTransaction t in GenericCollection.caseTransactions)
 				{
 					CaseTransaction c = new CaseTransaction(t.Id, Convert.ToDateTime(orderDateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, noTxt.Text,"", t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
 					string saving = DBConnect.InsertPostgre(c);
@@ -296,7 +314,7 @@ namespace ARM
 				}
 				foreach (ItemCoverage t in GenericCollection.itemCoverage)
 				{
-					ItemCoverage c = new ItemCoverage(t.Id, t.TransactionID, t.ItemID, t.CoverageID, t.Percentage, t.Amount, t.Created, false, Helper.CompanyID);
+					ItemCoverage c = new ItemCoverage(t.Id, t.CaseTransactionID, t.ItemID, t.CoverageID, t.Percentage, t.Amount, t.Created, false, Helper.CompanyID);
 					string mg = DBConnect.InsertPostgre(c);
 					if (mg != "")
 					{
@@ -304,13 +322,14 @@ namespace ARM
 						DBConnect.InsertPostgre(q);
 					}
 				}
-				Orders i = new Orders(id, noTxt.Text, CustomerID, Helper.UserID, Convert.ToDateTime(orderDateTxt.Text).ToString("dd-MM-yyyy"), recievedCbx.Text, Convert.ToDateTime(dispenseDateTxt.Text).ToString("dd-MM-yyyy"), dispensedCbx.Text,typeCbx.Text, diagnosisTxt.Text, surgeryTxt.Text, Convert.ToDateTime(clinicalDateTxt.Text).ToString("dd-MM-yyyy"),specificTxt.Text,hospital,home,preopRm,preopHome,postopRm,roomTxt.Text,Convert.ToDateTime(setupDate.Text).ToString("dd-MM-yyyy"),Convert.ToDateTime(neededDateTxt.Text).ToString("dd-MM-yyyy"),facility,clinic,otherTxt.Text,notified,authorisation,insurance,contacted,sent,returned,Convert.ToDateTime(dateSentTxt.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(dateReturnedTxt.Text).ToString("dd-MM-yyyy"),PractitionerID, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
+				Orders i = new Orders(id, noTxt.Text, CustomerID, Helper.UserID, Convert.ToDateTime(orderDateTxt.Text).ToString("dd-MM-yyyy"),orderTimeTxt.Text, recievedCbx.Text, Convert.ToDateTime(dispenseDateTxt.Text).ToString("dd-MM-yyyy"),dispensedTimeTxt.Text, dispensedCbx.Text,typeCbx.Text, diagnosisTxt.Text, surgeryTxt.Text, Convert.ToDateTime(clinicalDateTxt.Text).ToString("dd-MM-yyyy"),specificTxt.Text,hospital,home,preopRm,preopHome,postopRm,roomTxt.Text,Convert.ToDateTime(setupDate.Text).ToString("dd-MM-yyyy"),Convert.ToDateTime(neededDateTxt.Text).ToString("dd-MM-yyyy"),facility,clinic,otherTxt.Text,notified,authorisation,insurance,contacted,sent,returned,Convert.ToDateTime(dateSentTxt.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(dateReturnedTxt.Text).ToString("dd-MM-yyyy"),PractitionerID, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
 				string save = DBConnect.InsertPostgre(i);
 				if (save != "")
 				{
 					Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
 					DBConnect.InsertPostgre(q);
 					MessageBox.Show("Information Saved");
+					Helper.CurrentCustomer = "";
 					this.Close();
 				}
 			}
@@ -332,12 +351,12 @@ namespace ARM
 					UserDictionary.Add(v.Name, v.Id);
 					recievedCbx.Items.Add(v.Name);
 					dispensedCbx.Items.Add(v.Name);
-					userCbx.Items.Add(v.Name);
+				
 				}
 			}
-			userCbx.AutoCompleteMode = AutoCompleteMode.Suggest;
-			userCbx.AutoCompleteSource = AutoCompleteSource.CustomSource;
-			userCbx.AutoCompleteCustomSource = AutoItem;
+			recievedCbx.AutoCompleteMode = AutoCompleteMode.Suggest;
+			recievedCbx.AutoCompleteSource = AutoCompleteSource.CustomSource;
+			recievedCbx.AutoCompleteCustomSource = AutoItem;
 
 		}
 
@@ -450,7 +469,7 @@ namespace ARM
 		Product k = new Product();
 		DataTable t = new DataTable();
 
-		public void LoadTransactions()
+		public void LoadCaseTransactions()
 		{
 			// create and execute query  
 			t = new DataTable();
@@ -470,7 +489,7 @@ namespace ARM
 
 			Image delete = new Bitmap(Properties.Resources.Cancel_16);
 			string Q = "SELECT * FROM CaseTransaction WHERE no = '" + noTxt.Text + "'";
-			foreach (Transaction j in GenericCollection.transactions)
+			foreach (CaseTransaction j in GenericCollection.caseTransactions)
 			{
 				try
 				{
@@ -484,7 +503,7 @@ namespace ARM
 					Helper.Exceptions(m.Message , "Viewing users {each transaction list }" + j.ItemID);
 				}
 			}
-			Total = Transaction.List(Q).Sum(r => r.Total);
+			Total = CaseTransaction.List(Q).Sum(r => r.Total);
 			totalLbl.Text = Total.ToString("N0");
 
 			dtGrid.DataSource = t;
@@ -515,7 +534,7 @@ namespace ARM
 			string id = Guid.NewGuid().ToString();
 			if (MessageBox.Show("YES or NO?", "Update this Order? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
 			{
-				Orders i = new Orders(OrderID, noTxt.Text, CustomerID, Helper.UserID, Convert.ToDateTime(orderDateTxt.Text).ToString("dd-MM-yyyy"), recievedCbx.Text, Convert.ToDateTime(dispenseDateTxt.Text).ToString("dd-MM-yyyy"), dispensedCbx.Text, typeCbx.Text, diagnosisTxt.Text, surgeryTxt.Text, Convert.ToDateTime(clinicalDateTxt.Text).ToString("dd-MM-yyyy"), specificTxt.Text, hospital, home, preopRm, preopHome, postopRm, roomTxt.Text, Convert.ToDateTime(setupDate.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(neededDateTxt.Text).ToString("dd-MM-yyyy"), facility, clinic, otherTxt.Text, notified, authorisation, insurance, contacted, sent, returned, Convert.ToDateTime(dateSentTxt.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(dateReturnedTxt.Text).ToString("dd-MM-yyyy"), PractitionerID, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
+				Orders i = new Orders(OrderID, noTxt.Text, CustomerID, Helper.UserID, Convert.ToDateTime(orderDateTxt.Text).ToString("dd-MM-yyyy"), orderTimeTxt.Text, recievedCbx.Text, Convert.ToDateTime(dispenseDateTxt.Text).ToString("dd-MM-yyyy"), dispensedTimeTxt.Text, dispensedCbx.Text, typeCbx.Text, diagnosisTxt.Text, surgeryTxt.Text, Convert.ToDateTime(clinicalDateTxt.Text).ToString("dd-MM-yyyy"), specificTxt.Text, hospital, home, preopRm, preopHome, postopRm, roomTxt.Text, Convert.ToDateTime(setupDate.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(neededDateTxt.Text).ToString("dd-MM-yyyy"), facility, clinic, otherTxt.Text, notified, authorisation, insurance, contacted, sent, returned, Convert.ToDateTime(dateSentTxt.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(dateReturnedTxt.Text).ToString("dd-MM-yyyy"), PractitionerID, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
 				string save = DBConnect.UpdatePostgre(i, OrderID);
 				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
 				DBConnect.InsertPostgre(q);
@@ -532,7 +551,7 @@ namespace ARM
 				DialogResult dr = form.ShowDialog();
 				if (dr == DialogResult.OK)
 				{
-					LoadTransactions();
+					LoadCaseTransactions();
 				}
 			}
 		}
@@ -554,13 +573,14 @@ namespace ARM
 
 		private void customerCbx_SelectedIndexChanged(object sender, EventArgs e)
 		{
+			insuranceInfoTxt.Text = "";
+			subscriberInfoTxt.Text = "";
 			try
 			{
 				CustomerID = CustomerDictionary[customerCbx.Text];
 				c = new Customer();//.Select(ItemID);
 				c = Customer.Select(CustomerID);
 				subscriberInfoTxt.Text = "Name: " + c.Name + "\t DOB: " + c.Dob + " \r\n Address: " + c.Address + "\r\n City/state: " + c.City + " " + c.State + "\t Zip: " + c.Zip + " \r\n  Phone: " + c.Contact + "\t Soc.Sec.#: " + c.Ssn + "\t Gender: " + c.Gender;
-
 				System.Drawing.Image img = Helper.Base64ToImage(c.Image);
 				System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
 				cusPbx.Image = bmp;
@@ -570,6 +590,7 @@ namespace ARM
 				cusPbx.SizeMode = PictureBoxSizeMode.StretchImage;
 			}
 			catch { }
+
 			AutoCompletePractitioner(CustomerID);
 			AutoCompleteCoverage(CustomerID);
 			//try
@@ -577,7 +598,7 @@ namespace ARM
 			string Q = "SELECT * FROM coverage WHERE customerID='" + CustomerID + "' ";
 			foreach (Coverage c in Coverage.List(Q))
 			{
-				insuranceInfoTxt.Text = insuranceInfoTxt.Text + "\r\n " + c.Type + "\r\n" + "Name: " + c.Name + "\t ID# : " + c.No + " \r\n  " + " \r\n  Type: " + c.Type;
+				insuranceInfoTxt.Text = insuranceInfoTxt.Text + "\t Name: " + c.Name + "\t ID# : " + c.No + " " + "\t Type: " + c.Type + "\r\n ";
 			}
 			//}
 			//catch { }
@@ -611,6 +632,8 @@ namespace ARM
 				if (dr == DialogResult.OK)
 				{
 					AutoCompleteCustomer();
+					customerCbx.Text = Helper.CurrentCustomer;
+					customerCbx_SelectedIndexChanged(null, null);
 				}
 			}
 		}
@@ -622,7 +645,8 @@ namespace ARM
 				DialogResult dr = form.ShowDialog();
 				if (dr == DialogResult.OK)
 				{
-
+					customerCbx.Text = Helper.CurrentCustomer;
+					customerCbx_SelectedIndexChanged(null, null);
 				}
 			}
 		}
@@ -644,7 +668,24 @@ namespace ARM
 		{
 			try
 			{
-				PractitionerID = PractitionerDictionary[practitionerCbx.Text];
+				
+
+				try
+				{
+					PractitionerID = PractitionerDictionary[practitionerCbx.Text];
+					Practitioner c = new Practitioner();//.Select(ItemID);
+					c = Practitioner.Select(PractitionerID);
+					userTxt.Text = "Name: " + c.Name + "\t Speciality" + c.Speciality + " \r\n Address: " + c.Address + "\r\n City/state: " + c.City + " " + c.State + "\t Zip: " + c.Zip + " \r\n  Phone: " + c.Contact + "\t";
+
+					System.Drawing.Image img = Helper.Base64ToImage(c.Image);
+					System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
+					userPbx.Image = bmp;
+					GraphicsPath gp = new GraphicsPath();
+					gp.AddEllipse(cusPbx.DisplayRectangle);
+					userPbx.Region = new Region(gp);
+					userPbx.SizeMode = PictureBoxSizeMode.StretchImage;
+				}
+				catch { }
 
 			}
 			catch { }
@@ -673,10 +714,10 @@ namespace ARM
 						MessageBox.Show("Information deleted");
 
 
-						var itemToRemove = GenericCollection.transactions.Single(r => r.ItemID == dtGrid.Rows[e.RowIndex].Cells["ItemID"].Value.ToString());
-						GenericCollection.transactions.Remove(itemToRemove);
+						var itemToRemove = GenericCollection.caseTransactions.Single(r => r.ItemID == dtGrid.Rows[e.RowIndex].Cells["ItemID"].Value.ToString());
+						GenericCollection.caseTransactions.Remove(itemToRemove);
 
-						LoadTransactions();
+						LoadCaseTransactions();
 						
 					}
 				}
@@ -725,24 +766,23 @@ namespace ARM
 				Helper.Exceptions(c.Message, "Editing Order intakes data grid");
 			}
 		}
-		private void userCbx_SelectedIndexChanged_1(object sender, EventArgs e)
-		{
-			try
-			{
-				UserID = UserDictionary[userCbx.Text];
-				Users c = new Users();//.Select(ItemID);
-				c = Users.Select(UserID);
-				userTxt.Text = "Name: " + c.Name + "\t Speciality" + c.Speciality + " \r\n Address: " + c.Address + "\r\n City/state: " + c.City + " " + c.State + "\t Zip: " + c.Zip + " \r\n  Phone: " + c.Contact + "\t";
+		
 
-				System.Drawing.Image img = Helper.Base64ToImage(c.Image);
-				System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
-				userPbx.Image = bmp;
-				GraphicsPath gp = new GraphicsPath();
-				gp.AddEllipse(cusPbx.DisplayRectangle);
-				userPbx.Region = new Region(gp);
-				userPbx.SizeMode = PictureBoxSizeMode.StretchImage;
+		private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void button6_Click(object sender, EventArgs e)
+		{
+			using (AddItem form = new AddItem(null))
+			{
+				DialogResult dr = form.ShowDialog();
+				if (dr == DialogResult.OK)
+				{
+					
+				}
 			}
-			catch { }
 		}
 	}
 }

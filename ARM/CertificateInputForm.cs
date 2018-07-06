@@ -40,7 +40,7 @@ namespace ARM
 			AutoCompleteCustomer();
 			AutoCompleteEmergency();
 			GenericCollection.icd10 = new List<ICD10>();
-			GenericCollection.transactions = new List<Transaction>();
+			GenericCollection.caseTransactions = new List<CaseTransaction>();
 			if (!string.IsNullOrEmpty(id))
 			{
 				LoadEdit(id);
@@ -56,7 +56,7 @@ namespace ARM
 			}
 			else
 			{
-				
+
 				if (!string.IsNullOrEmpty(no))
 				{
 					LoadOrder(no);
@@ -64,7 +64,7 @@ namespace ARM
 					updateBtn.Visible = false;
 
 				}
-				
+
 			}
 			printdoc1.PrintPage += new PrintPageEventHandler(printdoc1_PrintPage);
 		}
@@ -72,7 +72,7 @@ namespace ARM
 		{
 			updateBtn.Visible = false;
 			Orders o;
-			GenericCollection.transactions = new List<Transaction>();
+			GenericCollection.caseTransactions = new List<CaseTransaction>();
 			No = no;
 			noTxt.Text = no;
 			o = new Orders();//.Select(UsersID);
@@ -130,21 +130,27 @@ namespace ARM
 
 			}
 			catch { }
-			string Q = "SELECT * FROM casetransaction WHERE caseID = '" + noTxt.Text + "'";
+			GenericCollection.caseTransactions.Clear();
+			GenericCollection.icd10.Clear();
+			string Q = "SELECT * FROM casetransaction WHERE no = '" + noTxt.Text + "'";
 			foreach (CaseTransaction j in CaseTransaction.List(Q))
 			{
 				//try
 				//{
 
-				Transaction t = new Transaction(j.Id, j.Date, j.No, j.ItemID, j.CaseID, j.DeliveryID, j.Qty, j.Cost, j.Units, j.Total, j.Tax, j.Coverage, j.Self, j.Payable, j.Limits, j.Setting, j.Period, j.Height, j.Weight, j.Instruction, j.Created, false, Helper.CompanyID);
-				GenericCollection.transactions.Add(t);
+				CaseTransaction t = new CaseTransaction(j.Id, j.Date, j.No, j.ItemID, j.CaseID, j.DeliveryID, j.Qty, j.Cost, j.Units, j.Total, j.Tax, j.Coverage, j.Self, j.Payable, j.Limits, j.Setting, j.Period, j.Height, j.Weight, j.Instruction, j.Created, false, Helper.CompanyID);
+				GenericCollection.caseTransactions.Add(t);
 				//}
 				//catch { }
 
 			}
-			LoadTransactions();
-			dateTxt.Text= Convert.ToDateTime(DateTime.Now).ToString("MM/dd/yyyy");
+			LoadCaseTransactions();
+			dateTxt.Text = Convert.ToDateTime(DateTime.Now).ToString("MM/dd/yyyy");
 			dayTxt.Text = Convert.ToDateTime(DateTime.Now).ToString("MM/dd/yyyy");
+
+			GenericCollection.icd10.Clear();
+			string Qs = "SELECT * FROM icd10 WHERE no = '" + noTxt.Text + "'";
+			GenericCollection.icd10 = ICD10.List(Qs);
 			LoadDiagnosis();
 		}
 
@@ -166,7 +172,7 @@ namespace ARM
 
 				MessageBox.Show("Certificate information not yet saved");
 
-			}			
+			}
 			noTxt.Text = i.No;
 			idTxt.Text = i.CusID;
 			patientNameTxt.Text = i.CusName;
@@ -178,20 +184,31 @@ namespace ARM
 			providerUserTxt.Text = i.PracName;
 			providerPhoneTxt.Text = i.ProvPhone;
 			additionalTxt.Text = i.Additional;
-			if (i.Mobility == true) { mobYesBn.Checked = true; }if (i.Mobility == false) { mobNoBn.Checked = true; }
-			if (i.Endurance == true) { enduranceBn.Checked = true; }if (i.Endurance == false) { enduranceNoBn.Checked = true; }
-			if (i.Activity == true) { activityBn.Checked = true; } if (i.Activity == false) { activityNoBn.Checked = true; }
-			if (i.Skin == true) { skinBn.Checked = true; }if (i.Skin == false) { skinNoBn.Checked = true; }
-			if (i.Respiration == true) { respirationBn.Checked = true; }	if (i.Respiration == false) { respirationNoBn.Checked = true; }
-			if (i.Adl == true) { adlBn.Checked = true; }if (i.Adl == false) { adlNoBn.Checked = true; }
-			if (i.Speech == true) { speechBn.Checked = true; }if (i.Speech == false) { speechNoBn.Checked = true; }
-			if (i.Nutritional == true) { nutritionBn.Checked = true; }if (i.Nutritional == false) { nutritionNoBn.Checked = true; }
-			if (i.Source=="sole") { sourceSoleBn.Checked = true; } else if(i.Source == "primary") { primarySourceBn.Checked = true; }
+			if (i.Mobility == true) { mobYesBn.Checked = true; }
+			if (i.Mobility == false) { mobNoBn.Checked = true; }
+			if (i.Endurance == true) { enduranceBn.Checked = true; }
+			if (i.Endurance == false) { enduranceNoBn.Checked = true; }
+			if (i.Activity == true) { activityBn.Checked = true; }
+			if (i.Activity == false) { activityNoBn.Checked = true; }
+			if (i.Skin == true) { skinBn.Checked = true; }
+			if (i.Skin == false) { skinNoBn.Checked = true; }
+			if (i.Respiration == true) { respirationBn.Checked = true; }
+			if (i.Respiration == false) { respirationNoBn.Checked = true; }
+			if (i.Adl == true) { adlBn.Checked = true; }
+			if (i.Adl == false) { adlNoBn.Checked = true; }
+			if (i.Speech == true) { speechBn.Checked = true; }
+			if (i.Speech == false) { speechNoBn.Checked = true; }
+			if (i.Nutritional == true) { nutritionBn.Checked = true; }
+			if (i.Nutritional == false) { nutritionNoBn.Checked = true; }
+			if (i.Source == "sole") { sourceSoleBn.Checked = true; } else if (i.Source == "primary") { primarySourceBn.Checked = true; }
 			heightTxt.Text = i.Height.ToString();
 			weightTxt.Text = i.Weight.ToString();
 			dateTxt.Text = i.Date;
-			if (i.Suitable == true) {suitableBn.Checked = true; }if (i.Suitable == false) { suitableNoBn.Checked = true; }
+			if (i.Suitable == true) { suitableBn.Checked = true; }
+			if (i.Suitable == false) { suitableNoBn.Checked = true; }
+			if (i.Face == "Yes") { faceYesBn.Checked = true; } else if (i.Face == "No") { faceNoBn.Checked = true; } else if (i.Face == "N/A") { faceNaBn.Checked = true; }
 
+			completedTxt.Text = i.Practionercompleted;
 			practitionerTxt.Text = i.PracName;
 			pracIDTxt.Text = i.PracID;
 			signatureTxt.Text = i.PracSign;
@@ -202,7 +219,7 @@ namespace ARM
 			{
 				//CustomerID = CustomerDictionary[customerCbx.Text];
 				c = new Customer();//.Select(ItemID);
-				c = Customer.Select(i.CusID);				
+				c = Customer.Select(i.CusID);
 				subscriberInfoTxt.Text = "Name: " + c.Name + "\t DOB: " + c.Dob + " \r\n Address: " + c.Address + "\r\n City/state: " + c.City + " " + c.State + "\t Zip: " + c.Zip + " \r\n  Phone: " + c.Contact + "\t Soc.Sec.#: " + c.Ssn;
 
 				System.Drawing.Image img = Helper.Base64ToImage(c.Image);
@@ -225,10 +242,9 @@ namespace ARM
 			}
 			catch { }
 
-			GenericCollection.transactions.Clear();
-			GenericCollection.icd10.Clear();
+
 			LoadOrder(id);
-			
+
 
 		}
 		private void metroLabel1_Click(object sender, EventArgs e)
@@ -252,8 +268,8 @@ namespace ARM
 		Dictionary<string, bool> AdditionalDictionary = new Dictionary<string, bool>();
 		private void button3_Click(object sender, EventArgs e)
 		{
-			
-			bool mobility = mobYesBn.Checked ? true: false;
+
+			bool mobility = mobYesBn.Checked ? true : false;
 			bool endurance = enduranceBn.Checked ? true : false;
 			bool activity = activityBn.Checked ? true : false;
 			bool skin = skinBn.Checked ? true : false;
@@ -264,19 +280,45 @@ namespace ARM
 			string source = sourceSoleBn.Checked ? "sole" : "primary";
 			bool suitable = suitableBn.Checked ? true : false;
 
+			string face = "";
+			if (faceYesBn.Checked) { face = "Yes"; } else if (faceNoBn.Checked) { face = "No"; } else if (faceNaBn.Checked) { face = "N/A"; }
+			if (string.IsNullOrEmpty(face))
+			{
+
+				MessageBox.Show("Is face to face completed ?");
+				return;
+			}
 			//appropriate = 
 
 			string id = Guid.NewGuid().ToString();
 			if (MessageBox.Show("YES or NO?", "Submit Order? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
 			{
-				Certificate i = new Certificate(id, noTxt.Text,idTxt.Text,patientNameTxt.Text,dobTxt.Text,phoneTxt.Text,providerIDTxt.Text,providerNameTxt.Text,providerPhoneTxt.Text,mobility,endurance,activity,skin,respiration,adl,speech,nutritional,source,Convert.ToDouble(weightTxt.Text), Convert.ToDouble(heightTxt.Text),suitable,dayTxt.Text,practitionerTxt.Text,signatureTxt.Text,dateTxt.Text,pracIDTxt.Text,phoneTxt.Text,DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID,poTxt.Text,saturationTxt.Text,additionalTxt.Text);
-				string save =  DBConnect.InsertPostgre(i);
+				double weight = 0;
+				double height = 0;
+				try
+				{
+					height = Convert.ToDouble(heightTxt.Text);
+
+				}
+				catch
+				{
+				}
+				try
+				{
+					weight = Convert.ToDouble(weightTxt.Text);
+
+				}
+				catch
+				{
+
+
+				}
+				Certificate i = new Certificate(id, noTxt.Text, idTxt.Text, patientNameTxt.Text, dobTxt.Text, phoneTxt.Text, providerIDTxt.Text, providerNameTxt.Text, providerPhoneTxt.Text, mobility, endurance, activity, skin, respiration, adl, speech, nutritional, source,weight, height, suitable, dayTxt.Text, practitionerTxt.Text, signatureTxt.Text, dateTxt.Text, pracIDTxt.Text, phoneTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, poTxt.Text, saturationTxt.Text, additionalTxt.Text, face, completedTxt.Text);
+				string save = DBConnect.InsertPostgre(i);
 				if (save != "")
 				{
 					Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
 					DBConnect.InsertPostgre(q);
-
-
 					foreach (ICD10 t in GenericCollection.icd10)
 					{
 						ICD10 c = new ICD10(t.Id, noTxt.Text, t.Code, t.Name, t.Diagnosis, t.Less6, t.Greater6, t.Onset, t.Created, false, Helper.CompanyID);
@@ -287,14 +329,14 @@ namespace ARM
 							DBConnect.InsertPostgre(qs);
 						}
 					}
-					
+
 
 					MessageBox.Show("Information Saved");
 					this.Close();
 				}
 
 			}
-			
+
 		}
 		private void AutoCompleteUser()
 		{
@@ -309,7 +351,7 @@ namespace ARM
 				{
 					UserDictionary.Add(v.Name, v.Id);
 					userCbx.Items.Add(v.Name);
-					
+
 				}
 			}
 
@@ -326,7 +368,7 @@ namespace ARM
 				if (!kinDictionary.ContainsKey(v.Name))
 				{
 					kinDictionary.Add(v.Name, v.Id);
-					
+
 				}
 			}
 
@@ -417,34 +459,35 @@ namespace ARM
 		Product k = new Product();
 		DataTable t = new DataTable();
 
-		public void LoadTransactions()
+		public void LoadCaseTransactions()
 		{
+
 			// create and execute query  
 			t = new DataTable();
 
 			t.Columns.Add("id");
-			t.Columns.Add("ItemID");			
+			t.Columns.Add("ItemID");
 			t.Columns.Add("HCPCS Code");
 			t.Columns.Add("Product");
 			t.Columns.Add("Description");
 			t.Columns.Add("Period");
 			t.Columns.Add("Quantity Ordered/x1 Month*");
 			t.Columns.Add("Frequency of Use*Justification/Comments/Calories Per Day");
-			foreach (Transaction j in GenericCollection.transactions)
+			foreach (CaseTransaction j in GenericCollection.caseTransactions)
 			{
 				try
 				{
 					k = Product.Select(j.ItemID);
-					t.Rows.Add(new object[] { j.Id, j.ItemID,k.Code, k.Name,k.Description,j.Period ,j.Qty, j.Instruction });
+					t.Rows.Add(new object[] { j.Id, j.ItemID, k.Code, k.Name, k.Description, j.Period, j.Qty, j.Instruction });
 
 				}
 				catch (Exception m)
 				{
 					MessageBox.Show("" + m.Message);
-					Helper.Exceptions(m.Message , "Viewing  Certificate inputs {each transaction list }" + j.ItemID);
+					Helper.Exceptions(m.Message, "Viewing  Certificate inputs {each transaction list }" + j.ItemID);
 				}
 			}
-			//Total = Transaction.List(Q).Sum(r => r.Total);
+			//Total = CaseTransaction.List(Q).Sum(r => r.Total);
 			// totalLbl.Text = Total.ToString("N0");
 
 			dtGridEquip.DataSource = t;
@@ -463,15 +506,16 @@ namespace ARM
 
 		private void updateBtn_Click(object sender, EventArgs e)
 		{
-			
-			var SafetyJson = JsonConvert.SerializeObject(SafetyDictionary);
-			var AppropriateJson = JsonConvert.SerializeObject(AppropriateDictionary);
-			var EquipmentJson = JsonConvert.SerializeObject(EquipmentDictionary);
-			var AdditionalJson = JsonConvert.SerializeObject(AdditionalDictionary);
-			
-			var DischargeJson = JsonConvert.SerializeObject(DischargeDictionary);
-			var ActionJson = JsonConvert.SerializeObject(ActionDictionary);
-			var SetupJson = JsonConvert.SerializeObject(SetupDictionary);
+
+			string face = "";
+			if (faceYesBn.Checked) { face = "Yes"; } else if (faceNoBn.Checked) { face = "No"; } else if (faceNaBn.Checked) { face = "N/A"; }
+			if (string.IsNullOrEmpty(face))
+			{
+
+				MessageBox.Show("Is face to face completed ?");
+				return;
+			}
+
 			string id = Guid.NewGuid().ToString();
 			if (MessageBox.Show("YES or NO?", "Update this Order? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
 			{
@@ -483,12 +527,33 @@ namespace ARM
 				MessageBox.Show("Information Updated ! ");
 				this.Close();
 
-
 			}
 		}
 
 		private void dtGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
+			try
+			{
+				if (e.ColumnIndex == dtGrid.Columns["Delete"].Index && e.RowIndex >= 0)
+				{
+					if (MessageBox.Show("YES or No?", "Are you sure you want to remove this information ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+					{
+						Helper.Log(Helper.UserName, "Deleting of ICD10 list on CMN " + noTxt.Text + "");
+						string Query = "DELETE from icd10 WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
+						DBConnect.QueryPostgre(Query);
+						Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+						DBConnect.InsertPostgre(q);
+						MessageBox.Show("Information deleted");
+						GenericCollection.caseTransactions.Clear();
+						string Q = "SELECT * FROM casetransaction WHERE no = '" + noTxt.Text + "'";
+						LoadDiagnosis();
+					}
+				}
+			}
+			catch (Exception c)
+			{
+				Helper.Exceptions(c.Message, "Deleting on order intake Grid data ");
+			}
 
 		}
 
@@ -504,7 +569,7 @@ namespace ARM
 				UserID = UserDictionary[userCbx.Text];
 				Users c = new Users();//.Select(ItemID);
 				c = Users.Select(UserID);
-				providerUserTxt.Text =  c.Name;
+				providerUserTxt.Text = c.Name;
 				providerPhoneTxt.Text = c.Contact;
 
 				System.Drawing.Image img = Helper.Base64ToImage(c.Image);
@@ -537,7 +602,7 @@ namespace ARM
 				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
 				DBConnect.InsertPostgre(q);
 				MessageBox.Show("Information deleted");
-				Helper.Log(Helper.UserName, "Deleted Certificate " + noTxt.Text +" TIME:" + DateTime.Now);
+				Helper.Log(Helper.UserName, "Deleted Certificate " + noTxt.Text + " TIME:" + DateTime.Now);
 
 			}
 		}
@@ -554,7 +619,7 @@ namespace ARM
 			}
 
 			//LoadEdit(noTxt.Text);
-			
+
 
 		}
 
@@ -571,8 +636,7 @@ namespace ARM
 		}
 		public void LoadDiagnosis()
 		{
-			string Qs = "SELECT * FROM icd10 WHERE no = '" + noTxt.Text + "'";
-			GenericCollection.icd10 = ICD10.List(Qs);
+
 
 
 			// create and execute query  
@@ -594,7 +658,7 @@ namespace ARM
 				try
 				{
 
-					t.Rows.Add(new object[] { j.Id, j.Code, j.Name,j.Diagnosis,j.Less6,j.Greater6,j.Onset, delete });
+					t.Rows.Add(new object[] { j.Id, j.Code, j.Name, j.Diagnosis, j.Less6, j.Greater6, j.Onset, delete });
 
 				}
 				catch (Exception m)
@@ -626,7 +690,7 @@ namespace ARM
 						Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
 						DBConnect.InsertPostgre(q);
 						MessageBox.Show("Information deleted");
-						GenericCollection.transactions.Clear();
+						GenericCollection.caseTransactions.Clear();
 						string Q = "SELECT * FROM casetransaction WHERE no = '" + noTxt.Text + "'";
 						LoadDiagnosis();
 					}

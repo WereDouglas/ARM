@@ -430,11 +430,9 @@ namespace ARM
 
         private void toolStripMenuItem20_Click(object sender, EventArgs e)
         {
-            //NewCase f = new NewCase(null);
-            //f.Show();
-
-           
-        }
+			OrderIntakeForm f = new OrderIntakeForm(null);
+			f.Show();
+		}
 
         private void toolStripMenuItem21_Click(object sender, EventArgs e)
         {
@@ -488,7 +486,7 @@ namespace ARM
 
         private void purchaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (AddTransaction form = new AddTransaction(null))
+            using (AddCaseTransaction form = new AddCaseTransaction(null))
             {
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
@@ -500,7 +498,8 @@ namespace ARM
 
 		private void orderIntakeToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			
+			OrderIntakeForm f = new OrderIntakeForm(null);
+			f.Show();
 		}
 
 		private void instructionDeliveryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -511,8 +510,7 @@ namespace ARM
 
 		private void toolStripButton3_Click(object sender, EventArgs e)
 		{
-			OrderIntakeForm f = new OrderIntakeForm(null);
-			f.Show();
+			
 		}
 
 		private void logsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -533,6 +531,24 @@ namespace ARM
 			frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			frm.Dock = DockStyle.Fill;
 			frm.Show();
+		}
+
+		private void myProfileToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			using (AddUser form = new AddUser(Helper.UserID))
+			{
+				DialogResult dr = form.ShowDialog();
+				if (dr == DialogResult.OK)
+				{
+					
+				}
+			}
+		}
+
+		private void Shifts_Click(object sender, EventArgs e)
+		{
+			OrderIntakeForm f = new OrderIntakeForm(null);
+			f.Show();
 		}
 	}
 }

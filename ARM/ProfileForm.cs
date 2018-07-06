@@ -177,7 +177,7 @@ namespace ARM
 
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Vendor()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Invoice()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Transaction()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new CaseTransaction()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Payment()));
 
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Schedule()));

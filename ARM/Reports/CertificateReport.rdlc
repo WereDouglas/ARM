@@ -177,6 +177,14 @@
           <DataField>Additional</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
+        <Field Name="Face">
+          <DataField>Face</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Practionercompleted">
+          <DataField>Practionercompleted</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ARM.Model</rd:DataSetName>
@@ -285,8 +293,8 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ARM.Model</rd:DataSetName>
-        <rd:TableName>Transaction</rd:TableName>
-        <rd:ObjectDataSourceType>ARM.Model.Transaction, ARM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:TableName>CaseTransaction</rd:TableName>
+        <rd:ObjectDataSourceType>ARM.Model.CaseTransaction, ARM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
     <DataSet Name="DataSet3">
@@ -3195,7 +3203,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Sum(Fields!Height.Value, "DataSet1")</Value>
+                    <Value>=First(Fields!Height.Value, "DataSet1")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -3203,7 +3211,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Height</rd:DefaultName>
-            <Top>7.27604in</Top>
+            <Top>7.15104in</Top>
             <Left>1.13985in</Left>
             <Height>0.25in</Height>
             <Width>0.57292in</Width>
@@ -3225,7 +3233,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Sum(Fields!Weight.Value, "DataSet1")</Value>
+                    <Value>=First(Fields!Weight.Value, "DataSet1")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -3233,7 +3241,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Weight</rd:DefaultName>
-            <Top>7.28992in</Top>
+            <Top>7.16492in</Top>
             <Left>2.18089in</Left>
             <Height>0.25in</Height>
             <Width>0.54514in</Width>
@@ -4375,8 +4383,8 @@
             <DataSetName>DataSet3</DataSetName>
             <Top>8.35588in</Top>
             <Left>0.1875in</Left>
-            <Height>0.77829in</Height>
-            <Width>9.99589in</Width>
+            <Height>0.77828in</Height>
+            <Width>9.99591in</Width>
             <ZIndex>89</ZIndex>
             <Style>
               <Border>
@@ -4384,11 +4392,249 @@
               </Border>
             </Style>
           </Tablix>
+          <Textbox Name="Additional">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Additional.Value, "DataSet1")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Additional</rd:DefaultName>
+            <Top>3.55381in</Top>
+            <Left>5.29442in</Left>
+            <Height>3.09722in</Height>
+            <Width>4.78347in</Width>
+            <ZIndex>90</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="customerContact5">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>FACE-TO-FACE COMPLETED</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>customerContact</rd:DefaultName>
+            <Top>6.73784in</Top>
+            <Left>5.4711in</Left>
+            <Height>0.19792in</Height>
+            <Width>1.64348in</Width>
+            <ZIndex>91</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="customerContact9">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>NAME/TITLE AND DATE OF PRACTITIONER WHO COMPLETED FACE-TO-FACE</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>customerContact</rd:DefaultName>
+            <Top>7.14062in</Top>
+            <Left>5.4711in</Left>
+            <Height>0.19792in</Height>
+            <Width>4.13711in</Width>
+            <ZIndex>92</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Practitionercompleted">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Practionercompleted.Value, "DataSet1")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Practitionercompleted</rd:DefaultName>
+            <Top>7.32167in</Top>
+            <Left>5.4711in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>93</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Mobility19">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=IIF(First(Fields!Face.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
+                    <Style>
+                      <FontFamily>Arial Unicode MS</FontFamily>
+                      <FontSize>14pt</FontSize>
+                      <FontWeight>ExtraBold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Mobility</rd:DefaultName>
+            <Top>6.70659in</Top>
+            <Left>7.34686in</Left>
+            <Height>0.35417in</Height>
+            <Width>0.58766in</Width>
+            <ZIndex>94</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Mobility20">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=IIF(First(Fields!Face.Value, "DataSet1") = "No", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
+                    <Style>
+                      <FontFamily>Arial Unicode MS</FontFamily>
+                      <FontSize>14pt</FontSize>
+                      <FontWeight>ExtraBold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Mobility</rd:DefaultName>
+            <Top>6.70659in</Top>
+            <Left>8.00396in</Left>
+            <Height>0.35417in</Height>
+            <Width>0.58766in</Width>
+            <ZIndex>95</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Mobility21">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=IIF(First(Fields!Face.Value, "DataSet1") = "N/A", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
+                    <Style>
+                      <FontFamily>Arial Unicode MS</FontFamily>
+                      <FontSize>14pt</FontSize>
+                      <FontWeight>ExtraBold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Mobility</rd:DefaultName>
+            <Top>6.72047in</Top>
+            <Left>8.71075in</Left>
+            <Height>0.35417in</Height>
+            <Width>0.58766in</Width>
+            <ZIndex>96</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
         <Height>12.39584in</Height>
         <Style />
       </Body>
-      <Width>10.46837in</Width>
+      <Width>10.82167in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>

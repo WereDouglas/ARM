@@ -9,24 +9,46 @@
       </ConnectionProperties>
       <rd:DataSourceID>4b4cc210-f013-49e5-88cb-71d2c7b4c095</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="ARMModel1">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>0af191d1-df1d-4a63-976f-8dd7f689365a</rd:DataSourceID>
+    </DataSource>
+    <DataSource Name="ARMModel2">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>ab59aee1-b145-4c9e-81ae-11fca79249a7</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSetInvoice">
+    <DataSet Name="DataSet1">
       <Query>
-        <DataSourceName>ARMModel</DataSourceName>
+        <DataSourceName>ARMModel1</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="Amount">
-          <DataField>Amount</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+        <Field Name="Authorised">
+          <DataField>Authorised</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Balance">
-          <DataField>Balance</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+        <Field Name="Clinic">
+          <DataField>Clinic</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Category">
-          <DataField>Category</DataField>
+        <Field Name="ClinicalDate">
+          <DataField>ClinicalDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CompanyID">
+          <DataField>CompanyID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Contacted">
+          <DataField>Contacted</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Created">
@@ -37,29 +59,214 @@
           <DataField>CustomerID</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Date">
-          <DataField>Date</DataField>
+        <Field Name="CustomerType">
+          <DataField>CustomerType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DateNeeded">
+          <DataField>DateNeeded</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DateReturned">
+          <DataField>DateReturned</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DateSent">
+          <DataField>DateSent</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Diagnosis">
+          <DataField>Diagnosis</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DispenseBy">
+          <DataField>DispenseBy</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DispenseDate">
+          <DataField>DispenseDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DispenseTime">
+          <DataField>DispenseTime</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Facility">
+          <DataField>Facility</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Home">
+          <DataField>Home</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Hospital">
+          <DataField>Hospital</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Id">
           <DataField>Id</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ItemCount">
-          <DataField>ItemCount</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="Instructions">
+          <DataField>Instructions</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Method">
-          <DataField>Method</DataField>
+        <Field Name="Insurance">
+          <DataField>Insurance</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="No">
           <DataField>No</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Paid">
-          <DataField>Paid</DataField>
+        <Field Name="Notified">
+          <DataField>Notified</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OrderBy">
+          <DataField>OrderBy</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OrderDate">
+          <DataField>OrderDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OrderTime">
+          <DataField>OrderTime</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Other">
+          <DataField>Other</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PostopRm">
+          <DataField>PostopRm</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PractitionerID">
+          <DataField>PractitionerID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PreopHome">
+          <DataField>PreopHome</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PreopRm">
+          <DataField>PreopRm</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Returned">
+          <DataField>Returned</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RoomNo">
+          <DataField>RoomNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Sent">
+          <DataField>Sent</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SetupDate">
+          <DataField>SetupDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Surgery">
+          <DataField>Surgery</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Sync">
+          <DataField>Sync</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="UserID">
+          <DataField>UserID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>ARM.Model</rd:DataSetName>
+        <rd:TableName>Orders</rd:TableName>
+        <rd:ObjectDataSourceType>ARM.Model.Orders, ARM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="DataSet2">
+      <Query>
+        <DataSourceName>ARMModel2</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="CaseID">
+          <DataField>CaseID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CompanyID">
+          <DataField>CompanyID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Cost">
+          <DataField>Cost</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Coverage">
+          <DataField>Coverage</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Created">
+          <DataField>Created</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Date">
+          <DataField>Date</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DeliveryID">
+          <DataField>DeliveryID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Height">
+          <DataField>Height</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Instruction">
+          <DataField>Instruction</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ItemID">
+          <DataField>ItemID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Limits">
+          <DataField>Limits</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="No">
+          <DataField>No</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Payable">
+          <DataField>Payable</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Period">
+          <DataField>Period</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Qty">
+          <DataField>Qty</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Self">
+          <DataField>Self</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Setting">
+          <DataField>Setting</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Sync">
           <DataField>Sync</DataField>
@@ -69,31 +276,23 @@
           <DataField>Tax</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
-        <Field Name="Terms">
-          <DataField>Terms</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="Total">
           <DataField>Total</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
-        <Field Name="Type">
-          <DataField>Type</DataField>
+        <Field Name="Units">
+          <DataField>Units</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="UserID">
-          <DataField>UserID</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="VendorID">
-          <DataField>VendorID</DataField>
+        <Field Name="Weight">
+          <DataField>Weight</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ARM.Model</rd:DataSetName>
-        <rd:TableName>Invoice</rd:TableName>
-        <rd:ObjectDataSourceType>ARM.Model.Invoice, ARM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:TableName>CaseCaseTransaction</rd:TableName>
+        <rd:ObjectDataSourceType>ARM.Model.CaseCaseTransaction, ARM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -107,57 +306,32 @@
                 <ChartMember>
                   <Group Name="Chart1_CategoryGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!Date.Value</GroupExpression>
+                      <GroupExpression>=Fields!OrderDate.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!Date.Value</Value>
+                      <Value>=Fields!OrderDate.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=Fields!Date.Value</Label>
+                  <Label>=Fields!OrderDate.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
             <ChartSeriesHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Group Name="Chart1_SeriesGroup">
-                    <GroupExpressions>
-                      <GroupExpression>=Fields!Category.Value</GroupExpression>
-                    </GroupExpressions>
-                  </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!Category.Value</Value>
-                    </SortExpression>
-                  </SortExpressions>
-                  <ChartMembers>
-                    <ChartMember>
-                      <Group Name="Chart1_SeriesGroup1">
-                        <GroupExpressions>
-                          <GroupExpression>=Fields!Method.Value</GroupExpression>
-                        </GroupExpressions>
-                      </Group>
-                      <SortExpressions>
-                        <SortExpression>
-                          <Value>=Fields!Method.Value</Value>
-                        </SortExpression>
-                      </SortExpressions>
-                      <Label>=Fields!Method.Value</Label>
-                    </ChartMember>
-                  </ChartMembers>
-                  <Label>=Fields!Category.Value</Label>
+                  <Label />
                 </ChartMember>
               </ChartMembers>
             </ChartSeriesHierarchy>
             <ChartData>
               <ChartSeriesCollection>
-                <ChartSeries Name="Total">
+                <ChartSeries Name="Series">
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Sum(Fields!Total.Value)</Y>
+                        <Y>=Count(Fields!OrderDate)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
@@ -443,7 +617,7 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>Invoices</Caption>
+                <Caption>Orders per Day</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>9pt</FontSize>
@@ -472,11 +646,11 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>DataSetInvoice</DataSetName>
-            <Top>0.19667in</Top>
-            <Left>0.19792in</Left>
-            <Height>2.84375in</Height>
-            <Width>6.16667in</Width>
+            <DataSetName>DataSet1</DataSetName>
+            <Top>0.23833in</Top>
+            <Left>0.25917in</Left>
+            <Height>3.52083in</Height>
+            <Width>5.85417in</Width>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -492,32 +666,32 @@
                 <ChartMember>
                   <Group Name="Chart2_CategoryGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!Category.Value</GroupExpression>
+                      <GroupExpression>=Fields!ItemID.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!Category.Value</Value>
+                      <Value>=Fields!ItemID.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=Fields!Category.Value</Label>
+                  <Label>=Fields!ItemID.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
             <ChartSeriesHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Label>Amount</Label>
+                  <Label>Qty</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartSeriesHierarchy>
             <ChartData>
               <ChartSeriesCollection>
-                <ChartSeries Name="Amount">
+                <ChartSeries Name="Qty">
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Sum(Fields!Amount.Value)</Y>
+                        <Y>=Sum(Fields!Qty.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
@@ -805,7 +979,7 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>Chart Title</Caption>
+                <Caption>Order CaseTransaction per item</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>9pt</FontSize>
@@ -834,11 +1008,11 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>DataSetInvoice</DataSetName>
-            <Top>3.20708in</Top>
-            <Left>0.91542in</Left>
-            <Height>2.02083in</Height>
-            <Width>4.595in</Width>
+            <DataSetName>DataSet2</DataSetName>
+            <Top>0.23833in</Top>
+            <Left>6.41542in</Left>
+            <Height>3.52083in</Height>
+            <Width>4.8125in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -850,10 +1024,10 @@
             </Style>
           </Chart>
         </ReportItems>
-        <Height>5.73959in</Height>
+        <Height>4.00001in</Height>
         <Style />
       </Body>
-      <Width>6.46875in</Width>
+      <Width>11.6875in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>

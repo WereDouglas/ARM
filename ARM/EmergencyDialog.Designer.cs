@@ -92,7 +92,7 @@
 			this.nameTxt.Location = new System.Drawing.Point(162, 295);
 			this.nameTxt.Name = "nameTxt";
 			this.nameTxt.Size = new System.Drawing.Size(213, 22);
-			this.nameTxt.TabIndex = 253;
+			this.nameTxt.TabIndex = 2;
 			// 
 			// addressTxt
 			// 
@@ -100,14 +100,14 @@
 			this.addressTxt.Multiline = true;
 			this.addressTxt.Name = "addressTxt";
 			this.addressTxt.Size = new System.Drawing.Size(223, 63);
-			this.addressTxt.TabIndex = 256;
+			this.addressTxt.TabIndex = 5;
 			// 
 			// contactTxt
 			// 
 			this.contactTxt.Location = new System.Drawing.Point(162, 321);
 			this.contactTxt.Name = "contactTxt";
 			this.contactTxt.Size = new System.Drawing.Size(213, 22);
-			this.contactTxt.TabIndex = 254;
+			this.contactTxt.TabIndex = 3;
 			// 
 			// imgCapture
 			// 
@@ -125,7 +125,7 @@
 			this.zipTxt.Location = new System.Drawing.Point(479, 252);
 			this.zipTxt.Name = "zipTxt";
 			this.zipTxt.Size = new System.Drawing.Size(223, 22);
-			this.zipTxt.TabIndex = 259;
+			this.zipTxt.TabIndex = 8;
 			// 
 			// metroLabel3
 			// 
@@ -150,7 +150,7 @@
 			this.noTxt.Location = new System.Drawing.Point(162, 263);
 			this.noTxt.Name = "noTxt";
 			this.noTxt.Size = new System.Drawing.Size(213, 22);
-			this.noTxt.TabIndex = 252;
+			this.noTxt.TabIndex = 1;
 			// 
 			// metroLabel5
 			// 
@@ -183,7 +183,7 @@
 			this.saveBtn.Name = "saveBtn";
 			this.saveBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.saveBtn.Size = new System.Drawing.Size(94, 49);
-			this.saveBtn.TabIndex = 262;
+			this.saveBtn.TabIndex = 10;
 			this.saveBtn.Text = "Save";
 			this.saveBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.saveBtn.UseVisualStyleBackColor = false;
@@ -194,7 +194,7 @@
 			this.cityTxt.Location = new System.Drawing.Point(479, 189);
 			this.cityTxt.Name = "cityTxt";
 			this.cityTxt.Size = new System.Drawing.Size(223, 22);
-			this.cityTxt.TabIndex = 257;
+			this.cityTxt.TabIndex = 6;
 			// 
 			// button2
 			// 
@@ -209,7 +209,7 @@
 			this.button2.Name = "button2";
 			this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.button2.Size = new System.Drawing.Size(107, 49);
-			this.button2.TabIndex = 263;
+			this.button2.TabIndex = 11;
 			this.button2.Text = "Cancel";
 			this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.button2.UseVisualStyleBackColor = false;
@@ -237,7 +237,7 @@
 			this.button1.Name = "button1";
 			this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.button1.Size = new System.Drawing.Size(130, 31);
-			this.button1.TabIndex = 251;
+			this.button1.TabIndex = 0;
 			this.button1.Text = "Browse";
 			this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.button1.UseVisualStyleBackColor = false;
@@ -266,7 +266,7 @@
 			this.genderCbx.Location = new System.Drawing.Point(479, 283);
 			this.genderCbx.Name = "genderCbx";
 			this.genderCbx.Size = new System.Drawing.Size(223, 31);
-			this.genderCbx.TabIndex = 274;
+			this.genderCbx.TabIndex = 9;
 			// 
 			// metroLabel9
 			// 
@@ -297,7 +297,7 @@
 			this.relationshipCbx.Location = new System.Drawing.Point(162, 347);
 			this.relationshipCbx.Name = "relationshipCbx";
 			this.relationshipCbx.Size = new System.Drawing.Size(213, 31);
-			this.relationshipCbx.TabIndex = 276;
+			this.relationshipCbx.TabIndex = 4;
 			// 
 			// stateTxt
 			// 
@@ -311,7 +311,7 @@
 			this.stateTxt.Location = new System.Drawing.Point(479, 217);
 			this.stateTxt.Name = "stateTxt";
 			this.stateTxt.Size = new System.Drawing.Size(223, 31);
-			this.stateTxt.TabIndex = 277;
+			this.stateTxt.TabIndex = 7;
 			// 
 			// EmergencyDialog
 			// 

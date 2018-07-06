@@ -90,24 +90,46 @@ namespace ARM
                 Helper.UserID = u.Where(g => g.Contact.Contains(contactTxt.Text) && g.Password.Equals(Helper.MD5Hash(passwordTxt.Text))).First().Id;
                 Helper.UserImage = u.Where(g => g.Contact.Contains(contactTxt.Text) && g.Password.Equals(Helper.MD5Hash(passwordTxt.Text))).First().Image;
                 Helper.UserName = u.Where(g => g.Contact.Contains(contactTxt.Text) && g.Password.Equals(Helper.MD5Hash(passwordTxt.Text))).First().Name;
+				Helper.Level = u.Where(g => g.Contact.Contains(contactTxt.Text) && g.Password.Equals(Helper.MD5Hash(passwordTxt.Text))).First().Level;
+				Helper.Department = u.Where(g => g.Contact.Contains(contactTxt.Text) && g.Password.Equals(Helper.MD5Hash(passwordTxt.Text))).First().Department;
+				string active = u.Where(g => g.Contact.Contains(contactTxt.Text) && g.Password.Equals(Helper.MD5Hash(passwordTxt.Text))).First().Active;
 
-                //  Helper.Log(Helper.UserName, "Log in ");
-                Helper.CompanyID = Company.List().First().Id;
-				Helper.NPI = Company.List().First().Npi;
-				if (medicalChk.Checked)
-                {
+				if (active =="No") {
 
-                    MedicalForm frm = new MedicalForm();
-                    frm.Show();
-                    this.Hide();
-					Helper.Log(Helper.UserName, "Logging in to DME" + DateTime.Now);
+					MessageBox.Show("Your login status is not active ,Please contact admin ");
+					loginBtn.Visible = true;
+					return;
 				}
-                if (payrollChk.Checked)
-                {
-                    HrmForm f = new HrmForm();
-                    f.Show();
-                    this.Hide();
-					Helper.Log(Helper.UserName, "Logging in to Pay roll and Human Resource" + DateTime.Now);
+
+				//  Helper.Log(Helper.UserName, "Log in ");
+				Helper.CompanyID = Company.List().First().Id;
+				Helper.NPI = Company.List().First().Npi;
+
+				if (Helper.Level =="5") {
+
+					AdministrationForm frm = new AdministrationForm();
+					frm.Show();
+					this.Hide();
+					Helper.Log(Helper.UserName, "Administration login" + DateTime.Now);
+
+				}
+				else {
+
+					if (Helper.Department == "Medical Equipment")
+					{
+						MedicalForm frm = new MedicalForm();
+						frm.Show();
+						this.Hide();
+						Helper.Log(Helper.UserName, "Logging in to DME" + DateTime.Now);
+					}
+					if (Helper.Department == "Payroll")
+					{
+						HrmForm f = new HrmForm();
+						f.Show();
+						this.Hide();
+						Helper.Log(Helper.UserName, "Logging in to Pay roll and Human Resource" + DateTime.Now);
+					}
+
 				}
                 loginBtn.Visible = true;
             }
@@ -123,7 +145,7 @@ namespace ARM
 
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Vendor()));
 
-            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Transaction()));
+            DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new CaseTransaction()));
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Payment()));
 
             DBConnect.createMySqlDB(DBConnect.CreateDBSQL(new Schedule()));
@@ -444,7 +466,7 @@ namespace ARM
 
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Vendor()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Invoice()));
-            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Transaction()));
+            DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new CaseTransaction()));
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Payment()));
 
             DBConnect.createPostgreDB(DBConnect.CreateDBSQL(new Schedule()));
@@ -489,5 +511,22 @@ namespace ARM
             AdvancedForm f = new AdvancedForm();
             f.Show();
         }
-    }
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+			using (AddUser form = new AddUser(null))
+			{
+				DialogResult dr = form.ShowDialog();
+				if (dr == DialogResult.OK)
+				{
+					// LoadingCalendarLite();
+				}
+			}
+		}
+
+		private void button3_Click_2(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+	}
 }

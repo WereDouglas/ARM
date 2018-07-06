@@ -155,13 +155,7 @@
 			this.categoryCbx.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.categoryCbx.FormattingEnabled = true;
 			this.categoryCbx.Items.AddRange(new object[] {
-            "Allowance",
             "Advance",
-            "Benefit",
-            "Overtime",
-            "Reimbursement",
-            "Compensation",
-            "Paid Time Off(PTO)",
             "Other"});
 			this.categoryCbx.Location = new System.Drawing.Point(65, 118);
 			this.categoryCbx.Name = "categoryCbx";
@@ -193,7 +187,7 @@
 			// noLbl
 			// 
 			this.noLbl.AutoSize = true;
-			this.noLbl.Location = new System.Drawing.Point(68, 60);
+			this.noLbl.Location = new System.Drawing.Point(68, 61);
 			this.noLbl.Name = "noLbl";
 			this.noLbl.Size = new System.Drawing.Size(12, 13);
 			this.noLbl.TabIndex = 212;

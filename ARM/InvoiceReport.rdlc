@@ -63,8 +63,8 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ARM.Model</rd:DataSetName>
-        <rd:TableName>Transaction</rd:TableName>
-        <rd:ObjectDataSourceType>ARM.Model.Transaction, ARM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:TableName>CaseTransaction</rd:TableName>
+        <rd:ObjectDataSourceType>ARM.Model.CaseTransaction, ARM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
     <DataSet Name="DataSet2">

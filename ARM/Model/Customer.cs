@@ -29,10 +29,11 @@ namespace ARM.Model
         private string companyID;
         private string gender;
         private string image;
+		private string race;
 
-        public Customer() { }
+		public Customer() { }
 
-        public Customer(string id, string name, string contact, string address, string no, string city, string state, string zip, string created, string ssn, string dob, string category, string height, string weight, string gender, bool sync, string companyID, string image)
+        public Customer(string id, string name, string contact, string address, string no, string city, string state, string zip, string created, string ssn, string dob, string category, string height, string weight, string gender, bool sync, string companyID, string image,string race)
         {
             this.Id = id;
             this.Name = name;
@@ -52,7 +53,8 @@ namespace ARM.Model
             this.CompanyID = companyID;
             this.Gender = gender;
             this.Image = image;
-        }
+			this.Race = race;
+		}
 
         static List<Customer> p = new List<Customer>();
 
@@ -67,7 +69,7 @@ namespace ARM.Model
                 NpgsqlDataReader Reader = DBConnect.Reading(Q);
                 while (Reader.Read())
                 {
-                    Customer ps = new Customer(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["gender"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
+                    Customer ps = new Customer(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["gender"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString(), Reader["race"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseConn();
@@ -86,8 +88,8 @@ namespace ARM.Model
                 NpgsqlDataReader Reader = DBConnect.Reading(Q);
                 while (Reader.Read())
                 {
-                    Customer ps = new Customer(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["gender"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
-                    p.Add(ps);
+                    Customer ps = new Customer(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["gender"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString(), Reader["race"].ToString());
+					p.Add(ps);
                 }
                 DBConnect.CloseConn();
             }
@@ -105,8 +107,8 @@ namespace ARM.Model
                 MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
                 while (Reader.Read())
                 {
-                    Customer ps = new Customer(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["gender"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
-                    p.Add(ps);
+                    Customer ps = new Customer(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["gender"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString(), Reader["race"].ToString());
+					p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
             }
@@ -134,17 +136,18 @@ namespace ARM.Model
         public string CompanyID { get => companyID; set => companyID = value; }
         public string Gender { get => gender; set => gender = value; }
         public string Image { get => image; set => image = value; }
+		public string Race { get => race; set => race = value; }
 
-        public static Customer Select(string customerID)
+		public static Customer Select(string customerID)
         {
             string Q = "SELECT * FROM customer WHERE id = '" + customerID + "'";
             DBConnect.OpenConn();
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                c = new Customer(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["gender"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
-            }
-            DBConnect.CloseConn();
+                c = new Customer(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["gender"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString(), Reader["race"].ToString());
+			}
+			DBConnect.CloseConn();
             return c;
 
         }

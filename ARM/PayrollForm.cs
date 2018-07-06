@@ -86,9 +86,17 @@ namespace ARM
             double hrs = 0;
             double payOver = 0;
             double days = 0;
+			try
+			{
+				fromDate = Convert.ToDateTime(startLbl.Text).ToString("dd-MM-yyyy");
+				toDate = Convert.ToDateTime(endLbl.Text).ToString("dd-MM-yyyy");
+			}
+			catch(Exception k) {
+				fromDate = DateTime.Now.ToString("dd-MM-yyyy");
+				toDate = DateTime.Now.ToString("dd-MM-yyyy");
 
-            fromDate = Convert.ToDateTime(startLbl.Text).ToString("dd-MM-yyyy");
-            toDate = Convert.ToDateTime(endLbl.Text).ToString("dd-MM-yyyy");
+
+			}
 
             LoadingWindow.ShowSplashScreen();
             LoadDeduction(fromDate, toDate);

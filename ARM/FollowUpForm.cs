@@ -177,14 +177,15 @@ namespace ARM
         {
             if (MessageBox.Show("YES or No?", "Are you sure you want to delete these invoices? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-
                 foreach (var item in selectedIDs)
                 {
                     string Query = "DELETE from follow WHERE id ='" + item + "'";
                     DBConnect.QueryPostgre(Query);
-                    //  MessageBox.Show("Information deleted");
-                }
-            }
+					//  MessageBox.Show("Information deleted");
+					Helper.Log(Helper.UserName, "Deleted user " + item + "  " + DateTime.Now);
+				}
+				LoadData();
+			}
         }
         List<string> selectedIDs = new List<string>();
         private void dtGrid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -192,16 +193,17 @@ namespace ARM
             var senderGrid = (DataGridView)sender;
             if (e.ColumnIndex == dtGrid.Columns["Select"].Index && e.RowIndex >= 0)
             {
-                if (selectedIDs.Contains(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
-                {
-                    selectedIDs.Remove(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString());
-
-                }
-                else
-                {
-                    selectedIDs.Add(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString());
-                }
-            }
+				dtGrid.CurrentCell.Value = dtGrid.CurrentCell.FormattedValue.ToString() == "True" ? false : true;
+				dtGrid.RefreshEdit();
+				if (selectedIDs.Contains(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString()))
+				{
+					selectedIDs.Remove(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+				}
+				else
+				{
+					selectedIDs.Add(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+				}
+			}
             if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
             {
                 using (FollowForm form = new FollowForm(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
@@ -255,5 +257,27 @@ namespace ARM
             FollowForm f = new FollowForm(null);
             f.Show();
         }
-    }
+
+		private void toolStripButton6_Click(object sender, EventArgs e)
+		{
+			foreach (DataGridViewRow row in dtGrid.Rows)
+			{
+				row.Cells["select"].Value = true;
+				if (!selectedIDs.Contains(row.Cells["id"].Value.ToString()))
+				{
+					selectedIDs.Add(row.Cells["id"].Value.ToString());
+				}
+			}
+		}
+
+		private void toolStripButton4_Click_1(object sender, EventArgs e)
+		{
+			List<DataGridViewRow> rows_with_checked_column = new List<DataGridViewRow>();
+			foreach (DataGridViewRow row in dtGrid.Rows)
+			{
+				row.Cells["select"].Value = false;
+				selectedIDs.Remove(row.Cells["id"].Value.ToString());
+			}
+		}
+	}
 }

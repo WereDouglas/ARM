@@ -59,6 +59,9 @@
 			this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
 			this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
 			this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+			this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
+			this.raceCbx = new System.Windows.Forms.ComboBox();
+			this.stateTxt = new System.Windows.Forms.ComboBox();
 			this.emailTxt = new System.Windows.Forms.TextBox();
 			this.categoryCbx = new System.Windows.Forms.ComboBox();
 			this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
@@ -86,7 +89,6 @@
 			this.button3 = new System.Windows.Forms.Button();
 			this.button5 = new System.Windows.Forms.Button();
 			this.button6 = new System.Windows.Forms.Button();
-			this.stateTxt = new System.Windows.Forms.ComboBox();
 			this.metroTabPage1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
 			this.metroTabCond.SuspendLayout();
@@ -151,6 +153,7 @@
 			this.contactTxt.Name = "contactTxt";
 			this.contactTxt.Size = new System.Drawing.Size(292, 31);
 			this.contactTxt.TabIndex = 2;
+			this.contactTxt.TextChanged += new System.EventHandler(this.contactTxt_TextChanged);
 			this.contactTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contactTxt_KeyPress);
 			// 
 			// htmlToolTip1
@@ -201,7 +204,7 @@
 			this.cityTxt.Location = new System.Drawing.Point(521, 172);
 			this.cityTxt.Name = "cityTxt";
 			this.cityTxt.Size = new System.Drawing.Size(292, 31);
-			this.cityTxt.TabIndex = 5;
+			this.cityTxt.TabIndex = 7;
 			// 
 			// metroLabel6
 			// 
@@ -228,7 +231,7 @@
 			this.zipTxt.MaxLength = 5;
 			this.zipTxt.Name = "zipTxt";
 			this.zipTxt.Size = new System.Drawing.Size(292, 31);
-			this.zipTxt.TabIndex = 7;
+			this.zipTxt.TabIndex = 9;
 			this.zipTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contactTxt_KeyPress);
 			// 
 			// metroLabel8
@@ -246,7 +249,7 @@
 			this.dobTxt.Location = new System.Drawing.Point(521, 336);
 			this.dobTxt.Name = "dobTxt";
 			this.dobTxt.Size = new System.Drawing.Size(292, 31);
-			this.dobTxt.TabIndex = 9;
+			this.dobTxt.TabIndex = 11;
 			// 
 			// metroLabel9
 			// 
@@ -264,7 +267,7 @@
 			this.ssnTxt.MaxLength = 9;
 			this.ssnTxt.Name = "ssnTxt";
 			this.ssnTxt.Size = new System.Drawing.Size(292, 31);
-			this.ssnTxt.TabIndex = 8;
+			this.ssnTxt.TabIndex = 10;
 			this.ssnTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contactTxt_KeyPress);
 			// 
 			// metroLabel10
@@ -287,6 +290,8 @@
 			// 
 			// metroTabPage1
 			// 
+			this.metroTabPage1.Controls.Add(this.metroLabel16);
+			this.metroTabPage1.Controls.Add(this.raceCbx);
 			this.metroTabPage1.Controls.Add(this.stateTxt);
 			this.metroTabPage1.Controls.Add(this.emailTxt);
 			this.metroTabPage1.Controls.Add(this.categoryCbx);
@@ -334,13 +339,51 @@
 			this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
 			this.metroTabPage1.VerticalScrollbarSize = 10;
 			// 
+			// metroLabel16
+			// 
+			this.metroLabel16.AutoSize = true;
+			this.metroLabel16.Location = new System.Drawing.Point(463, 463);
+			this.metroLabel16.Name = "metroLabel16";
+			this.metroLabel16.Size = new System.Drawing.Size(37, 19);
+			this.metroLabel16.TabIndex = 272;
+			this.metroLabel16.Text = "Race";
+			// 
+			// raceCbx
+			// 
+			this.raceCbx.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.raceCbx.FormattingEnabled = true;
+			this.raceCbx.Items.AddRange(new object[] {
+            "American Indian",
+            "Alaska Native",
+            "Asian",
+            "Black",
+            "African American",
+            "Hispanic",
+            "Latino",
+            "Native Hawaiian",
+            "Other Pacific Islander",
+            "White"});
+			this.raceCbx.Location = new System.Drawing.Point(521, 459);
+			this.raceCbx.Name = "raceCbx";
+			this.raceCbx.Size = new System.Drawing.Size(292, 31);
+			this.raceCbx.TabIndex = 14;
+			// 
+			// stateTxt
+			// 
+			this.stateTxt.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.stateTxt.FormattingEnabled = true;
+			this.stateTxt.Location = new System.Drawing.Point(521, 212);
+			this.stateTxt.Name = "stateTxt";
+			this.stateTxt.Size = new System.Drawing.Size(292, 31);
+			this.stateTxt.TabIndex = 8;
+			// 
 			// emailTxt
 			// 
 			this.emailTxt.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.emailTxt.Location = new System.Drawing.Point(521, 422);
 			this.emailTxt.Name = "emailTxt";
 			this.emailTxt.Size = new System.Drawing.Size(292, 31);
-			this.emailTxt.TabIndex = 269;
+			this.emailTxt.TabIndex = 13;
 			this.emailTxt.Leave += new System.EventHandler(this.emailTxt_Leave);
 			// 
 			// categoryCbx
@@ -354,7 +397,7 @@
 			this.categoryCbx.Location = new System.Drawing.Point(132, 298);
 			this.categoryCbx.Name = "categoryCbx";
 			this.categoryCbx.Size = new System.Drawing.Size(292, 31);
-			this.categoryCbx.TabIndex = 268;
+			this.categoryCbx.TabIndex = 3;
 			// 
 			// metroLabel15
 			// 
@@ -376,7 +419,7 @@
 			this.genderCbx.Location = new System.Drawing.Point(521, 385);
 			this.genderCbx.Name = "genderCbx";
 			this.genderCbx.Size = new System.Drawing.Size(292, 31);
-			this.genderCbx.TabIndex = 266;
+			this.genderCbx.TabIndex = 12;
 			// 
 			// metroLabel14
 			// 
@@ -421,7 +464,7 @@
 			this.weightTxt.Location = new System.Drawing.Point(129, 476);
 			this.weightTxt.Name = "weightTxt";
 			this.weightTxt.Size = new System.Drawing.Size(292, 31);
-			this.weightTxt.TabIndex = 12;
+			this.weightTxt.TabIndex = 6;
 			// 
 			// heightTxt
 			// 
@@ -429,7 +472,7 @@
 			this.heightTxt.Location = new System.Drawing.Point(129, 439);
 			this.heightTxt.Name = "heightTxt";
 			this.heightTxt.Size = new System.Drawing.Size(292, 31);
-			this.heightTxt.TabIndex = 11;
+			this.heightTxt.TabIndex = 5;
 			// 
 			// updateBtn
 			// 
@@ -440,11 +483,11 @@
 			this.updateBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.updateBtn.Image = global::ARM.Properties.Resources.Note_04_24;
 			this.updateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.updateBtn.Location = new System.Drawing.Point(613, 476);
+			this.updateBtn.Location = new System.Drawing.Point(609, 518);
 			this.updateBtn.Name = "updateBtn";
 			this.updateBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.updateBtn.Size = new System.Drawing.Size(96, 49);
-			this.updateBtn.TabIndex = 14;
+			this.updateBtn.TabIndex = 16;
 			this.updateBtn.Text = "Update";
 			this.updateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.updateBtn.UseVisualStyleBackColor = false;
@@ -471,11 +514,11 @@
 			this.saveBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.saveBtn.Image = global::ARM.Properties.Resources.Submit_01_32;
 			this.saveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.saveBtn.Location = new System.Drawing.Point(732, 476);
+			this.saveBtn.Location = new System.Drawing.Point(723, 518);
 			this.saveBtn.Name = "saveBtn";
 			this.saveBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.saveBtn.Size = new System.Drawing.Size(90, 49);
-			this.saveBtn.TabIndex = 13;
+			this.saveBtn.TabIndex = 15;
 			this.saveBtn.Text = "Save";
 			this.saveBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.saveBtn.UseVisualStyleBackColor = false;
@@ -490,11 +533,11 @@
 			this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
 			this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button2.Location = new System.Drawing.Point(477, 473);
+			this.button2.Location = new System.Drawing.Point(477, 518);
 			this.button2.Name = "button2";
 			this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.button2.Size = new System.Drawing.Size(107, 49);
-			this.button2.TabIndex = 15;
+			this.button2.TabIndex = 17;
 			this.button2.Text = "Cancel";
 			this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.button2.UseVisualStyleBackColor = false;
@@ -509,7 +552,7 @@
 			this.metroTabCond.Controls.Add(this.metroTabPage1);
 			this.metroTabCond.Location = new System.Drawing.Point(23, 74);
 			this.metroTabCond.Name = "metroTabCond";
-			this.metroTabCond.SelectedIndex = 4;
+			this.metroTabCond.SelectedIndex = 3;
 			this.metroTabCond.Size = new System.Drawing.Size(1320, 654);
 			this.metroTabCond.TabIndex = 4;
 			this.metroTabCond.UseSelectable = true;
@@ -718,6 +761,7 @@
 			this.dtGridMed.Size = new System.Drawing.Size(1306, 620);
 			this.dtGridMed.TabIndex = 52;
 			this.dtGridMed.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridMed_CellClick);
+			this.dtGridMed.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridMed_CellEndEdit);
 			// 
 			// button4
 			// 
@@ -798,20 +842,6 @@
 			this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.button6.UseVisualStyleBackColor = false;
 			this.button6.Click += new System.EventHandler(this.button6_Click);
-			// 
-			// stateTxt
-			// 
-			this.stateTxt.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.stateTxt.FormattingEnabled = true;
-			this.stateTxt.Items.AddRange(new object[] {
-            "LPN",
-            "CNA",
-            "RN",
-            "Other"});
-			this.stateTxt.Location = new System.Drawing.Point(521, 212);
-			this.stateTxt.Name = "stateTxt";
-			this.stateTxt.Size = new System.Drawing.Size(292, 31);
-			this.stateTxt.TabIndex = 270;
 			// 
 			// CustomerDemo
 			// 
@@ -896,5 +926,7 @@
         private System.Windows.Forms.TextBox emailTxt;
         private System.Windows.Forms.ComboBox categoryCbx;
 		private System.Windows.Forms.ComboBox stateTxt;
+		private MetroFramework.Controls.MetroLabel metroLabel16;
+		private System.Windows.Forms.ComboBox raceCbx;
 	}
 }

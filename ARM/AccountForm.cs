@@ -99,8 +99,9 @@ namespace ARM
                 {
                     string Query = "DELETE from account WHERE id ='" + item + "'";
                     DBConnect.QueryPostgre(Query);
-                    //  MessageBox.Show("Information deleted");
-                }
+					//  MessageBox.Show("Information deleted");
+					Helper.Log(Helper.UserName, "Deleted user account information  " + item + "  " + DateTime.Now);
+				}
             }
         }
         List<string> selectedIDs = new List<string>();
@@ -109,18 +110,17 @@ namespace ARM
             var senderGrid = (DataGridView)sender;
             if (e.ColumnIndex == dtGrid.Columns["Select"].Index && e.RowIndex >= 0)
             {
-                if (selectedIDs.Contains(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
-                {
-                    selectedIDs.Remove(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString());
-                    Console.WriteLine("REMOVED this id " + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString());
-
-                }
-                else
-                {
-                    selectedIDs.Add(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString());
-                    Console.WriteLine("ADDED ITEM " + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString());
-                }
-            }
+				dtGrid.CurrentCell.Value = dtGrid.CurrentCell.FormattedValue.ToString() == "True" ? false : true;
+				dtGrid.RefreshEdit();
+				if (selectedIDs.Contains(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString()))
+				{
+					selectedIDs.Remove(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+				}
+				else
+				{
+					selectedIDs.Add(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+				}
+			}
            
             try
             {
@@ -181,6 +181,27 @@ namespace ARM
 				MessageBox.Show(c.Message.ToString());
 				Helper.Exceptions(c.Message, "Editing User cell content grid");
 				MessageBox.Show("You have an invalid entry !");
+			}
+		}
+		private void toolStripButton6_Click(object sender, EventArgs e)
+		{
+			foreach (DataGridViewRow row in dtGrid.Rows)
+			{
+				row.Cells["select"].Value = true;
+				if (!selectedIDs.Contains(row.Cells["id"].Value.ToString()))
+				{
+					selectedIDs.Add(row.Cells["id"].Value.ToString());
+				}
+			}
+		}
+
+		private void toolStripButton4_Click_1(object sender, EventArgs e)
+		{
+			List<DataGridViewRow> rows_with_checked_column = new List<DataGridViewRow>();
+			foreach (DataGridViewRow row in dtGrid.Rows)
+			{
+				row.Cells["select"].Value = false;
+				selectedIDs.Remove(row.Cells["id"].Value.ToString());
 			}
 		}
 	}

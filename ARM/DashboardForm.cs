@@ -1,6 +1,7 @@
 ﻿using ARM.DB;
 using ARM.Model;
 using ARM.Util;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,7 +25,7 @@ namespace ARM
             InitializeComponent();
             Report();
             
-            LoadData();
+            //LoadData();
         }
         List<Product> items = new List<Product>();
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -69,11 +70,11 @@ namespace ARM
                 }
             }
 
-			dtGrid.DataSource = t;
-			dtGrid.Columns["uri"].Visible = false;
-			dtGrid.Columns["id"].Visible = false;
-			dtGrid.AllowUserToAddRows = false;			
-			dtGrid.RowTemplate.Height = 60;
+			//dtGrid.DataSource = t;
+			//dtGrid.Columns["uri"].Visible = false;
+			//dtGrid.Columns["id"].Visible = false;
+			//dtGrid.AllowUserToAddRows = false;			
+			//dtGrid.RowTemplate.Height = 60;
 			
 			ThreadPool.QueueUserWorkItem(delegate
             {
@@ -104,11 +105,23 @@ namespace ARM
         }
         private void Report()
         {
-            List<Invoice> reports = new List<Invoice>();
-            InvoiceBindingSource.DataSource = Invoice.List("SELECT * FROM invoice WHERE (date::date >= date_trunc('week', CURRENT_TIMESTAMP - interval '1 week') and  date::date < date_trunc('week', CURRENT_TIMESTAMP))");
-            reportViewer1.RefreshReport();
+			reportViewer1.LocalReport.DataSources.Clear();
+			List<Invoice> reports = new List<Invoice>();
+           
+			Npgsql.NpgsqlDataAdapter da = new Npgsql.NpgsqlDataAdapter("SELECT * FROM orders", DBConnect.conn);
+			DataSet ds = new DataSet();
+			da.Fill(ds);
 
+			Npgsql.NpgsqlDataAdapter da1 = new Npgsql.NpgsqlDataAdapter("SELECT product.name AS itemID ,product.code AS self,product.description AS tax,casetransaction.cost,casetransaction.date as date,casetransaction.no as no,casetransaction.total as total,casetransaction.qty as qty,casetransaction.cost,casetransaction.created,casetransaction.sync,casetransaction.height,casetransaction.limits,casetransaction.weight,casetransaction.setting,casetransaction.instruction,casetransaction.period FROM casetransaction LEFT join product ON casetransaction.itemID = product.id ", DBConnect.conn);
+			DataSet ds1 = new DataSet();
+			da1.Fill(ds1);
 
+			ReportDataSource datasource = new ReportDataSource("DataSet1", ds.Tables[0]);
+			ReportDataSource datasource2 = new ReportDataSource("DataSet2", ds1.Tables[0]);
+			
+			reportViewer1.LocalReport.DataSources.Add(datasource);
+			reportViewer1.LocalReport.DataSources.Add(datasource2);
+			reportViewer1.RefreshReport();
         }
 
         private void DashboardForm_Load(object sender, EventArgs e)

@@ -35,12 +35,12 @@
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
 			this.InvoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.TransactionBingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.CaseTransactionBingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.toolStrip1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.InvoiceBindingSource)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.TransactionBingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.CaseTransactionBingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// toolStrip1
@@ -122,10 +122,10 @@
 			this.InvoiceBindingSource.DataSource = typeof(ARM.Model.Invoice);
 			this.InvoiceBindingSource.CurrentChanged += new System.EventHandler(this.InvoiceBindingSource_CurrentChanged);
 			// 
-			// TransactionBingSource
+			// CaseTransactionBingSource
 			// 
-			this.TransactionBingSource.DataSource = typeof(ARM.Model.Transaction);
-			this.TransactionBingSource.CurrentChanged += new System.EventHandler(this.TransactionBingSource_CurrentChanged);
+			this.CaseTransactionBingSource.DataSource = typeof(ARM.Model.CaseTransaction);
+			this.CaseTransactionBingSource.CurrentChanged += new System.EventHandler(this.CaseTransactionBingSource_CurrentChanged);
 			// 
 			// ReceiptForm
 			// 
@@ -148,7 +148,7 @@
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.InvoiceBindingSource)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.TransactionBingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.CaseTransactionBingSource)).EndInit();
 			this.ResumeLayout(false);
 
         }
@@ -160,6 +160,6 @@
         private System.Windows.Forms.Panel panel1;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource InvoiceBindingSource;
-        private System.Windows.Forms.BindingSource TransactionBingSource;
+        private System.Windows.Forms.BindingSource CaseTransactionBingSource;
     }
 }

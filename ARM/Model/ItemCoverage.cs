@@ -25,7 +25,7 @@ namespace ARM.Model
         public ItemCoverage(string id, string transactionID, string itemID, string coverageID, double percentage, double amount, string created, bool sync, string companyID)
         {
             this.Id = id;
-            this.TransactionID = transactionID;
+            this.CaseTransactionID = transactionID;
             this.ItemID = itemID;
             this.CoverageID = coverageID;
             this.Percentage = percentage;
@@ -38,7 +38,7 @@ namespace ARM.Model
         private static List<ItemCoverage> p = new List<ItemCoverage>();
 
         public string Id { get => id; set => id = value; }
-        public string TransactionID { get => transactionID; set => transactionID = value; }
+        public string CaseTransactionID { get => transactionID; set => transactionID = value; }
         public string ItemID { get => itemID; set => itemID = value; }
         public string CoverageID { get => coverageID; set => coverageID = value; }
         public double Percentage { get => percentage; set => percentage = value; }

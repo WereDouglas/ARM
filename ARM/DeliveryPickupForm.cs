@@ -55,7 +55,7 @@ namespace ARM
         {
            
             Orders o;
-            GenericCollection.transactions = new List<Transaction>();
+            GenericCollection.caseTransactions = new List<CaseTransaction>();
             No = no;
 		    noTxt.Text = no;			
 			o = new Orders();//.Select(UsersID);
@@ -106,18 +106,18 @@ namespace ARM
                 //try
                 //{
 
-                Transaction t = new Transaction(j.Id, j.Date, j.No, j.ItemID, noTxt.Text, j.DeliveryID, j.Qty, j.Cost, j.Units, j.Total, j.Tax, j.Coverage, j.Self, j.Payable, j.Limits, j.Setting, j.Period, j.Height, j.Weight, j.Instruction, j.Created, false, Helper.CompanyID);
-                GenericCollection.transactions.Add(t);
+                CaseTransaction t = new CaseTransaction(j.Id, j.Date, j.No, j.ItemID, noTxt.Text, j.DeliveryID, j.Qty, j.Cost, j.Units, j.Total, j.Tax, j.Coverage, j.Self, j.Payable, j.Limits, j.Setting, j.Period, j.Height, j.Weight, j.Instruction, j.Created, false, Helper.CompanyID);
+                GenericCollection.caseTransactions.Add(t);
                 //}
                 //catch { }
 
             }
 
 
-            LoadTransactions();
+            LoadCaseTransactions();
 			//string Q = "SELECT * FROM transaction WHERE no = '" + noTxt.Text + "'";
-			//GenericCollection.transactions = Transaction.List(Q);
-			//LoadTransactions();
+			//GenericCollection.caseTransactions = CaseTransaction.List(Q);
+			//LoadCaseTransactions();
 		}
 
 
@@ -125,7 +125,7 @@ namespace ARM
         {
             btnSubmit.Visible = false;
 			updateBtn.Visible = true;
-			GenericCollection.transactions = new List<Transaction>();
+			GenericCollection.caseTransactions = new List<CaseTransaction>();
             ID = id;
             Delivery o = new Delivery();//.Select(UsersID);
             o = Delivery.Select(id);
@@ -185,7 +185,7 @@ namespace ARM
             }
             catch { }
         }
-        public void LoadTransactions()
+        public void LoadCaseTransactions()
         {
             // create and execute query  
             t = new DataTable();
@@ -197,7 +197,7 @@ namespace ARM
             t.Columns.Add("Total");
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));
             Image delete = new Bitmap(Properties.Resources.Cancel_16);
-            foreach (Transaction j in GenericCollection.transactions)
+            foreach (CaseTransaction j in GenericCollection.caseTransactions)
             {
                 try
                 {
@@ -211,7 +211,7 @@ namespace ARM
                     Helper.Exceptions(m.Message , "Viewing Items in Delivery form on load {each transaction list }" + j.ItemID);
                 }
             }
-            Total = GenericCollection.transactions.Sum(r => r.Total);
+            Total = GenericCollection.caseTransactions.Sum(r => r.Total);
             totalTxt.Text = Total.ToString("N0");
             dtGrid.DataSource = t;
             //dtGrid.AllowUserToAddRows = false;
@@ -310,10 +310,10 @@ namespace ARM
 				MessageBox.Show("Delivery /follow up / pick up ? ");
 				return;
 			}
-			double tax = GenericCollection.transactions.Sum(x => x.Tax);
-            double amount = GenericCollection.transactions.Sum(x => x.Payable);
+			double tax = GenericCollection.caseTransactions.Sum(x => x.Tax);
+            double amount = GenericCollection.caseTransactions.Sum(x => x.Payable);
             string method = "Invoice";
-            int ItemCount = GenericCollection.transactions.Count();
+            int ItemCount = GenericCollection.caseTransactions.Count();
 
             string ids = Guid.NewGuid().ToString();
             Invoice iw = new Invoice(ids, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, "Credit", "Sale", Helper.CompanyName, CustomerID, method, amount, noTxt.Text, tax, amount, amount, amount, ItemCount, userCbx.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
@@ -334,15 +334,15 @@ namespace ARM
                 Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(savef), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                 DBConnect.InsertPostgre(q);
 
-                foreach (Transaction t in GenericCollection.transactions)
+                foreach (CaseTransaction t in GenericCollection.caseTransactions)
                 {
-                    string it = Guid.NewGuid().ToString();
+					string it = t.Id;
                     if (!transDic.ContainsKey(it))
                     {
                         transDic.Add(it, t.Date);
-                        Transaction c = new Transaction(it, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, noTxt.Text, id, t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
+                        CaseTransaction c = new CaseTransaction(it, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, noTxt.Text, id, t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
                        
-                        save = DBConnect.InsertPostgre(c);
+                        save = DBConnect.UpdatePostgre(c,it);
                         Queries qe = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                         DBConnect.InsertPostgre(qe);
 
@@ -364,9 +364,9 @@ namespace ARM
                 {
                     if (MessageBox.Show("YES or No?", "Are you sure you want to remove this product ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {                      
-                        var itemToRemove = GenericCollection.transactions.Single(r => r.ItemID == dtGrid.Rows[e.RowIndex].Cells["ItemID"].Value.ToString());
-                        GenericCollection.transactions.Remove(itemToRemove);
-                        LoadTransactions();
+                        var itemToRemove = GenericCollection.caseTransactions.Single(r => r.ItemID == dtGrid.Rows[e.RowIndex].Cells["ItemID"].Value.ToString());
+                        GenericCollection.caseTransactions.Remove(itemToRemove);
+                        LoadCaseTransactions();
                     }
                 }
 
@@ -436,14 +436,14 @@ namespace ARM
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    LoadTransactions();
+                    LoadCaseTransactions();
                 }
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("YES or No?", "Confirm Transaction ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MessageBox.Show("YES or No?", "Confirm CaseTransaction ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 GenerateInvoice();
             }
@@ -452,10 +452,10 @@ namespace ARM
         {
 
 
-            foreach (Transaction t in GenericCollection.transactions)
+            foreach (CaseTransaction t in GenericCollection.caseTransactions)
             {
                 string ids = Guid.NewGuid().ToString();
-                Transaction c = new Transaction(ids, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, CaseID, t.DeliveryID, t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
+                CaseTransaction c = new CaseTransaction(ids, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, CaseID, t.DeliveryID, t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
                 if (DBConnect.InsertPostgre(c) != "")
                 {
                 }
@@ -506,10 +506,10 @@ namespace ARM
 				return;
 			}
 
-			double tax = GenericCollection.transactions.Sum(x => x.Tax);
-            double amount = GenericCollection.transactions.Sum(x => x.Payable);
+			double tax = GenericCollection.caseTransactions.Sum(x => x.Tax);
+            double amount = GenericCollection.caseTransactions.Sum(x => x.Payable);
             string method = "Invoice";
-            int ItemCount = GenericCollection.transactions.Count();
+            int ItemCount = GenericCollection.caseTransactions.Count();
 
             if (MessageBox.Show("YES or NO?", "Would you like to generate a new invoice based on this information?  ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
@@ -540,14 +540,14 @@ namespace ARM
 
                 Queries qs = new Queries(Guid.NewGuid().ToString(), Helper.UserName,Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                 DBConnect.InsertPostgre(qs);
-                foreach (Transaction t in GenericCollection.transactions)
+                foreach (CaseTransaction t in GenericCollection.caseTransactions)
                 {
                     string it = Guid.NewGuid().ToString();
                     if (!transDic.ContainsKey(it))
                     {
                         transDic.Add(it, t.Date);
 
-                        Transaction c = new Transaction(it, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, noTxt.Text,ID, t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
+                        CaseTransaction c = new CaseTransaction(it, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, noTxt.Text,ID, t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
                         save = DBConnect.InsertPostgre(c);
 
                         Queries qp = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);

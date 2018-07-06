@@ -1,6 +1,6 @@
 ﻿namespace ARM
 {
-    partial class AddTransaction
+    partial class AddCaseTransaction
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddTransaction));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddCaseTransaction));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -58,14 +58,14 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.InvoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.TransactionBingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.CaseTransactionBingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorPbx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InvoiceBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TransactionBingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CaseTransactionBingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -702,12 +702,12 @@
             this.InvoiceBindingSource.DataSource = typeof(ARM.Model.Invoice);
             this.InvoiceBindingSource.CurrentChanged += new System.EventHandler(this.InvoiceBindingSource_CurrentChanged);
             // 
-            // TransactionBingSource
+            // CaseTransactionBingSource
             // 
-            this.TransactionBingSource.DataSource = typeof(ARM.Model.Transaction);
-            this.TransactionBingSource.CurrentChanged += new System.EventHandler(this.TransactionBingSource_CurrentChanged);
+            this.CaseTransactionBingSource.DataSource = typeof(ARM.Model.CaseTransaction);
+            this.CaseTransactionBingSource.CurrentChanged += new System.EventHandler(this.CaseTransactionBingSource_CurrentChanged);
             // 
-            // AddTransaction
+            // AddCaseTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -720,10 +720,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "AddTransaction";
+            this.Name = "AddCaseTransaction";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "AddTransaction";
-            this.Load += new System.EventHandler(this.AddTransaction_Load);
+            this.Text = "AddCaseTransaction";
+            this.Load += new System.EventHandler(this.AddCaseTransaction_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -731,7 +731,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorPbx)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InvoiceBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TransactionBingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CaseTransactionBingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -762,7 +762,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dtGrid;
-        private System.Windows.Forms.BindingSource TransactionBingSource;
+        private System.Windows.Forms.BindingSource CaseTransactionBingSource;
         private MetroFramework.Controls.MetroTextBox percTxt;
     }
 }

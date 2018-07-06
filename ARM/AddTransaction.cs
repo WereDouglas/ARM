@@ -16,11 +16,11 @@ using System.Windows.Forms;
 
 namespace ARM
 {
-    public partial class AddTransaction : Form
+    public partial class AddCaseTransaction : Form
     {
         Dictionary<string, string> VendorDictionary = new Dictionary<string, string>();
         Dictionary<string, string> CustomerDictionary = new Dictionary<string, string>();
-        public AddTransaction(string No)
+        public AddCaseTransaction(string No)
         {
             InitializeComponent();
             try
@@ -31,7 +31,7 @@ namespace ARM
             {
                 noTxt.Text = " 1 ";
             }
-         GenericCollection.transactions = new List<Transaction>();
+         GenericCollection.caseTransactions = new List<CaseTransaction>();
 
         }
        
@@ -75,7 +75,7 @@ namespace ARM
         Product k = new Product();
         DataTable t = new DataTable();
         double Total = 0;
-        public void LoadTransactions()
+        public void LoadCaseTransactions()
         {
             // create and execute query  
             t = new DataTable();
@@ -89,7 +89,7 @@ namespace ARM
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));
             Image delete = new Bitmap(Properties.Resources.Cancel_16);
 
-            foreach (Transaction j in GenericCollection.transactions)
+            foreach (CaseTransaction j in GenericCollection.caseTransactions)
             {
                 try
                 {
@@ -103,7 +103,7 @@ namespace ARM
                     Helper.Exceptions(m.Message , "Viewing users {each transaction list }" + j.ItemID);
                 }
             }
-            Total = GenericCollection.transactions.Sum(r => r.Total);
+            Total = GenericCollection.caseTransactions.Sum(r => r.Total);
             totalTxt.Text = Total.ToString("N0");
 
             dtGrid.DataSource = t;
@@ -114,7 +114,7 @@ namespace ARM
 
             dtGrid.Columns["id"].Visible = false;
             dtGrid.Columns["ItemID"].Visible = false;
-            ItemCountTxt.Text = GenericCollection.transactions.Count().ToString();
+            ItemCountTxt.Text = GenericCollection.caseTransactions.Count().ToString();
 
 
         }
@@ -153,10 +153,10 @@ namespace ARM
 
                     if (MessageBox.Show("YES or No?", "Are you sure you want to remove this product ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
-                        // GenericCollection.transactions.Remove(u=>u.dtGrid.Columns["itemID"].Index);
-                        var itemToRemove = GenericCollection.transactions.Single(r => r.ItemID == dtGrid.Rows[e.RowIndex].Cells["ItemID"].Value.ToString());
-                        GenericCollection.transactions.Remove(itemToRemove);
-                        LoadTransactions();
+                        // GenericCollection.caseTransactions.Remove(u=>u.dtGrid.Columns["itemID"].Index);
+                        var itemToRemove = GenericCollection.caseTransactions.Single(r => r.ItemID == dtGrid.Rows[e.RowIndex].Cells["ItemID"].Value.ToString());
+                        GenericCollection.caseTransactions.Remove(itemToRemove);
+                        LoadCaseTransactions();
 
                     }
                 }
@@ -166,7 +166,7 @@ namespace ARM
         }
 
 
-        private void AddTransaction_Load(object sender, EventArgs e)
+        private void AddCaseTransaction_Load(object sender, EventArgs e)
         {
             
         }
@@ -178,7 +178,7 @@ namespace ARM
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    LoadTransactions();
+                    LoadCaseTransactions();
                 }
             }
         }
@@ -296,7 +296,7 @@ namespace ARM
                 MessageBox.Show("How much is being paid ? ");
                 return;
             }
-            if (GenericCollection.transactions.Count < 1)
+            if (GenericCollection.caseTransactions.Count < 1)
             {
 
                 MessageBox.Show("No Products Defined !");
@@ -325,9 +325,9 @@ namespace ARM
             {
                 Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                 DBConnect.InsertPostgre(q);
-                foreach (Transaction t in GenericCollection.transactions)
+                foreach (CaseTransaction t in GenericCollection.caseTransactions)
                 {
-                    Transaction c = new Transaction(t.Id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID,"","",t.Qty,t.Cost,t.Units,t.Total,t.Tax,t.Coverage,t.Self,t.Payable,t.Limits,t.Setting,t.Period,t.Height,t.Weight,t.Instruction,t.Created,false,Helper.CompanyID);
+                    CaseTransaction c = new CaseTransaction(t.Id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID,"","",t.Qty,t.Cost,t.Units,t.Total,t.Tax,t.Coverage,t.Self,t.Payable,t.Limits,t.Setting,t.Period,t.Height,t.Weight,t.Instruction,t.Created,false,Helper.CompanyID);
                     string saves = DBConnect.InsertPostgre(c);
                     if (saves != "")
                     {
@@ -368,7 +368,7 @@ namespace ARM
 
         }
 
-        private void TransactionBingSource_CurrentChanged(object sender, EventArgs e)
+        private void CaseTransactionBingSource_CurrentChanged(object sender, EventArgs e)
         {
 
         }

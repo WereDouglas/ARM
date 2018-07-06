@@ -38,7 +38,7 @@ namespace ARM
         {
             t = new DataTable();
             t.Columns.Add(new DataColumn("Select", typeof(bool)));
-            t.Columns.Add("Id");           
+            t.Columns.Add("id");           
             t.Columns.Add("Name");
 			t.Columns.Add("Action");
 			t.Columns.Add("Sync");
@@ -60,7 +60,7 @@ namespace ARM
                 }
             }
             dtGrid.DataSource = t; 
-            dtGrid.AllowUserToAddRows = false;            
+            //dtGrid.AllowUserToAddRows = false;            
          //   dtGrid.Columns["Delete"].DefaultCellStyle.BackColor = Color.Red;           
             dtGrid.Columns["Id"].Visible = false;   
 
@@ -101,21 +101,54 @@ namespace ARM
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            string start = Convert.ToDateTime(dateFrom.Text).ToString("dd-MM-yyyy");
-            string end = Convert.ToDateTime(dateTo.Text).ToString("dd-MM-yyyy");
-
-            string Query = "DELETE from logs WHERE (created::date >= '" + start + "'::date AND  created::date <= '" + end + "'::date)  ";
-            DBConnect.QueryPostgre(Query);
-            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-            DBConnect.InsertPostgre(q);
-
-            Helper.Log( Helper.UserName, "Exception DELETION FOR THE PERIOD OF " + start +"to "+ end);
+			try
+			{
+				if (Convert.ToInt32(Helper.Level) < 5)
+				{
+					MessageBox.Show("Access Denied !");
+					return;
+				}
+			}
+			catch (Exception c)
+			{
+				//MessageBox.Show(c.Message.ToString());
+				Helper.Exceptions(c.Message, "Access level error ");
+				//MessageBox.Show("You have an invalid entry !");
+				return;
+			}
+			if (MessageBox.Show("YES or No?", "Are you sure you want to delete this information ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+			{
+				foreach (var item in selectedIDs)
+				{
+					string Query = "DELETE from logs WHERE id ='" + item + "'";
+					DBConnect.QueryPostgre(Query);
+					Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+					DBConnect.InsertPostgre(q);
+					//MessageBox.Show("Information deleted" + item);
+					Helper.Log(Helper.UserName, "Deleted logs  " + item + "  " + DateTime.Now);
+				}
+			}	
+			Helper.Log( Helper.UserName, "LOGS DELETION FOR THE PERIOD OF ");
         }
-
-        private void dtGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+		List<string> selectedIDs = new List<string>();
+		private void dtGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+			if (e.ColumnIndex == dtGrid.Columns["Select"].Index && e.RowIndex >= 0)
+			{
+				dtGrid.CurrentCell.Value = dtGrid.CurrentCell.FormattedValue.ToString() == "True" ? false : true;
+				dtGrid.RefreshEdit();
+				if (selectedIDs.Contains(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString()))
+				{
+					selectedIDs.Remove(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
 
-        }
+				}
+				else
+				{
+					selectedIDs.Add(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+
+				}
+			}
+		}
         string toDate;
         string fromDate;
 
@@ -128,5 +161,28 @@ namespace ARM
             LoadingWindow.CloseForm();
 
         }
-    }
+
+		private void toolStripButton6_Click(object sender, EventArgs e)
+		{
+			foreach (DataGridViewRow row in dtGrid.Rows)
+			{
+				row.Cells["select"].Value = true;
+				if (!selectedIDs.Contains(row.Cells["id"].Value.ToString()))
+				{
+					selectedIDs.Add(row.Cells["id"].Value.ToString());
+				}
+			}
+		}
+
+		private void toolStripButton4_Click(object sender, EventArgs e)
+		{
+
+			List<DataGridViewRow> rows_with_checked_column = new List<DataGridViewRow>();
+			foreach (DataGridViewRow row in dtGrid.Rows)
+			{
+				row.Cells["select"].Value = false;
+				selectedIDs.Remove(row.Cells["id"].Value.ToString());
+			}
+		}
+	}
 }

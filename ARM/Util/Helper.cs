@@ -18,6 +18,7 @@ using System.Windows.Forms;
 using System.Net.Sockets;
 using System.Net.Mail;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace ARM.Util
 {
@@ -39,7 +40,10 @@ namespace ARM.Util
         public static string UserName;
         public static string UserImage;
         public static string serverName;
-        public static string defaultConfig;
+		public static string Level;
+		public static string CurrentCustomer;
+		public static string Department;
+		public static string defaultConfig;
         public static string remoteConfig;
         public static string serverIP;
         // public static string port="5432";
@@ -152,7 +156,43 @@ namespace ARM.Util
             }
 
         }
-		public static bool IsValidEmail(string email)
+		static bool invalid = false;
+		public static bool IsValidEmail(string strIn)
+		{
+			invalid = false;
+			if (String.IsNullOrEmpty(strIn))
+				return false;
+
+			// Use IdnMapping class to convert Unicode domain names.
+			strIn = Regex.Replace(strIn, @"(@)(.+)$", DomainMapper);
+			if (invalid)
+				return false;
+
+			// Return true if strIn is in valid e-mail format.
+			return Regex.IsMatch(strIn,
+				   @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+				   @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$",
+				   RegexOptions.IgnoreCase);
+		}
+
+		private static string DomainMapper(Match match)
+		{
+			// IdnMapping class with default property values.
+			IdnMapping idn = new IdnMapping();
+
+			string domainName = match.Groups[2].Value;
+			try
+			{
+				domainName = idn.GetAscii(domainName);
+			}
+			catch (ArgumentException)
+			{
+				invalid = true;
+			}
+			return match.Groups[1].Value + domainName;
+		}
+
+		public static bool IsValidEmails(string email)
 		{
 			try
 			{
@@ -166,8 +206,7 @@ namespace ARM.Util
 		}
 		public static bool validateInt(string t)
         {
-
-            int p;
+			int p;
             if (!int.TryParse(t, out p))
             {
                 return false;
@@ -179,6 +218,11 @@ namespace ARM.Util
         {
             return source?.IndexOf(toCheck, comp) >= 0;
         }
+		public static string PhoneFormat(string phone) {
+
+			string val = Regex.Replace(phone, @"(\d{3})(\d{3})(\d{4})", "$1-$2-$3");
+			return val;
+		}
 
         public static void Log(string userName, string actions)
         {

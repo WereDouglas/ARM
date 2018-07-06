@@ -33,6 +33,7 @@
 			this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
 			this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
 			this.lblStatus = new System.Windows.Forms.Label();
+			this.button2 = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
 			this.button4 = new System.Windows.Forms.Button();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -40,8 +41,7 @@
 			this.passwordTxt = new MetroFramework.Controls.MetroTextBox();
 			this.contactTxt = new MetroFramework.Controls.MetroTextBox();
 			this.loginBtn = new System.Windows.Forms.Button();
-			this.payrollChk = new System.Windows.Forms.RadioButton();
-			this.medicalChk = new System.Windows.Forms.RadioButton();
+			this.button3 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
 			this.metroPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -55,8 +55,7 @@
 			// metroPanel1
 			// 
 			this.metroPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.metroPanel1.Controls.Add(this.medicalChk);
-			this.metroPanel1.Controls.Add(this.payrollChk);
+			this.metroPanel1.Controls.Add(this.button3);
 			this.metroPanel1.Controls.Add(this.pictureBox1);
 			this.metroPanel1.Controls.Add(this.passwordTxt);
 			this.metroPanel1.Controls.Add(this.contactTxt);
@@ -85,15 +84,29 @@
 			this.lblStatus.Text = "  :  ";
 			this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
+			// button2
+			// 
+			this.button2.FlatAppearance.BorderSize = 0;
+			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button2.Image = global::ARM.Properties.Resources.Customer_24;
+			this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button2.Location = new System.Drawing.Point(234, 517);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(136, 35);
+			this.button2.TabIndex = 50;
+			this.button2.Text = "Register";
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.button2_Click);
+			// 
 			// button1
 			// 
 			this.button1.FlatAppearance.BorderSize = 0;
 			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button1.Image = global::ARM.Properties.Resources.Command_Refresh_16;
 			this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button1.Location = new System.Drawing.Point(485, 517);
+			this.button1.Location = new System.Drawing.Point(449, 517);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(106, 35);
+			this.button1.Size = new System.Drawing.Size(142, 35);
 			this.button1.TabIndex = 0;
 			this.button1.Text = "Advanced settings";
 			this.button1.UseVisualStyleBackColor = true;
@@ -227,7 +240,7 @@
 			this.loginBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
 			this.loginBtn.Image = global::ARM.Properties.Resources.Submit_01_32;
 			this.loginBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.loginBtn.Location = new System.Drawing.Point(30, 306);
+			this.loginBtn.Location = new System.Drawing.Point(30, 260);
 			this.loginBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.loginBtn.Name = "loginBtn";
 			this.loginBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -238,33 +251,29 @@
 			this.loginBtn.UseVisualStyleBackColor = false;
 			this.loginBtn.Click += new System.EventHandler(this.button3_Click);
 			// 
-			// payrollChk
+			// button3
 			// 
-			this.payrollChk.Image = global::ARM.Properties.Resources.Customer_24;
-			this.payrollChk.Location = new System.Drawing.Point(167, 259);
-			this.payrollChk.Name = "payrollChk";
-			this.payrollChk.Size = new System.Drawing.Size(150, 36);
-			this.payrollChk.TabIndex = 3;
-			this.payrollChk.TabStop = true;
-			this.payrollChk.Text = "Payroll";
-			this.payrollChk.UseVisualStyleBackColor = true;
-			// 
-			// medicalChk
-			// 
-			this.medicalChk.Image = global::ARM.Properties.Resources.Wheelchair_24;
-			this.medicalChk.Location = new System.Drawing.Point(30, 259);
-			this.medicalChk.Name = "medicalChk";
-			this.medicalChk.Size = new System.Drawing.Size(121, 40);
-			this.medicalChk.TabIndex = 2;
-			this.medicalChk.TabStop = true;
-			this.medicalChk.Text = "DME ";
-			this.medicalChk.UseVisualStyleBackColor = true;
+			this.button3.BackColor = System.Drawing.Color.White;
+			this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button3.Font = new System.Drawing.Font("Trebuchet MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button3.ForeColor = System.Drawing.Color.DarkGoldenrod;
+			this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button3.Location = new System.Drawing.Point(30, 338);
+			this.button3.Name = "button3";
+			this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.button3.Size = new System.Drawing.Size(287, 49);
+			this.button3.TabIndex = 51;
+			this.button3.Text = "Cancel";
+			this.button3.UseVisualStyleBackColor = false;
+			this.button3.Click += new System.EventHandler(this.button3_Click_2);
 			// 
 			// LoginForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(602, 579);
+			this.ClientSize = new System.Drawing.Size(602, 617);
+			this.Controls.Add(this.button2);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.lblStatus);
 			this.Controls.Add(this.button4);
@@ -298,7 +307,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.RadioButton payrollChk;
-		private System.Windows.Forms.RadioButton medicalChk;
+		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button button3;
 	}
 }

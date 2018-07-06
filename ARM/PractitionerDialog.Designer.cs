@@ -74,7 +74,7 @@
 			this.categoryCbx.Name = "categoryCbx";
 			this.categoryCbx.PromptText = "Category/type";
 			this.categoryCbx.Size = new System.Drawing.Size(180, 29);
-			this.categoryCbx.TabIndex = 3;
+			this.categoryCbx.TabIndex = 10;
 			this.categoryCbx.Theme = MetroFramework.MetroThemeStyle.Light;
 			this.categoryCbx.UseSelectable = true;
 			// 
@@ -118,7 +118,7 @@
 			this.zipTxt.SelectionStart = 0;
 			this.zipTxt.ShortcutsEnabled = true;
 			this.zipTxt.Size = new System.Drawing.Size(221, 35);
-			this.zipTxt.TabIndex = 9;
+			this.zipTxt.TabIndex = 6;
 			this.zipTxt.UseSelectable = true;
 			this.zipTxt.WaterMark = "Zip code";
 			this.zipTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -153,7 +153,7 @@
 			this.cityTxt.SelectionStart = 0;
 			this.cityTxt.ShortcutsEnabled = true;
 			this.cityTxt.Size = new System.Drawing.Size(223, 35);
-			this.cityTxt.TabIndex = 7;
+			this.cityTxt.TabIndex = 5;
 			this.cityTxt.UseSelectable = true;
 			this.cityTxt.WaterMark = "City";
 			this.cityTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -188,7 +188,7 @@
 			this.addressTxt.SelectionStart = 0;
 			this.addressTxt.ShortcutsEnabled = true;
 			this.addressTxt.Size = new System.Drawing.Size(223, 45);
-			this.addressTxt.TabIndex = 4;
+			this.addressTxt.TabIndex = 3;
 			this.addressTxt.UseSelectable = true;
 			this.addressTxt.WaterMark = "Address";
 			this.addressTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -222,7 +222,7 @@
 			this.contactTxt.SelectionStart = 0;
 			this.contactTxt.ShortcutsEnabled = true;
 			this.contactTxt.Size = new System.Drawing.Size(180, 35);
-			this.contactTxt.TabIndex = 1;
+			this.contactTxt.TabIndex = 9;
 			this.contactTxt.UseSelectable = true;
 			this.contactTxt.WaterMark = "Contact/Phone";
 			this.contactTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -257,7 +257,7 @@
 			this.nameTxt.SelectionStart = 0;
 			this.nameTxt.ShortcutsEnabled = true;
 			this.nameTxt.Size = new System.Drawing.Size(226, 35);
-			this.nameTxt.TabIndex = 0;
+			this.nameTxt.TabIndex = 1;
 			this.nameTxt.UseSelectable = true;
 			this.nameTxt.WaterMark = "Full name";
 			this.nameTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -311,7 +311,7 @@
 			this.button2.Name = "button2";
 			this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.button2.Size = new System.Drawing.Size(107, 49);
-			this.button2.TabIndex = 13;
+			this.button2.TabIndex = 19;
 			this.button2.Text = "Cancel";
 			this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.button2.UseVisualStyleBackColor = false;
@@ -330,7 +330,7 @@
 			this.button3.Name = "button3";
 			this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.button3.Size = new System.Drawing.Size(103, 49);
-			this.button3.TabIndex = 12;
+			this.button3.TabIndex = 17;
 			this.button3.Text = "Submit";
 			this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.button3.UseVisualStyleBackColor = false;
@@ -376,7 +376,7 @@
 			this.npiTxt.SelectionStart = 0;
 			this.npiTxt.ShortcutsEnabled = true;
 			this.npiTxt.Size = new System.Drawing.Size(180, 35);
-			this.npiTxt.TabIndex = 111;
+			this.npiTxt.TabIndex = 11;
 			this.npiTxt.UseSelectable = true;
 			this.npiTxt.WaterMark = "NPI";
 			this.npiTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -410,7 +410,7 @@
 			this.officeTxt.SelectionStart = 0;
 			this.officeTxt.ShortcutsEnabled = true;
 			this.officeTxt.Size = new System.Drawing.Size(221, 35);
-			this.officeTxt.TabIndex = 112;
+			this.officeTxt.TabIndex = 4;
 			this.officeTxt.UseSelectable = true;
 			this.officeTxt.WaterMark = "Office";
 			this.officeTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -443,7 +443,7 @@
 			this.specialityTxt.SelectionStart = 0;
 			this.specialityTxt.ShortcutsEnabled = true;
 			this.specialityTxt.Size = new System.Drawing.Size(180, 35);
-			this.specialityTxt.TabIndex = 113;
+			this.specialityTxt.TabIndex = 16;
 			this.specialityTxt.UseSelectable = true;
 			this.specialityTxt.WaterMark = "Speciality";
 			this.specialityTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -476,7 +476,7 @@
 			this.idTxt.SelectionStart = 0;
 			this.idTxt.ShortcutsEnabled = true;
 			this.idTxt.Size = new System.Drawing.Size(180, 35);
-			this.idTxt.TabIndex = 114;
+			this.idTxt.TabIndex = 12;
 			this.idTxt.UseSelectable = true;
 			this.idTxt.WaterMark = "ID #";
 			this.idTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -509,7 +509,7 @@
 			this.tinTxt.SelectionStart = 0;
 			this.tinTxt.ShortcutsEnabled = true;
 			this.tinTxt.Size = new System.Drawing.Size(180, 35);
-			this.tinTxt.TabIndex = 115;
+			this.tinTxt.TabIndex = 13;
 			this.tinTxt.UseSelectable = true;
 			this.tinTxt.WaterMark = "TIN";
 			this.tinTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -542,7 +542,7 @@
 			this.faxTxt.SelectionStart = 0;
 			this.faxTxt.ShortcutsEnabled = true;
 			this.faxTxt.Size = new System.Drawing.Size(180, 35);
-			this.faxTxt.TabIndex = 116;
+			this.faxTxt.TabIndex = 15;
 			this.faxTxt.UseSelectable = true;
 			this.faxTxt.WaterMark = "Office Fax";
 			this.faxTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -575,7 +575,7 @@
 			this.officePhoneTxt.SelectionStart = 0;
 			this.officePhoneTxt.ShortcutsEnabled = true;
 			this.officePhoneTxt.Size = new System.Drawing.Size(180, 35);
-			this.officePhoneTxt.TabIndex = 117;
+			this.officePhoneTxt.TabIndex = 14;
 			this.officePhoneTxt.UseSelectable = true;
 			this.officePhoneTxt.WaterMark = "Office Phone";
 			this.officePhoneTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -588,7 +588,7 @@
 			this.label1.Location = new System.Drawing.Point(71, 193);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(120, 13);
-			this.label1.TabIndex = 118;
+			this.label1.TabIndex = 0;
 			this.label1.Text = "Double Click to Browse ";
 			this.label1.Click += new System.EventHandler(this.label1_Click);
 			// 
@@ -605,7 +605,7 @@
 			this.updateBtn.Name = "updateBtn";
 			this.updateBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.updateBtn.Size = new System.Drawing.Size(107, 49);
-			this.updateBtn.TabIndex = 247;
+			this.updateBtn.TabIndex = 18;
 			this.updateBtn.Text = "Update";
 			this.updateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.updateBtn.UseVisualStyleBackColor = false;
@@ -631,7 +631,7 @@
 			this.genderCbx.Location = new System.Drawing.Point(58, 542);
 			this.genderCbx.Name = "genderCbx";
 			this.genderCbx.Size = new System.Drawing.Size(226, 31);
-			this.genderCbx.TabIndex = 267;
+			this.genderCbx.TabIndex = 8;
 			// 
 			// stateTxt
 			// 
@@ -645,7 +645,7 @@
 			this.stateTxt.Location = new System.Drawing.Point(58, 486);
 			this.stateTxt.Name = "stateTxt";
 			this.stateTxt.Size = new System.Drawing.Size(223, 31);
-			this.stateTxt.TabIndex = 269;
+			this.stateTxt.TabIndex = 7;
 			// 
 			// metroLabel4
 			// 

@@ -84,7 +84,7 @@ namespace ARM
             ItemCoverage t = new ItemCoverage(id, TransID, ItemID, CoverID, Convert.ToDouble(percTxt.Text), Convert.ToDouble(amountTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
             GenericCollection.itemCoverage.Add(t);
 
-            ItemCoverage c = new ItemCoverage(t.Id, t.TransactionID, t.ItemID, t.CoverageID, t.Percentage, t.Amount, t.Created, false, Helper.CompanyID);
+            ItemCoverage c = new ItemCoverage(t.Id, t.CaseTransactionID, t.ItemID, t.CoverageID, t.Percentage, t.Amount, t.Created, false, Helper.CompanyID);
             string save = DBConnect.InsertPostgre(c);
             if (save  != "")
             {

@@ -143,10 +143,10 @@ namespace ARM
                     Downloading.Invoices();
                     break;
                 case 16:
-                    Uploading.Transactions();
+                    Uploading.CaseTransactions();
                     break;
                 case 17:
-                    Downloading.Transactions();
+                    Downloading.CaseTransactions();
                     break;
                 case 18:
                     Uploading.Payments();
@@ -286,12 +286,7 @@ namespace ARM
 
         private void toolStripButton3_Click_1(object sender, EventArgs e)
         {
-            ScheduleForm frm = new ScheduleForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+           
         }
 
         private void toolStripButton2_Click_1(object sender, EventArgs e)
@@ -590,5 +585,39 @@ namespace ARM
             frm.Dock = DockStyle.Fill;
             frm.Show();
         }
-    }
+
+		private void myProfileToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			using (AddUser form = new AddUser(Helper.UserID))
+			{
+				DialogResult dr = form.ShowDialog();
+				if (dr == DialogResult.OK)
+				{
+
+				}
+			}
+		}
+
+		private void toolStripMenuItem15_Click(object sender, EventArgs e)
+		{
+			using (ProfileForm form = new ProfileForm(Helper.CompanyID))
+			{
+				DialogResult dr = form.ShowDialog();
+				if (dr == DialogResult.OK)
+				{
+					// LoadingCalendarLite();
+				}
+			}
+		}
+
+		private void viewShitsSchedulesToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			ScheduleForm frm = new ScheduleForm();
+			frm.TopLevel = false;
+			panel1.Controls.Add(frm);
+			frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			frm.Dock = DockStyle.Fill;
+			frm.Show();
+		}
+	}
 }

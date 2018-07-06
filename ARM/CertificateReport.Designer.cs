@@ -39,18 +39,18 @@
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
 			this.CertificateBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.TransactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.CaseTransactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.ICD10BindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.InvoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.TransactionBingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.CaseTransactionBingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.toolStrip1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.CertificateBindingSource)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.TransactionBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.CaseTransactionBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.ICD10BindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.InvoiceBindingSource)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.TransactionBingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.CaseTransactionBingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// toolStrip1
@@ -121,7 +121,7 @@
 			reportDataSource1.Name = "DataSet1";
 			reportDataSource1.Value = this.CertificateBindingSource;
 			reportDataSource2.Name = "DataSet2";
-			reportDataSource2.Value = this.TransactionBindingSource;
+			reportDataSource2.Value = this.CaseTransactionBindingSource;
 			reportDataSource3.Name = "DataSet3";
 			reportDataSource3.Value = this.ICD10BindingSource;
 			this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
@@ -139,9 +139,9 @@
 			// 
 			this.CertificateBindingSource.DataSource = typeof(ARM.Model.Certificate);
 			// 
-			// TransactionBindingSource
+			// CaseTransactionBindingSource
 			// 
-			this.TransactionBindingSource.DataSource = typeof(ARM.Model.Transaction);
+			this.CaseTransactionBindingSource.DataSource = typeof(ARM.Model.CaseTransaction);
 			// 
 			// ICD10BindingSource
 			// 
@@ -152,10 +152,10 @@
 			this.InvoiceBindingSource.DataSource = typeof(ARM.Model.Invoice);
 			this.InvoiceBindingSource.CurrentChanged += new System.EventHandler(this.InvoiceBindingSource_CurrentChanged);
 			// 
-			// TransactionBingSource
+			// CaseTransactionBingSource
 			// 
-			this.TransactionBingSource.DataSource = typeof(ARM.Model.Transaction);
-			this.TransactionBingSource.CurrentChanged += new System.EventHandler(this.TransactionBingSource_CurrentChanged);
+			this.CaseTransactionBingSource.DataSource = typeof(ARM.Model.CaseTransaction);
+			this.CaseTransactionBingSource.CurrentChanged += new System.EventHandler(this.CaseTransactionBingSource_CurrentChanged);
 			// 
 			// CertificateReport
 			// 
@@ -179,10 +179,10 @@
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.CertificateBindingSource)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.TransactionBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.CaseTransactionBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.ICD10BindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.InvoiceBindingSource)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.TransactionBingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.CaseTransactionBingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -194,9 +194,9 @@
 		private System.Windows.Forms.Panel panel1;
 		private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
 		private System.Windows.Forms.BindingSource InvoiceBindingSource;
-		private System.Windows.Forms.BindingSource TransactionBingSource;
+		private System.Windows.Forms.BindingSource CaseTransactionBingSource;
 		private System.Windows.Forms.BindingSource CertificateBindingSource;
-		private System.Windows.Forms.BindingSource TransactionBindingSource;
+		private System.Windows.Forms.BindingSource CaseTransactionBindingSource;
 		private System.Windows.Forms.BindingSource ICD10BindingSource;
 	}
 }

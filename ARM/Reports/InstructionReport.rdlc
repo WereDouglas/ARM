@@ -472,8 +472,8 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ARM.Model</rd:DataSetName>
-        <rd:TableName>CaseTransaction</rd:TableName>
-        <rd:ObjectDataSourceType>ARM.Model.CaseTransaction, ARM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:TableName>CaseCaseTransaction</rd:TableName>
+        <rd:ObjectDataSourceType>ARM.Model.CaseCaseTransaction, ARM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -1371,7 +1371,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Safety.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Safety.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -1633,7 +1633,14 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Appropriate.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Appropriate.Value, "DataSet1") = "Yes",ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
+                                  <Style>
+                                    <FontFamily>Arial Unicode MS</FontFamily>
+                                    <FontSize>14pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>Yes</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -1666,7 +1673,14 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Appropriate.Value, "DataSet1") = "No", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Appropriate.Value, "DataSet1") = "No", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
+                                  <Style>
+                                    <FontFamily>Arial Unicode MS</FontFamily>
+                                    <FontSize>14pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>No</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -1704,7 +1718,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Pathways.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Pathways.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -1767,7 +1781,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Fire.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Fire.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -1823,14 +1837,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox141">
+                        <Textbox Name="Textbox1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Appropriate.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value />
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -1840,7 +1854,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox108</rd:DefaultName>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1898,7 +1912,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Operation.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Operation.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -1961,7 +1975,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Cord.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Cord.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -2024,7 +2038,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Understand.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Understand.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -2092,7 +2106,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Environment.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Environment.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -2155,7 +2169,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Safety.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Issues.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -2218,7 +2232,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Demonstration.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Demonstration.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -2286,7 +2300,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Bath.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Bath.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -2349,7 +2363,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Electrical.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Electrical.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -2412,7 +2426,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Caregiver.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Caregiver.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -2480,7 +2494,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Rugs.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Rugs.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -2543,7 +2557,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Inout.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Inout.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -3051,7 +3065,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Ambulatory.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Ambulatory.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -3114,7 +3128,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Manual.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Manual.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -3182,7 +3196,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Bath.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Bath.Value, "DataSet1") = "Yes",ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -3245,7 +3259,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Power.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Power.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -3313,7 +3327,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Beds.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Beds.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -3376,7 +3390,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Handling.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Handling.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -3444,7 +3458,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Seat.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Seat.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -3507,7 +3521,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Scooter.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Scooter.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -3655,7 +3669,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Rights.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Rights.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -3718,7 +3732,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Complaint.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Complaint.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -3786,7 +3800,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Available.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Available.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -3849,7 +3863,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Warranty.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Warranty.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -3917,7 +3931,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Privacy.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Privacy.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -3980,7 +3994,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Aob.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Aob.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -4048,7 +4062,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Standards.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Standards.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -4111,7 +4125,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Instructions.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Instructions.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -4179,7 +4193,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Cleaning.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Cleaning.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -4242,7 +4256,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Demonstration.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Demonstration.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -4310,7 +4324,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Letter.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Letter.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -4559,7 +4573,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Visit.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Visit.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -4622,7 +4636,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!Phone.Value, "DataSet1") = "Yes", ChrW(9745), ChrW(9744))</Value>
+                                  <Value>=IIF(First(Fields!Phone.Value, "DataSet1") = "Yes", ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
                                   <Style>
                                     <FontFamily>Arial Unicode MS</FontFamily>
                                     <FontSize>14pt</FontSize>

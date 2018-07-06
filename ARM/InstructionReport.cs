@@ -93,7 +93,7 @@ namespace ARM
 
 		}
 
-		private void TransactionBingSource_CurrentChanged(object sender, EventArgs e)
+		private void CaseTransactionBingSource_CurrentChanged(object sender, EventArgs e)
 		{
 
 		}

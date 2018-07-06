@@ -144,7 +144,7 @@ namespace ARM
             trans.Columns.Add("Sync");
             trans.Columns.Add("Created");
             trans.Columns.Add(new DataColumn("Delete", typeof(Image)));
-            foreach (Model.Transaction c in Model.Transaction.List())
+            foreach (Model.CaseTransaction c in Model.CaseTransaction.List())
             {
                 string prod = "";
                 try { prod = Product.Select(c.ItemID).Name; } catch { }
@@ -155,8 +155,8 @@ namespace ARM
                 }
                 catch (Exception m)
                 {
-                    MessageBox.Show("" + m.Message + "Viewing Transaction {each Transaction list }" + c.No);
-                    Helper.Exceptions(m.Message , "Viewing Invoice form loading list {each Transaction list }" + c.No);
+                    MessageBox.Show("" + m.Message + "Viewing CaseTransaction {each CaseTransaction list }" + c.No);
+                    Helper.Exceptions(m.Message , "Viewing Invoice form loading list {each CaseTransaction list }" + c.No);
                 }
             }
             //DataSet dsDataset = new DataSet();
@@ -209,9 +209,11 @@ namespace ARM
                     DBConnect.QueryPostgre(Query);
                     Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                     DBConnect.InsertPostgre(q);
-                    //  MessageBox.Show("Information deleted");
-                }
+					//  MessageBox.Show("Information deleted");
+					Helper.Log(Helper.UserName, "Deleted invoice information " + item + "  " + DateTime.Now);
+				}
             }
+			LoadData();
         }
         List<string> selectedIDs = new List<string>();
         private void dtGrid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -289,15 +291,34 @@ namespace ARM
             }
         }
 
-        private void toolStripButton4_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void toolStripButton4_Click_1(object sender, EventArgs e)
         {
             string Query = "UPDATE invoice SET sync ='false'";
             DBConnect.QueryPostgre(Query);
         }
-    }
+
+		private void toolStripButton6_Click(object sender, EventArgs e)
+		{
+			foreach (DataGridViewRow row in dtGrid.Rows)
+			{
+				row.Cells["select"].Value = true;
+				if (!selectedIDs.Contains(row.Cells["id"].Value.ToString()))
+				{
+					selectedIDs.Add(row.Cells["id"].Value.ToString());
+				}
+			}
+
+		}
+
+		private void toolStripButton4_Click(object sender, EventArgs e)
+		{
+
+			List<DataGridViewRow> rows_with_checked_column = new List<DataGridViewRow>();
+			foreach (DataGridViewRow row in dtGrid.Rows)
+			{
+				row.Cells["select"].Value = false;
+				selectedIDs.Remove(row.Cells["id"].Value.ToString());
+			}
+		}
+	}
 }

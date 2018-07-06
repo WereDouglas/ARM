@@ -63,7 +63,7 @@ namespace ARM
                 return;
             }
             string ID = Guid.NewGuid().ToString();
-            Coverage _e = new Coverage(ID,CustomerID,nameTxt.Text,typeCbx.Text,catCbx.Text,noTxt.Text, DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),false,Helper.CompanyID);
+            Coverage _e = new Coverage(ID,CustomerID,nameTxt.Text,typeCbx.Text,catCbx.Text,noTxt.Text, DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),false,Helper.CompanyID,Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"));
             string save = DBConnect.InsertPostgre(_e);
             if (save != "")
             {
@@ -79,7 +79,6 @@ namespace ARM
         string Query;
         private void Update(string itemID)
         {
-
             //MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             //string fullimage = Helper.ImageToBase64(stream);
             //Item c = new Item(itemID, nameTxt.Text, categoryCbx.Text, typeCbx.Text, descriptionxt.Text, costTxt.Text, batchTxt.Text, serialTxt.Text, barTxt.Text, unitTxt.Text, unitDescTxt.Text, manuTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, fullimage);
@@ -89,23 +88,7 @@ namespace ARM
             //this.Dispose();
         }
         Customer c;
-        private void customerCbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-               // CustomerID = CustomerDictionary[customerCbx.Text];
-                c = new Customer();//.Select(ItemID);
-                c = Customer.Select(CustomerID);               
-                Image img = Helper.Base64ToImage(c.Image);
-                System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
-                cusPbx.Image = bmp;
-                GraphicsPath gp = new GraphicsPath();
-                gp.AddEllipse(cusPbx.DisplayRectangle);
-                cusPbx.Region = new Region(gp);
-                cusPbx.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-            catch { }
-        }
+        
         Users u;
         Rate r;
        

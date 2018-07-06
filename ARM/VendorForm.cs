@@ -139,8 +139,10 @@ namespace ARM
                     DBConnect.QueryPostgre(Query);
                     Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                     DBConnect.InsertPostgre(q);
-                    //  MessageBox.Show("Information deleted");
-                }
+					//  MessageBox.Show("Information deleted");
+					Helper.Log(Helper.UserName, "Deleted vendor ids  " + item + "  " + DateTime.Now);
+					
+				}
             }
         }
         List<string> selectedIDs = new List<string>();
@@ -149,18 +151,18 @@ namespace ARM
             var senderGrid = (DataGridView)sender;
             if (e.ColumnIndex == dtGrid.Columns["Select"].Index && e.RowIndex >= 0)
             {
-                if (selectedIDs.Contains(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
-                {
-                    selectedIDs.Remove(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString());
-                    Console.WriteLine("REMOVED this id " + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString());
+				dtGrid.CurrentCell.Value = dtGrid.CurrentCell.FormattedValue.ToString() == "True" ? false : true;
+				dtGrid.RefreshEdit();
+				if (selectedIDs.Contains(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString()))
+				{
+					selectedIDs.Remove(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+				}
+				else
+				{
+					selectedIDs.Add(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
 
-                }
-                else
-                {
-                    selectedIDs.Add(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString());
-                    Console.WriteLine("ADDED ITEM " + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString());
-                }
-            }
+				}
+			}
             if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
             {
                 using (AddVendor form = new AddVendor(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
@@ -186,7 +188,9 @@ namespace ARM
                         Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
                         DBConnect.InsertPostgre(q);
                         MessageBox.Show("Information deleted");
-                        LoadData();
+						Helper.Log(Helper.UserName, "Deleted vendor" + dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + "  " + DateTime.Now);
+
+						LoadData();
 
                     }
                    
@@ -245,6 +249,28 @@ namespace ARM
 				MessageBox.Show(c.Message.ToString());
 				Helper.Exceptions(c.Message, "Editing Sales grid");
 				MessageBox.Show("You have an invalid entry !");
+			}
+		}
+
+		private void toolStripButton6_Click(object sender, EventArgs e)
+		{
+			foreach (DataGridViewRow row in dtGrid.Rows)
+			{
+				row.Cells["select"].Value = true;
+				if (!selectedIDs.Contains(row.Cells["id"].Value.ToString()))
+				{
+					selectedIDs.Add(row.Cells["id"].Value.ToString());
+				}
+			}
+		}
+
+		private void toolStripButton7_Click(object sender, EventArgs e)
+		{
+			List<DataGridViewRow> rows_with_checked_column = new List<DataGridViewRow>();
+			foreach (DataGridViewRow row in dtGrid.Rows)
+			{
+				row.Cells["select"].Value = false;
+				selectedIDs.Remove(row.Cells["id"].Value.ToString());
 			}
 		}
 	}

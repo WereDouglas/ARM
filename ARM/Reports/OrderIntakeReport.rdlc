@@ -65,16 +65,24 @@
           <DataField>OrderBy</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="OrderDateTime">
-          <DataField>OrderDateTime</DataField>
+        <Field Name="OrderDate">
+          <DataField>OrderDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OrderTime">
+          <DataField>OrderTime</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="DispenseBy">
           <DataField>DispenseBy</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="DispenseDateTime">
-          <DataField>DispenseDateTime</DataField>
+        <Field Name="DispenseDate">
+          <DataField>DispenseDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DispenseTime">
+          <DataField>DispenseDate</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="CustomerType">
@@ -378,8 +386,8 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ARM.Model</rd:DataSetName>
-        <rd:TableName>Transaction</rd:TableName>
-        <rd:ObjectDataSourceType>ARM.Model.Transaction, ARM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:TableName>CaseTransaction</rd:TableName>
+        <rd:ObjectDataSourceType>ARM.Model.CaseTransaction, ARM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
     <DataSet Name="DataSet4">
@@ -541,16 +549,22 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.91506in</Width>
+                  <Width>2.17813in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.49951in</Width>
+                  <Width>0.4251in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.59326in</Width>
+                  <Width>1.11405in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.02729in</Width>
+                  <Width>2.70731in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.99551in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.61502in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -598,6 +612,39 @@
                     <TablixCell />
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="Textbox8">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>ExtraBold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox8</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="Textbox404">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -631,6 +678,39 @@
                       </CellContents>
                     </TablixCell>
                     <TablixCell />
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox11">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>ExtraBold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox11</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
@@ -651,7 +731,13 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Fields!OrderDateTime.Value</Value>
+                                  <Value>=Fields!OrderDate.Value</Value>
+                                  <Style>
+                                    <FontWeight>Thin</FontWeight>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>      Time:</Value>
                                   <Style>
                                     <FontWeight>Thin</FontWeight>
                                   </Style>
@@ -665,6 +751,9 @@
                             <Border>
                               <Style>Solid</Style>
                             </Border>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
                             <BackgroundColor>White</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -676,6 +765,41 @@
                       </CellContents>
                     </TablixCell>
                     <TablixCell />
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="OrderTime1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!OrderTime.Value</Value>
+                                  <Style>
+                                    <FontWeight>Thin</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>OrderTime1</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <BackgroundColor>White</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="DispenseDateTime">
@@ -692,7 +816,14 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Fields!DispenseDateTime.Value</Value>
+                                  <Value>=Fields!DispenseDate.Value</Value>
+                                  <Style>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Thin</FontWeight>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>                 Time</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Thin</FontWeight>
@@ -707,6 +838,9 @@
                             <Border>
                               <Style>Solid</Style>
                             </Border>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
                             <BackgroundColor>White</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -718,6 +852,42 @@
                       </CellContents>
                     </TablixCell>
                     <TablixCell />
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="DispenseTime">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!DispenseTime.Value</Value>
+                                  <Style>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Thin</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>DispenseTime</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <BackgroundColor>White</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
@@ -759,9 +929,10 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <ColSpan>2</ColSpan>
+                        <ColSpan>3</ColSpan>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell />
                     <TablixCell />
                     <TablixCell>
                       <CellContents>
@@ -774,13 +945,13 @@
                                 <TextRun>
                                   <Value>Rep:   </Value>
                                   <Style>
-                                    <FontWeight>Thin</FontWeight>
+                                    <FontWeight>Normal</FontWeight>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
                                   <Value>=Fields!DispenseBy.Value</Value>
                                   <Style>
-                                    <FontWeight>Thin</FontWeight>
+                                    <FontWeight>Normal</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -799,9 +970,10 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <ColSpan>2</ColSpan>
+                        <ColSpan>3</ColSpan>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell />
                     <TablixCell />
                   </TablixCells>
                 </TablixRow>
@@ -809,6 +981,8 @@
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
+                <TablixMember />
+                <TablixMember />
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
@@ -1460,7 +1634,7 @@
             <Top>5.54389in</Top>
             <Left>0.52728in</Left>
             <Height>0.75in</Height>
-            <Width>9.03512in</Width>
+            <Width>9.03511in</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -1542,7 +1716,7 @@
             <Top>4.24529in</Top>
             <Left>0.52728in</Left>
             <Height>0.25in</Height>
-            <Width>9.03512in</Width>
+            <Width>9.03513in</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -1925,7 +2099,7 @@
             <Top>2.07861in</Top>
             <Left>0.52728in</Left>
             <Height>1.25in</Height>
-            <Width>9.03512in</Width>
+            <Width>9.0351in</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -2345,7 +2519,7 @@
             <Top>3.43973in</Top>
             <Left>0.52728in</Left>
             <Height>0.75in</Height>
-            <Width>9.03512in</Width>
+            <Width>9.03511in</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -2465,7 +2639,7 @@
             <Top>6.68278in</Top>
             <Left>0.52728in</Left>
             <Height>0.25in</Height>
-            <Width>9.03512in</Width>
+            <Width>9.0351in</Width>
             <ZIndex>8</ZIndex>
             <Style>
               <Border>
@@ -4372,11 +4546,41 @@
               </Border>
             </Style>
           </Line>
+          <Textbox Name="OrderTime">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!OrderTime.Value, "DataSet1")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>OrderTime</rd:DefaultName>
+            <Top>0.36333in</Top>
+            <Left>7.38417in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>72</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
         <Height>10.76041in</Height>
         <Style />
       </Body>
-      <Width>10.28in</Width>
+      <Width>10.07282in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
