@@ -46,9 +46,10 @@ namespace ARM.Model
 		private string additional;
 		private string face;
 		private string practionercompleted;
+		private string dateFace;
 		public Certificate() { }
 
-		public Certificate(string id, string no, string cusID, string cusName, string cusDob, string cusPhone, string provID, string provName, string provPhone, bool mobility, bool endurance, bool activity, bool skin, bool respiration, bool adl, bool speech, bool nutritional, string source, double weight, double height, bool suitable, string date, string pracName, string pracSign, string signDate, string pracID, string pracPhone, string created, bool sync, string companyID, string po, string saturation, string additional, string face, string practionercompleted)
+		public Certificate(string id, string no, string cusID, string cusName, string cusDob, string cusPhone, string provID, string provName, string provPhone, bool mobility, bool endurance, bool activity, bool skin, bool respiration, bool adl, bool speech, bool nutritional, string source, double weight, double height, bool suitable, string date, string pracName, string pracSign, string signDate, string pracID, string pracPhone, string created, bool sync, string companyID, string po, string saturation, string additional, string face, string practionercompleted,string dateFace)
 		{
 			this.Id = id;
 			this.No = no;
@@ -85,6 +86,7 @@ namespace ARM.Model
 			this.Additional = additional;
 			this.Face = face;
 			this.Practionercompleted = practionercompleted;
+			this.DateFace = dateFace;
 		}
 
 		static List<Certificate> p = new List<Certificate>();
@@ -96,7 +98,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Certificate ps = new Certificate(Reader["id"].ToString(), Reader["no"].ToString(), Reader["cusID"].ToString(), Reader["cusName"].ToString(), Reader["cusDob"].ToString(), Reader["cusPhone"].ToString(), Reader["provID"].ToString(), Reader["provName"].ToString(), Reader["provPhone"].ToString(), Convert.ToBoolean(Reader["mobility"]), Convert.ToBoolean(Reader["endurance"]), Convert.ToBoolean(Reader["activity"]), Convert.ToBoolean(Reader["skin"]), Convert.ToBoolean(Reader["respiration"]), Convert.ToBoolean(Reader["adl"]), Convert.ToBoolean(Reader["speech"]), Convert.ToBoolean(Reader["nutritional"]), Reader["source"].ToString(), Convert.ToDouble(Reader["weight"]), Convert.ToDouble(Reader["height"]), Convert.ToBoolean(Reader["suitable"]), Reader["date"].ToString(), Reader["pracName"].ToString(), Reader["pracSign"].ToString(), Reader["signDate"].ToString(), Reader["pracID"].ToString(), Reader["pracPhone"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["po"].ToString(), Reader["saturation"].ToString(), Reader["saturation"].ToString(), Reader["face"].ToString(), Reader["practionercompleted"].ToString());
+                Certificate ps = new Certificate(Reader["id"].ToString(), Reader["no"].ToString(), Reader["cusID"].ToString(), Reader["cusName"].ToString(), Reader["cusDob"].ToString(), Reader["cusPhone"].ToString(), Reader["provID"].ToString(), Reader["provName"].ToString(), Reader["provPhone"].ToString(), Convert.ToBoolean(Reader["mobility"]), Convert.ToBoolean(Reader["endurance"]), Convert.ToBoolean(Reader["activity"]), Convert.ToBoolean(Reader["skin"]), Convert.ToBoolean(Reader["respiration"]), Convert.ToBoolean(Reader["adl"]), Convert.ToBoolean(Reader["speech"]), Convert.ToBoolean(Reader["nutritional"]), Reader["source"].ToString(), Convert.ToDouble(Reader["weight"]), Convert.ToDouble(Reader["height"]), Convert.ToBoolean(Reader["suitable"]), Reader["date"].ToString(), Reader["pracName"].ToString(), Reader["pracSign"].ToString(), Reader["signDate"].ToString(), Reader["pracID"].ToString(), Reader["pracPhone"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["po"].ToString(), Reader["saturation"].ToString(), Reader["additional"].ToString(), Reader["face"].ToString(), Reader["practionercompleted"].ToString(), Reader["dateface"].ToString());
 				p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -109,7 +111,7 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                Certificate ps = new Certificate(Reader["id"].ToString(), Reader["no"].ToString(), Reader["cusID"].ToString(), Reader["cusName"].ToString(), Reader["cusDob"].ToString(), Reader["cusPhone"].ToString(), Reader["provID"].ToString(), Reader["provName"].ToString(), Reader["provPhone"].ToString(), Convert.ToBoolean(Reader["mobility"]), Convert.ToBoolean(Reader["endurance"]), Convert.ToBoolean(Reader["activity"]), Convert.ToBoolean(Reader["skin"]), Convert.ToBoolean(Reader["respiration"]), Convert.ToBoolean(Reader["adl"]), Convert.ToBoolean(Reader["speech"]), Convert.ToBoolean(Reader["nutritional"]), Reader["source"].ToString(), Convert.ToDouble(Reader["weight"]), Convert.ToDouble(Reader["height"]), Convert.ToBoolean(Reader["suitable"]), Reader["date"].ToString(), Reader["pracName"].ToString(), Reader["pracSign"].ToString(), Reader["signDate"].ToString(), Reader["pracID"].ToString(), Reader["pracPhone"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["po"].ToString(), Reader["saturation"].ToString(), Reader["saturation"].ToString(), Reader["face"].ToString(), Reader["practionercompleted"].ToString());
+                Certificate ps = new Certificate(Reader["id"].ToString(), Reader["no"].ToString(), Reader["cusID"].ToString(), Reader["cusName"].ToString(), Reader["cusDob"].ToString(), Reader["cusPhone"].ToString(), Reader["provID"].ToString(), Reader["provName"].ToString(), Reader["provPhone"].ToString(), Convert.ToBoolean(Reader["mobility"]), Convert.ToBoolean(Reader["endurance"]), Convert.ToBoolean(Reader["activity"]), Convert.ToBoolean(Reader["skin"]), Convert.ToBoolean(Reader["respiration"]), Convert.ToBoolean(Reader["adl"]), Convert.ToBoolean(Reader["speech"]), Convert.ToBoolean(Reader["nutritional"]), Reader["source"].ToString(), Convert.ToDouble(Reader["weight"]), Convert.ToDouble(Reader["height"]), Convert.ToBoolean(Reader["suitable"]), Reader["date"].ToString(), Reader["pracName"].ToString(), Reader["pracSign"].ToString(), Reader["signDate"].ToString(), Reader["pracID"].ToString(), Reader["pracPhone"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["po"].ToString(), Reader["saturation"].ToString(), Reader["additional"].ToString(), Reader["face"].ToString(), Reader["practionercompleted"].ToString(), Reader["dateface"].ToString());
 				p.Add(ps);
             }
             DBConnect.CloseConn();
@@ -124,7 +126,7 @@ namespace ARM.Model
                 MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
                 while (Reader.Read())
                 {
-                    Certificate ps = new Certificate(Reader["id"].ToString(), Reader["no"].ToString(), Reader["cusID"].ToString(), Reader["cusName"].ToString(), Reader["cusDob"].ToString(), Reader["cusPhone"].ToString(), Reader["provID"].ToString(), Reader["provName"].ToString(), Reader["provPhone"].ToString(), Convert.ToBoolean(Reader["mobility"]), Convert.ToBoolean(Reader["endurance"]), Convert.ToBoolean(Reader["activity"]), Convert.ToBoolean(Reader["skin"]), Convert.ToBoolean(Reader["respiration"]), Convert.ToBoolean(Reader["adl"]), Convert.ToBoolean(Reader["speech"]), Convert.ToBoolean(Reader["nutritional"]), Reader["source"].ToString(), Convert.ToDouble(Reader["weight"]), Convert.ToDouble(Reader["height"]), Convert.ToBoolean(Reader["suitable"]), Reader["date"].ToString(), Reader["pracName"].ToString(), Reader["pracSign"].ToString(), Reader["signDate"].ToString(), Reader["pracID"].ToString(), Reader["pracPhone"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["po"].ToString(), Reader["saturation"].ToString(), Reader["saturation"].ToString(), Reader["face"].ToString(), Reader["practionercompleted"].ToString());
+                    Certificate ps = new Certificate(Reader["id"].ToString(), Reader["no"].ToString(), Reader["cusID"].ToString(), Reader["cusName"].ToString(), Reader["cusDob"].ToString(), Reader["cusPhone"].ToString(), Reader["provID"].ToString(), Reader["provName"].ToString(), Reader["provPhone"].ToString(), Convert.ToBoolean(Reader["mobility"]), Convert.ToBoolean(Reader["endurance"]), Convert.ToBoolean(Reader["activity"]), Convert.ToBoolean(Reader["skin"]), Convert.ToBoolean(Reader["respiration"]), Convert.ToBoolean(Reader["adl"]), Convert.ToBoolean(Reader["speech"]), Convert.ToBoolean(Reader["nutritional"]), Reader["source"].ToString(), Convert.ToDouble(Reader["weight"]), Convert.ToDouble(Reader["height"]), Convert.ToBoolean(Reader["suitable"]), Reader["date"].ToString(), Reader["pracName"].ToString(), Reader["pracSign"].ToString(), Reader["signDate"].ToString(), Reader["pracID"].ToString(), Reader["pracPhone"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["po"].ToString(), Reader["saturation"].ToString(), Reader["additional"].ToString(), Reader["face"].ToString(), Reader["practionercompleted"].ToString(), Reader["dateface"].ToString());
 					p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
@@ -169,6 +171,7 @@ namespace ARM.Model
 		public string Additional { get => additional; set => additional = value; }
 		public string Face { get => face; set => face = value; }
 		public string Practionercompleted { get => practionercompleted; set => practionercompleted = value; }
+		public string DateFace { get => dateFace; set => dateFace = value; }
 
 		public static Certificate Select(string no)
         {
@@ -177,19 +180,19 @@ namespace ARM.Model
             NpgsqlDataReader Reader = DBConnect.Reading(Q);
             while (Reader.Read())
             {
-                c = new Certificate(Reader["id"].ToString(), Reader["no"].ToString(), Reader["cusID"].ToString(), Reader["cusName"].ToString(), Reader["cusDob"].ToString(), Reader["cusPhone"].ToString(), Reader["provID"].ToString(), Reader["provName"].ToString(), Reader["provPhone"].ToString(), Convert.ToBoolean(Reader["mobility"]), Convert.ToBoolean(Reader["endurance"]), Convert.ToBoolean(Reader["activity"]), Convert.ToBoolean(Reader["skin"]), Convert.ToBoolean(Reader["respiration"]), Convert.ToBoolean(Reader["adl"]), Convert.ToBoolean(Reader["speech"]), Convert.ToBoolean(Reader["nutritional"]), Reader["source"].ToString(), Convert.ToDouble(Reader["weight"]), Convert.ToDouble(Reader["height"]), Convert.ToBoolean(Reader["suitable"]), Reader["date"].ToString(), Reader["pracName"].ToString(), Reader["pracSign"].ToString(), Reader["signDate"].ToString(), Reader["pracID"].ToString(), Reader["pracPhone"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["po"].ToString(), Reader["saturation"].ToString(), Reader["saturation"].ToString(), Reader["face"].ToString(), Reader["practionercompleted"].ToString());
+                c = new Certificate(Reader["id"].ToString(), Reader["no"].ToString(), Reader["cusID"].ToString(), Reader["cusName"].ToString(), Reader["cusDob"].ToString(), Reader["cusPhone"].ToString(), Reader["provID"].ToString(), Reader["provName"].ToString(), Reader["provPhone"].ToString(), Convert.ToBoolean(Reader["mobility"]), Convert.ToBoolean(Reader["endurance"]), Convert.ToBoolean(Reader["activity"]), Convert.ToBoolean(Reader["skin"]), Convert.ToBoolean(Reader["respiration"]), Convert.ToBoolean(Reader["adl"]), Convert.ToBoolean(Reader["speech"]), Convert.ToBoolean(Reader["nutritional"]), Reader["source"].ToString(), Convert.ToDouble(Reader["weight"]), Convert.ToDouble(Reader["height"]), Convert.ToBoolean(Reader["suitable"]), Reader["date"].ToString(), Reader["pracName"].ToString(), Reader["pracSign"].ToString(), Reader["signDate"].ToString(), Reader["pracID"].ToString(), Reader["pracPhone"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["po"].ToString(), Reader["saturation"].ToString(), Reader["additional"].ToString(), Reader["face"].ToString(), Reader["practionercompleted"].ToString(), Reader["dateface"].ToString());
 			}
 			//DBConnect.CloseConn();
 			return c;
         }
 		public static Certificate SelectNo(string no)
 		{
-			string Q = "SELECT * FROM orders WHERE  no = '" + no + "'";
+			string Q = "SELECT * FROM certificate WHERE  no = '" + no + "'";
 			DBConnect.OpenConn();
 			NpgsqlDataReader Reader = DBConnect.Reading(Q);
 			while (Reader.Read())
 			{
-				c = new Certificate(Reader["id"].ToString(), Reader["no"].ToString(), Reader["cusID"].ToString(), Reader["cusName"].ToString(), Reader["cusDob"].ToString(), Reader["cusPhone"].ToString(), Reader["provID"].ToString(), Reader["provName"].ToString(), Reader["provPhone"].ToString(), Convert.ToBoolean(Reader["mobility"]), Convert.ToBoolean(Reader["endurance"]), Convert.ToBoolean(Reader["activity"]), Convert.ToBoolean(Reader["skin"]), Convert.ToBoolean(Reader["respiration"]), Convert.ToBoolean(Reader["adl"]), Convert.ToBoolean(Reader["speech"]), Convert.ToBoolean(Reader["nutritional"]), Reader["source"].ToString(), Convert.ToDouble(Reader["weight"]), Convert.ToDouble(Reader["height"]), Convert.ToBoolean(Reader["suitable"]), Reader["date"].ToString(), Reader["pracName"].ToString(), Reader["pracSign"].ToString(), Reader["signDate"].ToString(), Reader["pracID"].ToString(), Reader["pracPhone"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["po"].ToString(), Reader["saturation"].ToString(), Reader["saturation"].ToString(), Reader["face"].ToString(), Reader["practionercompleted"].ToString());
+				c = new Certificate(Reader["id"].ToString(), Reader["no"].ToString(), Reader["cusID"].ToString(), Reader["cusName"].ToString(), Reader["cusDob"].ToString(), Reader["cusPhone"].ToString(), Reader["provID"].ToString(), Reader["provName"].ToString(), Reader["provPhone"].ToString(), Convert.ToBoolean(Reader["mobility"]), Convert.ToBoolean(Reader["endurance"]), Convert.ToBoolean(Reader["activity"]), Convert.ToBoolean(Reader["skin"]), Convert.ToBoolean(Reader["respiration"]), Convert.ToBoolean(Reader["adl"]), Convert.ToBoolean(Reader["speech"]), Convert.ToBoolean(Reader["nutritional"]), Reader["source"].ToString(), Convert.ToDouble(Reader["weight"]), Convert.ToDouble(Reader["height"]), Convert.ToBoolean(Reader["suitable"]), Reader["date"].ToString(), Reader["pracName"].ToString(), Reader["pracSign"].ToString(), Reader["signDate"].ToString(), Reader["pracID"].ToString(), Reader["pracPhone"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["po"].ToString(), Reader["saturation"].ToString(), Reader["additional"].ToString(), Reader["face"].ToString(), Reader["practionercompleted"].ToString(), Reader["dateface"].ToString());
 			}
 			DBConnect.CloseConn();
 			return c;

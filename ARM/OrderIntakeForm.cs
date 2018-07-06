@@ -58,21 +58,21 @@ namespace ARM
 			if (!string.IsNullOrEmpty(orderID))
 			{
 				OrderID = orderID;
-				LoadEdit(OrderID);				
+				LoadEdit(OrderID);
 				try
 				{
 
 				}
 				catch (Exception m)
 				{
-					Helper.Exceptions(m.Message , "Loading order intake form for editing ");
+					Helper.Exceptions(m.Message, "Loading order intake form for editing ");
 
 				}
 
 			}
 			if (string.IsNullOrEmpty(orderID))
 			{
-				
+
 				updateBtn.Visible = false;
 				try
 				{
@@ -83,10 +83,10 @@ namespace ARM
 					noTxt.Text = "1";
 				}
 			}
-			
+
 			printdoc1.PrintPage += new PrintPageEventHandler(printdoc1_PrintPage);
 		}
-	
+
 
 		private void LoadEdit(string id)
 		{
@@ -98,7 +98,7 @@ namespace ARM
 			CaseID = o.No;
 			CustomerID = o.CustomerID;
 			PractitionerID = o.PractitionerID;
-		
+
 			noTxt.Text = o.No;
 			orderDateTxt.Text = Convert.ToDateTime(o.OrderDate).ToString("dd-MM-yyyy");
 			orderTimeTxt.Text = Convert.ToDateTime(o.OrderTime).ToString("dd-MM-yyyy");
@@ -109,20 +109,20 @@ namespace ARM
 			recievedCbx.Text = o.OrderBy;
 			diagnosisTxt.Text = o.Diagnosis;
 			surgeryTxt.Text = o.Surgery;
-		    typeCbx.Text = o.CustomerType;
-			setupDate.Text = Convert.ToDateTime(o.SetupDate).ToString("dd-MM-yyyy");			
-			
+			typeCbx.Text = o.CustomerType;
+			setupDate.Text = Convert.ToDateTime(o.SetupDate).ToString("dd-MM-yyyy");
+
 			neededDateTxt.Text = Convert.ToDateTime(o.DateNeeded).ToString("dd-MM-yyyy");
 			roomTxt.Text = o.RoomNo;
-			if (o.Hospital == "Yes") {hospitalChk.Checked = true; } else { hospitalChk.Checked = false; }
-			if (o.PreopRm == "Yes") {preRmChk.Checked = true; } else { preRmChk.Checked = false; }
+			if (o.Hospital == "Yes") { hospitalChk.Checked = true; } else { hospitalChk.Checked = false; }
+			if (o.PreopRm == "Yes") { preRmChk.Checked = true; } else { preRmChk.Checked = false; }
 			if (o.PostopRm == "Yes") { postRmChk.Checked = true; } else { postRmChk.Checked = false; }
 			if (o.Home == "Yes") { homeChk.Checked = true; } else { homeChk.Checked = false; }
 			if (o.PreopHome == "Yes") { preHomeChk.Checked = true; } else { preHomeChk.Checked = false; }
-			if (o.Clinic == "Yes") {clinicChk.Checked = true; } else { clinicChk.Checked = false; }
+			if (o.Clinic == "Yes") { clinicChk.Checked = true; } else { clinicChk.Checked = false; }
 			if (o.Facility == "Yes") { facilityChk.Checked = true; } else { facilityChk.Checked = false; }
 			if (o.Notified == "Yes") { notifiedChk.Checked = true; } else { notifiedChk.Checked = false; }
-			if (o.Authorised == "Yes") {authorisationChk.Checked = true; } else { authorisationChk.Checked = false; }
+			if (o.Authorised == "Yes") { authorisationChk.Checked = true; } else { authorisationChk.Checked = false; }
 			if (o.Insurance == "Yes") { insuranceChk.Checked = true; } else { insuranceChk.Checked = false; }
 			if (o.Contacted == "Yes") { contactedChk.Checked = true; } else { contactedChk.Checked = false; }
 			if (o.Sent == "Yes") { cmnSentChk.Checked = true; } else { cmnSentChk.Checked = false; }
@@ -265,28 +265,32 @@ namespace ARM
 		private void button3_Click(object sender, EventArgs e)
 		{
 			string exists = "";
+			
 			try
 			{
-			    exists = DBConnect.value("orders", "no", "no", noTxt.Text);
+				exists = DBConnect.value("SELECT no FROM orders WHERE no  = '" + noTxt.Text +"'");
 			}
-			catch
+			catch(Exception y)
 			{
-
+				//MessageBox.Show( y.Message + noTxt.Text);
+				exists = "";
 			}
 			//.value(string table, string value, string column, string variable)
 			if (!string.IsNullOrEmpty(exists))
 			{
 				int no = Convert.ToInt32(exists);
-				noTxt.Text = (no + 1).ToString();
 				MessageBox.Show("The order number " + noTxt.Text + " is already in use.New order number assigned:" + noTxt.Text);
-			}
 
+				noTxt.Text = (no + 1).ToString();
+				return;
+			}					
+			
 			if (string.IsNullOrEmpty(PractitionerID))
 			{
 				MessageBox.Show("Please select a Doctor  ");
 			}
 			string hospital = hospitalChk.Checked ? "Yes" : "No";
-			string preopRm = preRmChk.Checked ? "Yes" : "No";		
+			string preopRm = preRmChk.Checked ? "Yes" : "No";
 			string postopRm = postRmChk.Checked ? "Yes" : "No";
 			string home = homeChk.Checked ? "Yes" : "No";
 			string preopHome = preHomeChk.Checked ? "Yes" : "No";
@@ -294,17 +298,22 @@ namespace ARM
 			string clinic = clinicChk.Checked ? "Yes" : "No";
 			string notified = notifiedChk.Checked ? "Yes" : "No";
 			string authorisation = authorisationChk.Checked ? "Yes" : "No";
-			string insurance =insuranceChk.Checked ? "Yes" : "No";
+			string insurance = insuranceChk.Checked ? "Yes" : "No";
 			string contacted = contactedChk.Checked ? "Yes" : "No";
-			string sent =cmnSentChk.Checked ? "Yes" : "No";
+			string sent = cmnSentChk.Checked ? "Yes" : "No";
 			string returned = cmnReturnedChk.Checked ? "Yes" : "No";
+			if (GenericCollection.caseTransactions.Count()<1) {
+
+				MessageBox.Show("Please select one or more products !");
+				return;
+			}
 
 			string id = Guid.NewGuid().ToString();
 			if (MessageBox.Show("YES or NO?", "Save information ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
 			{
 				foreach (CaseTransaction t in GenericCollection.caseTransactions)
 				{
-					CaseTransaction c = new CaseTransaction(t.Id, Convert.ToDateTime(orderDateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, noTxt.Text,"", t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
+					CaseTransaction c = new CaseTransaction(t.Id, Convert.ToDateTime(orderDateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, noTxt.Text, "", t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
 					string saving = DBConnect.InsertPostgre(c);
 					if (saving != "")
 					{
@@ -322,7 +331,7 @@ namespace ARM
 						DBConnect.InsertPostgre(q);
 					}
 				}
-				Orders i = new Orders(id, noTxt.Text, CustomerID, Helper.UserID, Convert.ToDateTime(orderDateTxt.Text).ToString("dd-MM-yyyy"),orderTimeTxt.Text, recievedCbx.Text, Convert.ToDateTime(dispenseDateTxt.Text).ToString("dd-MM-yyyy"),dispensedTimeTxt.Text, dispensedCbx.Text,typeCbx.Text, diagnosisTxt.Text, surgeryTxt.Text, Convert.ToDateTime(clinicalDateTxt.Text).ToString("dd-MM-yyyy"),specificTxt.Text,hospital,home,preopRm,preopHome,postopRm,roomTxt.Text,Convert.ToDateTime(setupDate.Text).ToString("dd-MM-yyyy"),Convert.ToDateTime(neededDateTxt.Text).ToString("dd-MM-yyyy"),facility,clinic,otherTxt.Text,notified,authorisation,insurance,contacted,sent,returned,Convert.ToDateTime(dateSentTxt.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(dateReturnedTxt.Text).ToString("dd-MM-yyyy"),PractitionerID, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
+				Orders i = new Orders(id, noTxt.Text, CustomerID, Helper.UserID, Convert.ToDateTime(orderDateTxt.Text).ToString("dd-MM-yyyy"), orderTimeTxt.Text, recievedCbx.Text, Convert.ToDateTime(dispenseDateTxt.Text).ToString("dd-MM-yyyy"), dispensedTimeTxt.Text, dispensedCbx.Text, typeCbx.Text, diagnosisTxt.Text, surgeryTxt.Text, Convert.ToDateTime(clinicalDateTxt.Text).ToString("dd-MM-yyyy"), specificTxt.Text, hospital, home, preopRm, preopHome, postopRm, roomTxt.Text, Convert.ToDateTime(setupDate.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(neededDateTxt.Text).ToString("dd-MM-yyyy"), facility, clinic, otherTxt.Text, notified, authorisation, insurance, contacted, sent, returned, Convert.ToDateTime(dateSentTxt.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(dateReturnedTxt.Text).ToString("dd-MM-yyyy"), PractitionerID, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
 				string save = DBConnect.InsertPostgre(i);
 				if (save != "")
 				{
@@ -351,7 +360,7 @@ namespace ARM
 					UserDictionary.Add(v.Name, v.Id);
 					recievedCbx.Items.Add(v.Name);
 					dispensedCbx.Items.Add(v.Name);
-				
+
 				}
 			}
 			recievedCbx.AutoCompleteMode = AutoCompleteMode.Suggest;
@@ -500,7 +509,7 @@ namespace ARM
 				catch (Exception m)
 				{
 					MessageBox.Show("" + m.Message);
-					Helper.Exceptions(m.Message , "Viewing users {each transaction list }" + j.ItemID);
+					Helper.Exceptions(m.Message, "Viewing users {each transaction list }" + j.ItemID);
 				}
 			}
 			Total = CaseTransaction.List(Q).Sum(r => r.Total);
@@ -530,7 +539,7 @@ namespace ARM
 			string contacted = contactedChk.Checked ? "Yes" : "No";
 			string sent = cmnSentChk.Checked ? "Yes" : "No";
 			string returned = cmnReturnedChk.Checked ? "Yes" : "No";
-			
+
 			string id = Guid.NewGuid().ToString();
 			if (MessageBox.Show("YES or NO?", "Update this Order? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
 			{
@@ -598,7 +607,7 @@ namespace ARM
 			string Q = "SELECT * FROM coverage WHERE customerID='" + CustomerID + "' ";
 			foreach (Coverage c in Coverage.List(Q))
 			{
-				insuranceInfoTxt.Text = insuranceInfoTxt.Text + "\t Name: " + c.Name + "\t ID# : " + c.No + " " + "\t Type: " + c.Type + "\r\n ";
+				insuranceInfoTxt.Text = insuranceInfoTxt.Text + "Name: " + c.Name + "\t ID# : " + c.No + " " + "\t Type: " + c.Type + "\r\n ";
 			}
 			//}
 			//catch { }
@@ -668,7 +677,7 @@ namespace ARM
 		{
 			try
 			{
-				
+
 
 				try
 				{
@@ -707,7 +716,7 @@ namespace ARM
 					{
 						Helper.Log(Helper.UserName, "Deleting of transactions on order intake " + noTxt.Text + "");
 
-						string Query = "DELETE from casetransaction WHERE itemid ='" + dtGrid.Rows[e.RowIndex].Cells["ItemID"].Value.ToString() + "' and no = '"+noTxt.Text+"'";
+						string Query = "DELETE from casetransaction WHERE itemid ='" + dtGrid.Rows[e.RowIndex].Cells["ItemID"].Value.ToString() + "' and no = '" + noTxt.Text + "'";
 						DBConnect.QueryPostgre(Query);
 						Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
 						DBConnect.InsertPostgre(q);
@@ -718,12 +727,13 @@ namespace ARM
 						GenericCollection.caseTransactions.Remove(itemToRemove);
 
 						LoadCaseTransactions();
-						
+
 					}
 				}
 
 			}
-			catch(Exception c) {
+			catch (Exception c)
+			{
 
 
 				Helper.Exceptions(c.Message, "Deleting on order intake Grid data ");
@@ -766,7 +776,7 @@ namespace ARM
 				Helper.Exceptions(c.Message, "Editing Order intakes data grid");
 			}
 		}
-		
+
 
 		private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
 		{
@@ -780,9 +790,14 @@ namespace ARM
 				DialogResult dr = form.ShowDialog();
 				if (dr == DialogResult.OK)
 				{
-					
+
 				}
 			}
+		}
+
+		private void customerCbx_QueryAccessibilityHelp(object sender, QueryAccessibilityHelpEventArgs e)
+		{
+
 		}
 	}
 }

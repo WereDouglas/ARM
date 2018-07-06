@@ -519,7 +519,7 @@ namespace ARM
 				DialogResult dr = form.ShowDialog();
 				if (dr == DialogResult.OK)
 				{
-					// LoadingCalendarLite();
+					autocomplete();
 				}
 			}
 		}

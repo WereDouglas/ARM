@@ -28,26 +28,23 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CertificateInputForm));
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.panel4 = new System.Windows.Forms.Panel();
 			this.button10 = new System.Windows.Forms.Button();
-			this.label43 = new System.Windows.Forms.Label();
-			this.userCbx = new System.Windows.Forms.ComboBox();
 			this.physicianTxt = new System.Windows.Forms.TextBox();
 			this.userPbx = new System.Windows.Forms.PictureBox();
 			this.label33 = new System.Windows.Forms.Label();
 			this.label31 = new System.Windows.Forms.Label();
 			this.customerCbx = new System.Windows.Forms.ComboBox();
 			this.noTxt = new System.Windows.Forms.TextBox();
-			this.button7 = new System.Windows.Forms.Button();
 			this.button4 = new System.Windows.Forms.Button();
 			this.button8 = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
@@ -58,6 +55,8 @@
 			this.completedTxt = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.groupBox10 = new System.Windows.Forms.GroupBox();
+			this.dateFaceTxt = new System.Windows.Forms.DateTimePicker();
+			this.label11 = new System.Windows.Forms.Label();
 			this.faceYesBn = new System.Windows.Forms.RadioButton();
 			this.faceNaBn = new System.Windows.Forms.RadioButton();
 			this.faceNoBn = new System.Windows.Forms.RadioButton();
@@ -158,7 +157,6 @@
 			this.submitBtn = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
 			this.button6 = new System.Windows.Forms.Button();
-			this.button9 = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.panel4.SuspendLayout();
@@ -185,7 +183,7 @@
 			this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.panel1.AutoScroll = true;
 			this.panel1.Controls.Add(this.tableLayoutPanel1);
-			this.panel1.Location = new System.Drawing.Point(127, 63);
+			this.panel1.Location = new System.Drawing.Point(118, 70);
 			this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(1236, 959);
@@ -196,6 +194,7 @@
 			this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
 			this.tableLayoutPanel1.AutoScroll = true;
+			this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
 			this.tableLayoutPanel1.ColumnCount = 6;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 211F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.93926F));
@@ -230,15 +229,12 @@
 			// panel4
 			// 
 			this.panel4.Controls.Add(this.button10);
-			this.panel4.Controls.Add(this.label43);
-			this.panel4.Controls.Add(this.userCbx);
 			this.panel4.Controls.Add(this.physicianTxt);
 			this.panel4.Controls.Add(this.userPbx);
 			this.panel4.Controls.Add(this.label33);
 			this.panel4.Controls.Add(this.label31);
 			this.panel4.Controls.Add(this.customerCbx);
 			this.panel4.Controls.Add(this.noTxt);
-			this.panel4.Controls.Add(this.button7);
 			this.panel4.Controls.Add(this.button4);
 			this.panel4.Controls.Add(this.button8);
 			this.panel4.Controls.Add(this.button3);
@@ -246,10 +242,10 @@
 			this.panel4.Controls.Add(this.cusPbx);
 			this.panel4.Controls.Add(this.subscriberInfoTxt);
 			this.panel4.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.panel4.Location = new System.Drawing.Point(8, 7);
+			this.panel4.Location = new System.Drawing.Point(9, 8);
 			this.panel4.Name = "panel4";
 			this.tableLayoutPanel1.SetRowSpan(this.panel4, 12);
-			this.panel4.Size = new System.Drawing.Size(205, 938);
+			this.panel4.Size = new System.Drawing.Size(205, 1275);
 			this.panel4.TabIndex = 505;
 			// 
 			// button10
@@ -266,44 +262,18 @@
 			this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.button10.Name = "button10";
 			this.button10.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.button10.Size = new System.Drawing.Size(190, 60);
+			this.button10.Size = new System.Drawing.Size(169, 64);
 			this.button10.TabIndex = 508;
 			this.button10.Text = "Add Diagnosis (CD10 Code)";
 			this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.button10.UseVisualStyleBackColor = false;
 			this.button10.Click += new System.EventHandler(this.button10_Click);
 			// 
-			// label43
-			// 
-			this.label43.BackColor = System.Drawing.Color.MistyRose;
-			this.label43.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label43.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.label43.Location = new System.Drawing.Point(9, 771);
-			this.label43.Name = "label43";
-			this.label43.Size = new System.Drawing.Size(172, 17);
-			this.label43.TabIndex = 507;
-			this.label43.Text = "Physician";
-			// 
-			// userCbx
-			// 
-			this.userCbx.AutoCompleteCustomSource.AddRange(new string[] {
-            "Participating",
-            "Nonparticipating"});
-			this.userCbx.BackColor = System.Drawing.SystemColors.Info;
-			this.userCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.userCbx.FormattingEnabled = true;
-			this.userCbx.Location = new System.Drawing.Point(9, 791);
-			this.userCbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.userCbx.Name = "userCbx";
-			this.userCbx.Size = new System.Drawing.Size(169, 23);
-			this.userCbx.TabIndex = 506;
-			this.userCbx.SelectedIndexChanged += new System.EventHandler(this.userCbx_SelectedIndexChanged_1);
-			// 
 			// physicianTxt
 			// 
 			this.physicianTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
 			this.physicianTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.physicianTxt.Location = new System.Drawing.Point(9, 529);
+			this.physicianTxt.Location = new System.Drawing.Point(9, 456);
 			this.physicianTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.physicianTxt.Multiline = true;
 			this.physicianTxt.Name = "physicianTxt";
@@ -312,7 +282,7 @@
 			// 
 			// userPbx
 			// 
-			this.userPbx.Location = new System.Drawing.Point(19, 473);
+			this.userPbx.Location = new System.Drawing.Point(19, 400);
 			this.userPbx.Name = "userPbx";
 			this.userPbx.Size = new System.Drawing.Size(55, 46);
 			this.userPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -360,24 +330,6 @@
 			this.noTxt.Name = "noTxt";
 			this.noTxt.Size = new System.Drawing.Size(179, 23);
 			this.noTxt.TabIndex = 469;
-			// 
-			// button7
-			// 
-			this.button7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.button7.FlatAppearance.BorderSize = 0;
-			this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button7.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button7.Location = new System.Drawing.Point(9, 233);
-			this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.button7.Name = "button7";
-			this.button7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.button7.Size = new System.Drawing.Size(147, 63);
-			this.button7.TabIndex = 468;
-			this.button7.Text = "Add Equipment CPT Code(s)";
-			this.button7.UseVisualStyleBackColor = false;
 			// 
 			// button4
 			// 
@@ -442,7 +394,7 @@
 			this.button5.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button5.Location = new System.Drawing.Point(19, 300);
+			this.button5.Location = new System.Drawing.Point(19, 227);
 			this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.button5.Name = "button5";
 			this.button5.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -455,7 +407,7 @@
 			// 
 			// cusPbx
 			// 
-			this.cusPbx.Location = new System.Drawing.Point(19, 339);
+			this.cusPbx.Location = new System.Drawing.Point(19, 266);
 			this.cusPbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.cusPbx.Name = "cusPbx";
 			this.cusPbx.Size = new System.Drawing.Size(45, 50);
@@ -467,7 +419,7 @@
 			// 
 			this.subscriberInfoTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
 			this.subscriberInfoTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.subscriberInfoTxt.Location = new System.Drawing.Point(9, 394);
+			this.subscriberInfoTxt.Location = new System.Drawing.Point(9, 321);
 			this.subscriberInfoTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.subscriberInfoTxt.Multiline = true;
 			this.subscriberInfoTxt.Name = "subscriberInfoTxt";
@@ -549,11 +501,11 @@
 			this.panel2.Controls.Add(this.label9);
 			this.panel2.Controls.Add(this.label22);
 			this.panel2.Controls.Add(this.label6);
-			this.panel2.Location = new System.Drawing.Point(219, 6);
+			this.panel2.Location = new System.Drawing.Point(221, 7);
 			this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.panel2.Name = "panel2";
 			this.tableLayoutPanel1.SetRowSpan(this.panel2, 12);
-			this.panel2.Size = new System.Drawing.Size(1000, 940);
+			this.panel2.Size = new System.Drawing.Size(979, 1279);
 			this.panel2.TabIndex = 452;
 			this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
 			// 
@@ -563,14 +515,14 @@
 			this.completedTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.completedTxt.Font = new System.Drawing.Font("Calibri", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.completedTxt.ForeColor = System.Drawing.Color.Red;
-			this.completedTxt.Location = new System.Drawing.Point(463, 487);
+			this.completedTxt.Location = new System.Drawing.Point(463, 515);
 			this.completedTxt.Name = "completedTxt";
 			this.completedTxt.Size = new System.Drawing.Size(414, 14);
 			this.completedTxt.TabIndex = 607;
 			// 
 			// label1
 			// 
-			this.label1.Location = new System.Drawing.Point(461, 471);
+			this.label1.Location = new System.Drawing.Point(460, 499);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(302, 13);
 			this.label1.TabIndex = 606;
@@ -578,20 +530,43 @@
 			// 
 			// groupBox10
 			// 
+			this.groupBox10.Controls.Add(this.dateFaceTxt);
+			this.groupBox10.Controls.Add(this.label11);
 			this.groupBox10.Controls.Add(this.faceYesBn);
 			this.groupBox10.Controls.Add(this.faceNaBn);
 			this.groupBox10.Controls.Add(this.faceNoBn);
 			this.groupBox10.Location = new System.Drawing.Point(463, 434);
 			this.groupBox10.Name = "groupBox10";
-			this.groupBox10.Size = new System.Drawing.Size(415, 30);
+			this.groupBox10.Size = new System.Drawing.Size(415, 61);
 			this.groupBox10.TabIndex = 600;
 			this.groupBox10.TabStop = false;
 			this.groupBox10.Text = "FACE-TO-FACE COMPLETED";
 			// 
+			// dateFaceTxt
+			// 
+			this.dateFaceTxt.Location = new System.Drawing.Point(210, 35);
+			this.dateFaceTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.dateFaceTxt.Name = "dateFaceTxt";
+			this.dateFaceTxt.Size = new System.Drawing.Size(199, 21);
+			this.dateFaceTxt.TabIndex = 524;
+			// 
+			// label11
+			// 
+			this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label11.BackColor = System.Drawing.Color.White;
+			this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.label11.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label11.Location = new System.Drawing.Point(170, 33);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(32, 22);
+			this.label11.TabIndex = 523;
+			this.label11.Text = "Date";
+			this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
 			// faceYesBn
 			// 
 			this.faceYesBn.AutoSize = true;
-			this.faceYesBn.Location = new System.Drawing.Point(260, 9);
+			this.faceYesBn.Location = new System.Drawing.Point(12, 38);
 			this.faceYesBn.Name = "faceYesBn";
 			this.faceYesBn.Size = new System.Drawing.Size(40, 17);
 			this.faceYesBn.TabIndex = 2;
@@ -602,7 +577,7 @@
 			// faceNaBn
 			// 
 			this.faceNaBn.AutoSize = true;
-			this.faceNaBn.Location = new System.Drawing.Point(356, 9);
+			this.faceNaBn.Location = new System.Drawing.Point(122, 38);
 			this.faceNaBn.Name = "faceNaBn";
 			this.faceNaBn.Size = new System.Drawing.Size(42, 17);
 			this.faceNaBn.TabIndex = 1;
@@ -613,7 +588,7 @@
 			// faceNoBn
 			// 
 			this.faceNoBn.AutoSize = true;
-			this.faceNoBn.Location = new System.Drawing.Point(310, 9);
+			this.faceNoBn.Location = new System.Drawing.Point(76, 38);
 			this.faceNoBn.Name = "faceNoBn";
 			this.faceNoBn.Size = new System.Drawing.Size(39, 17);
 			this.faceNoBn.TabIndex = 0;
@@ -725,7 +700,7 @@
 			// speechNoBn
 			// 
 			this.speechNoBn.AutoSize = true;
-			this.speechNoBn.Location = new System.Drawing.Point(371, 12);
+			this.speechNoBn.Location = new System.Drawing.Point(356, 12);
 			this.speechNoBn.Name = "speechNoBn";
 			this.speechNoBn.Size = new System.Drawing.Size(38, 17);
 			this.speechNoBn.TabIndex = 1;
@@ -736,7 +711,7 @@
 			// speechBn
 			// 
 			this.speechBn.AutoSize = true;
-			this.speechBn.Location = new System.Drawing.Point(312, 14);
+			this.speechBn.Location = new System.Drawing.Point(310, 14);
 			this.speechBn.Name = "speechBn";
 			this.speechBn.Size = new System.Drawing.Size(40, 17);
 			this.speechBn.TabIndex = 0;
@@ -992,7 +967,7 @@
 			// label42
 			// 
 			this.label42.AutoSize = true;
-			this.label42.Location = new System.Drawing.Point(30, 871);
+			this.label42.Location = new System.Drawing.Point(30, 1209);
 			this.label42.Name = "label42";
 			this.label42.Size = new System.Drawing.Size(36, 13);
 			this.label42.TabIndex = 595;
@@ -1001,7 +976,7 @@
 			// label41
 			// 
 			this.label41.AutoSize = true;
-			this.label41.Location = new System.Drawing.Point(30, 911);
+			this.label41.Location = new System.Drawing.Point(30, 1249);
 			this.label41.Name = "label41";
 			this.label41.Size = new System.Drawing.Size(133, 13);
 			this.label41.TabIndex = 594;
@@ -1013,7 +988,7 @@
 			this.practitionerTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.practitionerTxt.Font = new System.Drawing.Font("Calibri", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.practitionerTxt.ForeColor = System.Drawing.Color.Red;
-			this.practitionerTxt.Location = new System.Drawing.Point(30, 841);
+			this.practitionerTxt.Location = new System.Drawing.Point(30, 1179);
 			this.practitionerTxt.Name = "practitionerTxt";
 			this.practitionerTxt.Size = new System.Drawing.Size(194, 14);
 			this.practitionerTxt.TabIndex = 593;
@@ -1024,7 +999,7 @@
 			this.signatureTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.signatureTxt.Font = new System.Drawing.Font("Calibri", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.signatureTxt.ForeColor = System.Drawing.Color.Red;
-			this.signatureTxt.Location = new System.Drawing.Point(248, 841);
+			this.signatureTxt.Location = new System.Drawing.Point(248, 1179);
 			this.signatureTxt.Name = "signatureTxt";
 			this.signatureTxt.Size = new System.Drawing.Size(194, 14);
 			this.signatureTxt.TabIndex = 592;
@@ -1035,7 +1010,7 @@
 			this.dateTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dateTxt.Font = new System.Drawing.Font("Calibri", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dateTxt.ForeColor = System.Drawing.Color.Red;
-			this.dateTxt.Location = new System.Drawing.Point(448, 841);
+			this.dateTxt.Location = new System.Drawing.Point(448, 1179);
 			this.dateTxt.Name = "dateTxt";
 			this.dateTxt.Size = new System.Drawing.Size(194, 14);
 			this.dateTxt.TabIndex = 591;
@@ -1046,7 +1021,7 @@
 			this.pracIDTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.pracIDTxt.Font = new System.Drawing.Font("Calibri", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.pracIDTxt.ForeColor = System.Drawing.Color.Red;
-			this.pracIDTxt.Location = new System.Drawing.Point(648, 841);
+			this.pracIDTxt.Location = new System.Drawing.Point(648, 1179);
 			this.pracIDTxt.Name = "pracIDTxt";
 			this.pracIDTxt.Size = new System.Drawing.Size(112, 14);
 			this.pracIDTxt.TabIndex = 590;
@@ -1057,7 +1032,7 @@
 			this.phoneTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.phoneTxt.Font = new System.Drawing.Font("Calibri", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.phoneTxt.ForeColor = System.Drawing.Color.Red;
-			this.phoneTxt.Location = new System.Drawing.Point(766, 841);
+			this.phoneTxt.Location = new System.Drawing.Point(766, 1179);
 			this.phoneTxt.Name = "phoneTxt";
 			this.phoneTxt.Size = new System.Drawing.Size(134, 14);
 			this.phoneTxt.TabIndex = 589;
@@ -1065,7 +1040,7 @@
 			// label40
 			// 
 			this.label40.AutoSize = true;
-			this.label40.Location = new System.Drawing.Point(499, 858);
+			this.label40.Location = new System.Drawing.Point(499, 1196);
 			this.label40.Name = "label40";
 			this.label40.Size = new System.Drawing.Size(34, 13);
 			this.label40.TabIndex = 588;
@@ -1074,7 +1049,7 @@
 			// label32
 			// 
 			this.label32.AutoSize = true;
-			this.label32.Location = new System.Drawing.Point(673, 858);
+			this.label32.Location = new System.Drawing.Point(673, 1196);
 			this.label32.Name = "label32";
 			this.label32.Size = new System.Drawing.Size(28, 13);
 			this.label32.TabIndex = 587;
@@ -1083,7 +1058,7 @@
 			// label29
 			// 
 			this.label29.AutoSize = true;
-			this.label29.Location = new System.Drawing.Point(804, 858);
+			this.label29.Location = new System.Drawing.Point(804, 1196);
 			this.label29.Name = "label29";
 			this.label29.Size = new System.Drawing.Size(46, 13);
 			this.label29.TabIndex = 586;
@@ -1092,7 +1067,7 @@
 			// label20
 			// 
 			this.label20.AutoSize = true;
-			this.label20.Location = new System.Drawing.Point(284, 858);
+			this.label20.Location = new System.Drawing.Point(284, 1196);
 			this.label20.Name = "label20";
 			this.label20.Size = new System.Drawing.Size(136, 13);
 			this.label20.TabIndex = 585;
@@ -1101,7 +1076,7 @@
 			// panel10
 			// 
 			this.panel10.BackColor = System.Drawing.Color.Black;
-			this.panel10.Location = new System.Drawing.Point(25, 817);
+			this.panel10.Location = new System.Drawing.Point(25, 1155);
 			this.panel10.Name = "panel10";
 			this.panel10.Size = new System.Drawing.Size(878, 1);
 			this.panel10.TabIndex = 555;
@@ -1109,7 +1084,7 @@
 			// label10
 			// 
 			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(27, 801);
+			this.label10.Location = new System.Drawing.Point(27, 1139);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(551, 13);
 			this.label10.TabIndex = 584;
@@ -1119,7 +1094,7 @@
 			// label7
 			// 
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(27, 698);
+			this.label7.Location = new System.Drawing.Point(27, 848);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(205, 13);
 			this.label7.TabIndex = 583;
@@ -1390,42 +1365,43 @@
 			// 
 			// dtGridEquip
 			// 
-			dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Red;
-			this.dtGridEquip.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+			dataGridViewCellStyle31.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle31.ForeColor = System.Drawing.Color.Red;
+			this.dtGridEquip.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
 			this.dtGridEquip.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dtGridEquip.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
 			this.dtGridEquip.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
 			this.dtGridEquip.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dtGridEquip.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 			this.dtGridEquip.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5);
-			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGridEquip.DefaultCellStyle = dataGridViewCellStyle8;
+			dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle32.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			dataGridViewCellStyle32.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGridEquip.DefaultCellStyle = dataGridViewCellStyle32;
 			this.dtGridEquip.GridColor = System.Drawing.SystemColors.ButtonFace;
-			this.dtGridEquip.Location = new System.Drawing.Point(23, 713);
+			this.dtGridEquip.Location = new System.Drawing.Point(23, 863);
 			this.dtGridEquip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.dtGridEquip.Name = "dtGridEquip";
 			this.dtGridEquip.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGridEquip.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+			dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			dataGridViewCellStyle33.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGridEquip.RowHeadersDefaultCellStyle = dataGridViewCellStyle33;
 			this.dtGridEquip.RowHeadersVisible = false;
 			this.dtGridEquip.RowHeadersWidth = 20;
-			this.dtGridEquip.Size = new System.Drawing.Size(974, 76);
+			this.dtGridEquip.Size = new System.Drawing.Size(937, 271);
 			this.dtGridEquip.TabIndex = 541;
 			this.dtGridEquip.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridEquip_CellClick);
+			this.dtGridEquip.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridEquip_CellEndEdit);
 			// 
 			// label12
 			// 
@@ -1512,44 +1488,45 @@
 			// 
 			// dtGrid
 			// 
-			dataGridViewCellStyle10.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dtGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+			dataGridViewCellStyle34.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dtGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle34;
 			this.dtGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dtGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
 			this.dtGrid.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
 			this.dtGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dtGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 			this.dtGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle11.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(5);
-			dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGrid.DefaultCellStyle = dataGridViewCellStyle11;
+			dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle35.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			dataGridViewCellStyle35.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGrid.DefaultCellStyle = dataGridViewCellStyle35;
 			this.dtGrid.GridColor = System.Drawing.SystemColors.ButtonFace;
 			this.dtGrid.Location = new System.Drawing.Point(27, 608);
 			this.dtGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.dtGrid.Name = "dtGrid";
 			this.dtGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			dataGridViewCellStyle12.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+			dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			dataGridViewCellStyle36.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
 			this.dtGrid.RowHeadersWidth = 20;
-			this.dtGrid.Size = new System.Drawing.Size(970, 88);
+			this.dtGrid.Size = new System.Drawing.Size(933, 213);
 			this.dtGrid.TabIndex = 465;
+			this.dtGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellClick);
 			this.dtGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellContentClick);
 			// 
 			// label17
 			// 
-			this.label17.Location = new System.Drawing.Point(30, 883);
+			this.label17.Location = new System.Drawing.Point(30, 1221);
 			this.label17.Name = "label17";
 			this.label17.Size = new System.Drawing.Size(858, 28);
 			this.label17.TabIndex = 500;
@@ -1558,7 +1535,7 @@
 			// label9
 			// 
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(27, 858);
+			this.label9.Location = new System.Drawing.Point(27, 1196);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(152, 13);
 			this.label9.TabIndex = 497;
@@ -1578,7 +1555,7 @@
 			// 
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(27, 825);
+			this.label6.Location = new System.Drawing.Point(27, 1163);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(600, 13);
 			this.label6.TabIndex = 486;
@@ -1607,7 +1584,7 @@
 			this.updateBtn.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.updateBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.updateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.updateBtn.Location = new System.Drawing.Point(826, 1027);
+			this.updateBtn.Location = new System.Drawing.Point(977, 1051);
 			this.updateBtn.Name = "updateBtn";
 			this.updateBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.updateBtn.Size = new System.Drawing.Size(107, 37);
@@ -1625,7 +1602,7 @@
 			this.button1.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button1.Location = new System.Drawing.Point(632, 1026);
+			this.button1.Location = new System.Drawing.Point(651, 1052);
 			this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.button1.Name = "button1";
 			this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1644,7 +1621,7 @@
 			this.submitBtn.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.submitBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.submitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.submitBtn.Location = new System.Drawing.Point(1019, 1027);
+			this.submitBtn.Location = new System.Drawing.Point(1090, 1053);
 			this.submitBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.submitBtn.Name = "submitBtn";
 			this.submitBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1663,7 +1640,7 @@
 			this.button2.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button2.Location = new System.Drawing.Point(9, 1038);
+			this.button2.Location = new System.Drawing.Point(433, 1054);
 			this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.button2.Name = "button2";
 			this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1682,7 +1659,7 @@
 			this.button6.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button6.Location = new System.Drawing.Point(500, 1028);
+			this.button6.Location = new System.Drawing.Point(549, 1052);
 			this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.button6.Name = "button6";
 			this.button6.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1693,25 +1670,6 @@
 			this.button6.UseVisualStyleBackColor = false;
 			this.button6.Click += new System.EventHandler(this.button6_Click);
 			// 
-			// button9
-			// 
-			this.button9.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			this.button9.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button9.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button9.Location = new System.Drawing.Point(389, 1028);
-			this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.button9.Name = "button9";
-			this.button9.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.button9.Size = new System.Drawing.Size(90, 37);
-			this.button9.TabIndex = 18;
-			this.button9.Text = "Load";
-			this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.button9.UseVisualStyleBackColor = false;
-			this.button9.Click += new System.EventHandler(this.button9_Click);
-			// 
 			// CertificateInputForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1719,8 +1677,7 @@
 			this.AutoScroll = true;
 			this.AutoSize = true;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.ClientSize = new System.Drawing.Size(1408, 1097);
-			this.Controls.Add(this.button9);
+			this.ClientSize = new System.Drawing.Size(1408, 1100);
 			this.Controls.Add(this.button6);
 			this.Controls.Add(this.updateBtn);
 			this.Controls.Add(this.button1);
@@ -1782,7 +1739,6 @@
 		private System.Windows.Forms.Button button8;
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.Button button4;
-		private System.Windows.Forms.Button button7;
 		private System.Windows.Forms.TextBox noTxt;
 		private System.Windows.Forms.ComboBox customerCbx;
 		private System.Windows.Forms.Label label31;
@@ -1848,8 +1804,6 @@
 		private System.Windows.Forms.Label label41;
 		private System.Windows.Forms.PictureBox userPbx;
 		private System.Windows.Forms.TextBox physicianTxt;
-		private System.Windows.Forms.Label label43;
-		private System.Windows.Forms.ComboBox userCbx;
 		private System.Windows.Forms.TextBox heightTxt;
 		private System.Windows.Forms.TextBox weightTxt;
 		private System.Windows.Forms.Label label37;
@@ -1885,7 +1839,6 @@
 		private System.Windows.Forms.RadioButton suitableNoBn;
 		private System.Windows.Forms.RadioButton suitableBn;
 		private System.Windows.Forms.Button button6;
-		private System.Windows.Forms.Button button9;
 		private System.Windows.Forms.Button button10;
 		private System.Windows.Forms.GroupBox groupBox10;
 		private System.Windows.Forms.RadioButton faceYesBn;
@@ -1893,5 +1846,7 @@
 		private System.Windows.Forms.RadioButton faceNoBn;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox completedTxt;
+		private System.Windows.Forms.DateTimePicker dateFaceTxt;
+		private System.Windows.Forms.Label label11;
 	}
 }

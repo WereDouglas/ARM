@@ -85,7 +85,13 @@ namespace ARM
                 Update(ItemID);
                 return;
             }
-            MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg); ;
+			if (string.IsNullOrEmpty(costTxt.Text))
+			{
+				MessageBox.Show("Please input the cost ");
+				return;
+			}
+
+			MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg); ;
             if (!string.IsNullOrEmpty(ext))
             {
 

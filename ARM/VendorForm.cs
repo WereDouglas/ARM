@@ -32,7 +32,7 @@ namespace ARM
             // create and execute query  
             t = new DataTable();
             t.Columns.Add(new DataColumn("Select", typeof(bool)));
-            t.Columns.Add("ID");
+            t.Columns.Add("id");
             t.Columns.Add("uri");
             t.Columns.Add(new DataColumn("Img", typeof(Bitmap)));//1  
 			t.Columns.Add("No");
@@ -100,7 +100,7 @@ namespace ARM
             //  dtGrid.Columns["Delete"].DefaultCellStyle.BackColor = Color.Red;
             dtGrid.RowTemplate.Height = 60;
             dtGrid.Columns["uri"].Visible = false;
-            dtGrid.Columns["ID"].Visible = false;
+            dtGrid.Columns["id"].Visible = false;
            // dtGrid.Columns["select"].Width = 30;
 
         }
@@ -132,7 +132,6 @@ namespace ARM
         {
             if (MessageBox.Show("YES or No?", "Are you sure you want to delete these Vendors? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-
                 foreach (var item in selectedIDs)
                 {
                     string Query = "DELETE from vendor WHERE id ='" + item + "'";
@@ -165,7 +164,7 @@ namespace ARM
 			}
             if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
             {
-                using (AddVendor form = new AddVendor(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
+                using (AddVendor form = new AddVendor(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString()))
                 {
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)
@@ -182,7 +181,7 @@ namespace ARM
 
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this User? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
-                        string Query = "DELETE from vendor WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
+                        string Query = "DELETE from vendor WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
                         DBConnect.QueryPostgre(Query);
 
                         Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
@@ -204,7 +203,7 @@ namespace ARM
         {
             if (e.ColumnIndex == 1)
             {
-                using (AddUser form = new AddUser(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString()))
+                using (AddUser form = new AddUser(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString()))
                 {
                     DialogResult dr = form.ShowDialog();
                     if (dr == DialogResult.OK)
@@ -238,7 +237,7 @@ namespace ARM
 			string columnName = dtGrid.Columns[e.ColumnIndex].HeaderText;
 			try
 			{
-				String Query = "UPDATE vendor SET " + columnName + " ='" + dtGrid.Rows[e.RowIndex].Cells[columnName].Value.ToString() + "' WHERE Id = '" + dtGrid.Rows[e.RowIndex].Cells["Id"].Value.ToString() + "'";
+				String Query = "UPDATE vendor SET " + columnName + " ='" + dtGrid.Rows[e.RowIndex].Cells[columnName].Value.ToString() + "' WHERE id = '" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
 				DBConnect.QueryPostgre(Query);
 
 				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
@@ -246,9 +245,9 @@ namespace ARM
 			}
 			catch (Exception c)
 			{
-				MessageBox.Show(c.Message.ToString());
-				Helper.Exceptions(c.Message, "Editing Sales grid");
-				MessageBox.Show("You have an invalid entry !");
+				//MessageBox.Show(c.Message.ToString());
+				Helper.Exceptions(c.Message, "Editing Vendors grid");
+				//MessageBox.Show("You have an invalid entry !");
 			}
 		}
 

@@ -406,12 +406,18 @@ namespace ARM
 
         private void toolStripMenuItem18_Click(object sender, EventArgs e)
         {
-            UserForm frm = new UserForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+			try
+			{
+				UserForm frm = new UserForm();
+				frm.TopLevel = false;
+				panel1.Controls.Add(frm);
+				frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+				frm.Dock = DockStyle.Fill;
+				frm.Show();
+			}
+			catch(Exception m) {
+				Helper.Exceptions(m.Message, "Menu loading of user form ");
+			}
         }
 
         private void button1_Click_1(object sender, EventArgs e)

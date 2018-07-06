@@ -83,7 +83,7 @@ namespace ARM
 			providerIDTxt.Text = Helper.NPI;
 			providerNameTxt.Text = Helper.CompanyName;
 			providerUserTxt.Text = Helper.UserName;
-			providerPhoneTxt.Text = Helper.UserName;
+			providerPhoneTxt.Text = Helper.CompanyContact;
 			UserID = o.UserID;
 
 			try
@@ -183,7 +183,7 @@ namespace ARM
 			providerNameTxt.Text = i.ProvName;
 			providerUserTxt.Text = i.PracName;
 			providerPhoneTxt.Text = i.ProvPhone;
-			additionalTxt.Text = i.Additional;
+			
 			if (i.Mobility == true) { mobYesBn.Checked = true; }
 			if (i.Mobility == false) { mobNoBn.Checked = true; }
 			if (i.Endurance == true) { enduranceBn.Checked = true; }
@@ -214,6 +214,7 @@ namespace ARM
 			signatureTxt.Text = i.PracSign;
 			dateTxt.Text = i.SignDate;
 			phoneTxt.Text = i.PracPhone;
+			additionalTxt.Text = i.Additional;
 
 			try
 			{
@@ -313,7 +314,7 @@ namespace ARM
 
 
 				}
-				Certificate i = new Certificate(id, noTxt.Text, idTxt.Text, patientNameTxt.Text, dobTxt.Text, phoneTxt.Text, providerIDTxt.Text, providerNameTxt.Text, providerPhoneTxt.Text, mobility, endurance, activity, skin, respiration, adl, speech, nutritional, source,weight, height, suitable, dayTxt.Text, practitionerTxt.Text, signatureTxt.Text, dateTxt.Text, pracIDTxt.Text, phoneTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, poTxt.Text, saturationTxt.Text, additionalTxt.Text, face, completedTxt.Text);
+				Certificate i = new Certificate(id, noTxt.Text, idTxt.Text, patientNameTxt.Text, dobTxt.Text, phoneTxt.Text, providerIDTxt.Text, providerNameTxt.Text, providerPhoneTxt.Text, mobility, endurance, activity, skin, respiration, adl, speech, nutritional, source,weight, height, suitable, dayTxt.Text, practitionerTxt.Text, signatureTxt.Text, dateTxt.Text, pracIDTxt.Text, phoneTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, poTxt.Text, saturationTxt.Text, additionalTxt.Text, face, completedTxt.Text,Convert.ToDateTime(dateFaceTxt.Text).ToString("dd-MM-yyyy"));
 				string save = DBConnect.InsertPostgre(i);
 				if (save != "")
 				{
@@ -350,7 +351,7 @@ namespace ARM
 				if (!UserDictionary.ContainsKey(v.Name))
 				{
 					UserDictionary.Add(v.Name, v.Id);
-					userCbx.Items.Add(v.Name);
+					
 
 				}
 			}
@@ -471,8 +472,9 @@ namespace ARM
 			t.Columns.Add("Product");
 			t.Columns.Add("Description");
 			t.Columns.Add("Period");
-			t.Columns.Add("Quantity Ordered/x1 Month*");
-			t.Columns.Add("Frequency of Use*Justification/Comments/Calories Per Day");
+			t.Columns.Add("Qty");
+			t.Columns.Add("instruction");//instruction Frequency of Use*Justification/Comments/Calories Per Day
+			t.Rows.Add(new object[] { "id", "itemID", "HCPCS Code", "Item Ordered", "Description", "Length of Time Needed", "Quantity Ordered/x1 Month*", "Frequency of Use*Justification/Comments/Calories Per Day" });
 			foreach (CaseTransaction j in GenericCollection.caseTransactions)
 			{
 				try
@@ -560,28 +562,7 @@ namespace ARM
 		private void panel2_Paint(object sender, PaintEventArgs e)
 		{
 
-		}
-
-		private void userCbx_SelectedIndexChanged_1(object sender, EventArgs e)
-		{
-			try
-			{
-				UserID = UserDictionary[userCbx.Text];
-				Users c = new Users();//.Select(ItemID);
-				c = Users.Select(UserID);
-				providerUserTxt.Text = c.Name;
-				providerPhoneTxt.Text = c.Contact;
-
-				System.Drawing.Image img = Helper.Base64ToImage(c.Image);
-				System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
-				userPbx.Image = bmp;
-				GraphicsPath gp = new GraphicsPath();
-				gp.AddEllipse(cusPbx.DisplayRectangle);
-				userPbx.Region = new Region(gp);
-				userPbx.SizeMode = PictureBoxSizeMode.StretchImage;
-			}
-			catch { }
-		}
+		}		
 
 		private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
@@ -677,6 +658,32 @@ namespace ARM
 		}
 
 		private void dtGridEquip_CellClick(object sender, DataGridViewCellEventArgs e)
+		{
+			
+		}
+
+		private void dtGridEquip_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+		{
+			string columnName = dtGridEquip.Columns[e.ColumnIndex].HeaderText;
+			try
+			{
+
+				String Query = "UPDATE casetransaction SET " + columnName + " ='" + dtGridEquip.Rows[e.RowIndex].Cells[columnName].Value.ToString() + "' WHERE Id = '" + dtGridEquip.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
+				DBConnect.QueryPostgre(Query);
+				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+				DBConnect.InsertPostgre(q);
+				Helper.Log(Helper.UserName, "Updating equipment information on CMN " + noTxt.Text + "  " + DateTime.Now);
+
+			}
+			catch (Exception c)
+			{
+				//MessageBox.Show(c.Message.ToString());
+				Helper.Exceptions(c.Message, "Editing Equipment data  grid on CMN(Certificate) data " + noTxt.Text);
+				//MessageBox.Show("You have an invalid entry !");
+			}
+		}
+
+		private void dtGrid_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
 			try
 			{

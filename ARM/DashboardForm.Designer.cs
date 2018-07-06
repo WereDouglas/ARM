@@ -72,7 +72,7 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.37931F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.62069F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 566F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 451F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 501F));
 			this.tableLayoutPanel1.Controls.Add(this.panel6, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.reportViewer1, 1, 2);
 			this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
@@ -101,11 +101,11 @@
 			reportDataSource1.Value = this.InvoiceBindingSource;
 			this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
 			this.reportViewer1.LocalReport.ReportEmbeddedResource = "ARM.DashboardReport.rdlc";
-			this.reportViewer1.Location = new System.Drawing.Point(146, 223);
+			this.reportViewer1.Location = new System.Drawing.Point(125, 223);
 			this.reportViewer1.Name = "reportViewer1";
 			this.reportViewer1.ServerReport.BearerToken = null;
 			this.reportViewer1.ShowToolBar = false;
-			this.reportViewer1.Size = new System.Drawing.Size(1215, 406);
+			this.reportViewer1.Size = new System.Drawing.Size(1236, 406);
 			this.reportViewer1.TabIndex = 51;
 			// 
 			// panel6
@@ -116,7 +116,7 @@
 			this.panel6.Location = new System.Drawing.Point(3, 3);
 			this.panel6.Name = "panel6";
 			this.tableLayoutPanel1.SetRowSpan(this.panel6, 3);
-			this.panel6.Size = new System.Drawing.Size(134, 626);
+			this.panel6.Size = new System.Drawing.Size(116, 626);
 			this.panel6.TabIndex = 1;
 			// 
 			// label14
@@ -152,10 +152,10 @@
 			this.panel1.Controls.Add(this.panel3);
 			this.panel1.Controls.Add(this.panel5);
 			this.panel1.Controls.Add(this.panel2);
-			this.panel1.Location = new System.Drawing.Point(146, 3);
+			this.panel1.Location = new System.Drawing.Point(125, 3);
 			this.panel1.Name = "panel1";
 			this.tableLayoutPanel1.SetRowSpan(this.panel1, 2);
-			this.panel1.Size = new System.Drawing.Size(1215, 214);
+			this.panel1.Size = new System.Drawing.Size(1236, 214);
 			this.panel1.TabIndex = 50;
 			// 
 			// panel4

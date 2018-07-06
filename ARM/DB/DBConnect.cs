@@ -794,10 +794,9 @@ namespace ARM.DB
             var answer = DBConnect.scalar(SQL);
             return Convert.ToDouble(answer);
         }
-        public static string value(string table, string value, string column, string variable)
-        {
-            string SQL = "SELECT " + value + " FROM " + table + " WHERE " + column + " = " + variable;
-            var answer = DBConnect.scalar(SQL);
+        public static string value(string Q)
+        {            
+            var answer = DBConnect.scalar(Q);
             return answer;
         }
         public static string scalar(string query)

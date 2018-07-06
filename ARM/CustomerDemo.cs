@@ -111,7 +111,7 @@ namespace ARM
 			string exists = "";
 			try
 			{
-				exists = DBConnect.value("Customer", "no", "no", noTxt.Text);
+				exists = DBConnect.value("SELECT no FROM customers WHERE no  = '" + noTxt.Text + "'");
 			}
 			catch {
 
@@ -616,7 +616,23 @@ namespace ARM
 
 		private void dtGridMed_CellEndEdit(object sender, DataGridViewCellEventArgs e)
 		{
+			string columnName = dtGridMed.Columns[e.ColumnIndex].HeaderText;
+			try
+			{
 
+				String Query = "UPDATE practitioner SET " + columnName + " ='" + dtGridMed.Rows[e.RowIndex].Cells[columnName].Value.ToString() + "' WHERE Id = '" + dtGridMed.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
+				DBConnect.QueryPostgre(Query);
+				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+				DBConnect.InsertPostgre(q);
+				Helper.Log(Helper.UserName, "Updating practitioner " + dtGridMed.Rows[e.RowIndex].Cells["name"].Value.ToString() + "  " + DateTime.Now);
+
+			}
+			catch (Exception c)
+			{
+				//MessageBox.Show(c.Message.ToString());
+				Helper.Exceptions(c.Message, "Editing of practitioners in cell content grid");
+				//MessageBox.Show("You have an invalid entry !");
+			}
 		}
 	}
 }

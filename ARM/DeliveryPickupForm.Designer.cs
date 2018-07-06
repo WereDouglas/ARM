@@ -543,7 +543,7 @@
 			this.panel3.Location = new System.Drawing.Point(114, 3);
 			this.panel3.Name = "panel3";
 			this.tableLayoutPanel2.SetRowSpan(this.panel3, 3);
-			this.panel3.Size = new System.Drawing.Size(577, 74);
+			this.panel3.Size = new System.Drawing.Size(587, 74);
 			this.panel3.TabIndex = 0;
 			// 
 			// physicianTxt
@@ -554,7 +554,7 @@
 			this.physicianTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.physicianTxt.Multiline = true;
 			this.physicianTxt.Name = "physicianTxt";
-			this.physicianTxt.Size = new System.Drawing.Size(492, 70);
+			this.physicianTxt.Size = new System.Drawing.Size(502, 70);
 			this.physicianTxt.TabIndex = 471;
 			// 
 			// userPbx
@@ -617,7 +617,7 @@
 			this.panel2.Location = new System.Drawing.Point(106, 3);
 			this.panel2.Name = "panel2";
 			this.tableLayoutPanel1.SetRowSpan(this.panel2, 4);
-			this.panel2.Size = new System.Drawing.Size(576, 84);
+			this.panel2.Size = new System.Drawing.Size(596, 84);
 			this.panel2.TabIndex = 453;
 			// 
 			// subscriberInfoTxt
@@ -628,7 +628,7 @@
 			this.subscriberInfoTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.subscriberInfoTxt.Multiline = true;
 			this.subscriberInfoTxt.Name = "subscriberInfoTxt";
-			this.subscriberInfoTxt.Size = new System.Drawing.Size(487, 78);
+			this.subscriberInfoTxt.Size = new System.Drawing.Size(507, 78);
 			this.subscriberInfoTxt.TabIndex = 180;
 			// 
 			// cusPbx
