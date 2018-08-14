@@ -17,10 +17,10 @@ namespace ARM.Model
         private string status;
         private string details;
         private string created;
-        private bool sync; private string companyID;
+        private string sync; private string companyID;
         public ItemStatus() { }
 
-        public ItemStatus(string id, string followID, string title, string status, string details, string created, bool sync, string companyID)
+        public ItemStatus(string id, string followID, string title, string status, string details, string created, string sync, string companyID)
         {
             this.Id = id;
             this.FollowID = followID;
@@ -37,7 +37,7 @@ namespace ARM.Model
         public string Status { get => status; set => status = value; }
         public string Details { get => details; set => details = value; }
         public string Created { get => created; set => created = value; }
-        public bool Sync { get => sync; set => sync = value; }
+        public string Sync { get => sync; set => sync = value; }
         public string CompanyID { get => companyID; set => companyID = value; }
         private static List<ItemStatus> p = new List<ItemStatus>();
         public static List<ItemStatus> List(string followID)
@@ -45,13 +45,13 @@ namespace ARM.Model
             p.Clear();
             string Q = "SELECT * FROM ItemStatus WHERE followID = '" + followID + "' ";
             DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                ItemStatus ps = new ItemStatus(Reader["id"].ToString(), Reader["followID"].ToString(), Reader["title"].ToString(), Reader["status"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                ItemStatus ps = new ItemStatus(Reader["id"].ToString(), Reader["followID"].ToString(), Reader["title"].ToString(), Reader["status"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
 
         }
@@ -61,13 +61,13 @@ namespace ARM.Model
             {
                 p.Clear();
                 DBConnect.OpenConn();
-                NpgsqlDataReader Reader = DBConnect.Reading(Q);
+                MySqlDataReader Reader = MySQL.Reading(Q);
                 while (Reader.Read())
                 {
-                    ItemStatus ps = new ItemStatus(Reader["id"].ToString(), Reader["followID"].ToString(), Reader["title"].ToString(), Reader["status"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                    ItemStatus ps = new ItemStatus(Reader["id"].ToString(), Reader["followID"].ToString(), Reader["title"].ToString(), Reader["status"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
-                DBConnect.CloseConn();
+                DBConnect.CloseMySqlConn();
             }
             catch { }
             return p;
@@ -79,10 +79,10 @@ namespace ARM.Model
             {
                 p.Clear();
                 DBConnect.OpenMySqlConn();
-                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+                MySqlDataReader Reader = MySQL.Reading(Q);
                 while (Reader.Read())
                 {
-                    ItemStatus ps = new ItemStatus(Reader["id"].ToString(), Reader["followID"].ToString(), Reader["title"].ToString(), Reader["status"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                    ItemStatus ps = new ItemStatus(Reader["id"].ToString(), Reader["followID"].ToString(), Reader["title"].ToString(), Reader["status"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();

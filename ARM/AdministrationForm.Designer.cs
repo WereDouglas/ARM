@@ -122,7 +122,7 @@
 			this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.ClientSize = new System.Drawing.Size(736, 276);
 			this.Controls.Add(this.panel1);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "AdministrationForm";
 			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;

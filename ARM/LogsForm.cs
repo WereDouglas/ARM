@@ -45,12 +45,12 @@ namespace ARM
             t.Columns.Add("Created");      
            
            
-            string Q = "SELECT * FROM logs WHERE  (created::date >= '" + start + "'::date AND  created::date <= '" + end + "'::date)";
+            string Q = "SELECT * FROM logs WHERE   `created` >= '" + fromDate + "' AND  `created` <= '" + toDate + "'";
             foreach (Logs c in Logs.List(Q))
             {
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, c.Name,c.Actions,c.Sync,c.Created });
+                    t.Rows.Add(new object[] { "false", c.Id, c.Name,c.Actions,c.Sync,c.Created });
 
                 }
                 catch (Exception m)
@@ -121,9 +121,9 @@ namespace ARM
 				foreach (var item in selectedIDs)
 				{
 					string Query = "DELETE from logs WHERE id ='" + item + "'";
-					DBConnect.QueryPostgre(Query);
-					Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-					DBConnect.InsertPostgre(q);
+					MySQL.Query(Query);
+					Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+					MySQL.Insert(q);
 					//MessageBox.Show("Information deleted" + item);
 					Helper.Log(Helper.UserName, "Deleted logs  " + item + "  " + DateTime.Now);
 				}

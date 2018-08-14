@@ -18,11 +18,11 @@ namespace ARM.Model
         private double percentage;
         private double amount;
         private string created;      
-        private bool sync;
+        private string sync;
         private string companyID;
         public ItemCoverage() { }
 
-        public ItemCoverage(string id, string transactionID, string itemID, string coverageID, double percentage, double amount, string created, bool sync, string companyID)
+        public ItemCoverage(string id, string transactionID, string itemID, string coverageID, double percentage, double amount, string created, string sync, string companyID)
         {
             this.Id = id;
             this.CaseTransactionID = transactionID;
@@ -44,7 +44,7 @@ namespace ARM.Model
         public double Percentage { get => percentage; set => percentage = value; }
         public double Amount { get => amount; set => amount = value; }
         public string Created { get => created; set => created = value; }
-        public bool Sync { get => sync; set => sync = value; }
+        public string Sync { get => sync; set => sync = value; }
         public string CompanyID { get => companyID; set => companyID = value; }
 
         public static List<ItemCoverage> List(string itemID,string transactionID)
@@ -52,13 +52,13 @@ namespace ARM.Model
             p.Clear();
             string Q = "SELECT * FROM ItemCoverage WHERE itemID = '"+itemID+"' AND transactionID = '"+transactionID+"' ";
             DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                ItemCoverage ps = new ItemCoverage(Reader["id"].ToString(), Reader["transactionID"].ToString(), Reader["itemID"].ToString(), Reader["coverage"].ToString(),Convert.ToDouble(Reader["percentage"]), Convert.ToDouble(Reader["amount"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                ItemCoverage ps = new ItemCoverage(Reader["id"].ToString(), Reader["transactionID"].ToString(), Reader["itemID"].ToString(), Reader["coverage"].ToString(),Convert.ToDouble(Reader["percentage"]), Convert.ToDouble(Reader["amount"]), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
 
         }
@@ -66,13 +66,13 @@ namespace ARM.Model
         {
             p.Clear();           
             DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                ItemCoverage ps = new ItemCoverage(Reader["id"].ToString(), Reader["transactionID"].ToString(), Reader["itemID"].ToString(), Reader["coverage"].ToString(), Convert.ToDouble(Reader["percentage"]), Convert.ToDouble(Reader["amount"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                ItemCoverage ps = new ItemCoverage(Reader["id"].ToString(), Reader["transactionID"].ToString(), Reader["itemID"].ToString(), Reader["coverage"].ToString(), Convert.ToDouble(Reader["percentage"]), Convert.ToDouble(Reader["amount"]), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
 
         }
@@ -82,10 +82,10 @@ namespace ARM.Model
             {
                 p.Clear();
                 DBConnect.OpenMySqlConn();
-                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+                MySqlDataReader Reader = MySQL.Reading(Q);
                 while (Reader.Read())
                 {
-                    ItemCoverage ps = new ItemCoverage(Reader["id"].ToString(), Reader["transactionID"].ToString(), Reader["itemID"].ToString(), Reader["coverage"].ToString(), Convert.ToDouble(Reader["percentage"]), Convert.ToDouble(Reader["amount"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                    ItemCoverage ps = new ItemCoverage(Reader["id"].ToString(), Reader["transactionID"].ToString(), Reader["itemID"].ToString(), Reader["coverage"].ToString(), Convert.ToDouble(Reader["percentage"]), Convert.ToDouble(Reader["amount"]), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
@@ -99,13 +99,13 @@ namespace ARM.Model
             p.Clear();
              
             DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                ItemCoverage ps = new ItemCoverage(Reader["id"].ToString(), Reader["transactionID"].ToString(), Reader["itemID"].ToString(), Reader["coverage"].ToString(), Convert.ToDouble(Reader["percentage"]), Convert.ToDouble(Reader["amount"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                ItemCoverage ps = new ItemCoverage(Reader["id"].ToString(), Reader["transactionID"].ToString(), Reader["itemID"].ToString(), Reader["coverage"].ToString(), Convert.ToDouble(Reader["percentage"]), Convert.ToDouble(Reader["amount"]), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
 
         }

@@ -137,7 +137,7 @@ namespace ARM
                 foreach (var item in selectedIDs)
                 {
                     string Query = "DELETE from users WHERE id ='" + item + "'";
-                    DBConnect.QueryPostgre(Query);
+                    MySQL.Query(Query);
                     //  MessageBox.Show("Information deleted");
                 }
             }
@@ -319,30 +319,30 @@ namespace ARM
             methodCbx.Text = string.IsNullOrEmpty(methodCbx.Text) ? "none" : "none";
           
             string Iid = Guid.NewGuid().ToString();
-            Invoice i = new Invoice(Iid, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, typeCbx.Text, categoryCbx.Text, VendorID, CustomerID, methodCbx.Text, Total, termsTxt.Text, Convert.ToDouble(taxTxt.Text), Convert.ToDouble(amountTxt.Text), Convert.ToDouble(balanceTxt.Text), Convert.ToDouble(amountTxt.Text), Convert.ToInt32(ItemCountTxt.Text), Helper.UserID, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false,Helper.CompanyID);
-            string save = DBConnect.InsertPostgre(i);
+            Invoice i = new Invoice(Iid, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, typeCbx.Text, categoryCbx.Text, VendorID, CustomerID, methodCbx.Text, Total, termsTxt.Text, Convert.ToDouble(taxTxt.Text), Convert.ToDouble(amountTxt.Text), Convert.ToDouble(balanceTxt.Text), Convert.ToDouble(amountTxt.Text), Convert.ToInt32(ItemCountTxt.Text), Helper.UserID, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),"false",Helper.CompanyID);
+            string save = MySQL.Insert(i);
             if (save != "")
             {
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                DBConnect.InsertPostgre(q);
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                MySQL.Insert(q);
                 foreach (CaseTransaction t in GenericCollection.caseTransactions)
                 {
-                    CaseTransaction c = new CaseTransaction(t.Id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID,"","",t.Qty,t.Cost,t.Units,t.Total,t.Tax,t.Coverage,t.Self,t.Payable,t.Limits,t.Setting,t.Period,t.Height,t.Weight,t.Instruction,t.Created,false,Helper.CompanyID);
-                    string saves = DBConnect.InsertPostgre(c);
+                    CaseTransaction c = new CaseTransaction(t.Id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID,"","",t.Qty,t.Cost,t.Units,t.Total,t.Tax,t.Coverage,t.Self,t.Payable,t.Limits,t.Setting,t.Period,t.Height,t.Weight,t.Instruction,t.Created,"false",Helper.CompanyID);
+                    string saves = MySQL.Insert(c);
                     if (saves != "")
                     {
-                        Queries qe = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(saves), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                        DBConnect.InsertPostgre(qe);
+                        Queries qe = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(saves), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        MySQL.Insert(qe);
                     }
                 }
 
                 string Pid = Guid.NewGuid().ToString();
-                Payment p = new Payment(Pid, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, typeCbx.Text, methodCbx.Text, Convert.ToDouble(amountTxt.Text), Convert.ToDouble(balanceTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false,Helper.CompanyID);
-                string saved = DBConnect.InsertPostgre(p);
+                Payment p = new Payment(Pid, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, typeCbx.Text, methodCbx.Text, Convert.ToDouble(amountTxt.Text), Convert.ToDouble(balanceTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"),"false",Helper.CompanyID);
+                string saved = MySQL.Insert(p);
                 if (saved != "")
                 {
-                    Queries qr = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(saved), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                    DBConnect.InsertPostgre(qr);
+                    Queries qr = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(saved), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    MySQL.Insert(qr);
                 }               
             }
             using (ReceiptForm form = new ReceiptForm(noTxt.Text))

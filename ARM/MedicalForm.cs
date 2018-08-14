@@ -2,6 +2,7 @@
 using ARM.Model;
 using ARM.Sync;
 using ARM.Util;
+using MySql.Data.MySqlClient;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -467,8 +468,8 @@ namespace ARM
 
 
             string query = "SELECT table_name  FROM information_schema.tables WHERE table_schema = 'public'  AND table_type = 'BASE TABLE'";
-            NpgsqlCommand cmd = new NpgsqlCommand(query, DBConnect.conn);
-            NpgsqlDataReader Reader;
+			MySqlCommand cmd = new MySqlCommand(query, MySQL.Conn);
+			MySqlDataReader Reader;
             Reader = cmd.ExecuteReader();
 
             while (Reader.Read())
@@ -477,16 +478,16 @@ namespace ARM
 
                 tables.Add(Reader["table_name"].ToString());
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
 
             foreach (var p in tables)
             {
 
                 string Query = "UPDATE " + p + " SET sync ='false'";
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(query), false, DateTime.Now.Date.ToString("dd-MM-yyyy"), Helper.CompanyName);
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(query), "false", DateTime.Now.Date.ToString("dd-MM-yyyy"), Helper.CompanyName);
 
-                DBConnect.InsertPostgre(q);
-                //  DBConnect.QueryPostgre(Query);
+                MySQL.Insert(q);
+                //  MySQL.Query(Query);
             }
         }
 
@@ -510,7 +511,7 @@ namespace ARM
 
 		private void instructionDeliveryToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			InstructionDeliveryForm f = new InstructionDeliveryForm(null,null);
+			InstructionDeliveryForm f = new InstructionDeliveryForm(null);
 			f.Show();
 		}
 
@@ -555,6 +556,16 @@ namespace ARM
 		{
 			OrderIntakeForm f = new OrderIntakeForm(null);
 			f.Show();
+		}
+
+		private void cMNToolStripMenuItem1_Click(object sender, EventArgs e)
+		{
+			CertificateForm frm = new CertificateForm();
+			frm.TopLevel = false;
+			panel1.Controls.Add(frm);
+			frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			frm.Dock = DockStyle.Fill;
+			frm.Show();
 		}
 	}
 }

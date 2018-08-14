@@ -21,16 +21,17 @@ namespace ARM.DB
         //http://4bea510b.ngork.io
         //  public static NpgsqlConnection conn = new NpgsqlConnection("Server=10.0.0.3;Port=5432;User Id=postgres;Password=Admin;Database=arm;");
       //  public static string port 
-        public static NpgsqlConnection conn = new NpgsqlConnection("Server=" + Helper.serverIP + ";Port=" + Helper.port + ";User Id=postgres;Password=Admin;Database=arm;");
+       // public static NpgsqlConnection conn = new NpgsqlConnection("Server=" + Helper.serverIP + ";Port=" + Helper.port + ";User Id=postgres;Password=Admin;Database=arm;");
         static NpgsqlDataReader Readers = null;
         static NpgsqlCommand cmd = null;
         //public static MySqlConnection MySqlConn = new MySqlConnection("Server=10.0.0.251;Database=arm;UID=admin;Password=Admin");
-         public static MySqlConnection MySqlConn = new MySqlConnection("Server=novariss.com;Database=novaris2_arm;UID=novaris2_arm;;Password=Arm.2018");
+         public static MySqlConnection MySqlConn = new MySqlConnection("Server=novariss.com;Database=novaris2_arm;UID=novaris2_arm;Password=Arm.2018");
         static MySqlDataReader ReadersMySql = null;
         static MySqlCommand cmdMySql = null;
-
-        //public static MySqlConnection MySQLconn = new MySqlConnection("Server=localhost;Database=arm;UID=root;Password=Admin");
-        public static bool OpenConn()
+		public static NpgsqlConnection conn = new NpgsqlConnection("Server=omnierps.com;Port=5432;User Id=omnierps_admin;Password=Omni.2018;Database=omnierps_arm;");
+			
+		//public static MySqlConnection MySQLconn = new MySqlConnection("Server=localhost;Database=arm;UID=root;Password=Admin");
+		public static bool OpenConn()
         {
             bool ans = false;
             try
@@ -73,7 +74,9 @@ namespace ARM.DB
             {
                 System.Diagnostics.Debug.WriteLine("Error :Opening MySQL Connection" + exp);
                 ans = false;
-            }
+				CloseMySqlConn();
+
+			}
             return ans;
         }
         public static bool CloseMySqlConn()
@@ -105,7 +108,7 @@ namespace ARM.DB
             }
             catch (Exception c)
             {
-				DBConnect.CloseConn();
+				DBConnect.CloseMySqlConn();
 				//throw;// (c.Message.ToString());
 			}
             return Readers;
@@ -117,11 +120,15 @@ namespace ARM.DB
             {
                 ReadersMySql = null;
                 DBConnect.OpenMySqlConn();
-                cmdMySql = new MySqlCommand(query, DBConnect.MySqlConn);
-                Readers = cmd.ExecuteReader();
+                cmdMySql = new MySqlCommand(query, MySQL.Conn);
+				ReadersMySql = cmdMySql.ExecuteReader();
 
             }
-            catch { }
+            catch(Exception p) {
+
+
+				Console.WriteLine("Reading MySql error "+ p);
+			}
             return ReadersMySql;
 
         }
@@ -790,7 +797,7 @@ namespace ARM.DB
         }
         public static double Max(string SQL)
         {
-            //string SQL = "SELECT MAX(CAST(no AS DOUBLE PRECISION)) FROM rent";
+          
             var answer = DBConnect.scalar(SQL);
             return Convert.ToDouble(answer);
         }
@@ -801,9 +808,9 @@ namespace ARM.DB
         }
         public static string scalar(string query)
         {
-            OpenConn();
-            cmd = new NpgsqlCommand(query, DBConnect.conn);
-            object results = cmd.ExecuteScalar();
+            OpenMySqlConn();
+			cmdMySql = new MySqlCommand(query, MySQL.Conn);
+            object results = cmdMySql.ExecuteScalar();
             CloseConn();
             return results.ToString();
         }

@@ -20,7 +20,7 @@ namespace ARM
         public CareForm()
         {
             InitializeComponent();
-            LoadData();
+          
 
         }
         List<Responsible> invoices = new List<Responsible>();
@@ -34,11 +34,11 @@ namespace ARM
             t.Columns.Add("id");
             t.Columns.Add("uriCus");
             t.Columns.Add(new DataColumn("ImgCus", typeof(Bitmap))); 
-            t.Columns.Add("Customer");
+            t.Columns.Add("Patient");
             t.Columns.Add("uriUs");
             t.Columns.Add(new DataColumn("ImgUs", typeof(Bitmap)));
             t.Columns.Add("User");           
-            t.Columns.Add("Sync");
+        
             t.Columns.Add("Created");           
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));          
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
@@ -58,13 +58,13 @@ namespace ARM
                 string cus = "";
                 string imageCus = "";
                 string imageUs = "";
-                try { user = Users.Select(c.UserID).Name; } catch { }
-                try { imageUs = Users.Select(c.UserID).Image; } catch { }
-                try { cus = Customer.Select(c.CustomerID).Name; } catch { }
-                try { imageCus = Customer.Select(c.CustomerID).Image; } catch { }
+                try { user = GenericCollection.users.Where(r => r.Id == c.UserID).First().Name; } catch { }
+                try { imageUs = GenericCollection.users.Where(r => r.Id == c.UserID).First().Image; } catch { }
+                try { cus = GenericCollection.customers.Where(r => r.Id == c.CustomerID).First().Name; } catch { }
+                try { imageCus = GenericCollection.customers.Where(r => r.Id == c.CustomerID).First().Image; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, imageCus as string, b, cus, imageUs as string, b2, user, c.Sync, c.Created, delete });
+                    t.Rows.Add(new object[] { "false", c.Id, imageCus as string, b, cus, imageUs as string, b2, user, c.Created, delete });
 
                 }
                 catch (Exception m)
@@ -153,9 +153,8 @@ namespace ARM
                 foreach (var item in selectedIDs)
                 {
                     string Query = "DELETE from responsible WHERE id ='" + item + "'";
-                    DBConnect.QueryPostgre(Query);
-                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                    DBConnect.InsertPostgre(q);
+                    MySQL.Query(Query);
+                   
 					Helper.Log(Helper.UserName, "Deletion of care information " + item + "  " + DateTime.Now);
 
 				}
@@ -188,11 +187,7 @@ namespace ARM
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this information ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         string Query = "DELETE from responsible WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
-                        DBConnect.QueryPostgre(Query);
-
-
-                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                        DBConnect.InsertPostgre(q);
+                        MySQL.Query(Query);                       
                         MessageBox.Show("Information deleted");
                         LoadData();
 
@@ -212,7 +207,7 @@ namespace ARM
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             string Query = "UPDATE responsible SET sync ='false'";
-            DBConnect.QueryPostgre(Query);
+            MySQL.Query(Query);
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
@@ -246,6 +241,23 @@ namespace ARM
 			{
 				row.Cells["select"].Value = false;
 				selectedIDs.Remove(row.Cells["id"].Value.ToString());
+			}
+		}
+
+		private void CareForm_Load(object sender, EventArgs e)
+		{
+			LoadData();
+		}
+
+		private void toolStripButton4_Click_1(object sender, EventArgs e)
+		{
+			using (CareDialog form = new CareDialog(null))
+			{
+				DialogResult dr = form.ShowDialog();
+				if (dr == DialogResult.OK)
+				{
+					LoadData();
+				}
 			}
 		}
 	}

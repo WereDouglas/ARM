@@ -18,12 +18,12 @@ namespace ARM.Model
         private string category;//state ,federal,private
         private string no;       
         private string created;
-        private bool sync;
+        private string sync;
         private string companyID;
 		private string expires;
 		public Coverage() { }
 
-        public Coverage(string id, string customerID, string name, string type, string category, string no, string created, bool sync, string companyID, string expires)
+        public Coverage(string id, string customerID, string name, string type, string category, string no, string created, string sync, string companyID, string expires)
 		{
             this.Id = id;
             this.CustomerID = customerID;
@@ -45,51 +45,39 @@ namespace ARM.Model
         {
             p.Clear();
             string Q = "SELECT * FROM coverage ";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+           
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Coverage ps = new Coverage(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["expires"].ToString());
+                Coverage ps = new Coverage(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), Reader["expires"].ToString());
 				p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
 
         }
-        public static List<Coverage> List(string Q)
+		static MySqlDataReader Reader;
+		public static List<Coverage> List(string Q)
         {
-            try
-            {
-                p.Clear();
-                DBConnect.OpenConn();
-                NpgsqlDataReader Reader = DBConnect.Reading(Q);
-                while (Reader.Read())
-                {
-                    Coverage ps = new Coverage(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["expires"].ToString());
-					p.Add(ps);
-                }
-                DBConnect.CloseConn();
-            }
-            catch { }
-            return p;
+     //       try
+     //       {
+     //           p.Clear();
+               
+     //           MySqlDataReader Reader = MySQL.Reading(Q);
+     //           while (Reader.Read())
+     //           {
+     //               Coverage ps = new Coverage(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), Reader["expires"].ToString());
+					//p.Add(ps);
+     //           }
+     //           DBConnect.CloseMySqlConn();
+     //       }
+     //       catch { }
+
+			Reader = MySQL.Reading(Q);
+			p = MySQL.DataReaderMapToList<Coverage>(Reader);
+			return p;
         }
-        public static List<Coverage> ListOnline(string Q)
-        {
-            try
-            {
-                p.Clear();
-                DBConnect.OpenMySqlConn();
-                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
-                while (Reader.Read())
-                {
-                    Coverage ps = new Coverage(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["expires"].ToString());
-					p.Add(ps);
-                }
-                DBConnect.CloseMySqlConn();
-            }
-            catch { }
-            return p;
-        }
+       
         static List<Coverage> c = new List<Coverage>();
 
         public string Id { get => id; set => id = value; }
@@ -99,7 +87,7 @@ namespace ARM.Model
         public string Category { get => category; set => category = value; }
         public string No { get => no; set => no = value; }
         public string Created { get => created; set => created = value; }
-        public bool Sync { get => sync; set => sync = value; }
+        public string Sync { get => sync; set => sync = value; }
         public string CompanyID { get => companyID; set => companyID = value; }
 		public string Expires { get => expires; set => expires = value; }
 
@@ -107,16 +95,29 @@ namespace ARM.Model
         public static Coverage Select(string id)
         {
             string Q = "SELECT * FROM coverage WHERE id = '" + id + "'";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+           
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                k = new Coverage(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["expires"].ToString());
+                k = new Coverage(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), Reader["expires"].ToString());
 			}
-			DBConnect.CloseConn();
+			DBConnect.CloseMySqlConn();
             return k;
 
         }
-    }
+		public static Coverage SelectType(string customerID,string type)
+		{
+			string Q = "SELECT * FROM coverage WHERE type = '" + type + "' AND customerid = '"+customerID+"'";
+			
+			MySqlDataReader Reader = MySQL.Reading(Q);
+			while (Reader.Read())
+			{
+				k = new Coverage(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), Reader["expires"].ToString());
+			}
+			DBConnect.CloseMySqlConn();
+			return k;
+
+		}
+	}
 
 }

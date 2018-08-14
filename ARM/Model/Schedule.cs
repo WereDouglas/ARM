@@ -26,14 +26,14 @@ namespace ARM.Model
         private string status;
         private double cost;
         private string created;
-        private bool sync;
+        private string sync;
         private string companyID;
         private int week;
 
 
         public Schedule() { }
 
-        public Schedule(string id, string date, string customerID, string userID, string starts, string ends, string location, string address, string details, string indicator, string period, string category, string status, double cost, string created, bool sync, string companyID, int week)
+        public Schedule(string id, string date, string customerID, string userID, string starts, string ends, string location, string address, string details, string indicator, string period, string category, string status, double cost, string created, string sync, string companyID, int week)
         {
             this.Id = id;
             this.Date = date;
@@ -71,7 +71,7 @@ namespace ARM.Model
         public string Status { get => status; set => status = value; }
         public double Cost { get => cost; set => cost = value; }
         public string Created { get => created; set => created = value; }
-        public bool Sync { get => sync; set => sync = value; }
+        public string Sync { get => sync; set => sync = value; }
         public string CompanyID { get => companyID; set => companyID = value; }
         public int Week { get => week; set => week = value; }
 
@@ -79,36 +79,34 @@ namespace ARM.Model
         public static List<Schedule> List()
         {
             p.Clear();
-            string Q = "SELECT * FROM Schedule ";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
-            while (Reader.Read())
+            string Q = "SELECT * FROM schedule ";
+			MySqlDataReader Reader = MySQL.Reading(Q);
+			while (Reader.Read())
             {
                 int week = 0;
                 try { week = Convert.ToInt32(Reader["week"]); }
                 catch  {  }
-                Schedule ps = new Schedule(Reader["id"].ToString(), Reader["date"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["starts"].ToString(), Reader["ends"].ToString(), Reader["location"].ToString(), Reader["address"].ToString(), Reader["details"].ToString(), Reader["indicator"].ToString(), Reader["period"].ToString(), Reader["category"].ToString(), Reader["status"].ToString(), Convert.ToDouble(Reader["cost"].ToString()), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), week);
+                Schedule ps = new Schedule(Reader["id"].ToString(), Reader["date"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["starts"].ToString(), Reader["ends"].ToString(), Reader["location"].ToString(), Reader["address"].ToString(), Reader["details"].ToString(), Reader["indicator"].ToString(), Reader["period"].ToString(), Reader["category"].ToString(), Reader["status"].ToString(), Convert.ToDouble(Reader["cost"].ToString()), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), week);
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
-            return p;
+			DBConnect.CloseMySqlConn();
+			return p;
 
         }
         public static List<Schedule> List(string Q)
         {
             p.Clear();
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
-            while (Reader.Read())
+			MySqlDataReader Reader = MySQL.Reading(Q);
+			while (Reader.Read())
             {
                 int week = 0;
                 try { week = Convert.ToInt32(Reader["week"]); }
                 catch { }
-                Schedule ps = new Schedule(Reader["id"].ToString(), Reader["date"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["starts"].ToString(), Reader["ends"].ToString(), Reader["location"].ToString(), Reader["address"].ToString(), Reader["details"].ToString(), Reader["indicator"].ToString(), Reader["period"].ToString(), Reader["category"].ToString(), Reader["status"].ToString(), Convert.ToDouble(Reader["cost"].ToString()), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), week);
+                Schedule ps = new Schedule(Reader["id"].ToString(), Reader["date"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["starts"].ToString(), Reader["ends"].ToString(), Reader["location"].ToString(), Reader["address"].ToString(), Reader["details"].ToString(), Reader["indicator"].ToString(), Reader["period"].ToString(), Reader["category"].ToString(), Reader["status"].ToString(), Convert.ToDouble(Reader["cost"].ToString()), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), week);
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
-            return p;
+			DBConnect.CloseMySqlConn();
+			return p;
 
         }
         public static List<Schedule> ListOnline(string Q)
@@ -117,14 +115,14 @@ namespace ARM.Model
             {
 
                 p.Clear();
-                DBConnect.OpenMySqlConn();
-                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+               
+                MySqlDataReader Reader = MySQL.Reading(Q);
                 while (Reader.Read())
                 {
                     int week = 0;
                     try { week = Convert.ToInt32(Reader["week"]); }
                     catch { }
-                    Schedule ps = new Schedule(Reader["id"].ToString(), Reader["date"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["starts"].ToString(), Reader["ends"].ToString(), Reader["location"].ToString(), Reader["address"].ToString(), Reader["details"].ToString(), Reader["indicator"].ToString(), Reader["period"].ToString(), Reader["category"].ToString(), Reader["status"].ToString(), Convert.ToDouble(Reader["cost"].ToString()), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), week);
+                    Schedule ps = new Schedule(Reader["id"].ToString(), Reader["date"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["starts"].ToString(), Reader["ends"].ToString(), Reader["location"].ToString(), Reader["address"].ToString(), Reader["details"].ToString(), Reader["indicator"].ToString(), Reader["period"].ToString(), Reader["category"].ToString(), Reader["status"].ToString(), Convert.ToDouble(Reader["cost"].ToString()), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), week);
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
@@ -137,18 +135,17 @@ namespace ARM.Model
         public static Schedule Select(string vID)
         {
             string Q = "SELECT * FROM schedule WHERE id = '" + vID + "'";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
-            while (Reader.Read())
+			MySqlDataReader Reader = MySQL.Reading(Q);
+			while (Reader.Read())
             {
                 int week = 0;
                 try { week = Convert.ToInt32(Reader["week"]); }
                 catch { }
-                c = new Schedule(Reader["id"].ToString(), Reader["date"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["starts"].ToString(), Reader["ends"].ToString(), Reader["location"].ToString(), Reader["address"].ToString(), Reader["details"].ToString(), Reader["indicator"].ToString(), Reader["period"].ToString(), Reader["category"].ToString(), Reader["status"].ToString(), Convert.ToDouble(Reader["cost"].ToString()), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), week);
+                c = new Schedule(Reader["id"].ToString(), Reader["date"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["starts"].ToString(), Reader["ends"].ToString(), Reader["location"].ToString(), Reader["address"].ToString(), Reader["details"].ToString(), Reader["indicator"].ToString(), Reader["period"].ToString(), Reader["category"].ToString(), Reader["status"].ToString(), Convert.ToDouble(Reader["cost"].ToString()), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), week);
 
             }
-            DBConnect.CloseConn();
-            return c;
+			DBConnect.CloseMySqlConn();
+			return c;
 
         }
         public static bool Exists(string start, string end, string userID)
@@ -156,18 +153,17 @@ namespace ARM.Model
 
             p.Clear();
             string Q = "SELECT * FROM schedule WHERE starts = '" + start + "' AND ends ='" + end + "' AND userID = '" + userID + "' ";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
-            while (Reader.Read())
+			MySqlDataReader Reader = MySQL.Reading(Q);
+			while (Reader.Read())
             {
                 int week = 0;
                 try { week = Convert.ToInt32(Reader["week"]); }
                 catch { }
-                Schedule ps = new Schedule(Reader["id"].ToString(), Reader["date"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["starts"].ToString(), Reader["ends"].ToString(), Reader["location"].ToString(), Reader["address"].ToString(), Reader["details"].ToString(), Reader["indicator"].ToString(), Reader["period"].ToString(), Reader["category"].ToString(), Reader["status"].ToString(), Convert.ToDouble(Reader["cost"].ToString()), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), week);
+                Schedule ps = new Schedule(Reader["id"].ToString(), Reader["date"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["starts"].ToString(), Reader["ends"].ToString(), Reader["location"].ToString(), Reader["address"].ToString(), Reader["details"].ToString(), Reader["indicator"].ToString(), Reader["period"].ToString(), Reader["category"].ToString(), Reader["status"].ToString(), Convert.ToDouble(Reader["cost"].ToString()), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), week);
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
-            if (p.Count > 0)
+			DBConnect.CloseMySqlConn();
+			if (p.Count > 0)
             {
                 return true;
 

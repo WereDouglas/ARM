@@ -101,12 +101,12 @@ namespace ARM
 				else
 				{
 
-					_event = new Schedule(m.Id,Convert.ToDateTime(m.Date).ToString("yyyy-MM-dd"),m.CustomerID, m.UserID, m.Starts, m.Ends, m.Location, m.Address, Helper.CleanString(m.Details),m.Indicator, m.Period,m.Category,m.Status, Convert.ToDouble(m.Cost), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false, Helper.CompanyID, Week);
-					string save = DBConnect.InsertPostgre(_event);
+					_event = new Schedule(m.Id,Convert.ToDateTime(m.Date).ToString("yyyy-MM-dd"),m.CustomerID, m.UserID, m.Starts, m.Ends, m.Location, m.Address, Helper.CleanString(m.Details),m.Indicator, m.Period,m.Category,m.Status, Convert.ToDouble(m.Cost), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), "false", Helper.CompanyID, Week);
+					string save = MySQL.Insert(_event);
 					if (!string.IsNullOrEmpty(save))
 					{
-						Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-						DBConnect.InsertPostgre(q);
+						Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+						MySQL.Insert(q);
 					}
 				}
 
@@ -125,7 +125,7 @@ namespace ARM
 
 			//MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
 			//string fullimage = Helper.ImageToBase64(stream);
-			//Item c = new Item(itemID, nameTxt.Text, categoryCbx.Text, typeCbx.Text, descriptionxt.Text, costTxt.Text, batchTxt.Text, serialTxt.Text, barTxt.Text, unitTxt.Text, unitDescTxt.Text, manuTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, fullimage);
+			//Item c = new Item(itemID, nameTxt.Text, categoryCbx.Text, typeCbx.Text, descriptionxt.Text, costTxt.Text, batchTxt.Text, serialTxt.Text, barTxt.Text, unitTxt.Text, unitDescTxt.Text, manuTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), "false", fullimage);
 			//DBConnect.Update(c, itemID);
 			//MessageBox.Show("Information Updated");
 			//this.DialogResult = DialogResult.OK;
@@ -291,7 +291,7 @@ namespace ARM
 				moncostLbl.Text = Cost(rateTxt.Text, monhrsLbl.Text).ToString();
 
 				string id = Guid.NewGuid().ToString();
-				_event = new Schedule(id, Convert.ToDateTime(monDateLbl.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, startP, endP, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), "", monhrsLbl.Text, "", "Pending", Convert.ToDouble(moncostLbl.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false, Helper.CompanyID, Week);
+				_event = new Schedule(id, Convert.ToDateTime(monDateLbl.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, startP, endP, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), "", monhrsLbl.Text, "", "Pending", Convert.ToDouble(moncostLbl.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), "false", Helper.CompanyID, Week);
 
 				if (ScheduleList.FindIndex(f => f.Date == Convert.ToDateTime(monDateLbl.Text).ToString("yyyy-MM-dd")) <= 0)
 				{
@@ -345,7 +345,7 @@ namespace ARM
 				tueCost.Text = Cost(rateTxt.Text, tueHrs.Text).ToString();
 
 				string id = Guid.NewGuid().ToString();
-				_event = new Schedule(id, Convert.ToDateTime(tueDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, startP, endP, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), "", tueHrs.Text, "", "Pending", Convert.ToDouble(tueCost.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false, Helper.CompanyID, Week);
+				_event = new Schedule(id, Convert.ToDateTime(tueDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, startP, endP, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), "", tueHrs.Text, "", "Pending", Convert.ToDouble(tueCost.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), "false", Helper.CompanyID, Week);
 
 				if (ScheduleList.FindIndex(f => f.Date == Convert.ToDateTime(tueDate.Text).ToString("yyyy-MM-dd")) <= 0)
 				{
@@ -381,7 +381,7 @@ namespace ARM
 				wedCost.Text = Cost(rateTxt.Text, wedHrs.Text).ToString();
 
 				string id = Guid.NewGuid().ToString();
-				_event = new Schedule(id, Convert.ToDateTime(wedDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, startP, endP, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), "", wedHrs.Text, "", "Pending", Convert.ToDouble(wedCost.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false, Helper.CompanyID, Week);
+				_event = new Schedule(id, Convert.ToDateTime(wedDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, startP, endP, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), "", wedHrs.Text, "", "Pending", Convert.ToDouble(wedCost.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), "false", Helper.CompanyID, Week);
 
 				if (ScheduleList.FindIndex(f => f.Date == Convert.ToDateTime(wedDate.Text).ToString("yyyy-MM-dd")) <= 0)
 				{
@@ -416,7 +416,7 @@ namespace ARM
 				thuCost.Text = Cost(rateTxt.Text, thuHrs.Text).ToString();
 
 				string id = Guid.NewGuid().ToString();
-				_event = new Schedule(id, Convert.ToDateTime(thuDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, startP, endP, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), "", thuHrs.Text, "", "Pending", Convert.ToDouble(thuCost.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false, Helper.CompanyID, Week);
+				_event = new Schedule(id, Convert.ToDateTime(thuDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, startP, endP, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), "", thuHrs.Text, "", "Pending", Convert.ToDouble(thuCost.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), "false", Helper.CompanyID, Week);
 
 				if (ScheduleList.FindIndex(f => f.Date == Convert.ToDateTime(thuDate.Text).ToString("yyyy-MM-dd")) <= 0)
 				{
@@ -451,7 +451,7 @@ namespace ARM
 				friCost.Text = Cost(rateTxt.Text, friHrs.Text).ToString();
 
 				string id = Guid.NewGuid().ToString();
-				_event = new Schedule(id, Convert.ToDateTime(friDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, startP, endP, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), "", friHrs.Text, "", "Pending", Convert.ToDouble(friCost.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false, Helper.CompanyID, Week);
+				_event = new Schedule(id, Convert.ToDateTime(friDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, startP, endP, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), "", friHrs.Text, "", "Pending", Convert.ToDouble(friCost.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), "false", Helper.CompanyID, Week);
 
 				if (ScheduleList.FindIndex(f => f.Date == Convert.ToDateTime(friDate.Text).ToString("yyyy-MM-dd")) <= 0)
 				{
@@ -486,7 +486,7 @@ namespace ARM
 				satCost.Text = Cost(rateTxt.Text, satHrs.Text).ToString();
 
 				string id = Guid.NewGuid().ToString();
-				_event = new Schedule(id, Convert.ToDateTime(satDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, startP, endP, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), "", satHrs.Text, "", "Pending", Convert.ToDouble(satCost.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false, Helper.CompanyID, Week);
+				_event = new Schedule(id, Convert.ToDateTime(satDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, startP, endP, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), "", satHrs.Text, "", "Pending", Convert.ToDouble(satCost.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), "false", Helper.CompanyID, Week);
 
 				if (ScheduleList.FindIndex(f => f.Date == Convert.ToDateTime(satDate.Text).ToString("yyyy-MM-dd")) <= 0)
 				{
@@ -522,7 +522,7 @@ namespace ARM
 				sunCost.Text = Cost(rateTxt.Text, sunHrs.Text).ToString();
 
 				string id = Guid.NewGuid().ToString();
-				_event = new Schedule(id, Convert.ToDateTime(sunDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, startP, endP, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), "", sunHrs.Text, "", "Pending", Convert.ToDouble(sunCost.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), false, Helper.CompanyID, Week);
+				_event = new Schedule(id, Convert.ToDateTime(sunDate.Text).ToString("yyyy-MM-dd"), CustomerID, UserID, startP, endP, locationTxt.Text, locationTxt.Text, Helper.CleanString(this.detailsTxt.Text), "", sunHrs.Text, "", "Pending", Convert.ToDouble(sunCost.Text), DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), "false", Helper.CompanyID, Week);
 
 				if (ScheduleList.FindIndex(f => f.Date == Convert.ToDateTime(sunDate.Text).ToString("yyyy-MM-dd")) <= 0)
 				{

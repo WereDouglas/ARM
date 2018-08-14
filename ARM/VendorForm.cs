@@ -62,7 +62,7 @@ namespace ARM
             {
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, c.Image as string, b,c.No, c.Name,c.Email,c.Contact, c.Address, c.City, c.State, c.Zip,c.Category, c.Sync, c.Created, view, delete });
+                    t.Rows.Add(new object[] { "false", c.Id, c.Image as string, b,c.No, c.Name,c.Email,c.Contact, c.Address, c.City, c.State, c.Zip,c.Category, c.Sync, c.Created, view, delete });
 
                 }
                 catch (Exception m)
@@ -135,9 +135,9 @@ namespace ARM
                 foreach (var item in selectedIDs)
                 {
                     string Query = "DELETE from vendor WHERE id ='" + item + "'";
-                    DBConnect.QueryPostgre(Query);
-                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                    DBConnect.InsertPostgre(q);
+                    MySQL.Query(Query);
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(MySQL.Insert(Query)), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    MySQL.Insert(q);
 					//  MessageBox.Show("Information deleted");
 					Helper.Log(Helper.UserName, "Deleted vendor ids  " + item + "  " + DateTime.Now);
 					
@@ -182,10 +182,10 @@ namespace ARM
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this User? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         string Query = "DELETE from vendor WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
-                        DBConnect.QueryPostgre(Query);
+                        MySQL.Query(Query);
 
-                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                        DBConnect.InsertPostgre(q);
+                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(MySQL.Insert(Query)), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        MySQL.Insert(q);
                         MessageBox.Show("Information deleted");
 						Helper.Log(Helper.UserName, "Deleted vendor" + dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + "  " + DateTime.Now);
 
@@ -217,7 +217,7 @@ namespace ARM
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             string Query = "UPDATE vendor SET sync ='false'";
-            DBConnect.QueryPostgre(Query);
+            MySQL.Query(Query);
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -238,10 +238,10 @@ namespace ARM
 			try
 			{
 				String Query = "UPDATE vendor SET " + columnName + " ='" + dtGrid.Rows[e.RowIndex].Cells[columnName].Value.ToString() + "' WHERE id = '" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
-				DBConnect.QueryPostgre(Query);
+				MySQL.Query(Query);
 
-				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-				DBConnect.InsertPostgre(q);
+				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+				MySQL.Insert(q);
 			}
 			catch (Exception c)
 			{

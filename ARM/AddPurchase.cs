@@ -100,7 +100,7 @@ namespace ARM
 
 			}
 
-			CaseTransaction t = new CaseTransaction(CaseTransactionID, Date, No, ItemID, CaseID, "", Convert.ToDouble(qtyTxt.Text), Convert.ToDouble(costTxt.Text), measureTxt.Text, Payable, Tax, TotalCoverage, TotalSelf, Payable, "", "", "", "", "", "", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
+			CaseTransaction t = new CaseTransaction(CaseTransactionID, Date, No, ItemID, CaseID, "", Convert.ToDouble(qtyTxt.Text), Convert.ToDouble(costTxt.Text), measureTxt.Text, Payable, Tax, TotalCoverage, TotalSelf, Payable, "", "", "", "", "", "", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), "false", Helper.CompanyID);
 
 			if (!GenericCollection.caseTransactions.Any(item => item.ItemID == ItemID))
 			{

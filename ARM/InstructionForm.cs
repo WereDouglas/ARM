@@ -31,7 +31,7 @@ namespace ARM
             // create and execute query  
             t = new DataTable();
             t.Columns.Add(new DataColumn("Select", typeof(bool)));
-            t.Columns.Add("ID");
+            t.Columns.Add("id");
             t.Columns.Add("uriCus");
             t.Columns.Add(new DataColumn("ImgCus", typeof(Bitmap)));//1  
             t.Columns.Add("Customer");            
@@ -48,7 +48,7 @@ namespace ARM
             t.Columns.Add("Kin name");
             t.Columns.Add("Kin contact");                               
             t.Columns.Add("Created");
-            t.Columns.Add("Sync"); 
+          
             t.Columns.Add(new DataColumn("View", typeof(Image)));
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));
 
@@ -75,7 +75,7 @@ namespace ARM
                 try { cus = Customer.Select(c.CustomerID).Name; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, imageCus as string, b, c.CustomerID +" "+cus,c.No,c.AltContact,c.Date,c.Type,c.Delivered,c.Visit,c.Phone,c.PatientSign,c.Employee,c.EmployeeSign,c.KinName,c.KinContact,c.Created, c.Sync,view, delete });
+                    t.Rows.Add(new object[] { "false", c.Id, imageCus as string, b, cus,c.No,c.AltContact,c.Date,c.Type,c.Delivered,c.Visit,c.Phone,c.PatientSign,c.Employee,c.EmployeeSign,c.KinName,c.KinContact,c.Created,view, delete });
 
                 }
                 catch (Exception m)
@@ -105,7 +105,7 @@ namespace ARM
 
             dtGrid.AllowUserToAddRows = false;
             dtGrid.Columns["Customer"].DefaultCellStyle.BackColor = Color.LightGreen;            
-            dtGrid.Columns["ID"].Visible = false;
+            dtGrid.Columns["id"].Visible = false;
             dtGrid.Columns["ImgCus"].DefaultCellStyle.BackColor = Color.LightGreen;
             dtGrid.Columns["uriCus"].Visible = false;          
 
@@ -141,9 +141,9 @@ namespace ARM
                 foreach (var item in selectedIDs)
                 {
                     string Query = "DELETE from instruction WHERE id ='" + item + "'";
-                    DBConnect.QueryPostgre(Query);
-                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                    DBConnect.InsertPostgre(q);
+                    MySQL.Query(Query);
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(MySQL.Insert(Query)), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    MySQL.Insert(q);
 					//  MessageBox.Show("Information deleted");
 					Helper.Log(Helper.UserName, "Deleted DME instructions " + item + "  " + DateTime.Now);
 				}
@@ -167,33 +167,24 @@ namespace ARM
 				}
 			}
             if (e.ColumnIndex == dtGrid.Columns["View"].Index && e.RowIndex >= 0)
-            {
-                using (InstructionDeliveryForm form = new InstructionDeliveryForm(dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString(),null))
-                {
-                    DialogResult dr = form.ShowDialog();
-                    if (dr == DialogResult.OK)
-                    {
-                        LoadData();
-                    }
-                }
-            }
+            {               
+				InstructionReport form = new InstructionReport(dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString());
+				form.Show();
+			}
             try
             {
                 if (e.ColumnIndex == dtGrid.Columns["Delete"].Index && e.RowIndex >= 0)
                 {
-
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Instruction? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
-                        string Query = "DELETE from instruction WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
-                        DBConnect.QueryPostgre(Query);
+                        string Query = "DELETE from instruction WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
+                        MySQL.Query(Query);
 
-                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                        DBConnect.InsertPostgre(q);
+                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(MySQL.Insert(Query)), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        MySQL.Insert(q);
                         MessageBox.Show("Information deleted");
                         LoadData();
-
                     }
-
                 }
 
             }
@@ -208,12 +199,12 @@ namespace ARM
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             string Query = "UPDATE instruction SET sync ='false'";
-            DBConnect.QueryPostgre(Query);
+            MySQL.Query(Query);
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-			InstructionDeliveryForm d = new InstructionDeliveryForm(null,null);
+			InstructionDeliveryForm d = new InstructionDeliveryForm(null);
             d.Show();
         }
 

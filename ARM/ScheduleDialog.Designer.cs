@@ -44,14 +44,14 @@
 			this.label13 = new System.Windows.Forms.Label();
 			this.label14 = new System.Windows.Forms.Label();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.monChk = new System.Windows.Forms.CheckBox();
+			this.monDateLbl = new System.Windows.Forms.Label();
+			this.moncostLbl = new System.Windows.Forms.Label();
+			this.monhrsLbl = new System.Windows.Forms.Label();
 			this.monEnd = new System.Windows.Forms.DateTimePicker();
 			this.monStart = new System.Windows.Forms.DateTimePicker();
 			this.label15 = new System.Windows.Forms.Label();
 			this.label16 = new System.Windows.Forms.Label();
-			this.monhrsLbl = new System.Windows.Forms.Label();
-			this.moncostLbl = new System.Windows.Forms.Label();
-			this.monDateLbl = new System.Windows.Forms.Label();
-			this.monChk = new System.Windows.Forms.CheckBox();
 			this.openedDate = new System.Windows.Forms.DateTimePicker();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.tueChk = new System.Windows.Forms.CheckBox();
@@ -64,34 +64,9 @@
 			this.label6 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
-			this.groupBox4 = new System.Windows.Forms.GroupBox();
-			this.wedChk = new System.Windows.Forms.CheckBox();
-			this.wedDate = new System.Windows.Forms.Label();
-			this.wedCost = new System.Windows.Forms.Label();
-			this.wedHrs = new System.Windows.Forms.Label();
-			this.wedEnd = new System.Windows.Forms.DateTimePicker();
-			this.wedStart = new System.Windows.Forms.DateTimePicker();
-			this.groupBox5 = new System.Windows.Forms.GroupBox();
-			this.thuChk = new System.Windows.Forms.CheckBox();
-			this.thuDate = new System.Windows.Forms.Label();
-			this.thuCost = new System.Windows.Forms.Label();
-			this.thuHrs = new System.Windows.Forms.Label();
-			this.thuEnd = new System.Windows.Forms.DateTimePicker();
-			this.thuStart = new System.Windows.Forms.DateTimePicker();
-			this.groupBox6 = new System.Windows.Forms.GroupBox();
-			this.friChk = new System.Windows.Forms.CheckBox();
-			this.friDate = new System.Windows.Forms.Label();
-			this.friCost = new System.Windows.Forms.Label();
-			this.friHrs = new System.Windows.Forms.Label();
-			this.friEnd = new System.Windows.Forms.DateTimePicker();
-			this.friStart = new System.Windows.Forms.DateTimePicker();
-			this.groupBox7 = new System.Windows.Forms.GroupBox();
-			this.satChk = new System.Windows.Forms.CheckBox();
-			this.satDate = new System.Windows.Forms.Label();
-			this.satCost = new System.Windows.Forms.Label();
-			this.satHrs = new System.Windows.Forms.Label();
-			this.satEnd = new System.Windows.Forms.DateTimePicker();
-			this.satStart = new System.Windows.Forms.DateTimePicker();
+			this.label4 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
 			this.groupBox8 = new System.Windows.Forms.GroupBox();
 			this.sunChk = new System.Windows.Forms.CheckBox();
 			this.sunDate = new System.Windows.Forms.Label();
@@ -99,19 +74,44 @@
 			this.sunHrs = new System.Windows.Forms.Label();
 			this.sunEnd = new System.Windows.Forms.DateTimePicker();
 			this.sunStart = new System.Windows.Forms.DateTimePicker();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
+			this.groupBox7 = new System.Windows.Forms.GroupBox();
+			this.satChk = new System.Windows.Forms.CheckBox();
+			this.satDate = new System.Windows.Forms.Label();
+			this.satCost = new System.Windows.Forms.Label();
+			this.satHrs = new System.Windows.Forms.Label();
+			this.satEnd = new System.Windows.Forms.DateTimePicker();
+			this.satStart = new System.Windows.Forms.DateTimePicker();
+			this.groupBox6 = new System.Windows.Forms.GroupBox();
+			this.friChk = new System.Windows.Forms.CheckBox();
+			this.friDate = new System.Windows.Forms.Label();
+			this.friCost = new System.Windows.Forms.Label();
+			this.friHrs = new System.Windows.Forms.Label();
+			this.friEnd = new System.Windows.Forms.DateTimePicker();
+			this.friStart = new System.Windows.Forms.DateTimePicker();
+			this.groupBox5 = new System.Windows.Forms.GroupBox();
+			this.thuChk = new System.Windows.Forms.CheckBox();
+			this.thuDate = new System.Windows.Forms.Label();
+			this.thuCost = new System.Windows.Forms.Label();
+			this.thuHrs = new System.Windows.Forms.Label();
+			this.thuEnd = new System.Windows.Forms.DateTimePicker();
+			this.thuStart = new System.Windows.Forms.DateTimePicker();
+			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.wedChk = new System.Windows.Forms.CheckBox();
+			this.wedDate = new System.Windows.Forms.Label();
+			this.wedCost = new System.Windows.Forms.Label();
+			this.wedHrs = new System.Windows.Forms.Label();
+			this.wedEnd = new System.Windows.Forms.DateTimePicker();
+			this.wedStart = new System.Windows.Forms.DateTimePicker();
 			((System.ComponentModel.ISupportInitialize)(this.userPbx)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.cusPbx)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox3.SuspendLayout();
-			this.groupBox4.SuspendLayout();
-			this.groupBox5.SuspendLayout();
-			this.groupBox6.SuspendLayout();
-			this.groupBox7.SuspendLayout();
 			this.groupBox8.SuspendLayout();
+			this.groupBox7.SuspendLayout();
+			this.groupBox6.SuspendLayout();
+			this.groupBox5.SuspendLayout();
+			this.groupBox4.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// htmlToolTip1
@@ -124,7 +124,7 @@
 			// 
 			// 
 			this.locationTxt.CustomButton.Image = null;
-			this.locationTxt.CustomButton.Location = new System.Drawing.Point(120, 1);
+			this.locationTxt.CustomButton.Location = new System.Drawing.Point(194, 1);
 			this.locationTxt.CustomButton.Name = "";
 			this.locationTxt.CustomButton.Size = new System.Drawing.Size(27, 27);
 			this.locationTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -134,7 +134,7 @@
 			this.locationTxt.CustomButton.Visible = false;
 			this.locationTxt.DisplayIcon = true;
 			this.locationTxt.Lines = new string[0];
-			this.locationTxt.Location = new System.Drawing.Point(428, 206);
+			this.locationTxt.Location = new System.Drawing.Point(411, 155);
 			this.locationTxt.MaxLength = 32767;
 			this.locationTxt.Multiline = true;
 			this.locationTxt.Name = "locationTxt";
@@ -144,7 +144,7 @@
 			this.locationTxt.SelectionLength = 0;
 			this.locationTxt.SelectionStart = 0;
 			this.locationTxt.ShortcutsEnabled = true;
-			this.locationTxt.Size = new System.Drawing.Size(148, 29);
+			this.locationTxt.Size = new System.Drawing.Size(222, 29);
 			this.locationTxt.TabIndex = 11;
 			this.locationTxt.UseSelectable = true;
 			this.locationTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -153,7 +153,7 @@
 			// userPbx
 			// 
 			this.userPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
-			this.userPbx.Location = new System.Drawing.Point(64, 153);
+			this.userPbx.Location = new System.Drawing.Point(23, 83);
 			this.userPbx.Name = "userPbx";
 			this.userPbx.Size = new System.Drawing.Size(79, 79);
 			this.userPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -163,7 +163,7 @@
 			// cusPbx
 			// 
 			this.cusPbx.Image = global::ARM.Properties.Resources.User_Profile_128;
-			this.cusPbx.Location = new System.Drawing.Point(582, 154);
+			this.cusPbx.Location = new System.Drawing.Point(315, 81);
 			this.cusPbx.Name = "cusPbx";
 			this.cusPbx.Size = new System.Drawing.Size(79, 81);
 			this.cusPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -176,7 +176,7 @@
 			// 
 			// 
 			this.detailsTxt.CustomButton.Image = null;
-			this.detailsTxt.CustomButton.Location = new System.Drawing.Point(104, 1);
+			this.detailsTxt.CustomButton.Location = new System.Drawing.Point(479, 1);
 			this.detailsTxt.CustomButton.Name = "";
 			this.detailsTxt.CustomButton.Size = new System.Drawing.Size(45, 45);
 			this.detailsTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -186,7 +186,7 @@
 			this.detailsTxt.CustomButton.Visible = false;
 			this.detailsTxt.DisplayIcon = true;
 			this.detailsTxt.Lines = new string[0];
-			this.detailsTxt.Location = new System.Drawing.Point(426, 153);
+			this.detailsTxt.Location = new System.Drawing.Point(108, 190);
 			this.detailsTxt.MaxLength = 32767;
 			this.detailsTxt.Multiline = true;
 			this.detailsTxt.Name = "detailsTxt";
@@ -196,7 +196,7 @@
 			this.detailsTxt.SelectionLength = 0;
 			this.detailsTxt.SelectionStart = 0;
 			this.detailsTxt.ShortcutsEnabled = true;
-			this.detailsTxt.Size = new System.Drawing.Size(150, 47);
+			this.detailsTxt.Size = new System.Drawing.Size(525, 47);
 			this.detailsTxt.TabIndex = 7;
 			this.detailsTxt.UseSelectable = true;
 			this.detailsTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -211,7 +211,7 @@
 			this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.button3.Image = global::ARM.Properties.Resources.Submit_01_32;
 			this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button3.Location = new System.Drawing.Point(553, 720);
+			this.button3.Location = new System.Drawing.Point(541, 772);
 			this.button3.Name = "button3";
 			this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.button3.Size = new System.Drawing.Size(108, 49);
@@ -230,7 +230,7 @@
 			this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.button2.Image = global::ARM.Properties.Resources.Cancel_48;
 			this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button2.Location = new System.Drawing.Point(74, 720);
+			this.button2.Location = new System.Drawing.Point(62, 772);
 			this.button2.Name = "button2";
 			this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.button2.Size = new System.Drawing.Size(108, 49);
@@ -245,7 +245,7 @@
 			this.label8.AutoSize = true;
 			this.label8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.label8.Location = new System.Drawing.Point(349, 82);
+			this.label8.Location = new System.Drawing.Point(407, 82);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(58, 19);
 			this.label8.TabIndex = 197;
@@ -256,7 +256,7 @@
 			this.label9.AutoSize = true;
 			this.label9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.label9.Location = new System.Drawing.Point(58, 82);
+			this.label9.Location = new System.Drawing.Point(103, 82);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(76, 19);
 			this.label9.TabIndex = 198;
@@ -284,9 +284,9 @@
 			// 
 			this.userCbx.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.userCbx.FormattingEnabled = true;
-			this.userCbx.Location = new System.Drawing.Point(58, 116);
+			this.userCbx.Location = new System.Drawing.Point(107, 116);
 			this.userCbx.Name = "userCbx";
-			this.userCbx.Size = new System.Drawing.Size(264, 31);
+			this.userCbx.Size = new System.Drawing.Size(186, 31);
 			this.userCbx.TabIndex = 265;
 			this.userCbx.SelectedIndexChanged += new System.EventHandler(this.userCbx_SelectedIndexChanged);
 			// 
@@ -294,9 +294,9 @@
 			// 
 			this.customerCbx.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.customerCbx.FormattingEnabled = true;
-			this.customerCbx.Location = new System.Drawing.Point(353, 116);
+			this.customerCbx.Location = new System.Drawing.Point(411, 118);
 			this.customerCbx.Name = "customerCbx";
-			this.customerCbx.Size = new System.Drawing.Size(308, 31);
+			this.customerCbx.Size = new System.Drawing.Size(222, 31);
 			this.customerCbx.TabIndex = 268;
 			this.customerCbx.SelectedIndexChanged += new System.EventHandler(this.customerCbx_SelectedIndexChanged);
 			// 
@@ -305,7 +305,7 @@
 			this.label13.AutoSize = true;
 			this.label13.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label13.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.label13.Location = new System.Drawing.Point(355, 206);
+			this.label13.Location = new System.Drawing.Point(327, 165);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(67, 19);
 			this.label13.TabIndex = 269;
@@ -316,7 +316,7 @@
 			this.label14.AutoSize = true;
 			this.label14.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label14.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.label14.Location = new System.Drawing.Point(357, 165);
+			this.label14.Location = new System.Drawing.Point(47, 208);
 			this.label14.Name = "label14";
 			this.label14.Size = new System.Drawing.Size(55, 19);
 			this.label14.TabIndex = 270;
@@ -337,9 +337,53 @@
 			this.groupBox1.TabIndex = 271;
 			this.groupBox1.TabStop = false;
 			// 
+			// monChk
+			// 
+			this.monChk.AutoSize = true;
+			this.monChk.Location = new System.Drawing.Point(407, 18);
+			this.monChk.Name = "monChk";
+			this.monChk.Size = new System.Drawing.Size(64, 17);
+			this.monChk.TabIndex = 278;
+			this.monChk.Text = "Monday";
+			this.monChk.UseVisualStyleBackColor = true;
+			this.monChk.CheckedChanged += new System.EventHandler(this.monChk_CheckedChanged);
+			// 
+			// monDateLbl
+			// 
+			this.monDateLbl.AutoSize = true;
+			this.monDateLbl.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.monDateLbl.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+			this.monDateLbl.Location = new System.Drawing.Point(6, 16);
+			this.monDateLbl.Name = "monDateLbl";
+			this.monDateLbl.Size = new System.Drawing.Size(17, 19);
+			this.monDateLbl.TabIndex = 277;
+			this.monDateLbl.Text = "#";
+			// 
+			// moncostLbl
+			// 
+			this.moncostLbl.AutoSize = true;
+			this.moncostLbl.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.moncostLbl.ForeColor = System.Drawing.SystemColors.Highlight;
+			this.moncostLbl.Location = new System.Drawing.Point(344, 18);
+			this.moncostLbl.Name = "moncostLbl";
+			this.moncostLbl.Size = new System.Drawing.Size(17, 19);
+			this.moncostLbl.TabIndex = 276;
+			this.moncostLbl.Text = "#";
+			// 
+			// monhrsLbl
+			// 
+			this.monhrsLbl.AutoSize = true;
+			this.monhrsLbl.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.monhrsLbl.ForeColor = System.Drawing.SystemColors.Highlight;
+			this.monhrsLbl.Location = new System.Drawing.Point(265, 18);
+			this.monhrsLbl.Name = "monhrsLbl";
+			this.monhrsLbl.Size = new System.Drawing.Size(49, 19);
+			this.monhrsLbl.TabIndex = 274;
+			this.monhrsLbl.Text = "Hours";
+			// 
 			// monEnd
 			// 
-			this.monEnd.CustomFormat = "HH:MM";
+			this.monEnd.CustomFormat = "HH:mm";
 			this.monEnd.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
 			this.monEnd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.monEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -352,7 +396,7 @@
 			// monStart
 			// 
 			this.monStart.CalendarFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.monStart.CustomFormat = "HH:MM";
+			this.monStart.CustomFormat = "HH:mm";
 			this.monStart.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.monStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
 			this.monStart.Location = new System.Drawing.Point(92, 15);
@@ -382,50 +426,6 @@
 			this.label16.Size = new System.Drawing.Size(47, 19);
 			this.label16.TabIndex = 272;
 			this.label16.Text = "Start:";
-			// 
-			// monhrsLbl
-			// 
-			this.monhrsLbl.AutoSize = true;
-			this.monhrsLbl.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.monhrsLbl.ForeColor = System.Drawing.SystemColors.Highlight;
-			this.monhrsLbl.Location = new System.Drawing.Point(265, 18);
-			this.monhrsLbl.Name = "monhrsLbl";
-			this.monhrsLbl.Size = new System.Drawing.Size(49, 19);
-			this.monhrsLbl.TabIndex = 274;
-			this.monhrsLbl.Text = "Hours";
-			// 
-			// moncostLbl
-			// 
-			this.moncostLbl.AutoSize = true;
-			this.moncostLbl.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.moncostLbl.ForeColor = System.Drawing.SystemColors.Highlight;
-			this.moncostLbl.Location = new System.Drawing.Point(344, 18);
-			this.moncostLbl.Name = "moncostLbl";
-			this.moncostLbl.Size = new System.Drawing.Size(17, 19);
-			this.moncostLbl.TabIndex = 276;
-			this.moncostLbl.Text = "#";
-			// 
-			// monDateLbl
-			// 
-			this.monDateLbl.AutoSize = true;
-			this.monDateLbl.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.monDateLbl.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-			this.monDateLbl.Location = new System.Drawing.Point(6, 16);
-			this.monDateLbl.Name = "monDateLbl";
-			this.monDateLbl.Size = new System.Drawing.Size(17, 19);
-			this.monDateLbl.TabIndex = 277;
-			this.monDateLbl.Text = "#";
-			// 
-			// monChk
-			// 
-			this.monChk.AutoSize = true;
-			this.monChk.Location = new System.Drawing.Point(407, 18);
-			this.monChk.Name = "monChk";
-			this.monChk.Size = new System.Drawing.Size(64, 17);
-			this.monChk.TabIndex = 278;
-			this.monChk.Text = "Monday";
-			this.monChk.UseVisualStyleBackColor = true;
-			this.monChk.CheckedChanged += new System.EventHandler(this.monChk_CheckedChanged);
 			// 
 			// openedDate
 			// 
@@ -498,7 +498,7 @@
 			// 
 			// tueEnd
 			// 
-			this.tueEnd.CustomFormat = "HH:MM";
+			this.tueEnd.CustomFormat = "HH:mm";
 			this.tueEnd.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
 			this.tueEnd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.tueEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -511,7 +511,7 @@
 			// tueStart
 			// 
 			this.tueStart.CalendarFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.tueStart.CustomFormat = "HH:MM";
+			this.tueStart.CustomFormat = "HH:mm";
 			this.tueStart.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.tueStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
 			this.tueStart.Location = new System.Drawing.Point(92, 13);
@@ -526,7 +526,7 @@
 			// 
 			// 
 			this.rateTxt.CustomButton.Image = null;
-			this.rateTxt.CustomButton.Location = new System.Drawing.Point(139, 1);
+			this.rateTxt.CustomButton.Location = new System.Drawing.Point(152, 1);
 			this.rateTxt.CustomButton.Name = "";
 			this.rateTxt.CustomButton.Size = new System.Drawing.Size(33, 33);
 			this.rateTxt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -536,7 +536,7 @@
 			this.rateTxt.CustomButton.Visible = false;
 			this.rateTxt.DisplayIcon = true;
 			this.rateTxt.Lines = new string[0];
-			this.rateTxt.Location = new System.Drawing.Point(149, 194);
+			this.rateTxt.Location = new System.Drawing.Point(107, 149);
 			this.rateTxt.MaxLength = 32767;
 			this.rateTxt.Name = "rateTxt";
 			this.rateTxt.PasswordChar = '\0';
@@ -545,7 +545,7 @@
 			this.rateTxt.SelectionLength = 0;
 			this.rateTxt.SelectionStart = 0;
 			this.rateTxt.ShortcutsEnabled = true;
-			this.rateTxt.Size = new System.Drawing.Size(173, 35);
+			this.rateTxt.Size = new System.Drawing.Size(186, 35);
 			this.rateTxt.TabIndex = 10;
 			this.rateTxt.UseSelectable = true;
 			this.rateTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -558,7 +558,7 @@
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.label6.Location = new System.Drawing.Point(149, 165);
+			this.label6.Location = new System.Drawing.Point(39, 165);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(63, 19);
 			this.label6.TabIndex = 195;
@@ -593,345 +593,46 @@
 			this.groupBox3.Controls.Add(this.weekTxt);
 			this.groupBox3.Controls.Add(this.openedDate);
 			this.groupBox3.Controls.Add(this.groupBox1);
-			this.groupBox3.Location = new System.Drawing.Point(23, 258);
+			this.groupBox3.Location = new System.Drawing.Point(11, 258);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(650, 456);
+			this.groupBox3.Size = new System.Drawing.Size(650, 508);
 			this.groupBox3.TabIndex = 281;
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Schedule";
 			this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
 			// 
-			// groupBox4
+			// label4
 			// 
-			this.groupBox4.Controls.Add(this.wedChk);
-			this.groupBox4.Controls.Add(this.wedDate);
-			this.groupBox4.Controls.Add(this.wedCost);
-			this.groupBox4.Controls.Add(this.wedHrs);
-			this.groupBox4.Controls.Add(this.wedEnd);
-			this.groupBox4.Controls.Add(this.wedStart);
-			this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.groupBox4.Location = new System.Drawing.Point(51, 186);
-			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(587, 47);
-			this.groupBox4.TabIndex = 280;
-			this.groupBox4.TabStop = false;
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.ForeColor = System.Drawing.SystemColors.Highlight;
+			this.label4.Location = new System.Drawing.Point(461, 56);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(35, 19);
+			this.label4.TabIndex = 282;
+			this.label4.Text = "Day";
 			// 
-			// wedChk
+			// label3
 			// 
-			this.wedChk.AutoSize = true;
-			this.wedChk.Location = new System.Drawing.Point(407, 14);
-			this.wedChk.Name = "wedChk";
-			this.wedChk.Size = new System.Drawing.Size(83, 17);
-			this.wedChk.TabIndex = 278;
-			this.wedChk.Text = "Wednesday";
-			this.wedChk.UseVisualStyleBackColor = true;
-			this.wedChk.CheckedChanged += new System.EventHandler(this.wedChk_CheckedChanged);
+			this.label3.AutoSize = true;
+			this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
+			this.label3.Location = new System.Drawing.Point(384, 56);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(34, 19);
+			this.label3.TabIndex = 281;
+			this.label3.Text = "Pay";
 			// 
-			// wedDate
+			// label2
 			// 
-			this.wedDate.AutoSize = true;
-			this.wedDate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.wedDate.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-			this.wedDate.Location = new System.Drawing.Point(6, 14);
-			this.wedDate.Name = "wedDate";
-			this.wedDate.Size = new System.Drawing.Size(17, 19);
-			this.wedDate.TabIndex = 277;
-			this.wedDate.Text = "#";
-			// 
-			// wedCost
-			// 
-			this.wedCost.AutoSize = true;
-			this.wedCost.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.wedCost.ForeColor = System.Drawing.SystemColors.Highlight;
-			this.wedCost.Location = new System.Drawing.Point(344, 16);
-			this.wedCost.Name = "wedCost";
-			this.wedCost.Size = new System.Drawing.Size(17, 19);
-			this.wedCost.TabIndex = 276;
-			this.wedCost.Text = "#";
-			// 
-			// wedHrs
-			// 
-			this.wedHrs.AutoSize = true;
-			this.wedHrs.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.wedHrs.ForeColor = System.Drawing.SystemColors.Highlight;
-			this.wedHrs.Location = new System.Drawing.Point(265, 16);
-			this.wedHrs.Name = "wedHrs";
-			this.wedHrs.Size = new System.Drawing.Size(49, 19);
-			this.wedHrs.TabIndex = 274;
-			this.wedHrs.Text = "Hours";
-			// 
-			// wedEnd
-			// 
-			this.wedEnd.CustomFormat = "HH:MM";
-			this.wedEnd.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-			this.wedEnd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.wedEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.wedEnd.Location = new System.Drawing.Point(167, 12);
-			this.wedEnd.Name = "wedEnd";
-			this.wedEnd.ShowUpDown = true;
-			this.wedEnd.Size = new System.Drawing.Size(76, 27);
-			this.wedEnd.TabIndex = 273;
-			// 
-			// wedStart
-			// 
-			this.wedStart.CalendarFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.wedStart.CustomFormat = "HH:MM";
-			this.wedStart.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.wedStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.wedStart.Location = new System.Drawing.Point(92, 13);
-			this.wedStart.Name = "wedStart";
-			this.wedStart.ShowUpDown = true;
-			this.wedStart.Size = new System.Drawing.Size(66, 27);
-			this.wedStart.TabIndex = 272;
-			// 
-			// groupBox5
-			// 
-			this.groupBox5.Controls.Add(this.thuChk);
-			this.groupBox5.Controls.Add(this.thuDate);
-			this.groupBox5.Controls.Add(this.thuCost);
-			this.groupBox5.Controls.Add(this.thuHrs);
-			this.groupBox5.Controls.Add(this.thuEnd);
-			this.groupBox5.Controls.Add(this.thuStart);
-			this.groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.groupBox5.Location = new System.Drawing.Point(51, 239);
-			this.groupBox5.Name = "groupBox5";
-			this.groupBox5.Size = new System.Drawing.Size(587, 47);
-			this.groupBox5.TabIndex = 280;
-			this.groupBox5.TabStop = false;
-			// 
-			// thuChk
-			// 
-			this.thuChk.AutoSize = true;
-			this.thuChk.Location = new System.Drawing.Point(407, 14);
-			this.thuChk.Name = "thuChk";
-			this.thuChk.Size = new System.Drawing.Size(70, 17);
-			this.thuChk.TabIndex = 278;
-			this.thuChk.Text = "Thursday";
-			this.thuChk.UseVisualStyleBackColor = true;
-			this.thuChk.CheckedChanged += new System.EventHandler(this.thuChk_CheckedChanged);
-			// 
-			// thuDate
-			// 
-			this.thuDate.AutoSize = true;
-			this.thuDate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.thuDate.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-			this.thuDate.Location = new System.Drawing.Point(6, 14);
-			this.thuDate.Name = "thuDate";
-			this.thuDate.Size = new System.Drawing.Size(17, 19);
-			this.thuDate.TabIndex = 277;
-			this.thuDate.Text = "#";
-			// 
-			// thuCost
-			// 
-			this.thuCost.AutoSize = true;
-			this.thuCost.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.thuCost.ForeColor = System.Drawing.SystemColors.Highlight;
-			this.thuCost.Location = new System.Drawing.Point(344, 16);
-			this.thuCost.Name = "thuCost";
-			this.thuCost.Size = new System.Drawing.Size(17, 19);
-			this.thuCost.TabIndex = 276;
-			this.thuCost.Text = "#";
-			// 
-			// thuHrs
-			// 
-			this.thuHrs.AutoSize = true;
-			this.thuHrs.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.thuHrs.ForeColor = System.Drawing.SystemColors.Highlight;
-			this.thuHrs.Location = new System.Drawing.Point(265, 16);
-			this.thuHrs.Name = "thuHrs";
-			this.thuHrs.Size = new System.Drawing.Size(49, 19);
-			this.thuHrs.TabIndex = 274;
-			this.thuHrs.Text = "Hours";
-			// 
-			// thuEnd
-			// 
-			this.thuEnd.CustomFormat = "HH:MM";
-			this.thuEnd.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-			this.thuEnd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.thuEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.thuEnd.Location = new System.Drawing.Point(167, 12);
-			this.thuEnd.Name = "thuEnd";
-			this.thuEnd.ShowUpDown = true;
-			this.thuEnd.Size = new System.Drawing.Size(76, 27);
-			this.thuEnd.TabIndex = 273;
-			// 
-			// thuStart
-			// 
-			this.thuStart.CalendarFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.thuStart.CustomFormat = "HH:MM";
-			this.thuStart.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.thuStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.thuStart.Location = new System.Drawing.Point(92, 13);
-			this.thuStart.Name = "thuStart";
-			this.thuStart.ShowUpDown = true;
-			this.thuStart.Size = new System.Drawing.Size(66, 27);
-			this.thuStart.TabIndex = 272;
-			// 
-			// groupBox6
-			// 
-			this.groupBox6.Controls.Add(this.friChk);
-			this.groupBox6.Controls.Add(this.friDate);
-			this.groupBox6.Controls.Add(this.friCost);
-			this.groupBox6.Controls.Add(this.friHrs);
-			this.groupBox6.Controls.Add(this.friEnd);
-			this.groupBox6.Controls.Add(this.friStart);
-			this.groupBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.groupBox6.Location = new System.Drawing.Point(51, 292);
-			this.groupBox6.Name = "groupBox6";
-			this.groupBox6.Size = new System.Drawing.Size(587, 47);
-			this.groupBox6.TabIndex = 280;
-			this.groupBox6.TabStop = false;
-			// 
-			// friChk
-			// 
-			this.friChk.AutoSize = true;
-			this.friChk.Location = new System.Drawing.Point(407, 14);
-			this.friChk.Name = "friChk";
-			this.friChk.Size = new System.Drawing.Size(54, 17);
-			this.friChk.TabIndex = 278;
-			this.friChk.Text = "Friday";
-			this.friChk.UseVisualStyleBackColor = true;
-			this.friChk.CheckedChanged += new System.EventHandler(this.friChk_CheckedChanged);
-			// 
-			// friDate
-			// 
-			this.friDate.AutoSize = true;
-			this.friDate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.friDate.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-			this.friDate.Location = new System.Drawing.Point(6, 14);
-			this.friDate.Name = "friDate";
-			this.friDate.Size = new System.Drawing.Size(17, 19);
-			this.friDate.TabIndex = 277;
-			this.friDate.Text = "#";
-			// 
-			// friCost
-			// 
-			this.friCost.AutoSize = true;
-			this.friCost.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.friCost.ForeColor = System.Drawing.SystemColors.Highlight;
-			this.friCost.Location = new System.Drawing.Point(344, 16);
-			this.friCost.Name = "friCost";
-			this.friCost.Size = new System.Drawing.Size(17, 19);
-			this.friCost.TabIndex = 276;
-			this.friCost.Text = "#";
-			// 
-			// friHrs
-			// 
-			this.friHrs.AutoSize = true;
-			this.friHrs.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.friHrs.ForeColor = System.Drawing.SystemColors.Highlight;
-			this.friHrs.Location = new System.Drawing.Point(265, 16);
-			this.friHrs.Name = "friHrs";
-			this.friHrs.Size = new System.Drawing.Size(49, 19);
-			this.friHrs.TabIndex = 274;
-			this.friHrs.Text = "Hours";
-			// 
-			// friEnd
-			// 
-			this.friEnd.CustomFormat = "HH:MM";
-			this.friEnd.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-			this.friEnd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.friEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.friEnd.Location = new System.Drawing.Point(167, 12);
-			this.friEnd.Name = "friEnd";
-			this.friEnd.ShowUpDown = true;
-			this.friEnd.Size = new System.Drawing.Size(76, 27);
-			this.friEnd.TabIndex = 273;
-			// 
-			// friStart
-			// 
-			this.friStart.CalendarFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.friStart.CustomFormat = "HH:MM";
-			this.friStart.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.friStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.friStart.Location = new System.Drawing.Point(92, 13);
-			this.friStart.Name = "friStart";
-			this.friStart.ShowUpDown = true;
-			this.friStart.Size = new System.Drawing.Size(66, 27);
-			this.friStart.TabIndex = 272;
-			// 
-			// groupBox7
-			// 
-			this.groupBox7.Controls.Add(this.satChk);
-			this.groupBox7.Controls.Add(this.satDate);
-			this.groupBox7.Controls.Add(this.satCost);
-			this.groupBox7.Controls.Add(this.satHrs);
-			this.groupBox7.Controls.Add(this.satEnd);
-			this.groupBox7.Controls.Add(this.satStart);
-			this.groupBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.groupBox7.Location = new System.Drawing.Point(51, 345);
-			this.groupBox7.Name = "groupBox7";
-			this.groupBox7.Size = new System.Drawing.Size(587, 47);
-			this.groupBox7.TabIndex = 280;
-			this.groupBox7.TabStop = false;
-			// 
-			// satChk
-			// 
-			this.satChk.AutoSize = true;
-			this.satChk.Location = new System.Drawing.Point(407, 16);
-			this.satChk.Name = "satChk";
-			this.satChk.Size = new System.Drawing.Size(68, 17);
-			this.satChk.TabIndex = 278;
-			this.satChk.Text = "Saturday";
-			this.satChk.UseVisualStyleBackColor = true;
-			this.satChk.CheckedChanged += new System.EventHandler(this.satChk_CheckedChanged);
-			// 
-			// satDate
-			// 
-			this.satDate.AutoSize = true;
-			this.satDate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.satDate.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-			this.satDate.Location = new System.Drawing.Point(6, 14);
-			this.satDate.Name = "satDate";
-			this.satDate.Size = new System.Drawing.Size(17, 19);
-			this.satDate.TabIndex = 277;
-			this.satDate.Text = "#";
-			// 
-			// satCost
-			// 
-			this.satCost.AutoSize = true;
-			this.satCost.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.satCost.ForeColor = System.Drawing.SystemColors.Highlight;
-			this.satCost.Location = new System.Drawing.Point(344, 16);
-			this.satCost.Name = "satCost";
-			this.satCost.Size = new System.Drawing.Size(17, 19);
-			this.satCost.TabIndex = 276;
-			this.satCost.Text = "#";
-			// 
-			// satHrs
-			// 
-			this.satHrs.AutoSize = true;
-			this.satHrs.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.satHrs.ForeColor = System.Drawing.SystemColors.Highlight;
-			this.satHrs.Location = new System.Drawing.Point(265, 16);
-			this.satHrs.Name = "satHrs";
-			this.satHrs.Size = new System.Drawing.Size(49, 19);
-			this.satHrs.TabIndex = 274;
-			this.satHrs.Text = "Hours";
-			// 
-			// satEnd
-			// 
-			this.satEnd.CustomFormat = "HH:MM";
-			this.satEnd.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-			this.satEnd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.satEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.satEnd.Location = new System.Drawing.Point(167, 12);
-			this.satEnd.Name = "satEnd";
-			this.satEnd.ShowUpDown = true;
-			this.satEnd.Size = new System.Drawing.Size(76, 27);
-			this.satEnd.TabIndex = 273;
-			// 
-			// satStart
-			// 
-			this.satStart.CalendarFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.satStart.CustomFormat = "HH:MM";
-			this.satStart.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.satStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.satStart.Location = new System.Drawing.Point(92, 13);
-			this.satStart.Name = "satStart";
-			this.satStart.ShowUpDown = true;
-			this.satStart.Size = new System.Drawing.Size(66, 27);
-			this.satStart.TabIndex = 272;
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
+			this.label2.Location = new System.Drawing.Point(316, 56);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(49, 19);
+			this.label2.TabIndex = 279;
+			this.label2.Text = "Hours";
 			// 
 			// groupBox8
 			// 
@@ -994,7 +695,7 @@
 			// 
 			// sunEnd
 			// 
-			this.sunEnd.CustomFormat = "HH:MM";
+			this.sunEnd.CustomFormat = "HH:mm";
 			this.sunEnd.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
 			this.sunEnd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.sunEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -1007,7 +708,7 @@
 			// sunStart
 			// 
 			this.sunStart.CalendarFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.sunStart.CustomFormat = "HH:MM";
+			this.sunStart.CustomFormat = "HH:mm";
 			this.sunStart.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.sunStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
 			this.sunStart.Location = new System.Drawing.Point(92, 13);
@@ -1016,44 +717,343 @@
 			this.sunStart.Size = new System.Drawing.Size(66, 27);
 			this.sunStart.TabIndex = 272;
 			// 
-			// label2
+			// groupBox7
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
-			this.label2.Location = new System.Drawing.Point(316, 56);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(49, 19);
-			this.label2.TabIndex = 279;
-			this.label2.Text = "Hours";
+			this.groupBox7.Controls.Add(this.satChk);
+			this.groupBox7.Controls.Add(this.satDate);
+			this.groupBox7.Controls.Add(this.satCost);
+			this.groupBox7.Controls.Add(this.satHrs);
+			this.groupBox7.Controls.Add(this.satEnd);
+			this.groupBox7.Controls.Add(this.satStart);
+			this.groupBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.groupBox7.Location = new System.Drawing.Point(51, 345);
+			this.groupBox7.Name = "groupBox7";
+			this.groupBox7.Size = new System.Drawing.Size(587, 47);
+			this.groupBox7.TabIndex = 280;
+			this.groupBox7.TabStop = false;
 			// 
-			// label3
+			// satChk
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
-			this.label3.Location = new System.Drawing.Point(384, 56);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(34, 19);
-			this.label3.TabIndex = 281;
-			this.label3.Text = "Pay";
+			this.satChk.AutoSize = true;
+			this.satChk.Location = new System.Drawing.Point(407, 16);
+			this.satChk.Name = "satChk";
+			this.satChk.Size = new System.Drawing.Size(68, 17);
+			this.satChk.TabIndex = 278;
+			this.satChk.Text = "Saturday";
+			this.satChk.UseVisualStyleBackColor = true;
+			this.satChk.CheckedChanged += new System.EventHandler(this.satChk_CheckedChanged);
 			// 
-			// label4
+			// satDate
 			// 
-			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.ForeColor = System.Drawing.SystemColors.Highlight;
-			this.label4.Location = new System.Drawing.Point(461, 56);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(35, 19);
-			this.label4.TabIndex = 282;
-			this.label4.Text = "Day";
+			this.satDate.AutoSize = true;
+			this.satDate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.satDate.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+			this.satDate.Location = new System.Drawing.Point(6, 14);
+			this.satDate.Name = "satDate";
+			this.satDate.Size = new System.Drawing.Size(17, 19);
+			this.satDate.TabIndex = 277;
+			this.satDate.Text = "#";
+			// 
+			// satCost
+			// 
+			this.satCost.AutoSize = true;
+			this.satCost.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.satCost.ForeColor = System.Drawing.SystemColors.Highlight;
+			this.satCost.Location = new System.Drawing.Point(344, 16);
+			this.satCost.Name = "satCost";
+			this.satCost.Size = new System.Drawing.Size(17, 19);
+			this.satCost.TabIndex = 276;
+			this.satCost.Text = "#";
+			// 
+			// satHrs
+			// 
+			this.satHrs.AutoSize = true;
+			this.satHrs.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.satHrs.ForeColor = System.Drawing.SystemColors.Highlight;
+			this.satHrs.Location = new System.Drawing.Point(265, 16);
+			this.satHrs.Name = "satHrs";
+			this.satHrs.Size = new System.Drawing.Size(49, 19);
+			this.satHrs.TabIndex = 274;
+			this.satHrs.Text = "Hours";
+			// 
+			// satEnd
+			// 
+			this.satEnd.CustomFormat = "HH:mm";
+			this.satEnd.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+			this.satEnd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.satEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.satEnd.Location = new System.Drawing.Point(167, 12);
+			this.satEnd.Name = "satEnd";
+			this.satEnd.ShowUpDown = true;
+			this.satEnd.Size = new System.Drawing.Size(76, 27);
+			this.satEnd.TabIndex = 273;
+			// 
+			// satStart
+			// 
+			this.satStart.CalendarFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.satStart.CustomFormat = "HH:mm";
+			this.satStart.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.satStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.satStart.Location = new System.Drawing.Point(92, 13);
+			this.satStart.Name = "satStart";
+			this.satStart.ShowUpDown = true;
+			this.satStart.Size = new System.Drawing.Size(66, 27);
+			this.satStart.TabIndex = 272;
+			// 
+			// groupBox6
+			// 
+			this.groupBox6.Controls.Add(this.friChk);
+			this.groupBox6.Controls.Add(this.friDate);
+			this.groupBox6.Controls.Add(this.friCost);
+			this.groupBox6.Controls.Add(this.friHrs);
+			this.groupBox6.Controls.Add(this.friEnd);
+			this.groupBox6.Controls.Add(this.friStart);
+			this.groupBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.groupBox6.Location = new System.Drawing.Point(51, 292);
+			this.groupBox6.Name = "groupBox6";
+			this.groupBox6.Size = new System.Drawing.Size(587, 47);
+			this.groupBox6.TabIndex = 280;
+			this.groupBox6.TabStop = false;
+			// 
+			// friChk
+			// 
+			this.friChk.AutoSize = true;
+			this.friChk.Location = new System.Drawing.Point(407, 14);
+			this.friChk.Name = "friChk";
+			this.friChk.Size = new System.Drawing.Size(54, 17);
+			this.friChk.TabIndex = 278;
+			this.friChk.Text = "Friday";
+			this.friChk.UseVisualStyleBackColor = true;
+			this.friChk.CheckedChanged += new System.EventHandler(this.friChk_CheckedChanged);
+			// 
+			// friDate
+			// 
+			this.friDate.AutoSize = true;
+			this.friDate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.friDate.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+			this.friDate.Location = new System.Drawing.Point(6, 14);
+			this.friDate.Name = "friDate";
+			this.friDate.Size = new System.Drawing.Size(17, 19);
+			this.friDate.TabIndex = 277;
+			this.friDate.Text = "#";
+			// 
+			// friCost
+			// 
+			this.friCost.AutoSize = true;
+			this.friCost.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.friCost.ForeColor = System.Drawing.SystemColors.Highlight;
+			this.friCost.Location = new System.Drawing.Point(344, 16);
+			this.friCost.Name = "friCost";
+			this.friCost.Size = new System.Drawing.Size(17, 19);
+			this.friCost.TabIndex = 276;
+			this.friCost.Text = "#";
+			// 
+			// friHrs
+			// 
+			this.friHrs.AutoSize = true;
+			this.friHrs.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.friHrs.ForeColor = System.Drawing.SystemColors.Highlight;
+			this.friHrs.Location = new System.Drawing.Point(265, 16);
+			this.friHrs.Name = "friHrs";
+			this.friHrs.Size = new System.Drawing.Size(49, 19);
+			this.friHrs.TabIndex = 274;
+			this.friHrs.Text = "Hours";
+			// 
+			// friEnd
+			// 
+			this.friEnd.CustomFormat = "HH:mm";
+			this.friEnd.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+			this.friEnd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.friEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.friEnd.Location = new System.Drawing.Point(167, 12);
+			this.friEnd.Name = "friEnd";
+			this.friEnd.ShowUpDown = true;
+			this.friEnd.Size = new System.Drawing.Size(76, 27);
+			this.friEnd.TabIndex = 273;
+			// 
+			// friStart
+			// 
+			this.friStart.CalendarFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.friStart.CustomFormat = "HH:mm";
+			this.friStart.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.friStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.friStart.Location = new System.Drawing.Point(92, 13);
+			this.friStart.Name = "friStart";
+			this.friStart.ShowUpDown = true;
+			this.friStart.Size = new System.Drawing.Size(66, 27);
+			this.friStart.TabIndex = 272;
+			// 
+			// groupBox5
+			// 
+			this.groupBox5.Controls.Add(this.thuChk);
+			this.groupBox5.Controls.Add(this.thuDate);
+			this.groupBox5.Controls.Add(this.thuCost);
+			this.groupBox5.Controls.Add(this.thuHrs);
+			this.groupBox5.Controls.Add(this.thuEnd);
+			this.groupBox5.Controls.Add(this.thuStart);
+			this.groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.groupBox5.Location = new System.Drawing.Point(51, 239);
+			this.groupBox5.Name = "groupBox5";
+			this.groupBox5.Size = new System.Drawing.Size(587, 47);
+			this.groupBox5.TabIndex = 280;
+			this.groupBox5.TabStop = false;
+			// 
+			// thuChk
+			// 
+			this.thuChk.AutoSize = true;
+			this.thuChk.Location = new System.Drawing.Point(407, 14);
+			this.thuChk.Name = "thuChk";
+			this.thuChk.Size = new System.Drawing.Size(70, 17);
+			this.thuChk.TabIndex = 278;
+			this.thuChk.Text = "Thursday";
+			this.thuChk.UseVisualStyleBackColor = true;
+			this.thuChk.CheckedChanged += new System.EventHandler(this.thuChk_CheckedChanged);
+			// 
+			// thuDate
+			// 
+			this.thuDate.AutoSize = true;
+			this.thuDate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.thuDate.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+			this.thuDate.Location = new System.Drawing.Point(6, 14);
+			this.thuDate.Name = "thuDate";
+			this.thuDate.Size = new System.Drawing.Size(17, 19);
+			this.thuDate.TabIndex = 277;
+			this.thuDate.Text = "#";
+			// 
+			// thuCost
+			// 
+			this.thuCost.AutoSize = true;
+			this.thuCost.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.thuCost.ForeColor = System.Drawing.SystemColors.Highlight;
+			this.thuCost.Location = new System.Drawing.Point(344, 16);
+			this.thuCost.Name = "thuCost";
+			this.thuCost.Size = new System.Drawing.Size(17, 19);
+			this.thuCost.TabIndex = 276;
+			this.thuCost.Text = "#";
+			// 
+			// thuHrs
+			// 
+			this.thuHrs.AutoSize = true;
+			this.thuHrs.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.thuHrs.ForeColor = System.Drawing.SystemColors.Highlight;
+			this.thuHrs.Location = new System.Drawing.Point(265, 16);
+			this.thuHrs.Name = "thuHrs";
+			this.thuHrs.Size = new System.Drawing.Size(49, 19);
+			this.thuHrs.TabIndex = 274;
+			this.thuHrs.Text = "Hours";
+			// 
+			// thuEnd
+			// 
+			this.thuEnd.CustomFormat = "HH:mm";
+			this.thuEnd.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+			this.thuEnd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.thuEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.thuEnd.Location = new System.Drawing.Point(167, 12);
+			this.thuEnd.Name = "thuEnd";
+			this.thuEnd.ShowUpDown = true;
+			this.thuEnd.Size = new System.Drawing.Size(76, 27);
+			this.thuEnd.TabIndex = 273;
+			// 
+			// thuStart
+			// 
+			this.thuStart.CalendarFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.thuStart.CustomFormat = "HH:mm";
+			this.thuStart.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.thuStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.thuStart.Location = new System.Drawing.Point(92, 13);
+			this.thuStart.Name = "thuStart";
+			this.thuStart.ShowUpDown = true;
+			this.thuStart.Size = new System.Drawing.Size(66, 27);
+			this.thuStart.TabIndex = 272;
+			// 
+			// groupBox4
+			// 
+			this.groupBox4.Controls.Add(this.wedChk);
+			this.groupBox4.Controls.Add(this.wedDate);
+			this.groupBox4.Controls.Add(this.wedCost);
+			this.groupBox4.Controls.Add(this.wedHrs);
+			this.groupBox4.Controls.Add(this.wedEnd);
+			this.groupBox4.Controls.Add(this.wedStart);
+			this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.groupBox4.Location = new System.Drawing.Point(51, 186);
+			this.groupBox4.Name = "groupBox4";
+			this.groupBox4.Size = new System.Drawing.Size(587, 47);
+			this.groupBox4.TabIndex = 280;
+			this.groupBox4.TabStop = false;
+			// 
+			// wedChk
+			// 
+			this.wedChk.AutoSize = true;
+			this.wedChk.Location = new System.Drawing.Point(407, 14);
+			this.wedChk.Name = "wedChk";
+			this.wedChk.Size = new System.Drawing.Size(83, 17);
+			this.wedChk.TabIndex = 278;
+			this.wedChk.Text = "Wednesday";
+			this.wedChk.UseVisualStyleBackColor = true;
+			this.wedChk.CheckedChanged += new System.EventHandler(this.wedChk_CheckedChanged);
+			// 
+			// wedDate
+			// 
+			this.wedDate.AutoSize = true;
+			this.wedDate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.wedDate.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+			this.wedDate.Location = new System.Drawing.Point(6, 14);
+			this.wedDate.Name = "wedDate";
+			this.wedDate.Size = new System.Drawing.Size(17, 19);
+			this.wedDate.TabIndex = 277;
+			this.wedDate.Text = "#";
+			// 
+			// wedCost
+			// 
+			this.wedCost.AutoSize = true;
+			this.wedCost.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.wedCost.ForeColor = System.Drawing.SystemColors.Highlight;
+			this.wedCost.Location = new System.Drawing.Point(344, 16);
+			this.wedCost.Name = "wedCost";
+			this.wedCost.Size = new System.Drawing.Size(17, 19);
+			this.wedCost.TabIndex = 276;
+			this.wedCost.Text = "#";
+			// 
+			// wedHrs
+			// 
+			this.wedHrs.AutoSize = true;
+			this.wedHrs.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.wedHrs.ForeColor = System.Drawing.SystemColors.Highlight;
+			this.wedHrs.Location = new System.Drawing.Point(265, 16);
+			this.wedHrs.Name = "wedHrs";
+			this.wedHrs.Size = new System.Drawing.Size(49, 19);
+			this.wedHrs.TabIndex = 274;
+			this.wedHrs.Text = "Hours";
+			// 
+			// wedEnd
+			// 
+			this.wedEnd.CustomFormat = "HH:mm";
+			this.wedEnd.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+			this.wedEnd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.wedEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.wedEnd.Location = new System.Drawing.Point(167, 12);
+			this.wedEnd.Name = "wedEnd";
+			this.wedEnd.ShowUpDown = true;
+			this.wedEnd.Size = new System.Drawing.Size(76, 27);
+			this.wedEnd.TabIndex = 273;
+			// 
+			// wedStart
+			// 
+			this.wedStart.CalendarFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.wedStart.CustomFormat = "HH:mm";
+			this.wedStart.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.wedStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.wedStart.Location = new System.Drawing.Point(92, 13);
+			this.wedStart.Name = "wedStart";
+			this.wedStart.ShowUpDown = true;
+			this.wedStart.Size = new System.Drawing.Size(66, 27);
+			this.wedStart.TabIndex = 272;
 			// 
 			// ScheduleDialog
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(696, 777);
+			this.ClientSize = new System.Drawing.Size(693, 832);
 			this.Controls.Add(this.groupBox3);
 			this.Controls.Add(this.label14);
 			this.Controls.Add(this.label13);
@@ -1081,16 +1081,16 @@
 			this.groupBox2.PerformLayout();
 			this.groupBox3.ResumeLayout(false);
 			this.groupBox3.PerformLayout();
-			this.groupBox4.ResumeLayout(false);
-			this.groupBox4.PerformLayout();
-			this.groupBox5.ResumeLayout(false);
-			this.groupBox5.PerformLayout();
-			this.groupBox6.ResumeLayout(false);
-			this.groupBox6.PerformLayout();
-			this.groupBox7.ResumeLayout(false);
-			this.groupBox7.PerformLayout();
 			this.groupBox8.ResumeLayout(false);
 			this.groupBox8.PerformLayout();
+			this.groupBox7.ResumeLayout(false);
+			this.groupBox7.PerformLayout();
+			this.groupBox6.ResumeLayout(false);
+			this.groupBox6.PerformLayout();
+			this.groupBox5.ResumeLayout(false);
+			this.groupBox5.PerformLayout();
+			this.groupBox4.ResumeLayout(false);
+			this.groupBox4.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

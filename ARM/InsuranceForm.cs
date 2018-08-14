@@ -34,11 +34,11 @@ namespace ARM
             t.Columns.Add("id");
             t.Columns.Add("uriCus");
             t.Columns.Add(new DataColumn("ImgCus", typeof(Bitmap)));//1  
-            t.Columns.Add("Customer");
+            t.Columns.Add("Patient");
             t.Columns.Add("Company");
             t.Columns.Add("Type");
             t.Columns.Add("No");            
-            t.Columns.Add("Sync");
+            
             t.Columns.Add("Created");          
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));
             t.Columns.Add("customerID");
@@ -59,11 +59,11 @@ namespace ARM
                 string cus = "";
                 string imageCus = "";               
 
-                try { cus = Customer.Select(c.CustomerID).Name; } catch { }
-                try { imageCus = Customer.Select(c.CustomerID).Image; } catch { }
+                try { cus = GenericCollection.customers.Where(r => r.Id == c.CustomerID).First().Name; } catch { }
+                try { imageCus = GenericCollection.customers.Where(r => r.Id == c.CustomerID).First().Image; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, imageCus as string, b, cus, c.Name,c.Type,c.No, c.Sync, c.Created, delete ,c.CustomerID});
+                    t.Rows.Add(new object[] { "false", c.Id, imageCus as string, b, cus, c.Name,c.Type,c.No,c.Created, delete ,c.CustomerID});
 
                 }
                 catch (Exception m)
@@ -95,9 +95,9 @@ namespace ARM
                 }
             });            
             dtGrid.AllowUserToAddRows = false;
-            dtGrid.Columns["Customer"].DefaultCellStyle.BackColor = Color.LightGreen;
+          //  dtGrid.Columns["Customer"].DefaultCellStyle.BackColor = Color.LightGreen;
             dtGrid.Columns["Company"].DefaultCellStyle.BackColor = Color.LightBlue;
-            dtGrid.Columns["ImgCus"].DefaultCellStyle.BackColor =  Color.LightGreen;
+           // dtGrid.Columns["ImgCus"].DefaultCellStyle.BackColor =  Color.LightGreen;
 
             dtGrid.Columns["id"].Visible = false;
             dtGrid.Columns["customerID"].Visible = false;
@@ -136,9 +136,8 @@ namespace ARM
                 foreach (var item in selectedIDs)
                 {
                     string Query = "DELETE from responsible WHERE id ='" + item + "'";
-                    DBConnect.QueryPostgre(Query);
-                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                    DBConnect.InsertPostgre(q);
+                    MySQL.Query(Query);
+                   
 					//  MessageBox.Show("Information deleted");
 					Helper.Log(Helper.UserName, "Deleted Insurance information  " + item + "  " + DateTime.Now);
 				}
@@ -174,9 +173,8 @@ namespace ARM
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Information? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         string Query = "DELETE from coverage WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
-                        DBConnect.QueryPostgre(Query);
-                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                        DBConnect.InsertPostgre(q);
+                        MySQL.Query(Query);
+                      
                         MessageBox.Show("Information deleted");
                         LoadData();
 
@@ -193,28 +191,22 @@ namespace ARM
 
         }
 
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            string Query = "UPDATE customer SET sync ='false'";
-            DBConnect.QueryPostgre(Query);
-        }
 
 		private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
 		{
 			string columnName = dtGrid.Columns[e.ColumnIndex].HeaderText;
 			try
 			{
-				String Query = "UPDATE coverage SET " + columnName + " ='" + dtGrid.Rows[e.RowIndex].Cells[columnName].Value.ToString() + "' WHERE Id = '" + dtGrid.Rows[e.RowIndex].Cells["Id"].Value.ToString() + "'";
-				DBConnect.QueryPostgre(Query);
+				String Query = "UPDATE coverage SET " + columnName + " ='" + dtGrid.Rows[e.RowIndex].Cells[columnName].Value.ToString() + "' WHERE id = '" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
+				MySQL.Query(Query);
 
-				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-				DBConnect.InsertPostgre(q);
+				
 			}
 			catch (Exception c)
 			{
-				MessageBox.Show(c.Message.ToString());
+				//MessageBox.Show(c.Message.ToString());
 				//Helper.Exceptions(c.Message, "Editing Sales grid");
-				MessageBox.Show("You have an invalid entry !");
+				//MessageBox.Show("You have an invalid entry !");
 			}
 		}
 
@@ -237,6 +229,20 @@ namespace ARM
 			{
 				row.Cells["select"].Value = false;
 				selectedIDs.Remove(row.Cells["id"].Value.ToString());
+			}
+		}
+
+		private void toolStripButton2_Click(object sender, EventArgs e)
+		{
+			using (InsuranceDialog form = new InsuranceDialog(null))
+			{
+				DialogResult dr = form.ShowDialog();
+				if (dr == DialogResult.OK)
+				{
+					LoadData();
+
+
+				}
 			}
 		}
 	}

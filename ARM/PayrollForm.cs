@@ -1,6 +1,7 @@
 ﻿using ARM.DB;
 using ARM.Model;
 using ARM.Util;
+using MySql.Data.MySqlClient;
 using Npgsql;
 using System;
 using System.Collections;
@@ -43,9 +44,9 @@ namespace ARM
                 foreach (var item in selectedIDs)
                 {
                     string Query = "DELETE from schedule WHERE id ='" + item + "'";
-                    DBConnect.QueryPostgre(Query);
-                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                    DBConnect.InsertPostgre(q);
+                    MySQL.Query(Query);
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(MySQL.Insert(Query)), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    MySQL.Insert(q);
                     //  MessageBox.Show("Information deleted");
 
 
@@ -100,23 +101,23 @@ namespace ARM
 
             LoadingWindow.ShowSplashScreen();
             LoadDeduction(fromDate, toDate);
-            string Qs = "SELECT starts,period,userID,customerID FROM schedule  WHERE (date::date >= '" + fromDate + "'::date AND  date::date <= '" + toDate + "'::date)";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader1 = DBConnect.Reading(Qs);
-            OnDays l = new OnDays();
+            string Qs = "SELECT starts,period,userID,customerID FROM schedule  WHERE `date` >= '" + fromDate + "' AND  `date` <= '" + toDate + "'";
+           
+			MySqlDataReader Reader1 = MySQL.Reading(Qs);
+			OnDays l = new OnDays();
             List<OnDays> oD = new List<OnDays>();
             while (Reader1.Read())
             {
                 l = new OnDays(Convert.ToDateTime(Reader1["starts"]).ToString("ddd"), Reader1["period"].ToString(), Reader1["userID"].ToString(), Reader1["customerID"].ToString());
                 oD.Add(l);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
 
 
             Payroll r = new Payroll();
-            string Q = "SELECT users.name,rate.period AS maxs ,customer.name AS client,customer.id AS customerID,rate.amount,account.bank,account.routing,SUM(cast(schedule.period AS float)) AS totalhours,SUM(cast(schedule.cost AS float)) AS cost,schedule.userID AS userID FROM schedule LEFT JOIN users ON schedule.userID = users.id LEFT JOIN customer ON schedule.customerID = customer.id LEFT JOIN rate ON users.id = rate.userID LEFT JOIN account ON users.id = account.userid LEFT JOIN deduction ON users.id = deduction.userID  WHERE (schedule.date::date >= '" + fromDate + "'::date AND  schedule.date::date <= '" + toDate + "'::date) GROUP BY schedule.userID,users.name,customer.name,users.name,account.bank,account.routing,rate.amount,rate.period,customer.id";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            string Q = "SELECT users.name,rate.period AS maxs ,customer.name AS client,customer.id AS customerID,rate.amount,account.bank,account.routing,SUM(schedule.period ) AS totalhours,SUM(schedule.cost ) AS cost,schedule.userID AS userID FROM schedule LEFT JOIN users ON schedule.userID = users.id LEFT JOIN customer ON schedule.customerID = customer.id LEFT JOIN rate ON users.id = rate.userID LEFT JOIN account ON users.id = account.userid LEFT JOIN deduction ON users.id = deduction.userID  WHERE (schedule.`date` >= '" + fromDate + "' AND  schedule.`date` <= '" + toDate + "') GROUP BY schedule.userID,users.name,customer.name,users.name,account.bank,account.routing,rate.amount,rate.period,customer.id";
+           
+            MySqlDataReader Reader = MySQL.Reading(Q);
             int ct = 0;
             double ded = 0;
 
@@ -174,7 +175,7 @@ namespace ARM
                 reports.Add(r);
                 ct++;
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
 
             /** end restaurant profit**/
             // Microsoft.Reporting.WinForms.ReportParameter rp = new Microsoft.Reporting.WinForms.ReportParameter("week", week.ToString());
@@ -188,9 +189,9 @@ namespace ARM
         {
             deductionDictionary.Clear();
             deductionDictionary = new Dictionary<string, double>();
-            string Q = "SELECT userID,SUM(cast(amount AS float)) AS amount FROM deduction  WHERE (date::date >= '" + from + "'::date AND date::date <= '" + to + "'::date) GROUP BY userID";
+            string Q = "SELECT userID,SUM(amount) AS amount FROM deduction  WHERE (`date` >= '" + from + "' AND `date` <= '" + to + "') GROUP BY userID";
 
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
                 if (!deductionDictionary.ContainsKey(Reader["userID"].ToString()))
@@ -200,7 +201,7 @@ namespace ARM
 
             }
             Reader.Close();
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
 
         }
         private void PayrollForm_Load(object sender, EventArgs e)

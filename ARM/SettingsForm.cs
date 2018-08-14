@@ -40,7 +40,8 @@ namespace ARM
                               {
                                   Name = person.Element("Name").Value,
                                   Remote = person.Element("Remote").Value,
-                                  Default = person.Element("Default").Value,
+								  IP = person.Element("IP").Value,
+								  Default = person.Element("Default").Value,
                                   Port = person.Element("Port").Value
                               };
 
@@ -49,6 +50,8 @@ namespace ARM
                 {
                     localNameTxt.Text = server.Name;
                     Helper.serverName = server.Name;
+					Helper.serverIP = server.IP;
+					ipTxt.Text = server.IP;
                     remoteTxt.Text = server.Remote;
                     defaultTxt.Text = server.Default;
                     portTxt.Text = server.Port;
@@ -74,10 +77,25 @@ namespace ARM
                 defaultTxt.BackColor = Color.Red;
                 return;
             }
-            XElement xml = new XElement("Servers",
+			if (string.IsNullOrEmpty(ipTxt.Text))
+			{
+				MessageBox.Show("Please input the server IP ");
+				ipTxt.BackColor = Color.Red;
+				return;
+			}
+			if (!Helper.ValidateIPv4(ipTxt.Text))
+			{
+				MessageBox.Show("Invalid IP address please input IP address manually ! ");
+				Helper.serverIP = "";
+				ipTxt.Text = "";
+				return;
+			}
+
+			XElement xml = new XElement("Servers",
             new XElement("Server",
             new XElement("Name", localNameTxt.Text),
-            new XElement("Remote", remoteTxt.Text),
+			new XElement("IP", ipTxt.Text),
+			new XElement("Remote", remoteTxt.Text),
             new XElement("Default", defaultTxt.Text),
             new XElement("Port", portTxt.Text)
            )
@@ -100,19 +118,12 @@ namespace ARM
 
         }
 
-        private void costTxt_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void localNameTxt_Leave(object sender, EventArgs e)
         {
             try
             {
-
-                Helper.serverIP = Helper.IPAddressCheck(localNameTxt.Text);
-                ipTxt.Text = Helper.serverIP;
-
+				ipTxt.Text = Helper.IPAddressCheck(localNameTxt.Text);
+                 
             }
             catch (Exception c)
             {
@@ -120,7 +131,15 @@ namespace ARM
 
 
             }
-        }
+			if (!Helper.ValidateIPv4(ipTxt.Text)) {
+
+				MessageBox.Show("Invalid IP address please input IP address manually ! ");
+				//Helper.serverIP = "";
+				
+			}
+			
+
+		}
 
         private void defaultTxt_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -129,14 +148,21 @@ namespace ARM
                 if (defaultTxt.Text == "Default")
                 {
 
-                    Helper.serverIP = Helper.IPAddressCheck(localNameTxt.Text);
-                    ipTxt.Text = Helper.serverIP;
-                }
+					ipTxt.Text = Helper.IPAddressCheck(localNameTxt.Text);
+					if (!Helper.ValidateIPv4(ipTxt.Text))
+					{
+
+						MessageBox.Show("Invalid IP address please input IP address manually ! ");
+						Helper.serverIP = "";
+						ipTxt.Text = "";
+					}
+
+
+				}
                 else if (defaultTxt.Text == "Remote")
                 {
                     if (string.IsNullOrEmpty(remoteTxt.Text))
                     {
-
                         MessageBox.Show("Please input the remote url ");
                         return;
 
@@ -162,8 +188,7 @@ namespace ARM
             try
             {
 
-                Helper.serverIP = Helper.IPAddressCheck(remoteNameTxt.Text);
-               
+                Helper.serverIP = Helper.IPAddressCheck(remoteNameTxt.Text);               
                 remoteTxt.Text = Helper.serverIP;
             }
             catch (Exception c)

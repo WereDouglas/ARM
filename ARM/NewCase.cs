@@ -182,45 +182,45 @@ namespace ARM
                 var TypeJson = JsonConvert.SerializeObject(TypeDictionary);
                 var PlaceJson = JsonConvert.SerializeObject(PlaceDictionary);
 
-                Cases i = new Cases(CaseID, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, providerNoTxt.Text, coverageID, CustomerID, PractitionerID, practictionerTypeCbx.Text, roleTypeCbx.Text, TypeJson, PlaceJson, informationTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Convert.ToDateTime(reqStart.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(reqEnd.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(reqStart.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(reqEnd.Text).ToString("dd-MM-yyyy"), false, Helper.CompanyID);
-                string save = DBConnect.InsertPostgre(i);
+                Cases i = new Cases(CaseID, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, providerNoTxt.Text, coverageID, CustomerID, PractitionerID, practictionerTypeCbx.Text, roleTypeCbx.Text, TypeJson, PlaceJson, informationTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Convert.ToDateTime(reqStart.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(reqEnd.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(reqStart.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(reqEnd.Text).ToString("dd-MM-yyyy"), "false", Helper.CompanyID);
+                string save = MySQL.Insert(i);
 
                 if (save != "")
                 {
-                    Queries qi = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                    DBConnect.InsertPostgre(qi);
+                    Queries qi = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    MySQL.Insert(qi);
                     foreach (CaseTransaction t in GenericCollection.caseTransactions)
                     {
-                        CaseTransaction c = new CaseTransaction(t.Id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, CaseID, "", t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
-                        string saving = DBConnect.InsertPostgre(c);
+                        CaseTransaction c = new CaseTransaction(t.Id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, CaseID, "", t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, "false", Helper.CompanyID);
+                        string saving = MySQL.Insert(c);
                         if (saving != "")
                         {
-                            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(saving), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                            DBConnect.InsertPostgre(q);
+                            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(saving), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                            MySQL.Insert(q);
                         }
                     }
                     //foreach (ICD10 t in GenericCollection.icd10)
                     //{
-                    //    ICD10 c = new ICD10(t.Id, CaseID, t.Code, t.Name, t.Created, false, Helper.CompanyID);
-                    //    string doing = DBConnect.InsertPostgre(c);
+                    //    ICD10 c = new ICD10(t.Id, CaseID, t.Code, t.Name, t.Created, "false", Helper.CompanyID);
+                    //    string doing = MySQL.Insert(c);
                     //    if (doing != "")
                     //    {
 
-                    //        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(doing), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                    //        DBConnect.InsertPostgre(q);
+                    //        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(doing), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    //        MySQL.Insert(q);
                     //    }
                     //}
-                    // ItemCoverage t = new ItemCoverage(id,TransID,ItemID,CoverID,Convert.ToDouble(percTxt.Text), Convert.ToDouble(amountTxt.Text),DateTime.Now.ToString("dd-MM-yyyy H:m:s"),false,Helper.CompanyID);
+                    // ItemCoverage t = new ItemCoverage(id,TransID,ItemID,CoverID,Convert.ToDouble(percTxt.Text), Convert.ToDouble(amountTxt.Text),DateTime.Now.ToString("dd-MM-yyyy H:m:s"),"false",Helper.CompanyID);
 
 
                     foreach (ItemCoverage t in GenericCollection.itemCoverage)
                     {
-                        ItemCoverage c = new ItemCoverage(t.Id,t.CaseTransactionID,t.ItemID,t.CoverageID,t.Percentage,t.Amount,t.Created, false, Helper.CompanyID);
-                        string mg = DBConnect.InsertPostgre(c);
+                        ItemCoverage c = new ItemCoverage(t.Id,t.CaseTransactionID,t.ItemID,t.CoverageID,t.Percentage,t.Amount,t.Created, "false", Helper.CompanyID);
+                        string mg = MySQL.Insert(c);
                         if (mg != "")
                         {
-                            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(mg), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                            DBConnect.InsertPostgre(q);
+                            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(mg), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                            MySQL.Insert(q);
                         }
 
                     }
@@ -543,38 +543,37 @@ namespace ARM
                 var TypeJson = JsonConvert.SerializeObject(TypeDictionary);
                 var PlaceJson = JsonConvert.SerializeObject(PlaceDictionary);
 
-                Cases i = new Cases(CaseID, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, providerNoTxt.Text, coverageID, CustomerID, PractitionerID, practictionerTypeCbx.Text, roleTypeCbx.Text, TypeJson, PlaceJson, informationTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Convert.ToDateTime(reqStart.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(reqEnd.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(reqStart.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(reqEnd.Text).ToString("dd-MM-yyyy"), false, Helper.CompanyID);
-                DBConnect.UpdatePostgre(i, CaseID);
+                Cases i = new Cases(CaseID, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, providerNoTxt.Text, coverageID, CustomerID, PractitionerID, practictionerTypeCbx.Text, roleTypeCbx.Text, TypeJson, PlaceJson, informationTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Convert.ToDateTime(reqStart.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(reqEnd.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(reqStart.Text).ToString("dd-MM-yyyy"), Convert.ToDateTime(reqEnd.Text).ToString("dd-MM-yyyy"), "false", Helper.CompanyID);
+                DBConnect.UpdateMySql(i, CaseID);
                 if (MessageBox.Show("YES or NO?", "Would you like to add these products to your case list ?  ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     string Query = "DELETE from caseCaseTransaction WHERE caseID ='" + CaseID + "'";
-                    DBConnect.QueryPostgre(Query);
-                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                     DBConnect.InsertPostgre(q);
+                    MySQL.Query(Query);
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                     MySQL.Insert(q);
                       
                     foreach (CaseTransaction t in GenericCollection.caseTransactions)
                     {
-                        CaseTransaction c = new CaseTransaction(t.Id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, CaseID, "", t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, false, Helper.CompanyID);
+                        CaseTransaction c = new CaseTransaction(t.Id, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), noTxt.Text, t.ItemID, CaseID, "", t.Qty, t.Cost, t.Units, t.Total, t.Tax, t.Coverage, t.Self, t.Payable, t.Limits, t.Setting, t.Period, t.Height, t.Weight, t.Instruction, t.Created, "false", Helper.CompanyID);
 
-                        string sv = DBConnect.UpdatePostgre(c, t.Id);
-                        Queries qh = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(sv), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                        DBConnect.InsertPostgre(qh);
+                        DBConnect.UpdateMySql(c, t.Id);
+                      
                     }
                 }
                 if (MessageBox.Show("YES or NO?", "Would you like to add these products to your case list ?  ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     //string Query = "DELETE from icd10 WHERE caseID ='" + CaseID + "'";
-                    //DBConnect.QueryPostgre(Query);
+                    //MySQL.Query(Query);
 
-                    //Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                    //DBConnect.InsertPostgre(q);
+                    //Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    //MySQL.Insert(q);
                     //foreach (ICD10 t in GenericCollection.icd10)
                     //{
-                    //    ICD10 c = new ICD10(t.Id, CaseID, t.Code, t.Name, t.Created, false, Helper.CompanyID);
-                    //    string sv = DBConnect.UpdatePostgre(c, t.Id);
+                    //    ICD10 c = new ICD10(t.Id, CaseID, t.Code, t.Name, t.Created, "false", Helper.CompanyID);
+                    //    string sv = DBConnect.UpdateMySql(c, t.Id);
 
-                    //    Queries qy = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(sv), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                    //    DBConnect.InsertPostgre(qy);
+                    //    Queries qy = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(sv), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    //    MySQL.Insert(qy);
                     //}
                 }
 

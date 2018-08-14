@@ -98,6 +98,7 @@
 			this.userTxt = new System.Windows.Forms.TextBox();
 			this.userPbx = new System.Windows.Forms.PictureBox();
 			this.panel4 = new System.Windows.Forms.Panel();
+			this.button6 = new System.Windows.Forms.Button();
 			this.practitionerCbx = new System.Windows.Forms.ComboBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label33 = new System.Windows.Forms.Label();
@@ -119,7 +120,6 @@
 			this.submitBtn = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
 			this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-			this.button6 = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.panel2.SuspendLayout();
@@ -964,6 +964,26 @@
 			this.panel4.Size = new System.Drawing.Size(237, 855);
 			this.panel4.TabIndex = 505;
 			// 
+			// button6
+			// 
+			this.button6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.button6.FlatAppearance.BorderSize = 0;
+			this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button6.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.button6.Image = global::ARM.Properties.Resources.Box_02_24;
+			this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button6.Location = new System.Drawing.Point(7, 248);
+			this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.button6.Name = "button6";
+			this.button6.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.button6.Size = new System.Drawing.Size(136, 47);
+			this.button6.TabIndex = 506;
+			this.button6.Text = "Add Product";
+			this.button6.UseVisualStyleBackColor = false;
+			this.button6.Click += new System.EventHandler(this.button6_Click);
+			// 
 			// practitionerCbx
 			// 
 			this.practitionerCbx.AutoCompleteCustomSource.AddRange(new string[] {
@@ -1162,6 +1182,7 @@
 			// 
 			// updateBtn
 			// 
+			this.updateBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.updateBtn.BackColor = System.Drawing.Color.Khaki;
 			this.updateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
 			this.updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1169,7 +1190,7 @@
 			this.updateBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.updateBtn.Image = global::ARM.Properties.Resources.Note_04_24;
 			this.updateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.updateBtn.Location = new System.Drawing.Point(870, 958);
+			this.updateBtn.Location = new System.Drawing.Point(902, 958);
 			this.updateBtn.Name = "updateBtn";
 			this.updateBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.updateBtn.Size = new System.Drawing.Size(107, 37);
@@ -1181,6 +1202,7 @@
 			// 
 			// button1
 			// 
+			this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
 			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1188,7 +1210,7 @@
 			this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.button1.Image = global::ARM.Properties.Resources.Print_24;
 			this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button1.Location = new System.Drawing.Point(741, 959);
+			this.button1.Location = new System.Drawing.Point(140, 959);
 			this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.button1.Name = "button1";
 			this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1201,6 +1223,7 @@
 			// 
 			// submitBtn
 			// 
+			this.submitBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.submitBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.submitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
 			this.submitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1221,6 +1244,7 @@
 			// 
 			// button2
 			// 
+			this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
 			this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
 			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1238,26 +1262,6 @@
 			this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.button2.UseVisualStyleBackColor = false;
 			this.button2.Click += new System.EventHandler(this.button2_Click);
-			// 
-			// button6
-			// 
-			this.button6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.button6.FlatAppearance.BorderSize = 0;
-			this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button6.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.button6.Image = global::ARM.Properties.Resources.Box_02_24;
-			this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button6.Location = new System.Drawing.Point(7, 248);
-			this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.button6.Name = "button6";
-			this.button6.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.button6.Size = new System.Drawing.Size(136, 47);
-			this.button6.TabIndex = 506;
-			this.button6.Text = "Add Product";
-			this.button6.UseVisualStyleBackColor = false;
-			this.button6.Click += new System.EventHandler(this.button6_Click);
 			// 
 			// OrderIntakeForm
 			// 

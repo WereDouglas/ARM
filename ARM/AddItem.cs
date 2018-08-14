@@ -119,13 +119,13 @@ namespace ARM
             string fullimage = Helper.ImageToBase64(stream);
 
             string id = Guid.NewGuid().ToString();
-            Product c = new Product(id, nameTxt.Text, codeTxt.Text, categoryCbx.Text, typeCbx.Text,Helper.CleanString(descriptionxt.Text), costTxt.Text, batchTxt.Text, serialTxt.Text, barTxt.Text, unitTxt.Text,Helper.CleanString(unitDescTxt.Text), manuTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, fullimage, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"));
+            Product c = new Product(id, nameTxt.Text, codeTxt.Text, categoryCbx.Text, typeCbx.Text,Helper.CleanString(descriptionxt.Text), costTxt.Text, batchTxt.Text, serialTxt.Text, barTxt.Text, unitTxt.Text,Helper.CleanString(unitDescTxt.Text), manuTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), "false", Helper.CompanyID, fullimage, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"));
 
-			string save = DBConnect.InsertPostgre(c);
+			string save = MySQL.Insert(c);
             if (save != "")
             {
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                DBConnect.InsertPostgre(q);
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                MySQL.Insert(q);
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;
                 this.Dispose();
@@ -149,11 +149,10 @@ namespace ARM
             }
 
             string fullimage = Helper.ImageToBase64(stream);
-            Product c = new Product(ItemID, nameTxt.Text, codeTxt.Text, categoryCbx.Text, typeCbx.Text, descriptionxt.Text, costTxt.Text, batchTxt.Text, serialTxt.Text, barTxt.Text, unitTxt.Text, unitDescTxt.Text, manuTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, fullimage, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"));
-			string save = DBConnect.UpdatePostgre(c, itemID);
+            Product c = new Product(ItemID, nameTxt.Text, codeTxt.Text, categoryCbx.Text, typeCbx.Text, descriptionxt.Text, costTxt.Text, batchTxt.Text, serialTxt.Text, barTxt.Text, unitTxt.Text, unitDescTxt.Text, manuTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), "false", Helper.CompanyID, fullimage, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"));
+			DBConnect.UpdateMySql(c, itemID);
 
-            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-            DBConnect.InsertPostgre(q);
+           
             MessageBox.Show("Information Updated");
             this.DialogResult = DialogResult.OK;
             this.Dispose();

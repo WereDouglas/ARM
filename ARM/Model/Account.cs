@@ -17,11 +17,11 @@ namespace ARM.Model
         private string accountNo;
         private string routing;
         private string created;
-        private bool sync;
+        private string sync;
         private string companyID;
         public Account() { }
 
-        public Account(string id, string userID, string bank, string accountNo, string routing, string created, bool sync,string companyID)
+        public Account(string id, string userID, string bank, string accountNo, string routing, string created, string sync,string companyID)
         {
             this.Id = id;
             this.UserID = userID;
@@ -41,40 +41,39 @@ namespace ARM.Model
         public string AccountNo { get => accountNo; set => accountNo = value; }
         public string Routing { get => routing; set => routing = value; }
         public string Created { get => created; set => created = value; }
-        public bool Sync { get => sync; set => sync = value; } public string CompanyID { get => companyID; set => companyID = value; }
+        public string Sync { get => sync; set => sync = value; } public string CompanyID { get => companyID; set => companyID = value; }
 
         public static List<Account> List()
         {
             p.Clear();
-            string Q = "SELECT * FROM Account ";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            string Q = "SELECT * FROM account ";
+           
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
                 try
                 {
-                    Account ps = new Account(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["bank"].ToString(), Reader["accountNo"].ToString(), Reader["routing"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                    Account ps = new Account(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["bank"].ToString(), Reader["accountNo"].ToString(), Reader["routing"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
                 catch {
 
                 }
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
 
         }
         public static List<Account> List(string Q)
         {
-            p.Clear();
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            p.Clear();           
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Account ps = new Account(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["bank"].ToString(), Reader["accountNo"].ToString(), Reader["routing"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Account ps = new Account(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["bank"].ToString(), Reader["accountNo"].ToString(), Reader["routing"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
 
         }
@@ -82,12 +81,11 @@ namespace ARM.Model
         {
             try
             {
-                p.Clear();
-                DBConnect.OpenMySqlConn();
-                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+                p.Clear();              
+                MySqlDataReader Reader = MySQL.Reading(Q);
                 while (Reader.Read())
                 {
-                    Account ps = new Account(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["bank"].ToString(), Reader["accountNo"].ToString(), Reader["routing"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                    Account ps = new Account(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["bank"].ToString(), Reader["accountNo"].ToString(), Reader["routing"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();

@@ -102,12 +102,12 @@ namespace ARM
             string fullimage = Helper.ImageToBase64(stream);
 
             string id = Guid.NewGuid().ToString();
-            Vendor c = new Vendor(id, nameTxt.Text, emailTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), categoryCbx.Text, false, Helper.CompanyID, fullimage);
-            string saves = DBConnect.InsertPostgre(c);
+            Vendor c = new Vendor(id, nameTxt.Text, emailTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), categoryCbx.Text, "false", Helper.CompanyID, fullimage);
+            string saves = MySQL.Insert(c);
             if (saves != "")
             {
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(saves), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                DBConnect.InsertPostgre(q);
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(saves), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                MySQL.Insert(q);
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;
                 this.Dispose();
@@ -119,11 +119,10 @@ namespace ARM
 
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
-            Vendor c = new Vendor(vendorID, nameTxt.Text, emailTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), categoryCbx.Text, false, Helper.CompanyID, fullimage);
-            string saves = DBConnect.UpdatePostgre(c, vendorID);
+            Vendor c = new Vendor(vendorID, nameTxt.Text, emailTxt.Text, contactTxt.Text, addressTxt.Text, noTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), categoryCbx.Text, "false", Helper.CompanyID, fullimage);
+           DBConnect.UpdateMySql(c, vendorID);
 
-            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(saves), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-            DBConnect.InsertPostgre(q);
+           
 
             MessageBox.Show("Information Updated");
             this.DialogResult = DialogResult.OK;

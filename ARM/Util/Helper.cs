@@ -46,8 +46,9 @@ namespace ARM.Util
 		public static string defaultConfig;
         public static string remoteConfig;
         public static string serverIP;
-        // public static string port="5432";
-        public static string port = "11425";
+	
+		// public static string port="5432";
+		public static string port = "11425";
         public static string contact;
         public static string genUrl = "http://caseprofessional.pro/index.php/";
         // public static string genUrl = "http://localhost/caseprofessionals/index.php/";
@@ -76,7 +77,25 @@ namespace ARM.Util
 
             }
         }
-        public static DateTime FirstDateOfWeek(int year, int weekOfYear)
+		public static  bool ValidateIPv4(string ipString)
+		{
+			if (String.IsNullOrWhiteSpace(ipString))
+			{
+				return false;
+			}
+
+			string[] splitValues = ipString.Split('.');
+			if (splitValues.Length != 4)
+			{
+				return false;
+			}
+
+			byte tempForParsing;
+
+			return splitValues.All(r => byte.TryParse(r, out tempForParsing));
+		}
+		
+		public static DateTime FirstDateOfWeek(int year, int weekOfYear)
         {
             DateTime jan1 = new DateTime(year, 1, 1);
             int daysOffset = (int)CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek - (int)jan1.DayOfWeek;
@@ -129,7 +148,7 @@ namespace ARM.Util
         {
             string id = Guid.NewGuid().ToString();
             string Query = "INSERT INTO exceptions(id,message,process,created,sync,companyid) VALUES ('" + id + "','" + message + " TIME:- "+ DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt") + "','" + process + "','" + DateTime.Now.ToString("dd-MM-yyyy") + "','false','"+Helper.CompanyID+"');";
-            DBConnect.QueryPostgre(Query);
+            MySQL.Query(Query);
         }
         public static bool validateDouble(string t)
         {
@@ -228,7 +247,7 @@ namespace ARM.Util
         {
             string id = Guid.NewGuid().ToString();
             string Query = "INSERT INTO logs(id,name,actions,created,sync,companyid) VALUES ('" + id + "','" + userName + "','" + actions +" AT "+ DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt") + "','" +  DateTime.Now.ToString("dd-MM-yyyy") + "','false','"+Helper.CompanyID+"');";
-            DBConnect.QueryPostgre(Query);
+            MySQL.Query(Query);
         }
 
         public static string CleanString(string str)

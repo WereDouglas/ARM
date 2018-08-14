@@ -66,7 +66,7 @@ namespace ARM
             {
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, c.Image as string, b, c.Name,c.Code,c.Category, c.Type,c.Expires, c.Description, c.Cost, c.Batch,c.Serial,c.Barcode,c.UnitOfMeasure,c.MeasureDescription,c.Manufacturer, c.Sync, c.Created, view, delete });
+                    t.Rows.Add(new object[] { "false", c.Id, c.Image as string, b, c.Name,c.Code,c.Category, c.Type,c.Expires, c.Description, c.Cost, c.Batch,c.Serial,c.Barcode,c.UnitOfMeasure,c.MeasureDescription,c.Manufacturer, c.Sync, c.Created, view, delete });
 
                 }
                 catch (Exception m)
@@ -140,9 +140,9 @@ namespace ARM
                 foreach (var item in selectedIDs)
                 {
                     string Query = "DELETE from product WHERE id ='" + item + "'";
-                    DBConnect.QueryPostgre(Query);
-                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                    DBConnect.InsertPostgre(q);
+                    MySQL.Query(Query);
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    MySQL.Insert(q);
 					//  MessageBox.Show("Information deleted");
 					Helper.Log(Helper.UserName, "Deleted product " + item + "  " + DateTime.Now);
 
@@ -188,9 +188,9 @@ namespace ARM
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Product? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         string Query = "DELETE from product WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
-                        DBConnect.QueryPostgre(Query);
-                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                        DBConnect.InsertPostgre(q);
+                        MySQL.Query(Query);
+                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        MySQL.Insert(q);
                         MessageBox.Show("Information deleted");
                         LoadData();
 
@@ -220,7 +220,7 @@ namespace ARM
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             string Query = "UPDATE product SET sync ='false'";
-            DBConnect.QueryPostgre(Query);
+            MySQL.Query(Query);
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -243,10 +243,9 @@ namespace ARM
                 return;
             }
             string ID = dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString();
-            Product _c = new Product(ID, dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["code"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["type"].Value.ToString(), Helper.CleanString(dtGrid.Rows[e.RowIndex].Cells["description"].Value.ToString()), dtGrid.Rows[e.RowIndex].Cells["cost"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["batch no"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["serial no"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["barcode"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["unit of measure"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Measure description"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Manufacturer"].Value.ToString(),DateTime.Now.ToString("dd-MM-yyyy"), false, Helper.CompanyID, dtGrid.Rows[e.RowIndex].Cells["uri"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["expires"].Value.ToString());
-            string save = DBConnect.UpdatePostgre(_c, ID);
-            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-            DBConnect.InsertPostgre(q);
+            Product _c = new Product(ID, dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["code"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["type"].Value.ToString(), Helper.CleanString(dtGrid.Rows[e.RowIndex].Cells["description"].Value.ToString()), dtGrid.Rows[e.RowIndex].Cells["cost"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["batch no"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["serial no"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["barcode"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["unit of measure"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Measure description"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Manufacturer"].Value.ToString(),DateTime.Now.ToString("dd-MM-yyyy"), "false", Helper.CompanyID, dtGrid.Rows[e.RowIndex].Cells["uri"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["expires"].Value.ToString());
+           DBConnect.UpdateMySql(_c, ID);
+           
         }
 
 		private void toolStripButton6_Click(object sender, EventArgs e)

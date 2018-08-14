@@ -38,7 +38,8 @@ namespace ARM
             t.Columns.Add("No");
             t.Columns.Add("Name");
             t.Columns.Add("Contact");
-            t.Columns.Add("Address");
+		
+			t.Columns.Add("Address");
             t.Columns.Add("City");
             t.Columns.Add("State");
             t.Columns.Add("Zip");
@@ -61,11 +62,11 @@ namespace ARM
             Image view = new Bitmap(Properties.Resources.Note_Memo_16);
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
 
-            foreach (Customer c in Customer.List())
+            foreach (Customer c in GenericCollection.customers)
             {
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, c.Image as string, b, c.No, c.Name, c.Contact, c.Address, c.City, c.State, c.Zip, c.Ssn, c.Dob,c.Gender,c.Height,c.Weight,c.Race, c.Category,c.Created, view, delete });
+                    t.Rows.Add(new object[] { "false", c.Id, c.Image as string, b, c.No, c.Name, c.Contact, c.Address, c.City, c.State, c.Zip, c.Ssn, c.Dob,c.Gender,c.Height,c.Weight,c.Race, c.Category,c.Created, view, delete });
 
                 }
                 catch (Exception m)
@@ -135,9 +136,9 @@ namespace ARM
                 foreach (var item in selectedIDs)
                 {
                     string Query = "DELETE from customer WHERE id ='" + item + "'";
-                    DBConnect.QueryPostgre(Query);
-                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                    DBConnect.InsertPostgre(q);
+                    MySQL.Query(Query);
+                   //// Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    //MySQL.Insert(q);
 					Helper.Log(Helper.UserName, "Deleted patient information  " + item + "  " + DateTime.Now);
 
 
@@ -179,9 +180,9 @@ namespace ARM
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Customer? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         string Query = "DELETE from customer WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
-                            DBConnect.QueryPostgre(Query);
-                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                        DBConnect.InsertPostgre(q);
+                            MySQL.Query(Query);
+						//Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                       // MySQL.Insert(q);
                         MessageBox.Show("Information deleted");
                         LoadData();
 						Helper.Log(Helper.UserName, "Deleted patient information " + dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + "  " + DateTime.Now);
@@ -218,19 +219,13 @@ namespace ARM
                 return;
             }
             string ID = dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString();
-            Customer _c = new Customer(ID, dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["contact"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["address"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["city"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["state"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["zip"].Value.ToString(),DateTime.Now.ToString("dd-MM-yyyy"),dtGrid.Rows[e.RowIndex].Cells["SOC-SEC#"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Date Of Birth"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["height"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["weight"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["gender"].Value.ToString(), false,Helper.CompanyID, dtGrid.Rows[e.RowIndex].Cells["uri"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["race"].Value.ToString());
-            string save = DBConnect.UpdatePostgre(_c, ID);
-            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-            DBConnect.InsertPostgre(q);
+            Customer _c = new Customer(ID, dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["contact"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["address"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["city"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["state"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["zip"].Value.ToString(),DateTime.Now.ToString("dd-MM-yyyy"),dtGrid.Rows[e.RowIndex].Cells["SOC-SEC#"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Date Of Birth"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["height"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["weight"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["gender"].Value.ToString(), "false",Helper.CompanyID, dtGrid.Rows[e.RowIndex].Cells["uri"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["race"].Value.ToString());
+             DBConnect.UpdateMySql(_c, ID);
+           // Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+           // MySQL.Insert(q);
 			Helper.Log(Helper.UserName, "Updated customer information " + dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + "  " + DateTime.Now);
 
 		}
-
-		private void toolStripButton4_Click(object sender, EventArgs e)
-        {
-            string Query = "UPDATE customer SET sync ='false'";
-            DBConnect.QueryPostgre(Query);
-        }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {

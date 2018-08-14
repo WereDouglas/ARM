@@ -15,11 +15,11 @@ namespace ARM.Model
         private string userID;
         private string customerID;
         private string created;
-       private bool sync;
+       private string sync;
         private string companyID;
         public Responsible() { }
 
-        public Responsible(string id, string userID, string customerID, string created, bool sync,string companyID)
+        public Responsible(string id, string userID, string customerID, string created, string sync,string companyID)
         {
             this.Id = id;
             this.UserID = userID;
@@ -34,33 +34,33 @@ namespace ARM.Model
         public string UserID { get => userID; set => userID = value; }
         public string CustomerID { get => customerID; set => customerID = value; }
         public string Created { get => created; set => created = value; }
-        public bool Sync { get => sync; set => sync = value; } public string CompanyID { get => companyID; set => companyID = value; }
+        public string Sync { get => sync; set => sync = value; } public string CompanyID { get => companyID; set => companyID = value; }
 
         public static List<Responsible> List()
         {
             p.Clear();
-            string Q = "SELECT * FROM Responsible ";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            string Q = "SELECT * FROM responsible ";
+          
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Responsible ps = new Responsible(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["customerID"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Responsible ps = new Responsible(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["customerID"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
         }
         public static List<Responsible> List(string Q)
         {
             p.Clear();
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+           
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Responsible ps = new Responsible(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["customerID"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Responsible ps = new Responsible(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["customerID"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
         }
         public static List<Responsible> ListOnline(string Q)
@@ -68,11 +68,11 @@ namespace ARM.Model
             try
             {
                 p.Clear();
-                DBConnect.OpenMySqlConn();
-                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+              
+                MySqlDataReader Reader = MySQL.Reading(Q);
                 while (Reader.Read())
                 {
-                    Responsible ps = new Responsible(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["customerID"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                    Responsible ps = new Responsible(Reader["id"].ToString(), Reader["userID"].ToString(), Reader["customerID"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();

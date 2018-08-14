@@ -345,21 +345,21 @@
 			// toolStripMenuItem8
 			// 
 			this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-			this.toolStripMenuItem8.Size = new System.Drawing.Size(160, 24);
+			this.toolStripMenuItem8.Size = new System.Drawing.Size(180, 24);
 			this.toolStripMenuItem8.Text = "Invoices";
 			this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
 			// 
 			// toolStripMenuItem9
 			// 
 			this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-			this.toolStripMenuItem9.Size = new System.Drawing.Size(160, 24);
-			this.toolStripMenuItem9.Text = "CaseTransactions";
+			this.toolStripMenuItem9.Size = new System.Drawing.Size(180, 24);
+			this.toolStripMenuItem9.Text = "Transactions";
 			this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
 			// 
 			// toolStripMenuItem10
 			// 
 			this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-			this.toolStripMenuItem10.Size = new System.Drawing.Size(160, 24);
+			this.toolStripMenuItem10.Size = new System.Drawing.Size(180, 24);
 			this.toolStripMenuItem10.Text = "Payments";
 			this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
 			// 
@@ -432,6 +432,7 @@
 			this.cMNToolStripMenuItem1.Name = "cMNToolStripMenuItem1";
 			this.cMNToolStripMenuItem1.Size = new System.Drawing.Size(204, 24);
 			this.cMNToolStripMenuItem1.Text = "CMN ";
+			this.cMNToolStripMenuItem1.Click += new System.EventHandler(this.cMNToolStripMenuItem1_Click);
 			// 
 			// toolStripDropDownButton9
 			// 
@@ -547,14 +548,14 @@
 			// toolStripMenuItem20
 			// 
 			this.toolStripMenuItem20.Name = "toolStripMenuItem20";
-			this.toolStripMenuItem20.Size = new System.Drawing.Size(180, 24);
+			this.toolStripMenuItem20.Size = new System.Drawing.Size(110, 24);
 			this.toolStripMenuItem20.Text = "New";
 			this.toolStripMenuItem20.Click += new System.EventHandler(this.toolStripMenuItem20_Click);
 			// 
 			// toolStripMenuItem21
 			// 
 			this.toolStripMenuItem21.Name = "toolStripMenuItem21";
-			this.toolStripMenuItem21.Size = new System.Drawing.Size(180, 24);
+			this.toolStripMenuItem21.Size = new System.Drawing.Size(110, 24);
 			this.toolStripMenuItem21.Text = "View";
 			this.toolStripMenuItem21.Click += new System.EventHandler(this.toolStripMenuItem21_Click);
 			// 

@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
 			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
 			this.searchTxt = new System.Windows.Forms.ToolStripTextBox();
 			this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-			this.dtGrid = new System.Windows.Forms.DataGridView();
 			this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.dtGrid = new System.Windows.Forms.DataGridView();
 			this.toolStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dtGrid)).BeginInit();
 			this.SuspendLayout();
@@ -83,7 +83,7 @@
 			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton1.Name = "toolStripButton1";
 			this.toolStripButton1.Size = new System.Drawing.Size(23, 34);
-			this.toolStripButton1.Text = "toolStripButton1";
+			this.toolStripButton1.Text = "Close";
 			this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
 			// 
 			// searchTxt
@@ -104,7 +104,7 @@
 			this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton3.Name = "toolStripButton3";
 			this.toolStripButton3.Size = new System.Drawing.Size(28, 34);
-			this.toolStripButton3.Text = "toolStripButton3";
+			this.toolStripButton3.Text = "Delete";
 			this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
 			// 
 			// toolStripButton5
@@ -115,42 +115,6 @@
 			this.toolStripButton5.Name = "toolStripButton5";
 			this.toolStripButton5.Size = new System.Drawing.Size(23, 34);
 			this.toolStripButton5.Text = "toolStripButton5";
-			// 
-			// dtGrid
-			// 
-			this.dtGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.dtGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-			this.dtGrid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.dtGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.dtGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			this.dtGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle5.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
-			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGrid.DefaultCellStyle = dataGridViewCellStyle5;
-			this.dtGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dtGrid.GridColor = System.Drawing.SystemColors.ButtonFace;
-			this.dtGrid.Location = new System.Drawing.Point(5, 62);
-			this.dtGrid.Name = "dtGrid";
-			this.dtGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			dataGridViewCellStyle6.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-			this.dtGrid.RowHeadersWidth = 20;
-			this.dtGrid.Size = new System.Drawing.Size(1190, 487);
-			this.dtGrid.TabIndex = 48;
-			this.dtGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellClick);
-			this.dtGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellEndEdit);
 			// 
 			// toolStripButton6
 			// 
@@ -176,6 +140,42 @@
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
 			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 37);
+			// 
+			// dtGrid
+			// 
+			this.dtGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dtGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+			this.dtGrid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.dtGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.dtGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+			this.dtGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle11.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGrid.DefaultCellStyle = dataGridViewCellStyle11;
+			this.dtGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dtGrid.GridColor = System.Drawing.SystemColors.ButtonFace;
+			this.dtGrid.Location = new System.Drawing.Point(5, 62);
+			this.dtGrid.Name = "dtGrid";
+			this.dtGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+			dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			dataGridViewCellStyle12.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+			this.dtGrid.RowHeadersWidth = 20;
+			this.dtGrid.Size = new System.Drawing.Size(1190, 487);
+			this.dtGrid.TabIndex = 48;
+			this.dtGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellClick);
+			this.dtGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellEndEdit);
 			// 
 			// InsuranceForm
 			// 

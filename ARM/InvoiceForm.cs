@@ -122,7 +122,7 @@ namespace ARM
                 try { cus = Customer.Select(c.CustomerID).Name; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { c.No, check, false, c.Id,  c.Date, c.Type, c.Category, ven, cus, c.Method, c.Total.ToString("N0"), c.Terms, c.Tax.ToString("N0"), c.Paid.ToString("N0"), c.Balance.ToString("N0"), c.UserID, c.ItemCount, c.Amount.ToString("N0"), c.Sync, c.Created, view, delete });
+                    t.Rows.Add(new object[] { c.No, check, "false", c.Id,  c.Date, c.Type, c.Category, ven, cus, c.Method, c.Total.ToString("N0"), c.Terms, c.Tax.ToString("N0"), c.Paid.ToString("N0"), c.Balance.ToString("N0"), c.UserID, c.ItemCount, c.Amount.ToString("N0"), c.Sync, c.Created, view, delete });
 
                 }
                 catch (Exception m)
@@ -141,7 +141,7 @@ namespace ARM
             trans.Columns.Add("Quantity");
             trans.Columns.Add("Cost");
             trans.Columns.Add("Total");
-            trans.Columns.Add("Sync");
+         
             trans.Columns.Add("Created");
             trans.Columns.Add(new DataColumn("Delete", typeof(Image)));
             foreach (Model.CaseTransaction c in Model.CaseTransaction.List())
@@ -150,7 +150,7 @@ namespace ARM
                 try { prod = Product.Select(c.ItemID).Name; } catch { }
                 try
                 {
-                    trans.Rows.Add(new object[] { c.No, false, c.Id, c.Date, prod, c.Qty, c.Cost.ToString("N0"), c.Total.ToString("N0"), c.Sync, c.Created, delete });
+                    trans.Rows.Add(new object[] { c.No, "false", c.Id, c.Date, prod, c.Qty, c.Cost.ToString("N0"), c.Total.ToString("N0"),c.Created, delete });
 
                 }
                 catch (Exception m)
@@ -162,7 +162,7 @@ namespace ARM
             //DataSet dsDataset = new DataSet();
             //dsDataset.Tables.Add(t);
             //dsDataset.Tables.Add(trans);
-            //DataRelation Datatablerelation = new DataRelation("No", dsDataset.Tables[0].Columns[0], dsDataset.Tables[1].Columns[0],true,Helper.CompanyID);
+            //DataRelation Datatablerelation = new DataRelation("No", dsDataset.Tables[0].Columns[0], dsDataset.Tables[1].Columns[0],"true",Helper.CompanyID);
             //dsDataset.Relations.Add(Datatablerelation);
             //dtGrid.DataSource = dsDataset.Tables[0];
             dtGrid.DataSource = t;
@@ -206,9 +206,9 @@ namespace ARM
                 foreach (var item in selectedIDs)
                 {
                     string Query = "DELETE from invoice WHERE id ='" + item + "'";
-                    DBConnect.QueryPostgre(Query);
-                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                    DBConnect.InsertPostgre(q);
+                    MySQL.Query(Query);
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(MySQL.Insert(Query)), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    MySQL.Insert(q);
 					//  MessageBox.Show("Information deleted");
 					Helper.Log(Helper.UserName, "Deleted invoice information " + item + "  " + DateTime.Now);
 				}
@@ -260,9 +260,9 @@ namespace ARM
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Invoice? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         string Query = "DELETE from invoice WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
-                        DBConnect.QueryPostgre(Query);
-                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                        DBConnect.InsertPostgre(q);
+                        MySQL.Query(Query);
+                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(MySQL.Insert(Query)), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        MySQL.Insert(q);
                         MessageBox.Show("Information deleted");
                         LoadData();
 
@@ -294,7 +294,7 @@ namespace ARM
         private void toolStripButton4_Click_1(object sender, EventArgs e)
         {
             string Query = "UPDATE invoice SET sync ='false'";
-            DBConnect.QueryPostgre(Query);
+            MySQL.Query(Query);
         }
 
 		private void toolStripButton6_Click(object sender, EventArgs e)

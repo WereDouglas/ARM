@@ -45,7 +45,7 @@ namespace ARM
 
                 Microsoft.Reporting.WinForms.ReportParameter rpName = new Microsoft.Reporting.WinForms.ReportParameter("customerName",Helper.CompanyName);
                 this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rpName });
-                Microsoft.Reporting.WinForms.ReportParameter rpAddress = new Microsoft.Reporting.WinForms.ReportParameter("customerAddress", Helper.CompanyAddress);
+                Microsoft.Reporting.WinForms.ReportParameter rpAddress = new Microsoft.Reporting.WinForms.ReportParameter("customerAddress", Helper.CompanyAddress+" " + y.City+  " " +y.State + "  " + y.Zip );
                 this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rpAddress });
                 Microsoft.Reporting.WinForms.ReportParameter rpContact = new Microsoft.Reporting.WinForms.ReportParameter("customerContact", Helper.CompanyContact);
                 this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rpContact });
@@ -53,8 +53,8 @@ namespace ARM
                 /**Company information***/
                 Microsoft.Reporting.WinForms.ReportParameter rp2Name = new Microsoft.Reporting.WinForms.ReportParameter("companyName", c.Name);
                 this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp2Name });
-                Microsoft.Reporting.WinForms.ReportParameter rp2Address = new Microsoft.Reporting.WinForms.ReportParameter("companyAddress", c.Address);
-                this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp2Address });
+                Microsoft.Reporting.WinForms.ReportParameter rp2Address = new Microsoft.Reporting.WinForms.ReportParameter("companyAddress", c.Address + " "  + c.City + " "+ c.State + " " + c.Zip);
+				this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp2Address });
                 Microsoft.Reporting.WinForms.ReportParameter rp2Contact = new Microsoft.Reporting.WinForms.ReportParameter("companyContact", c.Contact);
                 this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp2Contact });
 
@@ -73,16 +73,16 @@ namespace ARM
 
                 Microsoft.Reporting.WinForms.ReportParameter rpName = new Microsoft.Reporting.WinForms.ReportParameter("customerName", c.Name);
                 this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rpName });
-                Microsoft.Reporting.WinForms.ReportParameter rpAddress = new Microsoft.Reporting.WinForms.ReportParameter("customerAddress", c.Address);
-                this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rpAddress });
+                Microsoft.Reporting.WinForms.ReportParameter rpAddress = new Microsoft.Reporting.WinForms.ReportParameter("customerAddress", c.Address + " " + c.City + " "+ c.State + " " + c.Zip);
+				this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rpAddress });
                 Microsoft.Reporting.WinForms.ReportParameter rpContact = new Microsoft.Reporting.WinForms.ReportParameter("customerContact", c.Contact);
                 this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rpContact });
 
                 /**Company information***/
                 Microsoft.Reporting.WinForms.ReportParameter rp2Name = new Microsoft.Reporting.WinForms.ReportParameter("companyName", y.Name);
                 this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp2Name });
-                Microsoft.Reporting.WinForms.ReportParameter rp2Address = new Microsoft.Reporting.WinForms.ReportParameter("companyAddress", Helper.CompanyAddress);
-                this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp2Address });
+                Microsoft.Reporting.WinForms.ReportParameter rp2Address = new Microsoft.Reporting.WinForms.ReportParameter("companyAddress", Helper.CompanyAddress + " " + y.City + " "+ " " + y.State + " " + y.Zip);
+				this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp2Address });
                 Microsoft.Reporting.WinForms.ReportParameter rp2Contact = new Microsoft.Reporting.WinForms.ReportParameter("companyContact", y.Contact);
                 this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp2Contact });
 
@@ -90,17 +90,17 @@ namespace ARM
 
 
             /**total tax balance**/
-            Microsoft.Reporting.WinForms.ReportParameter rp3Total = new Microsoft.Reporting.WinForms.ReportParameter("total", v.Total.ToString("n0"));
+            Microsoft.Reporting.WinForms.ReportParameter rp3Total = new Microsoft.Reporting.WinForms.ReportParameter("total", v.Total.ToString("n2"));
             this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp3Total });
-            Microsoft.Reporting.WinForms.ReportParameter rp3Tax = new Microsoft.Reporting.WinForms.ReportParameter("tax", v.Tax.ToString("n0"));
+            Microsoft.Reporting.WinForms.ReportParameter rp3Tax = new Microsoft.Reporting.WinForms.ReportParameter("tax", v.Tax.ToString("n2"));
             this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp3Tax });
-            Microsoft.Reporting.WinForms.ReportParameter rp3Bal = new Microsoft.Reporting.WinForms.ReportParameter("balance", v.Balance.ToString("n0"));
+            Microsoft.Reporting.WinForms.ReportParameter rp3Bal = new Microsoft.Reporting.WinForms.ReportParameter("balance", v.Balance.ToString("n2"));
             this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp3Bal });
 
-            Npgsql.NpgsqlDataAdapter da = new Npgsql.NpgsqlDataAdapter("SELECT product.name AS itemID ,casetransaction.cost,casetransaction.date as date,casetransaction.no as no,casetransaction.total as total,casetransaction.qty as qty,casetransaction.cost,casetransaction.created,casetransaction.sync FROM casetransaction LEFT join product ON casetransaction.itemID = product.id  WHERE casetransaction.no='" + No + "'", DBConnect.conn);
+            MySql.Data.MySqlClient.MySqlDataAdapter da = new MySql.Data.MySqlClient.MySqlDataAdapter("SELECT product.name AS itemID ,casetransaction.cost,casetransaction.date as date,casetransaction.no as no,casetransaction.total as total,casetransaction.qty as qty,casetransaction.cost,casetransaction.created,casetransaction.sync FROM casetransaction LEFT join product ON casetransaction.itemID = product.id  WHERE casetransaction.no='" + No + "'", MySQL.Conn);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            Npgsql.NpgsqlDataAdapter da2 = new Npgsql.NpgsqlDataAdapter("SELECT * FROM invoice WHERE no='" + No + "'", DBConnect.conn);
+            MySql.Data.MySqlClient.MySqlDataAdapter da2 = new MySql.Data.MySqlClient.MySqlDataAdapter("SELECT * FROM invoice WHERE no='" + No + "'", MySQL.Conn);
             DataSet ds2 = new DataSet();
             da2.Fill(ds2);
 

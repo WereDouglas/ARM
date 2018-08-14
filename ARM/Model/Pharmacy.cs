@@ -22,12 +22,12 @@ namespace ARM.Model
         private string state;
         private string zip;            
         private string created;
-        private bool sync;
+        private string sync;
         private string companyID;      
 
         public Pharmacy() { }
 
-        public Pharmacy(string id, string serviceID, string customerID, string name, string contact, string address, string npi, string city, string state, string zip, string created, bool sync, string companyID)
+        public Pharmacy(string id, string serviceID, string customerID, string name, string contact, string address, string npi, string city, string state, string zip, string created, string sync, string companyID)
         {
             this.Id = id;
             this.ServiceID = serviceID;
@@ -51,13 +51,13 @@ namespace ARM.Model
             p.Clear();
             string Q = "SELECT * FROM customer ";
             DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Pharmacy ps = new Pharmacy(Reader["id"].ToString(), Reader["serviceID"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["npi"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Pharmacy ps = new Pharmacy(Reader["id"].ToString(), Reader["serviceID"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["npi"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
 
         }
@@ -65,13 +65,13 @@ namespace ARM.Model
         {
             p.Clear();
             DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Pharmacy ps = new Pharmacy(Reader["id"].ToString(), Reader["serviceID"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["npi"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Pharmacy ps = new Pharmacy(Reader["id"].ToString(), Reader["serviceID"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["npi"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
 
         }
@@ -81,10 +81,10 @@ namespace ARM.Model
             {
                 p.Clear();
                 DBConnect.OpenMySqlConn();
-                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+                MySqlDataReader Reader = MySQL.Reading(Q);
                 while (Reader.Read())
                 {
-                    Pharmacy ps = new Pharmacy(Reader["id"].ToString(), Reader["serviceID"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["npi"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                    Pharmacy ps = new Pharmacy(Reader["id"].ToString(), Reader["serviceID"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["npi"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
@@ -106,19 +106,19 @@ namespace ARM.Model
         public string State { get => state; set => state = value; }
         public string Zip { get => zip; set => zip = value; }
         public string Created { get => created; set => created = value; }
-        public bool Sync { get => sync; set => sync = value; }
+        public string Sync { get => sync; set => sync = value; }
         public string CompanyID { get => companyID; set => companyID = value; }
 
         public static Pharmacy Select(string customerID)
         {
             string Q = "SELECT * FROM customer WHERE id = '" + customerID + "'";
             DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                c = new Pharmacy(Reader["id"].ToString(), Reader["serviceID"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["npi"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                c = new Pharmacy(Reader["id"].ToString(), Reader["serviceID"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["npi"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return c;
 
         }

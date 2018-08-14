@@ -25,7 +25,7 @@ namespace ARM.Model
         private string category;
         private string height;
         private string weight;
-        private bool sync;
+        private string sync;
         private string companyID;
         private string gender;
         private string image;
@@ -33,7 +33,7 @@ namespace ARM.Model
 
 		public Customer() { }
 
-        public Customer(string id, string name, string contact, string address, string no, string city, string state, string zip, string created, string ssn, string dob, string category, string height, string weight, string gender, bool sync, string companyID, string image,string race)
+        public Customer(string id, string name, string contact, string address, string no, string city, string state, string zip, string created, string ssn, string dob, string category, string height, string weight, string gender, string sync, string companyID, string image,string race)
         {
             this.Id = id;
             this.Name = name;
@@ -65,57 +65,41 @@ namespace ARM.Model
             {
                 p.Clear();
                 string Q = "SELECT * FROM customer ORDER by no ASC ";
-                DBConnect.OpenConn();
-                NpgsqlDataReader Reader = DBConnect.Reading(Q);
-                while (Reader.Read())
+				MySqlDataReader Reader = MySQL.Reading(Q);
+				while (Reader.Read())
                 {
-                    Customer ps = new Customer(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["gender"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString(), Reader["race"].ToString());
+                    Customer ps = new Customer(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["gender"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), Reader["image"].ToString(), Reader["race"].ToString());
                     p.Add(ps);
                 }
-                DBConnect.CloseConn();
-            }
+				DBConnect.CloseMySqlConn();
+			}
             catch { }
             return p;
 
         }
+		static MySqlDataReader Reader;
+		public static List<Customer> List(string Q)
+		{
+			//try
+			//{
+			//	p.Clear();
+			//	MySqlDataReader Reader = MySQL.Reading(Q);
+			//	while (Reader.Read())
+			//	{
+			//		Customer ps = new Customer(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["gender"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), Reader["image"].ToString(), Reader["race"].ToString());
+			//		p.Add(ps);
+			//	}
+			//	DBConnect.CloseMySqlConn();
+			//}
+			//catch { }
 
-        public static List<Customer> List(string Q)
-        {
-            try
-            {
-                p.Clear();
-                DBConnect.OpenConn();
-                NpgsqlDataReader Reader = DBConnect.Reading(Q);
-                while (Reader.Read())
-                {
-                    Customer ps = new Customer(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["gender"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString(), Reader["race"].ToString());
-					p.Add(ps);
-                }
-                DBConnect.CloseConn();
-            }
-            catch { }
-            return p;
-           
+			p.Clear();
+			Reader = MySQL.Reading(Q);
+			p = MySQL.DataReaderMapToList<Customer>(Reader);
+			return p;
 
-        }
-        public static List<Customer> ListOnline(string Q)
-        {
-            try
-            {
-                p.Clear();
-                DBConnect.OpenMySqlConn();
-                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
-                while (Reader.Read())
-                {
-                    Customer ps = new Customer(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["gender"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString(), Reader["race"].ToString());
-					p.Add(ps);
-                }
-                DBConnect.CloseMySqlConn();
-            }
-            catch { }
-            return p;
 
-        }
+		}
         private static Customer c = new Customer();
 
         public string Id { get => id; set => id = value; }
@@ -132,7 +116,7 @@ namespace ARM.Model
         public string Category { get => category; set => category = value; }
         public string Height { get => height; set => height = value; }
         public string Weight { get => weight; set => weight = value; }
-        public bool Sync { get => sync; set => sync = value; }
+        public string Sync { get => sync; set => sync = value; }
         public string CompanyID { get => companyID; set => companyID = value; }
         public string Gender { get => gender; set => gender = value; }
         public string Image { get => image; set => image = value; }
@@ -141,16 +125,26 @@ namespace ARM.Model
 		public static Customer Select(string customerID)
         {
             string Q = "SELECT * FROM customer WHERE id = '" + customerID + "'";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
-            while (Reader.Read())
+			MySqlDataReader Reader = MySQL.Reading(Q);
+			while (Reader.Read())
             {
-                c = new Customer(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["gender"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString(), Reader["race"].ToString());
+                c = new Customer(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["gender"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), Reader["image"].ToString(), Reader["race"].ToString());
 			}
-			DBConnect.CloseConn();
-            return c;
+			DBConnect.CloseMySqlConn();
+			return c;
 
         }
-    }
+		public static Customer Single(string Q)
+		{			
+			MySqlDataReader Reader = MySQL.Reading(Q);
+			while (Reader.Read())
+			{
+				c = new Customer(Reader["id"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["ssn"].ToString(), Reader["dob"].ToString(), Reader["category"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["gender"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), Reader["image"].ToString(), Reader["race"].ToString());
+			}
+			DBConnect.CloseMySqlConn();
+			return c;
+
+		}
+	}
 
 }

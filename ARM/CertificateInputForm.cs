@@ -33,7 +33,7 @@ namespace ARM
 		string No;
 		string EmergencyID;
 		string PractitionerID;
-		public CertificateInputForm(string id, string no)
+		public CertificateInputForm(string no)
 		{
 			InitializeComponent();
 			AutoCompleteUser();
@@ -41,31 +41,13 @@ namespace ARM
 			AutoCompleteEmergency();
 			GenericCollection.icd10 = new List<ICD10>();
 			GenericCollection.caseTransactions = new List<CaseTransaction>();
-			if (!string.IsNullOrEmpty(id))
+			if (!string.IsNullOrEmpty(no))
 			{
-				LoadEdit(id);
-				try
-				{
-
-				}
-				catch (Exception m)
-				{
-					Helper.Exceptions(m.Message, "Loading order intake form for editing ");
-
-				}
+				LoadOrder(no);
+				noTxt.Text = no;
+				updateBtn.Visible = false;
 			}
-			else
-			{
 
-				if (!string.IsNullOrEmpty(no))
-				{
-					LoadOrder(no);
-					noTxt.Text = no;
-					updateBtn.Visible = false;
-
-				}
-
-			}
 			printdoc1.PrintPage += new PrintPageEventHandler(printdoc1_PrintPage);
 		}
 		private void LoadOrder(string no)
@@ -138,7 +120,7 @@ namespace ARM
 				//try
 				//{
 
-				CaseTransaction t = new CaseTransaction(j.Id, j.Date, j.No, j.ItemID, j.CaseID, j.DeliveryID, j.Qty, j.Cost, j.Units, j.Total, j.Tax, j.Coverage, j.Self, j.Payable, j.Limits, j.Setting, j.Period, j.Height, j.Weight, j.Instruction, j.Created, false, Helper.CompanyID);
+				CaseTransaction t = new CaseTransaction(j.Id, j.Date, j.No, j.ItemID, j.CaseID, j.DeliveryID, j.Qty, j.Cost, j.Units, j.Total, j.Tax, j.Coverage, j.Self, j.Payable, j.Limits, j.Setting, j.Period, j.Height, j.Weight, j.Instruction, j.Created, "false", Helper.CompanyID);
 				GenericCollection.caseTransactions.Add(t);
 				//}
 				//catch { }
@@ -152,6 +134,22 @@ namespace ARM
 			string Qs = "SELECT * FROM icd10 WHERE no = '" + noTxt.Text + "'";
 			GenericCollection.icd10 = ICD10.List(Qs);
 			LoadDiagnosis();
+			string exists = "";
+			try
+			{
+				exists = MySQL.value("SELECT no FROM certificate WHERE no  = '" + noTxt.Text + "'");
+			}
+			catch (Exception y)
+			{
+				exists = "";
+			}
+			if (!string.IsNullOrEmpty(exists))
+			{
+
+				LoadEdit(noTxt.Text);
+			}
+
+
 		}
 
 		double Total = 0;
@@ -169,12 +167,10 @@ namespace ARM
 			}
 			catch
 			{
-
 				MessageBox.Show("Certificate information not yet saved");
-
 			}
 			noTxt.Text = i.No;
-			idTxt.Text = i.CusID;
+			idTxt.Text = i.PatientNo;
 			patientNameTxt.Text = i.CusName;
 			dobTxt.Text = i.CusDob;
 			contactTxt.Text = i.CusPhone;
@@ -183,29 +179,29 @@ namespace ARM
 			providerNameTxt.Text = i.ProvName;
 			providerUserTxt.Text = i.PracName;
 			providerPhoneTxt.Text = i.ProvPhone;
-			
-			if (i.Mobility == true) { mobYesBn.Checked = true; }
-			if (i.Mobility == false) { mobNoBn.Checked = true; }
-			if (i.Endurance == true) { enduranceBn.Checked = true; }
-			if (i.Endurance == false) { enduranceNoBn.Checked = true; }
-			if (i.Activity == true) { activityBn.Checked = true; }
-			if (i.Activity == false) { activityNoBn.Checked = true; }
-			if (i.Skin == true) { skinBn.Checked = true; }
-			if (i.Skin == false) { skinNoBn.Checked = true; }
-			if (i.Respiration == true) { respirationBn.Checked = true; }
-			if (i.Respiration == false) { respirationNoBn.Checked = true; }
-			if (i.Adl == true) { adlBn.Checked = true; }
-			if (i.Adl == false) { adlNoBn.Checked = true; }
-			if (i.Speech == true) { speechBn.Checked = true; }
-			if (i.Speech == false) { speechNoBn.Checked = true; }
-			if (i.Nutritional == true) { nutritionBn.Checked = true; }
-			if (i.Nutritional == false) { nutritionNoBn.Checked = true; }
+
+			if (i.Mobility == "true") { mobYesBn.Checked = true; }
+			if (i.Mobility == "false") { mobNoBn.Checked = true; }
+			if (i.Endurance == "true") { enduranceBn.Checked = true; }
+			if (i.Endurance == "false") { enduranceNoBn.Checked = true; }
+			if (i.Activity == "true") { activityBn.Checked = true; }
+			if (i.Activity == "false") { activityNoBn.Checked = true; }
+			if (i.Skin == "true") { skinBn.Checked = true; }
+			if (i.Skin == "false") { skinNoBn.Checked = true; }
+			if (i.Respiration == "true") { respirationBn.Checked = true; }
+			if (i.Respiration == "false") { respirationNoBn.Checked = true; }
+			if (i.Adl == "true") { adlBn.Checked = true; }
+			if (i.Adl == "false") { adlNoBn.Checked = true; }
+			if (i.Speech == "true") { speechBn.Checked = true; }
+			if (i.Speech == "false") { speechNoBn.Checked = true; }
+			if (i.Nutritional == "true") { nutritionBn.Checked = true; }
+			if (i.Nutritional == "false") { nutritionNoBn.Checked = true; }
 			if (i.Source == "sole") { sourceSoleBn.Checked = true; } else if (i.Source == "primary") { primarySourceBn.Checked = true; }
 			heightTxt.Text = i.Height.ToString();
 			weightTxt.Text = i.Weight.ToString();
 			dateTxt.Text = i.Date;
-			if (i.Suitable == true) { suitableBn.Checked = true; }
-			if (i.Suitable == false) { suitableNoBn.Checked = true; }
+			if (i.Suitable == "true") { suitableBn.Checked = true; }
+			if (i.Suitable == "false") { suitableNoBn.Checked = true; }
 			if (i.Face == "Yes") { faceYesBn.Checked = true; } else if (i.Face == "No") { faceNoBn.Checked = true; } else if (i.Face == "N/A") { faceNaBn.Checked = true; }
 
 			completedTxt.Text = i.Practionercompleted;
@@ -243,10 +239,6 @@ namespace ARM
 			}
 			catch { }
 
-
-			LoadOrder(id);
-
-
 		}
 		private void metroLabel1_Click(object sender, EventArgs e)
 		{
@@ -263,23 +255,20 @@ namespace ARM
 		{
 			Close();
 		}
-		Dictionary<string, bool> SafetyDictionary = new Dictionary<string, bool>();
-		Dictionary<string, bool> AppropriateDictionary = new Dictionary<string, bool>();
-		Dictionary<string, bool> EquipmentDictionary = new Dictionary<string, bool>();
-		Dictionary<string, bool> AdditionalDictionary = new Dictionary<string, bool>();
+		
 		private void button3_Click(object sender, EventArgs e)
 		{
 
-			bool mobility = mobYesBn.Checked ? true : false;
-			bool endurance = enduranceBn.Checked ? true : false;
-			bool activity = activityBn.Checked ? true : false;
-			bool skin = skinBn.Checked ? true : false;
-			bool respiration = respirationBn.Checked ? true : false;
-			bool adl = adlBn.Checked ? true : false;
-			bool speech = speechBn.Checked ? true : false;
-			bool nutritional = nutritionBn.Checked ? true : false;
+			string mobility = mobYesBn.Checked ? "true" : "false";
+			string endurance = enduranceBn.Checked ? "true": "false";
+			string  activity = activityBn.Checked ? "true": "false";
+			string skin = skinBn.Checked ? "true" : "false";
+			string respiration = respirationBn.Checked ? "true" : "false";
+			string adl = adlBn.Checked ? "true" : "false";
+			string speech = speechBn.Checked ? "true" : "false";
+			string nutritional = nutritionBn.Checked ? "true" : "false";
 			string source = sourceSoleBn.Checked ? "sole" : "primary";
-			bool suitable = suitableBn.Checked ? true : false;
+			string suitable = suitableBn.Checked ? "true" : "false";
 
 			string face = "";
 			if (faceYesBn.Checked) { face = "Yes"; } else if (faceNoBn.Checked) { face = "No"; } else if (faceNaBn.Checked) { face = "N/A"; }
@@ -314,20 +303,20 @@ namespace ARM
 
 
 				}
-				Certificate i = new Certificate(id, noTxt.Text, idTxt.Text, patientNameTxt.Text, dobTxt.Text, phoneTxt.Text, providerIDTxt.Text, providerNameTxt.Text, providerPhoneTxt.Text, mobility, endurance, activity, skin, respiration, adl, speech, nutritional, source,weight, height, suitable, dayTxt.Text, practitionerTxt.Text, signatureTxt.Text, dateTxt.Text, pracIDTxt.Text, phoneTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, poTxt.Text, saturationTxt.Text, additionalTxt.Text, face, completedTxt.Text,Convert.ToDateTime(dateFaceTxt.Text).ToString("dd-MM-yyyy"));
-				string save = DBConnect.InsertPostgre(i);
+				Certificate i = new Certificate(id, noTxt.Text, CustomerID, patientNameTxt.Text, dobTxt.Text, phoneTxt.Text, providerIDTxt.Text, providerNameTxt.Text, providerPhoneTxt.Text, mobility, endurance, activity, skin, respiration, adl, speech, nutritional, source, weight, height, suitable, dayTxt.Text, practitionerTxt.Text, signatureTxt.Text, dateTxt.Text, pracIDTxt.Text, phoneTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), "false", Helper.CompanyID, poTxt.Text, saturationTxt.Text, additionalTxt.Text, face, completedTxt.Text, Convert.ToDateTime(dateFaceTxt.Text).ToString("dd-MM-yyyy"),idTxt.Text);
+				string save = MySQL.Insert(i);
 				if (save != "")
 				{
-					Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-					DBConnect.InsertPostgre(q);
+					Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+					MySQL.Insert(q);
 					foreach (ICD10 t in GenericCollection.icd10)
 					{
-						ICD10 c = new ICD10(t.Id, noTxt.Text, t.Code, t.Name, t.Diagnosis, t.Less6, t.Greater6, t.Onset, t.Created, false, Helper.CompanyID);
-						string doing = DBConnect.InsertPostgre(c);
+						ICD10 c = new ICD10(t.Id, noTxt.Text, t.Code, t.Name, t.Diagnosis, t.Less6, t.Greater6, t.Onset, t.Created, "false", Helper.CompanyID);
+						string doing = MySQL.Insert(c);
 						if (doing != "")
 						{
-							Queries qs = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(doing), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-							DBConnect.InsertPostgre(qs);
+							Queries qs = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(doing), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+							MySQL.Insert(qs);
 						}
 					}
 
@@ -351,7 +340,7 @@ namespace ARM
 				if (!UserDictionary.ContainsKey(v.Name))
 				{
 					UserDictionary.Add(v.Name, v.Id);
-					
+
 
 				}
 			}
@@ -406,7 +395,7 @@ namespace ARM
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			CertificateReport form = new CertificateReport(noTxt.Text);//Print(panel1);
+			CertificateReport form = new CertificateReport(noTxt.Text);
 			form.Show();
 		}
 		public void Print(System.Windows.Forms.Panel pnl)
@@ -521,10 +510,10 @@ namespace ARM
 			string id = Guid.NewGuid().ToString();
 			if (MessageBox.Show("YES or NO?", "Update this Order? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
 			{
-				//Instruction i = new Instruction(ID, noTxt.Text, CustomerID, Helper.UserID, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), typeCbx.Text, delivered, kinContactTxt.Text, SafetyJson, appropriate, AppropriateJson, otherTxt.Text, limitTxt.Text, EquipmentJson, equipmentOtherTxt.Text, AdditionalJson, additionNotesTxt.Text, followUpCbx.Text, signatureTxt.Text, kinCbx.Text, kinContactTxt.Text, emergencyDetails.Text, reasonTxt.Text, userSignatureTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
-				string save = "";// DBConnect.UpdatePostgre(i, ID);
-				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-				DBConnect.InsertPostgre(q);
+				//Instruction i = new Instruction(ID, noTxt.Text, CustomerID, Helper.UserID, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), typeCbx.Text, delivered, kinContactTxt.Text, SafetyJson, appropriate, AppropriateJson, otherTxt.Text, limitTxt.Text, EquipmentJson, equipmentOtherTxt.Text, AdditionalJson, additionNotesTxt.Text, followUpCbx.Text, signatureTxt.Text, kinCbx.Text, kinContactTxt.Text, emergencyDetails.Text, reasonTxt.Text, userSignatureTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), "false", Helper.CompanyID);
+				string save = "";// DBConnect.UpdateMySql(i, ID);
+				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+				MySQL.Insert(q);
 
 				MessageBox.Show("Information Updated ! ");
 				this.Close();
@@ -542,9 +531,9 @@ namespace ARM
 					{
 						Helper.Log(Helper.UserName, "Deleting of ICD10 list on CMN " + noTxt.Text + "");
 						string Query = "DELETE from icd10 WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
-						DBConnect.QueryPostgre(Query);
-						Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-						DBConnect.InsertPostgre(q);
+						MySQL.Query(Query);
+						Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+						MySQL.Insert(q);
 						MessageBox.Show("Information deleted");
 						GenericCollection.caseTransactions.Clear();
 						string Q = "SELECT * FROM casetransaction WHERE no = '" + noTxt.Text + "'";
@@ -562,7 +551,7 @@ namespace ARM
 		private void panel2_Paint(object sender, PaintEventArgs e)
 		{
 
-		}		
+		}
 
 		private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
@@ -579,9 +568,9 @@ namespace ARM
 			if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Certificate ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
 			{
 				string Query = "DELETE from certificate WHERE no ='" + noTxt.Text + "'";
-				DBConnect.QueryPostgre(Query);
-				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-				DBConnect.InsertPostgre(q);
+				MySQL.Query(Query);
+				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+				MySQL.Insert(q);
 				MessageBox.Show("Information deleted");
 				Helper.Log(Helper.UserName, "Deleted Certificate " + noTxt.Text + " TIME:" + DateTime.Now);
 
@@ -590,7 +579,7 @@ namespace ARM
 
 		private void button9_Click(object sender, EventArgs e)
 		{
-			using (CertificateInputForm form = new CertificateInputForm(noTxt.Text, ""))
+			using (CertificateInputForm form = new CertificateInputForm(noTxt.Text))
 			{
 				DialogResult dr = form.ShowDialog();
 				if (dr == DialogResult.OK)
@@ -617,9 +606,6 @@ namespace ARM
 		}
 		public void LoadDiagnosis()
 		{
-
-
-
 			// create and execute query  
 			t = new DataTable();
 
@@ -650,16 +636,13 @@ namespace ARM
 			}
 
 			dtGrid.DataSource = t;
-			dtGrid.AllowUserToAddRows = false;
-			// dtGrid.Columns["View"].DefaultCellStyle.BackColor = Color.LightGreen;
-			//  dtGrid.Columns["Delete"].DefaultCellStyle.BackColor = Color.Red;
-
+			dtGrid.AllowUserToAddRows = false;			
 			dtGrid.Columns["id"].Visible = false;
 		}
 
 		private void dtGridEquip_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			
+
 		}
 
 		private void dtGridEquip_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -669,9 +652,9 @@ namespace ARM
 			{
 
 				String Query = "UPDATE casetransaction SET " + columnName + " ='" + dtGridEquip.Rows[e.RowIndex].Cells[columnName].Value.ToString() + "' WHERE Id = '" + dtGridEquip.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
-				DBConnect.QueryPostgre(Query);
-				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-				DBConnect.InsertPostgre(q);
+				MySQL.Query(Query);
+				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+				MySQL.Insert(q);
 				Helper.Log(Helper.UserName, "Updating equipment information on CMN " + noTxt.Text + "  " + DateTime.Now);
 
 			}
@@ -693,9 +676,9 @@ namespace ARM
 					{
 						Helper.Log(Helper.UserName, "Deleting of ICD10 list on CMN " + noTxt.Text + "");
 						string Query = "DELETE from icd10 WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
-						DBConnect.QueryPostgre(Query);
-						Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-						DBConnect.InsertPostgre(q);
+						MySQL.Query(Query);
+						Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+						MySQL.Insert(q);
 						MessageBox.Show("Information deleted");
 						GenericCollection.caseTransactions.Clear();
 						string Q = "SELECT * FROM casetransaction WHERE no = '" + noTxt.Text + "'";

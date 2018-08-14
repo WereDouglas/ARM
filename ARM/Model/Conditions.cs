@@ -17,12 +17,12 @@ namespace ARM.Model
         private string type;        
         private string details;
         private string created; 
-        private bool sync;
+        private string sync;
         private string companyID;        
 
         public Conditions() { }
 
-        public Conditions(string id, string customerID, string name, string type, string details, string created, bool sync, string companyID)
+        public Conditions(string id, string customerID, string name, string type, string details, string created, string sync, string companyID)
         {
             this.Id = id;
             this.CustomerID = customerID;
@@ -41,14 +41,14 @@ namespace ARM.Model
         {
             p.Clear();
             string Q = "SELECT * FROM condition ";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+           
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Conditions ps = new Conditions(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]),Reader["companyID"].ToString());
+                Conditions ps = new Conditions(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(),Reader["companyID"].ToString());
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
 
         }
@@ -57,14 +57,14 @@ namespace ARM.Model
 			try
 			{
 				p.Clear();
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+           
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Conditions ps = new Conditions(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Conditions ps = new Conditions(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
 			}
 			catch { }
 			return p;
@@ -75,11 +75,11 @@ namespace ARM.Model
             try
             {
                 p.Clear();
-                DBConnect.OpenMySqlConn();
-                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+               
+                MySqlDataReader Reader = MySQL.Reading(Q);
                 while (Reader.Read())
                 {
-                    Conditions ps = new Conditions(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                    Conditions ps = new Conditions(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
@@ -96,20 +96,20 @@ namespace ARM.Model
         public string Type { get => type; set => type = value; }
         public string Details { get => details; set => details = value; }
         public string Created { get => created; set => created = value; }
-        public bool Sync { get => sync; set => sync = value; }
+        public string Sync { get => sync; set => sync = value; }
         public string CompanyID { get => companyID; set => companyID = value; }
 
         public static Conditions Select(string customerID)
         {
             string Q = "SELECT * FROM condition WHERE id = '" + customerID + "'";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+           
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                c = new Conditions(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                c = new Conditions(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["details"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
 
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return c;
 
         }

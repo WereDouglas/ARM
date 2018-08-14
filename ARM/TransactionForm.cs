@@ -52,7 +52,7 @@ namespace ARM
 
 				try
 				{
-					t.Rows.Add(new object[] { false, c.Id, c.No, c.Date, prod, c.Qty, c.Cost.ToString("N0"), c.Total.ToString("N0"), c.Created, delete });
+					t.Rows.Add(new object[] { "false", c.Id, c.No, c.Date, prod, c.Qty, c.Cost.ToString("N0"), c.Total.ToString("N0"), c.Created, delete });
 
 				}
 				catch (Exception m)
@@ -101,9 +101,9 @@ namespace ARM
 				foreach (var item in selectedIDs)
 				{
 					string Query = "DELETE from casetransaction WHERE id ='" + item + "'";
-					DBConnect.QueryPostgre(Query);
-					Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-					DBConnect.InsertPostgre(q);
+					MySQL.Query(Query);
+					Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(MySQL.Insert(Query)), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+					MySQL.Insert(q);
 					Helper.Log(Helper.UserName, "Deleted transaction by id  " + item + "  " + DateTime.Now);
 				}
 			}
@@ -134,9 +134,9 @@ namespace ARM
 					if (MessageBox.Show("YES or No?", "Are you sure you want to delete this CaseTransaction? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
 					{
 						string Query = "DELETE from casetransaction WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
-						DBConnect.QueryPostgre(Query);
-						Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-						DBConnect.InsertPostgre(q);
+						MySQL.Query(Query);
+						Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+						MySQL.Insert(q);
 						MessageBox.Show("Information deleted");
 						Helper.Log(Helper.UserName, "Deleted transaction " + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "  " + DateTime.Now);
 
@@ -160,7 +160,7 @@ namespace ARM
 		private void toolStripButton2_Click(object sender, EventArgs e)
 		{
 			string Query = "UPDATE transaction SET sync ='false'";
-			DBConnect.QueryPostgre(Query);
+			MySQL.Query(Query);
 		}
 
 		private void toolStripButton6_Click(object sender, EventArgs e)

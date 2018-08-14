@@ -17,11 +17,11 @@ namespace ARM.Model
         private double period;
         private string units;
         private string created;
-        private bool sync;
+        private string sync;
         private string companyID;
         public Rate() { }
 
-        public Rate(string id, string userID, double amount, double period, string units, string created, bool sync, string companyID)
+        public Rate(string id, string userID, double amount, double period, string units, string created, string sync, string companyID)
         {
             this.Id = id;
             this.UserID = userID;
@@ -40,21 +40,21 @@ namespace ARM.Model
         public double Period { get => period; set => period = value; }
         public string Units { get => units; set => units = value; }
         public string Created { get => created; set => created = value; }
-        public bool Sync { get => sync; set => sync = value; }
+        public string Sync { get => sync; set => sync = value; }
         public string CompanyID { get => companyID; set => companyID = value; }
 
         public static List<Rate> List()
         {
             p.Clear();
-            string Q = "SELECT * FROM Rate ";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            string Q = "SELECT * FROM rate ";
+           
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Rate ps = new Rate(Reader["id"].ToString(), Reader["userID"].ToString(), Convert.ToDouble(Reader["amount"]), Convert.ToDouble(Reader["period"]), Reader["units"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Rate ps = new Rate(Reader["id"].ToString(), Reader["userID"].ToString(), Convert.ToDouble(Reader["amount"]), Convert.ToDouble(Reader["period"]), Reader["units"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
 
         }
@@ -62,14 +62,14 @@ namespace ARM.Model
         {
             p.Clear();
 
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+           
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Rate ps = new Rate(Reader["id"].ToString(), Reader["userID"].ToString(), Convert.ToDouble(Reader["amount"]), Convert.ToDouble(Reader["period"]), Reader["units"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Rate ps = new Rate(Reader["id"].ToString(), Reader["userID"].ToString(), Convert.ToDouble(Reader["amount"]), Convert.ToDouble(Reader["period"]), Reader["units"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
 
         }
@@ -78,11 +78,11 @@ namespace ARM.Model
             try
             {
                 p.Clear();
-                DBConnect.OpenMySqlConn();
-                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+              
+                MySqlDataReader Reader = MySQL.Reading(Q);
                 while (Reader.Read())
                 {
-                    Rate ps = new Rate(Reader["id"].ToString(), Reader["userID"].ToString(), Convert.ToDouble(Reader["amount"]), Convert.ToDouble(Reader["period"]), Reader["units"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                    Rate ps = new Rate(Reader["id"].ToString(), Reader["userID"].ToString(), Convert.ToDouble(Reader["amount"]), Convert.ToDouble(Reader["period"]), Reader["units"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
@@ -95,14 +95,14 @@ namespace ARM.Model
         public static Rate Select(string ID)
         {
             string Q = "SELECT * FROM rate WHERE userID = '" + ID + "'";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+           
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                c = new Rate(Reader["id"].ToString(), Reader["userID"].ToString(), Convert.ToDouble(Reader["amount"]), Convert.ToDouble(Reader["period"]), Reader["units"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                c = new Rate(Reader["id"].ToString(), Reader["userID"].ToString(), Convert.ToDouble(Reader["amount"]), Convert.ToDouble(Reader["period"]), Reader["units"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
 
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return c;
 
         }

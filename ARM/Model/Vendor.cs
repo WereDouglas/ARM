@@ -22,10 +22,10 @@ namespace ARM.Model
         private string zip;
         private string created;
         private string category;
-       private bool sync; private string companyID;
+       private string sync; private string companyID;
         private string image;
         public Vendor() { }
-        public Vendor(string id, string name, string email, string contact, string address, string no, string city, string state, string zip, string created, string category,bool sync,string companyID, string image)
+        public Vendor(string id, string name, string email, string contact, string address, string no, string city, string state, string zip, string created, string category,string sync,string companyID, string image)
         {
             this.Id = id;
             this.Name = name;
@@ -54,69 +54,48 @@ namespace ARM.Model
         public string Zip { get => zip; set => zip = value; }
         public string Created { get => created; set => created = value; }
         public string Category { get => category; set => category = value; }
-        public bool Sync { get => sync; set => sync = value; } public string CompanyID { get => companyID; set => companyID = value; }
+        public string Sync { get => sync; set => sync = value; } public string CompanyID { get => companyID; set => companyID = value; }
         public string Image { get => image; set => image = value; }
 
         static List<Vendor> p = new List<Vendor>();
         public static List<Vendor> List()
         {
             p.Clear();
-            string Q = "SELECT * FROM Vendor ";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            string Q = "SELECT * FROM vendor ";
+         
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Vendor ps = new Vendor(Reader["id"].ToString(), Reader["name"].ToString(), Reader["email"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["category"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
+                Vendor ps = new Vendor(Reader["id"].ToString(), Reader["name"].ToString(), Reader["email"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["category"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), Reader["image"].ToString());
                 p.Add(ps);
-            }
-            DBConnect.CloseConn();
+            }        
             return p;
         }
         public static List<Vendor> List(string Q)
         {
-            p.Clear();
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            p.Clear();       
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Vendor ps = new Vendor(Reader["id"].ToString(), Reader["name"].ToString(), Reader["email"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["category"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
+                Vendor ps = new Vendor(Reader["id"].ToString(), Reader["name"].ToString(), Reader["email"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["category"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), Reader["image"].ToString());
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
+     
             return p;
 
         }
-        public static List<Vendor> ListOnline(string Q)
-        {
-            try
-            {
-                p.Clear();
-                DBConnect.OpenMySqlConn();
-                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
-                while (Reader.Read())
-                {
-                    Vendor ps = new Vendor(Reader["id"].ToString(), Reader["name"].ToString(), Reader["email"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["category"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
-                    p.Add(ps);
-                }
-                DBConnect.CloseMySqlConn();
-
-            }
-            catch { }
-            return p;
-
-        }
+        
         static Vendor c = new Vendor();
         public static Vendor Select(string vID)
         {
-            string Q = "SELECT * FROM vendor WHERE id = '" + vID + "'";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            string Q = "SELECT * FROM vendor WHERE id = '" + vID + "'";           
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                c = new Vendor(Reader["id"].ToString(), Reader["name"].ToString(), Reader["email"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["category"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
+                c = new Vendor(Reader["id"].ToString(), Reader["name"].ToString(), Reader["email"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["created"].ToString(), Reader["category"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), Reader["image"].ToString());
 
             }
-            DBConnect.CloseConn();
+         
             return c;
 
         }

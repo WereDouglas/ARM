@@ -36,9 +36,9 @@ namespace ARM
         {
             string Query = "UPDATE schedule SET status = '" + stateCbx.Text + "' WHERE id ='" + ID + "'";
             
-            DBConnect.QueryPostgre(Query);
-            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-            DBConnect.InsertPostgre(q);
+            MySQL.Query(Query);
+            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+            MySQL.Insert(q);
 
             MessageBox.Show("Information Updated ! ");
             this.DialogResult = DialogResult.OK;
@@ -52,7 +52,7 @@ namespace ARM
 
             //MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             //string fullimage = Helper.ImageToBase64(stream);
-            //Item c = new Item(itemID, nameTxt.Text, categoryCbx.Text, typeCbx.Text, descriptionxt.Text, costTxt.Text, batchTxt.Text, serialTxt.Text, barTxt.Text, unitTxt.Text, unitDescTxt.Text, manuTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, fullimage);
+            //Item c = new Item(itemID, nameTxt.Text, categoryCbx.Text, typeCbx.Text, descriptionxt.Text, costTxt.Text, batchTxt.Text, serialTxt.Text, barTxt.Text, unitTxt.Text, unitDescTxt.Text, manuTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), "false", fullimage);
             //DBConnect.Update(c, itemID);
             //MessageBox.Show("Information Updated");
             //this.DialogResult = DialogResult.OK;
@@ -75,10 +75,10 @@ namespace ARM
             if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Schedule? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 string Query = "DELETE from schedule WHERE id ='" + ID + "'";
-                DBConnect.QueryPostgre(Query);
+                MySQL.Query(Query);
 
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                DBConnect.InsertPostgre(q);
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                MySQL.Insert(q);
                 MessageBox.Show("Information deleted");
             }
             this.DialogResult = DialogResult.OK;

@@ -45,7 +45,7 @@ namespace ARM
                 
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id,c.Querying,c.Executed,c.Users,c.Created, delete });
+                    t.Rows.Add(new object[] { "false", c.Id,c.Querying,c.Executed,c.Users,c.Created, delete });
 
                 }
                 catch (Exception m)
@@ -95,7 +95,7 @@ namespace ARM
                 foreach (var item in selectedIDs)
                 {
                     string Query = "DELETE from queries WHERE id ='" + item + "'";
-                    DBConnect.QueryPostgre(Query);
+                    MySQL.Query(Query);
                     //  MessageBox.Show("Information deleted");
                 }
             }
@@ -128,7 +128,7 @@ namespace ARM
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Queries? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         string Query = "DELETE from queries WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
-                        DBConnect.QueryPostgre(Query);
+                        MySQL.Query(Query);
                         MessageBox.Show("Information deleted");
                         LoadData();
 
@@ -147,7 +147,7 @@ namespace ARM
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             string Query = "UPDATE query SET executed ='false'";
-            DBConnect.QueryPostgre(Query);
+            MySQL.Query(Query);
         }
     }
 }

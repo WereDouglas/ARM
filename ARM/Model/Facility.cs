@@ -27,14 +27,14 @@ namespace ARM.Model
         private string state;       
         private string type;//participating //non participating
         private string created;
-        private bool sync;
+        private string sync;
         private string companyID;
         private string image;
 
         static List<Facility> p = new List<Facility>();
         public Facility() { }
 
-        public Facility(string id, string name, string address, string contact, string email, string fax, string tel, string created,bool sync,string companyID, string image)
+        public Facility(string id, string name, string address, string contact, string email, string fax, string tel, string created,string sync,string companyID, string image)
         {
             this.Id = id;
             this.Name = name;
@@ -55,7 +55,7 @@ namespace ARM.Model
         public string Contact { get => contact; set => contact = value; }
        
         public string Created { get => created; set => created = value; }
-        public bool Sync { get => sync; set => sync = value; }
+        public string Sync { get => sync; set => sync = value; }
         public string FacilityID { get => companyID; set => companyID = value; }
         public string Image { get => image; set => image = value; }
 
@@ -63,13 +63,13 @@ namespace ARM.Model
         {
             string Q = "SELECT * FROM company";
             DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Facility c = new Facility(Reader["id"].ToString(), Reader["name"].ToString(), Reader["address"].ToString(), Reader["contact"].ToString(), Reader["email"].ToString(), Reader["fax"].ToString(), Reader["tel"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
+                Facility c = new Facility(Reader["id"].ToString(), Reader["name"].ToString(), Reader["address"].ToString(), Reader["contact"].ToString(), Reader["email"].ToString(), Reader["fax"].ToString(), Reader["tel"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), Reader["image"].ToString());
                 p.Add(c);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
 
             return p;
         }
@@ -77,13 +77,13 @@ namespace ARM.Model
         {
             p.Clear();
             DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Facility c = new Facility(Reader["id"].ToString(), Reader["name"].ToString(), Reader["address"].ToString(), Reader["contact"].ToString(), Reader["email"].ToString(), Reader["fax"].ToString(), Reader["tel"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
+                Facility c = new Facility(Reader["id"].ToString(), Reader["name"].ToString(), Reader["address"].ToString(), Reader["contact"].ToString(), Reader["email"].ToString(), Reader["fax"].ToString(), Reader["tel"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), Reader["image"].ToString());
                 p.Add(c);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
         }
         public static List<Facility> ListOnline(string Q)
@@ -92,10 +92,10 @@ namespace ARM.Model
             {
                 p.Clear();
                 DBConnect.OpenMySqlConn();
-                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+                MySqlDataReader Reader = MySQL.Reading(Q);
                 while (Reader.Read())
                 {
-                    Facility ps = new Facility(Reader["id"].ToString(), Reader["name"].ToString(), Reader["address"].ToString(), Reader["contact"].ToString(), Reader["email"].ToString(), Reader["fax"].ToString(), Reader["tel"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(),Reader["image"].ToString());
+                    Facility ps = new Facility(Reader["id"].ToString(), Reader["name"].ToString(), Reader["address"].ToString(), Reader["contact"].ToString(), Reader["email"].ToString(), Reader["fax"].ToString(), Reader["tel"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(),Reader["image"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
@@ -108,12 +108,12 @@ namespace ARM.Model
         {
             string Q = "SELECT * FROM company LIMIT 1";
             DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                c = new Facility(Reader["id"].ToString(), Reader["name"].ToString(), Reader["address"].ToString(), Reader["contact"].ToString(), Reader["email"].ToString(), Reader["fax"].ToString(), Reader["tel"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
+                c = new Facility(Reader["id"].ToString(), Reader["name"].ToString(), Reader["address"].ToString(), Reader["contact"].ToString(), Reader["email"].ToString(), Reader["fax"].ToString(), Reader["tel"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), Reader["image"].ToString());
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return c;
 
         }

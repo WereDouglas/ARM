@@ -1345,7 +1345,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Contact</Value>
+                                  <Value>=Parameters!medicaid.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -1700,7 +1700,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet3</DataSetName>
-            <Top>1.64806in</Top>
+            <Top>1.63764in</Top>
             <Left>0.45708in</Left>
             <Height>1in</Height>
             <Width>8.18751in</Width>
@@ -2736,6 +2736,12 @@
       <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="medicaid">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -2746,6 +2752,11 @@
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>image</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>medicaid</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

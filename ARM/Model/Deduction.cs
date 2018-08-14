@@ -20,11 +20,11 @@ namespace ARM.Model
         private double amount;
         private string paid;
         private string created;      
-        private bool sync;
+        private string sync;
         private string companyID;
         public Deduction() { }
 
-        public Deduction(string id, string date, string no, string userID, string category, string details, double amount, string paid, string created, bool sync, string companyID)
+        public Deduction(string id, string date, string no, string userID, string category, string details, double amount, string paid, string created, string sync, string companyID)
         {
             this.Id = id;
             this.Date = date;
@@ -50,7 +50,7 @@ namespace ARM.Model
         public double Amount { get => amount; set => amount = value; }
         public string Paid { get => paid; set => paid = value; }
         public string Created { get => created; set => created = value; }
-        public bool Sync { get => sync; set => sync = value; }
+        public string Sync { get => sync; set => sync = value; }
         public string CompanyID { get => companyID; set => companyID = value; }
        
 
@@ -59,17 +59,18 @@ namespace ARM.Model
             try
             {
                 p.Clear();
-          //  string Q = "SELECT * FROM Deduction WHERE caseID = '"+caseID+"' ";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+         
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Deduction ps = new Deduction(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["userID"].ToString(), Reader["category"].ToString(), Reader["details"].ToString(), Convert.ToDouble(Reader["amount"]), Reader["paid"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Deduction ps = new Deduction(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["userID"].ToString(), Reader["category"].ToString(), Reader["details"].ToString(), Convert.ToDouble(Reader["amount"]), Reader["paid"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             }
-            catch { }
+            catch {
+				DBConnect.CloseMySqlConn();
+			}
             return p;
 
         }
@@ -78,11 +79,11 @@ namespace ARM.Model
             try
             {
                 p.Clear();
-                DBConnect.OpenMySqlConn();
-                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+               
+                MySqlDataReader Reader = MySQL.Reading(Q);
                 while (Reader.Read())
                 {
-                    Deduction ps = new Deduction(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["userID"].ToString(), Reader["category"].ToString(), Reader["details"].ToString(), Convert.ToDouble(Reader["amount"]), Reader["paid"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                    Deduction ps = new Deduction(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["userID"].ToString(), Reader["category"].ToString(), Reader["details"].ToString(), Convert.ToDouble(Reader["amount"]), Reader["paid"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
@@ -95,14 +96,14 @@ namespace ARM.Model
         {
             p.Clear();
              
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+           
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Deduction ps = new Deduction(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["userID"].ToString(), Reader["category"].ToString(), Reader["details"].ToString(), Convert.ToDouble(Reader["amount"]), Reader["paid"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Deduction ps = new Deduction(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["userID"].ToString(), Reader["category"].ToString(), Reader["details"].ToString(), Convert.ToDouble(Reader["amount"]), Reader["paid"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
 
         }

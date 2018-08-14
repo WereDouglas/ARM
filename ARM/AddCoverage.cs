@@ -81,15 +81,15 @@ namespace ARM
                 return;
             }
             string id = Guid.NewGuid().ToString();
-            ItemCoverage t = new ItemCoverage(id, TransID, ItemID, CoverID, Convert.ToDouble(percTxt.Text), Convert.ToDouble(amountTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
+            ItemCoverage t = new ItemCoverage(id, TransID, ItemID, CoverID, Convert.ToDouble(percTxt.Text), Convert.ToDouble(amountTxt.Text), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), "false", Helper.CompanyID);
             GenericCollection.itemCoverage.Add(t);
 
-            ItemCoverage c = new ItemCoverage(t.Id, t.CaseTransactionID, t.ItemID, t.CoverageID, t.Percentage, t.Amount, t.Created, false, Helper.CompanyID);
-            string save = DBConnect.InsertPostgre(c);
+            ItemCoverage c = new ItemCoverage(t.Id, t.CaseTransactionID, t.ItemID, t.CoverageID, t.Percentage, t.Amount, t.Created, "false", Helper.CompanyID);
+            string save = MySQL.Insert(c);
             if (save  != "")
             {
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                DBConnect.InsertPostgre(q);
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                MySQL.Insert(q);
             }
             this.DialogResult = DialogResult.OK;
             this.Dispose();

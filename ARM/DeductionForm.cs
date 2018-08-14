@@ -62,7 +62,7 @@ namespace ARM
                 try { imageUs = Users.Select(c.UserID).Image; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, imageUs as string, b2,c.UserID ,c.No,user, c.Category, c.Details, c.Amount, c.Paid, c.Sync, c.Created, view, delete });
+                    t.Rows.Add(new object[] { "false", c.Id, imageUs as string, b2,c.UserID ,c.No,user, c.Category, c.Details, c.Amount, c.Paid, c.Sync, c.Created, view, delete });
 
                 }
                 catch (Exception m)
@@ -133,9 +133,9 @@ namespace ARM
                 foreach (var item in selectedIDs)
                 {
                     string Query = "DELETE from deduction WHERE id ='" + item + "'";
-                    DBConnect.QueryPostgre(Query);
-                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                    DBConnect.InsertPostgre(q);
+                    MySQL.Query(Query);
+                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(MySQL.Insert(Query)), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                    MySQL.Insert(q);
 					Helper.Log(Helper.UserName, "Deleted deduction information " + item + "  " + DateTime.Now);
 				}
             }
@@ -174,10 +174,10 @@ namespace ARM
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Deduction? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         string Query = "DELETE from deduction WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
-                        DBConnect.QueryPostgre(Query);
+                        MySQL.Query(Query);
 
-                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                        DBConnect.InsertPostgre(q);
+                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(MySQL.Insert(Query)), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                        MySQL.Insert(q);
                         MessageBox.Show("Information deleted");
                         LoadData();
 
@@ -196,7 +196,7 @@ namespace ARM
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             string Query = "UPDATE deduction SET sync ='false'";
-            DBConnect.QueryPostgre(Query);
+            MySQL.Query(Query);
         }
 
         
@@ -214,16 +214,14 @@ namespace ARM
             }
             try
             {
-                Deduction _c = new Deduction(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["date"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["userID"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["details"].Value.ToString(), Convert.ToDouble(dtGrid.Rows[e.RowIndex].Cells["amount"].Value), dtGrid.Rows[e.RowIndex].Cells["paid"].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID);
-               string save =  DBConnect.UpdatePostgre(_c, dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                DBConnect.InsertPostgre(q);
+                Deduction _c = new Deduction(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["date"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["userID"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["details"].Value.ToString(), Convert.ToDouble(dtGrid.Rows[e.RowIndex].Cells["amount"].Value), dtGrid.Rows[e.RowIndex].Cells["paid"].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:m:s"), "false", Helper.CompanyID);
+                DBConnect.UpdateMySql(_c, dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());               
 
             }
             catch (Exception c)
             {
-                Helper.Exceptions(c.Message, "Editing cost of goods grid");
-                MessageBox.Show("You have an invalid entry !");
+               Helper.Exceptions(c.Message, "Editing of deductions grid");
+              // MessageBox.Show("You have an invalid entry !");
             }
 
         }

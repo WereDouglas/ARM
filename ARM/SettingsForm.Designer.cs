@@ -114,7 +114,6 @@
 			this.localNameTxt.WaterMark = "Server Name";
 			this.localNameTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.localNameTxt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-			this.localNameTxt.Click += new System.EventHandler(this.costTxt_Click);
 			this.localNameTxt.Leave += new System.EventHandler(this.localNameTxt_Leave);
 			// 
 			// button3
@@ -130,7 +129,7 @@
 			this.button3.Name = "button3";
 			this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.button3.Size = new System.Drawing.Size(108, 49);
-			this.button3.TabIndex = 2;
+			this.button3.TabIndex = 6;
 			this.button3.Text = "Save";
 			this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.button3.UseVisualStyleBackColor = false;
@@ -149,7 +148,7 @@
 			this.button2.Name = "button2";
 			this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.button2.Size = new System.Drawing.Size(108, 49);
-			this.button2.TabIndex = 3;
+			this.button2.TabIndex = 7;
 			this.button2.Text = "Cancel";
 			this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.button2.UseVisualStyleBackColor = false;
@@ -183,7 +182,7 @@
 			this.remoteTxt.SelectionStart = 0;
 			this.remoteTxt.ShortcutsEnabled = true;
 			this.remoteTxt.Size = new System.Drawing.Size(265, 35);
-			this.remoteTxt.TabIndex = 4;
+			this.remoteTxt.TabIndex = 3;
 			this.remoteTxt.UseSelectable = true;
 			this.remoteTxt.WaterMark = "Remote Address";
 			this.remoteTxt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -208,7 +207,7 @@
 			this.defaultTxt.Location = new System.Drawing.Point(87, 411);
 			this.defaultTxt.Name = "defaultTxt";
 			this.defaultTxt.Size = new System.Drawing.Size(265, 28);
-			this.defaultTxt.TabIndex = 6;
+			this.defaultTxt.TabIndex = 5;
 			this.defaultTxt.SelectedIndexChanged += new System.EventHandler(this.defaultTxt_SelectedIndexChanged);
 			// 
 			// label2
@@ -226,7 +225,7 @@
 			this.portTxt.Location = new System.Drawing.Point(87, 343);
 			this.portTxt.Name = "portTxt";
 			this.portTxt.Size = new System.Drawing.Size(265, 26);
-			this.portTxt.TabIndex = 8;
+			this.portTxt.TabIndex = 4;
 			this.portTxt.Text = "5432";
 			// 
 			// label3
@@ -267,7 +266,7 @@
 			this.remoteNameTxt.SelectionStart = 0;
 			this.remoteNameTxt.ShortcutsEnabled = true;
 			this.remoteNameTxt.Size = new System.Drawing.Size(265, 35);
-			this.remoteNameTxt.TabIndex = 10;
+			this.remoteNameTxt.TabIndex = 2;
 			this.remoteNameTxt.Text = "0.tcp.ngrok.io";
 			this.remoteNameTxt.UseSelectable = true;
 			this.remoteNameTxt.WaterMark = "Remote Server name";

@@ -36,19 +36,19 @@ namespace ARM
 			v = Orders.SelectNo(No);
 			y = Company.Select();
 			/**Company Customer***/
-
+			MySQL.Close();
 			Microsoft.Reporting.WinForms.ReportParameter rp = new Microsoft.Reporting.WinForms.ReportParameter("image", Helper.CompanyImage);
 		    this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp });
 
-			Npgsql.NpgsqlDataAdapter da = new Npgsql.NpgsqlDataAdapter("SELECT * FROM instruction WHERE no='" + No + "'", DBConnect.conn);
+			MySql.Data.MySqlClient.MySqlDataAdapter da = new MySql.Data.MySqlClient.MySqlDataAdapter("SELECT * FROM instruction WHERE no='" + No + "'", MySQL.Conn);
 			DataSet ds = new DataSet();
 			da.Fill(ds);
 
-			Npgsql.NpgsqlDataAdapter da2 = new Npgsql.NpgsqlDataAdapter("SELECT * FROM customer WHERE id='" + v.CustomerID + "'", DBConnect.conn);
+			MySql.Data.MySqlClient.MySqlDataAdapter da2 = new MySql.Data.MySqlClient.MySqlDataAdapter("SELECT * FROM customer WHERE id='" + v.CustomerID + "'", MySQL.Conn);
 			DataSet ds2 = new DataSet();
 			da2.Fill(ds2);
 
-			Npgsql.NpgsqlDataAdapter da3 = new Npgsql.NpgsqlDataAdapter("SELECT product.name AS itemID ,product.code AS self,product.serial AS tax,casetransaction.cost,casetransaction.date as date,casetransaction.no as no,casetransaction.total as total,casetransaction.qty as qty,casetransaction.cost,casetransaction.created,casetransaction.sync,casetransaction.height,casetransaction.limits,casetransaction.weight,casetransaction.setting,casetransaction.instruction,casetransaction.period FROM casetransaction LEFT join product ON casetransaction.itemID = product.id  WHERE casetransaction.no='" + No + "'", DBConnect.conn);
+			MySql.Data.MySqlClient.MySqlDataAdapter da3 = new MySql.Data.MySqlClient.MySqlDataAdapter("SELECT product.name AS itemID ,product.code AS self,product.serial AS tax,casetransaction.cost,casetransaction.date as date,casetransaction.no as no,casetransaction.total as total,casetransaction.qty as qty,casetransaction.cost,casetransaction.created,casetransaction.sync,casetransaction.height,casetransaction.limits,casetransaction.weight,casetransaction.setting,casetransaction.instruction,casetransaction.period FROM casetransaction LEFT join product ON casetransaction.itemID = product.id  WHERE casetransaction.no='" + No + "'", MySQL.Conn);
 			DataSet ds3 = new DataSet();
 			da3.Fill(ds3);
 			

@@ -60,7 +60,7 @@ namespace ARM
 
 			t.Columns.Add("CMN");
 			t.Columns.Add("Instructions");
-			t.Columns.Add("New delivery");
+			t.Columns.Add("Delivery");
 			t.Columns.Add(new DataColumn("View", typeof(Image)));
 			t.Columns.Add(new DataColumn("Delete", typeof(Image)));
 
@@ -93,7 +93,7 @@ namespace ARM
 				try { doctor = Practitioner.Select(c.PractitionerID).Name; } catch { }
 				try
 				{
-					t.Rows.Add(new object[] { false, c.Id, c.No, imageCus as string, b, cus, doctor, c.OrderDate + " TIME: " + c.OrderTime, c.OrderBy, c.DispenseDate + " TIME: " + c.OrderTime, c.DispenseBy, c.CustomerType, c.Diagnosis, c.Surgery, c.ClinicalDate, c.Hospital, c.Home, c.SetupDate, c.DateNeeded, c.Notified, c.Authorised, c.Sent, c.DateSent, c.Returned, c.DateReturned, "CMN", "Instructions", "New Delivery", view, delete });
+					t.Rows.Add(new object[] { "false", c.Id, c.No, imageCus as string, b, cus, doctor, c.OrderDate + " TIME: " + c.OrderTime, c.OrderBy, c.DispenseDate + " TIME: " + c.OrderTime, c.DispenseBy, c.CustomerType, c.Diagnosis, c.Surgery, c.ClinicalDate, c.Hospital, c.Home, c.SetupDate, c.DateNeeded, c.Notified, c.Authorised, c.Sent, c.DateSent, c.Returned, c.DateReturned, "CMN", "Instructions", "Order Delivery", view, delete });
 				}
 				catch (Exception m)
 				{
@@ -171,9 +171,9 @@ namespace ARM
 				foreach (var item in selectedIDs)
 				{
 					string Query = "DELETE from orders WHERE id ='" + item + "'";
-					DBConnect.QueryPostgre(Query);
-					Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-					DBConnect.InsertPostgre(q);
+					MySQL.Query(Query);
+					Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(MySQL.Insert(Query)), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+					MySQL.Insert(q);
 					//  MessageBox.Show("Information deleted");
 					Helper.Log(Helper.UserName, "Deleted Order intake  " + item + "  " + DateTime.Now);
 				}
@@ -216,7 +216,7 @@ namespace ARM
 				string exists = "";
 				try
 				{
-					exists = DBConnect.value("SELECT no FROM instruction WHERE no  = '" + dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString() + "'");
+					exists = MySQL.value("SELECT no FROM instruction WHERE no  = '" + dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString() + "'");
 				}
 				catch (Exception y)
 				{
@@ -226,7 +226,7 @@ namespace ARM
 				{
 					if (MessageBox.Show("YES or No?", "Instruction Delivery form exist would you like to load it  ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
 					{
-						using (InstructionDeliveryForm form = new InstructionDeliveryForm(dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString(), ""))
+						using (InstructionDeliveryForm form = new InstructionDeliveryForm( dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString()))
 						{
 							DialogResult dr = form.ShowDialog();
 							if (dr == DialogResult.OK)
@@ -237,7 +237,7 @@ namespace ARM
 					}
 					else
 					{
-						using (InstructionDeliveryForm form = new InstructionDeliveryForm("", dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString()))
+						using (InstructionDeliveryForm form = new InstructionDeliveryForm( dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString()))
 						{
 							DialogResult dr = form.ShowDialog();
 							if (dr == DialogResult.OK)
@@ -249,7 +249,7 @@ namespace ARM
 				}
 				else {
 
-					using (InstructionDeliveryForm form = new InstructionDeliveryForm("", dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString()))
+					using (InstructionDeliveryForm form = new InstructionDeliveryForm( dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString()))
 					{
 						DialogResult dr = form.ShowDialog();
 						if (dr == DialogResult.OK)
@@ -264,7 +264,7 @@ namespace ARM
 				string exists = "";
 				try
 				{
-					exists = DBConnect.value("SELECT no FROM certificate WHERE no  = '" + dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString() + "'");
+					exists = MySQL.value("SELECT no FROM certificate WHERE no  = '" + dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString() + "'");
 				}
 				catch (Exception y)
 				{
@@ -275,7 +275,7 @@ namespace ARM
 				{
 					if (MessageBox.Show("YES or No?", "CMN exists would you like to load it  ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
 					{
-						using (CertificateInputForm form = new CertificateInputForm(dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString(), ""))
+						using (CertificateInputForm form = new CertificateInputForm(dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString()))
 						{
 							DialogResult dr = form.ShowDialog();
 							if (dr == DialogResult.OK)
@@ -287,7 +287,7 @@ namespace ARM
 					else
 					{
 
-						using (CertificateInputForm form = new CertificateInputForm("", dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString()))
+						using (CertificateInputForm form = new CertificateInputForm(dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString()))
 						{
 							DialogResult dr = form.ShowDialog();
 							if (dr == DialogResult.OK)
@@ -299,7 +299,7 @@ namespace ARM
 				}
 				else
 				{
-					using (CertificateInputForm form = new CertificateInputForm("", dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString()))
+					using (CertificateInputForm form = new CertificateInputForm(dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString()))
 					{
 						DialogResult dr = form.ShowDialog();
 						if (dr == DialogResult.OK)
@@ -310,12 +310,12 @@ namespace ARM
 				}
 
 			}
-			if (e.ColumnIndex == dtGrid.Columns["New delivery"].Index && e.RowIndex >= 0)
+			if (e.ColumnIndex == dtGrid.Columns["Delivery"].Index && e.RowIndex >= 0)
 			{
 				string exists = "";
 				try
 				{
-					exists = DBConnect.value("SELECT no FROM delivery WHERE no  = '" + dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString() + "'");
+					exists = MySQL.value("SELECT no FROM delivery WHERE no  = '" + dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString() + "'");
 				}
 				catch (Exception y)
 				{
@@ -325,7 +325,7 @@ namespace ARM
 				{
 					if (MessageBox.Show("YES or No?", "Order Delivery exists would you like to load it  ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
 					{
-						using (DeliveryPickupForm form = new DeliveryPickupForm(dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString(), ""))
+						using (DeliveryPickupForm form = new DeliveryPickupForm(dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString()))
 						{
 							DialogResult dr = form.ShowDialog();
 							if (dr == DialogResult.OK)
@@ -336,7 +336,7 @@ namespace ARM
 					}
 					else
 					{
-						using (DeliveryPickupForm form = new DeliveryPickupForm("", dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString()))
+						using (DeliveryPickupForm form = new DeliveryPickupForm(dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString()))
 						{
 							DialogResult dr = form.ShowDialog();
 							if (dr == DialogResult.OK)
@@ -348,7 +348,7 @@ namespace ARM
 				}
 				else
 				{
-					using (DeliveryPickupForm form = new DeliveryPickupForm("", dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString()))
+					using (DeliveryPickupForm form = new DeliveryPickupForm(dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString()))
 					{
 						DialogResult dr = form.ShowDialog();
 						if (dr == DialogResult.OK)
@@ -380,33 +380,33 @@ namespace ARM
 					if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Order? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
 					{
 						string Query = "DELETE from orders WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
-						DBConnect.QueryPostgre(Query);
-						Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-						DBConnect.InsertPostgre(q);
+						MySQL.Query(Query);
+						Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+						MySQL.Insert(q);
 						string Query2 = "DELETE from casetransaction WHERE no ='" + dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString() + "'";
-						DBConnect.QueryPostgre(Query2);
-						Queries qa = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query2), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-						DBConnect.InsertPostgre(qa);
+						MySQL.Query(Query2);
+						Queries qa = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query2), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+						MySQL.Insert(qa);
 
 						string Query3 = "DELETE from certificate WHERE no ='" + dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString() + "'";
-						DBConnect.QueryPostgre(Query3);
-						Queries qas = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query3), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-						DBConnect.InsertPostgre(qas);
+						MySQL.Query(Query3);
+						Queries qas = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query3), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+						MySQL.Insert(qas);
 
 						string Query4 = "DELETE from delivery WHERE no ='" + dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString() + "'";
-						DBConnect.QueryPostgre(Query4);
-						Queries qa1 = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query4), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-						DBConnect.InsertPostgre(qa1);
+						MySQL.Query(Query4);
+						Queries qa1 = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query4), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+						MySQL.Insert(qa1);
 
 						string Query5 = "DELETE from invoice WHERE no ='" + dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString() + "'";
-						DBConnect.QueryPostgre(Query5);
-						Queries qa2 = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query5), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-						DBConnect.InsertPostgre(qa2);
+						MySQL.Query(Query5);
+						Queries qa2 = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query5), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+						MySQL.Insert(qa2);
 
 						string Query6 = "DELETE from instruction WHERE no ='" + dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString() + "'";
-						DBConnect.QueryPostgre(Query6);
-						Queries qa3 = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query6), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-						DBConnect.InsertPostgre(qa3);
+						MySQL.Query(Query6);
+						Queries qa3 = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query6), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+						MySQL.Insert(qa3);
 
 
 						MessageBox.Show("Information deleted");
@@ -426,7 +426,7 @@ namespace ARM
 		private void toolStripButton4_Click(object sender, EventArgs e)
 		{
 			string Query = "UPDATE order SET sync ='false'";
-			DBConnect.QueryPostgre(Query);
+			MySQL.Query(Query);
 		}
 
 		private void toolStripButton2_Click(object sender, EventArgs e)

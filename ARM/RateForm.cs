@@ -33,8 +33,7 @@ namespace ARM
             t.Columns.Add("Employee");
             t.Columns.Add("Amount");
             t.Columns.Add("Unit");
-            t.Columns.Add("Max");
-            t.Columns.Add("Sync");
+            t.Columns.Add("Max");            
             t.Columns.Add("Created");
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));//1
             t.Columns.Add("userID");
@@ -46,10 +45,10 @@ namespace ARM
             foreach (Rate c in Rate.List())
             {               
                 string user = "";               
-                try { user = Users.Select(c.UserID).Name; } catch { }
+                try { user = GenericCollection.users.Where(r => r.Id == c.UserID).First().Name; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id,user,c.Amount,c.Units,c.Period, c.Sync, c.Created, delete ,c.UserID});
+                    t.Rows.Add(new object[] { "false", c.Id,user,c.Amount,c.Units,c.Period,c.Created, delete ,c.UserID});
 
                 }
                 catch (Exception m)
@@ -99,9 +98,8 @@ namespace ARM
                 foreach (var item in selectedIDs)
                 {
                     string Query = "DELETE from rate WHERE id ='" + item + "'";
-                    DBConnect.QueryPostgre(Query);
-                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                    DBConnect.InsertPostgre(q);
+                    MySQL.Query(Query);
+                   
 					Helper.Log(Helper.UserName, "Deleted rates " + item + "  " + DateTime.Now);
 
 				}
@@ -136,9 +134,8 @@ namespace ARM
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Rate? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         string Query = "DELETE from rate WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
-                        DBConnect.QueryPostgre(Query);
-                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(DBConnect.InsertPostgre(Query)), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                        DBConnect.InsertPostgre(q);
+                        MySQL.Query(Query);
+                       
                         MessageBox.Show("Information deleted");
                         LoadData();
 						Helper.Log(Helper.UserName, "Deleted rate information for  " + dtGrid.Rows[e.RowIndex].Cells["Employee"].Value.ToString() + "  " + DateTime.Now);
@@ -159,17 +156,17 @@ namespace ARM
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             string Query = "UPDATE rate SET sync ='false'";
-            DBConnect.QueryPostgre(Query);
+            MySQL.Query(Query);
         }
 
         private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             string ID = dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString();
             double max = Convert.ToDouble(dtGrid.Rows[e.RowIndex].Cells["max"].Value);
-            Rate _c = new Rate(ID, dtGrid.Rows[e.RowIndex].Cells["userID"].Value.ToString(),Convert.ToDouble(dtGrid.Rows[e.RowIndex].Cells["amount"].Value), max, dtGrid.Rows[e.RowIndex].Cells["unit"].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy"),false, Helper.CompanyID);
-            string save = DBConnect.UpdatePostgre(_c, ID);
-            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-            DBConnect.InsertPostgre(q);
+            Rate _c = new Rate(ID, dtGrid.Rows[e.RowIndex].Cells["userID"].Value.ToString(),Convert.ToDouble(dtGrid.Rows[e.RowIndex].Cells["amount"].Value), max, dtGrid.Rows[e.RowIndex].Cells["unit"].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy"),"false", Helper.CompanyID);
+            DBConnect.UpdateMySql(_c, ID);
+           // Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+           // MySQL.Insert(q);
 			Helper.Log(Helper.UserName, "Updated rate information " + dtGrid.Rows[e.RowIndex].Cells["Employee"].Value.ToString() + "  " + DateTime.Now);
 
 		}
@@ -192,6 +189,18 @@ namespace ARM
 			{
 				row.Cells["select"].Value = false;
 				selectedIDs.Remove(row.Cells["id"].Value.ToString());
+			}
+		}
+
+		private void toolStripButton5_Click(object sender, EventArgs e)
+		{
+			using (RateDialog form = new RateDialog(null))
+			{
+				DialogResult dr = form.ShowDialog();
+				if (dr == DialogResult.OK)
+				{
+					LoadData();
+				}
 			}
 		}
 	}

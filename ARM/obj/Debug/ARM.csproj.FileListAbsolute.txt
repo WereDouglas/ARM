@@ -174,3 +174,7 @@ C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.pdb
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.AdministrationForm.resources
 C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.AddCaseTransaction.resources
+C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.CertificateForm.resources
+C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.UserReport.resources
+C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.csprojResolveAssemblyReference.cache
+C:\Users\wered\OneDrive\Documents\Visual Studio 2017\Projects\ARM\ARM\obj\Debug\ARM.ProcessWindow.resources

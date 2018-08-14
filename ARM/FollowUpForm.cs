@@ -94,7 +94,7 @@ namespace ARM
                 try { phy = Users.Select(c.UserID).Name; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, imageCus as string, b, c.CustomerID +" "+ cus, c.UserID + " "+ phy, c.ItemID+" "+ prod, imagePro as string, b2, c.Type, c.Diagnosis, c.Hospitalisation, c.Source, c.Length, c.Need, c.Goal, c.Results, c.Recommend, c.FollowVisit, c.FollowPhone, c.Next, c.Pu, c.Signature, c.Authoriser, c.Relationship, c.Reason,c.Created, c.Sync,view, delete });
+                    t.Rows.Add(new object[] { "false", c.Id, imageCus as string, b, c.CustomerID +" "+ cus, c.UserID + " "+ phy, c.ItemID+" "+ prod, imagePro as string, b2, c.Type, c.Diagnosis, c.Hospitalisation, c.Source, c.Length, c.Need, c.Goal, c.Results, c.Recommend, c.FollowVisit, c.FollowPhone, c.Next, c.Pu, c.Signature, c.Authoriser, c.Relationship, c.Reason,c.Created, c.Sync,view, delete });
 
                 }
                 catch (Exception m)
@@ -180,7 +180,7 @@ namespace ARM
                 foreach (var item in selectedIDs)
                 {
                     string Query = "DELETE from follow WHERE id ='" + item + "'";
-                    DBConnect.QueryPostgre(Query);
+                    MySQL.Query(Query);
 					//  MessageBox.Show("Information deleted");
 					Helper.Log(Helper.UserName, "Deleted user " + item + "  " + DateTime.Now);
 				}
@@ -224,7 +224,7 @@ namespace ARM
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Follow? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         string Query = "DELETE from follow WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
-                        DBConnect.QueryPostgre(Query);
+                        MySQL.Query(Query);
                         MessageBox.Show("Information deleted");
                         LoadData();
 
@@ -243,13 +243,13 @@ namespace ARM
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             string Query = "UPDATE follow SET sync ='false'";
-            DBConnect.QueryPostgre(Query);
+            MySQL.Query(Query);
             string Query1 = "UPDATE itemReview SET sync ='false'";
-            DBConnect.QueryPostgre(Query1);
+            MySQL.Query(Query1);
             string Query2 = "UPDATE itemStatus SET sync ='false'";
-            DBConnect.QueryPostgre(Query2);
+            MySQL.Query(Query2);
             string Query3 = "UPDATE patientStatus SET sync ='false'";
-            DBConnect.QueryPostgre(Query3);
+            MySQL.Query(Query3);
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)

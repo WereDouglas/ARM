@@ -33,10 +33,10 @@ namespace ARM.Model
         private string relationship;
         private string reason;
         private string created;
-       private bool sync; private string companyID;
+       private string sync; private string companyID;
         public Follow() { }
 
-        public Follow(string id, string customerID, string userID, string itemID, string type, string diagnosis, string hospitalisation, string source, string length, string need, string goal, string results, string recommend, string followVisit, string followPhone, string next, string pu, string signature, string authoriser, string relationship, string reason, string created, bool sync,string companyID)
+        public Follow(string id, string customerID, string userID, string itemID, string type, string diagnosis, string hospitalisation, string source, string length, string need, string goal, string results, string recommend, string followVisit, string followPhone, string next, string pu, string signature, string authoriser, string relationship, string reason, string created, string sync,string companyID)
         {
             this.Id = id;
             this.CustomerID = customerID;
@@ -87,19 +87,19 @@ namespace ARM.Model
         public string Relationship { get => relationship; set => relationship = value; }
         public string Reason { get => reason; set => reason = value; }
         public string Created { get => created; set => created = value; }
-        public bool Sync { get => sync; set => sync = value; } public string CompanyID { get => companyID; set => companyID = value; }
+        public string Sync { get => sync; set => sync = value; } public string CompanyID { get => companyID; set => companyID = value; }
 
         public static List<Follow> List()
         {
             string Q = "SELECT * FROM Follow ";
             DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Follow ps = new Follow(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["itemID"].ToString(), Reader["type"].ToString(), Reader["diagnosis"].ToString(), Reader["hospitalisation"].ToString(), Reader["source"].ToString(), Reader["length"].ToString(), Reader["need"].ToString(), Reader["goal"].ToString(), Reader["results"].ToString(), Reader["recommend"].ToString(), Reader["followVisit"].ToString(), Reader["followPhone"].ToString(), Reader["next"].ToString(), Reader["pu"].ToString(), Reader["signature"].ToString(), Reader["authoriser"].ToString(), Reader["relationship"].ToString(), Reader["reason"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Follow ps = new Follow(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["itemID"].ToString(), Reader["type"].ToString(), Reader["diagnosis"].ToString(), Reader["hospitalisation"].ToString(), Reader["source"].ToString(), Reader["length"].ToString(), Reader["need"].ToString(), Reader["goal"].ToString(), Reader["results"].ToString(), Reader["recommend"].ToString(), Reader["followVisit"].ToString(), Reader["followPhone"].ToString(), Reader["next"].ToString(), Reader["pu"].ToString(), Reader["signature"].ToString(), Reader["authoriser"].ToString(), Reader["relationship"].ToString(), Reader["reason"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
 
         }
@@ -107,13 +107,13 @@ namespace ARM.Model
         {
             p.Clear();
             DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Follow ps = new Follow(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["itemID"].ToString(), Reader["type"].ToString(), Reader["diagnosis"].ToString(), Reader["hospitalisation"].ToString(), Reader["source"].ToString(), Reader["length"].ToString(), Reader["need"].ToString(), Reader["goal"].ToString(), Reader["results"].ToString(), Reader["recommend"].ToString(), Reader["followVisit"].ToString(), Reader["followPhone"].ToString(), Reader["next"].ToString(), Reader["pu"].ToString(), Reader["signature"].ToString(), Reader["authoriser"].ToString(), Reader["relationship"].ToString(), Reader["reason"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Follow ps = new Follow(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["itemID"].ToString(), Reader["type"].ToString(), Reader["diagnosis"].ToString(), Reader["hospitalisation"].ToString(), Reader["source"].ToString(), Reader["length"].ToString(), Reader["need"].ToString(), Reader["goal"].ToString(), Reader["results"].ToString(), Reader["recommend"].ToString(), Reader["followVisit"].ToString(), Reader["followPhone"].ToString(), Reader["next"].ToString(), Reader["pu"].ToString(), Reader["signature"].ToString(), Reader["authoriser"].ToString(), Reader["relationship"].ToString(), Reader["reason"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
 
         }
@@ -123,10 +123,10 @@ namespace ARM.Model
             try
             {
                 DBConnect.OpenMySqlConn();
-                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+                MySqlDataReader Reader = MySQL.Reading(Q);
                 while (Reader.Read())
                 {
-                    Follow ps = new Follow(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["itemID"].ToString(), Reader["type"].ToString(), Reader["diagnosis"].ToString(), Reader["hospitalisation"].ToString(), Reader["source"].ToString(), Reader["length"].ToString(), Reader["need"].ToString(), Reader["goal"].ToString(), Reader["results"].ToString(), Reader["recommend"].ToString(), Reader["followVisit"].ToString(), Reader["followPhone"].ToString(), Reader["next"].ToString(), Reader["pu"].ToString(), Reader["signature"].ToString(), Reader["authoriser"].ToString(), Reader["relationship"].ToString(), Reader["reason"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                    Follow ps = new Follow(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["itemID"].ToString(), Reader["type"].ToString(), Reader["diagnosis"].ToString(), Reader["hospitalisation"].ToString(), Reader["source"].ToString(), Reader["length"].ToString(), Reader["need"].ToString(), Reader["goal"].ToString(), Reader["results"].ToString(), Reader["recommend"].ToString(), Reader["followVisit"].ToString(), Reader["followPhone"].ToString(), Reader["next"].ToString(), Reader["pu"].ToString(), Reader["signature"].ToString(), Reader["authoriser"].ToString(), Reader["relationship"].ToString(), Reader["reason"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
@@ -140,13 +140,13 @@ namespace ARM.Model
         {
             string Q = "SELECT * FROM follow WHERE id = '" + id + "'";
             DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                c = new Follow(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["itemID"].ToString(), Reader["type"].ToString(), Reader["diagnosis"].ToString(), Reader["hospitalisation"].ToString(), Reader["source"].ToString(), Reader["length"].ToString(), Reader["need"].ToString(), Reader["goal"].ToString(), Reader["results"].ToString(), Reader["recommend"].ToString(), Reader["followVisit"].ToString(), Reader["followPhone"].ToString(), Reader["next"].ToString(), Reader["pu"].ToString(), Reader["signature"].ToString(), Reader["authoriser"].ToString(), Reader["relationship"].ToString(), Reader["reason"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                c = new Follow(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["itemID"].ToString(), Reader["type"].ToString(), Reader["diagnosis"].ToString(), Reader["hospitalisation"].ToString(), Reader["source"].ToString(), Reader["length"].ToString(), Reader["need"].ToString(), Reader["goal"].ToString(), Reader["results"].ToString(), Reader["recommend"].ToString(), Reader["followVisit"].ToString(), Reader["followPhone"].ToString(), Reader["next"].ToString(), Reader["pu"].ToString(), Reader["signature"].ToString(), Reader["authoriser"].ToString(), Reader["relationship"].ToString(), Reader["reason"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
 
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return c;
 
         }

@@ -32,12 +32,11 @@ namespace ARM
             // create and execute query  
             t = new DataTable();
             t.Columns.Add(new DataColumn("Select", typeof(bool)));
-            t.Columns.Add("ID");
+            t.Columns.Add("id");
             t.Columns.Add("Physician");
             t.Columns.Add("Bank");
             t.Columns.Add("Account No.");
-            t.Columns.Add("Routing");
-            t.Columns.Add("Sync");
+            t.Columns.Add("Routing");            
             t.Columns.Add("Created");           
             t.Columns.Add(new DataColumn("Delete", typeof(Image)));           
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
@@ -45,10 +44,10 @@ namespace ARM
             foreach (Account c in Account.List())
             {               
                 string user = "";               
-                try { user = Users.Select(c.UserID).Name; } catch { }
+                try { user = GenericCollection.users.Where(r => r.Id == c.UserID).First().Name; } catch { }
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id,user,c.Bank,c.AccountNo,c.Routing ,c.Sync, c.Created, delete });
+                    t.Rows.Add(new object[] { "false", c.Id,user,c.Bank,c.AccountNo,c.Routing , c.Created, delete });
 
                 }
                 catch (Exception m)
@@ -98,7 +97,7 @@ namespace ARM
                 foreach (var item in selectedIDs)
                 {
                     string Query = "DELETE from account WHERE id ='" + item + "'";
-                    DBConnect.QueryPostgre(Query);
+                    MySQL.Query(Query);
 					//  MessageBox.Show("Information deleted");
 					Helper.Log(Helper.UserName, "Deleted user account information  " + item + "  " + DateTime.Now);
 				}
@@ -131,7 +130,7 @@ namespace ARM
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this Account? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         string Query = "DELETE from account WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
-                        DBConnect.QueryPostgre(Query);
+                        MySQL.Query(Query);
                         MessageBox.Show("Information deleted");
                         LoadData();
 
@@ -151,7 +150,7 @@ namespace ARM
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             string Query = "UPDATE account SET sync ='false'";
-            DBConnect.QueryPostgre(Query);
+            MySQL.Query(Query);
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)
@@ -161,7 +160,7 @@ namespace ARM
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-
+					LoadData();
                 }
             }
         }
@@ -172,15 +171,15 @@ namespace ARM
 			try
 			{
 				String Query = "UPDATE account SET " + columnName + " ='" + dtGrid.Rows[e.RowIndex].Cells[columnName].Value.ToString() + "' WHERE Id = '" + dtGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString() + "'";
-				DBConnect.QueryPostgre(Query);
-				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-				DBConnect.InsertPostgre(q);
+				MySQL.Query(Query);
+				//Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+				//MySQL.Insert(q);
 			}
 			catch (Exception c)
 			{
-				MessageBox.Show(c.Message.ToString());
-				Helper.Exceptions(c.Message, "Editing User cell content grid");
-				MessageBox.Show("You have an invalid entry !");
+				//MessageBox.Show(c.Message.ToString());
+				//Helper.Exceptions(c.Message, "Editing User cell content grid");
+				//MessageBox.Show("You have an invalid entry !");
 			}
 		}
 		private void toolStripButton6_Click(object sender, EventArgs e)

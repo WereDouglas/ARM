@@ -148,6 +148,14 @@
     <Compile Include="CertificateInputForm.Designer.cs">
       <DependentUpon>CertificateInputForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CertifcateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CertifcateForm.Designer.cs">
+      <DependentUpon>CertifcateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DB\MySQL.cs" />
+    <Compile Include="DB\Postgre.cs" />
     <Compile Include="LogsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +175,18 @@
       <DependentUpon>DeliveryReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Logs.cs" />
+    <Compile Include="ProcessWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProcessWindow.Designer.cs">
+      <DependentUpon>ProcessWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserReport.Designer.cs">
+      <DependentUpon>UserReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="OrderReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -490,6 +510,8 @@
       <DependentUpon>AddTransaction.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Util\Api.cs" />
+    <Compile Include="Util\Rest.cs" />
     <Compile Include="VendorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -593,6 +615,9 @@
     <EmbeddedResource Include="CertificateInputForm.resx">
       <DependentUpon>CertificateInputForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CertifcateForm.resx">
+      <DependentUpon>CertifcateForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogsForm.resx">
       <DependentUpon>LogsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -601,6 +626,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DeliveryReport.resx">
       <DependentUpon>DeliveryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcessWindow.resx">
+      <DependentUpon>ProcessWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\UserReport.rdlc" />
+    <EmbeddedResource Include="UserReport.resx">
+      <DependentUpon>UserReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OrderReport.resx">
       <DependentUpon>OrderReport.cs</DependentUpon>
@@ -809,7 +841,9 @@
     <None Include="Properties\DataSources\ARM.Model.Payment.datasource" />
     <None Include="Properties\DataSources\ARM.Model.Payroll.datasource" />
     <None Include="Properties\DataSources\ARM.Model.Practitioner.datasource" />
+    <None Include="Properties\DataSources\ARM.Model.Schedule.datasource" />
     <None Include="Properties\DataSources\ARM.Model.Transaction.datasource" />
+    <None Include="Properties\DataSources\ARM.Model.Users.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

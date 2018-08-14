@@ -55,7 +55,7 @@ namespace ARM
 		{
 			UsersID = usersID;
 			c = new Users();//.Select(UsersID);
-			c = Users.Select(UsersID);
+			c =Users.Select(UsersID);
 			nameTxt.Text = c.Name;
 			contactTxt.Text = c.Contact;
 			addressTxt.Text = c.Address;
@@ -139,25 +139,16 @@ namespace ARM
 			MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
 			string fullimage = Helper.ImageToBase64(stream);
 			string id = Guid.NewGuid().ToString();
-			Users c = new Users(id, nameTxt.Text, emailTxt.Text, contactTxt.Text, addressTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, categoryCbx.Text, socialTxt.Text, specialityCbx.Text, genderCbx.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, Helper.MD5Hash(passwordTxt.Text), fullimage, departmentCbx.Text, "No", level);
-			string save = DBConnect.InsertPostgre(c);
-			if (save != "")
-			{
-				try
-				{
-					Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-					DBConnect.InsertPostgre(q);
-				}
-				catch(Exception r) {
-					Helper.Exceptions(r.Message, "When creating a New user  ");
+			Users c = new Users(id, nameTxt.Text, emailTxt.Text, contactTxt.Text, addressTxt.Text, cityTxt.Text, stateTxt.Text, zipTxt.Text, categoryCbx.Text, socialTxt.Text, specialityCbx.Text, genderCbx.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), "false", Helper.CompanyID, Helper.MD5Hash(passwordTxt.Text), fullimage, departmentCbx.Text, "No", level);
+			MySQL.Insert(c);
+			GenericCollection.users.Add(c);
 
-				}
-				MessageBox.Show("Information Saved");
-				Helper.Log(Helper.UserName, "Adding user " + DateTime.Now);
+			MessageBox.Show("Information Saved");
+			Helper.Log(Helper.UserName, "Adding user " + DateTime.Now);
 
-				this.DialogResult = DialogResult.OK;
-				this.Dispose();
-			}
+			this.DialogResult = DialogResult.OK;
+			this.Dispose();
+
 		}
 		string Query;
 		private void Update(string UsersID)
@@ -165,11 +156,15 @@ namespace ARM
 			MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
 			string fullimage = Helper.ImageToBase64(stream);
 
+			var obj = GenericCollection.users.FirstOrDefault(x => x.Id == UsersID);
+			if (obj != null) { obj.Name = this.nameTxt.Text; obj.Address = addressTxt.Text; obj.City = cityTxt.Text; obj.State = stateTxt.Text; obj.Zip = zipTxt.Text; obj.Email = emailTxt.Text; obj.Image = fullimage; obj.Contact = contactTxt.Text; obj.Category = categoryCbx.Text; obj.Speciality = specialityCbx.Text; obj.Sync = "false"; obj.Department = departmentCbx.Text; obj.Level = levelCbx.Text; }
+
 			if (passwordTxt.Text != "")
 			{
 				if (Helper.UserID == UsersID)
 				{
 					Query = "UPDATE users SET name='" + this.nameTxt.Text + "',address='" + addressTxt.Text + "',city='" + cityTxt.Text + "',state='" + stateTxt.Text + "',zip='" + zipTxt.Text + "',password='" + Helper.MD5Hash(this.passwordTxt.Text) + "',email='" + this.emailTxt.Text + "',image='" + fullimage + "',contact='" + contactTxt.Text + "',speciality='" + specialityCbx.Text + "',category='" + categoryCbx.Text + "',sync='false',department = '" + departmentCbx.Text + "',level='" + levelCbx.Text + "' WHERE Id = '" + UsersID + "'";
+					
 				}
 				else
 				{
@@ -181,12 +176,10 @@ namespace ARM
 			else
 			{
 				Query = "UPDATE users SET name='" + this.nameTxt.Text + "',address='" + addressTxt.Text + "',city='" + cityTxt.Text + "',state='" + stateTxt.Text + "',zip='" + zipTxt.Text + "',email='" + this.emailTxt.Text + "',image='" + fullimage + "',contact='" + contactTxt.Text + "',category='" + categoryCbx.Text + "',speciality='" + specialityCbx.Text + "',sync='false',department = '" + departmentCbx.Text + "',level='" + levelCbx.Text + "' WHERE Id = '" + UsersID + "'";
-
 			}
-			DBConnect.QueryPostgre(Query);
-
-			Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-			DBConnect.InsertPostgre(q);
+			
+			MySQL.Query(Query);
+			
 			Helper.Log(Helper.UserName, "Updated user information " + nameTxt.Text);
 			MessageBox.Show("Information Updated");
 			this.DialogResult = DialogResult.OK;

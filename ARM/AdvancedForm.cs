@@ -2,6 +2,7 @@
 using ARM.Model;
 using ARM.Sync;
 using ARM.Util;
+using MySql.Data.MySqlClient;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -337,7 +338,7 @@ namespace ARM
                     
                     break;
                 case 37:
-                    Downloading.Repsonsibles();
+                    Downloading.Responsibles();
                     break;
                 case 38:
                     
@@ -398,8 +399,8 @@ namespace ARM
             //string query = "SELECT * FROM information_schema.tables WHERE  table_type = 'BASE TABLE' ";
 
             string query = "SELECT table_name  FROM information_schema.tables WHERE table_schema = 'public'  AND table_type = 'BASE TABLE'";
-            NpgsqlCommand cmd = new NpgsqlCommand(query, DBConnect.conn);
-            NpgsqlDataReader Reader;
+            MySqlCommand cmd = new MySqlCommand(query, MySQL.Conn);
+			MySqlDataReader Reader;
             Reader = cmd.ExecuteReader();
             t.Columns.Add(new DataColumn("Select", typeof(bool)));
             t.Columns.Add("Name");
@@ -413,9 +414,9 @@ namespace ARM
             Image delete = new Bitmap(Properties.Resources.Cancel_16);
             while (Reader.Read())
             {
-                t.Rows.Add(new object[] { false, Reader["table_name"], online, offline,delete });
+                t.Rows.Add(new object[] { "false", Reader["table_name"], online, offline,delete });
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
 
             dtGrid.DataSource = t;
             dtGrid.AllowUserToAddRows = false;
@@ -611,7 +612,7 @@ namespace ARM
                 {                   
 
                         string Query = "UPDATE " + dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + " SET `sync`='false' WHERE companyID = '"+Helper.CompanyID+"'";
-                        DBConnect.QueryMySql(Query);
+                        MySQL.Query(Query);
                         MessageBox.Show("Information Reset online for synchronisation");                 
 
                 }
@@ -625,7 +626,7 @@ namespace ARM
                     if (MessageBox.Show("YES or No?", "Are you sure you want to Reset this information  for resynchronisation offline ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         string Query = "UPDATE " + dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + " SET `sync`='false'";
-                        DBConnect.QueryPostgre(Query);
+                        MySQL.Query(Query);
                         MessageBox.Show("Information Reset offline for synchronisation");                      
                     }
                   

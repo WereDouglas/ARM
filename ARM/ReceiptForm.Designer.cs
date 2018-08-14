@@ -52,11 +52,11 @@
 			this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel1});
-			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+			this.toolStrip1.Location = new System.Drawing.Point(3, 0);
 			this.toolStrip1.Name = "toolStrip1";
 			this.toolStrip1.Padding = new System.Windows.Forms.Padding(10);
 			this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-			this.toolStrip1.Size = new System.Drawing.Size(670, 50);
+			this.toolStrip1.Size = new System.Drawing.Size(800, 50);
 			this.toolStrip1.TabIndex = 46;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
@@ -88,7 +88,7 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 99.19283F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(673, 633);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(806, 714);
 			this.tableLayoutPanel1.TabIndex = 47;
 			// 
 			// panel1
@@ -99,10 +99,10 @@
 			this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
 			this.panel1.Controls.Add(this.reportViewer1);
 			this.panel1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.panel1.Location = new System.Drawing.Point(3, 7);
+			this.panel1.Location = new System.Drawing.Point(3, 8);
 			this.panel1.Name = "panel1";
 			this.tableLayoutPanel1.SetRowSpan(this.panel1, 2);
-			this.panel1.Size = new System.Drawing.Size(667, 623);
+			this.panel1.Size = new System.Drawing.Size(800, 703);
 			this.panel1.TabIndex = 41;
 			// 
 			// reportViewer1
@@ -114,7 +114,7 @@
 			this.reportViewer1.Name = "reportViewer1";
 			this.reportViewer1.Padding = new System.Windows.Forms.Padding(5);
 			this.reportViewer1.ServerReport.BearerToken = null;
-			this.reportViewer1.Size = new System.Drawing.Size(667, 623);
+			this.reportViewer1.Size = new System.Drawing.Size(800, 703);
 			this.reportViewer1.TabIndex = 0;
 			// 
 			// InvoiceBindingSource
@@ -133,7 +133,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.ClientSize = new System.Drawing.Size(673, 688);
+			this.ClientSize = new System.Drawing.Size(806, 769);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Controls.Add(this.toolStrip1);
 			this.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

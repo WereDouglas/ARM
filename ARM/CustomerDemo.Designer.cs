@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerDemo));
 			this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
 			this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
@@ -62,11 +62,9 @@
 			this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
 			this.raceCbx = new System.Windows.Forms.ComboBox();
 			this.stateTxt = new System.Windows.Forms.ComboBox();
-			this.emailTxt = new System.Windows.Forms.TextBox();
 			this.categoryCbx = new System.Windows.Forms.ComboBox();
 			this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
 			this.genderCbx = new System.Windows.Forms.ComboBox();
-			this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
 			this.label1 = new System.Windows.Forms.Label();
 			this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
 			this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
@@ -293,11 +291,9 @@
 			this.metroTabPage1.Controls.Add(this.metroLabel16);
 			this.metroTabPage1.Controls.Add(this.raceCbx);
 			this.metroTabPage1.Controls.Add(this.stateTxt);
-			this.metroTabPage1.Controls.Add(this.emailTxt);
 			this.metroTabPage1.Controls.Add(this.categoryCbx);
 			this.metroTabPage1.Controls.Add(this.metroLabel15);
 			this.metroTabPage1.Controls.Add(this.genderCbx);
-			this.metroTabPage1.Controls.Add(this.metroLabel14);
 			this.metroTabPage1.Controls.Add(this.label1);
 			this.metroTabPage1.Controls.Add(this.metroLabel13);
 			this.metroTabPage1.Controls.Add(this.metroLabel12);
@@ -377,15 +373,6 @@
 			this.stateTxt.Size = new System.Drawing.Size(292, 31);
 			this.stateTxt.TabIndex = 8;
 			// 
-			// emailTxt
-			// 
-			this.emailTxt.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.emailTxt.Location = new System.Drawing.Point(521, 422);
-			this.emailTxt.Name = "emailTxt";
-			this.emailTxt.Size = new System.Drawing.Size(292, 31);
-			this.emailTxt.TabIndex = 13;
-			this.emailTxt.Leave += new System.EventHandler(this.emailTxt_Leave);
-			// 
 			// categoryCbx
 			// 
 			this.categoryCbx.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -420,15 +407,6 @@
 			this.genderCbx.Name = "genderCbx";
 			this.genderCbx.Size = new System.Drawing.Size(292, 31);
 			this.genderCbx.TabIndex = 12;
-			// 
-			// metroLabel14
-			// 
-			this.metroLabel14.AutoSize = true;
-			this.metroLabel14.Location = new System.Drawing.Point(468, 428);
-			this.metroLabel14.Name = "metroLabel14";
-			this.metroLabel14.Size = new System.Drawing.Size(47, 19);
-			this.metroLabel14.TabIndex = 256;
-			this.metroLabel14.Text = "E-mail";
 			// 
 			// label1
 			// 
@@ -545,14 +523,14 @@
 			// 
 			// metroTabCond
 			// 
+			this.metroTabCond.Controls.Add(this.metroTabPage1);
+			this.metroTabCond.Controls.Add(this.metroTabPage5);
 			this.metroTabCond.Controls.Add(this.metroTabPage2);
 			this.metroTabCond.Controls.Add(this.metroTabPage3);
 			this.metroTabCond.Controls.Add(this.metroTabPage4);
-			this.metroTabCond.Controls.Add(this.metroTabPage5);
-			this.metroTabCond.Controls.Add(this.metroTabPage1);
 			this.metroTabCond.Location = new System.Drawing.Point(23, 74);
 			this.metroTabCond.Name = "metroTabCond";
-			this.metroTabCond.SelectedIndex = 3;
+			this.metroTabCond.SelectedIndex = 2;
 			this.metroTabCond.Size = new System.Drawing.Size(1320, 654);
 			this.metroTabCond.TabIndex = 4;
 			this.metroTabCond.UseSelectable = true;
@@ -582,27 +560,27 @@
 			this.dtGridCond.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dtGridCond.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 			this.dtGridCond.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGridCond.DefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGridCond.DefaultCellStyle = dataGridViewCellStyle3;
 			this.dtGridCond.GridColor = System.Drawing.SystemColors.ButtonFace;
 			this.dtGridCond.Location = new System.Drawing.Point(3, 3);
 			this.dtGridCond.Name = "dtGridCond";
 			this.dtGridCond.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGridCond.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGridCond.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			this.dtGridCond.RowHeadersWidth = 20;
 			this.dtGridCond.Size = new System.Drawing.Size(1306, 632);
 			this.dtGridCond.TabIndex = 49;
@@ -633,27 +611,27 @@
 			this.dtGridCoverage.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dtGridCoverage.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 			this.dtGridCoverage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGridCoverage.DefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGridCoverage.DefaultCellStyle = dataGridViewCellStyle5;
 			this.dtGridCoverage.GridColor = System.Drawing.SystemColors.ButtonFace;
 			this.dtGridCoverage.Location = new System.Drawing.Point(3, 4);
 			this.dtGridCoverage.Name = "dtGridCoverage";
 			this.dtGridCoverage.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGridCoverage.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGridCoverage.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
 			this.dtGridCoverage.RowHeadersWidth = 20;
 			this.dtGridCoverage.Size = new System.Drawing.Size(1306, 623);
 			this.dtGridCoverage.TabIndex = 50;
@@ -684,27 +662,27 @@
 			this.dtGridEmerg.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dtGridEmerg.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 			this.dtGridEmerg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
-			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGridEmerg.DefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGridEmerg.DefaultCellStyle = dataGridViewCellStyle7;
 			this.dtGridEmerg.GridColor = System.Drawing.SystemColors.ButtonFace;
 			this.dtGridEmerg.Location = new System.Drawing.Point(3, 3);
 			this.dtGridEmerg.Name = "dtGridEmerg";
 			this.dtGridEmerg.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGridEmerg.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGridEmerg.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
 			this.dtGridEmerg.RowHeadersWidth = 20;
 			this.dtGridEmerg.Size = new System.Drawing.Size(1306, 620);
 			this.dtGridEmerg.TabIndex = 51;
@@ -721,7 +699,7 @@
 			this.metroTabPage5.Name = "metroTabPage5";
 			this.metroTabPage5.Size = new System.Drawing.Size(1312, 612);
 			this.metroTabPage5.TabIndex = 8;
-			this.metroTabPage5.Text = "Physician";
+			this.metroTabPage5.Text = "Doctor";
 			this.metroTabPage5.VerticalScrollbarBarColor = true;
 			this.metroTabPage5.VerticalScrollbarHighlightOnWheel = false;
 			this.metroTabPage5.VerticalScrollbarSize = 10;
@@ -736,27 +714,27 @@
 			this.dtGridMed.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dtGridMed.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 			this.dtGridMed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5);
-			dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGridMed.DefaultCellStyle = dataGridViewCellStyle7;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGridMed.DefaultCellStyle = dataGridViewCellStyle1;
 			this.dtGridMed.GridColor = System.Drawing.SystemColors.ButtonFace;
 			this.dtGridMed.Location = new System.Drawing.Point(0, 3);
 			this.dtGridMed.Name = "dtGridMed";
 			this.dtGridMed.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtGridMed.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtGridMed.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.dtGridMed.RowHeadersWidth = 20;
 			this.dtGridMed.Size = new System.Drawing.Size(1306, 620);
 			this.dtGridMed.TabIndex = 52;
@@ -920,10 +898,8 @@
         private System.Windows.Forms.Label label1;
         private MetroFramework.Controls.MetroTabPage metroTabPage5;
         private System.Windows.Forms.DataGridView dtGridMed;
-        private MetroFramework.Controls.MetroLabel metroLabel14;
         private System.Windows.Forms.ComboBox genderCbx;
         private MetroFramework.Controls.MetroLabel metroLabel15;
-        private System.Windows.Forms.TextBox emailTxt;
         private System.Windows.Forms.ComboBox categoryCbx;
 		private System.Windows.Forms.ComboBox stateTxt;
 		private MetroFramework.Controls.MetroLabel metroLabel16;

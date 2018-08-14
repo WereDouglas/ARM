@@ -73,7 +73,7 @@ namespace ARM
                 for (int i = 0; i < 30; i++)
                 {
                     FeedBack("PROCESS " + i.ToString());
-                    //  process(i); backgroundWorker.ReportProgress(i);
+                   //  process(i); backgroundWorker.ReportProgress(i);
                     Thread.Sleep(1500);
                 }
             }
@@ -97,126 +97,108 @@ namespace ARM
             int val = count;
             switch (val)
             {
-                case 1:
-                    Uploading.User();
-                    break;
-                case 2:
+				case 1:
+					Downloading.Schedules();
+					break;
+				case 2:
                     Downloading.User();
-                    break;
+                    break;              
                 case 3:
-                    Uploading.Customers();
-                    break;
-                case 4:
                     Downloading.Customers();
-                    break;
+                    break;               
+                case 4:
+					Downloading.Coverages();					
+                    break;  
                 case 5:
-                    Uploading.Schedules();
+                     Downloading.Rates();
                     break;
                 case 6:
-                    Downloading.Schedules();
+                    Downloading.Responsibles();
                     break;
-                case 7:
-                    Uploading.Companys();
-                    break;
-                case 8:
-                    Uploading.Items();
-                    break;
-                case 9:
-                    Downloading.Items();
-                    break;
-                case 10:
-
-                    break;
-                case 11:
-
-                    break;
-                case 12:
-                    Uploading.Deliverys();
-                    break;
-                case 13:
-                    Downloading.Deliverys();
-                    break;
-                case 14:
-                    Uploading.Invoices();
+				case 7:
+					Downloading.Accounts();
+					break;
+				case 8:
+					Downloading.Responsibles();
+					break;
+				case 14:
+					Downloading.Practitioners();
                     break;
                 case 15:
-                    Downloading.Invoices();
+                    Downloading.Emergencies();
                     break;
                 case 16:
-                    Uploading.CaseTransactions();
+					Downloading.Pays();
                     break;
                 case 17:
-                    Downloading.CaseTransactions();
+                   // Downloading.CaseTransactions();
                     break;
                 case 18:
-                    Uploading.Payments();
+                  //  Uploading.Payments();
                     break;
                 case 19:
-                    Downloading.Payments();
+                   // Downloading.Payments();
                     break;
                 case 20:
-                    Uploading.Order();
+                   // Uploading.Order();
                     break;
                 case 21:
-                    Downloading.Order();
+                   // Downloading.Order();
                     break;
                 case 22:
-                    Uploading.Instructions();
+                   // Uploading.Instructions();
                     break;
                 case 23:
-                    Downloading.Instructions();
+                   // Downloading.Instructions();
                     break;
                 case 24:
-                    Uploading.Follows();
+                   // Uploading.Follows();
                     break;
                 case 25:
-                    Downloading.Follows();//.SendEmail();
+                  //  Downloading.Follows();//.SendEmail();
                     break;
                 case 26:
-                    Uploading.ItemReviews();
+                   // Uploading.ItemReviews();
                     break;
                 case 27:
-                    Downloading.ItemReviews();
+                   // Downloading.ItemReviews();
                     break;
                 case 28:
-                    Uploading.Vendors();
+                   // Uploading.Vendors();
                     break;
                 case 29:
-                    Downloading.Vendors();
+                  //  Downloading.Vendors();
                     break;
                 case 30:
-                    Uploading.ItemStatuses();
+                   // Uploading.ItemStatuses();
                     break;
                 case 31:
-                    Downloading.ItemStatuses();
+                  //  Downloading.ItemStatuses();
                     break;
                 case 32:
-                    Uploading.Rates();
+                   // Uploading.Rates();
                     break;
                 case 33:
-                    Downloading.Rates();
+                   // Downloading.Rates();
                     break;
                 case 34:
-                    Uploading.Accounts();
+                  //  Uploading.Accounts();
                     break;
                 case 35:
-                    Downloading.Accounts();
+                   // Downloading.Accounts();
                     break;
                 case 36:
-                    Uploading.Repsonsibles();
+                  //  Uploading.Repsonsibles();
                     break;
                 case 37:
-                    Downloading.Repsonsibles();
+                   // Downloading.Repsonsibles();
                     break;
                 case 38:
-                    Uploading.Insurances();
+                   // Uploading.Insurances();
                     break;
                 case 39:
-                    Downloading.Coverages();
-                    break;
-                case 40:
-
-                    break;
+                  //  Downloading.Coverages();
+                    break;               
                 case 41:
 
                     if (DBConnect.CloseMySqlConn())
@@ -420,12 +402,19 @@ namespace ARM
 
         private void toolStripMenuItem4_Click_1(object sender, EventArgs e)
         {
-            InsuranceForm frm = new InsuranceForm();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+			try
+			{
+				InsuranceForm frm = new InsuranceForm();
+				frm.TopLevel = false;
+				panel1.Controls.Add(frm);
+				frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+				frm.Dock = DockStyle.Fill;
+				frm.Show();
+			}
+			catch (Exception c) {
+
+
+			}
         }
 
         private void toolStripMenuItem5_Click_1(object sender, EventArgs e)
@@ -613,6 +602,26 @@ namespace ARM
 		private void viewShitsSchedulesToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			ScheduleForm frm = new ScheduleForm();
+			frm.TopLevel = false;
+			panel1.Controls.Add(frm);
+			frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			frm.Dock = DockStyle.Fill;
+			frm.Show();
+		}
+
+		private void historyToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void statementToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void logsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			LogsForm frm = new LogsForm();
 			frm.TopLevel = false;
 			panel1.Controls.Add(frm);
 			frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

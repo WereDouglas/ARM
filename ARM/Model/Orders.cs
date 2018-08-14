@@ -47,11 +47,11 @@ namespace ARM.Model
 		private string dateReturned;
         private string practitionerID;        
         private string created;
-        private bool sync;
+        private string sync;
         private string companyID;
         public Orders() { }
 
-		public Orders(string id, string no, string customerID, string userID, string orderDate, string orderTime, string orderBy, string dispenseDate, string dispenseTime, string dispenseBy, string customerType, string diagnosis, string surgery, string clinicalDate, string instructions, string hospital, string home, string preopRm, string preopHome, string postopRm, string roomNo, string setupDate, string dateNeeded, string facility, string clinic, string other, string notified, string authorised, string insurance, string contacted, string sent, string returned, string dateSent, string dateReturned, string practitionerID, string created, bool sync, string companyID)
+		public Orders(string id, string no, string customerID, string userID, string orderDate, string orderTime, string orderBy, string dispenseDate, string dispenseTime, string dispenseBy, string customerType, string diagnosis, string surgery, string clinicalDate, string instructions, string hospital, string home, string preopRm, string preopHome, string postopRm, string roomNo, string setupDate, string dateNeeded, string facility, string clinic, string other, string notified, string authorised, string insurance, string contacted, string sent, string returned, string dateSent, string dateReturned, string practitionerID, string created, string sync, string companyID)
 		{
 			this.Id = id;
 			this.No = no;
@@ -97,48 +97,52 @@ namespace ARM.Model
         public static List<Orders> List()
         {
             p.Clear();
-            string Q = "SELECT * FROM Orders ";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            string Q = "SELECT * FROM orders ";
+           
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Orders ps = new Orders(Reader["id"].ToString(), Reader["no"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["orderDate"].ToString(), Reader["orderTime"].ToString(), Reader["orderBy"].ToString(), Reader["dispenseDate"].ToString(), Reader["dispenseTime"].ToString(), Reader["dispenseBy"].ToString(), Reader["customerType"].ToString(), Reader["diagnosis"].ToString(), Reader["surgery"].ToString(), Reader["clinicalDate"].ToString(),Reader["instructions"].ToString(), Reader["hospital"].ToString(), Reader["home"].ToString(), Reader["preopRm"].ToString(), Reader["preopHome"].ToString(), Reader["postopRm"].ToString(),Reader["roomNo"].ToString(), Reader["setupDate"].ToString(), Reader["dateNeeded"].ToString(), Reader["facility"].ToString(), Reader["clinic"].ToString(), Reader["other"].ToString(), Reader["notified"].ToString(), Reader["authorised"].ToString(), Reader["insurance"].ToString(), Reader["contacted"].ToString(), Reader["sent"].ToString(), Reader["returned"].ToString(), Reader["dateSent"].ToString(), Reader["dateReturned"].ToString(), Reader["practitionerID"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Orders ps = new Orders(Reader["id"].ToString(), Reader["no"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["orderDate"].ToString(), Reader["orderTime"].ToString(), Reader["orderBy"].ToString(), Reader["dispenseDate"].ToString(), Reader["dispenseTime"].ToString(), Reader["dispenseBy"].ToString(), Reader["customerType"].ToString(), Reader["diagnosis"].ToString(), Reader["surgery"].ToString(), Reader["clinicalDate"].ToString(),Reader["instructions"].ToString(), Reader["hospital"].ToString(), Reader["home"].ToString(), Reader["preopRm"].ToString(), Reader["preopHome"].ToString(), Reader["postopRm"].ToString(),Reader["roomNo"].ToString(), Reader["setupDate"].ToString(), Reader["dateNeeded"].ToString(), Reader["facility"].ToString(), Reader["clinic"].ToString(), Reader["other"].ToString(), Reader["notified"].ToString(), Reader["authorised"].ToString(), Reader["insurance"].ToString(), Reader["contacted"].ToString(), Reader["sent"].ToString(), Reader["returned"].ToString(), Reader["dateSent"].ToString(), Reader["dateReturned"].ToString(), Reader["practitionerID"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
 
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
         }
         public static List<Orders> List(string Q)
         {
             p.Clear();
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+          
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Orders ps = new Orders(Reader["id"].ToString(), Reader["no"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["orderDate"].ToString(), Reader["orderTime"].ToString(), Reader["orderBy"].ToString(), Reader["dispenseDate"].ToString(), Reader["dispenseTime"].ToString(), Reader["dispenseBy"].ToString(), Reader["customerType"].ToString(), Reader["diagnosis"].ToString(), Reader["surgery"].ToString(), Reader["clinicalDate"].ToString(), Reader["instructions"].ToString(), Reader["hospital"].ToString(), Reader["home"].ToString(), Reader["preopRm"].ToString(), Reader["preopHome"].ToString(), Reader["postopRm"].ToString(), Reader["roomNo"].ToString(), Reader["setupDate"].ToString(), Reader["dateNeeded"].ToString(), Reader["facility"].ToString(), Reader["clinic"].ToString(), Reader["other"].ToString(), Reader["notified"].ToString(), Reader["authorised"].ToString(), Reader["insurance"].ToString(), Reader["contacted"].ToString(), Reader["sent"].ToString(), Reader["returned"].ToString(), Reader["dateSent"].ToString(), Reader["dateReturned"].ToString(), Reader["practitionerID"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Orders ps = new Orders(Reader["id"].ToString(), Reader["no"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["orderDate"].ToString(), Reader["orderTime"].ToString(), Reader["orderBy"].ToString(), Reader["dispenseDate"].ToString(), Reader["dispenseTime"].ToString(), Reader["dispenseBy"].ToString(), Reader["customerType"].ToString(), Reader["diagnosis"].ToString(), Reader["surgery"].ToString(), Reader["clinicalDate"].ToString(), Reader["instructions"].ToString(), Reader["hospital"].ToString(), Reader["home"].ToString(), Reader["preopRm"].ToString(), Reader["preopHome"].ToString(), Reader["postopRm"].ToString(), Reader["roomNo"].ToString(), Reader["setupDate"].ToString(), Reader["dateNeeded"].ToString(), Reader["facility"].ToString(), Reader["clinic"].ToString(), Reader["other"].ToString(), Reader["notified"].ToString(), Reader["authorised"].ToString(), Reader["insurance"].ToString(), Reader["contacted"].ToString(), Reader["sent"].ToString(), Reader["returned"].ToString(), Reader["dateSent"].ToString(), Reader["dateReturned"].ToString(), Reader["practitionerID"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
 
 				p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
         }
-        public static List<Orders> ListOnline(string Q)
+		static MySqlDataReader Reader = null;
+		public static List<Orders> ListOnline(string Q)
         {
-            try
-            {
-                p.Clear();
-                DBConnect.OpenMySqlConn();
-                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
-                while (Reader.Read())
-                {
-                    Orders ps = new Orders(Reader["id"].ToString(), Reader["no"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["orderDate"].ToString(), Reader["orderTime"].ToString(), Reader["orderBy"].ToString(), Reader["dispenseDate"].ToString(), Reader["dispenseTime"].ToString(), Reader["dispenseBy"].ToString(), Reader["customerType"].ToString(), Reader["diagnosis"].ToString(), Reader["surgery"].ToString(), Reader["clinicalDate"].ToString(), Reader["instructions"].ToString(), Reader["hospital"].ToString(), Reader["home"].ToString(), Reader["preopRm"].ToString(), Reader["preopHome"].ToString(), Reader["postopRm"].ToString(), Reader["roomNo"].ToString(), Reader["setupDate"].ToString(), Reader["dateNeeded"].ToString(), Reader["facility"].ToString(), Reader["clinic"].ToString(), Reader["other"].ToString(), Reader["notified"].ToString(), Reader["authorised"].ToString(), Reader["insurance"].ToString(), Reader["contacted"].ToString(), Reader["sent"].ToString(), Reader["returned"].ToString(), Reader["dateSent"].ToString(), Reader["dateReturned"].ToString(), Reader["practitionerID"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
-					p.Add(ps);
-                }
-                DBConnect.CloseMySqlConn();
-            }
-            catch { }
-            return p;
+			p.Clear();
+			//       try
+			//       {
+			//                    
+			//           MySqlDataReader Reader = MySQL.Reading(Q);
+			//           while (Reader.Read())
+			//           {
+			//               Orders ps = new Orders(Reader["id"].ToString(), Reader["no"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["orderDate"].ToString(), Reader["orderTime"].ToString(), Reader["orderBy"].ToString(), Reader["dispenseDate"].ToString(), Reader["dispenseTime"].ToString(), Reader["dispenseBy"].ToString(), Reader["customerType"].ToString(), Reader["diagnosis"].ToString(), Reader["surgery"].ToString(), Reader["clinicalDate"].ToString(), Reader["instructions"].ToString(), Reader["hospital"].ToString(), Reader["home"].ToString(), Reader["preopRm"].ToString(), Reader["preopHome"].ToString(), Reader["postopRm"].ToString(), Reader["roomNo"].ToString(), Reader["setupDate"].ToString(), Reader["dateNeeded"].ToString(), Reader["facility"].ToString(), Reader["clinic"].ToString(), Reader["other"].ToString(), Reader["notified"].ToString(), Reader["authorised"].ToString(), Reader["insurance"].ToString(), Reader["contacted"].ToString(), Reader["sent"].ToString(), Reader["returned"].ToString(), Reader["dateSent"].ToString(), Reader["dateReturned"].ToString(), Reader["practitionerID"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
+			//p.Add(ps);
+			//           }
+			//           DBConnect.CloseMySqlConn();
+			//       }
+			//       catch { }
+
+			Reader = MySQL.Reading(Q);
+			p = MySQL.DataReaderMapToList<Orders>(Reader);
+			return p;
         }
         private static Orders c = new Orders();
 
@@ -178,33 +182,33 @@ namespace ARM.Model
 		public string DateReturned { get => dateReturned; set => dateReturned = value; }
 		public string PractitionerID { get => practitionerID; set => practitionerID = value; }
 		public string Created { get => created; set => created = value; }
-		public bool Sync { get => sync; set => sync = value; }
+		public string Sync { get => sync; set => sync = value; }
 		public string CompanyID { get => companyID; set => companyID = value; }
 
 		public static Orders Select(string ID)
 		{
 			string Q = "SELECT * FROM orders WHERE  id = '" + ID + "'";
-			DBConnect.OpenConn();
-			NpgsqlDataReader Reader = DBConnect.Reading(Q);
+		
+			MySqlDataReader Reader = MySQL.Reading(Q);
 			while (Reader.Read())
 			{
-				c = new Orders(Reader["id"].ToString(), Reader["no"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["orderDate"].ToString(), Reader["orderTime"].ToString(), Reader["orderBy"].ToString(), Reader["dispenseDate"].ToString(), Reader["dispenseTime"].ToString(), Reader["dispenseBy"].ToString(), Reader["customerType"].ToString(), Reader["diagnosis"].ToString(), Reader["surgery"].ToString(), Reader["clinicalDate"].ToString(), Reader["instructions"].ToString(), Reader["hospital"].ToString(), Reader["home"].ToString(), Reader["preopRm"].ToString(), Reader["preopHome"].ToString(), Reader["postopRm"].ToString(), Reader["roomNo"].ToString(), Reader["setupDate"].ToString(), Reader["dateNeeded"].ToString(), Reader["facility"].ToString(), Reader["clinic"].ToString(), Reader["other"].ToString(), Reader["notified"].ToString(), Reader["authorised"].ToString(), Reader["insurance"].ToString(), Reader["contacted"].ToString(), Reader["sent"].ToString(), Reader["returned"].ToString(), Reader["dateSent"].ToString(), Reader["dateReturned"].ToString(), Reader["practitionerID"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+				c = new Orders(Reader["id"].ToString(), Reader["no"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["orderDate"].ToString(), Reader["orderTime"].ToString(), Reader["orderBy"].ToString(), Reader["dispenseDate"].ToString(), Reader["dispenseTime"].ToString(), Reader["dispenseBy"].ToString(), Reader["customerType"].ToString(), Reader["diagnosis"].ToString(), Reader["surgery"].ToString(), Reader["clinicalDate"].ToString(), Reader["instructions"].ToString(), Reader["hospital"].ToString(), Reader["home"].ToString(), Reader["preopRm"].ToString(), Reader["preopHome"].ToString(), Reader["postopRm"].ToString(), Reader["roomNo"].ToString(), Reader["setupDate"].ToString(), Reader["dateNeeded"].ToString(), Reader["facility"].ToString(), Reader["clinic"].ToString(), Reader["other"].ToString(), Reader["notified"].ToString(), Reader["authorised"].ToString(), Reader["insurance"].ToString(), Reader["contacted"].ToString(), Reader["sent"].ToString(), Reader["returned"].ToString(), Reader["dateSent"].ToString(), Reader["dateReturned"].ToString(), Reader["practitionerID"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
 
 			}
-			DBConnect.CloseConn();
+			DBConnect.CloseMySqlConn();			
 			return c;
 		
         }
 		public static Orders SelectNo(string no)
 		{
 			string Q = "SELECT * FROM orders WHERE  no = '" + no + "'";
-			DBConnect.OpenConn();
-			NpgsqlDataReader Reader = DBConnect.Reading(Q);
+			
+			MySqlDataReader Reader = MySQL.Reading(Q);
 			while (Reader.Read())
 			{
-				c = new Orders(Reader["id"].ToString(), Reader["no"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["orderDate"].ToString(), Reader["orderTime"].ToString(), Reader["orderBy"].ToString(), Reader["dispenseDate"].ToString(), Reader["dispenseTime"].ToString(), Reader["dispenseBy"].ToString(), Reader["customerType"].ToString(), Reader["diagnosis"].ToString(), Reader["surgery"].ToString(), Reader["clinicalDate"].ToString(), Reader["instructions"].ToString(), Reader["hospital"].ToString(), Reader["home"].ToString(), Reader["preopRm"].ToString(), Reader["preopHome"].ToString(), Reader["postopRm"].ToString(), Reader["roomNo"].ToString(), Reader["setupDate"].ToString(), Reader["dateNeeded"].ToString(), Reader["facility"].ToString(), Reader["clinic"].ToString(), Reader["other"].ToString(), Reader["notified"].ToString(), Reader["authorised"].ToString(), Reader["insurance"].ToString(), Reader["contacted"].ToString(), Reader["sent"].ToString(), Reader["returned"].ToString(), Reader["dateSent"].ToString(), Reader["dateReturned"].ToString(), Reader["practitionerID"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+				c = new Orders(Reader["id"].ToString(), Reader["no"].ToString(), Reader["customerID"].ToString(), Reader["userID"].ToString(), Reader["orderDate"].ToString(), Reader["orderTime"].ToString(), Reader["orderBy"].ToString(), Reader["dispenseDate"].ToString(), Reader["dispenseTime"].ToString(), Reader["dispenseBy"].ToString(), Reader["customerType"].ToString(), Reader["diagnosis"].ToString(), Reader["surgery"].ToString(), Reader["clinicalDate"].ToString(), Reader["instructions"].ToString(), Reader["hospital"].ToString(), Reader["home"].ToString(), Reader["preopRm"].ToString(), Reader["preopHome"].ToString(), Reader["postopRm"].ToString(), Reader["roomNo"].ToString(), Reader["setupDate"].ToString(), Reader["dateNeeded"].ToString(), Reader["facility"].ToString(), Reader["clinic"].ToString(), Reader["other"].ToString(), Reader["notified"].ToString(), Reader["authorised"].ToString(), Reader["insurance"].ToString(), Reader["contacted"].ToString(), Reader["sent"].ToString(), Reader["returned"].ToString(), Reader["dateSent"].ToString(), Reader["dateReturned"].ToString(), Reader["practitionerID"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
 			}
-			DBConnect.CloseConn();
+			DBConnect.CloseMySqlConn();
 			return c;
 
 		}

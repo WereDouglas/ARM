@@ -32,13 +32,13 @@ namespace ARM.Model
 		private string weight;
 		private string instruction;
 		private string created;
-		private bool sync;
+		private string sync;
 		private string companyID;
 
 		public CaseTransaction() { }
 		static List<CaseTransaction> p = new List<CaseTransaction>();
 
-		public CaseTransaction(string id, string date, string no, string itemID, string caseID, string deliveryID, double qty, double cost, string units, double total, double tax, double coverage, double self, double payable, string limits, string setting, string period, string height, string weight, string instruction, string created, bool sync, string companyID)
+		public CaseTransaction(string id, string date, string no, string itemID, string caseID, string deliveryID, double qty, double cost, string units, double total, double tax, double coverage, double self, double payable, string limits, string setting, string period, string height, string weight, string instruction, string created, string sync, string companyID)
 		{
 			this.Id = id;
 			this.Date = date;
@@ -85,7 +85,7 @@ namespace ARM.Model
 		public string Weight { get => weight; set => weight = value; }
 		public string Instruction { get => instruction; set => instruction = value; }
 		public string Created { get => created; set => created = value; }
-		public bool Sync { get => sync; set => sync = value; }
+		public string Sync { get => sync; set => sync = value; }
 		public string CompanyID { get => companyID; set => companyID = value; }
 
 
@@ -93,64 +93,52 @@ namespace ARM.Model
 		{
 			p.Clear();
 			string Q = "SELECT * FROM casetransaction";
-			DBConnect.OpenConn();
-			NpgsqlDataReader Reader = DBConnect.Reading(Q);
+		
+			MySqlDataReader Reader = MySQL.Reading(Q);
 			while (Reader.Read())
 			{
-				CaseTransaction ps = new CaseTransaction(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Reader["caseID"].ToString(), Reader["deliveryID"].ToString(), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["units"].ToString(), Convert.ToDouble(Reader["total"]), Convert.ToDouble(Reader["tax"]), Convert.ToDouble(Reader["coverage"]), Convert.ToDouble(Reader["self"]), Convert.ToDouble(Reader["payable"]), Reader["limits"].ToString(), Reader["setting"].ToString(), Reader["period"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["instruction"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+				CaseTransaction ps = new CaseTransaction(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Reader["caseID"].ToString(), Reader["deliveryID"].ToString(), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["units"].ToString(), Convert.ToDouble(Reader["total"]), Convert.ToDouble(Reader["tax"]), Convert.ToDouble(Reader["coverage"]), Convert.ToDouble(Reader["self"]), Convert.ToDouble(Reader["payable"]), Reader["limits"].ToString(), Reader["setting"].ToString(), Reader["period"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["instruction"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
 				p.Add(ps);
 			}
-			DBConnect.CloseConn();
+			DBConnect.CloseMySqlConn();
 			return p;
 		}
 		public static List<CaseTransaction> ListNo(string no)
 		{
 			p.Clear();
-			string Q = "SELECT * FROM CaseTransaction WHERE no = '" + no + "'";
-			DBConnect.OpenConn();
-			NpgsqlDataReader Reader = DBConnect.Reading(Q);
+			string Q = "SELECT * FROM casetransaction WHERE no = '" + no + "'";
+			
+			MySqlDataReader Reader = MySQL.Reading(Q);
 			while (Reader.Read())
 			{
-				CaseTransaction ps = new CaseTransaction(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Reader["caseID"].ToString(), Reader["deliveryID"].ToString(), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["units"].ToString(), Convert.ToDouble(Reader["total"]), Convert.ToDouble(Reader["tax"]), Convert.ToDouble(Reader["coverage"]), Convert.ToDouble(Reader["self"]), Convert.ToDouble(Reader["payable"]), Reader["limits"].ToString(), Reader["setting"].ToString(), Reader["period"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["instruction"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+				CaseTransaction ps = new CaseTransaction(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Reader["caseID"].ToString(), Reader["deliveryID"].ToString(), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["units"].ToString(), Convert.ToDouble(Reader["total"]), Convert.ToDouble(Reader["tax"]), Convert.ToDouble(Reader["coverage"]), Convert.ToDouble(Reader["self"]), Convert.ToDouble(Reader["payable"]), Reader["limits"].ToString(), Reader["setting"].ToString(), Reader["period"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["instruction"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
 				p.Add(ps);
 			}
-			DBConnect.CloseConn();
+			DBConnect.CloseMySqlConn();
 			return p;
 		}
+		static MySqlDataReader Reader;
 		public static List<CaseTransaction> List(string Q)
 		{
-			try
-			{
-				p.Clear();
-				DBConnect.OpenConn();
-				NpgsqlDataReader Reader = DBConnect.Reading(Q);
-				while (Reader.Read())
-				{
-					CaseTransaction ps = new CaseTransaction(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Reader["caseID"].ToString(), Reader["deliveryID"].ToString(), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["units"].ToString(), Convert.ToDouble(Reader["total"]), Convert.ToDouble(Reader["tax"]), Convert.ToDouble(Reader["coverage"]), Convert.ToDouble(Reader["self"]), Convert.ToDouble(Reader["payable"]), Reader["limits"].ToString(), Reader["setting"].ToString(), Reader["period"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["instruction"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
-					p.Add(ps);
-				}
-				DBConnect.CloseConn();
-			}
-			catch { }
+			p.Clear();
+			//try
+			//{		
+				
+			//	MySqlDataReader Reader = MySQL.Reading(Q);
+			//	while (Reader.Read())
+			//	{
+			//		CaseTransaction ps = new CaseTransaction(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Reader["caseID"].ToString(), Reader["deliveryID"].ToString(), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["units"].ToString(), Convert.ToDouble(Reader["total"]), Convert.ToDouble(Reader["tax"]), Convert.ToDouble(Reader["coverage"]), Convert.ToDouble(Reader["self"]), Convert.ToDouble(Reader["payable"]), Reader["limits"].ToString(), Reader["setting"].ToString(), Reader["period"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["instruction"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
+			//		p.Add(ps);
+			//	}
+			//	DBConnect.CloseMySqlConn();
+			//}
+			//catch { }
+
+			Reader = MySQL.Reading(Q);
+			p =MySQL.DataReaderMapToList<CaseTransaction>(Reader);
 			return p;
 		}
-		public static List<CaseTransaction> ListOnline(string Q)
-		{
-			try
-			{
-				p.Clear();
-				DBConnect.OpenMySqlConn();
-				MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
-				while (Reader.Read())
-				{
-					CaseTransaction ps = new CaseTransaction(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["itemID"].ToString(), Reader["caseID"].ToString(), Reader["deliveryID"].ToString(), Convert.ToDouble(Reader["qty"]), Convert.ToDouble(Reader["cost"]), Reader["units"].ToString(), Convert.ToDouble(Reader["total"]), Convert.ToDouble(Reader["tax"]), Convert.ToDouble(Reader["coverage"]), Convert.ToDouble(Reader["self"]), Convert.ToDouble(Reader["payable"]), Reader["limits"].ToString(), Reader["setting"].ToString(), Reader["period"].ToString(), Reader["height"].ToString(), Reader["weight"].ToString(), Reader["instruction"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
-					p.Add(ps);
-				}
-				DBConnect.CloseMySqlConn();
-			}
-			catch { }
-			return p;
-		}
+		
 	}
 
 }

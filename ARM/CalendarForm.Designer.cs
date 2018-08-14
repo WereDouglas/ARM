@@ -40,9 +40,7 @@
 			this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.panel2 = new System.Windows.Forms.Panel();
-			this.label1 = new System.Windows.Forms.Label();
 			this.userCbx = new MetroFramework.Controls.MetroComboBox();
-			this.typeCbx = new System.Windows.Forms.ComboBox();
 			this.userPbx = new System.Windows.Forms.PictureBox();
 			this.monthView1 = new WindowsFormsCalendar.MonthView();
 			this.calendar1 = new System.Windows.Forms.Calendar.Calendar();
@@ -160,24 +158,13 @@
 			// panel2
 			// 
 			this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.panel2.Controls.Add(this.label1);
 			this.panel2.Controls.Add(this.userCbx);
-			this.panel2.Controls.Add(this.typeCbx);
 			this.panel2.Controls.Add(this.userPbx);
 			this.panel2.Controls.Add(this.monthView1);
 			this.panel2.Location = new System.Drawing.Point(3, 3);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(227, 612);
 			this.panel2.TabIndex = 6;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(10, 169);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(51, 16);
-			this.label1.TabIndex = 14;
-			this.label1.Text = "View By:";
 			// 
 			// userCbx
 			// 
@@ -191,18 +178,6 @@
 			this.userCbx.TabIndex = 199;
 			this.userCbx.UseSelectable = true;
 			this.userCbx.SelectedIndexChanged += new System.EventHandler(this.userCbx_SelectedIndexChanged);
-			// 
-			// typeCbx
-			// 
-			this.typeCbx.FormattingEnabled = true;
-			this.typeCbx.Items.AddRange(new object[] {
-            "Category",
-            "Status"});
-			this.typeCbx.Location = new System.Drawing.Point(10, 188);
-			this.typeCbx.Name = "typeCbx";
-			this.typeCbx.Size = new System.Drawing.Size(211, 24);
-			this.typeCbx.TabIndex = 13;
-			this.typeCbx.SelectedIndexChanged += new System.EventHandler(this.typeCbx_SelectedIndexChanged);
 			// 
 			// userPbx
 			// 
@@ -271,6 +246,7 @@
 			this.calendar1.Text = "calendar1";
 			this.calendar1.TimeScale = System.Windows.Forms.Calendar.CalendarTimeScale.SixtyMinutes;
 			this.calendar1.LoadItems += new System.Windows.Forms.Calendar.Calendar.CalendarLoadEventHandler(this.calendar1_LoadItems);
+			this.calendar1.DayHeaderClick += new System.Windows.Forms.Calendar.Calendar.CalendarDayEventHandler(this.calendar1_DayHeaderClick);
 			this.calendar1.ItemCreated += new System.Windows.Forms.Calendar.Calendar.CalendarItemCancelEventHandler(this.calendar1_ItemCreated);
 			this.calendar1.ItemDeleted += new System.Windows.Forms.Calendar.Calendar.CalendarItemEventHandler(this.calendar1_ItemDeleted);
 			this.calendar1.ItemClick += new System.Windows.Forms.Calendar.Calendar.CalendarItemEventHandler(this.calendar1_ItemClick);
@@ -556,11 +532,11 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "CalendarForm";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+			this.Load += new System.EventHandler(this.CalendarForm_Load);
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
 			this.tableLayoutPanel2.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
-			this.panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.userPbx)).EndInit();
 			this.calendar1.ResumeLayout(false);
 			this.calendar1.PerformLayout();
@@ -611,8 +587,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker toDateTxt;
         private System.Windows.Forms.DateTimePicker fromDateTxt;
-        private System.Windows.Forms.ComboBox typeCbx;
-        private System.Windows.Forms.Label label1;
         private MetroFramework.Controls.MetroComboBox userCbx;
         private System.Windows.Forms.PictureBox userPbx;
         private System.Windows.Forms.Label label9;

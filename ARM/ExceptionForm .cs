@@ -41,19 +41,18 @@ namespace ARM
 			t.Columns.Add(new DataColumn("Select", typeof(bool)));
 			t.Columns.Add("id");
 			t.Columns.Add("Message");
-
-			t.Columns.Add("Sync");
+			t.Columns.Add("Process");
 			t.Columns.Add("Created");
 			t.Columns.Add(new DataColumn("Delete", typeof(Image)));//1
 
 			Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
 
-			string SQL = "SELECT * FROM exceptions WHERE  (created::date >= '" + start + "'::date AND  created::date <= '" + end + "'::date) ;";
+			string SQL = "SELECT * FROM exceptions WHERE  `created` >= '" + fromDate + "' AND  `created` <= '" + toDate + "' ;";
 			foreach (Exceptions c in Exceptions.List(SQL))
 			{
 				try
 				{
-					t.Rows.Add(new object[] { false, c.Id, c.Message, c.Sync, c.Created, delete });
+					t.Rows.Add(new object[] { "false", c.Id, c.Message,c.Process,c.Created, delete });
 
 				}
 				catch (Exception m)
@@ -125,9 +124,8 @@ namespace ARM
 				foreach (var item in selectedIDs)
 				{
 					string Query = "DELETE from exceptions WHERE id ='" + item + "'";
-					DBConnect.QueryPostgre(Query);
-					Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-					DBConnect.InsertPostgre(q);
+					MySQL.Query(Query);
+				
 					//MessageBox.Show("Information deleted" + item);
 					Helper.Log(Helper.UserName, "Deleting exceptions  " + item + "  " + DateTime.Now);
 				}
@@ -160,7 +158,7 @@ namespace ARM
 					if (MessageBox.Show("YES or No?", "Are you sure you want to Delete ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
 					{
 						string Query = "DELETE from exceptions WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
-						DBConnect.QueryPostgre(Query);
+						MySQL.Query(Query);
 
 						MessageBox.Show("Information deleted");
 						button1_Click(null, null);

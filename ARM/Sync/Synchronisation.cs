@@ -25,10 +25,10 @@ namespace ARM.Sync
             if (u.Count>0) {
                 foreach (var h in u.ToList())
                 {
-                    DBConnect.QueryMySql(h.Querying);
+                    MySQL.Query(h.Querying);
                     MedicalForm._Form1.FeedBack("Executing  ..................... " + h.Querying.ToString());
                     string Query2 = "DELETE from queries WHERE id ='" + h.Id + "'";
-                    DBConnect.QueryPostgre(Query2);
+                    MySQL.Query(Query2);
                 }
                 MedicalForm._Form1.FeedBack("Running Queries Complete.......................................");
             }

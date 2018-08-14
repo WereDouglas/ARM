@@ -118,12 +118,12 @@ namespace ARM
             string fullimage = Helper.ImageToBase64(stream);
 
 
-            Company c = new Company(CompanyID,nameTxt.Text, contactTxt.Text, emailTxt.Text,npiTxt.Text,addressTxt.Text,officeTxt.Text,providerNoTxt.Text,tinTxt.Text, faxTxt.Text, telTxt.Text, "","","","",DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, CompanyID, fullimage);
-            string save = DBConnect.InsertPostgre(c);
+            Company c = new Company(CompanyID,nameTxt.Text, contactTxt.Text, emailTxt.Text,npiTxt.Text,addressTxt.Text,officeTxt.Text,providerNoTxt.Text,tinTxt.Text, faxTxt.Text, telTxt.Text, "","","","",DateTime.Now.ToString("dd-MM-yyyy H:m:s"), "false", CompanyID, fullimage);
+            string save = MySQL.Insert(c);
             if (save != "")
             {
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                DBConnect.InsertPostgre(q);
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                MySQL.Insert(q);
                 Helper.CompanyID = CompanyID;
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;
@@ -135,11 +135,8 @@ namespace ARM
         {
             MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = Helper.ImageToBase64(stream);
-            Company c = new Company(CompanyID, nameTxt.Text, contactTxt.Text, emailTxt.Text, npiTxt.Text,addressTxt.Text,officePhoneTxt.Text, providerNoTxt.Text, tinTxt.Text, officePhoneTxt.Text,officeFaxTxt.Text,"", "", "", specialityTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, CompanyID, fullimage);
-            string save = DBConnect.UpdatePostgre(c, CompanyID);
-
-            Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-            DBConnect.InsertPostgre(q);
+            Company c = new Company(CompanyID, nameTxt.Text, contactTxt.Text, emailTxt.Text, npiTxt.Text,addressTxt.Text,officePhoneTxt.Text, providerNoTxt.Text, tinTxt.Text, officePhoneTxt.Text,officeFaxTxt.Text,"", "", "", specialityTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), "false", CompanyID, fullimage);
+            DBConnect.UpdateMySql(c, CompanyID);           
 
             MessageBox.Show("Information Updated !");
             this.DialogResult = DialogResult.OK;
@@ -150,7 +147,7 @@ namespace ARM
         private void button4_Click(object sender, EventArgs e)
         {
             string Query = "UPDATE company SET sync ='false'";
-            DBConnect.QueryPostgre(Query);
+            MySQL.Query(Query);
         }
 
         private void updateBtn_Click(object sender, EventArgs e)
@@ -218,10 +215,10 @@ namespace ARM
            
 
             string Query = "drop schema arm cascade;";
-            DBConnect.QueryPostgre(Query);
+            MySQL.Query(Query);
 
             //string Query = "drop schema arm cascade;";
-            //DBConnect.QueryPostgre(Query);
+            //MySQL.Query(Query);
         }
 
         private void imgCapture_Click(object sender, EventArgs e)

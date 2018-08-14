@@ -30,12 +30,12 @@ namespace ARM
         private void button3_Click(object sender, EventArgs e)
         {
             string id = Guid.NewGuid().ToString();
-            Coverage t = new Coverage(id,CustomerID, nameTxt.Text,typeCbx.Text,catCbx.Text,noTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"));
-			string saves = DBConnect.InsertPostgre(t);
+            Coverage t = new Coverage(id,CustomerID, nameTxt.Text,typeCbx.Text,catCbx.Text,noTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), "false", Helper.CompanyID, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"));
+			string saves = MySQL.Insert(t);
             if (saves != "")
             {
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(saves), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                DBConnect.InsertPostgre(q);
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(saves), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                MySQL.Insert(q);
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;
                 this.Dispose();

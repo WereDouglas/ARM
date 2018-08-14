@@ -73,13 +73,13 @@ namespace ARM
         private void button3_Click(object sender, EventArgs e)
         {
             string ID = Guid.NewGuid().ToString();
-            Responsible r = new Responsible(ID,UserID,CustomerID,DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),false,Helper.CompanyID);
-            string saves = DBConnect.InsertPostgre(r);
+            Responsible r = new Responsible(ID,UserID,CustomerID,DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),"false",Helper.CompanyID);
+            string saves = MySQL.Insert(r);
 
             if (saves != "")
             {
-                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(saves), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                DBConnect.InsertPostgre(q);
+                Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(saves), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+                MySQL.Insert(q);
                 MessageBox.Show("Information Saved");
                 this.DialogResult = DialogResult.OK;
                 this.Dispose();
@@ -92,7 +92,7 @@ namespace ARM
 
             //MemoryStream stream = Helper.ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             //string fullimage = Helper.ImageToBase64(stream);
-            //Item c = new Item(itemID, nameTxt.Text, categoryCbx.Text, typeCbx.Text, descriptionxt.Text, costTxt.Text, batchTxt.Text, serialTxt.Text, barTxt.Text, unitTxt.Text, unitDescTxt.Text, manuTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, fullimage);
+            //Item c = new Item(itemID, nameTxt.Text, categoryCbx.Text, typeCbx.Text, descriptionxt.Text, costTxt.Text, batchTxt.Text, serialTxt.Text, barTxt.Text, unitTxt.Text, unitDescTxt.Text, manuTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), "false", fullimage);
             //DBConnect.Update(c, itemID);
             //MessageBox.Show("Information Updated");
             //this.DialogResult = DialogResult.OK;

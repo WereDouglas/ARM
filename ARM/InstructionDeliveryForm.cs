@@ -33,31 +33,17 @@ namespace ARM
 		string EmergencyID;
 		string PractitionerID;
 		string No;
-		public InstructionDeliveryForm(string id, string no)
+		public InstructionDeliveryForm(string no)
 		{
 			InitializeComponent();
 			AutoCompleteUser();
 			AutoCompleteCustomer();
 			AutoCompleteEmergency();
-			if (!string.IsNullOrEmpty(id))
-			{
-				LoadEdit(id);
-				try
-				{
-
-				}
-				catch (Exception m)
-				{
-					Helper.Exceptions(m.Message , "Loading order intake form for editing ");
-
-				}
-			}
 			if (!string.IsNullOrEmpty(no))
 			{
 				noTxt.Text = no;
 				updateBtn.Visible = false;
 				LoadOrder(no);
-
 			}
 			printdoc1.PrintPage += new PrintPageEventHandler(printdoc1_PrintPage);
 		}
@@ -73,7 +59,7 @@ namespace ARM
 			CustomerID = o.CustomerID;
 			PractitionerID = o.PractitionerID;
 			No = o.No;
-			
+
 			UserID = o.UserID;
 
 			try
@@ -90,41 +76,57 @@ namespace ARM
 				gp.AddEllipse(cusPbx.DisplayRectangle);
 				cusPbx.Region = new Region(gp);
 				cusPbx.SizeMode = PictureBoxSizeMode.StretchImage;
-				
+
 			}
-			catch { }			
-			
-			string Q = "SELECT * FROM casetransaction WHERE caseID = '" + noTxt.Text + "'";
+			catch { }
+
+			string Q = "SELECT * FROM casetransaction WHERE no = '" + noTxt.Text + "'";
 			foreach (CaseTransaction j in CaseTransaction.List(Q))
 			{
 				//try
 				//{
 
-				CaseTransaction t = new CaseTransaction(j.Id, j.Date, j.No, j.ItemID, j.CaseID, j.DeliveryID, j.Qty, j.Cost, j.Units, j.Total, j.Tax, j.Coverage, j.Self, j.Payable, j.Limits, j.Setting, j.Period, j.Height, j.Weight, j.Instruction, j.Created, false, Helper.CompanyID);
+				CaseTransaction t = new CaseTransaction(j.Id, j.Date, j.No, j.ItemID, j.CaseID, j.DeliveryID, j.Qty, j.Cost, j.Units, j.Total, j.Tax, j.Coverage, j.Self, j.Payable, j.Limits, j.Setting, j.Period, j.Height, j.Weight, j.Instruction, j.Created, "false", Helper.CompanyID);
 				GenericCollection.caseTransactions.Add(t);
 				//}
 				//catch { }
 
 			}
+
 			LoadCaseTransactions();
+			string exists = "";
+			try
+			{
+				exists = MySQL.value("SELECT no FROM instruction WHERE no  = '" +noTxt.Text + "'");
+			}
+			catch (Exception y)
+			{
+				exists = "";
+			}
+			if (!string.IsNullOrEmpty(exists))
+			{
+
+				LoadEdit(noTxt.Text);
+			}
+
 		}
 
 		double Total = 0;
 
 		private Instruction i;
 
-		private void LoadEdit(string id)
+		private void LoadEdit(string no)
 		{
 			submitBtn.Visible = false;
-			ID = id;
+
 			i = new Instruction();//.Select(UsersID);
-			i = Instruction.Select(id);
+			i = Instruction.SelectNo(no);
 
 			CustomerID = i.CustomerID;
-			noTxt.Text = i.No;
-		
-			if (i.Initial == "Yes") { initialChk.Checked = true; } else { initialChk.Checked =false; }
-			if (i.Followup == "Yes") {followChk.Checked = true; } else { followChk.Checked = false; }
+			noTxt.Text = no;
+
+			if (i.Initial == "Yes") { initialChk.Checked = true; } else { initialChk.Checked = false; }
+			if (i.Followup == "Yes") { followChk.Checked = true; } else { followChk.Checked = false; }
 			if (i.Delivered == "Yes") { deliveredChk.Checked = true; } else { deliveredChk.Checked = false; }
 			if (i.Safety == "Yes") { safetyChk.Checked = true; } else { safetyChk.Checked = false; }
 			if (i.Pathways == "Yes") { pathChk.Checked = true; } else { pathChk.Checked = false; }
@@ -139,7 +141,7 @@ namespace ARM
 
 			if (i.Understand == "Yes") { understandChk.Checked = true; } else { understandChk.Checked = false; }
 			if (i.Demonstration == "Yes") { demonChk.Checked = true; } else { demonChk.Checked = false; }
-			if (i.Caregiver == "Yes") {caregiverChk.Checked = true; } else { caregiverChk.Checked = false; }
+			if (i.Caregiver == "Yes") { caregiverChk.Checked = true; } else { caregiverChk.Checked = false; }
 
 			if (i.Appropriate == "Yes") { yesRadioBtn.Checked = true; } else { noRadioBtn.Checked = false; }
 
@@ -164,7 +166,7 @@ namespace ARM
 			if (i.Complaint == "Yes") { complaintChk.Checked = true; } else { complaintChk.Checked = false; }
 			if (i.Warranty == "Yes") { warrantyChk.Checked = true; } else { warrantyChk.Checked = false; }
 			if (i.Instructions == "Yes") { instructionChk.Checked = true; } else { instructionChk.Checked = false; }
-			if (i.Aob == "Yes") { aobChk.Checked = true; } else { aobChk.Checked = false; }		
+			if (i.Aob == "Yes") { aobChk.Checked = true; } else { aobChk.Checked = false; }
 
 			if (i.Visit == "Yes") { visitChk.Checked = true; } else { visitChk.Checked = false; }
 			if (i.Phone == "Yes") { phoneChk.Checked = true; } else { phoneChk.Checked = false; }
@@ -176,14 +178,15 @@ namespace ARM
 			safetyOtherTxt.Text = i.SafetyOther;
 			kinContactTxt.Text = i.KinContact;
 			kinCbx.Text = i.KinName;
-			representativeTxt.Text = i.Representative;			
+			representativeTxt.Text = i.Representative;
 			additionNotesTxt.Text = i.Notes;
-			
+
 			otherSignatureCbx.Text = i.OtherSign;
 			kinCbx.Text = i.KinName;
 			kinCbx_SelectedIndexChanged(null, null);
 			reasonTxt.Text = i.Reason;
 			userSignatureTxt.Text = i.UserSignature;
+			dateTxt.Text = i.Date;
 			try
 			{
 				//CustomerID = CustomerDictionary[customerCbx.Text];
@@ -211,7 +214,7 @@ namespace ARM
 			}
 			catch { }
 
-			LoadCaseTransactions();
+
 
 		}
 		private void metroLabel1_Click(object sender, EventArgs e)
@@ -229,7 +232,7 @@ namespace ARM
 		{
 			Close();
 		}
-		
+
 		private void button3_Click(object sender, EventArgs e)
 		{
 
@@ -258,34 +261,34 @@ namespace ARM
 			string manual = manualChk.Checked ? "Yes" : "No";
 			string power = powerChk.Checked ? "Yes" : "No";
 			string handling = handlingChk.Checked ? "Yes" : "No";
-			string rights= rightsChk.Checked ? "Yes" : "No";
+			string rights = rightsChk.Checked ? "Yes" : "No";
 			string avail = availChk.Checked ? "Yes" : "No";
 			string priv = privacyChk.Checked ? "Yes" : "No";
 			string standards = standardChk.Checked ? "Yes" : "No";
 			string demons = demonChk.Checked ? "Yes" : "No";
 			string clean = cleanChk.Checked ? "Yes" : "No";
 			string letter = letterChk.Checked ? "Yes" : "No";
-			string complaint =complaintChk.Checked ? "Yes" : "No";
+			string complaint = complaintChk.Checked ? "Yes" : "No";
 			string warranty = warrantyChk.Checked ? "Yes" : "No";
-			string instruct =instructionChk.Checked ? "Yes" : "No";
+			string instruct = instructionChk.Checked ? "Yes" : "No";
 			string aob = aobChk.Checked ? "Yes" : "No";
 			string visit = visitChk.Checked ? "Yes" : "No";
 			string phone = phoneChk.Checked ? "Yes" : "No";
 
-			string type = initialChk.Checked ? "Initial Delivery" : "Follow-up";			
+			string type = initialChk.Checked ? "Initial Delivery" : "Follow-up";
 			appropriate = yesRadioBtn.Checked ? "Yes" : "No";
-			appropriate = noRadioBtn.Checked ? "No" : "Yes";			
+			appropriate = noRadioBtn.Checked ? "No" : "Yes";
 
-			
+
 			string id = Guid.NewGuid().ToString();
 			if (MessageBox.Show("YES or NO?", "Submit Order? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
 			{
-				Instruction i = new Instruction(id, noTxt.Text, CustomerID,alternativeTxt.Text,Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"),initial,followup, type,delivered,safety,path,operation,environment,rugs,fire,cord,issues,electricals,inout,appropriate,understand,returns,caregiver,safetyOtherTxt.Text,limitTxt.Text,amb,bath,beds,seat,scooter,manual,power,handling,equipmentOtherTxt.Text,rights,avail,priv,standards,demons,clean,letter,complaint,warranty,instruct,aob,additionNotesTxt.Text,visit,phone,signatureTxt.Text,userCbx.Text,userSignatureTxt.Text,kinCbx.Text,otherSignatureCbx.Text,kinContactTxt.Text,relationshipTxt.Text,representativeTxt.Text,reasonTxt.Text,userSignatureTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID,Helper.UserID);
-				string save = DBConnect.InsertPostgre(i);
+				Instruction i = new Instruction(id, noTxt.Text, CustomerID, alternativeTxt.Text, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), initial, followup, type, delivered, safety, path, operation, environment, rugs, fire, cord, issues, electricals, inout, appropriate, understand, returns, caregiver, safetyOtherTxt.Text, limitTxt.Text, amb, bath, beds, seat, scooter, manual, power, handling, equipmentOtherTxt.Text, rights, avail, priv, standards, demons, clean, letter, complaint, warranty, instruct, aob, additionNotesTxt.Text, visit, phone, signatureTxt.Text, userCbx.Text, userSignatureTxt.Text, kinCbx.Text, otherSignatureCbx.Text, kinContactTxt.Text, relationshipTxt.Text, representativeTxt.Text, reasonTxt.Text, userSignatureTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), "false", Helper.CompanyID, Helper.UserID);
+				string save = MySQL.Insert(i);
 				if (save != "")
 				{
-					Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-					DBConnect.InsertPostgre(q);
+					Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+					MySQL.Insert(q);
 					MessageBox.Show("Information Saved");
 					this.Close();
 				}
@@ -360,9 +363,8 @@ namespace ARM
 		}
 
 		private void button1_Click(object sender, EventArgs e)
-		{
-			//Print(panel1);
-			InstructionReport form = new InstructionReport(noTxt.Text);//Print(panel1);
+		{			
+			InstructionReport form = new InstructionReport(noTxt.Text);
 			form.Show();
 		}
 		public void Print(System.Windows.Forms.Panel pnl)
@@ -423,12 +425,10 @@ namespace ARM
 
 			t.Columns.Add("id");
 			t.Columns.Add("ItemID");
-			t.Columns.Add("Product");			
+			t.Columns.Add("Product");
 			t.Columns.Add("Description");
-			
 
-			
-			string Q = "SELECT * FROM CaseTransaction WHERE caseID = '" + noTxt.Text + "'";
+			string Q = "SELECT * FROM casetransaction WHERE caseID = '" + noTxt.Text + "'";
 			foreach (CaseTransaction j in CaseTransaction.List(Q))
 			{
 				try
@@ -440,7 +440,7 @@ namespace ARM
 				catch (Exception m)
 				{
 					MessageBox.Show("" + m.Message);
-					Helper.Exceptions(m.Message , "Viewing users {each transaction list }" + j.ItemID);
+					Helper.Exceptions(m.Message, "Viewing users {each transaction list }" + j.ItemID);
 				}
 			}
 			Total = CaseTransaction.List(Q).Sum(r => r.Total);
@@ -449,8 +449,8 @@ namespace ARM
 			dtGrid.DataSource = t;
 
 			//dtGrid.AllowUserToAddRows = false;
-			// dtGrid.Columns["View"].DefaultCellStyle.BackColor = Color.LightGreen;
-			//  dtGrid.Columns["Delete"].DefaultCellStyle.BackColor = Color.Red;
+			//dtGrid.Columns["View"].DefaultCellStyle.BackColor = Color.LightGreen;
+			//dtGrid.Columns["Delete"].DefaultCellStyle.BackColor = Color.Red;
 
 			dtGrid.Columns["id"].Visible = false;
 			dtGrid.Columns["ItemID"].Visible = false;
@@ -505,21 +505,16 @@ namespace ARM
 			string type = initialChk.Checked ? "Initial Delivery" : "Follow-up";
 			appropriate = yesRadioBtn.Checked ? "Yes" : "No";
 			appropriate = noRadioBtn.Checked ? "No" : "Yes";
-
-
 			safetyOtherTxt.Text = i.SafetyOther;
-
-			
 			appropriate = yesRadioBtn.Checked ? "Yes" : "No";
 			appropriate = noRadioBtn.Checked ? "No" : "Yes";
-			
-		
+
+
 			if (MessageBox.Show("YES or NO?", "Update this Order? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
 			{
-				Instruction i = new Instruction(ID, noTxt.Text, CustomerID, alternativeTxt.Text, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), initial, followup, type, delivered, safety, path, operation, environment, rugs, fire, cord, issues, electricals, inout, appropriate, understand, returns, caregiver, safetyOtherTxt.Text, limitTxt.Text, amb, bath, beds, seat, scooter, manual, power, handling, equipmentOtherTxt.Text, rights, avail, priv, standards, demons, clean, letter, complaint, warranty, instruct, aob, additionNotesTxt.Text, visit, phone, signatureTxt.Text, userCbx.Text, userSignatureTxt.Text, kinCbx.Text, otherSignatureCbx.Text, kinContactTxt.Text, relationshipTxt.Text, representativeTxt.Text, reasonTxt.Text, userSignatureTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), false, Helper.CompanyID, Helper.UserID);
-				string save = DBConnect.UpdatePostgre(i, ID);
-				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-				DBConnect.InsertPostgre(q);
+				Instruction i = new Instruction(ID, noTxt.Text, CustomerID, alternativeTxt.Text, Convert.ToDateTime(dateTxt.Text).ToString("dd-MM-yyyy"), initial, followup, type, delivered, safety, path, operation, environment, rugs, fire, cord, issues, electricals, inout, appropriate, understand, returns, caregiver, safetyOtherTxt.Text, limitTxt.Text, amb, bath, beds, seat, scooter, manual, power, handling, equipmentOtherTxt.Text, rights, avail, priv, standards, demons, clean, letter, complaint, warranty, instruct, aob, additionNotesTxt.Text, visit, phone, signatureTxt.Text, userCbx.Text, userSignatureTxt.Text, kinCbx.Text, otherSignatureCbx.Text, kinContactTxt.Text, relationshipTxt.Text, representativeTxt.Text, reasonTxt.Text, userSignatureTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), "false", Helper.CompanyID, Helper.UserID);
+			 DBConnect.UpdateMySql(i, ID);
+				
 
 				MessageBox.Show("Information Updated ! ");
 				this.Close();

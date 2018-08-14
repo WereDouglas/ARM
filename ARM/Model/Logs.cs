@@ -15,11 +15,11 @@ namespace ARM.Model
 		private string name;
 		private string actions;
 		private string created;
-		private bool sync;
+		private string sync;
 		private string companyID;
 		public Logs() { }
 
-		public Logs(string id, string name, string actions, string created, bool sync, string companyID)
+		public Logs(string id, string name, string actions, string created, string sync, string companyID)
 		{
 			this.Id = id;
 			this.Name = name;
@@ -35,15 +35,15 @@ namespace ARM.Model
 		public static List<Logs> List()
 		{
 			p.Clear();
-			string Q = "SELECT * FROM Logs ";
-			DBConnect.OpenConn();
-			NpgsqlDataReader Reader = DBConnect.Reading(Q);
+			string Q = "SELECT * FROM logs ";
+		
+			MySqlDataReader Reader = MySQL.Reading(Q);
 			while (Reader.Read())
 			{
-				Logs ps = new Logs(Reader["id"].ToString(), Reader["name"].ToString(), Reader["actions"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+				Logs ps = new Logs(Reader["id"].ToString(), Reader["name"].ToString(), Reader["actions"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
 				p.Add(ps);
 			}
-			DBConnect.CloseConn();
+			DBConnect.CloseMySqlConn();
 			return p;
 
 		}
@@ -52,14 +52,14 @@ namespace ARM.Model
 			p.Clear();
 			try
 			{
-				DBConnect.OpenConn();
-				NpgsqlDataReader Reader = DBConnect.Reading(Q);
+				
+				MySqlDataReader Reader = MySQL.Reading(Q);
 				while (Reader.Read())
 				{
-					Logs ps = new Logs(Reader["id"].ToString(), Reader["name"].ToString(), Reader["actions"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+					Logs ps = new Logs(Reader["id"].ToString(), Reader["name"].ToString(), Reader["actions"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
 					p.Add(ps);
 				}
-				DBConnect.CloseConn();
+				DBConnect.CloseMySqlConn();
 			}
 			catch (Exception p)
 			{
@@ -74,11 +74,11 @@ namespace ARM.Model
 			try
 			{
 				p.Clear();
-				DBConnect.OpenMySqlConn();
-				MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+				
+				MySqlDataReader Reader = MySQL.Reading(Q);
 				while (Reader.Read())
 				{
-					Logs ps = new Logs(Reader["id"].ToString(), Reader["name"].ToString(), Reader["actions"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+					Logs ps = new Logs(Reader["id"].ToString(), Reader["name"].ToString(), Reader["actions"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
 					p.Add(ps);
 				}
 				DBConnect.CloseMySqlConn();
@@ -97,19 +97,19 @@ namespace ARM.Model
 		public string Name { get => name; set => name = value; }
 		public string Actions { get => actions; set => actions = value; }
 		public string Created { get => created; set => created = value; }
-		public bool Sync { get => sync; set => sync = value; }
+		public string Sync { get => sync; set => sync = value; }
 		public string CompanyID { get => companyID; set => companyID = value; }
 
 		public static Logs Select(string ID)
 		{
-			string Q = "SELECT * FROM rate WHERE userID = '" + ID + "'";
-			DBConnect.OpenConn();
-			NpgsqlDataReader Reader = DBConnect.Reading(Q);
+			string Q = "SELECT * FROM logs WHERE id = '" + ID + "'";
+			
+			MySqlDataReader Reader = MySQL.Reading(Q);
 			while (Reader.Read())
 			{
-				c = new Logs(Reader["id"].ToString(), Reader["name"].ToString(), Reader["actions"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+				c = new Logs(Reader["id"].ToString(), Reader["name"].ToString(), Reader["actions"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
 			}
-			DBConnect.CloseConn();
+			DBConnect.CloseMySqlConn();
 			return c;
 
 		}

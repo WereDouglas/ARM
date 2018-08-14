@@ -633,6 +633,7 @@
 			this.updateBtn.Text = "Update";
 			this.updateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.updateBtn.UseVisualStyleBackColor = false;
+			this.updateBtn.Visible = false;
 			this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
 			// 
 			// btnSubmit

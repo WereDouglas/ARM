@@ -1,4 +1,5 @@
 ﻿using ARM.DB;
+using MySql.Data.MySqlClient;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -16,11 +17,11 @@ namespace ARM.Model
         private string status;
         private string details;           
         private string created;      
-       private bool sync;
+       private string sync;
         private string companyID;
         public PatientFollowStatus() { }
 
-        public PatientFollowStatus(string id, string followID, string title, string status, string details, string created, bool sync,string companyID)
+        public PatientFollowStatus(string id, string followID, string title, string status, string details, string created, string sync,string companyID)
         {
             this.Id = id;
             this.FollowID = followID;
@@ -37,19 +38,19 @@ namespace ARM.Model
         public string Status { get => status; set => status = value; }
         public string Details { get => details; set => details = value; }
         public string Created { get => created; set => created = value; }
-        public bool Sync { get => sync; set => sync = value; } public string CompanyID { get => companyID; set => companyID = value; }
+        public string Sync { get => sync; set => sync = value; } public string CompanyID { get => companyID; set => companyID = value; }
         private static List<PatientFollowStatus> p = new List<PatientFollowStatus>();
         public static List<PatientFollowStatus> List()
         {
             string Q = "SELECT * FROM PatientFollowStatus ";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+           
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                PatientFollowStatus ps = new PatientFollowStatus(Reader["id"].ToString(), Reader["followID"].ToString(), Reader["title"].ToString(), Reader["status"].ToString(), Reader["details"].ToString(),Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                PatientFollowStatus ps = new PatientFollowStatus(Reader["id"].ToString(), Reader["followID"].ToString(), Reader["title"].ToString(), Reader["status"].ToString(), Reader["details"].ToString(),Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
 
         }

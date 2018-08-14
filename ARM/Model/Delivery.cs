@@ -29,12 +29,12 @@ namespace ARM.Model
         private string name;       
         private double total;
         private string created;
-        private bool sync;
+        private string sync;
         private string companyID;
 
         public Delivery() { }
 
-		public Delivery(string id, string no, string date, string deliveries, string followup, string pickup, string type, string practitionerID, string customerID, string comments, string deliveredBy, string dateReceived, string receivedBy, string signature, string reason, string name, double total, string created, bool sync, string companyID)
+		public Delivery(string id, string no, string date, string deliveries, string followup, string pickup, string type, string practitionerID, string customerID, string comments, string deliveredBy, string dateReceived, string receivedBy, string signature, string reason, string name, double total, string created, string sync, string companyID)
 		{
 			this.Id = id;
 			this.No = no;
@@ -62,47 +62,31 @@ namespace ARM.Model
         public static List<Delivery> List()
         {
             p.Clear();
-            string Q = "SELECT * FROM Delivery ";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            string Q = "SELECT * FROM delivery ";
+          
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Delivery ps = new Delivery(Reader["id"].ToString(), Reader["no"].ToString(), Reader["date"].ToString(), Reader["deliveries"].ToString(), Reader["followup"].ToString(), Reader["pickup"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Delivery ps = new Delivery(Reader["id"].ToString(), Reader["no"].ToString(), Reader["date"].ToString(), Reader["deliveries"].ToString(), Reader["followup"].ToString(), Reader["pickup"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
         }
         public static List<Delivery> List(string Q)
         {
             p.Clear();
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+          
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Delivery ps = new Delivery(Reader["id"].ToString(), Reader["no"].ToString(), Reader["date"].ToString(), Reader["deliveries"].ToString(), Reader["followup"].ToString(), Reader["pickup"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                Delivery ps = new Delivery(Reader["id"].ToString(), Reader["no"].ToString(), Reader["date"].ToString(), Reader["deliveries"].ToString(), Reader["followup"].ToString(), Reader["pickup"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
 				p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
         }
-        public static List<Delivery> ListOnline(string Q)
-        {
-            try
-            {
-                p.Clear();
-                DBConnect.OpenMySqlConn();
-                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
-                while (Reader.Read())
-                {
-                    Delivery ps = new Delivery(Reader["id"].ToString(), Reader["no"].ToString(), Reader["date"].ToString(), Reader["deliveries"].ToString(), Reader["followup"].ToString(), Reader["pickup"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
-					p.Add(ps);
-                }
-                DBConnect.CloseMySqlConn();
-            }
-            catch { }
-            return p;
-        }
+      
         private static Delivery c = new Delivery();
 
 		public string Id { get => id; set => id = value; }
@@ -123,23 +107,36 @@ namespace ARM.Model
 		public string Name { get => name; set => name = value; }
 		public double Total { get => total; set => total = value; }
 		public string Created { get => created; set => created = value; }
-		public bool Sync { get => sync; set => sync = value; }
+		public string Sync { get => sync; set => sync = value; }
 		public string CompanyID { get => companyID; set => companyID = value; }
 
 		public static Delivery Select(string ID)
         {
-
             string Q = "SELECT * FROM delivery WHERE id = '" + ID + "'";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+           
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                c = new Delivery(Reader["id"].ToString(), Reader["no"].ToString(), Reader["date"].ToString(), Reader["deliveries"].ToString(), Reader["followup"].ToString(), Reader["pickup"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                c = new Delivery(Reader["id"].ToString(), Reader["no"].ToString(), Reader["date"].ToString(), Reader["deliveries"].ToString(), Reader["followup"].ToString(), Reader["pickup"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
 			}
-			DBConnect.CloseConn();
+			DBConnect.CloseMySqlConn();
             return c;
 
         }
-    }
+		public static Delivery SelectNo(string no)
+		{
+
+			string Q = "SELECT * FROM delivery WHERE no = '" + no + "'";
+			
+			MySqlDataReader Reader = MySQL.Reading(Q);
+			while (Reader.Read())
+			{
+				c = new Delivery(Reader["id"].ToString(), Reader["no"].ToString(), Reader["date"].ToString(), Reader["deliveries"].ToString(), Reader["followup"].ToString(), Reader["pickup"].ToString(), Reader["type"].ToString(), Reader["practitionerID"].ToString(), Reader["customerID"].ToString(), Reader["comments"].ToString(), Reader["deliveredBy"].ToString(), Reader["dateReceived"].ToString(), Reader["receivedBy"].ToString(), Reader["signature"].ToString(), Reader["reason"].ToString(), Reader["name"].ToString(), Convert.ToDouble(Reader["total"]), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
+			}
+			DBConnect.CloseMySqlConn();
+			return c;
+
+		}
+	}
 
 }

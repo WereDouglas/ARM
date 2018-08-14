@@ -1,6 +1,7 @@
 ﻿using ARM.DB;
 using ARM.Model;
 using ARM.Util;
+using MySql.Data.MySqlClient;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -66,13 +67,13 @@ namespace ARM
             Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
 
 
-            string Q = "SELECT * FROM pay WHERE (date::date >= '" + fromDate + "'::date AND  date::date <= '" + toDate + "'::date)";
+            string Q = "SELECT * FROM pay WHERE (`date` >= '" + fromDate + "'  AND  `date` <= '" + toDate + "')";
             foreach (Pay c in Pay.List(Q))
             {
                 string daying = "";
-                string Qs = "SELECT starts,period,userID,customerID FROM schedule  WHERE (date::date >= '" + c.Starts + "'::date AND  date::date <= '" + c.Ends + "'::date)";
-                DBConnect.OpenConn();
-                NpgsqlDataReader Reader1 = DBConnect.Reading(Qs);
+                string Qs = "SELECT starts,period,userID,customerID FROM schedule  WHERE (`date` >= '" + c.Starts + "' AND  `date` <= '" + c.Ends + "')";
+
+				MySqlDataReader Reader1 = MySQL.Reading(Qs);
                 OnDays l = new OnDays();
                 List<OnDays> oD = new List<OnDays>();
                 while (Reader1.Read())
@@ -80,23 +81,21 @@ namespace ARM
                     l = new OnDays(Convert.ToDateTime(Reader1["starts"]).ToString("ddd"), Reader1["period"].ToString(), Reader1["userID"].ToString(), Reader1["customerID"].ToString());
                     oD.Add(l);
                 }
-                DBConnect.CloseConn();
+                DBConnect.CloseMySqlConn();
                 int ct = 1;
                 foreach (OnDays u in oD.Where(y => y.UserID.Contains(c.UserID)))
                 {
-
                     daying = daying + "\n" + ct++ +"." +  u.Day + "\t\t-" + u.Hrs +"Hrs ";
-
                 }
                 string user = "";
                 
                 string imageUs = "";
-                try { user = Users.Select(c.UserID).Name; } catch { }
-                try { imageUs = Users.Select(c.UserID).Image; } catch { }
+                try { user = GenericCollection.users.Where(r => r.Id == c.UserID).First().Name; } catch { }
+                try { imageUs = GenericCollection.users.Where(r => r.Id == c.UserID).First().Image; } catch { }
 
                 try
                 {
-                    t.Rows.Add(new object[] { false, c.Id, imageUs as string, b,user, c.No,c.Date,c.Method,c.Starts,c.Ends, daying, c.Week,c.Rate,c.Hours,c.Amount.ToString("N0"),c.OvertimeHrs,c.OvertimeRate,c.OvertimePay.ToString("N0"), c.Deductions.ToString("N0"),c.Paid, view, delete });
+                    t.Rows.Add(new object[] { "false", c.Id, imageUs as string, b,user, c.No,c.Date,c.Method,c.Starts,c.Ends, daying, c.Week,c.Rate,c.Hours,c.Amount.ToString("N0"),c.OvertimeHrs,c.OvertimeRate,c.OvertimePay.ToString("N0"), c.Deductions.ToString("N0"),c.Paid, view, delete });
 
                 }
                 catch (Exception m)
@@ -166,9 +165,9 @@ namespace ARM
                 foreach (var item in selectedIDs)
                 {
                     string Query = "DELETE from pay WHERE id ='" + item + "'";
-                    DBConnect.QueryPostgre(Query);
-                    Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                    DBConnect.InsertPostgre(q);
+                    MySQL.Query(Query);
+
+                    
 					Helper.Log(Helper.UserName, "Deleted payment information " + item + "  " + DateTime.Now);
 				}
             }
@@ -198,7 +197,7 @@ namespace ARM
                     if (dr == DialogResult.OK)
                     {
                         LoadData(fromDate, toDate);
-                    }
+                    }    
                 }
             }
             try
@@ -208,9 +207,7 @@ namespace ARM
                     if (MessageBox.Show("YES or No?", "Are you sure you want to delete this pay slip? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         string Query = "DELETE from pay WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
-                            DBConnect.QueryPostgre(Query);
-                        Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-                        DBConnect.InsertPostgre(q);
+                        MySQL.Query(Query);                       
                         MessageBox.Show("Information deleted");
                         LoadData(fromDate, toDate);
 
@@ -230,10 +227,10 @@ namespace ARM
                 return;
             }
             string ID = dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString();
-            //Customer _c = new Customer(ID, dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["contact"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["address"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["city"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["state"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["zip"].Value.ToString(),DateTime.Now.ToString("dd-MM-yyyy"),dtGrid.Rows[e.RowIndex].Cells["SOC-SEC#"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Date Of Birth"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["height"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["weight"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["gender"].Value.ToString(), false,Helper.CompanyID, dtGrid.Rows[e.RowIndex].Cells["uri"].Value.ToString());
-            //string save = DBConnect.UpdatePostgre(_c, ID);
-            //Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-            //DBConnect.InsertPostgre(q);
+            //Customer _c = new Customer(ID, dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["contact"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["address"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["no"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["city"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["state"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["zip"].Value.ToString(),DateTime.Now.ToString("dd-MM-yyyy"),dtGrid.Rows[e.RowIndex].Cells["SOC-SEC#"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Date Of Birth"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["height"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["weight"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["gender"].Value.ToString(), "false",Helper.CompanyID, dtGrid.Rows[e.RowIndex].Cells["uri"].Value.ToString());
+            //string save = DBConnect.UpdateMySql(_c, ID);
+            //Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(save), "false", DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
+            //MySQL.Insert(q);
 
         }
 

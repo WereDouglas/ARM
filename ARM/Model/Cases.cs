@@ -28,11 +28,11 @@ namespace ARM.Model
         private string reqEnd;
         private string authStart;
         private string authEnd;
-        private bool sync;
+        private string sync;
         private string companyID;
         public Cases() { }
 
-        public Cases(string id, string date, string no, string provideNo, string coverageID, string customerID, string practitionerID, string practitionerType, string roleType, string type, string place, string information, string created, string reqStart, string reqEnd, string authStart, string authEnd, bool sync, string companyID)
+        public Cases(string id, string date, string no, string provideNo, string coverageID, string customerID, string practitionerID, string practitionerType, string roleType, string type, string place, string information, string created, string reqStart, string reqEnd, string authStart, string authEnd, string sync, string companyID)
         {
             this.Id = id;
             this.Date = date;
@@ -64,14 +64,14 @@ namespace ARM.Model
             //try
             //{
                 p.Clear();
-                DBConnect.OpenConn();
-                NpgsqlDataReader Reader = DBConnect.Reading(Q);
+                
+                MySqlDataReader Reader = MySQL.Reading(Q);
                 while (Reader.Read())
                 {
-                    Cases ps = new Cases(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["provideNo"].ToString(), Reader["coverageID"].ToString(), Reader["customerID"].ToString(), Reader["practitionerID"].ToString(), Reader["practitionerType"].ToString(), Reader["roleType"].ToString(), Reader["type"].ToString(), Reader["place"].ToString(), Reader["information"].ToString(), Reader["created"].ToString(), Reader["reqStart"].ToString(), Reader["reqEnd"].ToString(), Reader["authStart"].ToString(), Reader["authEnd"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                    Cases ps = new Cases(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["provideNo"].ToString(), Reader["coverageID"].ToString(), Reader["customerID"].ToString(), Reader["practitionerID"].ToString(), Reader["practitionerType"].ToString(), Reader["roleType"].ToString(), Reader["type"].ToString(), Reader["place"].ToString(), Reader["information"].ToString(), Reader["created"].ToString(), Reader["reqStart"].ToString(), Reader["reqEnd"].ToString(), Reader["authStart"].ToString(), Reader["authEnd"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
-                DBConnect.CloseConn();
+                DBConnect.CloseMySqlConn();
             //}
             //catch (Exception e)
             //{
@@ -85,11 +85,11 @@ namespace ARM.Model
             try
             {
                 p.Clear();
-                DBConnect.OpenMySqlConn();
-                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+               
+                MySqlDataReader Reader = MySQL.Reading(Q);
                 while (Reader.Read())
                 {
-                    Cases ps = new Cases(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["provideNo"].ToString(), Reader["coverageID"].ToString(), Reader["customerID"].ToString(), Reader["practitionerID"].ToString(), Reader["practitionerType"].ToString(), Reader["roleType"].ToString(), Reader["type"].ToString(), Reader["place"].ToString(), Reader["information"].ToString(), Reader["created"].ToString(), Reader["reqStart"].ToString(), Reader["reqEnd"].ToString(), Reader["authStart"].ToString(), Reader["authEnd"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                    Cases ps = new Cases(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["provideNo"].ToString(), Reader["coverageID"].ToString(), Reader["customerID"].ToString(), Reader["practitionerID"].ToString(), Reader["practitionerType"].ToString(), Reader["roleType"].ToString(), Reader["type"].ToString(), Reader["place"].ToString(), Reader["information"].ToString(), Reader["created"].ToString(), Reader["reqStart"].ToString(), Reader["reqEnd"].ToString(), Reader["authStart"].ToString(), Reader["authEnd"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                     p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
@@ -116,20 +116,20 @@ namespace ARM.Model
         public string ReqEnd { get => reqEnd; set => reqEnd = value; }
         public string AuthStart { get => authStart; set => authStart = value; }
         public string AuthEnd { get => authEnd; set => authEnd = value; }
-        public bool Sync { get => sync; set => sync = value; }
+        public string Sync { get => sync; set => sync = value; }
         public string CompanyID { get => companyID; set => companyID = value; }
         private static Cases k = new Cases();
         public static Cases Select(string id)
         {
             string Q = "SELECT * FROM cases WHERE id = '" + id + "'";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+           
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                k = new Cases(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["provideNo"].ToString(), Reader["coverageID"].ToString(), Reader["customerID"].ToString(), Reader["practitionerID"].ToString(), Reader["practitionerType"].ToString(), Reader["roleType"].ToString(), Reader["type"].ToString(), Reader["place"].ToString(), Reader["information"].ToString(), Reader["created"].ToString(), Reader["reqStart"].ToString(), Reader["reqEnd"].ToString(), Reader["authStart"].ToString(), Reader["authEnd"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                k = new Cases(Reader["id"].ToString(), Reader["date"].ToString(), Reader["no"].ToString(), Reader["provideNo"].ToString(), Reader["coverageID"].ToString(), Reader["customerID"].ToString(), Reader["practitionerID"].ToString(), Reader["practitionerType"].ToString(), Reader["roleType"].ToString(), Reader["type"].ToString(), Reader["place"].ToString(), Reader["information"].ToString(), Reader["created"].ToString(), Reader["reqStart"].ToString(), Reader["reqEnd"].ToString(), Reader["authStart"].ToString(), Reader["authEnd"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                 
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return k;
 
         }

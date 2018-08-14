@@ -20,11 +20,11 @@ namespace ARM.Model
 		private string greater6;
 		private string onset;
 		private string created;
-		private bool sync;
+		private string sync;
 		private string companyID;
 		public ICD10() { }
 
-		public ICD10(string id, string no, string code, string name, string diagnosis, string less6, string greater6, string onset, string created, bool sync, string companyID)
+		public ICD10(string id, string no, string code, string name, string diagnosis, string less6, string greater6, string onset, string created, string sync, string companyID)
 		{
 			this.Id = id;
 			this.No = no;
@@ -49,7 +49,7 @@ namespace ARM.Model
 		public string Greater6 { get => greater6; set => greater6 = value; }
 		public string Onset { get => onset; set => onset = value; }
 		public string Created { get => created; set => created = value; }
-		public bool Sync { get => sync; set => sync = value; }
+		public string Sync { get => sync; set => sync = value; }
 		public string CompanyID { get => companyID; set => companyID = value; }
 
 		public static List<ICD10> List(string Q)
@@ -59,14 +59,14 @@ namespace ARM.Model
 			try
 			{
 				DBConnect.OpenConn();
-				NpgsqlDataReader Reader = DBConnect.Reading(Q);
+				MySqlDataReader Reader = MySQL.Reading(Q);
 				while (Reader.Read())
 				{
-					ICD10 ps = new ICD10(Reader["id"].ToString(), Reader["no"].ToString(), Reader["code"].ToString(), Reader["name"].ToString(), Reader["diagnosis"].ToString(), Reader["less6"].ToString(), Reader["greater6"].ToString(), Reader["onset"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+					ICD10 ps = new ICD10(Reader["id"].ToString(), Reader["no"].ToString(), Reader["code"].ToString(), Reader["name"].ToString(), Reader["diagnosis"].ToString(), Reader["less6"].ToString(), Reader["greater6"].ToString(), Reader["onset"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
 					p.Add(ps);
 				}
 
-				DBConnect.CloseConn();
+				DBConnect.CloseMySqlConn();
 			}
 			catch { }
 			return p;
@@ -78,10 +78,10 @@ namespace ARM.Model
 			{
 				p.Clear();
 				DBConnect.OpenMySqlConn();
-				MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+				MySqlDataReader Reader = MySQL.Reading(Q);
 				while (Reader.Read())
 				{
-					ICD10 ps = new ICD10(Reader["id"].ToString(), Reader["no"].ToString(), Reader["code"].ToString(), Reader["name"].ToString(), Reader["diagnosis"].ToString(), Reader["less6"].ToString(), Reader["greater6"].ToString(), Reader["onset"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+					ICD10 ps = new ICD10(Reader["id"].ToString(), Reader["no"].ToString(), Reader["code"].ToString(), Reader["name"].ToString(), Reader["diagnosis"].ToString(), Reader["less6"].ToString(), Reader["greater6"].ToString(), Reader["onset"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
 					p.Add(ps);
 				}
 				DBConnect.CloseMySqlConn();
@@ -95,13 +95,13 @@ namespace ARM.Model
 			p.Clear();
 
 			DBConnect.OpenConn();
-			NpgsqlDataReader Reader = DBConnect.Reading(Q);
+			MySqlDataReader Reader = MySQL.Reading(Q);
 			while (Reader.Read())
 			{
-				ICD10 ps = new ICD10(Reader["id"].ToString(), Reader["no"].ToString(), Reader["code"].ToString(), Reader["name"].ToString(), Reader["diagnosis"].ToString(), Reader["less6"].ToString(), Reader["greater6"].ToString(), Reader["onset"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+				ICD10 ps = new ICD10(Reader["id"].ToString(), Reader["no"].ToString(), Reader["code"].ToString(), Reader["name"].ToString(), Reader["diagnosis"].ToString(), Reader["less6"].ToString(), Reader["greater6"].ToString(), Reader["onset"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
 				p.Add(ps);
 			}
-			DBConnect.CloseConn();
+			DBConnect.CloseMySqlConn();
 			return p;
 
 		}

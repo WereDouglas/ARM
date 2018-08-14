@@ -8,6 +8,8 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,9 +22,6 @@ namespace ARM
 		public UserForm()
 		{
 			InitializeComponent();
-
-			LoadData();
-
 		}
 		List<Users> users = new List<Users>();
 
@@ -31,6 +30,7 @@ namespace ARM
 		{
 			// create and execute query  
 			t = new DataTable();
+			t.Columns.Add("#");
 			t.Columns.Add(new DataColumn("Select", typeof(bool)));
 			t.Columns.Add("id");
 			t.Columns.Add("uri");
@@ -52,7 +52,6 @@ namespace ARM
 			t.Columns.Add(new DataColumn("View", typeof(Image)));
 			t.Columns.Add(new DataColumn("Delete", typeof(Image)));
 
-
 			Bitmap b = new Bitmap(50, 50);
 			using (Graphics g = Graphics.FromImage(b))
 			{
@@ -60,12 +59,12 @@ namespace ARM
 			}
 			Image view = new Bitmap(Properties.Resources.Note_Memo_16);
 			Image delete = new Bitmap(Properties.Resources.Server_Delete_16);
-
-			foreach (Users c in Users.List())
+			int ct = 1;
+			foreach (Users c in GenericCollection.users)
 			{
 				try
 				{
-					t.Rows.Add(new object[] { false, c.Id, c.Image as string, b, c.Name, c.Email, c.Contact, c.Address, c.City, c.State, c.Zip, c.Category, c.Speciality, c.Gender, c.Active, c.Level, c.Department, c.Created, view, delete });
+					t.Rows.Add(new object[] {ct++, "false", c.Id, c.Image as string, b, c.Name, c.Email, c.Contact, c.Address, c.City, c.State, c.Zip, c.Category, c.Speciality, c.Gender, c.Active, c.Level, c.Department, c.Created, view, delete });
 
 				}
 				catch (Exception m)
@@ -153,11 +152,9 @@ namespace ARM
 				foreach (var item in selectedIDs)
 				{
 					string Query = "DELETE from users WHERE id ='" + item + "'";
-					DBConnect.QueryPostgre(Query);
-					Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-					DBConnect.InsertPostgre(q);
-					//MessageBox.Show("Information deleted" + item);
-					Helper.Log(Helper.UserName, "Deleted user " + item + "  " + DateTime.Now);					
+					MySQL.Query(Query);
+					GenericCollection.users.RemoveAll(r => r.Id == item);					
+					Helper.Log(Helper.UserName, "Deleted user " + item + "  " + DateTime.Now);
 				}
 			}
 			LoadData();
@@ -212,16 +209,14 @@ namespace ARM
 					{
 						//MessageBox.Show(c.Message.ToString());
 						Helper.Exceptions(c.Message, "Access level error ");
-					
 						MessageBox.Show("Access Denied WITH ERROR !");
 						return;
 					}
 					if (MessageBox.Show("YES or No?", "Are you sure you want to delete this User? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
 					{
 						string Query = "DELETE from users WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
-						DBConnect.QueryPostgre(Query);
-						Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-						DBConnect.InsertPostgre(q);
+						MySQL.Query(Query);
+						GenericCollection.users.RemoveAll (r=>r.Id== dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
 						MessageBox.Show("Information deleted");
 						Helper.Log(Helper.UserName, "Deleted user " + dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + "  " + DateTime.Now);
 						LoadData();
@@ -234,6 +229,41 @@ namespace ARM
 			{
 				if (e.ColumnIndex == dtGrid.Columns["Active"].Index && e.RowIndex >= 0)
 				{
+					//string URI = "https://platform.clickatell.com/messages/http/send?apiKey=jKgp8Hx8SpyqTrt_Mg69Eg==&to=+19784579809&content=test";
+					//string myParameters = "param1=value1&param2=value2&param3=value3";
+
+					//using (WebClient wc = new WebClient())
+
+					//{
+					//	wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
+					//	string HtmlResult = wc.UploadString(URI, myParameters);
+					//}
+					Dictionary<string, string> Params = new Dictionary<string, string>();
+
+					//adding the parameters to the dictionary
+					Params.Add("content", "WE ARE TESTING");
+					Params.Add("to", "+19784579809");
+					//if (from != "") { Params.Add("from", from); }
+					//if (delivery != "") { Params.Add("scheduledDeliveryTime", delivery); }
+
+					//if (api != "")
+					//{
+						//response = Api.SendSMS("jKgp8Hx8SpyqTrt_Mg69Eg==", Params);
+						MessageBox.Show(response);
+					dynamic results = Api.SendSMS("jKgp8Hx8SpyqTrt_Mg69Eg==", Params);
+					foreach (dynamic res in results)
+					{
+						Console.Write((string)res["number"] + ",");
+						Console.Write((string)res["status"] + ","); // status is either "Success" or "error message"
+						Console.Write((string)res["statusCode"] + ",");
+						Console.Write((string)res["messageId"] + ",");
+						Console.WriteLine((string)res["cost"]);
+					}
+					//}
+					//else
+					//{
+					//	MessageBox.Show("Error: API Key cannot be blank");
+					//}
 					try
 					{
 						if (Convert.ToInt32(Helper.Level) < 5)
@@ -246,26 +276,27 @@ namespace ARM
 					{
 						//MessageBox.Show(c.Message.ToString());
 						Helper.Exceptions(c.Message, "Access level error ");
-
 						MessageBox.Show("Access Denied WITH ERROR !");
 						return;
 					}
 
 					if (MessageBox.Show("YES or No?", "Change user status ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-					{
+					{						
 						string Query = "";
 						string status = dtGrid.Rows[e.RowIndex].Cells["active"].Value.ToString();
+						string id = dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString();
+						var obj = GenericCollection.users.FirstOrDefault(x => x.Id == id);
 						if (status == "Yes")
 						{
 							Query = "UPDATE users SET active = 'No' WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
+							if (obj != null) { obj.Active = "No"; }
 						}
 						else
 						{
 							Query = "UPDATE users SET active = 'Yes' WHERE id ='" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
+							if (obj != null) { obj.Active = "Yes"; }
 						}
-						DBConnect.QueryPostgre(Query);
-						Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-						DBConnect.InsertPostgre(q);
+						MySQL.Query(Query);						
 						MessageBox.Show("Information updated");
 						Helper.Log(Helper.UserName, "Changed user status " + dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + "  " + DateTime.Now);
 						LoadData();
@@ -274,7 +305,7 @@ namespace ARM
 			}
 			catch { }
 		}
-
+		private string response;
 		private void toolStripButton2_Click(object sender, EventArgs e)
 		{
 			using (AddUser form = new AddUser(null))
@@ -282,37 +313,35 @@ namespace ARM
 				DialogResult dr = form.ShowDialog();
 				if (dr == DialogResult.OK)
 				{
-					// LoadingCalendarLite();
+					LoadData();
 				}
 			}
 		}
+		Users u;
 		private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
 		{
-			//try
-			//{
-			//	if (Convert.ToInt32(Helper.Level) < 5)
-			//	{
-			//		MessageBox.Show("Access Denied !");
-			//		return;
-			//	}
-			//}catch (Exception c)
-			//{
-			//	//MessageBox.Show(c.Message.ToString());
-			//	Helper.Exceptions(c.Message, "Editing User cell content grid user level value ");
-			//	MessageBox.Show("You have an invalid entry !");
-			//	return;
-			//}
-
+			u = new Users();
 			string columnName = dtGrid.Columns[e.ColumnIndex].HeaderText;
+			string id = dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString();
+			var obj = GenericCollection.users.FirstOrDefault(x => x.Id == id);
 			try
 			{
+				var success = GenericCollection.users.GetType().GetProperty(columnName).GetValue(obj, null);
+				if (obj != null)
+				{ obj.GetType().GetProperty(columnName).SetValue(u, dtGrid.Rows[e.RowIndex].Cells[columnName].Value.ToString()); }
+				//if (obj != null) { obj.Active = "No"; }
+			}
+			catch (Exception c)
+			{
 				
-				String Query = "UPDATE users SET " + columnName + " ='" + dtGrid.Rows[e.RowIndex].Cells[columnName].Value.ToString() + "' WHERE Id = '" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
-				DBConnect.QueryPostgre(Query);
-				Queries q = new Queries(Guid.NewGuid().ToString(), Helper.UserName, Helper.CleanString(Query), false, DateTime.Now.ToString("dd-MM-yyyy H:m:s"), Helper.CompanyID);
-				DBConnect.InsertPostgre(q);
+				Helper.Exceptions(c.Message, " Editing User using object ");
+				
+			}
+			try
+			{
+				String Query = "UPDATE users SET " + columnName + " ='" + dtGrid.Rows[e.RowIndex].Cells[columnName].Value.ToString() + "' WHERE id = '" + dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString() + "'";
+				MySQL.Query(Query);
 				Helper.Log(Helper.UserName, "Updating user " + dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + "  " + DateTime.Now);
-
 			}
 			catch (Exception c)
 			{
@@ -320,9 +349,7 @@ namespace ARM
 				Helper.Exceptions(c.Message, "Editing User cell content grid");
 				//MessageBox.Show("You have an invalid entry !");
 			}
-
 		}
-
 		private void toolStripButton4_Click(object sender, EventArgs e)
 		{
 			List<DataGridViewRow> rows_with_checked_column = new List<DataGridViewRow>();
@@ -346,6 +373,27 @@ namespace ARM
 		}
 
 		private void toolStripSeparator1_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+		{
+
+		}
+
+		private void UserForm_Load(object sender, EventArgs e)
+		{
+			LoadData();
+		}
+
+		private void toolStripButton7_Click(object sender, EventArgs e)
+		{
+			UserReport f = new UserReport();
+			f.Show();
+		}
+
+		private void dtGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
 
 		}

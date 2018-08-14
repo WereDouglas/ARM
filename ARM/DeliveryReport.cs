@@ -39,21 +39,25 @@ namespace ARM
 
 			Microsoft.Reporting.WinForms.ReportParameter rp = new Microsoft.Reporting.WinForms.ReportParameter("image", Helper.CompanyImage);
 		    this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rp });
+			Coverage er = new Coverage();//.Select(ItemID);
+			er = Coverage.SelectType(v.CustomerID,"Primary");
+			Microsoft.Reporting.WinForms.ReportParameter rps = new Microsoft.Reporting.WinForms.ReportParameter("medicaid", er.No);
+			this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { rps });
 
-			Npgsql.NpgsqlDataAdapter da = new Npgsql.NpgsqlDataAdapter("SELECT * FROM delivery WHERE no='" + No + "'", DBConnect.conn);
+			MySql.Data.MySqlClient.MySqlDataAdapter da = new MySql.Data.MySqlClient.MySqlDataAdapter("SELECT * FROM delivery WHERE no='" + No + "'", MySQL.Conn);
 			DataSet ds = new DataSet();
 			da.Fill(ds);
 
-			Npgsql.NpgsqlDataAdapter da3 = new Npgsql.NpgsqlDataAdapter("SELECT * FROM customer WHERE id='" + v.CustomerID + "'", DBConnect.conn);
+			MySql.Data.MySqlClient.MySqlDataAdapter da3 = new MySql.Data.MySqlClient.MySqlDataAdapter("SELECT * FROM customer WHERE id='" + v.CustomerID + "'", MySQL.Conn);
 			DataSet ds3 = new DataSet();
 			da3.Fill(ds3);
 
-			Npgsql.NpgsqlDataAdapter da2 = new Npgsql.NpgsqlDataAdapter("SELECT product.name AS itemID ,product.code AS self,product.description AS tax,casetransaction.cost,casetransaction.date as date,casetransaction.no as no,casetransaction.total as total,casetransaction.qty as qty,casetransaction.cost,casetransaction.created,casetransaction.sync,casetransaction.height,casetransaction.limits,casetransaction.weight,casetransaction.setting,casetransaction.instruction,casetransaction.period FROM casetransaction LEFT join product ON casetransaction.itemID = product.id  WHERE casetransaction.no='" + No + "'", DBConnect.conn);
+			MySql.Data.MySqlClient.MySqlDataAdapter da2 = new MySql.Data.MySqlClient.MySqlDataAdapter("SELECT product.name AS itemID ,product.code AS self,product.description AS tax,casetransaction.cost,casetransaction.date as date,casetransaction.no as no,casetransaction.total as total,casetransaction.qty as qty,casetransaction.cost,casetransaction.created,casetransaction.sync,casetransaction.height,casetransaction.limits,casetransaction.weight,casetransaction.setting,casetransaction.instruction,casetransaction.period FROM casetransaction LEFT join product ON casetransaction.itemID = product.id  WHERE casetransaction.no='" + No + "'", MySQL.Conn);
 			DataSet ds2 = new DataSet();
 			da2.Fill(ds2);
 			
 
-			Npgsql.NpgsqlDataAdapter da4 = new Npgsql.NpgsqlDataAdapter("SELECT * FROM practitioner WHERE id='" + v.PractitionerID + "'", DBConnect.conn);
+			MySql.Data.MySqlClient.MySqlDataAdapter da4 = new MySql.Data.MySqlClient.MySqlDataAdapter("SELECT * FROM practitioner WHERE id='" + v.PractitionerID + "'", MySQL.Conn);
 			DataSet ds4 = new DataSet();
 			da4.Fill(ds4);
 

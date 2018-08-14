@@ -38,12 +38,12 @@
 			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripDropDownButton12 = new System.Windows.Forms.ToolStripDropDownButton();
 			this.exceptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.queriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.logsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.Session = new System.Windows.Forms.ToolStripDropDownButton();
+			this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripDropDownButton8 = new System.Windows.Forms.ToolStripDropDownButton();
 			this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
 			this.myProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.Session = new System.Windows.Forms.ToolStripDropDownButton();
-			this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
 			this.Users = new System.Windows.Forms.ToolStripDropDownButton();
 			this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,16 +68,14 @@
 			this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.viewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.statementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.Calendar = new System.Windows.Forms.ToolStripDropDownButton();
 			this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.viewShitsSchedulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.processLbl = new System.Windows.Forms.TextBox();
 			this.usernameLbl = new System.Windows.Forms.Label();
 			this.userPbx = new System.Windows.Forms.PictureBox();
-			this.viewShitsSchedulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -162,8 +160,8 @@
 			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripDropDownButton12,
-            this.toolStripDropDownButton8,
             this.Session,
+            this.toolStripDropDownButton8,
             this.Users,
             this.Patients,
             this.PatientCare,
@@ -197,7 +195,7 @@
 			this.toolStripDropDownButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			this.toolStripDropDownButton12.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exceptionsToolStripMenuItem,
-            this.queriesToolStripMenuItem});
+            this.logsToolStripMenuItem});
 			this.toolStripDropDownButton12.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton12.Image")));
 			this.toolStripDropDownButton12.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripDropDownButton12.Margin = new System.Windows.Forms.Padding(5, 1, 5, 1);
@@ -213,12 +211,35 @@
 			this.exceptionsToolStripMenuItem.Text = "Exceptions";
 			this.exceptionsToolStripMenuItem.Click += new System.EventHandler(this.exceptionsToolStripMenuItem_Click);
 			// 
-			// queriesToolStripMenuItem
+			// logsToolStripMenuItem
 			// 
-			this.queriesToolStripMenuItem.Name = "queriesToolStripMenuItem";
-			this.queriesToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-			this.queriesToolStripMenuItem.Text = "Queries";
-			this.queriesToolStripMenuItem.Click += new System.EventHandler(this.queriesToolStripMenuItem_Click);
+			this.logsToolStripMenuItem.Name = "logsToolStripMenuItem";
+			this.logsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+			this.logsToolStripMenuItem.Text = "Logs";
+			this.logsToolStripMenuItem.Click += new System.EventHandler(this.logsToolStripMenuItem_Click);
+			// 
+			// Session
+			// 
+			this.Session.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.Session.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem19});
+			this.Session.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Session.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			this.Session.Image = global::ARM.Properties.Resources.Orientation_Portrait_24;
+			this.Session.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+			this.Session.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.Session.Name = "Session";
+			this.Session.Padding = new System.Windows.Forms.Padding(5);
+			this.Session.Size = new System.Drawing.Size(81, 48);
+			this.Session.Text = "Session";
+			this.Session.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			// 
+			// toolStripMenuItem19
+			// 
+			this.toolStripMenuItem19.Name = "toolStripMenuItem19";
+			this.toolStripMenuItem19.Size = new System.Drawing.Size(102, 24);
+			this.toolStripMenuItem19.Text = "Exit";
+			this.toolStripMenuItem19.Click += new System.EventHandler(this.toolStripMenuItem19_Click);
 			// 
 			// toolStripDropDownButton8
 			// 
@@ -251,29 +272,6 @@
 			this.myProfileToolStripMenuItem.Text = "My Profile";
 			this.myProfileToolStripMenuItem.Click += new System.EventHandler(this.myProfileToolStripMenuItem_Click);
 			// 
-			// Session
-			// 
-			this.Session.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-			this.Session.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem19});
-			this.Session.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Session.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.Session.Image = global::ARM.Properties.Resources.Orientation_Portrait_24;
-			this.Session.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			this.Session.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.Session.Name = "Session";
-			this.Session.Padding = new System.Windows.Forms.Padding(5);
-			this.Session.Size = new System.Drawing.Size(81, 48);
-			this.Session.Text = "Session";
-			this.Session.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-			// 
-			// toolStripMenuItem19
-			// 
-			this.toolStripMenuItem19.Name = "toolStripMenuItem19";
-			this.toolStripMenuItem19.Size = new System.Drawing.Size(102, 24);
-			this.toolStripMenuItem19.Text = "Exit";
-			this.toolStripMenuItem19.Click += new System.EventHandler(this.toolStripMenuItem19_Click);
-			// 
 			// Users
 			// 
 			this.Users.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -287,21 +285,21 @@
 			this.Users.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.Users.Name = "Users";
 			this.Users.Padding = new System.Windows.Forms.Padding(5);
-			this.Users.Size = new System.Drawing.Size(69, 48);
-			this.Users.Text = "Users";
+			this.Users.Size = new System.Drawing.Size(102, 48);
+			this.Users.Text = "Employees";
 			this.Users.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			// 
 			// toolStripMenuItem11
 			// 
 			this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-			this.toolStripMenuItem11.Size = new System.Drawing.Size(110, 24);
+			this.toolStripMenuItem11.Size = new System.Drawing.Size(180, 24);
 			this.toolStripMenuItem11.Text = "Add";
 			this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
 			// 
 			// toolStripMenuItem12
 			// 
 			this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-			this.toolStripMenuItem12.Size = new System.Drawing.Size(110, 24);
+			this.toolStripMenuItem12.Size = new System.Drawing.Size(180, 24);
 			this.toolStripMenuItem12.Text = "View";
 			this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
 			// 
@@ -438,9 +436,7 @@
             this.toolStripMenuItem1,
             this.toolStripMenuItem2,
             this.deductionsToolStripMenuItem,
-            this.reportsToolStripMenuItem,
-            this.historyToolStripMenuItem,
-            this.statementToolStripMenuItem});
+            this.reportsToolStripMenuItem});
 			this.Payroll.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Payroll.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
 			this.Payroll.Image = global::ARM.Properties.Resources.Safety_Box_02_24;
@@ -510,18 +506,6 @@
 			this.reportsToolStripMenuItem.Text = "Reports";
 			this.reportsToolStripMenuItem.Click += new System.EventHandler(this.reportsToolStripMenuItem_Click);
 			// 
-			// historyToolStripMenuItem
-			// 
-			this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
-			this.historyToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
-			this.historyToolStripMenuItem.Text = "History";
-			// 
-			// statementToolStripMenuItem
-			// 
-			this.statementToolStripMenuItem.Name = "statementToolStripMenuItem";
-			this.statementToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
-			this.statementToolStripMenuItem.Text = "Statement";
-			// 
 			// Calendar
 			// 
 			this.Calendar.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -543,16 +527,23 @@
 			// addToolStripMenuItem
 			// 
 			this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-			this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+			this.addToolStripMenuItem.Size = new System.Drawing.Size(229, 24);
 			this.addToolStripMenuItem.Text = "Add Shift";
 			this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click_1);
 			// 
 			// viewToolStripMenuItem
 			// 
 			this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-			this.viewToolStripMenuItem.Size = new System.Drawing.Size(218, 24);
+			this.viewToolStripMenuItem.Size = new System.Drawing.Size(229, 24);
 			this.viewToolStripMenuItem.Text = "View Calender";
 			this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click_1);
+			// 
+			// viewShitsSchedulesToolStripMenuItem
+			// 
+			this.viewShitsSchedulesToolStripMenuItem.Name = "viewShitsSchedulesToolStripMenuItem";
+			this.viewShitsSchedulesToolStripMenuItem.Size = new System.Drawing.Size(229, 24);
+			this.viewShitsSchedulesToolStripMenuItem.Text = "View Shits && Schedules";
+			this.viewShitsSchedulesToolStripMenuItem.Click += new System.EventHandler(this.viewShitsSchedulesToolStripMenuItem_Click);
 			// 
 			// panel1
 			// 
@@ -604,13 +595,6 @@
 			this.userPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.userPbx.TabIndex = 9;
 			this.userPbx.TabStop = false;
-			// 
-			// viewShitsSchedulesToolStripMenuItem
-			// 
-			this.viewShitsSchedulesToolStripMenuItem.Name = "viewShitsSchedulesToolStripMenuItem";
-			this.viewShitsSchedulesToolStripMenuItem.Size = new System.Drawing.Size(229, 24);
-			this.viewShitsSchedulesToolStripMenuItem.Text = "View Shits && Schedules";
-			this.viewShitsSchedulesToolStripMenuItem.Click += new System.EventHandler(this.viewShitsSchedulesToolStripMenuItem_Click);
 			// 
 			// HrmForm
 			// 
@@ -679,12 +663,9 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
         private System.Windows.Forms.ToolStripDropDownButton Session;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem19;
-        private System.Windows.Forms.ToolStripMenuItem queriesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deductionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem historyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem statementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem generatePayRollToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem paymentToolStripMenuItem;
@@ -692,5 +673,6 @@
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem15;
 		private System.Windows.Forms.ToolStripMenuItem myProfileToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem viewShitsSchedulesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem logsToolStripMenuItem;
 	}
 }

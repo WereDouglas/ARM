@@ -32,20 +32,20 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
 			this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
 			this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+			this.button3 = new System.Windows.Forms.Button();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.passwordTxt = new MetroFramework.Controls.MetroTextBox();
+			this.contactTxt = new MetroFramework.Controls.MetroTextBox();
+			this.loginBtn = new System.Windows.Forms.Button();
 			this.lblStatus = new System.Windows.Forms.Label();
 			this.button2 = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
 			this.button4 = new System.Windows.Forms.Button();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.passwordTxt = new MetroFramework.Controls.MetroTextBox();
-			this.contactTxt = new MetroFramework.Controls.MetroTextBox();
-			this.loginBtn = new System.Windows.Forms.Button();
-			this.button3 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
 			this.metroPanel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// metroStyleManager1
@@ -73,68 +73,22 @@
 			this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
 			this.metroPanel1.VerticalScrollbarSize = 10;
 			// 
-			// lblStatus
+			// button3
 			// 
-			this.lblStatus.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblStatus.Location = new System.Drawing.Point(11, 42);
-			this.lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.lblStatus.Name = "lblStatus";
-			this.lblStatus.Size = new System.Drawing.Size(580, 29);
-			this.lblStatus.TabIndex = 3;
-			this.lblStatus.Text = "  :  ";
-			this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// button2
-			// 
-			this.button2.FlatAppearance.BorderSize = 0;
-			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button2.Image = global::ARM.Properties.Resources.Customer_24;
-			this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button2.Location = new System.Drawing.Point(234, 517);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(136, 35);
-			this.button2.TabIndex = 50;
-			this.button2.Text = "Register";
-			this.button2.UseVisualStyleBackColor = true;
-			this.button2.Click += new System.EventHandler(this.button2_Click);
-			// 
-			// button1
-			// 
-			this.button1.FlatAppearance.BorderSize = 0;
-			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button1.Image = global::ARM.Properties.Resources.Command_Refresh_16;
-			this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button1.Location = new System.Drawing.Point(449, 517);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(142, 35);
-			this.button1.TabIndex = 0;
-			this.button1.Text = "Advanced settings";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
-			// 
-			// button4
-			// 
-			this.button4.FlatAppearance.BorderSize = 0;
-			this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button4.Image = global::ARM.Properties.Resources.Gear_24;
-			this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button4.Location = new System.Drawing.Point(11, 517);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(147, 35);
-			this.button4.TabIndex = 1;
-			this.button4.Text = "Server Settings";
-			this.button4.UseVisualStyleBackColor = true;
-			this.button4.Click += new System.EventHandler(this.button4_Click);
-			// 
-			// pictureBox2
-			// 
-			this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.pictureBox2.Location = new System.Drawing.Point(265, 6);
-			this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.pictureBox2.Name = "pictureBox2";
-			this.pictureBox2.Size = new System.Drawing.Size(111, 32);
-			this.pictureBox2.TabIndex = 49;
-			this.pictureBox2.TabStop = false;
+			this.button3.BackColor = System.Drawing.Color.White;
+			this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button3.Font = new System.Drawing.Font("Trebuchet MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button3.ForeColor = System.Drawing.Color.DarkGoldenrod;
+			this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button3.Location = new System.Drawing.Point(30, 338);
+			this.button3.Name = "button3";
+			this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.button3.Size = new System.Drawing.Size(287, 49);
+			this.button3.TabIndex = 51;
+			this.button3.Text = "Cancel";
+			this.button3.UseVisualStyleBackColor = false;
+			this.button3.Click += new System.EventHandler(this.button3_Click_2);
 			// 
 			// pictureBox1
 			// 
@@ -251,22 +205,70 @@
 			this.loginBtn.UseVisualStyleBackColor = false;
 			this.loginBtn.Click += new System.EventHandler(this.button3_Click);
 			// 
-			// button3
+			// lblStatus
 			// 
-			this.button3.BackColor = System.Drawing.Color.White;
-			this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button3.Font = new System.Drawing.Font("Trebuchet MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button3.ForeColor = System.Drawing.Color.DarkGoldenrod;
-			this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button3.Location = new System.Drawing.Point(30, 338);
-			this.button3.Name = "button3";
-			this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.button3.Size = new System.Drawing.Size(287, 49);
-			this.button3.TabIndex = 51;
-			this.button3.Text = "Cancel";
-			this.button3.UseVisualStyleBackColor = false;
-			this.button3.Click += new System.EventHandler(this.button3_Click_2);
+			this.lblStatus.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblStatus.Location = new System.Drawing.Point(11, 42);
+			this.lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lblStatus.Name = "lblStatus";
+			this.lblStatus.Size = new System.Drawing.Size(580, 29);
+			this.lblStatus.TabIndex = 3;
+			this.lblStatus.Text = "  :  ";
+			this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// button2
+			// 
+			this.button2.FlatAppearance.BorderSize = 0;
+			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button2.Image = global::ARM.Properties.Resources.Customer_24;
+			this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button2.Location = new System.Drawing.Point(234, 517);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(136, 35);
+			this.button2.TabIndex = 50;
+			this.button2.Text = "Register";
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.button2_Click);
+			// 
+			// button1
+			// 
+			this.button1.FlatAppearance.BorderSize = 0;
+			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button1.Image = global::ARM.Properties.Resources.Command_Refresh_16;
+			this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button1.Location = new System.Drawing.Point(449, 517);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(142, 35);
+			this.button1.TabIndex = 0;
+			this.button1.Text = "Advanced settings";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Visible = false;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// button4
+			// 
+			this.button4.FlatAppearance.BorderSize = 0;
+			this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button4.Image = global::ARM.Properties.Resources.Gear_24;
+			this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button4.Location = new System.Drawing.Point(11, 517);
+			this.button4.Name = "button4";
+			this.button4.Size = new System.Drawing.Size(147, 35);
+			this.button4.TabIndex = 1;
+			this.button4.Text = "Server Settings";
+			this.button4.UseVisualStyleBackColor = true;
+			this.button4.Visible = false;
+			this.button4.Click += new System.EventHandler(this.button4_Click);
+			// 
+			// pictureBox2
+			// 
+			this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.pictureBox2.Location = new System.Drawing.Point(11, 582);
+			this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.pictureBox2.Name = "pictureBox2";
+			this.pictureBox2.Size = new System.Drawing.Size(568, 32);
+			this.pictureBox2.TabIndex = 49;
+			this.pictureBox2.TabStop = false;
 			// 
 			// LoginForm
 			// 
@@ -290,8 +292,8 @@
 			this.Load += new System.EventHandler(this.LoginForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
 			this.metroPanel1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			this.ResumeLayout(false);
 
         }

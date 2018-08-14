@@ -637,7 +637,7 @@
 			this.Name = "AddUser";
 			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
 			this.Style = MetroFramework.MetroColorStyle.White;
-			this.Text = "Registration";
+			this.Text = "Employee Registration";
 			((System.ComponentModel.ISupportInitialize)(this.imgCapture)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();

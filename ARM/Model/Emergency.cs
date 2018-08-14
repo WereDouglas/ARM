@@ -23,66 +23,37 @@ namespace ARM.Model
         private string gender;
         private string relationship;
         private string created;
-        private bool sync;
+        private string sync;
         private string companyID;
-        private string image;       
+        private string image;     
 
         static List<Emergency> p = new List<Emergency>();
 
         
-        public static List<Emergency> List()
+		static MySqlDataReader Reader;
+		public static List<Emergency> List(string Q)
         {
-            p.Clear();
-            string Q = "SELECT * FROM emergency ";
-            DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
-            while (Reader.Read())
-            {
-                Emergency ps = new Emergency(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["gender"].ToString(), Reader["relationship"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
-                p.Add(ps);
-            }
-            DBConnect.CloseConn();
-            return p;
+			p.Clear();
+			//try
+			//{
+
+			//	DBConnect.OpenConn();
+			//	MySqlDataReader Reader = MySQL.Reading(Q);
+			//	while (Reader.Read())
+			//	{
+			//		Emergency ps = new Emergency(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["gender"].ToString(), Reader["relationship"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), Reader["image"].ToString());
+			//		p.Add(ps);
+			//	}
+			//	DBConnect.CloseMySqlConn();
+			//}
+			//catch { }
+			Reader = MySQL.Reading(Q);
+			p = MySQL.DataReaderMapToList<Emergency>(Reader);
+			return p;
 
         }
-        public static List<Emergency> List(string Q)
-        {
-			try
-			{
-				p.Clear();
-				DBConnect.OpenConn();
-				NpgsqlDataReader Reader = DBConnect.Reading(Q);
-				while (Reader.Read())
-				{
-					Emergency ps = new Emergency(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["gender"].ToString(), Reader["relationship"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
-					p.Add(ps);
-				}
-				DBConnect.CloseConn();
-			}
-			catch { }
-            return p;
-
-        }
-        public static List<Emergency> ListOnline(string Q)
-        {
-            try
-            {
-                p.Clear();
-                DBConnect.OpenMySqlConn();
-                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
-                while (Reader.Read())
-                {
-                    Emergency ps = new Emergency(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["gender"].ToString(), Reader["relationship"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
-                    p.Add(ps);
-                }
-                DBConnect.CloseMySqlConn();
-            }
-            catch { }
-            return p;
-
-        }
+        
         private static Emergency c = new Emergency();
-
         public string Id { get => id; set => id = value; }
         public string CustomerID { get => customerID; set => customerID = value; }
         public string Name { get => name; set => name = value; }
@@ -95,11 +66,11 @@ namespace ARM.Model
         public string Gender { get => gender; set => gender = value; }
         public string Relationship { get => relationship; set => relationship = value; }
         public string Created { get => created; set => created = value; }
-        public bool Sync { get => sync; set => sync = value; }
+        public string Sync { get => sync; set => sync = value; }
         public string CompanyID { get => companyID; set => companyID = value; }
         public string Image { get => image; set => image = value; }
         public Emergency() { }
-        public Emergency(string id, string customerID, string name, string contact, string address, string no, string city, string state, string zip, string gender, string relationship, string created, bool sync, string companyID, string image)
+        public Emergency(string id, string customerID, string name, string contact, string address, string no, string city, string state, string zip, string gender, string relationship, string created, string sync, string companyID, string image)
         {
             this.Id = id;
             this.CustomerID = customerID;
@@ -122,12 +93,12 @@ namespace ARM.Model
         {
             string Q = "SELECT * FROM emergency WHERE id = '" + ID + "'";
             DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                c = new Emergency(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["gender"].ToString(), Reader["relationship"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["image"].ToString());
+                c = new Emergency(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["no"].ToString(), Reader["city"].ToString(), Reader["state"].ToString(), Reader["zip"].ToString(), Reader["gender"].ToString(), Reader["relationship"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), Reader["image"].ToString());
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return c;
 
         }

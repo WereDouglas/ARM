@@ -26,11 +26,11 @@ namespace ARM.Model
         private string reqEnd;
         private string authStart;
         private string authEnd;
-        private bool sync;
+        private string sync;
         private string companyID;
         public Service() { }
 
-        public Service(string id, string caseID, string customerID, string starts, string ends, string type, string place, string information, string created, string procedureCode, string description, string reqStart, string reqEnd, string authStart, string authEnd, bool sync, string companyID)
+        public Service(string id, string caseID, string customerID, string starts, string ends, string type, string place, string information, string created, string procedureCode, string description, string reqStart, string reqEnd, string authStart, string authEnd, string sync, string companyID)
         {
             this.Id = id;
             this.CaseID = caseID;
@@ -59,13 +59,13 @@ namespace ARM.Model
         {
             p.Clear();
             DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-              //  Service ps = new Service(Reader["id"].ToString(), Reader["caseID"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+              //  Service ps = new Service(Reader["id"].ToString(), Reader["caseID"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                // p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
         }
         public static List<Service> ListOnline(string Q)
@@ -74,10 +74,10 @@ namespace ARM.Model
             {
                 p.Clear();
                 DBConnect.OpenMySqlConn();
-                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
+                MySqlDataReader Reader = MySQL.Reading(Q);
                 while (Reader.Read())
                 {
-                   // Service ps = new Service(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                   // Service ps = new Service(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                    // p.Add(ps);
                 }
                 DBConnect.CloseMySqlConn();
@@ -102,20 +102,20 @@ namespace ARM.Model
         public string ReqEnd { get => reqEnd; set => reqEnd = value; }
         public string AuthStart { get => authStart; set => authStart = value; }
         public string AuthEnd { get => authEnd; set => authEnd = value; }
-        public bool Sync { get => sync; set => sync = value; }
+        public string Sync { get => sync; set => sync = value; }
         public string CompanyID { get => companyID; set => companyID = value; }
 
         public static List<Service> Select(string id)
         {
             string Q = "SELECT * FROM coverage WHERE customerID = '" + id + "'";
             DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                //Service k = new Service(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString());
+                //Service k = new Service(Reader["id"].ToString(), Reader["customerID"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["no"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString());
                // c.Add(k);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return c;
 
         }

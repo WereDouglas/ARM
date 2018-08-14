@@ -70,7 +70,7 @@ namespace ARM.Model
         private string reason;
         private string userSignature;
         private string created;
-        private bool sync;
+        private string sync;
         private string companyID;
 		private string userID;
 
@@ -78,7 +78,7 @@ namespace ARM.Model
 
 		public Instruction() { }
 
-		public Instruction(string id, string no, string customerID, string altContact, string date, string initial, string followup, string type, string delivered, string safety, string pathways, string operation, string environment, string rugs, string fire, string cord, string issues, string electrical, string inouts, string appropriate, string understand, string returns, string caregiver, string safetyOther, string physicalLimit, string ambulatory, string bath, string beds, string seat, string scooter, string manual, string power, string handling, string equipmentOther, string rights, string available, string privacy, string standards, string demonstration, string cleaning, string letter, string complaint, string warranty, string instructions, string aob, string notes, string visit, string phone, string patientSign, string employee, string employeeSign, string kinName, string otherSign, string kinContact, string relationship, string representative, string reason, string userSignature, string created, bool sync, string companyID, string userID)
+		public Instruction(string id, string no, string customerID, string altContact, string date, string initial, string followup, string type, string delivered, string safety, string pathways, string operation, string environment, string rugs, string fire, string cord, string issues, string electrical, string inouts, string appropriate, string understand, string returns, string caregiver, string safetyOther, string physicalLimit, string ambulatory, string bath, string beds, string seat, string scooter, string manual, string power, string handling, string equipmentOther, string rights, string available, string privacy, string standards, string demonstration, string cleaning, string letter, string complaint, string warranty, string instructions, string aob, string notes, string visit, string phone, string patientSign, string employee, string employeeSign, string kinName, string otherSign, string kinContact, string relationship, string representative, string reason, string userSignature, string created, string sync, string companyID, string userID)
 		{
 			this.Id = id;
 			this.No = no;
@@ -205,7 +205,7 @@ namespace ARM.Model
 		public string Reason { get => reason; set => reason = value; }
 		public string UserSignature { get => userSignature; set => userSignature = value; }
 		public string Created { get => created; set => created = value; }
-		public bool Sync { get => sync; set => sync = value; }
+		public string Sync { get => sync; set => sync = value; }
 		public string CompanyID { get => companyID; set => companyID = value; }
 		public string UserID { get => userID; set => userID = value; }
 
@@ -214,13 +214,13 @@ namespace ARM.Model
             p.Clear();
             string Q = "SELECT * FROM instruction ";
             DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Instruction ps = new Instruction(Reader["id"].ToString(), Reader["no"].ToString(), Reader["customerID"].ToString(), Reader["altContact"].ToString(), Reader["date"].ToString(), Reader["initial"].ToString(), Reader["followup"].ToString(), Reader["type"].ToString(), Reader["delivered"].ToString(), Reader["safety"].ToString(), Reader["pathways"].ToString(), Reader["operation"].ToString(), Reader["environment"].ToString(), Reader["rugs"].ToString(), Reader["fire"].ToString(), Reader["cord"].ToString(), Reader["issues"].ToString(), Reader["electrical"].ToString(), Reader["inouts"].ToString(), Reader["appropriate"].ToString(), Reader["understand"].ToString(), Reader["returns"].ToString(), Reader["caregiver"].ToString(), Reader["safetyOther"].ToString(),Reader["physicallimit"].ToString(), Reader["ambulatory"].ToString(), Reader["bath"].ToString(), Reader["beds"].ToString(), Reader["seat"].ToString(), Reader["scooter"].ToString(), Reader["manual"].ToString(), Reader["power"].ToString(), Reader["handling"].ToString(), Reader["equipmentOther"].ToString(), Reader["rights"].ToString(), Reader["available"].ToString(), Reader["privacy"].ToString(), Reader["standards"].ToString(), Reader["demonstration"].ToString(), Reader["cleaning"].ToString(), Reader["letter"].ToString(), Reader["complaint"].ToString(), Reader["warranty"].ToString(), Reader["instructions"].ToString(), Reader["aob"].ToString(), Reader["notes"].ToString(), Reader["visit"].ToString(), Reader["phone"].ToString(), Reader["patientSign"].ToString(), Reader["employee"].ToString(), Reader["employeeSign"].ToString(), Reader["kinName"].ToString(), Reader["otherSign"].ToString(), Reader["kinContact"].ToString(), Reader["relationship"].ToString(), Reader["representative"].ToString(), Reader["reason"].ToString(), Reader["userSignature"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(),Reader["userID"].ToString());
+                Instruction ps = new Instruction(Reader["id"].ToString(), Reader["no"].ToString(), Reader["customerID"].ToString(), Reader["altContact"].ToString(), Reader["date"].ToString(), Reader["initial"].ToString(), Reader["followup"].ToString(), Reader["type"].ToString(), Reader["delivered"].ToString(), Reader["safety"].ToString(), Reader["pathways"].ToString(), Reader["operation"].ToString(), Reader["environment"].ToString(), Reader["rugs"].ToString(), Reader["fire"].ToString(), Reader["cord"].ToString(), Reader["issues"].ToString(), Reader["electrical"].ToString(), Reader["inouts"].ToString(), Reader["appropriate"].ToString(), Reader["understand"].ToString(), Reader["returns"].ToString(), Reader["caregiver"].ToString(), Reader["safetyOther"].ToString(),Reader["physicallimit"].ToString(), Reader["ambulatory"].ToString(), Reader["bath"].ToString(), Reader["beds"].ToString(), Reader["seat"].ToString(), Reader["scooter"].ToString(), Reader["manual"].ToString(), Reader["power"].ToString(), Reader["handling"].ToString(), Reader["equipmentOther"].ToString(), Reader["rights"].ToString(), Reader["available"].ToString(), Reader["privacy"].ToString(), Reader["standards"].ToString(), Reader["demonstration"].ToString(), Reader["cleaning"].ToString(), Reader["letter"].ToString(), Reader["complaint"].ToString(), Reader["warranty"].ToString(), Reader["instructions"].ToString(), Reader["aob"].ToString(), Reader["notes"].ToString(), Reader["visit"].ToString(), Reader["phone"].ToString(), Reader["patientSign"].ToString(), Reader["employee"].ToString(), Reader["employeeSign"].ToString(), Reader["kinName"].ToString(), Reader["otherSign"].ToString(), Reader["kinContact"].ToString(), Reader["relationship"].ToString(), Reader["representative"].ToString(), Reader["reason"].ToString(), Reader["userSignature"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(),Reader["userID"].ToString());
                 p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
 
         }
@@ -228,48 +228,44 @@ namespace ARM.Model
         {
             p.Clear();
             DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                Instruction ps = new Instruction(Reader["id"].ToString(), Reader["no"].ToString(), Reader["customerID"].ToString(), Reader["altContact"].ToString(), Reader["date"].ToString(), Reader["initial"].ToString(), Reader["followup"].ToString(), Reader["type"].ToString(), Reader["delivered"].ToString(), Reader["safety"].ToString(), Reader["pathways"].ToString(), Reader["operation"].ToString(), Reader["environment"].ToString(), Reader["rugs"].ToString(), Reader["fire"].ToString(), Reader["cord"].ToString(), Reader["issues"].ToString(), Reader["electrical"].ToString(), Reader["inouts"].ToString(), Reader["appropriate"].ToString(), Reader["understand"].ToString(), Reader["returns"].ToString(), Reader["caregiver"].ToString(), Reader["safetyOther"].ToString(), Reader["physicallimit"].ToString(), Reader["ambulatory"].ToString(), Reader["bath"].ToString(), Reader["beds"].ToString(), Reader["seat"].ToString(), Reader["scooter"].ToString(), Reader["manual"].ToString(), Reader["power"].ToString(), Reader["handling"].ToString(), Reader["equipmentOther"].ToString(), Reader["rights"].ToString(), Reader["available"].ToString(), Reader["privacy"].ToString(), Reader["standards"].ToString(), Reader["demonstration"].ToString(), Reader["cleaning"].ToString(), Reader["letter"].ToString(), Reader["complaint"].ToString(), Reader["warranty"].ToString(), Reader["instructions"].ToString(), Reader["aob"].ToString(), Reader["notes"].ToString(), Reader["visit"].ToString(), Reader["phone"].ToString(), Reader["patientSign"].ToString(), Reader["employee"].ToString(), Reader["employeeSign"].ToString(), Reader["kinName"].ToString(), Reader["otherSign"].ToString(), Reader["kinContact"].ToString(), Reader["relationship"].ToString(), Reader["representative"].ToString(), Reader["reason"].ToString(), Reader["userSignature"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["userID"].ToString());
+                Instruction ps = new Instruction(Reader["id"].ToString(), Reader["no"].ToString(), Reader["customerID"].ToString(), Reader["altContact"].ToString(), Reader["date"].ToString(), Reader["initial"].ToString(), Reader["followup"].ToString(), Reader["type"].ToString(), Reader["delivered"].ToString(), Reader["safety"].ToString(), Reader["pathways"].ToString(), Reader["operation"].ToString(), Reader["environment"].ToString(), Reader["rugs"].ToString(), Reader["fire"].ToString(), Reader["cord"].ToString(), Reader["issues"].ToString(), Reader["electrical"].ToString(), Reader["inouts"].ToString(), Reader["appropriate"].ToString(), Reader["understand"].ToString(), Reader["returns"].ToString(), Reader["caregiver"].ToString(), Reader["safetyOther"].ToString(), Reader["physicallimit"].ToString(), Reader["ambulatory"].ToString(), Reader["bath"].ToString(), Reader["beds"].ToString(), Reader["seat"].ToString(), Reader["scooter"].ToString(), Reader["manual"].ToString(), Reader["power"].ToString(), Reader["handling"].ToString(), Reader["equipmentOther"].ToString(), Reader["rights"].ToString(), Reader["available"].ToString(), Reader["privacy"].ToString(), Reader["standards"].ToString(), Reader["demonstration"].ToString(), Reader["cleaning"].ToString(), Reader["letter"].ToString(), Reader["complaint"].ToString(), Reader["warranty"].ToString(), Reader["instructions"].ToString(), Reader["aob"].ToString(), Reader["notes"].ToString(), Reader["visit"].ToString(), Reader["phone"].ToString(), Reader["patientSign"].ToString(), Reader["employee"].ToString(), Reader["employeeSign"].ToString(), Reader["kinName"].ToString(), Reader["otherSign"].ToString(), Reader["kinContact"].ToString(), Reader["relationship"].ToString(), Reader["representative"].ToString(), Reader["reason"].ToString(), Reader["userSignature"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), Reader["userID"].ToString());
 				p.Add(ps);
             }
-            DBConnect.CloseConn();
+            DBConnect.CloseMySqlConn();
             return p;
 
         }
-        public static List<Instruction> ListOnline(string Q)
-        {
-            try
-            {
-                p.Clear();
-                DBConnect.OpenMySqlConn();
-                MySqlDataReader Reader = DBConnect.ReadingMySql(Q);
-                while (Reader.Read())
-                {
-                    Instruction ps = new Instruction(Reader["id"].ToString(), Reader["no"].ToString(), Reader["customerID"].ToString(), Reader["altContact"].ToString(), Reader["date"].ToString(), Reader["initial"].ToString(), Reader["followup"].ToString(), Reader["type"].ToString(), Reader["delivered"].ToString(), Reader["safety"].ToString(), Reader["pathways"].ToString(), Reader["operation"].ToString(), Reader["environment"].ToString(), Reader["rugs"].ToString(), Reader["fire"].ToString(), Reader["cord"].ToString(), Reader["issues"].ToString(), Reader["electrical"].ToString(), Reader["inouts"].ToString(), Reader["appropriate"].ToString(), Reader["understand"].ToString(), Reader["returns"].ToString(), Reader["caregiver"].ToString(), Reader["safetyOther"].ToString(), Reader["physicallimit"].ToString(), Reader["ambulatory"].ToString(), Reader["bath"].ToString(), Reader["beds"].ToString(), Reader["seat"].ToString(), Reader["scooter"].ToString(), Reader["manual"].ToString(), Reader["power"].ToString(), Reader["handling"].ToString(), Reader["equipmentOther"].ToString(), Reader["rights"].ToString(), Reader["available"].ToString(), Reader["privacy"].ToString(), Reader["standards"].ToString(), Reader["demonstration"].ToString(), Reader["cleaning"].ToString(), Reader["letter"].ToString(), Reader["complaint"].ToString(), Reader["warranty"].ToString(), Reader["instructions"].ToString(), Reader["aob"].ToString(), Reader["notes"].ToString(), Reader["visit"].ToString(), Reader["phone"].ToString(), Reader["patientSign"].ToString(), Reader["employee"].ToString(), Reader["employeeSign"].ToString(), Reader["kinName"].ToString(), Reader["otherSign"].ToString(), Reader["kinContact"].ToString(), Reader["relationship"].ToString(), Reader["representative"].ToString(), Reader["reason"].ToString(), Reader["userSignature"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["userID"].ToString());
-					p.Add(ps);
-                }
-                DBConnect.CloseMySqlConn();
-            }
-            catch { }
-            return p;
-
-        }
+       
         public static Instruction Select(string id)
         {
             string Q = "SELECT * FROM instruction WHERE id = '" + id + "'";
             DBConnect.OpenConn();
-            NpgsqlDataReader Reader = DBConnect.Reading(Q);
+            MySqlDataReader Reader = MySQL.Reading(Q);
             while (Reader.Read())
             {
-                c = new Instruction(Reader["id"].ToString(), Reader["no"].ToString(), Reader["customerID"].ToString(), Reader["altContact"].ToString(), Reader["date"].ToString(), Reader["initial"].ToString(), Reader["followup"].ToString(), Reader["type"].ToString(), Reader["delivered"].ToString(), Reader["safety"].ToString(), Reader["pathways"].ToString(), Reader["operation"].ToString(), Reader["environment"].ToString(), Reader["rugs"].ToString(), Reader["fire"].ToString(), Reader["cord"].ToString(), Reader["issues"].ToString(), Reader["electrical"].ToString(), Reader["inouts"].ToString(), Reader["appropriate"].ToString(), Reader["understand"].ToString(), Reader["returns"].ToString(), Reader["caregiver"].ToString(), Reader["safetyOther"].ToString(), Reader["physicallimit"].ToString(), Reader["ambulatory"].ToString(), Reader["bath"].ToString(), Reader["beds"].ToString(), Reader["seat"].ToString(), Reader["scooter"].ToString(), Reader["manual"].ToString(), Reader["power"].ToString(), Reader["handling"].ToString(), Reader["equipmentOther"].ToString(), Reader["rights"].ToString(), Reader["available"].ToString(), Reader["privacy"].ToString(), Reader["standards"].ToString(), Reader["demonstration"].ToString(), Reader["cleaning"].ToString(), Reader["letter"].ToString(), Reader["complaint"].ToString(), Reader["warranty"].ToString(), Reader["instructions"].ToString(), Reader["aob"].ToString(), Reader["notes"].ToString(), Reader["visit"].ToString(), Reader["phone"].ToString(), Reader["patientSign"].ToString(), Reader["employee"].ToString(), Reader["employeeSign"].ToString(), Reader["kinName"].ToString(), Reader["otherSign"].ToString(), Reader["kinContact"].ToString(), Reader["relationship"].ToString(), Reader["representative"].ToString(), Reader["reason"].ToString(), Reader["userSignature"].ToString(), Reader["created"].ToString(), Convert.ToBoolean(Reader["sync"]), Reader["companyID"].ToString(), Reader["userID"].ToString());
+                c = new Instruction(Reader["id"].ToString(), Reader["no"].ToString(), Reader["customerID"].ToString(), Reader["altContact"].ToString(), Reader["date"].ToString(), Reader["initial"].ToString(), Reader["followup"].ToString(), Reader["type"].ToString(), Reader["delivered"].ToString(), Reader["safety"].ToString(), Reader["pathways"].ToString(), Reader["operation"].ToString(), Reader["environment"].ToString(), Reader["rugs"].ToString(), Reader["fire"].ToString(), Reader["cord"].ToString(), Reader["issues"].ToString(), Reader["electrical"].ToString(), Reader["inouts"].ToString(), Reader["appropriate"].ToString(), Reader["understand"].ToString(), Reader["returns"].ToString(), Reader["caregiver"].ToString(), Reader["safetyOther"].ToString(), Reader["physicallimit"].ToString(), Reader["ambulatory"].ToString(), Reader["bath"].ToString(), Reader["beds"].ToString(), Reader["seat"].ToString(), Reader["scooter"].ToString(), Reader["manual"].ToString(), Reader["power"].ToString(), Reader["handling"].ToString(), Reader["equipmentOther"].ToString(), Reader["rights"].ToString(), Reader["available"].ToString(), Reader["privacy"].ToString(), Reader["standards"].ToString(), Reader["demonstration"].ToString(), Reader["cleaning"].ToString(), Reader["letter"].ToString(), Reader["complaint"].ToString(), Reader["warranty"].ToString(), Reader["instructions"].ToString(), Reader["aob"].ToString(), Reader["notes"].ToString(), Reader["visit"].ToString(), Reader["phone"].ToString(), Reader["patientSign"].ToString(), Reader["employee"].ToString(), Reader["employeeSign"].ToString(), Reader["kinName"].ToString(), Reader["otherSign"].ToString(), Reader["kinContact"].ToString(), Reader["relationship"].ToString(), Reader["representative"].ToString(), Reader["reason"].ToString(), Reader["userSignature"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), Reader["userID"].ToString());
 			}
-			DBConnect.CloseConn();
+			DBConnect.CloseMySqlConn();
             return c;
 
         }
-    }
+		public static Instruction SelectNo(string no)
+		{
+			string Q = "SELECT * FROM instruction WHERE no = '" + no + "'";
+			DBConnect.OpenConn();
+			MySqlDataReader Reader = MySQL.Reading(Q);
+			while (Reader.Read())
+			{
+				c = new Instruction(Reader["id"].ToString(), Reader["no"].ToString(), Reader["customerID"].ToString(), Reader["altContact"].ToString(), Reader["date"].ToString(), Reader["initial"].ToString(), Reader["followup"].ToString(), Reader["type"].ToString(), Reader["delivered"].ToString(), Reader["safety"].ToString(), Reader["pathways"].ToString(), Reader["operation"].ToString(), Reader["environment"].ToString(), Reader["rugs"].ToString(), Reader["fire"].ToString(), Reader["cord"].ToString(), Reader["issues"].ToString(), Reader["electrical"].ToString(), Reader["inouts"].ToString(), Reader["appropriate"].ToString(), Reader["understand"].ToString(), Reader["returns"].ToString(), Reader["caregiver"].ToString(), Reader["safetyOther"].ToString(), Reader["physicallimit"].ToString(), Reader["ambulatory"].ToString(), Reader["bath"].ToString(), Reader["beds"].ToString(), Reader["seat"].ToString(), Reader["scooter"].ToString(), Reader["manual"].ToString(), Reader["power"].ToString(), Reader["handling"].ToString(), Reader["equipmentOther"].ToString(), Reader["rights"].ToString(), Reader["available"].ToString(), Reader["privacy"].ToString(), Reader["standards"].ToString(), Reader["demonstration"].ToString(), Reader["cleaning"].ToString(), Reader["letter"].ToString(), Reader["complaint"].ToString(), Reader["warranty"].ToString(), Reader["instructions"].ToString(), Reader["aob"].ToString(), Reader["notes"].ToString(), Reader["visit"].ToString(), Reader["phone"].ToString(), Reader["patientSign"].ToString(), Reader["employee"].ToString(), Reader["employeeSign"].ToString(), Reader["kinName"].ToString(), Reader["otherSign"].ToString(), Reader["kinContact"].ToString(), Reader["relationship"].ToString(), Reader["representative"].ToString(), Reader["reason"].ToString(), Reader["userSignature"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["companyID"].ToString(), Reader["userID"].ToString());
+			}
+			DBConnect.CloseMySqlConn();
+			return c;
+
+		}
+	}
 
 
 }
